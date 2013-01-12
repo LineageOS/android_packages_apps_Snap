@@ -4224,6 +4224,11 @@ public class PhotoModule
                 mFocusManager.overrideFocusMode(null);
                 mParameters.setFocusMode(mFocusManager.getFocusMode());
             }
+
+            // Set focus time.
+            mFocusManager.setFocusTime(Integer.valueOf(
+                    mPreferences.getString(CameraSettings.KEY_FOCUS_TIME,
+                    mActivity.getString(R.string.pref_camera_focustime_default))));
         } else {
             mFocusManager.overrideFocusMode(mParameters.getFocusMode());
             if (CameraUtil.isSupported(Parameters.FLASH_MODE_OFF,
