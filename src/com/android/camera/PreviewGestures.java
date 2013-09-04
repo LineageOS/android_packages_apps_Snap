@@ -20,6 +20,7 @@ import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.ScaleGestureDetector;
 import android.view.View;
+import android.graphics.Canvas;
 
 import com.android.camera.PhotoMenu;
 import com.android.camera.VideoMenu;
@@ -289,6 +290,21 @@ public class PreviewGestures
     @Override
     public void onScaleEnd(ScaleGestureDetector detector) {
         mZoom.onScaleEnd(detector);
+    }
+
+    public boolean onScaleStepResize(boolean direction)
+    {
+        if(mZoom != null){
+            return mZoom.onScaleStepResize(direction);
+        }
+        return false;
+    }
+
+    public void onScaleChangeDraw(Canvas canvas)
+    {
+        if(mZoom != null){
+            mZoom.onScaleChangeDraw(canvas);
+        }
     }
 }
 

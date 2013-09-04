@@ -49,6 +49,7 @@ public class ZoomRenderer extends OverlayRenderer
     private int mZoomFraction;
     private Rect mTextBounds;
     private int mOrientation;
+    private Canvas mCanvas;
 
     public interface OnZoomChangedListener {
         void onZoomStart();
@@ -110,6 +111,7 @@ public class ZoomRenderer extends OverlayRenderer
 
     @Override
     public void onDraw(Canvas canvas) {
+        mCanvas = canvas;
         canvas.rotate(mOrientation, mCenterX, mCenterY);
         mPaint.setStrokeWidth(mInnerStroke);
         canvas.drawCircle(mCenterX, mCenterY, mMinCircle, mPaint);
@@ -125,6 +127,13 @@ public class ZoomRenderer extends OverlayRenderer
                 mTextPaint);
     }
 
+     public void onScaleChangeDraw(Canvas canvas) {
+        if(mCanvas != null){
+            onDraw(mCanvas);
+        }
+    }
+
+
     @Override
     public boolean onScale(ScaleGestureDetector detector) {
         final float sf = detector.getScaleFactor();
@@ -137,6 +146,33 @@ public class ZoomRenderer extends OverlayRenderer
             mListener.onZoomValueChanged(zoom);
         }
         return true;
+    }
+
+    public boolean onScaleStepResize(boolean direction) {
+        int zoom;
+        float circle;
+        float circleStep = (mMaxCircle - mMinCircle)/10;
+        if(direction){
+            circle = (int) (mCircleSize + circleStep);
+        } else {
+            circle = (int) (mCircleSize - circleStep);
+        }
+        circle = Math.max(mMinCircle, circle);
+        circle = Math.min(mMaxCircle, circle);
+        if (mListener != null && (int) circle != mCircleSize
+            && ((mMaxCircle - mMinCircle) != 0)) {
+            mCircleSize = (int) circle;
+            zoom = mMinZoom + (int) ((mCircleSize - mMinCircle)
+                   * (mMaxZoom - mMinZoom) / (mMaxCircle - mMinCircle));
+            if (mListener != null) {
+                mListener.onZoomStart();
+                mListener.onZoomValueChanged(zoom);
+                mListener.onZoomEnd();
+            }
+            return true;
+        } else {
+            return false;
+        }
     }
 
     @Override
