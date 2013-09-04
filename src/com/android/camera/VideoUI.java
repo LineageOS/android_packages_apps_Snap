@@ -1107,6 +1107,13 @@ public class VideoUI implements PieRenderer.PieListener,
         return mCameraControls.getVisibility() == View.VISIBLE;
     }
 
+    public boolean onScaleStepResize(boolean direction) {
+        if (mGestures != null) {
+            return mGestures.onScaleStepResize(direction);
+        }
+        return false;
+    }
+
     @Override
     public void onDisplayChanged() {
         mCameraControls.checkLayoutFlip();

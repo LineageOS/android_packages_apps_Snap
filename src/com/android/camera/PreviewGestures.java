@@ -385,5 +385,12 @@ public class PreviewGestures
     public void onScaleEnd(ScaleGestureDetector detector) {
         mZoom.onScaleEnd(detector);
     }
+
+    public boolean onScaleStepResize(boolean direction) {
+        if (mZoom != null) {
+            return mZoom.onScaleStepResize(direction);
+        }
+        return false;
+    }
 }
 

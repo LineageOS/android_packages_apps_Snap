@@ -22,6 +22,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
+import android.os.Handler;
 import android.view.ScaleGestureDetector;
 
 import org.codeaurora.snapcam.R;
@@ -35,6 +36,8 @@ public class ZoomRenderer extends OverlayRenderer
     private int mMinZoom;
     private OnZoomChangedListener mListener;
 
+    private final Handler mHandler = new Handler();
+
     private ScaleGestureDetector mDetector;
     private Paint mPaint;
     private Paint mTextPaint;
@@ -47,6 +50,7 @@ public class ZoomRenderer extends OverlayRenderer
     private int mOuterStroke;
     private int mZoomSig;
     private int mZoomFraction;
+    private boolean mInZoom;
     private Rect mTextBounds;
     private int mOrientation;
     private boolean mCamera2 = false;
@@ -164,6 +168,48 @@ public class ZoomRenderer extends OverlayRenderer
         }
         return true;
     }
+
+    public boolean onScaleStepResize(boolean direction) {
+        int zoom;
+        float circle;
+        float circleStep = (mMaxCircle - mMinCircle) / 18;
+        if (direction) {
+            circle = (int) (mCircleSize + circleStep);
+        } else {
+            circle = (int) (mCircleSize - circleStep);
+        }
+        circle = Math.max(mMinCircle, circle);
+        circle = Math.min(mMaxCircle, circle);
+        if (mListener != null && (int) circle != mCircleSize && (mMaxCircle - mMinCircle) > 0) {
+            mCircleSize = (int) circle;
+            zoom = mMinZoom + (int) ((mCircleSize - mMinCircle)
+                    * (mMaxZoom - mMinZoom) / (mMaxCircle - mMinCircle));
+            if (mListener != null) {
+                mHandler.removeCallbacks(mOnZoomEnd);
+                if (!mInZoom) {
+                    mInZoom = true;
+                    setVisible(true);
+                    mListener.onZoomStart();
+                    update();
+                }
+                mListener.onZoomValueChanged(zoom);
+                mHandler.postDelayed(mOnZoomEnd, 300);
+            }
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    Runnable mOnZoomEnd = new Runnable() {
+        public void run() {
+            mInZoom = false;
+            setVisible(false);
+            if (mListener != null) {
+                mListener.onZoomEnd();
+            }
+        }
+    };
 
     @Override
     public boolean onScaleBegin(ScaleGestureDetector detector) {
