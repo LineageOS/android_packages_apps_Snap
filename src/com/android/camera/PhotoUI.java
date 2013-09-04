@@ -1318,6 +1318,13 @@ public class PhotoUI implements PieListener,
         mFaceView.setFaces(faces);
     }
 
+    public boolean onScaleStepResize(boolean direction) {
+        if (mGestures != null) {
+            return mGestures.onScaleStepResize(direction);
+        }
+        return false;
+    }
+
     @Override
     public void onDisplayChanged() {
         Log.d(TAG, "Device flip detected.");
