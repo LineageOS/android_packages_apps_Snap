@@ -338,6 +338,8 @@
 
     <!-- Settings screen, Flash mode title -->
     <string name="pref_camera_flashmode_title">Flash</string>
+    <!-- flash label [CHAR LIMIT=50] -->
+    <string name="pref_camera_flashmode_label">FLASH</string>
 
     <!-- Settings screen, Flash mode 'auto'. [CHAR LIMIT=12] -->
     <string name="pref_camera_flashmode_entry_auto">Auto</string>
