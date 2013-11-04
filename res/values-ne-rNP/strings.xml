@@ -111,8 +111,6 @@
     <string name="setting_off" msgid="3321226648786639381">"बन्द"</string>
     <string name="setting_on" msgid="6658320155242340595">"खुला"</string>
     <string name="pref_video_quality_title" msgid="133986891365610568">"भिडियो गुणस्तर"</string>
-    <string name="pref_video_quality_entry_high" msgid="2738623967850850381">"उच्च"</string>
-    <string name="pref_video_quality_entry_low" msgid="5153461037045200762">"कम"</string>
     <string name="pref_video_time_lapse_frame_interval_title" msgid="5673396270006768004">"समय गल्ती"</string>
     <string name="pref_camera_settings_category" msgid="4286755118301278593">"क्यामरा सेटिङहरू"</string>
     <string name="pref_camcorder_settings_category" msgid="4617708050480193189">"क्यामकोडर सेटिङहरू"</string>
@@ -120,7 +118,7 @@
     <string name="pref_camera_picturesize_entry_13mp" msgid="3084140665950405601">"13M पिक्सेल"</string>
     <string name="pref_camera_picturesize_entry_8mp" msgid="6497793506352769366">"8M पिक्सल"</string>
     <string name="pref_camera_picturesize_entry_5mp" msgid="8813718385379530965">"5M पिक्सेल"</string>
-    <string name="pref_camera_picturesize_entry_4mp" msgid="8546276478576735924">"4M पिक्सेल"</string>
+    <string name="pref_camera_picturesize_entry_4mp_wide" msgid="8546276478576735924">"4M पिक्सेल (16:9)"</string>
     <string name="pref_camera_picturesize_entry_3mp" msgid="6233692859150247237">"3M पिक्सल"</string>
     <string name="pref_camera_picturesize_entry_2mp" msgid="542341433431186453">"२ मेगा पिक्सेल"</string>
     <string name="pref_camera_picturesize_entry_2mp_wide" msgid="607495602129189476">"2M पिक्सेल (16:9)"</string>
