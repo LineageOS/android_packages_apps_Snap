@@ -108,8 +108,6 @@
     <string name="setting_off" msgid="3321226648786639381">"අක්‍රියයි"</string>
     <string name="setting_on" msgid="6658320155242340595">"සක්‍රිය කරන්න"</string>
     <string name="pref_video_quality_title" msgid="133986891365610568">"වීඩියෝ ගුණත්වය"</string>
-    <string name="pref_video_quality_entry_high" msgid="2738623967850850381">"ඉහළ"</string>
-    <string name="pref_video_quality_entry_low" msgid="5153461037045200762">"පහළ"</string>
     <string name="pref_video_time_lapse_frame_interval_title" msgid="5673396270006768004">"කාලය ඉකුත්වීම"</string>
     <string name="pref_camera_settings_category" msgid="4286755118301278593">"කැමරා සැකසීම්"</string>
     <string name="pref_camcorder_settings_category" msgid="4617708050480193189">"කැම්කෝඩර සැකසීම්"</string>
