@@ -1004,6 +1004,7 @@ public class CameraSettings {
         ListPreference cameraHdr = group.findPreference(KEY_CAMERA_HDR);
         ListPreference disMode = group.findPreference(KEY_DIS);
         ListPreference cameraHdrPlus = group.findPreference(KEY_CAMERA_HDR_PLUS);
+        ListPreference powerShutter = group.findPreference(KEY_POWER_SHUTTER);
         ListPreference videoHfrMode =
                 group.findPreference(KEY_VIDEO_HIGH_FRAME_RATE);
         ListPreference seeMoreMode = group.findPreference(KEY_SEE_MORE);
@@ -1114,6 +1115,9 @@ public class CameraSettings {
         if (cameraHdrPlus != null && (!ApiHelper.HAS_CAMERA_HDR_PLUS ||
                 !GcamHelper.hasGcamCapture() || isFrontCamera)) {
             removePreference(group, cameraHdrPlus.getKey());
+        }
+        if (powerShutter != null && CameraUtil.hasCameraKey()) {
+            removePreference(group, powerShutter.getKey());
         }
 
         if (PersistUtil.isSaveInSdEnabled()) {
