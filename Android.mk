@@ -25,6 +25,8 @@ LOCAL_AAPT_FLAGS := \
         --version-name "$(version_name_package)" \
         --version-code $(version_code_package) \
 
+LOCAL_JAVA_LIBRARIES := org.lineageos.platform.internal
+
 LOCAL_PACKAGE_NAME := Snap
 LOCAL_SYSTEM_EXT_MODULE := true
 LOCAL_PRIVILEGED_MODULE := true
