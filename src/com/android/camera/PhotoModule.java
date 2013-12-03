@@ -1374,7 +1374,7 @@ public class PhotoModule
                 }
             } else if ((mReceivedSnapNum == mBurstSnapNum)
                         && (mCameraState != LONGSHOT)){
-                mFocusManager.resetTouchFocus();
+                mFocusManager.restartTouchFocusTimer();
                 if (CameraUtil.FOCUS_MODE_CONTINUOUS_PICTURE.equals(mFocusManager.getFocusMode(false))
                         || CameraUtil.FOCUS_MODE_MW_CONTINUOUS_PICTURE.equals(mFocusManager.getFocusMode(false))) {
                     mCameraDevice.cancelAutoFocus();
