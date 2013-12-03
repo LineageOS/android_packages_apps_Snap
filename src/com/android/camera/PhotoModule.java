@@ -1420,7 +1420,7 @@ public class PhotoModule
                 }
             } else if ((mReceivedSnapNum == mBurstSnapNum)
                         && (mCameraState != LONGSHOT)){
-                mFocusManager.resetTouchFocus();
+                mFocusManager.restartTouchFocusTimer();
                 focusMode = mFocusManager.getFocusMode(false);
                 if (CameraUtil.FOCUS_MODE_CONTINUOUS_PICTURE.equals(focusMode) ||
                         CameraUtil.FOCUS_MODE_MW_CONTINUOUS_PICTURE.equals(focusMode)) {
