@@ -215,6 +215,13 @@
         <item>@string/pref_camera_coloreffect_entry_redtint</item>
         <item>@string/pref_camera_coloreffect_entry_bluetint</item>
         <item>@string/pref_camera_coloreffect_entry_greentint</item>
+        <item>@string/pref_camera_coloreffect_entry_washed</item>
+        <item>@string/pref_camera_coloreffect_entry_vintage_warm</item>
+        <item>@string/pref_camera_coloreffect_entry_vintage_cold</item>
+        <item>@string/pref_camera_coloreffect_entry_point_green</item>
+        <item>@string/pref_camera_coloreffect_entry_point_blue</item>
+        <item>@string/pref_camera_coloreffect_entry_point_red_yellow</item>
+        <item>@string/pref_camera_coloreffect_entry_cartoonize</item>
     </string-array>
 
     <array name="coloreffect_thumbnails" translatable="false">
@@ -228,6 +235,13 @@
         <item>@drawable/thumb_filter_emboss</item>
         <item>@drawable/thumb_filter_sketch</item>
         <item>@drawable/thumb_filter_neon</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
         <item>0</item>
         <item>0</item>
         <item>0</item>
@@ -251,6 +265,13 @@
         <item>red-tint</item>
         <item>blue-tint</item>
         <item>green-tint</item>
+        <item>washed</item>
+        <item>vintage-warm</item>
+        <item>vintage-cold</item>
+        <item>point-green</item>
+        <item>point-blue</item>
+        <item>point-red-yellow</item>
+        <item>cartoonize</item>
     </string-array>
 
     <!-- Camera Preferences AE Bracketing dialog box entries -->

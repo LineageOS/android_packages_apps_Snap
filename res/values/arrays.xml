@@ -310,18 +310,30 @@
     <!-- Camera Preferences focus mode dialog box entries -->
     <string-array name="pref_camera_focusmode_entries" translatable="false">
         <item>@string/pref_camera_focusmode_entry_auto</item>
+        <item>@string/pref_camera_focusmode_entry_continuous</item>
+        <item>@string/pref_camera_focusmode_entry_extended</item>
+        <item>@string/pref_camera_focusmode_entry_facedetect</item>
+        <item>@string/pref_camera_focusmode_entry_facepriority</item>
+        <item>@string/pref_camera_focusmode_entry_fixed</item>
         <item>@string/pref_camera_focusmode_entry_infinity</item>
         <item>@string/pref_camera_focusmode_entry_macro</item>
         <item>@string/pref_camera_focusmode_entry_normal</item>
-        <item>@string/pref_camera_focusmode_entry_continuous</item>
+        <item>@string/pref_camera_focusmode_entry_portrait</item>
+        <item>@string/pref_camera_focusmode_entry_hyperfocal</item>
     </string-array>
 
     <string-array name="pref_camera_focusmode_entryvalues" translatable="false">
         <item>auto</item>
+        <item>continuous-picture</item>
+        <item>extended</item>
+        <item>facedetect</item>
+        <item>face-priority</item>
+        <item>fixed</item>
         <item>infinity</item>
         <item>macro</item>
         <item>normal</item>
-        <item>continuous-picture</item>
+        <item>portrait</item>
+        <item>hyperfocal</item>
     </string-array>
 
     <string-array name="pref_camera_focusmode_labels" translatable="false">
@@ -477,16 +489,55 @@
         <item>@string/pref_camera_scenemode_entry_hdr</item>
         <item>@string/pref_camera_scenemode_entry_refocus</item>
         <item>@string/pref_camera_scenemode_entry_optizoom</item>
-        <item>@string/pref_camera_scenemode_entry_portrait</item>
-        <item>@string/pref_camera_scenemode_entry_landscape</item>
-        <item>@string/pref_camera_scenemode_entry_sports</item>
-        <item>@string/pref_camera_scenemode_entry_flowers</item>
+        <item>@string/pref_camera_scenemode_entry_action</item>
+        <item>@string/pref_camera_scenemode_entry_antimotionblur</item>
+        <item>@string/pref_camera_scenemode_entry_aqua</item>
+        <item>@string/pref_camera_scenemode_entry_ar</item>
+        <item>@string/pref_camera_scenemode_entry_baby</item>
+        <item>@string/pref_camera_scenemode_entry_backgroundblur</item>
         <item>@string/pref_camera_scenemode_entry_backlight</item>
-        <item>@string/pref_camera_scenemode_entry_candlelight</item>
-        <item>@string/pref_camera_scenemode_entry_sunset</item>
-        <item>@string/pref_camera_scenemode_entry_night</item>
+        <item>@string/pref_camera_scenemode_entry_backlight</item>
+        <item>@string/pref_camera_scenemode_entry_backlightportrait</item>
+        <item>@string/pref_camera_scenemode_entry_backlightportrait</item>
+        <item>@string/pref_camera_scenemode_entry_barcode</item>
         <item>@string/pref_camera_scenemode_entry_beach</item>
+        <item>@string/pref_camera_scenemode_entry_beauty</item>
+        <item>@string/pref_camera_scenemode_entry_candlelight</item>
+        <item>@string/pref_camera_scenemode_entry_cine</item>
+        <item>@string/pref_camera_scenemode_entry_closeup</item>
+        <item>@string/pref_camera_scenemode_entry_dark</item>
+        <item>@string/pref_camera_scenemode_entry_dish</item>
+        <item>@string/pref_camera_scenemode_entry_duskdawn</item>
+        <item>@string/pref_camera_scenemode_entry_document</item>
+        <item>@string/pref_camera_scenemode_entry_fallcolor</item>
+        <item>@string/pref_camera_scenemode_entry_fireworks</item>
+        <item>@string/pref_camera_scenemode_entry_flowers</item>
+        <item>@string/pref_camera_scenemode_entry_handheldtwilight</item>
+        <item>@string/pref_camera_scenemode_entry_highsensitivity</item>
+        <item>@string/pref_camera_scenemode_entry_indoor</item>
+        <item>@string/pref_camera_scenemode_entry_landscape</item>
+        <item>@string/pref_camera_focusmode_entry_macro</item>
+        <item>@string/pref_camera_scenemode_entry_mix_illuminant</item>
+        <item>@string/pref_camera_scenemode_entry_mood</item>
+        <item>@string/pref_camera_scenemode_entry_night</item>
+        <item>@string/pref_camera_scenemode_entry_nightportrait</item>
+        <item>@string/pref_camera_scenemode_entry_nightportrait</item>
+        <item>@string/pref_camera_scenemode_entry_nightindoor</item>
+        <item>@string/pref_camera_scenemode_entry_oldfilm</item>
+        <item>@string/pref_camera_scenemode_entry_party</item>
+        <item>@string/pref_camera_scenemode_entry_pet</item>
+        <item>@string/pref_camera_scenemode_entry_portrait</item>
         <item>@string/pref_camera_scenemode_entry_snow</item>
+        <item>@string/pref_camera_scenemode_entry_softskin</item>
+        <item>@string/pref_camera_scenemode_entry_sports</item>
+        <item>@string/pref_camera_scenemode_entry_spotlight</item>
+        <item>@string/pref_camera_scenemode_entry_steadyphoto</item>
+        <item>@string/pref_camera_scenemode_entry_sunset</item>
+        <item>@string/pref_camera_scenemode_entry_supernight</item>
+        <item>@string/pref_camera_scenemode_entry_sweepstitch</item>
+        <item>@string/pref_camera_scenemode_entry_text</item>
+        <item>@string/pref_camera_scenemode_entry_theatre</item>
+        <item>@string/pref_camera_scenemode_entry_whiteboard</item>
         <item>@string/pref_camera_scenemode_entry_asd</item>
     </string-array>
 
@@ -495,16 +546,55 @@
         <item>@drawable/ic_scene_mode_hdr</item>
         <item>@drawable/ic_scene_mode_refocus</item>
         <item>@drawable/ic_scene_mode_optizoom</item>
-        <item>@drawable/ic_scene_mode_portrait</item>
-        <item>@drawable/ic_scene_mode_landscape</item>
-        <item>@drawable/ic_scene_mode_sports</item>
-        <item>@drawable/ic_scene_mode_flower</item>
+        <item>@drawable/ic_sce</item>
+        <item>@drawable/ic_sce</item>
+        <item>@drawable/ic_sce</item>
+        <item>@drawable/ic_sce</item>
+        <item>@drawable/ic_sce</item>
+        <item>@drawable/ic_sce</item>
         <item>@drawable/ic_scene_mode_backlight</item>
-        <item>@drawable/ic_scene_mode_candlelight</item>
-        <item>@drawable/ic_scene_mode_sunset</item>
-        <item>@drawable/ic_scene_mode_night</item>
+        <item>@drawable/ic_scene_mode_backlight</item>
+        <item>@drawable/ic_sce</item>
+        <item>@drawable/ic_sce</item>
+        <item>@drawable/ic_sce</item>
         <item>@drawable/ic_scene_mode_beach</item>
+        <item>@drawable/ic_sce</item>
+        <item>@drawable/ic_scene_mode_candlelight</item>
+        <item>@drawable/ic_sce</item>
+        <item>@drawable/ic_sce</item>
+        <item>@drawable/ic_sce</item>
+        <item>@drawable/ic_sce</item>
+        <item>@drawable/ic_sce</item>
+        <item>@drawable/ic_sce</item>
+        <item>@drawable/ic_sce</item>
+        <item>@drawable/ic_sce</item>
+        <item>@drawable/ic_scene_mode_flower</item>
+        <item>@drawable/ic_sce</item>
+        <item>@drawable/ic_sce</item>
+        <item>@drawable/ic_sce</item>
+        <item>@drawable/ic_scene_mode_landscape</item>
+        <item>@drawable/ic_sce</item>
+        <item>@drawable/ic_sce</item>
+        <item>@drawable/ic_sce</item>
+        <item>@drawable/ic_scene_mode_night</item>
+        <item>@drawable/ic_sce</item>
+        <item>@drawable/ic_sce</item>
+        <item>@drawable/ic_sce</item>
+        <item>@drawable/ic_sce</item>
+        <item>@drawable/ic_sce</item>
+        <item>@drawable/ic_sce</item>
+        <item>@drawable/ic_scene_mode_portrait</item>
         <item>@drawable/ic_scene_mode_snow</item>
+        <item>@drawable/ic_sce</item>
+        <item>@drawable/ic_scene_mode_sports</item>
+        <item>@drawable/ic_sce</item>
+        <item>@drawable/ic_sce</item>
+        <item>@drawable/ic_scene_mode_sunset</item>
+        <item>@drawable/ic_sce</item>
+        <item>@drawable/ic_sce</item>
+        <item>@drawable/ic_sce</item>
+        <item>@drawable/ic_sce</item>
+        <item>@drawable/ic_sce</item>
         <item>@drawable/ic_scene_mode_smartauto</item>
     </array>
 
@@ -529,16 +619,55 @@
         <item>hdr</item>
         <item>@string/pref_camera_advanced_feature_value_refocus_on</item>
         <item>@string/pref_camera_advanced_feature_value_optizoom_on</item>
-        <item>portrait</item>
-        <item>landscape</item>
-        <item>sports</item>
-        <item>flowers</item>
+        <item>action</item>
+        <item>anti-motion-blur</item>
+        <item>aqua</item>
+        <item>AR</item>
+        <item>baby</item>
+        <item>background-blur</item>
+        <item>back-light</item>
         <item>backlight</item>
-        <item>candlelight</item>
-        <item>sunset</item>
-        <item>night</item>
+        <item>backlight_portrait</item>
+        <item>backlight-portrait</item>
+        <item>barcode</item>
         <item>beach</item>
+        <item>beauty-mode</item>
+        <item>candlelight</item>
+        <item>cine</item>
+        <item>closeup</item>
+        <item>dark</item>
+        <item>dish</item>
+        <item>dusk-dawn</item>
+        <item>document</item>
+        <item>fall-color</item>
+        <item>fireworks</item>
+        <item>flowers</item>
+        <item>handheld-twilight</item>
+        <item>high-sensitivity</item>
+        <item>indoor</item>
+        <item>landscape</item>
+        <item>macro</item>
+        <item>mix-illuminant</item>
+        <item>mood</item>
+        <item>night</item>
+        <item>night-portrait</item>
+        <item>nightportrait</item>
+        <item>night-indoor</item>
+        <item>old-film</item>
+        <item>party</item>
+        <item>pet</item>
+        <item>portrait</item>
         <item>snow</item>
+        <item>soft-skin</item>
+        <item>sports</item>
+        <item>spot-light</item>
+        <item>steadyphoto</item>
+        <item>sunset</item>
+        <item>super-night</item>
+        <item>sweep-stitch</item>
+        <item>text</item>
+        <item>theatre</item>
+        <item>white-board</item>
         <item>asd</item>
     </string-array>
 
@@ -655,6 +784,7 @@
     <!-- Default focus mode setting.-->
     <string-array name="pref_camera_focusmode_default_array" translatable="false">
         <item>continuous-picture</item>
+        <item>auto</item>
     </string-array>
 
     <!-- Icons for exposure compensation -->
