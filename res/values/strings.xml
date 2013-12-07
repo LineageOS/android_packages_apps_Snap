@@ -247,20 +247,16 @@
     <string name="pref_video_quality_default" translatable="false">1920x1080</string>
     <!-- Video quality setting entry.
     Videos will be recorded in 8k DCI quality. [CHAR LIMIT=24] -->
-    <string name="pref_video_quality_entry_8k" translatable="false">
-    8k</string>
+    <string name="pref_video_quality_entry_8k" translatable="false">8k</string>
     <!-- Video quality setting entry.
     Videos will be recorded in 4k DCI quality. [CHAR LIMIT=24] -->
-    <string name="pref_video_quality_entry_4kdci" translatable="false">
-    4k DCI</string>
+    <string name="pref_video_quality_entry_4kdci" translatable="false">4k DCI</string>
     <!-- Video quality setting entry.
     Videos will be recorded in 4k UHD quality. [CHAR LIMIT=24] -->
-    <string name="pref_video_quality_entry_2160p" translatable="false">
-    4k UHD</string>
+    <string name="pref_video_quality_entry_2160p" translatable="false">4k UHD</string>
     <!-- Video quality setting entry.
     Videos will be recorded in 4k UHD quality. [CHAR LIMIT=24] -->
-    <string name="pref_video_quality_entry_4kuhd" translatable="false">
-    4k UHD</string>
+    <string name="pref_video_quality_entry_4kuhd" translatable="false">4k UHD</string>
     <!-- Video quality setting entry. Videos will be recorded in 1080p quality. [CHAR LIMIT=24] -->
     <string name="pref_video_quality_entry_1080p" translatable="false">HD 1080p</string>
     <!-- Video quality setting entry. Videos will be recorded in 720p quality. [CHAR LIMIT=24] -->
@@ -399,7 +395,7 @@
     <string name="pref_camera_scenemode_title">Scene mode</string>
 
     <!-- Settings menu, scene mode choices [CHAR LIMIT=16] -->
-    <string name="pref_camera_scenemode_entry_auto">Automatic</string>
+    <string name="pref_camera_scenemode_entry_auto">Auto</string>
     <!-- Scene mode that uses HDR plus (better HDR) [CHAR LIMIT=16] -->
     <string name="pref_camera_scenemode_entry_hdr_plus">HDR+</string>
     <!-- Scene mode that uses HDR (high dynamic range) [CHAR LIMIT=16] -->
