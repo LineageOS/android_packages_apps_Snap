@@ -2340,7 +2340,9 @@ public class VideoModule implements CameraModule,
         videoHeight = mProfile.videoFrameHeight;
         String recordSize = videoWidth + "x" + videoHeight;
         Log.e(TAG,"Video dimension in App->"+recordSize);
-        mParameters.set("video-size", recordSize);
+        if (CameraUtil.isSupported(mParameters, "video-size")) {
+            mParameters.set("video-size", recordSize);
+        }
         // Set white balance parameter.
         String whiteBalance = mPreferences.getString(
                 CameraSettings.KEY_WHITE_BALANCE,
