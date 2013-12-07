@@ -847,6 +847,18 @@ public class CameraSettings {
                     selectableZoneAf, ParametersWrapper.getSupportedSelectableZoneAf(mParameters));
         }
 
+        if (saturation != null && !CameraUtil.isSupported(mParameters, "saturation")) {
+            removePreference(group, saturation.getKey());
+        }
+
+        if (contrast != null && !CameraUtil.isSupported(mParameters, "contrast")) {
+            removePreference(group, contrast.getKey());
+        }
+
+        if (sharpness != null && !CameraUtil.isSupported(mParameters, "sharpness")) {
+            removePreference(group, sharpness.getKey());
+        }
+
         if (mIso != null) {
             filterUnsupportedOptions(group,
                     mIso, ParametersWrapper.getSupportedIsoValues(mParameters));
