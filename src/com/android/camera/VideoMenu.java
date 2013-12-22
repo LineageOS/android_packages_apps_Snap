@@ -137,7 +137,6 @@ public class VideoMenu extends MenuController
                 CameraSettings.KEY_VIDEO_ENCODER,
                 CameraSettings.KEY_AUDIO_ENCODER,
                 CameraSettings.KEY_VIDEO_HDR,
-                CameraSettings.KEY_POWER_MODE,
                 CameraSettings.KEY_VIDEO_ROTATION,
                 CameraSettings.KEY_VIDEO_CDS_MODE,
                 CameraSettings.KEY_VIDEO_TNR_MODE

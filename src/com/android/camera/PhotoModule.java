@@ -357,9 +357,6 @@ public class PhotoModule
     private int mJpegFileSizeEstimation = 0;
     private int mRemainingPhotos = -1;
 
-    //settings, which if enabled, need to turn off low power mode
-    private boolean mIsFlipEnabled = false;
-
     private MediaSaveService.OnMediaSavedListener mOnMediaSavedListener =
             new MediaSaveService.OnMediaSavedListener() {
                 @Override
@@ -1948,7 +1945,6 @@ public class PhotoModule
             if (mParameters != null && mCameraDevice != null && mCameraState == IDLE) {
                 Log.v(TAG, "onOrientationChanged, update parameters");
                 setFlipValue();
-                updatePowerMode();
                 mCameraDevice.setParameters(mParameters);
             }
             mUI.setOrientation(mOrientation, true);
@@ -3304,8 +3300,6 @@ public class PhotoModule
             mParameters.setFlashMode(fMode);
         }
 
-        updatePowerMode();
-
         mLongShotMaxSnap = SystemProperties.getInt(PERSIST_LONGSHOT_MAX_SNAP, -1);
         mParameters.set("max-longshot-snap",mLongShotMaxSnap);
     }
@@ -3369,12 +3363,6 @@ public class PhotoModule
         }
         if(CameraUtil.isSupported(picture_flip, CameraSettings.getSupportedFlipMode(mParameters))){
             mParameters.set(CameraSettings.KEY_QC_SNAPSHOT_PICTURE_FLIP, picture_flip);
-        }
-
-        if ((preview_flip_value != 0) || (video_flip_value != 0) || (picture_flip_value != 0)) {
-            mIsFlipEnabled = true;
-        } else {
-            mIsFlipEnabled = false;
         }
     }
 
@@ -4470,17 +4458,6 @@ public class PhotoModule
 
     public boolean isRefocus() {
         return mLastPhotoTakenWithRefocus;
-    }
-
-    private void updatePowerMode() {
-        String lpmSupported = mParameters.get("low-power-mode-supported");
-        if ((lpmSupported != null) && "true".equals(lpmSupported)) {
-            if (!mIsFlipEnabled) {
-                mParameters.set("low-power-mode", "enable");
-            } else {
-                mParameters.set("low-power-mode", "disable");
-            }
-        }
     }
 
     public boolean isLongshotDone() {

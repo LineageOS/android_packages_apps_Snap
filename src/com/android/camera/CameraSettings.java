@@ -80,7 +80,6 @@ public class CameraSettings {
     public static final String KEY_MAX_BRIGHTNESS = "pref_max_brightness";
     public static final String KEY_VIDEO_ENCODER = "pref_camera_videoencoder_key";
     public static final String KEY_AUDIO_ENCODER = "pref_camera_audioencoder_key";
-    public static final String KEY_POWER_MODE = "pref_camera_powermode_key";
     public static final String KEY_PICTURE_FORMAT = "pref_camera_pictureformat_key";
     public static final String KEY_ZSL = "pref_camera_zsl_key";
     public static final String KEY_CAMERA_SAVEPATH = "pref_camera_savepath_key";
@@ -647,7 +646,6 @@ public class CameraSettings {
 
     private void qcomInitPreferences(PreferenceGroup group){
         //Qcom Preference add here
-        ListPreference powerMode = group.findPreference(KEY_POWER_MODE);
         ListPreference zsl = group.findPreference(KEY_ZSL);
         ListPreference colorEffect = group.findPreference(KEY_COLOR_EFFECT);
         ListPreference camcorderColorEffect = group.findPreference(KEY_VIDEOCAMERA_COLOR_EFFECT);
@@ -720,10 +718,6 @@ public class CameraSettings {
         }
 
         ListPreference videoRotation = group.findPreference(KEY_VIDEO_ROTATION);
-
-        if (!mParameters.isPowerModeSupported() && powerMode != null) {
-            removePreference(group, powerMode.getKey());
-        }
 
         if (selectableZoneAf != null) {
             filterUnsupportedOptions(group,
@@ -800,12 +794,9 @@ public class CameraSettings {
                     autoExposure, mParameters.getSupportedAutoexposure());
         }
 
-        if (!mParameters.isPowerModeSupported()){
-            filterUnsupportedOptions(group,
-                    videoSnapSize, null);
-        } else {
+        if (videoSnapSize != null) {
             filterUnsupportedOptions(group, videoSnapSize, sizeListToStringList(
-                        mParameters.getSupportedPictureSizes()));
+                    mParameters.getSupportedPictureSizes()));
         }
 
         if (histogram!= null) {
