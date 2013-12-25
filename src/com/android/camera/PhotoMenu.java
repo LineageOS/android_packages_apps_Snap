@@ -232,7 +232,6 @@ public class PhotoMenu extends MenuController
                 CameraSettings.KEY_ZSL,
                 CameraSettings.KEY_TIMER_SOUND_EFFECTS,
                 CameraSettings.KEY_FACE_RECOGNITION,
-                CameraSettings.KEY_TOUCH_AF_AEC,
                 CameraSettings.KEY_SELECTABLE_ZONE_AF,
                 CameraSettings.KEY_PICTURE_FORMAT,
                 CameraSettings.KEY_SATURATION,
@@ -702,7 +701,6 @@ public class PhotoMenu extends MenuController
                 || ((autohdr != null) && autohdr.equals("enable"))) {
             popup1.setPreferenceEnabled(CameraSettings.KEY_FOCUS_MODE, false);
             popup1.setPreferenceEnabled(CameraSettings.KEY_AUTOEXPOSURE, false);
-            popup1.setPreferenceEnabled(CameraSettings.KEY_TOUCH_AF_AEC, false);
             popup1.setPreferenceEnabled(CameraSettings.KEY_SATURATION, false);
             popup1.setPreferenceEnabled(CameraSettings.KEY_CONTRAST, false);
             popup1.setPreferenceEnabled(CameraSettings.KEY_SHARPNESS, false);
@@ -765,7 +763,6 @@ public class PhotoMenu extends MenuController
                 popup1.setPreferenceEnabled(CameraSettings.KEY_REDEYE_REDUCTION, false);
                 popup1.setPreferenceEnabled(CameraSettings.KEY_EXPOSURE, false);
                 popup1.setPreferenceEnabled(CameraSettings.KEY_COLOR_EFFECT, false);
-                popup1.setPreferenceEnabled(CameraSettings.KEY_TOUCH_AF_AEC, false);
                 popup1.setPreferenceEnabled(CameraSettings.KEY_SCENE_MODE, false);
                 popup1.setPreferenceEnabled(CameraSettings.KEY_INSTANT_CAPTURE, false);
                 setPreference(CameraSettings.KEY_CAMERA_HDR, mSettingOff);
