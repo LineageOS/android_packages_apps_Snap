@@ -505,12 +505,6 @@
     <string name="pref_camera_coloreffect_entry_bluetint">Blue tint</string>
     <string name="pref_camera_coloreffect_entry_greentint">Green tint</string>
 
-    <!-- Default Touch AF/AEC setting. Do not translate. -->
-    <string name="pref_camera_touchafaec_default" translatable="false">touch-on</string>
-
-    <!-- Settings screen, Select Touch AF/AEC title -->
-    <string name="pref_camera_touchafaec_title">Touch AF/AEC</string>
-
     <!-- Settings screen, Touch AF/AEC dialog radio button choices -->
     <string name="pref_camera_touchafaec_entry_off">Off</string>
     <string name="pref_camera_touchafaec_entry_on">On</string>
