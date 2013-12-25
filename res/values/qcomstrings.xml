@@ -257,10 +257,6 @@
     <string name="pref_camera_coloreffect_entry_bluetint">Blue tint</string>
     <string name="pref_camera_coloreffect_entry_greentint">Green tint</string>
 
-    <!-- Touch AF/AEC -->
-    <string name="pref_camera_touchafaec_title">Touch AF/AEC</string>
-    <string name="pref_camera_touchafaec_default" translatable="false">touch-on</string>
-
     <!-- Stabilization -->
     <string name="pref_camera_dis_title">Stabilization</string>
     <string name="pref_camera_dis_default" translatable="false">disable</string>
