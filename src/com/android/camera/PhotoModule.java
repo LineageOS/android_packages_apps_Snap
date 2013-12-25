@@ -191,7 +191,6 @@ public class PhotoModule extends BaseModule<PhotoUI> implements
     private boolean mAeLockSupported;
     private boolean mAwbLockSupported;
     private boolean mContinuousFocusSupported;
-    private boolean mTouchAfAecFlag;
     private boolean mLongshotSave = false;
     private boolean mRefocus = false;
     private boolean mLastPhotoTakenWithRefocus = false;
@@ -333,7 +332,6 @@ public class PhotoModule extends BaseModule<PhotoUI> implements
     private FocusOverlayManager mFocusManager;
 
     private String mSceneMode;
-    private String mCurrTouchAfAec = Parameters.TOUCH_AF_AEC_ON;
     private String mSavedFlashMode = null;
 
     private final Handler mHandler = new MainHandler();
@@ -850,8 +848,6 @@ public class PhotoModule extends BaseModule<PhotoUI> implements
             mUI.setPreference(CameraSettings.KEY_ZSL, Parameters.ZSL_OFF);
             mUI.setPreference(CameraSettings.KEY_FACE_DETECTION,
                     Parameters.FACE_DETECTION_OFF);
-            mUI.setPreference(CameraSettings.KEY_TOUCH_AF_AEC,
-                    Parameters.TOUCH_AF_AEC_OFF);
             mUI.setPreference(CameraSettings.KEY_FOCUS_MODE,
                     Parameters.FOCUS_MODE_AUTO);
             mUI.setPreference(CameraSettings.KEY_FLASH_MODE,
@@ -1855,7 +1851,6 @@ public class PhotoModule extends BaseModule<PhotoUI> implements
     }
 
     private void updateCommonManual3ASettings() {
-        String touchAfAec = mParameters.TOUCH_AF_AEC_OFF;
         mSceneMode = Parameters.SCENE_MODE_AUTO;
         String flashMode = Parameters.FLASH_MODE_OFF;
         String redeyeReduction = mActivity.getString(R.string.
@@ -1868,7 +1863,7 @@ public class PhotoModule extends BaseModule<PhotoUI> implements
 
         if (mManual3AEnabled > 0) {
             overrideCameraSettings(flashMode, null, null,
-                                   exposureCompensation, touchAfAec,
+                                   exposureCompensation,
                                    mParameters.getAutoExposure(),
                                    getSaturationSafe(),
                                    getContrastSafe(),
@@ -1879,10 +1874,8 @@ public class PhotoModule extends BaseModule<PhotoUI> implements
                         mActivity.getString(R.string.setting_off_value));
         } else {
             //enable all
-            touchAfAec = mActivity.getString(
-                    R.string.pref_camera_touchafaec_default);
             overrideCameraSettings(null, null, null,
-                                   null, touchAfAec, null,
+                                   null, null,
                                    null, null, null, null,
                                    null, null, null);
             mUI.overrideSettings(CameraSettings.KEY_LONGSHOT, null);
@@ -1916,7 +1909,6 @@ public class PhotoModule extends BaseModule<PhotoUI> implements
         String focusMode = null;
         String colorEffect = null;
         String exposureCompensation = null;
-        String touchAfAec = null;
         boolean disableLongShot = false;
 
         String ubiFocusOn = mActivity.getString(R.string.
@@ -2001,7 +1993,7 @@ public class PhotoModule extends BaseModule<PhotoUI> implements
             exposureCompensation = CameraSettings.EXPOSURE_DEFAULT_VALUE;
 
             overrideCameraSettings(null, null, focusMode,
-                                   exposureCompensation, touchAfAec, null,
+                                   exposureCompensation, null,
                                    null, null, null, colorEffect,
                                    sceneMode, redeyeReduction, aeBracketing);
             disableLongShot = true;
@@ -2030,10 +2022,9 @@ public class PhotoModule extends BaseModule<PhotoUI> implements
             }
             exposureCompensation =
                 Integer.toString(mParameters.getExposureCompensation());
-            touchAfAec = mCurrTouchAfAec;
 
             overrideCameraSettings(null, whiteBalance, focusMode,
-                    exposureCompensation, touchAfAec,
+                    exposureCompensation,
                     mParameters.getAutoExposure(),
                     getSaturationSafe(),
                     getContrastSafe(),
@@ -2043,7 +2034,7 @@ public class PhotoModule extends BaseModule<PhotoUI> implements
         } else if (mFocusManager.isZslEnabled()) {
             focusMode = mParameters.getFocusMode();
             overrideCameraSettings(null, null, focusMode,
-                                   exposureCompensation, touchAfAec, null,
+                                   exposureCompensation, null,
                                    null, null, null, colorEffect,
                                    sceneMode, redeyeReduction, aeBracketing);
         } else {
@@ -2051,7 +2042,7 @@ public class PhotoModule extends BaseModule<PhotoUI> implements
                 updateCommonManual3ASettings();
             } else {
                 overrideCameraSettings(null, null, focusMode,
-                                       exposureCompensation, touchAfAec, null,
+                                       exposureCompensation, null,
                                        null, null, null, colorEffect,
                                        sceneMode, redeyeReduction, aeBracketing);
             }
@@ -2118,17 +2109,16 @@ public class PhotoModule extends BaseModule<PhotoUI> implements
 
     private void overrideCameraSettings(final String flashMode,
             final String whiteBalance, final String focusMode,
-            final String exposureMode, final String touchMode,
-            final String autoExposure, final String saturation,
-            final String contrast, final String sharpness,
-            final String coloreffect, final String sceneMode,
-            final String redeyeReduction, final String aeBracketing) {
+            final String exposureMode, final String autoExposure,
+            final String saturation, final String contrast,
+            final String sharpness, final String coloreffect,
+            final String sceneMode, final String redeyeReduction,
+            final String aeBracketing) {
         mUI.overrideSettings(
                 CameraSettings.KEY_FLASH_MODE, flashMode,
                 CameraSettings.KEY_WHITE_BALANCE, whiteBalance,
                 CameraSettings.KEY_FOCUS_MODE, focusMode,
                 CameraSettings.KEY_EXPOSURE, exposureMode,
-                CameraSettings.KEY_TOUCH_AF_AEC, touchMode,
                 CameraSettings.KEY_AUTOEXPOSURE, autoExposure,
                 CameraSettings.KEY_SATURATION, saturation,
                 CameraSettings.KEY_CONTRAST, contrast,
@@ -2796,10 +2786,6 @@ public class PhotoModule extends BaseModule<PhotoUI> implements
                 || mCameraState == PREVIEW_STOPPED) {
             return;
         }
-        //If Touch AF/AEC is disabled in UI, return
-        if(this.mTouchAfAecFlag == false) {
-            return;
-        }
         // Check if metering area or focus area is supported.
         if (!mFocusAreaSupported && !mMeteringAreaSupported) return;
         mFocusManager.onSingleTapUp(x, y);
@@ -3182,21 +3168,6 @@ public class PhotoModule extends BaseModule<PhotoUI> implements
         mParameters.set("long-shot", longshot_enable);
         String optizoomOn = mActivity.getString(R.string
                 .pref_camera_advanced_feature_value_optizoom_on);
-
-        try {
-            if(mParameters.getTouchAfAec().equals(mParameters.TOUCH_AF_AEC_ON))
-                this.mTouchAfAecFlag = true;
-            else
-                this.mTouchAfAecFlag = false;
-        } catch(Exception e){
-            Log.e(TAG, "Handled NULL pointer Exception");
-        }
-
-        // Set Touch AF/AEC parameter.
-        if (CameraUtil.isSupported(mParameters.TOUCH_AF_AEC_ON,
-                mParameters.getSupportedTouchAfAec())) {
-            mParameters.setTouchAfAec(mParameters.TOUCH_AF_AEC_ON);
-        }
 
         // Set Picture Format
         // Picture Formats specified in UI should be consistent with
