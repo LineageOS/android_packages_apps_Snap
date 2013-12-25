@@ -95,7 +95,6 @@ public class CameraSettings {
     public static final String KEY_COLOR_EFFECT = "pref_camera_coloreffect_key";
     public static final String KEY_VIDEOCAMERA_COLOR_EFFECT = "pref_camera_video_coloreffect_key";
     public static final String KEY_FACE_DETECTION = "pref_camera_facedetection_key";
-    public static final String KEY_TOUCH_AF_AEC = "pref_camera_touchafaec_key";
     public static final String KEY_SELECTABLE_ZONE_AF = "pref_camera_selectablezoneaf_key";
     public static final String KEY_SATURATION = "pref_camera_saturation_key";
     public static final String KEY_CONTRAST = "pref_camera_contrast_key";
@@ -838,7 +837,6 @@ public class CameraSettings {
         ListPreference colorEffect = group.findPreference(KEY_COLOR_EFFECT);
         ListPreference camcorderColorEffect = group.findPreference(KEY_VIDEOCAMERA_COLOR_EFFECT);
         ListPreference faceDetection = group.findPreference(KEY_FACE_DETECTION);
-        ListPreference touchAfAec = group.findPreference(KEY_TOUCH_AF_AEC);
         ListPreference selectableZoneAf = group.findPreference(KEY_SELECTABLE_ZONE_AF);
         ListPreference saturation = group.findPreference(KEY_SATURATION);
         ListPreference contrast = group.findPreference(KEY_CONTRAST);
@@ -932,11 +930,6 @@ public class CameraSettings {
         }
 
         ListPreference videoRotation = group.findPreference(KEY_VIDEO_ROTATION);
-
-        if (touchAfAec != null) {
-            filterUnsupportedOptions(group,
-                    touchAfAec, ParametersWrapper.getSupportedTouchAfAec(mParameters));
-        }
 
         if (!ParametersWrapper.isPowerModeSupported(mParameters) && powerMode != null) {
             removePreference(group, powerMode.getKey());
