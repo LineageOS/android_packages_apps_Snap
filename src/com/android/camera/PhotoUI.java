@@ -321,9 +321,7 @@ public class PhotoUI implements PieListener,
     public void setAspectRatio(float ratio) {
         if (ratio <= 0.0) throw new IllegalArgumentException();
 
-        if (mOrientationResize &&
-                mActivity.getResources().getConfiguration().orientation
-                != Configuration.ORIENTATION_PORTRAIT) {
+        if (mOrientationResize && CameraUtil.isScreenRotated(mActivity)) {
             ratio = 1 / ratio;
         }
 
