@@ -382,9 +382,7 @@ public class VideoUI implements PieRenderer.PieListener,
         } else {
             ratio = (float) height / width;
         }
-        if (mOrientationResize &&
-                mActivity.getResources().getConfiguration().orientation
-                != Configuration.ORIENTATION_PORTRAIT) {
+        if (mOrientationResize && CameraUtil.isScreenRotated(mActivity)) {
             ratio = 1 / ratio;
         }
 
@@ -727,9 +725,7 @@ public class VideoUI implements PieRenderer.PieListener,
     }
 
     public void setAspectRatio(double ratio) {
-        if (mOrientationResize &&
-                mActivity.getResources().getConfiguration().orientation
-                != Configuration.ORIENTATION_PORTRAIT) {
+        if (mOrientationResize && CameraUtil.isScreenRotated(mActivity)) {
             ratio = 1 / ratio;
         }
 
