@@ -2862,12 +2862,11 @@ public class PhotoModule
         Size pic_size = mParameters.getPictureSize();
         if (pic_size == null) {
             Log.e(TAG, "error getPictureSize: size is null");
-        }
-        else{
-            if("100".equals(jpegQuality) && (pic_size.width >= 3200)){
+        } else {
+            if ("100".equals(jpegQuality) && (pic_size.width >= 3200)) {
                 //mUnsupportedJpegQuality = true;
-            }else {
-                mParameters.setJpegQuality(JpegEncodingQualityMappings.getQualityNumber(jpegQuality));
+            } else {
+                mParameters.setJpegQuality(Integer.parseInt(jpegQuality));
                 int jpegFileSize = estimateJpegFileSize(pic_size, jpegQuality);
                 if (jpegFileSize != mJpegFileSizeEstimation) {
                     mJpegFileSizeEstimation = jpegFileSize;
@@ -3533,11 +3532,6 @@ public class PhotoModule
                 }
             }
         }
-
-        // Set JPEG quality.
-        int jpegQuality = CameraProfile.getJpegEncodingQualityParameter(mCameraId,
-                CameraProfile.QUALITY_HIGH);
-        mParameters.setJpegQuality(jpegQuality);
 
         // For the following settings, we need to check if the settings are
         // still supported by latest driver, if not, ignore the settings.
@@ -4505,42 +4499,6 @@ public class PhotoModule
     public boolean isLongshotDone() {
         return ((mCameraState == LONGSHOT) && (mLongshotSnapNum == mReceivedSnapNum) &&
                 !mLongshotActive);
-    }
-}
-
-/* Below is no longer needed, except to get rid of compile error
- * TODO: Remove these
- */
-class JpegEncodingQualityMappings {
-    private static final String TAG = "JpegEncodingQualityMappings";
-    private static final int DEFAULT_QUALITY = 85;
-    private static HashMap<String, Integer> mHashMap =
-            new HashMap<String, Integer>();
-
-    static {
-        mHashMap.put("normal",    CameraProfile.QUALITY_LOW);
-        mHashMap.put("fine",      CameraProfile.QUALITY_MEDIUM);
-        mHashMap.put("superfine", CameraProfile.QUALITY_HIGH);
-    }
-
-    // Retrieve and return the Jpeg encoding quality number
-    // for the given quality level.
-    public static int getQualityNumber(String jpegQuality) {
-        try{
-            int qualityPercentile = Integer.parseInt(jpegQuality);
-            if(qualityPercentile >= 0 && qualityPercentile <=100)
-                return qualityPercentile;
-            else
-                return DEFAULT_QUALITY;
-        } catch(NumberFormatException nfe){
-            //chosen quality is not a number, continue
-        }
-        Integer quality = mHashMap.get(jpegQuality);
-        if (quality == null) {
-            Log.w(TAG, "Unknown Jpeg quality: " + jpegQuality);
-            return DEFAULT_QUALITY;
-        }
-        return CameraProfile.getJpegEncodingQualityParameter(quality.intValue());
     }
 }
 

@@ -242,7 +242,7 @@ public class CameraSettings {
     public static final String VALUE_ON = "on";
     public static final String VALUE_OFF = "off";
 
-    public static final int CURRENT_VERSION = 5;
+    public static final int CURRENT_VERSION = 6;
     public static final int CURRENT_LOCAL_VERSION = 2;
 
     private static final String TAG = "CameraSettings";
@@ -1049,6 +1049,23 @@ public class CameraSettings {
             // Just use video quality to replace it and
             // ignore the current settings.
             editor.remove("pref_camera_videoquality_key");
+            version = 4;
+        }
+        if (version == 4) {
+            // Just upgrade to version 5 directly
+            version = 5;
+        }
+        if (version == 5) {
+            // Change jpeg quality {normal,fine,superfine} back to {65,75,85}
+            String quality = pref.getString(KEY_JPEG_QUALITY, "superfine");
+            if (quality.equals("normal")) {
+                quality = "65";
+            } else if (quality.equals("fine")) {
+                quality = "75";
+            } else {
+                quality = context.getString(R.string.pref_camera_jpegquality_default);
+            }
+            editor.putString(KEY_JPEG_QUALITY, quality);
         }
 
         editor.putInt(KEY_VERSION, CURRENT_VERSION);
