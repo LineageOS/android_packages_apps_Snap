@@ -718,6 +718,8 @@ public class VideoUI implements PieRenderer.PieListener,
     }
 
     public void updateOnScreenIndicators(Parameters param, ComboPreferences prefs) {
+      mOnScreenIndicators.updateExposureOnScreenIndicator(param,
+              CameraSettings.readExposure(prefs));
       mOnScreenIndicators.updateFlashOnScreenIndicator(param.getFlashMode());
       boolean location = RecordLocationPreference.get(prefs, CameraSettings.KEY_RECORD_LOCATION);
       mOnScreenIndicators.updateLocationIndicator(location);
