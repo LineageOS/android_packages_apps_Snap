@@ -22,6 +22,7 @@ import org.codeaurora.snapcam.R;
 
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
+import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Point;
 import android.graphics.drawable.ColorDrawable;
@@ -987,6 +988,21 @@ public class VideoUI implements PieRenderer.PieListener,
 
     public boolean isVisible() {
         return mCameraControls.getVisibility() == View.VISIBLE;
+    }
+
+    public boolean onScaleStepResize(boolean direction)
+    {
+        if(mGestures != null){
+            return mGestures.onScaleStepResize(direction);
+        }
+        return false;
+    }
+
+    public void onScaleChangeDraw(Canvas canvas)
+    {
+        if(mGestures != null){
+            mGestures.onScaleChangeDraw(canvas);
+        }
     }
 
     @Override
