@@ -84,6 +84,7 @@ public class CameraSettings {
     public static final String KEY_ZSL = "pref_camera_zsl_key";
     public static final String KEY_CAMERA_SAVEPATH = "pref_camera_savepath_key";
     public static final String KEY_COLOR_EFFECT = "pref_camera_coloreffect_key";
+    public static final String KEY_VIDEOCAMERA_COLOR_EFFECT = "pref_camera_video_coloreffect_key";
     public static final String KEY_FACE_DETECTION = "pref_camera_facedetection_key";
     public static final String KEY_TOUCH_AF_AEC = "pref_camera_touchafaec_key";
     public static final String KEY_SELECTABLE_ZONE_AF = "pref_camera_selectablezoneaf_key";
