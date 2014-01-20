@@ -506,7 +506,7 @@ public class VideoMenu extends MenuController
     public void initFilterModeButton(View button) {
         button.setVisibility(View.INVISIBLE);
         final IconListPreference pref = (IconListPreference) mPreferenceGroup
-                .findPreference(CameraSettings.KEY_COLOR_EFFECT);
+                .findPreference(CameraSettings.KEY_VIDEOCAMERA_COLOR_EFFECT);
         if (pref == null || pref.getValue() == null)
             return;
 
@@ -534,7 +534,7 @@ public class VideoMenu extends MenuController
 
     public void addFilterMode() {
         final IconListPreference pref = (IconListPreference) mPreferenceGroup
-                .findPreference(CameraSettings.KEY_COLOR_EFFECT);
+                .findPreference(CameraSettings.KEY_VIDEOCAMERA_COLOR_EFFECT);
         if (pref == null)
             return;
 
