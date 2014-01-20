@@ -89,6 +89,7 @@ public class CameraSettings {
     public static final String KEY_CAMERA_SAVEPATH = "pref_camera_savepath_key";
     public static final String KEY_FILTER_MODE = "pref_camera_filter_mode_key";
     public static final String KEY_COLOR_EFFECT = "pref_camera_coloreffect_key";
+    public static final String KEY_VIDEOCAMERA_COLOR_EFFECT = "pref_camera_video_coloreffect_key";
     public static final String KEY_FACE_DETECTION = "pref_camera_facedetection_key";
     public static final String KEY_TOUCH_AF_AEC = "pref_camera_touchafaec_key";
     public static final String KEY_SELECTABLE_ZONE_AF = "pref_camera_selectablezoneaf_key";
@@ -752,6 +753,7 @@ public class CameraSettings {
         ListPreference powerMode = group.findPreference(KEY_POWER_MODE);
         ListPreference zsl = group.findPreference(KEY_ZSL);
         ListPreference colorEffect = group.findPreference(KEY_COLOR_EFFECT);
+        ListPreference camcorderColorEffect = group.findPreference(KEY_VIDEOCAMERA_COLOR_EFFECT);
         ListPreference faceDetection = group.findPreference(KEY_FACE_DETECTION);
         ListPreference touchAfAec = group.findPreference(KEY_TOUCH_AF_AEC);
         ListPreference selectableZoneAf = group.findPreference(KEY_SELECTABLE_ZONE_AF);
@@ -893,6 +895,11 @@ public class CameraSettings {
         if (colorEffect != null) {
             filterUnsupportedOptions(group,
                     colorEffect, mParameters.getSupportedColorEffects());
+        }
+
+        if (camcorderColorEffect != null) {
+            filterUnsupportedOptions(group,
+                    camcorderColorEffect, mParameters.getSupportedColorEffects());
         }
 
         if (aeBracketing != null) {
