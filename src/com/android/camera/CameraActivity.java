@@ -227,6 +227,7 @@ public class CameraActivity extends Activity
     private final Object mStorageSpaceLock = new Object();
     private long mStorageSpaceBytes = Storage.LOW_STORAGE_THRESHOLD_BYTES;
     private boolean mSecureCamera;
+    private boolean mInCameraApp = true;
     // Keep track of powershutter state
     public static boolean mPowerShutter = false;
     private int mLastRawOrientation;
@@ -2049,7 +2050,7 @@ public class CameraActivity extends Activity
         if (!CameraUtil.hasCameraKey()) {
             mPowerShutter = val.equals(CameraSettings.VALUE_ON);
         }
-        if (mPowerShutter /*TODO: && mShowCameraAppView*/) {
+        if (mPowerShutter && mInCameraApp) {
             getWindow().addPrivateFlags(
                     WindowManager.LayoutParams.PRIVATE_FLAG_PREVENT_POWER_KEY);
         } else {
@@ -2114,6 +2115,10 @@ public class CameraActivity extends Activity
 
     public boolean isForceReleaseCamera() {
         return mForceReleaseCamera;
+    }
+
+    public boolean isInCameraApp() {
+        return mInCameraApp;
     }
 
     @Override
@@ -2411,6 +2416,10 @@ public class CameraActivity extends Activity
      */
     private void setPreviewControlsVisibility(boolean showControls) {
         mCurrentModule.onPreviewFocusChanged(showControls);
+
+        // controls are only shown when the camera app is active
+        // so we can assume to fetch this information from here
+        mInCameraApp = showControls;
     }
 
     // Accessor methods for getting latency times used in performance testing
