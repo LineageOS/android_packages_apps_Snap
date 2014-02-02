@@ -56,7 +56,6 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.PopupWindow;
 import android.widget.Toast;
-import android.graphics.Canvas;
 
 import com.android.camera.CameraPreference.OnPreferenceChangedListener;
 import com.android.camera.FocusOverlayManager.FocusUI;
@@ -1319,20 +1318,11 @@ public class PhotoUI implements PieListener,
         mFaceView.setFaces(faces);
     }
 
-
-    public boolean onScaleStepResize(boolean direction)
-    {
+    public boolean onScaleStepResize(boolean direction) {
         if(mGestures != null){
             return mGestures.onScaleStepResize(direction);
         }
         return false;
-    }
-
-    public void onScaleChangeDraw(Canvas canvas)
-    {
-        if(mGestures != null){
-            mGestures.onScaleChangeDraw(canvas);
-        }
     }
 
     @Override
