@@ -20,7 +20,6 @@ import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.ScaleGestureDetector;
 import android.view.View;
-import android.graphics.Canvas;
 
 import com.android.camera.ui.PieRenderer;
 import com.android.camera.ui.RenderOverlay;
@@ -316,12 +315,6 @@ public class PreviewGestures
             return mZoom.onScaleStepResize(direction);
         }
         return false;
-    }
-
-    public void onScaleChangeDraw(Canvas canvas) {
-        if (mZoom != null) {
-            mZoom.onScaleChangeDraw(canvas);
-        }
     }
 }
 
