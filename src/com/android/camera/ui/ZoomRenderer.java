@@ -22,6 +22,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
+import android.os.Handler;
 import android.view.ScaleGestureDetector;
 
 import org.codeaurora.snapcam.R;
@@ -35,6 +36,8 @@ public class ZoomRenderer extends OverlayRenderer
     private int mMinZoom;
     private OnZoomChangedListener mListener;
 
+    private final Handler mHandler = new Handler();
+
     private ScaleGestureDetector mDetector;
     private Paint mPaint;
     private Paint mTextPaint;
@@ -47,9 +50,9 @@ public class ZoomRenderer extends OverlayRenderer
     private int mOuterStroke;
     private int mZoomSig;
     private int mZoomFraction;
+    private boolean mInZoom;
     private Rect mTextBounds;
     private int mOrientation;
-    private Canvas mCanvas;
 
     public interface OnZoomChangedListener {
         void onZoomStart();
@@ -111,7 +114,6 @@ public class ZoomRenderer extends OverlayRenderer
 
     @Override
     public void onDraw(Canvas canvas) {
-        mCanvas = canvas;
         canvas.rotate(mOrientation, mCenterX, mCenterY);
         mPaint.setStrokeWidth(mInnerStroke);
         canvas.drawCircle(mCenterX, mCenterY, mMinCircle, mPaint);
@@ -126,13 +128,6 @@ public class ZoomRenderer extends OverlayRenderer
         canvas.drawText(txt, mCenterX - mTextBounds.centerX(), mCenterY - mTextBounds.centerY(),
                 mTextPaint);
     }
-
-     public void onScaleChangeDraw(Canvas canvas) {
-        if(mCanvas != null){
-            onDraw(mCanvas);
-        }
-    }
-
 
     @Override
     public boolean onScale(ScaleGestureDetector detector) {
@@ -151,7 +146,7 @@ public class ZoomRenderer extends OverlayRenderer
     public boolean onScaleStepResize(boolean direction) {
         int zoom;
         float circle;
-        float circleStep = (mMaxCircle - mMinCircle)/10;
+        float circleStep = (mMaxCircle - mMinCircle)/18;
         if(direction){
             circle = (int) (mCircleSize + circleStep);
         } else {
@@ -160,20 +155,36 @@ public class ZoomRenderer extends OverlayRenderer
         circle = Math.max(mMinCircle, circle);
         circle = Math.min(mMaxCircle, circle);
         if (mListener != null && (int) circle != mCircleSize
-            && ((mMaxCircle - mMinCircle) != 0)) {
+            && ((mMaxCircle - mMinCircle) > 0)) {
             mCircleSize = (int) circle;
             zoom = mMinZoom + (int) ((mCircleSize - mMinCircle)
                    * (mMaxZoom - mMinZoom) / (mMaxCircle - mMinCircle));
             if (mListener != null) {
-                mListener.onZoomStart();
+                mHandler.removeCallbacks(mOnZoomEnd);
+                if (!mInZoom) {
+                    mInZoom = true;
+                    setVisible(true);
+                    mListener.onZoomStart();
+                    update();
+                }
                 mListener.onZoomValueChanged(zoom);
-                mListener.onZoomEnd();
+                mHandler.postDelayed(mOnZoomEnd, 300);
             }
             return true;
         } else {
             return false;
         }
     }
+
+    Runnable mOnZoomEnd = new Runnable() {
+        public void run() {
+            mInZoom = false;
+            setVisible(false);
+            if (mListener != null) {
+                mListener.onZoomEnd();
+            }
+        }
+    };
 
     @Override
     public boolean onScaleBegin(ScaleGestureDetector detector) {
