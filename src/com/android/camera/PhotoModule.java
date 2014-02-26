@@ -1940,9 +1940,9 @@ public class PhotoModule
             overrideCameraSettings(flashMode, null, null,
                                    exposureCompensation, touchAfAec,
                                    ParametersWrapper.getAutoExposure(mParameters),
-                                   Integer.toString(ParametersWrapper.getSaturation(mParameters)),
-                                   Integer.toString(ParametersWrapper.getContrast(mParameters)),
-                                   Integer.toString(ParametersWrapper.getSharpness(mParameters)),
+                                   getSaturationSafe(),
+                                   getContrastSafe(),
+                                   getSharpnessSafe(),
                                    colorEffect,
                                    mSceneMode, redeyeReduction, aeBracketing);
             mUI.overrideSettings(CameraSettings.KEY_LONGSHOT,
@@ -2103,9 +2103,9 @@ public class PhotoModule
             overrideCameraSettings(null, whiteBalance, focusMode,
                     exposureCompensation, touchAfAec,
                     ParametersWrapper.getAutoExposure(mParameters),
-                    Integer.toString(ParametersWrapper.getSaturation(mParameters)),
-                    Integer.toString(ParametersWrapper.getContrast(mParameters)),
-                    Integer.toString(ParametersWrapper.getSharpness(mParameters)),
+                    getSaturationSafe(),
+                    getContrastSafe(),
+                    getSharpnessSafe(),
                     colorEffect,
                     sceneMode, redeyeReduction, aeBracketing);
         } else if (mFocusManager.isZslEnabled()) {
@@ -3220,6 +3220,39 @@ public class PhotoModule
         }
     }
 
+    private String getSaturationSafe() {
+        String ret = null;
+        if (CameraUtil.isSupported(mParameters, "saturation") &&
+                CameraUtil.isSupported(mParameters, "max-saturation")) {
+            ret = mPreferences.getString(
+                    CameraSettings.KEY_SATURATION,
+                    mActivity.getString(R.string.pref_camera_saturation_default));
+        }
+        return ret;
+    }
+
+    private String getContrastSafe() {
+        String ret = null;
+        if (CameraUtil.isSupported(mParameters, "contrast") &&
+                CameraUtil.isSupported(mParameters, "max-contrast")) {
+            ret = mPreferences.getString(
+                    CameraSettings.KEY_CONTRAST,
+                    mActivity.getString(R.string.pref_camera_contrast_default));
+        }
+        return ret;
+    }
+
+    private String getSharpnessSafe() {
+        String ret = null;
+        if (CameraUtil.isSupported(mParameters, "sharpness") &&
+                CameraUtil.isSupported(mParameters, "max-sharpness")) {
+            ret = mPreferences.getString(
+                    CameraSettings.KEY_SHARPNESS,
+                    mActivity.getString(R.string.pref_camera_sharpness_default));
+        }
+        return ret;
+    }
+
     /** This can run on a background thread, so don't do UI updates here.*/
     private void qcomUpdateCameraParametersPreference() {
         //qcom Related Parameter update
@@ -3356,11 +3389,8 @@ public class PhotoModule
         }
 
         //Set Saturation
-        if (CameraUtil.isSupported(mParameters, "saturation") &&
-                CameraUtil.isSupported(mParameters, "max-saturation")) {
-            String saturationStr = mPreferences.getString(
-                    CameraSettings.KEY_SATURATION,
-                    mActivity.getString(R.string.pref_camera_saturation_default));
+        String saturationStr = getSaturationSafe();
+        if (saturationStr != null) {
             int saturation = Integer.parseInt(saturationStr);
             Log.v(TAG, "Saturation value =" + saturation);
             if((0 <= saturation) && (saturation <= ParametersWrapper.getMaxSaturation(mParameters))){
@@ -3368,11 +3398,8 @@ public class PhotoModule
             }
         }
         // Set contrast parameter.
-        if (CameraUtil.isSupported(mParameters, "contrast") &&
-                CameraUtil.isSupported(mParameters, "max-contrast")) {
-            String contrastStr = mPreferences.getString(
-                    CameraSettings.KEY_CONTRAST,
-                    mActivity.getString(R.string.pref_camera_contrast_default));
+        String contrastStr = getContrastSafe();
+        if (contrastStr != null) {
             int contrast = Integer.parseInt(contrastStr);
             Log.v(TAG, "Contrast value =" + contrast);
             if((0 <= contrast) && (contrast <= ParametersWrapper.getMaxContrast(mParameters))){
@@ -3380,11 +3407,8 @@ public class PhotoModule
             }
         }
         // Set sharpness parameter
-        if (CameraUtil.isSupported(mParameters, "sharpness") &&
-                CameraUtil.isSupported(mParameters, "max-sharpness")) {
-            String sharpnessStr = mPreferences.getString(
-                    CameraSettings.KEY_SHARPNESS,
-                    mActivity.getString(R.string.pref_camera_sharpness_default));
+        String sharpnessStr = getSharpnessSafe();
+        if (sharpnessStr != null) {
             int sharpness = Integer.parseInt(sharpnessStr) *
                     (ParametersWrapper.getMaxSharpness(mParameters)/MAX_SHARPNESS_LEVEL);
             Log.v(TAG, "Sharpness value =" + sharpness);
