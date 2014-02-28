@@ -174,4 +174,8 @@
     <!-- Margins for 4:3 preview on 16:9 screen with 640dp height -->
     <dimen name="preview_top_margin">57dp</dimen>
     <dimen name="preview_bottom_margin">103dp</dimen>
+
+    <dimen name="video_hint_arrow_size">107dp</dimen>
+    <dimen name="video_hint_phone_graphic_height">66dp</dimen>
+    <dimen name="video_hint_phone_graphic_width">36dp</dimen>
 </resources>

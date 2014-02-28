@@ -76,6 +76,7 @@ public class VideoUI implements PieRenderer.PieListener,
     private View mReviewCancelButton;
     private View mReviewDoneButton;
     private View mReviewPlayButton;
+    private View mVideoHints;
     private ShutterButton mShutterButton;
     private PauseButton mPauseButton;
     private ModuleSwitcher mSwitcher;
@@ -223,6 +224,7 @@ public class VideoUI implements PieRenderer.PieListener,
 
         mFocusRing = (FocusRing) mRootView.findViewById(R.id.focus_ring);
         mFlashOverlay = mRootView.findViewById(R.id.flash_overlay);
+        mVideoHints = mRootView.findViewById(R.id.video_shooting_hints);
         mShutterButton = (ShutterButton) mRootView.findViewById(R.id.shutter_button);
         mSwitcher = (ModuleSwitcher) mRootView.findViewById(R.id.camera_switcher);
         mSwitcher.setCurrentIndex(ModuleSwitcher.VIDEO_MODULE_INDEX);
@@ -876,7 +878,11 @@ public class VideoUI implements PieRenderer.PieListener,
     // Preview area is touched. Take a picture.
     @Override
     public void onSingleTapUp(View view, int x, int y) {
-        mController.onSingleTapUp(view, x, y);
+        if (mVideoHints.getVisibility() == View.VISIBLE) {
+            mVideoHints.setVisibility(View.INVISIBLE);
+        } else {
+            mController.onSingleTapUp(view, x, y);
+        }
     }
 
     public void showRecordingUI(boolean recording) {
@@ -1000,6 +1006,15 @@ public class VideoUI implements PieRenderer.PieListener,
     public void onDisplayChanged() {
         mCameraControls.checkLayoutFlip();
         mController.updateCameraOrientation();
+    }
+
+    /**
+     * Shows or hides video recording hints.
+     *
+     * @param show shows video recording hints when true, hides it otherwise.
+     */
+    public void showVideoRecordingHints(boolean show) {
+        mVideoHints.setVisibility(show ? View.VISIBLE : View.INVISIBLE);
     }
 
     private class ZoomChangeListener implements ZoomRenderer.OnZoomChangedListener {

@@ -1833,6 +1833,7 @@ public class VideoModule implements CameraModule,
         mStartRecPending = true;
         mUI.cancelAnimations();
         mUI.setSwipingEnabled(false);
+        mUI.showVideoRecordingHints(false);
         mUI.hideUIwhileRecording();
 
         mActivity.updateStorageSpaceAndHint();
@@ -1983,6 +1984,7 @@ public class VideoModule implements CameraModule,
         Log.v(TAG, "stopVideoRecording");
         mStopRecPending = true;
         mUI.setSwipingEnabled(true);
+        mUI.showVideoRecordingHints(true);
         if (!isVideoCaptureIntent()) {
             mUI.showSwitcher();
         }
