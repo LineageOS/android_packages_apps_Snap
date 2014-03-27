@@ -529,7 +529,7 @@ public class CameraSettings {
     private List<String> getSupportedPictureFormatLists() {
         String str = mParameters.get(KEY_QC_PICTURE_FORMAT);
         if (str == null) {
-            str = "jpeg,raw"; // if not set, fall back to default behavior
+            return null;
         }
         return split(str);
     }
