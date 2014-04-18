@@ -639,7 +639,7 @@ public class VideoModule implements CameraModule,
             }
 
             // Check if metering area or focus area is supported.
-            if (mFocusAreaSupported || mMeteringAreaSupported) {
+            if ((mFocusAreaSupported || mMeteringAreaSupported) && !mSnapshotInProgress) {
                 mFocusManager.onSingleTapUp(x, y);
             }
         }
