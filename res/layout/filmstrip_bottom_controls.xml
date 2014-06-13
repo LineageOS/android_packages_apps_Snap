@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+x<?xml version="1.0" encoding="utf-8"?>
 <!--
      Copyright (C) 2013 The Android Open Source Project
 
@@ -22,6 +22,7 @@
     android:layout_height="wrap_content"
     android:layout_gravity="bottom"
     android:padding="10dp"
+    android:fitsSystemWindows="true"
     android:visibility="visible" >
 
     <ImageButton
