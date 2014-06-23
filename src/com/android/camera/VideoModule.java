@@ -514,7 +514,6 @@ public class VideoModule implements CameraModule,
     @Override
     public void cancelAutoFocus() {
         if (null != mCameraDevice) {
-            mCameraDevice.cancelAutoFocus();
             setFocusParameters();
         }
     }
