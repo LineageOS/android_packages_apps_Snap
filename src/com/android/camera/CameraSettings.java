@@ -740,6 +740,7 @@ public class CameraSettings {
         ListPreference powerMode = group.findPreference(KEY_POWER_MODE);
         ListPreference zsl = group.findPreference(KEY_ZSL);
         ListPreference colorEffect = group.findPreference(KEY_COLOR_EFFECT);
+        ListPreference camcorderColorEffect = group.findPreference(KEY_VIDEOCAMERA_COLOR_EFFECT);
         ListPreference faceDetection = group.findPreference(KEY_FACE_DETECTION);
         ListPreference touchAfAec = group.findPreference(KEY_TOUCH_AF_AEC);
         ListPreference selectableZoneAf = group.findPreference(KEY_SELECTABLE_ZONE_AF);
@@ -881,6 +882,11 @@ public class CameraSettings {
         if (colorEffect != null) {
             filterUnsupportedOptions(group,
                     colorEffect, mParameters.getSupportedColorEffects());
+        }
+
+        if (camcorderColorEffect != null) {
+            filterUnsupportedOptions(group,
+                    camcorderColorEffect, mParameters.getSupportedColorEffects());
         }
 
         if (aeBracketing != null) {
