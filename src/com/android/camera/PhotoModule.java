@@ -1637,9 +1637,9 @@ public class PhotoModule
         mSceneMode = Parameters.SCENE_MODE_AUTO;
         String flashMode = Parameters.FLASH_MODE_OFF;
         String redeyeReduction = mActivity.getString(R.string.
-                pref_camera_redeyereduction_entry_disable);
+                pref_camera_redeyereduction_default);
         String aeBracketing = mActivity.getString(R.string.
-                pref_camera_ae_bracket_hdr_entry_off);
+                pref_camera_ae_bracket_hdr_default);
         String colorEffect = mActivity.getString(R.string.
                 pref_camera_coloreffect_default);
         String exposureCompensation = CameraSettings.EXPOSURE_DEFAULT_VALUE;
@@ -1733,9 +1733,7 @@ public class PhotoModule
         }
 
         if ((continuousShot != null) && continuousShot.equals(continuousShotOn)) {
-            String pictureFormat = mActivity.getString(R.string.
-                    pref_camera_picture_format_value_jpeg);
-            mUI.overrideSettings(CameraSettings.KEY_PICTURE_FORMAT, pictureFormat);
+            mUI.overrideSettings(CameraSettings.KEY_PICTURE_FORMAT, PIXEL_FORMAT_JPEG);
         } else {
             mUI.overrideSettings(CameraSettings.KEY_PICTURE_FORMAT, null);
         }
@@ -1743,9 +1741,7 @@ public class PhotoModule
             mParameters.get(CameraSettings.KEY_QC_RE_FOCUS);
 
         if (mFocusManager.isZslEnabled()) {
-            String pictureFormat = mActivity.getString(R.string.
-                    pref_camera_picture_format_value_jpeg);
-            mUI.overrideSettings(CameraSettings.KEY_PICTURE_FORMAT, pictureFormat);
+            mUI.overrideSettings(CameraSettings.KEY_PICTURE_FORMAT, PIXEL_FORMAT_JPEG);
         } else {
             mUI.overrideSettings(CameraSettings.KEY_PICTURE_FORMAT, null);
         }
@@ -2852,8 +2848,7 @@ public class PhotoModule
         if (mIsImageCaptureIntent && !pictureFormat.equals(PIXEL_FORMAT_JPEG)) {
             pictureFormat = PIXEL_FORMAT_JPEG;
             Editor editor = mPreferences.edit();
-            editor.putString(CameraSettings.KEY_PICTURE_FORMAT,
-                mActivity.getString(R.string.pref_camera_picture_format_value_jpeg));
+            editor.putString(CameraSettings.KEY_PICTURE_FORMAT, PIXEL_FORMAT_JPEG);
             editor.apply();
         }
         Log.v(TAG, "Picture format value =" + pictureFormat);

@@ -219,12 +219,6 @@
     <!-- Text followed by a checkbox to turn on/off sound effects during the countdown. [CHAR LIMIT = 24]-->
     <string name="pref_camera_timer_sound_title">Beep during countdown</string>
 
-    <!-- Entry of camera save path -->
-    <string name="pref_camera_savepath_title">Storage Position</string>
-    <string name="pref_camera_savepath_default">0</string>
-    <string name="pref_camera_savepath_entry_0">Phone</string>
-    <string name="pref_camera_savepath_entry_1">SD Card</string>
-
     <!-- Entry of a on/off setting. The setting is turned off. [CHAR LIMIT=15] -->
     <string name="setting_off">Off</string>
     <!-- Entry of a on/off setting. The setting is turned on. [CHAR LIMIT=15] -->
@@ -409,19 +403,6 @@
 
     <!-- Toast after trying to select a setting that is not allowed to change in scene mode [CHAR LIMIT=NONE] -->
     <string name="not_selectable_in_scene_mode">Not selectable in scene mode.</string>
-
-    <!-- Toast after enable HDR function to inform Continuous Shot has disabled -->
-    <string name="HDR_disable_continuous_shot">Enable HDR will disable Continuous Shot.</string>
-
-
-    <!-- Toast after enable Advanced Capture function to inform Continuous Shot has disabled -->
-    <string name="advanced_capture_disable_continuous_shot">Enable Advanced Capture will disable Continuous Shot.</string>
-
-    <!-- Toast after enable 2k4k video quality to inform IS has disabled -->
-    <string name="video_quality_4k_disable_IS">Enable 4k video quality will disable IS.</string>
-
-    <!-- Toast after 2k4k video is enabled to inform SeeMore has been disabled -->
-    <string name="video_quality_4k_disable_SeeMore">SeeMore cannot be enabled during 4k video.</string>
 
     <!-- Exposure settings in preference -->
     <string name="pref_exposure_title">Exposure</string>
@@ -696,15 +677,4 @@ CHAR LIMIT = NONE] -->
 
     <!--  String shown when setting the homepage wallpaper in the background [CHAR LIMIT=NONE] -->
     <string name="setting_wallpaper">Setting wallpaper</string>
-
-
-    <!-- Menu, Video rotation labels [CHAR LIMIT=50] -->
-    <string name="pref_camera_video_rotation_label_0">0</string>
-    <string name="pref_camera_video_rotation_label_90">90</string>
-    <string name="pref_camera_video_rotation_label_180">180</string>
-    <string name="pref_camera_video_rotation_label_270">270</string>
-
-    <string name="remaining_photos_format">%d left</string>
-
-    <string name="refocus_toast">To re-focus last photo, tap here</string>
  </resources>
