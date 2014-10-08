@@ -482,22 +482,64 @@
      <!-- Settings screen, ISO dialog radio button choices -->
      <string name="pref_camera_iso_entry_auto">Auto</string>
      <string name="pref_camera_iso_entry_isodeblur">ISO Auto(HJR)</string>
+     <string name="pref_camera_iso_entry_iso50">ISO50</string>
      <string name="pref_camera_iso_entry_iso100">ISO100</string>
+     <string name="pref_camera_iso_entry_iso125">ISO125</string>
+     <string name="pref_camera_iso_entry_iso150">ISO150</string>
      <string name="pref_camera_iso_entry_iso200">ISO200</string>
+     <string name="pref_camera_iso_entry_iso250">ISO250</string>
+     <string name="pref_camera_iso_entry_iso300">ISO300</string>
+     <string name="pref_camera_iso_entry_iso320">ISO320</string>
+     <string name="pref_camera_iso_entry_iso350">ISO350</string>
      <string name="pref_camera_iso_entry_iso400">ISO400</string>
+     <string name="pref_camera_iso_entry_iso450">ISO450</string>
+     <string name="pref_camera_iso_entry_iso500">ISO500</string>
+     <string name="pref_camera_iso_entry_iso600">ISO600</string>
+     <string name="pref_camera_iso_entry_iso640">ISO640</string>
+     <string name="pref_camera_iso_entry_iso700">ISO700</string>
      <string name="pref_camera_iso_entry_iso800">ISO800</string>
+     <string name="pref_camera_iso_entry_iso1000">ISO1000</string>
+     <string name="pref_camera_iso_entry_iso1200">ISO1200</string>
+     <string name="pref_camera_iso_entry_iso1250">ISO1250</string>
+     <string name="pref_camera_iso_entry_iso1500">ISO1500</string>
      <string name="pref_camera_iso_entry_iso1600">ISO1600</string>
+     <string name="pref_camera_iso_entry_iso2000">ISO2000</string>
+     <string name="pref_camera_iso_entry_iso2500">ISO2500</string>
+     <string name="pref_camera_iso_entry_iso2700">ISO2700</string>
      <string name="pref_camera_iso_entry_iso3200">ISO3200</string>
+     <string name="pref_camera_iso_entry_iso6400">ISO6400</string>
+     <string name="pref_camera_iso_entry_iso12800">ISO12800</string>
 
      <!-- ISO entry values. Do not translate. -->
      <string name="pref_camera_iso_value_auto">auto</string>
      <string name="pref_camera_iso_value_isodeblur">ISO_HJR</string>
+     <string name="pref_camera_iso_value_iso50">ISO50</string>
      <string name="pref_camera_iso_value_iso100">ISO100</string>
+     <string name="pref_camera_iso_value_iso125">ISO125</string>
+     <string name="pref_camera_iso_value_iso150">ISO150</string>
      <string name="pref_camera_iso_value_iso200">ISO200</string>
+     <string name="pref_camera_iso_value_iso250">ISO250</string>
+     <string name="pref_camera_iso_value_iso300">ISO300</string>
+     <string name="pref_camera_iso_value_iso320">ISO320</string>
+     <string name="pref_camera_iso_value_iso350">ISO350</string>
      <string name="pref_camera_iso_value_iso400">ISO400</string>
+     <string name="pref_camera_iso_value_iso450">ISO450</string>
+     <string name="pref_camera_iso_value_iso500">ISO500</string>
+     <string name="pref_camera_iso_value_iso600">ISO600</string>
+     <string name="pref_camera_iso_value_iso640">ISO640</string>
+     <string name="pref_camera_iso_value_iso700">ISO700</string>
      <string name="pref_camera_iso_value_iso800">ISO800</string>
+     <string name="pref_camera_iso_value_iso1000">ISO1000</string>
+     <string name="pref_camera_iso_value_iso1200">ISO1200</string>
+     <string name="pref_camera_iso_value_iso1250">ISO1250</string>
+     <string name="pref_camera_iso_value_iso1500">ISO1500</string>
      <string name="pref_camera_iso_value_iso1600">ISO1600</string>
+     <string name="pref_camera_iso_value_iso2000">ISO2000</string>
+     <string name="pref_camera_iso_value_iso2500">ISO2500</string>
+     <string name="pref_camera_iso_value_iso2700">ISO2700</string>
      <string name="pref_camera_iso_value_iso3200">ISO3200</string>
+     <string name="pref_camera_iso_value_iso6400">ISO6400</string>
+     <string name="pref_camera_iso_value_iso12800">ISO12800</string>
 
      <!-- Settings screen, Anti Banding title -->
      <string name="pref_camera_antibanding_title">Anti Banding</string>
