@@ -83,6 +83,7 @@ public class CameraSettings {
     public static final String KEY_STARTUP_MODULE_INDEX = "camera.startup_module";
 
     public static final String KEY_POWER_SHUTTER = "pref_power_shutter";
+    public static final String KEY_MAX_BRIGHTNESS = "pref_max_brightness";
     public static final String KEY_VIDEO_ENCODER = "pref_camera_videoencoder_key";
     public static final String KEY_AUDIO_ENCODER = "pref_camera_audioencoder_key";
     public static final String KEY_POWER_MODE = "pref_camera_powermode_key";
