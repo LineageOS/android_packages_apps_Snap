@@ -228,6 +228,8 @@ public class CameraActivity extends Activity
     private boolean mInCameraApp = true;
     // Keep track of powershutter state
     public static boolean mPowerShutter = false;
+    // Keep track of max brightness state
+    public static boolean mMaxBrightness = false;
     private int mLastRawOrientation;
     private MyOrientationEventListener mOrientationListener;
     private Handler mMainHandler;
@@ -2111,6 +2113,24 @@ public class CameraActivity extends Activity
             getWindow().clearPrivateFlags(
                     WindowManager.LayoutParams.PRIVATE_FLAG_PREVENT_POWER_KEY);
         }
+    }
+
+    protected void initMaxBrightness(ComboPreferences prefs) {
+        String val = prefs.getString(CameraSettings.KEY_MAX_BRIGHTNESS,
+                getResources().getString(R.string.pref_camera_max_brightness_default));
+
+        Window win = getWindow();
+        WindowManager.LayoutParams params = win.getAttributes();
+
+        mMaxBrightness = val.equals(CameraSettings.VALUE_ON);
+
+        if (mMaxBrightness && mInCameraApp) {
+            params.screenBrightness = WindowManager.LayoutParams.BRIGHTNESS_OVERRIDE_FULL;
+        } else {
+            params.screenBrightness = WindowManager.LayoutParams.BRIGHTNESS_OVERRIDE_NONE;
+        }
+
+        win.setAttributes(params);
     }
 
     protected void setResultEx(int resultCode) {

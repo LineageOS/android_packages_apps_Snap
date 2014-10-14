@@ -504,6 +504,9 @@ public class VideoModule implements CameraModule,
         // Power shutter
         mActivity.initPowerShutter(mPreferences);
 
+        // Max brightness
+        mActivity.initMaxBrightness(mPreferences);
+
         /*
          * To reduce startup time, we start the preview in another thread.
          * We make sure the preview is started at the end of onCreate.
@@ -2907,6 +2910,7 @@ public class VideoModule implements CameraModule,
                 mPreferences.getString(CameraSettings.KEY_CAMERA_SAVEPATH, "0").equals("1"));
             mActivity.updateStorageSpaceAndHint();
             mActivity.initPowerShutter(mPreferences);
+            mActivity.initMaxBrightness(mPreferences);
         }
     }
 
