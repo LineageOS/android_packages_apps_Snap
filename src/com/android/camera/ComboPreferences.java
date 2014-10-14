@@ -159,7 +159,8 @@ public class ComboPreferences implements
                 || key.equals(SettingsManager.KEY_MONO_PREVIEW)
                 || key.equals(SettingsManager.KEY_SWITCH_CAMERA)
                 || key.equals(SettingsManager.KEY_CLEARSIGHT)
-                || key.equals(CameraSettings.KEY_POWER_SHUTTER);
+                || key.equals(CameraSettings.KEY_POWER_SHUTTER)
+                || key.equals(CameraSettings.KEY_MAX_BRIGHTNESS);
     }
 
     @Override
