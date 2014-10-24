@@ -885,7 +885,6 @@ public class SettingsManager implements ListMenu.SettingsListener {
         ListPreference mpo = mPreferenceGroup.findPreference(KEY_MPO);
         ListPreference redeyeReduction = mPreferenceGroup.findPreference(KEY_REDEYE_REDUCTION);
         ListPreference videoQuality = mPreferenceGroup.findPreference(KEY_VIDEO_QUALITY);
-        ListPreference videoDuration = mPreferenceGroup.findPreference(KEY_VIDEO_DURATION);
         ListPreference audioEncoder = mPreferenceGroup.findPreference(KEY_AUDIO_ENCODER);
         ListPreference noiseReduction = mPreferenceGroup.findPreference(KEY_NOISE_REDUCTION);
         ListPreference faceDetection = mPreferenceGroup.findPreference(KEY_FACE_DETECTION);
@@ -995,29 +994,6 @@ public class SettingsManager implements ListMenu.SettingsListener {
             if (filterUnsupportedOptions(videoQuality,
                     getSupportedVideoSize(cameraId))) {
                 mFilteredKeys.add(videoQuality.getKey());
-            }
-        }
-
-        if (videoDuration != null) {
-            final SharedPreferences pref = mContext.getSharedPreferences(
-                    ComboPreferences.getLocalSharedPreferencesName(mContext, cameraId),
-                    Context.MODE_PRIVATE);
-            String fpsStr = pref.getString(SettingsManager.KEY_VIDEO_HIGH_FRAME_RATE, "off");
-            if (fpsStr != null && !fpsStr.equals("off")) {
-                int fpsRate = Integer.parseInt(fpsStr.substring(3));
-                if (fpsRate == 480) {
-                    if (filterUnsupportedOptions(videoDuration, getSupportedVideoDurationFor480())) {
-                        mFilteredKeys.add(videoDuration.getKey());
-                    }
-                } else {
-                    if (filterUnsupportedOptions(videoDuration, getSupportedVideoDuration())) {
-                        mFilteredKeys.add(videoDuration.getKey());
-                    }
-                }
-            } else {
-                if (filterUnsupportedOptions(videoDuration, getSupportedVideoDuration())) {
-                    mFilteredKeys.add(videoDuration.getKey());
-                }
             }
         }
 
@@ -1712,24 +1688,6 @@ public class SettingsManager implements ListMenu.SettingsListener {
         return map.getOutputSizes(cl);
     }
 
-    private List<String> getSupportedVideoDuration() {
-        int[] videoDurations = {-1, 10, 30, 0};
-        List<String> modes = new ArrayList<>();
-        for (int i : videoDurations) {
-            modes.add(""+i);
-        }
-        return  modes;
-    }
-
-    private List<String> getSupportedVideoDurationFor480() {
-        int[] videoDurations = {48, 144, 0};
-        List<String> modes = new ArrayList<>();
-        for (int i : videoDurations) {
-            modes.add(""+i);
-        }
-        return  modes;
-    }
-
     private List<String> getSupportedVideoSize(int cameraId) {
         StreamConfigurationMap map = mCharacteristics.get(cameraId).get(
                 CameraCharacteristics.SCALER_STREAM_CONFIGURATION_MAP);
@@ -2137,22 +2095,6 @@ public class SettingsManager implements ListMenu.SettingsListener {
             return true;
         }else{
             return false;
-        }
-    }
-
-    public void filterVideoDuration() {
-        ListPreference videoDuration = mPreferenceGroup.findPreference(KEY_VIDEO_DURATION);
-        videoDuration.reloadInitialEntriesAndEntryValues();
-        if (filterUnsupportedOptions(videoDuration, getSupportedVideoDuration())) {
-            mFilteredKeys.add(videoDuration.getKey());
-        }
-    }
-
-    public void filterVideoDurationFor480fps() {
-        ListPreference videoDuration = mPreferenceGroup.findPreference(KEY_VIDEO_DURATION);
-        videoDuration.reloadInitialEntriesAndEntryValues();
-        if (filterUnsupportedOptions(videoDuration, getSupportedVideoDurationFor480())) {
-            mFilteredKeys.add(videoDuration.getKey());
         }
     }
 

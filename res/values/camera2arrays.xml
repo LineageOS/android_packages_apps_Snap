@@ -746,25 +746,6 @@
         <item>320x240</item>
     </string-array>
 
-    <string-array name="pref_camera2_video_duration_entries" translatable="false">
-        <item>@string/pref_camera_video_duration_entry_mms</item>
-        <item>@string/pref_camera_video_duration_entry_10</item>
-        <item>@string/pref_camera_video_duration_entry_30</item>
-        <item>@string/pref_camera_video_duration_entry_48</item>
-        <item>@string/pref_camera_video_duration_entry_144</item>
-        <item>@string/pref_camera_video_duration_entry_nolimit</item>
-    </string-array>
-
-    <!-- The numbers are in minutes, except -1 means the duration suitable for mms. -->
-    <string-array name="pref_camera2_video_duration_entryvalues" translatable="false">
-        <item>-1</item>
-        <item>10</item>
-        <item>30</item>
-        <item>48</item>
-        <item>144</item>
-        <item>0</item>
-    </string-array>
-
     <string-array name="pref_camera2_videoencoder_entries" translatable="false">
         <item>@string/pref_camera_videoencoder_entry_0</item>
         <item>@string/pref_camera_videoencoder_entry_1</item>

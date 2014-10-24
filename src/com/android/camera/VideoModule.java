@@ -840,24 +840,6 @@ public class VideoModule implements CameraModule,
 
         Log.v(TAG, "Audio Encoder selected = " +mAudioEncoder);
 
-        String minutesStr = mPreferences.getString(
-              CameraSettings.KEY_VIDEO_DURATION,
-              mActivity.getString(R.string.pref_camera_video_duration_default));
-        int minutes = -1;
-        try {
-            minutes = Integer.parseInt(minutesStr);
-        } catch(NumberFormatException npe) {
-            // use default value continue
-            minutes = Integer.parseInt(mActivity.getString(
-                         R.string.pref_camera_video_duration_default));
-        }
-        if (minutes == -1) {
-            // User wants lowest, set 30s */
-            mMaxVideoDurationInMs = 30000;
-        } else {
-            // 1 minute = 60000ms
-            mMaxVideoDurationInMs = 60000 * minutes;
-        }
         if(ParametersWrapper.isPowerModeSupported(mParameters)) {
             String powermode = mPreferences.getString(
                     CameraSettings.KEY_POWER_MODE,
