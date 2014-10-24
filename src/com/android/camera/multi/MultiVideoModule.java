@@ -889,7 +889,6 @@ public class MultiVideoModule implements MultiCamera, LocationManager.Listener,
     };
 
     private void initializeValues() {
-        updateMaxVideoDuration();
         updateAudioEncoder();
         updateVideoRotation();
     }
@@ -1086,21 +1085,6 @@ public class MultiVideoModule implements MultiCamera, LocationManager.Listener,
                 Log.v(TAG, "Empty video file deleted: " + mVideoFilenames[id]);
                 mVideoFilenames[id] = null;
             }
-        }
-    }
-
-    private void updateMaxVideoDuration() {
-        String defaultValue = mActivity.getResources().getString(
-                R.string.pref_camera_video_duration_default);
-        String minutesStr = mLocalSharedPref.getString(MultiSettingsActivity.KEY_VIDEO_DURATION,
-                defaultValue);
-        int minutes = Integer.parseInt(minutesStr);
-        if (minutes == -1) {
-            // User wants lowest, set 30s */
-            mMaxVideoDurationInMs = 30000;
-        } else {
-            // 1 minute = 60000ms
-            mMaxVideoDurationInMs = 60000 * minutes;
         }
     }
 

@@ -260,7 +260,6 @@ public class MultiSettingsActivity extends PreferenceActivity {
         initializeVideoSize1();
         initializeVideoSize2();
         initializeVideoSize3();
-        initializeVideoDuration();
         initializeAudioEncoder();
         initializeVideoRotation();
 
@@ -527,22 +526,6 @@ public class MultiSettingsActivity extends PreferenceActivity {
         }
     }
 
-    private void initializeVideoDuration() {
-        filterUnsupported(KEY_VIDEO_DURATION, getSupportedVideoDuration());
-        String duration = MultiSettingsActivity.this.getResources().getString(
-                R.string.pref_camera_video_duration_default);
-        if (mLocalSharedPref != null) {
-            duration = mLocalSharedPref.getString(KEY_VIDEO_DURATION, duration);
-        }
-        ListPreference videoDurationPref = (ListPreference) findPreference(KEY_VIDEO_DURATION);
-        if (videoDurationPref != null) {
-            try {
-                videoDurationPref.setValue(duration);
-            } catch(IndexOutOfBoundsException e) {
-            }
-        }
-    }
-
     private void initializeAudioEncoder() {
         String audioEncoder = MultiSettingsActivity.this.getResources().getString(
                 R.string.pref_camera_audioencoder_default);
@@ -629,15 +612,6 @@ public class MultiSettingsActivity extends PreferenceActivity {
             e.printStackTrace();
         }
         return res;
-    }
-
-    private List<String> getSupportedVideoDuration() {
-        int[] videoDurations = {-1, 10, 30, 0};
-        List<String> modes = new ArrayList<>();
-        for (int i : videoDurations) {
-            modes.add(""+i);
-        }
-        return  modes;
     }
 
     private void filterUnsupported(String key, List<String> supported) {

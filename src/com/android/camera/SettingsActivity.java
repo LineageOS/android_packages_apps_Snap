@@ -138,19 +138,6 @@ public class SettingsActivity extends PreferenceActivity {
                 updatePreference(SettingsManager.KEY_VIDEO_ENCODER);
             } else if (key.equals(SettingsManager.KEY_VIDEO_ENCODER) ) {
                 updatePreference(SettingsManager.KEY_VIDEO_ENCODER_PROFILE);
-            } else if (key.equals(SettingsManager.KEY_VIDEO_HIGH_FRAME_RATE)) {
-                value = ((ListPreference) p).getValue();
-                if (!value.equals("off")) {
-                    int fpsRate = Integer.parseInt(value.substring(3));
-                    if (fpsRate == 480) {
-                        mSettingsManager.filterVideoDurationFor480fps();
-                    } else {
-                        mSettingsManager.filterVideoDuration();
-                    }
-                } else {
-                    mSettingsManager.filterVideoDuration();
-                }
-                updatePreference(SettingsManager.KEY_VIDEO_DURATION);
             }
             List<String> list = mSettingsManager.getDependentKeys(key);
             if (list != null) {
@@ -1181,7 +1168,6 @@ public class SettingsActivity extends PreferenceActivity {
         updatePreference(SettingsManager.KEY_VIDEO_HIGH_FRAME_RATE);
         updatePreference(SettingsManager.KEY_VIDEO_ENCODER);
         updatePreference(SettingsManager.KEY_ZOOM);
-        updatePreference(SettingsManager.KEY_VIDEO_DURATION);
         updatePreference(SettingsManager.KEY_SWITCH_CAMERA);
         updatePreference(SettingsManager.KEY_TONE_MAPPING);
         updateMultiPreference(SettingsManager.KEY_STATS_VISUALIZER_VALUE);
@@ -1337,7 +1323,6 @@ public class SettingsActivity extends PreferenceActivity {
                     idx = 0;
                 }
                 pref.setValueIndex(idx);
-                mSettingsManager.setValueIndex(key, idx);
             }
         }
     }

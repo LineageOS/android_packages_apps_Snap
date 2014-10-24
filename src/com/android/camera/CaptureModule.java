@@ -5422,6 +5422,10 @@ public class CaptureModule implements CameraModule, PhotoController,
 
     private void updateMaxVideoDuration() {
         String minutesStr = mSettingsManager.getValue(SettingsManager.KEY_VIDEO_DURATION);
+        if (minutesStr == null) {
+            mMaxVideoDurationInMs = 0;
+            return;
+        }
         int minutes = Integer.parseInt(minutesStr);
         if (minutes == -1) {
             // User wants lowest, set 30s */
