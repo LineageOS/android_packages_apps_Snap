@@ -29,10 +29,10 @@
   <!-- Auto exposure -->
   <string name="pref_camera_autoexposure_title">自動曝光</string>
   <string name="pref_camera_autoexposure_entry_centerweighted">中心測光</string>
-  <string name="pref_camera_autoexposure_entry_frameaverage">均幅值</string>
+  <string name="pref_camera_autoexposure_entry_frameaverage">平均影格數</string>
   <string name="pref_camera_autoexposure_entry_spotmetering">點測光</string>
   <!-- Video codec -->
-  <string name="pref_camera_videoencoder_title">視訊編碼器</string>
+  <string name="pref_camera_videoencoder_title">影片編碼器</string>
   <!-- Audio codec -->
   <string name="pref_camera_audioencoder_title">音訊編碼器</string>
   <!-- Skin tone enhancement -->
@@ -43,7 +43,7 @@
   <string name="pref_camera_selectablezoneaf_title">自動對焦區域</string>
   <string name="pref_camera_selectablezoneaf_entry_auto">自動</string>
   <string name="pref_camera_selectablezoneaf_entry_centerweighted">中心測光</string>
-  <string name="pref_camera_selectablezoneaf_entry_frameaverage">幅均值</string>
+  <string name="pref_camera_selectablezoneaf_entry_frameaverage">平均影格數</string>
   <string name="pref_camera_selectablezoneaf_entry_spotmetering">點測光</string>
   <!-- Advanced features -->
   <string name="pref_camera_advanced_features_title">進階功能</string>
@@ -79,7 +79,7 @@
   <!-- Video TNR -->
   <string name="pref_camera_video_tnr_title">影片 TNR 模式</string>
   <!-- Face detection -->
-  <string name="pref_camera_facedetection_title">人臉檢測</string>
+  <string name="pref_camera_facedetection_title">人臉偵測</string>
   <!-- Selfie Flash -->
   <string name="pref_selfie_flash_title">自拍閃光燈</string>
   <!-- Red eye reduction -->
@@ -87,15 +87,15 @@
   <!-- AE bracketing -->
   <string name="pref_camera_ae_bracket_hdr_title">自動包圍曝光</string>
   <!-- High-framerate recording -->
-  <string name="pref_camera_hfr_title">高幀率錄製</string>
+  <string name="pref_camera_hfr_title">高影格率錄製</string>
   <string name="pref_camera_hfr_entry_off">關</string>
-  <string name="pref_camera_hfr_entry_2x">慢動作 60 幀/秒</string>
-  <string name="pref_camera_hfr_entry_3x">慢動作 90 幀/秒</string>
-  <string name="pref_camera_hfr_entry_4x">慢動作 120 幀/秒</string>
-  <string name="pref_camera_hfr_entry_8x">慢動作 240 幀/秒</string>
-  <string name="pref_camera_hfr_entry_hsr_60">高速 60 幀/秒</string>
-  <string name="pref_camera_hfr_entry_hsr_90">高速 90 幀/秒</string>
-  <string name="pref_camera_hfr_entry_hsr_120">高速 120 幀/秒</string>
+  <string name="pref_camera_hfr_entry_2x">慢動作 60 影格/秒</string>
+  <string name="pref_camera_hfr_entry_3x">慢動作 90 影格/秒</string>
+  <string name="pref_camera_hfr_entry_4x">慢動作 120 影格/秒</string>
+  <string name="pref_camera_hfr_entry_8x">慢動作 240 影格/秒</string>
+  <string name="pref_camera_hfr_entry_hsr_60">高速 60 影格/秒</string>
+  <string name="pref_camera_hfr_entry_hsr_90">高速 90 影格/秒</string>
+  <string name="pref_camera_hfr_entry_hsr_120">高速 120 影格/秒</string>
   <!-- See More -->
   <!-- Denoise -->
   <string name="pref_camera_denoise_title">降噪</string>
@@ -159,43 +159,43 @@
   <string name="pref_camera_facerc_title">人臉識別</string>
   <!-- Sharpness -->
   <string name="pref_camera_sharpness_title">銳利度</string>
-  <string name="pref_camera_sharpness_entry_level0">0 級</string>
-  <string name="pref_camera_sharpness_entry_level1">1 級</string>
-  <string name="pref_camera_sharpness_entry_level2">2 級 (預設值)</string>
-  <string name="pref_camera_sharpness_entry_level3">3 級</string>
-  <string name="pref_camera_sharpness_entry_level4">4 級</string>
-  <string name="pref_camera_sharpness_entry_level5">5 級</string>
-  <string name="pref_camera_sharpness_entry_level6">6 級</string>
+  <string name="pref_camera_sharpness_entry_level0">級別 0</string>
+  <string name="pref_camera_sharpness_entry_level1">級別 1</string>
+  <string name="pref_camera_sharpness_entry_level2">級別 2 (預設值)</string>
+  <string name="pref_camera_sharpness_entry_level3">級別 3</string>
+  <string name="pref_camera_sharpness_entry_level4">級別 4</string>
+  <string name="pref_camera_sharpness_entry_level5">級別 5</string>
+  <string name="pref_camera_sharpness_entry_level6">級別 6</string>
   <!-- Contrast -->
   <string name="pref_camera_contrast_title">對比度</string>
-  <string name="pref_camera_contrast_entry_level0">0 級</string>
-  <string name="pref_camera_contrast_entry_level1">1 級</string>
-  <string name="pref_camera_contrast_entry_level2">2 級</string>
-  <string name="pref_camera_contrast_entry_level3">3 級</string>
-  <string name="pref_camera_contrast_entry_level4">4 級</string>
-  <string name="pref_camera_contrast_entry_level5">5 級 (預設值)</string>
-  <string name="pref_camera_contrast_entry_level6">6 級</string>
-  <string name="pref_camera_contrast_entry_level7">7 級</string>
-  <string name="pref_camera_contrast_entry_level8">8 級</string>
+  <string name="pref_camera_contrast_entry_level0">級別 0</string>
+  <string name="pref_camera_contrast_entry_level1">級別 1</string>
+  <string name="pref_camera_contrast_entry_level2">級別 2</string>
+  <string name="pref_camera_contrast_entry_level3">級別 3</string>
+  <string name="pref_camera_contrast_entry_level4">級別 4</string>
+  <string name="pref_camera_contrast_entry_level5">級別 5 (預設值)</string>
+  <string name="pref_camera_contrast_entry_level6">級別 6</string>
+  <string name="pref_camera_contrast_entry_level7">級別 7</string>
+  <string name="pref_camera_contrast_entry_level8">級別 8</string>
   <string name="pref_camera_contrast_entry_level9">9 級</string>
-  <string name="pref_camera_contrast_entry_level10">10 級</string>
+  <string name="pref_camera_contrast_entry_level10">級別 10</string>
   <!-- Saturation -->
   <string name="pref_camera_saturation_title">飽和度</string>
-  <string name="pref_camera_saturation_entry_level0">0 級</string>
-  <string name="pref_camera_saturation_entry_level1">1 級</string>
-  <string name="pref_camera_saturation_entry_level2">2 級</string>
-  <string name="pref_camera_saturation_entry_level3">3 級</string>
-  <string name="pref_camera_saturation_entry_level4">4 級</string>
-  <string name="pref_camera_saturation_entry_level5">5 級 (預設值)</string>
-  <string name="pref_camera_saturation_entry_level6">6 級</string>
-  <string name="pref_camera_saturation_entry_level7">7 級</string>
-  <string name="pref_camera_saturation_entry_level8">8 級</string>
-  <string name="pref_camera_saturation_entry_level9">9 級</string>
-  <string name="pref_camera_saturation_entry_level10">10 級</string>
+  <string name="pref_camera_saturation_entry_level0">級別 0</string>
+  <string name="pref_camera_saturation_entry_level1">級別 1</string>
+  <string name="pref_camera_saturation_entry_level2">級別 2</string>
+  <string name="pref_camera_saturation_entry_level3">級別 3</string>
+  <string name="pref_camera_saturation_entry_level4">級別 4</string>
+  <string name="pref_camera_saturation_entry_level5">級別 5 (預設值)</string>
+  <string name="pref_camera_saturation_entry_level6">級別 6</string>
+  <string name="pref_camera_saturation_entry_level7">級別 7</string>
+  <string name="pref_camera_saturation_entry_level8">級別 8</string>
+  <string name="pref_camera_saturation_entry_level9">級別 9</string>
+  <string name="pref_camera_saturation_entry_level10">級別 10</string>
   <!-- Picture format -->
-  <string name="pref_camera_picture_format_title">照片格式</string>
+  <string name="pref_camera_picture_format_title">相片格式</string>
   <!-- Picture quality -->
-  <string name="pref_camera_jpegquality_title">照片品質</string>
+  <string name="pref_camera_jpegquality_title">相片品質</string>
   <string name="pref_camera_jpegquality_entry_0">55%</string>
   <string name="pref_camera_jpegquality_entry_1">65% (一般)</string>
   <string name="pref_camera_jpegquality_entry_2">75% (精細)</string>
@@ -213,9 +213,9 @@
   <!-- HDR mode -->
   <string name="pref_camera_hdr_mode_title">HDR 模式</string>
   <string name="pref_camera_hdr_mode_entry_sensor">感應器 HDR</string>
-  <string name="pref_camera_hdr_mode_entry_multi_frame">多幀 HDR</string>
+  <string name="pref_camera_hdr_mode_entry_multi_frame">多影格 HDR</string>
   <!-- HDR needs 1x frame -->
-  <string name="pref_camera_hdr_need_1x_title">HDR 需要 1x 幀</string>
+  <string name="pref_camera_hdr_need_1x_title">HDR 需要 1x 影格</string>
   <!-- Video rotation -->
   <string name="pref_camera_video_rotation_title">影片旋轉</string>
   <string name="pref_camera_video_rotation_entry_0">0 度</string>
@@ -230,10 +230,10 @@
   <!-- The alias of CameraActivity for gesture operation -->
   <string name="camera_gesture_title">啟動相機</string>
   <string name="all_in_focus">全焦</string>
-  <string name="refocus_toast">輕觸此為上一張照片重新對焦</string>
+  <string name="refocus_toast">輕觸此為上一張相片重新對焦</string>
   <!-- Toast messages -->
   <!-- The message is shown in toast when the app encounters an unsupported selection for High-framerate recording mode -->
-  <string name="error_app_unsupported_hfr_selection">當使用穩定化/縮時/HDR時不支援高幀率拍攝</string>
+  <string name="error_app_unsupported_hfr_selection">當使用穩定化/縮時/ HDR 時不支援高影格率拍攝</string>
   <!-- The message is shown in dialog when the app encounters an unsupported resolution for Slow motion mode -->
   <string name="error_app_unsupported_hfr">所選的影片尺寸不支援慢動作模式，請選擇較細的影片尺寸</string>
   <!-- The message is shown in toast when the app encounters an unsupported resolution for Stabilization mode -->
@@ -241,14 +241,14 @@
   <!-- The message is shown in dialog when the app encounters an unsupported resolution for High speed mode -->
   <string name="error_app_unsupported_hsr">所選的影片尺寸不支援高速模式，請選擇較細的影片尺寸</string>
   <!-- The message is shown in dialog when the app encounters an unsupported video codec for HFR mode -->
-  <string name="error_app_unsupported_hfr_codec">當啟用高幀率模式時僅支援 H264 編碼格式</string>
+  <string name="error_app_unsupported_hfr_codec">當啟用高影格率模式時僅支援 H264 編碼格式</string>
   <!-- The message is shown in dialog when the app encounters an unsupported video resolution-->
   <string name="error_app_unsupported">影片解像度不支援此編碼器類型</string>
   <!--The message is shown in dialog when the raw snapshot is selected in Zero shutter lag mode-->
   <string name="error_app_unsupported_raw">零快門延遲模式下不支援 RAW 格式圖片，請選擇 JPEG 格式圖片</string>
   <string name="msg_cancel_longshot_for_limited_memory">記憶體不足，正取消連拍模式</string>
   <!-- Toast showing non-supported functionality for flash in AE bracket -->
-  <string name="flash_aebracket_message">AE 曝光模式下不支援閃光燈</string>
+  <string name="flash_aebracket_message">在 AE 包覆曝光模式下不支援閃光燈</string>
   <!-- toast message for storage location switch -->
   <string name="on_switch_save_path_to_sdcard">內部儲存空間不足，已切換儲存位置至 SD 卡</string>
   <!-- The message is shown in toast when click showOnMap Menu and there is no map app -->
@@ -258,7 +258,7 @@
   <!-- Advance features enable message -->
   <string name="advance_feature_enable_msg">當進階功能啟用時不支援連拍</string>
   <!-- Toast after enable HDR function to inform continuous shot has disabled -->
-  <string name="HDR_disable_continuous_shot">啟用高幀率模式將停用連拍</string>
+  <string name="HDR_disable_continuous_shot">啟用高影格率模式將停用連拍</string>
   <!-- Toast after enable advanced capture function to inform continuous shot has disabled -->
   <string name="advanced_capture_disable_continuous_shot">啟用進階拍攝將停用連拍</string>
   <!-- Toast after enable 2k4k video quality to inform IS has disabled -->
