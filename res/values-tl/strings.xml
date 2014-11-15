@@ -114,18 +114,6 @@
     <string name="pref_camera_settings_category" msgid="4274141528139077830">"Mga setting ng camera"</string>
     <string name="pref_camcorder_settings_category" msgid="3553148484755353397">"Mga setting ng camcorder"</string>
     <string name="pref_camera_picturesize_title" msgid="686045304547541815">"Laki ng larawan"</string>
-    <string name="pref_camera_picturesize_entry_13mp" msgid="6728485576074234195">"13M pixel"</string>
-    <string name="pref_camera_picturesize_entry_8mp" msgid="7088352012301633667">"8M pixel"</string>
-    <string name="pref_camera_picturesize_entry_5mp" msgid="1501745661448065284">"5M pixel"</string>
-    <string name="pref_camera_picturesize_entry_4mp_wide" msgid="3338812763544573634">"4M pixels (16:9)"</string>
-    <string name="pref_camera_picturesize_entry_3mp" msgid="140799231761236311">"3M pixel"</string>
-    <string name="pref_camera_picturesize_entry_2mp" msgid="450006451326859328">"2M pixel"</string>
-    <string name="pref_camera_picturesize_entry_2mp_wide" msgid="1877997036497332813">"2M pixel (16:9)"</string>
-    <string name="pref_camera_picturesize_entry_1_5mp" msgid="7089801019442294745">"1.5M pixel"</string>
-    <string name="pref_camera_picturesize_entry_1_3mp" msgid="3451742533756821502">"1.3M pixel"</string>
-    <string name="pref_camera_picturesize_entry_1mp" msgid="5043732005295894167">"1M pixel"</string>
-    <string name="pref_camera_picturesize_entry_vga" msgid="7387786033708903628">"VGA"</string>
-    <string name="pref_camera_picturesize_entry_qvga" msgid="6134562622041084167">"QVGA"</string>
     <string name="pref_camera_focusmode_title" msgid="3637702747984180030">"Focus mode"</string>
     <string name="pref_camera_focusmode_entry_auto" msgid="8977409813328199501">"Auto"</string>
     <string name="pref_camera_focusmode_entry_infinity" msgid="3887667853236656322">"Infinity"</string>
