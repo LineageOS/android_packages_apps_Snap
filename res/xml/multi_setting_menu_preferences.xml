@@ -42,9 +42,6 @@
             android:title="@string/pref_multi_camera_hal_zsl_title" />
 
         <ListPreference
-            android:defaultValue="@string/pref_multi_camera_picturesize_default"
-            android:entries="@array/pref_camera2_picturesize_entries"
-            android:entryValues="@array/pref_camera2_picturesize_entryvalues"
             android:icon="@drawable/picture_size"
             android:key="pref_multi_camera_picturesize1_key"
             android:layout="@layout/preference"
@@ -52,9 +49,6 @@
             android:title="@string/pref_multi_camera_picturesize1_title" />
 
         <ListPreference
-            android:defaultValue="@string/pref_multi_camera_picturesize_default"
-            android:entries="@array/pref_camera2_picturesize_entries"
-            android:entryValues="@array/pref_camera2_picturesize_entryvalues"
             android:icon="@drawable/picture_size"
             android:key="pref_multi_camera_picturesize2_key"
             android:layout="@layout/preference"
@@ -62,9 +56,6 @@
             android:title="@string/pref_multi_camera_picturesize2_title" />
 
         <ListPreference
-            android:defaultValue="@string/pref_multi_camera_picturesize_default"
-            android:entries="@array/pref_camera2_picturesize_entries"
-            android:entryValues="@array/pref_camera2_picturesize_entryvalues"
             android:icon="@drawable/picture_size"
             android:key="pref_multi_camera_picturesize3_key"
             android:layout="@layout/preference"

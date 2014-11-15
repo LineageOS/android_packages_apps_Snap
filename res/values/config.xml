@@ -68,4 +68,6 @@
          will be enabled ONLY for these scenemodes and disabled for others. -->
     <string-array name="longshot_scenemodes"></string-array>
 
+    <!-- Minimum picture size (in pixel) to include in selection list -->
+    <integer name="minimum_picture_size">900000</integer>
 </resources>
