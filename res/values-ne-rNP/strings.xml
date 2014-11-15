@@ -115,17 +115,6 @@
     <string name="pref_camera_settings_category" msgid="4286755118301278593">"क्यामरा सेटिङहरू"</string>
     <string name="pref_camcorder_settings_category" msgid="4617708050480193189">"क्यामकोडर सेटिङहरू"</string>
     <string name="pref_camera_picturesize_title" msgid="7285867796470070880">"चित्र आकार"</string>
-    <string name="pref_camera_picturesize_entry_13mp" msgid="3084140665950405601">"13M पिक्सेल"</string>
-    <string name="pref_camera_picturesize_entry_8mp" msgid="6497793506352769366">"8M पिक्सल"</string>
-    <string name="pref_camera_picturesize_entry_5mp" msgid="8813718385379530965">"5M पिक्सेल"</string>
-    <string name="pref_camera_picturesize_entry_4mp_wide" msgid="8546276478576735924">"4M पिक्सेल (16:9)"</string>
-    <string name="pref_camera_picturesize_entry_3mp" msgid="6233692859150247237">"3M पिक्सल"</string>
-    <string name="pref_camera_picturesize_entry_2mp" msgid="542341433431186453">"२ मेगा पिक्सेल"</string>
-    <string name="pref_camera_picturesize_entry_2mp_wide" msgid="607495602129189476">"2M पिक्सेल (16:9)"</string>
-    <string name="pref_camera_picturesize_entry_1_3mp" msgid="2279105572299544416">"1.3M पिक्सेल"</string>
-    <string name="pref_camera_picturesize_entry_1mp" msgid="4015199907773658431">"१ मेगा पिक्सेल"</string>
-    <string name="pref_camera_picturesize_entry_vga" msgid="5417241189390562935">"VGA"</string>
-    <string name="pref_camera_picturesize_entry_qvga" msgid="5211497128670067462">"QVGA"</string>
     <string name="pref_camera_focusmode_title" msgid="4675290599521989576">"फोकस मोड"</string>
     <string name="pref_camera_focusmode_entry_auto" msgid="2359207328353055475">"स्वतः"</string>
     <string name="pref_camera_focusmode_entry_infinity" msgid="2864044462778663709">"अनन्तता"</string>
