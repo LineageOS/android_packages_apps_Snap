@@ -809,17 +809,6 @@
      <string name="pref_camera_histogram_value_enable">enable</string>
      <string name="pref_camera_histogram_value_disable">disable</string>
 
-    <string name="pref_camera_picturesize_entry_1920x1080">HD1080</string>
-    <string name="pref_camera_picturesize_entry_1280x768">WXGA</string>
-    <string name="pref_camera_picturesize_entry_1280x720">HD720</string>
-    <string name="pref_camera_picturesize_entry_1280x400">1280 x 400</string>
-    <string name="pref_camera_picturesize_entry_800x600">SVGA</string>
-    <string name="pref_camera_picturesize_entry_800x480">WVGA</string>
-    <string name="pref_camera_picturesize_entry_960x720">960 x 720</string>
-    <string name="pref_camera_picturesize_entry_720x480">720 x 480</string>
-    <string name="pref_camera_picturesize_entry_352x288">CIF</string>
-    <string name="pref_camera_picturesize_entry_176x144">QCIF</string>
-
     <!-- Default auto scene detection setting. -->
     <string name="pref_camera_scenedetect_default" translatable="false">off</string>
 
