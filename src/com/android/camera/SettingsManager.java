@@ -517,9 +517,9 @@ public class SettingsManager implements ListMenu.SettingsListener {
         if (cameraIdPref != null) buildCameraId();
 
         if (pictureSize != null) {
-            CameraSettings.filterUnsupportedOptions(mPreferenceGroup,
-                    pictureSize, getSupportedPictureSize(cameraId));
-            CameraSettings.filterSimilarPictureSize(mPreferenceGroup, pictureSize);
+            CameraSettings.formatPictureSizes(pictureSize,
+                    getSupportedPictureSize(cameraId), mContext);
+            CameraSettings.resetIfInvalid(pictureSize);
         }
 
         if (exposure != null) buildExposureCompensation(cameraId);
@@ -836,21 +836,21 @@ public class SettingsManager implements ListMenu.SettingsListener {
                 mValuesMap.get(KEY_FLASH_MODE) != null;
     }
 
-    private List<String> getSupportedPictureSize(int cameraId) {
+    private List<Size> getSupportedPictureSize(int cameraId) {
         StreamConfigurationMap map = mCharacteristics.get(cameraId).get(
                 CameraCharacteristics.SCALER_STREAM_CONFIGURATION_MAP);
         Size[] sizes = map.getOutputSizes(ImageFormat.JPEG);
-        List<String> res = new ArrayList<>();
+        List<Size> res = new ArrayList<>();
         if (sizes != null) {
             for (int i = 0; i < sizes.length; i++) {
-                res.add(sizes[i].toString());
+                res.add(sizes[i]);
             }
         }
 
         Size[] highResSizes = map.getHighResolutionOutputSizes(ImageFormat.JPEG);
         if (highResSizes != null) {
             for (int i = 0; i < highResSizes.length; i++) {
-                res.add(highResSizes[i].toString());
+                res.add(highResSizes[i]);
             }
         }
 
