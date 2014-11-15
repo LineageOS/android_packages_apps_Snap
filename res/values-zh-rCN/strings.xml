@@ -115,24 +115,6 @@
     <string name="pref_camera_settings_category" msgid="4274141528139077830">"相机设置"</string>
     <string name="pref_camcorder_settings_category" msgid="3553148484755353397">"摄像机设置"</string>
     <string name="pref_camera_picturesize_title" msgid="686045304547541815">"照片尺寸"</string>
-    <string name="pref_camera_picturesize_entry_24mp">"24M 像素"</string>
-    <string name="pref_camera_picturesize_entry_21mp">"2100 万像素"</string>
-    <string name="pref_camera_picturesize_entry_16mp">"1600 万像素"</string>
-    <string name="pref_camera_picturesize_entry_16mp_wide">"1600 万像素 (16:9)"</string>
-    <string name="pref_camera_picturesize_entry_13mp">"1300万像素"</string>
-    <string name="pref_camera_picturesize_entry_12mp">"1200 万像素"</string>
-    <string name="pref_camera_picturesize_entry_8mp">"800万像素"</string>
-    <string name="pref_camera_picturesize_entry_square">"方形 (1:1)"</string>
-    <string name="pref_camera_picturesize_entry_5mp">"500万像素"</string>
-    <string name="pref_camera_picturesize_entry_4mp_wide" msgid="3338812763544573634">"400万像素 (16:9)"</string>
-    <string name="pref_camera_picturesize_entry_3mp" msgid="140799231761236311">"300万像素"</string>
-    <string name="pref_camera_picturesize_entry_2mp" msgid="450006451326859328">"200万像素"</string>
-    <string name="pref_camera_picturesize_entry_2mp_wide" msgid="1877997036497332813">"200万像素 (16:9)"</string>
-    <string name="pref_camera_picturesize_entry_1_5mp" msgid="7089801019442294745">"150万像素"</string>
-    <string name="pref_camera_picturesize_entry_1_3mp" msgid="3451742533756821502">"130万像素"</string>
-    <string name="pref_camera_picturesize_entry_1mp" msgid="5043732005295894167">"100万像素"</string>
-    <string name="pref_camera_picturesize_entry_vga" msgid="7387786033708903628">"VGA"</string>
-    <string name="pref_camera_picturesize_entry_qvga" msgid="6134562622041084167">"QVGA"</string>
     <string name="pref_camera_focusmode_title" msgid="3637702747984180030">"对焦方式"</string>
     <string name="pref_camera_focusmode_entry_auto" msgid="8977409813328199501">"自动"</string>
     <string name="pref_camera_focusmode_entry_infinity" msgid="3887667853236656322">"无限远"</string>
