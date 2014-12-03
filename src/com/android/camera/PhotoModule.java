@@ -2693,6 +2693,8 @@ public class PhotoModule
             mFocusManager.setAeAwbLock(false); // Unlock AE and AWB.
         }
 
+        if (mFocusManager == null) initializeFocusManager();
+
         setCameraParameters(UPDATE_PARAM_ALL);
 
         mCameraDevice.startPreview();
