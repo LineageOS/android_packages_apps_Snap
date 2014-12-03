@@ -2926,9 +2926,13 @@ public class PhotoModule
             mMirror = (info.facing == CameraHolder.CameraInfo.CAMERA_FACING_FRONT);
             String[] defaultFocusModes = mActivity.getResources().getStringArray(
                     R.array.pref_camera_focusmode_default_array);
-            mFocusManager = new FocusOverlayManager(mPreferences, defaultFocusModes,
-                    mInitialParams, this, mMirror,
-                    mActivity.getMainLooper(), mUI);
+            synchronized (this){
+                if (mFocusManager == null) {
+                    mFocusManager = new FocusOverlayManager(mPreferences, defaultFocusModes,
+                            mInitialParams, this, mMirror,
+                            mActivity.getMainLooper(), mUI);
+                }
+            }
         }
     }
 
@@ -3209,6 +3213,8 @@ public class PhotoModule
             stopPreview();
             mRestartPreview = false;
         }
+
+        if (mFocusManager == null) initializeFocusManager();
 
         if (!mSnapshotOnIdle) {
             mFocusManager.setAeAwbLock(false); // Unlock AE and AWB.
