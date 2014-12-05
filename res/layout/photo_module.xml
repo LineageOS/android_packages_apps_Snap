@@ -57,6 +57,10 @@
             android:layout_marginTop="15dip"
             android:layout_marginLeft="15dip" />
     </RelativeLayout>
+    <com.android.camera.ui.focus.FocusRingView
+        android:id="@+id/focus_ring"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
     <ImageView
         android:id="@+id/review_image"
         android:layout_width="match_parent"

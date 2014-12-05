@@ -45,7 +45,6 @@ import android.widget.TextView;
 import android.view.View.OnLayoutChangeListener;
 
 import com.android.camera.CameraPreference.OnPreferenceChangedListener;
-import com.android.camera.FocusOverlayManager.FocusUI;
 import com.android.camera.ui.AbstractSettingPopup;
 import com.android.camera.ui.CameraControls;
 import com.android.camera.ui.CameraRootView;
@@ -57,16 +56,17 @@ import com.android.camera.ui.RenderOverlay;
 import com.android.camera.ui.RotateLayout;
 import com.android.camera.ui.RotateTextToast;
 import com.android.camera.ui.ZoomRenderer;
+import com.android.camera.ui.focus.FocusRing;
 import com.android.camera.util.CameraUtil;
 
 public class VideoUI implements PieRenderer.PieListener,
         PreviewGestures.SingleTapListener,
         CameraRootView.MyDisplayListener,
-	FocusUI,
         SurfaceHolder.Callback,
         PauseButton.OnPauseButtonListener {
     private static final String TAG = "CAM_VideoUI";
     // module fields
+    private final FocusRing mFocusRing;
     private CameraActivity mActivity;
     private View mRootView;
     private SurfaceHolder mSurfaceHolder;
@@ -222,6 +222,7 @@ public class VideoUI implements PieRenderer.PieListener,
             }
         });
 
+        mFocusRing = (FocusRing) mRootView.findViewById(R.id.focus_ring);
         mFlashOverlay = mRootView.findViewById(R.id.flash_overlay);
         mShutterButton = (ShutterButton) mRootView.findViewById(R.id.shutter_button);
         mSwitcher = (ModuleSwitcher) mRootView.findViewById(R.id.camera_switcher);
@@ -1148,47 +1149,7 @@ public class VideoUI implements PieRenderer.PieListener,
         setOrientation(mOrientation, false);
     }
 
-    // implement focusUI interface
-    private FocusIndicator getFocusIndicator() {
-        return mPieRenderer;
-    }
-
-    @Override
-    public boolean hasFaces() {
-        return false;
-    }
-
-    @Override
-    public void clearFocus() {
-        FocusIndicator indicator = getFocusIndicator();
-        if (indicator != null) indicator.clear();
-    }
-
-    @Override
-    public void setFocusPosition(int x, int y) {
-        mPieRenderer.setFocus(x, y);
-    }
-
-    @Override
-    public void onFocusStarted(){
-        getFocusIndicator().showStart();
-    }
-
-    @Override
-    public void onFocusSucceeded(boolean timeOut) {
-        getFocusIndicator().showSuccess(timeOut);
-    }
-
-    @Override
-    public void onFocusFailed(boolean timeOut) {
-        getFocusIndicator().showFail(timeOut);
-    }
-
-    @Override
-    public void pauseFaceDetection() {
-    }
-
-    @Override
-    public void resumeFaceDetection() {
+    public FocusRing getFocusRing() {
+        return mFocusRing;
     }
 }
