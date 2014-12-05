@@ -75,7 +75,7 @@ import com.android.camera.ui.CameraControls;
 import com.android.camera.ui.OneUICameraControls;
 import com.android.camera.ui.CountDownView;
 import com.android.camera.ui.FlashToggleButton;
-import com.android.camera.ui.FocusIndicator;
+import com.android.camera.ui.focus.FocusRing;
 import com.android.camera.ui.PieRenderer;
 import com.android.camera.ui.ProMode;
 import com.android.camera.ui.RenderOverlay;
@@ -94,8 +94,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
-public class CaptureUI implements FocusOverlayManager.FocusUI,
-        PreviewGestures.SingleTapListener,
+public class CaptureUI implements PreviewGestures.SingleTapListener,
         CameraManager.CameraFaceDetectionCallback,
         SettingsManager.Listener,
         PauseButton.OnPauseButtonListener {
@@ -108,6 +107,7 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
     private static final int CLICK_THRESHOLD = 200;
     private static final int AUTOMATIC_MODE = 0;
     private static final String[] AWB_INFO_TITLE = {" R gain "," G gain "," B gain "," CCT "};
+    private final FocusRing mFocusRing;
     private CameraActivity mActivity;
     private View mRootView;
     private View mPreviewCover;
@@ -305,6 +305,8 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
         mSurfaceViewMono.setZOrderMediaOverlay(true);
         mSurfaceHolderMono = mSurfaceViewMono.getHolder();
         mSurfaceHolderMono.addCallback(callbackMono);
+
+        mFocusRing = (FocusRing) mRootView.findViewById(R.id.focus_ring);
 
         mRenderOverlay = (RenderOverlay) mRootView.findViewById(R.id.render_overlay);
         mShutterButton = (ShutterButton) mRootView.findViewById(R.id.shutter_button);
@@ -761,7 +763,6 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
                 mIsVideoUI) {
             return;
         }
-        clearFocus();
         removeFilterMenu(false);
         Intent intent = new Intent(mActivity, SettingsActivity.class);
         mActivity.startActivity(intent);
@@ -807,7 +808,6 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
         mSceneModeSwitcher.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                clearFocus();
                 removeFilterMenu(false);
                 Intent intent = new Intent(mActivity, SceneModeActivity.class);
                 intent.putExtra(CameraUtil.KEY_IS_SECURE_CAMERA, mActivity.isSecureCamera());
@@ -1002,7 +1002,6 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
         }
     }
 
-
     public void resetTrackingFocus() {
         if(mModule.isTrackingFocusSettingOn()) {
             mTrackingFocusRenderer.setVisible(false);
@@ -1112,10 +1111,8 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
                             mSettingsManager.setValueIndex(SettingsManager
                                     .KEY_COLOR_EFFECT, j);
                             for (View v1 : views) {
-                                v1.setBackground(null);
+                                v1.setActivated(v1 == v);
                             }
-                            ImageView image = (ImageView) v.findViewById(R.id.image);
-                            image.setBackgroundColor(HIGHLIGHT_COLOR);
                         }
                     }
                     return true;
@@ -1123,10 +1120,8 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
             });
 
             views[j] = imageView;
-            if (i == init)
-                imageView.setBackgroundColor(HIGHLIGHT_COLOR);
+            imageView.setActivated(i == init);
             TextView label = (TextView) filterBox.findViewById(R.id.label);
-
             imageView.setImageResource(thumbnails[i]);
             label.setText(entries[i]);
             gridLayout.addView(filterBox);
@@ -1141,7 +1136,7 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
 
     public void animateFadeIn(View v) {
         ViewPropertyAnimator vp = v.animate();
-        vp.alpha(0.85f).setDuration(ANIMATION_DURATION);
+        vp.alpha(1f).setDuration(ANIMATION_DURATION);
         vp.start();
     }
 
@@ -1282,7 +1277,6 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
         if (!mUIhidden)
             return;
         mUIhidden = false;
-        mPieRenderer.setBlockFocus(false);
         mCameraControls.showUI();
     }
 
@@ -1290,7 +1284,6 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
         if (mUIhidden)
             return;
         mUIhidden = true;
-        mPieRenderer.setBlockFocus(true);
         mCameraControls.hideUI();
     }
 
@@ -1550,74 +1543,8 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
         mCameraControls.showRefocusToast(show);
     }
 
-    private FocusIndicator getFocusIndicator() {
-        if (mModule.isTrackingFocusSettingOn()) {
-            if (mPieRenderer != null) {
-                mPieRenderer.clear();
-            }
-            return mTrackingFocusRenderer;
-        }
-        FocusIndicator focusIndicator;
-        if (mFaceView != null && mFaceView.faceExists() && !mIsTouchAF) {
-            if (mPieRenderer != null) {
-                mPieRenderer.clear();
-            }
-            focusIndicator = mFaceView;
-        } else {
-            focusIndicator = mPieRenderer;
-        }
-
-        return focusIndicator;
-    }
-
-    @Override
-    public boolean hasFaces() {
-        return (mFaceView != null && mFaceView.faceExists());
-    }
-
-    public void clearFaces() {
-        if (mFaceView != null) mFaceView.clear();
-    }
-
-    @Override
-    public void clearFocus() {
-        FocusIndicator indicator = getFocusIndicator();
-        if (indicator != null) indicator.clear();
-        mIsTouchAF = false;
-    }
-
-    @Override
-    public void setFocusPosition(int x, int y) {
-        mPieRenderer.setFocus(x, y);
-        mIsTouchAF = true;
-    }
-
-    @Override
-    public void onFocusStarted() {
-        FocusIndicator indicator = getFocusIndicator();
-        if (indicator != null) indicator.showStart();
-    }
-
-    @Override
-    public void onFocusSucceeded(boolean timeout) {
-        FocusIndicator indicator = getFocusIndicator();
-        if (indicator != null) indicator.showSuccess(timeout);
-    }
-
-    @Override
-    public void onFocusFailed(boolean timeOut) {
-        FocusIndicator indicator = getFocusIndicator();
-        if (indicator != null) indicator.showFail(timeOut);
-
-    }
-
-    @Override
-    public void pauseFaceDetection() {
-
-    }
-
-    @Override
-    public void resumeFaceDetection() {
+    public FocusRing getFocusRing() {
+        return mFocusRing;
     }
 
     public void onStartFaceDetection(int orientation, boolean mirror, Rect cameraBound,

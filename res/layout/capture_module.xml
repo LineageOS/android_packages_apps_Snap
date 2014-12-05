@@ -158,6 +158,10 @@
             android:layout_height="200dip"
             android:layout_marginTop="50dip"
             android:layout_marginLeft="15dip" />
+        <com.android.camera.ui.focus.FocusRingView
+            android:id="@+id/focus_ring"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
     </FrameLayout>
 
     <com.android.camera.ui.RenderOverlay
