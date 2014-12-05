@@ -58,7 +58,6 @@ import android.widget.PopupWindow;
 import android.widget.Toast;
 
 import com.android.camera.CameraPreference.OnPreferenceChangedListener;
-import com.android.camera.FocusOverlayManager.FocusUI;
 import com.android.camera.TsMakeupManager.MakeupLevelListener;
 import com.android.camera.ui.AbstractSettingPopup;
 import com.android.camera.ui.CameraControls;
@@ -78,11 +77,11 @@ import com.android.camera.ui.RotateLayout;
 import com.android.camera.ui.RotateTextToast;
 import com.android.camera.ui.SelfieFlashView;
 import com.android.camera.ui.ZoomRenderer;
+import com.android.camera.ui.focus.FocusRing;
 import com.android.camera.util.CameraUtil;
 
 public class PhotoUI implements PieListener,
         PreviewGestures.SingleTapListener,
-        FocusUI,
         SurfaceHolder.Callback,
         CameraRootView.MyDisplayListener,
         CameraManager.CameraFaceDetectionCallback {
@@ -90,6 +89,7 @@ public class PhotoUI implements PieListener,
     private static final String TAG = "CAM_UI";
     private int mDownSampleFactor = 4;
     private final AnimationManager mAnimationManager;
+    private final FocusRing mFocusRing;
     private CameraActivity mActivity;
     private PhotoController mController;
     private PreviewGestures mGestures;
@@ -296,6 +296,7 @@ public class PhotoUI implements PieListener,
             mFaceView = (FaceView) mRootView.findViewById(R.id.face_view);
             setSurfaceTextureSizeChangedListener(mFaceView);
         }
+        mFocusRing = (FocusRing) mRootView.findViewById(R.id.focus_ring);
         initIndicators();
         mAnimationManager = new AnimationManager();
         mOrientationResize = false;
@@ -562,9 +563,10 @@ public class PhotoUI implements PieListener,
             mThumbnail.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (!CameraControls.isAnimating()
-                            && mController.getCameraState() != PhotoController.SNAPSHOT_IN_PROGRESS)
+                    if (!isCameraControlsAnimating()
+                            && mController.getCameraState() != PhotoController.SNAPSHOT_IN_PROGRESS) {
                         mActivity.gotoGallery();
+                    }
                 }
             });
         }
@@ -651,20 +653,26 @@ public class PhotoUI implements PieListener,
     public void initializeFirstTime() {
         // Initialize shutter button.
         mShutterButton.setImageResource(R.drawable.shutter_button_anim);
-        mShutterButton.setOnClickListener(new OnClickListener()
-        {
+        mShutterButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (!CameraControls.isAnimating())
+                if (!isCameraControlsAnimating()) {
                     doShutterAnimation();
                     if (mController.isImageCaptureIntent()) {
                         mCameraControls.setTitleBarVisibility(View.VISIBLE);
                     }
+                }
             }
         });
 
         mShutterButton.setOnShutterButtonListener(mController);
         mShutterButton.setVisibility(View.VISIBLE);
+    }
+
+    public void doShutterAnimation() {
+        AnimationDrawable frameAnimation = (AnimationDrawable) mShutterButton.getDrawable();
+        frameAnimation.stop();
+        frameAnimation.start();
     }
 
     // called from onResume every other time
@@ -1009,7 +1017,6 @@ public class PhotoUI implements PieListener,
         mShutterButton.setVisibility(View.INVISIBLE);
         CameraUtil.fadeIn(mReviewRetakeButton);
         mMenu.hideTopMenu(true);
-        pauseFaceDetection();
     }
 
     protected void hidePostCaptureAlert() {
@@ -1026,7 +1033,6 @@ public class PhotoUI implements PieListener,
         CameraUtil.fadeOut(mReviewDoneButton);
         mShutterButton.setVisibility(View.VISIBLE);
         CameraUtil.fadeOut(mReviewRetakeButton);
-        resumeFaceDetection();
     }
 
     public void setDisplayOrientation(int orientation) {
@@ -1230,61 +1236,16 @@ public class PhotoUI implements PieListener,
         ((CameraRootView) mRootView).removeDisplayChangeListener();
     }
 
-    // focus UI implementation
-
-    private FocusIndicator getFocusIndicator() {
-        return (mFaceView != null && mFaceView.faceExists()) ? mFaceView : mPieRenderer;
-    }
-
-    @Override
-    public boolean hasFaces() {
-        return (mFaceView != null && mFaceView.faceExists());
-    }
-
-    public void clearFaces() {
-        if (mFaceView != null) mFaceView.clear();
-    }
-
-    @Override
-    public void clearFocus() {
-        FocusIndicator indicator = mPieRenderer;
-        if (hasFaces()) {
-            mFaceView.showStart();
-        }
-        if (indicator != null) indicator.clear();
-    }
-
-    @Override
-    public void setFocusPosition(int x, int y) {
-        mPieRenderer.setFocus(x, y);
-    }
-
-    @Override
-    public void onFocusStarted() {
-        FocusIndicator indicator = getFocusIndicator();
-        if (indicator != null) indicator.showStart();
-    }
-
-    @Override
-    public void onFocusSucceeded(boolean timeout) {
-        FocusIndicator indicator = getFocusIndicator();
-        if (indicator != null) indicator.showSuccess(timeout);
-    }
-
-    @Override
-    public void onFocusFailed(boolean timeout) {
-        FocusIndicator indicator = getFocusIndicator();
-        if (indicator != null) indicator.showFail(timeout);
-    }
-
-    @Override
     public void pauseFaceDetection() {
         if (mFaceView != null) mFaceView.pause();
     }
 
-    @Override
     public void resumeFaceDetection() {
         if (mFaceView != null) mFaceView.resume();
+    }
+
+    public FocusRing getFocusRing() {
+        return mFocusRing;
     }
 
     public void onStartFaceDetection(int orientation, boolean mirror) {

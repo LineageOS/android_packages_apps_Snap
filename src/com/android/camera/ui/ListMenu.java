@@ -120,8 +120,7 @@ public class ListMenu extends ListView
                         + " position " + position);
             }
             if (position == mHighlighted)
-                view.setBackgroundColor(getContext().getResources()
-                        .getColor(R.color.setting_color));
+                view.setActivated(true);
             return view;
         }
 
