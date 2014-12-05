@@ -116,6 +116,7 @@ import com.android.camera.PhotoModule.NamedImages.NamedEntity;
 import com.android.camera.imageprocessor.filter.SharpshooterFilter;
 import com.android.camera.imageprocessor.filter.StillmoreFilter;
 import com.android.camera.imageprocessor.filter.UbifocusFilter;
+import com.android.camera.ui.focus.FocusRing;
 import com.android.camera.ui.CountDownView;
 import com.android.camera.ui.ModuleSwitcher;
 import com.android.camera.ui.ProMode;
@@ -3706,7 +3707,7 @@ public class CaptureModule implements CameraModule, PhotoController,
                     @Override
                     public void run() {
                         if (mUI.getCurrentProMode() != ProMode.MANUAL_MODE && !mLockAFAE)
-                            mUI.clearFocus();
+                            mUI.getFocusRing().stopFocusAnimations();
                     }
                 });
             }
@@ -4742,9 +4743,8 @@ public class CaptureModule implements CameraModule, PhotoController,
 
     public void onZoomEnd() {
         if (mLockAFAE) {
-            mUI.setFocusPosition(mClickPosition[0], mClickPosition[1]);
-            mUI.onFocusStarted();
-            mUI.onFocusSucceeded(false);
+            mUI.getFocusRing().startActiveFocus();
+            mUI.getFocusRing().setFocusLocation(mClickPosition[0], mClickPosition[1]);
         }
     }
 
@@ -4937,11 +4937,11 @@ public class CaptureModule implements CameraModule, PhotoController,
             return;
         }
 
-        mUI.setFocusPosition(x, y);
+        mUI.getFocusRing().startActiveFocus();
+        mUI.getFocusRing().setFocusLocation(x, y);
         x = newXY[0];
         y = newXY[1];
         mInTAF = true;
-        mUI.onFocusStarted();
         triggerFocusAtPoint(x, y, mCurrentSceneMode.getCurrentId());
     }
 
@@ -4959,8 +4959,8 @@ public class CaptureModule implements CameraModule, PhotoController,
         int[] newXY = {x, y};
         if (mUI.isOverControlRegion(newXY)) return;
         if (!mUI.isOverSurfaceView(newXY)) return;
-        mUI.setFocusPosition(x, y);
-        mUI.onFocusStarted();
+        mUI.getFocusRing().startActiveFocus();
+        mUI.getFocusRing().setFocusLocation(x, y);
         triggerFocusAtPoint(x, y, mCurrentSceneMode.getCurrentId());
         lockExposure(mCurrentSceneMode.getCurrentId());
     }
@@ -5732,7 +5732,7 @@ public class CaptureModule implements CameraModule, PhotoController,
 
         try {
             if(!mLockAFAE) {
-                mUI.clearFocus();
+                mUI.getFocusRing().stopFocusAnimations();
             }
             mUI.hideUIwhileRecording();
             mCameraHandler.removeMessages(CANCEL_TOUCH_FOCUS, mCameraId[cameraId]);
@@ -5753,7 +5753,7 @@ public class CaptureModule implements CameraModule, PhotoController,
                 @Override
                 public void run() {
                     if(!mLockAFAE) {
-                        mUI.clearFocus();
+                        mUI.getFocusRing().stopFocusAnimations();
                     }
                     mUI.resetPauseButton();
                     mRecordingTotalTime = 0L;

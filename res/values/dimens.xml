@@ -94,6 +94,10 @@
     <dimen name="toggle_outer_size">60dp</dimen>
     <dimen name="face_circle_stroke">2dip</dimen>
     <dimen name="face_points_stroke">4dip</dimen>
+    <dimen name="focus_circle_stroke">1.25dp</dimen>
+    <dimen name="focus_circle_min_size">24dp</dimen>
+    <dimen name="focus_circle_max_size">96dp</dimen>
+    <dimen name="focus_circle_initial_size">48dp</dimen>
     <dimen name="zoom_font_size">28dp</dimen>
     <dimen name="shutter_offset">11dp</dimen>
     <dimen name="shutter_offset_top">2dp</dimen>
