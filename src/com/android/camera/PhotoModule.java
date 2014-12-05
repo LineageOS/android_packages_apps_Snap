@@ -759,7 +759,7 @@ public class PhotoModule
         Log.v(TAG, "onCameraOpened");
         openCameraCommon();
         resizeForPreviewAspectRatio();
-        updateFocusManager(mUI);
+        mFocusManager.setFocusRing(mUI.getFocusRing());
     }
 
     private void switchCamera() {
@@ -792,7 +792,6 @@ public class PhotoModule
         }
         closeCamera();
         mUI.collapseCameraControls();
-        mUI.clearFaces();
         if (mFocusManager != null) mFocusManager.removeMessages();
 
         // Restart the camera and initialize the UI. From onCreate.
@@ -1057,7 +1056,6 @@ public class PhotoModule
         if (mParameters.getMaxNumDetectedFaces() > 0) {
             mFaceDetectionStarted = false;
             mCameraDevice.setFaceDetectionCallback(null, null);
-            mUI.pauseFaceDetection();
             mCameraDevice.stopFaceDetection();
             mUI.onStopFaceDetection();
         }
@@ -1336,8 +1334,6 @@ public class PhotoModule
                 return;
             }
 
-            mFocusManager.updateFocusUI(); // Ensure focus indicator is hidden.
-
             String jpegFilePath = new String(jpegData);
             mNamedImages.nameNewImage(mCaptureStartTime);
             NamedEntity name = mNamedImages.getNextNameEntity();
@@ -1512,8 +1508,6 @@ public class PhotoModule
                 mCameraDevice.setLongshot(false);
             }
 
-            mFocusManager.updateFocusUI(); // Ensure focus indicator is hidden.
-
             boolean needRestartPreview = !mIsImageCaptureIntent
                     && !mPreviewRestartSupport
                     && (mCameraState != LONGSHOT)
@@ -1559,7 +1553,6 @@ public class PhotoModule
                         || CameraUtil.FOCUS_MODE_MW_CONTINUOUS_PICTURE.equals(mFocusManager.getFocusMode(false))) {
                     mCameraDevice.cancelAutoFocus();
                 }
-                mUI.resumeFaceDetection();
                 if (!mIsImageCaptureIntent) {
                     setCameraState(IDLE);
                 }
@@ -2968,25 +2961,9 @@ public class PhotoModule
                 if (mFocusManager == null) {
                     mFocusManager = new FocusOverlayManager(mPreferences, defaultFocusModes,
                             mInitialParams, this, mMirror,
-                            mActivity.getMainLooper(), mUI, mActivity);
+                            mActivity.getMainLooper(), mUI != null ? mUI.getFocusRing() : null, mActivity);
                 }
             }
-        }
-    }
-
-    private void updateFocusManager(PhotoUI mUI) {
-        // Idea here is to let focus manager create in camera open thread
-        // (in initializeFocusManager) even if photoUI is null by that time so
-        // as to not block start preview process. Once UI creation is done,
-        // we will update focus manager with proper UI.
-        if (mFocusManager != null && mUI != null) {
-            mFocusManager.setPhotoUI(mUI);
-
-            View root = mUI.getRootView();
-            // These depend on camera parameters.
-            int width = root.getWidth();
-            int height = root.getHeight();
-            mFocusManager.setPreviewSize(width, height);
         }
     }
 
@@ -3063,7 +3040,6 @@ public class PhotoModule
         }
         // Check if metering area or focus area is supported.
         if (!mFocusAreaSupported && !mMeteringAreaSupported) return;
-        if (! mFocusManager.getPreviewRect().contains(x, y)) return;
         mFocusManager.onSingleTapUp(x, y);
     }
 
@@ -3951,7 +3927,7 @@ public class PhotoModule
 
         if(!mFocusManager.getFocusMode(false).equals(Parameters.FOCUS_MODE_CONTINUOUS_PICTURE) &&
             !mFocusManager.isFocusCompleted()) {
-            mUI.clearFocus();
+            mUI.getFocusRing().stopFocusAnimations();
         }
 
         String bokehMode = mPreferences.getString(
