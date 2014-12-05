@@ -70,6 +70,10 @@
                 android:id="@+id/labels" />
         </LinearLayout>
     </com.android.camera.ui.RotateLayout>
+    <com.android.camera.ui.focus.FocusRingView
+        android:id="@+id/focus_ring"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
     <ImageView android:id="@+id/review_image"
         android:layout_height="match_parent"
         android:layout_width="match_parent"
