@@ -1333,7 +1333,7 @@ public class VideoModule implements CameraModule,
                     R.array.pref_video_focusmode_default_array);
             mFocusManager = new FocusOverlayManager(mPreferences, defaultFocusModes,
                     mParameters, this, mirror,
-                    mActivity.getMainLooper(), mUI);
+                    mActivity.getMainLooper(), mUI.getFocusRing());
         }
     }
 
