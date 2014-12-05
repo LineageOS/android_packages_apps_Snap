@@ -68,6 +68,7 @@
     <color name="face_detect_start">@color/white</color>
     <color name="face_detect_success">@color/green</color>
     <color name="face_detect_fail">@color/red</color>
+    <color name="focus_color">#ffffffff</color>
     <color name="gray">@color/grey</color>
 
     <color name="setting_color">@color/black</color>

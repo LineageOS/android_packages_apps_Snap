@@ -603,14 +603,6 @@ public class VideoModule implements CameraModule,
     }
 
     @Override
-    public void startFaceDetection() {
-    }
-
-    @Override
-    public void stopFaceDetection() {
-    }
-
-    @Override
     public void setFocusParameters() {
         if (mFocusAreaSupported)
             mParameters.setFocusAreas(mFocusManager.getFocusAreas());
@@ -1457,7 +1449,7 @@ public class VideoModule implements CameraModule,
                     R.array.pref_video_focusmode_default_array);
             mFocusManager = new FocusOverlayManager(mPreferences, defaultFocusModes,
                     mParameters, this, mirror,
-                    mActivity.getMainLooper(), mUI);
+                    mActivity.getMainLooper(), mUI.getFocusRing());
         }
     }
 

@@ -196,7 +196,7 @@ public class PhotoMenu extends MenuController
                 CameraSettings.KEY_SHUTTER_SPEED,
                 CameraSettings.KEY_REDEYE_REDUCTION,
                 CameraSettings.KEY_SELFIE_MIRROR,
-                CameraSettings.KEY_SHUTTER_SOUND
+                CameraSettings.KEY_SHUTTER_SOUND,
                 CameraSettings.KEY_POWER_SHUTTER,
                 CameraSettings.KEY_MAX_BRIGHTNESS
         };
@@ -1259,7 +1259,7 @@ public class PhotoMenu extends MenuController
     }
 
     public void openFirstLevel() {
-        if (isMenuBeingShown() || CameraControls.isAnimating()) {
+        if (isMenuBeingShown() || mUI.isCameraControlsAnimating()) {
             return;
         }
         if(TsMakeupManager.HAS_TS_MAKEUP) {
