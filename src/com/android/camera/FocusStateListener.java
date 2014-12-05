@@ -44,31 +44,31 @@ public class FocusStateListener {
         switch (focusState) {
             case CaptureResult.CONTROL_AF_STATE_ACTIVE_SCAN:
                 Log.d(TAG, "CONTROL_AF_STATE_ACTIVE_SCAN onFocusStarted");
-                mUI.onFocusStarted();
+                mUI.getFocusRing().startActiveFocus();
                 break;
             case CaptureResult.CONTROL_AF_STATE_FOCUSED_LOCKED:
                 Log.d(TAG, "CONTROL_AF_STATE_FOCUSED_LOCKED onFocusSucceeded");
-                mUI.onFocusSucceeded(false);
+                mUI.getFocusRing().stopFocusAnimations();
                 break;
             case CaptureResult.CONTROL_AF_STATE_NOT_FOCUSED_LOCKED:
                 Log.d(TAG, "CONTROL_AF_STATE_NOT_FOCUSED_LOCKED onFocusFailed");
-                mUI.onFocusFailed(false);
+                mUI.getFocusRing().stopFocusAnimations();
                 break;
             case CaptureResult.CONTROL_AF_STATE_PASSIVE_FOCUSED:
                 Log.d(TAG, "CONTROL_AF_STATE_PASSIVE_FOCUSED onFocusSucceeded");
-                mUI.onFocusSucceeded(true);
+                mUI.getFocusRing().stopFocusAnimations();
                 break;
             case CaptureResult.CONTROL_AF_STATE_PASSIVE_SCAN:
                 Log.d(TAG, "CONTROL_AF_STATE_PASSIVE_SCAN onFocusStarted");
-                mUI.onFocusStarted();
+                mUI.getFocusRing().startPassiveFocus();
                 break;
             case CaptureResult.CONTROL_AF_STATE_PASSIVE_UNFOCUSED:
                 Log.d(TAG, "CONTROL_AF_STATE_PASSIVE_UNFOCUSED onFocusFailed");
-                mUI.onFocusFailed(true);
+                mUI.getFocusRing().stopFocusAnimations();
                 break;
             case CaptureResult.CONTROL_AF_STATE_INACTIVE:
                 Log.d(TAG, "CONTROL_AF_STATE_INACTIVE clearFocus");
-                mUI.clearFocus();
+                mUI.getFocusRing().stopFocusAnimations();
                 break;
         }
     }
