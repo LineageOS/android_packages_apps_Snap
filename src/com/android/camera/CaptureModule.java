@@ -104,6 +104,7 @@ import com.android.camera.imageprocessor.filter.SharpshooterFilter;
 import com.android.camera.imageprocessor.filter.StillmoreFilter;
 import com.android.camera.imageprocessor.filter.UbifocusFilter;
 import com.android.camera.ui.CountDownView;
+import com.android.camera.ui.focus.FocusRing;
 import com.android.camera.ui.ModuleSwitcher;
 import com.android.camera.ui.RotateTextToast;
 import com.android.camera.ui.TrackingFocusRenderer;
@@ -1971,7 +1972,7 @@ public class CaptureModule implements CameraModule, PhotoController,
                 mActivity.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        mUI.clearFocus();
+                        mUI.getFocusRing().stopFocusAnimations();
                     }
                 });
             }
@@ -2817,10 +2818,10 @@ public class CaptureModule implements CameraModule, PhotoController,
         int[] newXY = {x, y};
         if (mUI.isOverControlRegion(newXY)) return;
         if (!mUI.isOverSurfaceView(newXY)) return;
-        mUI.setFocusPosition(x, y);
+        mUI.getFocusRing().startActiveFocus();
+        mUI.getFocusRing().setFocusLocation(x, y);
         x = newXY[0];
         y = newXY[1];
-        mUI.onFocusStarted();
         if (isBackCamera()) {
             switch (getCameraMode()) {
                 case DUAL_MODE:
@@ -3249,7 +3250,7 @@ public class CaptureModule implements CameraModule, PhotoController,
             }
 
             requestAudioFocus();
-            mUI.clearFocus();
+            mUI.getFocusRing().stopFocusAnimations();
             mUI.hideUIwhileRecording();
             mCameraHandler.removeMessages(CANCEL_TOUCH_FOCUS, mCameraId[cameraId]);
             mState[cameraId] = STATE_PREVIEW;
@@ -3318,7 +3319,7 @@ public class CaptureModule implements CameraModule, PhotoController,
                                         + e.getMessage());
                             e.printStackTrace();
                         }
-                        mUI.clearFocus();
+                        mUI.getFocusRing().stopFocusAnimations();
                         mUI.resetPauseButton();
                         mRecordingTotalTime = 0L;
                         mRecordingStartTime = SystemClock.uptimeMillis();
@@ -3352,7 +3353,7 @@ public class CaptureModule implements CameraModule, PhotoController,
                         } catch (IllegalStateException e) {
                             e.printStackTrace();
                         }
-                        mUI.clearFocus();
+                        mUI.getFocusRing().stopFocusAnimations();
                         mUI.resetPauseButton();
                         mRecordingTotalTime = 0L;
                         mRecordingStartTime = SystemClock.uptimeMillis();
