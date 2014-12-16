@@ -2211,6 +2211,18 @@ public class VideoModule implements CameraModule,
                 mUI.hideSurfaceView();
                 // Switch back to use SurfaceTexture for preview.
                 startPreview();
+            } else {
+                if (is4KEnabled()) {
+                    int[] fpsRange = CameraUtil.getMaxPreviewFpsRange(mParameters);
+                    if (fpsRange.length > 0) {
+                        mParameters.setPreviewFpsRange(
+                                fpsRange[Parameters.PREVIEW_FPS_MIN_INDEX],
+                                fpsRange[Parameters.PREVIEW_FPS_MAX_INDEX]);
+                    } else {
+                        mParameters.setPreviewFrameRate(30);
+                    }
+                    mCameraDevice.setParameters(mParameters);
+                }
             }
         }
         // Update the parameters here because the parameters might have been altered
