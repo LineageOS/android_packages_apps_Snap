@@ -2116,10 +2116,13 @@ public class VideoModule implements CameraModule,
         boolean isDuplicationEnabled =
                 SystemProperties.getBoolean(PERSIST_CAMERA_CPP_DUPLICATION, true);
         if (isDuplicationEnabled && (mDesiredPreviewWidth == mProfile.videoFrameWidth) &&
-                (mDesiredPreviewHeight == mProfile.videoFrameHeight)) {
+                (mDesiredPreviewHeight == mProfile.videoFrameHeight)
+                && CameraUtil.isSupported(FORMAT_NV12_VENUS,
+                CameraSettings.getSupportedPreviewFormats(mParameters))) {
            Log.v(TAG, "Preview is same as Video resolution, So preview format set to NV12_VENUS");
            mParameters.set(KEY_PREVIEW_FORMAT, FORMAT_NV12_VENUS);
-        } else {
+        } else if (CameraUtil.isSupported(FORMAT_NV21,
+                CameraSettings.getSupportedPreviewFormats(mParameters))) {
            mParameters.set(KEY_PREVIEW_FORMAT, FORMAT_NV21);
            Log.v(TAG, "preview format set to NV21");
         }
