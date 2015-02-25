@@ -357,6 +357,9 @@ public class PhotoModule
     private int mJpegFileSizeEstimation = 0;
     private int mRemainingPhotos = -1;
 
+    //settings, which if enabled, need to turn off low power mode
+    private boolean mIsFlipEnabled = false;
+
     private MediaSaveService.OnMediaSavedListener mOnMediaSavedListener =
             new MediaSaveService.OnMediaSavedListener() {
                 @Override
@@ -1853,6 +1856,7 @@ public class PhotoModule
             Log.v(TAG, "onOrientationChanged, update parameters");
             if (mParameters != null && mCameraDevice != null) {
                 setFlipValue();
+                updatePowerMode();
                 mCameraDevice.setParameters(mParameters);
             }
             mUI.setOrientation(mOrientation, true);
@@ -3181,6 +3185,8 @@ public class PhotoModule
             String fMode = Parameters.FLASH_MODE_OFF;
             mParameters.setFlashMode(fMode);
         }
+
+        updatePowerMode();
     }
 
     private int estimateJpegFileSize(final Size size, final String quality) {
@@ -3242,6 +3248,12 @@ public class PhotoModule
         }
         if(CameraUtil.isSupported(picture_flip, CameraSettings.getSupportedFlipMode(mParameters))){
             mParameters.set(CameraSettings.KEY_QC_SNAPSHOT_PICTURE_FLIP, picture_flip);
+        }
+
+        if ((preview_flip_value != 0) || (video_flip_value != 0) || (picture_flip_value != 0)) {
+            mIsFlipEnabled = true;
+        } else {
+            mIsFlipEnabled = false;
         }
     }
 
@@ -4299,6 +4311,17 @@ public class PhotoModule
 
     public boolean isRefocus() {
         return mLastPhotoTakenWithRefocus;
+    }
+
+    private void updatePowerMode() {
+        String lpmSupported = mParameters.get("low-power-mode-supported");
+        if ((lpmSupported != null) && "true".equals(lpmSupported)) {
+            if (!mIsFlipEnabled) {
+                mParameters.set("low-power-mode", "enable");
+            } else {
+                mParameters.set("low-power-mode", "disable");
+            }
+        }
     }
 }
 
