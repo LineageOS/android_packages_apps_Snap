@@ -253,6 +253,8 @@ public class PhotoModule
     private byte[] mLastJpegData;
     private int mLastJpegOrientation = 0;
 
+    private boolean mShutterPressing = false;
+
     private Runnable mDoSnapRunnable = new Runnable() {
         @Override
         public void run() {
@@ -2043,14 +2045,16 @@ public class PhotoModule
 
     @Override
     public void onShutterButtonClick() {
-        if (mPaused || mUI.collapseCameraControls()
+        if (mPaused || mShutterPressing
+                || mUI.collapseCameraControls()
                 || (mCameraState == SWITCHING_CAMERA)
                 || (mCameraState == PREVIEW_STOPPED)) return;
-
+        mShutterPressing = true;
         // Do not take the picture if there is not enough storage.
         if (mActivity.getStorageSpaceBytes() <= Storage.LOW_STORAGE_THRESHOLD_BYTES) {
             Log.i(TAG, "Not enough space or storage not ready. remaining="
                     + mActivity.getStorageSpaceBytes());
+            mShutterPressing = false;
             return;
         }
         Log.v(TAG, "onShutterButtonClick: mCameraState=" + mCameraState);
@@ -2078,6 +2082,7 @@ public class PhotoModule
                 || mCameraState == SNAPSHOT_IN_PROGRESS)
                 && !mIsImageCaptureIntent) {
             mSnapshotOnIdle = true;
+            mShutterPressing = false;
             return;
         }
 
@@ -2103,6 +2108,7 @@ public class PhotoModule
             mSnapshotOnIdle = false;
             mFocusManager.doSnap();
         }
+        mShutterPressing = false;
     }
 
     @Override
