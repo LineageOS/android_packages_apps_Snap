@@ -691,6 +691,7 @@
         <item>@string/pref_camera_advanced_feature_entry_FSSR</item>
         <item>@string/pref_camera_advanced_feature_entry_trueportrait</item>
         <item>@string/pref_camera_advanced_feature_entry_multi_touch_focus</item>
+        <item>@string/pref_camera_advanced_feature_entry_stillmore</item>
     </string-array>
 
     <string-array name="pref_camera_advanced_features_entryvalues" translatable="false">
@@ -702,6 +703,7 @@
         <item>FSSR-on</item>
         <item>true-portrait-on</item>
         <item>multi-touch-focus-on</item>
+        <item>@string/pref_camera_advanced_feature_value_stillmore_on</item>
     </string-array>
 
     <!-- Continuous shot -->

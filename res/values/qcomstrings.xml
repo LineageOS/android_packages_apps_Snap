@@ -128,6 +128,11 @@
     <string name="pref_camera_manual_focus_entry_diopter_mode">Diopter mode</string>
     <string name="pref_camera_manual_focus_entry_off">Off</string>
 
+    <!-- Still More -->
+    <string name="pref_camera_advanced_feature_entry_stillmore">Still More</string>
+    <string name="pref_camera_advanced_feature_value_stillmore_on">still-more-on</string>
+    <string name="pref_camera_advanced_feature_value_stillmore_off">still-more-off</string>
+
     <!-- Video HDR-->
     <string name="pref_camera_video_hdr_title">Video HDR</string>
     <string name="pref_camera_video_hdr_default" translatable="false">off</string>
@@ -140,7 +145,7 @@
 
     <!-- Video CDS-->
     <string name="pref_camera_video_cds_title">Video CDS mode</string>
-    <string name="pref_camera_video_cds_default" translatable="false">on</string>
+    <string name="pref_camera_video_cds_default" translatable="false">off</string>
 
     <string name="pref_camera_video_cds_entry_auto">Auto</string>
 
@@ -150,7 +155,7 @@
 
     <!-- Video TNR -->
     <string name="pref_camera_video_tnr_title">Video TNR mode</string>
-    <string name="pref_camera_video_tnr_default" translatable="false">off</string>
+    <string name="pref_camera_video_tnr_default" translatable="false">on</string>
 
     <!-- Face detection -->
     <string name="pref_camera_facedetection_title">Face detection</string>
@@ -515,9 +520,6 @@
     <string name="pref_camera_manual_exp_value_ISO_priority" translatable="false">iso-priority</string>
     <string name="pref_camera_manual_exp_value_exptime_priority" translatable="false">exp-time-priority</string>
     <string name="pref_camera_manual_exp_value_user_setting" translatable="false">user-setting</string>
-
-    <string name="pref_camera_see_more_value_off" translatable="false">off</string>
-    <string name="pref_camera_see_more_value_on" translatable="false">on</string>
 
     <string name="pref_camera_dis_value_disable" translatable="false">disable</string>
 </resources>
