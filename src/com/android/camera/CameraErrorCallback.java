@@ -21,6 +21,11 @@ import android.util.Log;
 public class CameraErrorCallback
         implements android.hardware.Camera.ErrorCallback {
     private static final String TAG = "CameraErrorCallback";
+    public CameraActivity mActivity = null;
+
+    public void setActivity(CameraActivity activity) {
+        mActivity = activity;
+    }
 
     @Override
     public void onError(int error, android.hardware.Camera camera) {
@@ -30,7 +35,11 @@ public class CameraErrorCallback
             // We are not sure about the current state of the app (in preview or
             // snapshot or recording). Closing the app is better than creating a
             // new Camera object.
-            throw new RuntimeException("Media server died.");
+            if (mActivity != null) {
+                mActivity.finish();
+            } else {
+                throw new RuntimeException("Media server died.");
+            }
         }
     }
 }
