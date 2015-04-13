@@ -97,6 +97,7 @@ class AndroidCameraManagerImpl implements CameraManager {
     private static final int SEND_HISTOGRAM_DATA =   602;
     //LONGSHOT
     private static final int SET_LONGSHOT = 701;
+    private static final int STOP_LONGSHOT = 702;
     private static final int SET_AUTO_HDR_MODE = 801;
 
     //HAL1 version code
@@ -374,6 +375,10 @@ class AndroidCameraManagerImpl implements CameraManager {
                         mCamera.setLongshot((Boolean) msg.obj);
                         break;
 
+                    case STOP_LONGSHOT:
+                        mCamera.stopLongshot();
+                        break;
+
                     case SET_AUTO_HDR_MODE:
                         mCamera.setMetadataCb((CameraMetaDataCallback) msg.obj);
                         break;
@@ -627,6 +632,11 @@ class AndroidCameraManagerImpl implements CameraManager {
         public void setLongshot(boolean enable) {
             mCameraHandler.obtainMessage(SET_LONGSHOT,
                     new Boolean(enable)).sendToTarget();
+        }
+
+        @Override
+        public void stopLongshot() {
+            mCameraHandler.sendEmptyMessage(STOP_LONGSHOT);
         }
 
         @Override
