@@ -119,4 +119,21 @@ public class CameraWrapper extends Wrapper{
         }
     }
 
+    private static Method method_stopLongshot = null;
+    public static final void stopLongshot(Camera camera){
+        if ( DEBUG ){
+            Log.e(TAG, "" + Camera.class + " no stopLongshot");
+            return;
+        }
+        try {
+            if (method_stopLongshot == null) {
+                method_stopLongshot =
+                        Camera.class.getDeclaredMethod("stopLongshot");
+            }
+            method_stopLongshot.invoke(camera);
+        }catch (Exception exception){
+            exception.printStackTrace();
+        }
+    }
+
 }
