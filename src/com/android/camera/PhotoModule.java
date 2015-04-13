@@ -124,6 +124,7 @@ public class PhotoModule
     private int mSnapshotMode;
     private int mBurstSnapNum = 1;
     private int mReceivedSnapNum = 0;
+    private int mLongshotSnapNum = 0;
     public boolean mFaceDetectionEnabled = false;
     private DrawAutoHDR mDrawAutoHDR;
    /*Histogram variables*/
@@ -212,6 +213,8 @@ public class PhotoModule
     private static final String PERSIST_LONG_SAVE = "persist.camera.longshot.save";
     private static final String PERSIST_PREVIEW_RESTART = "persist.camera.feature.restart";
     private static final String PERSIST_CAPTURE_ANIMATION = "persist.camera.capture.animate";
+    private static final String PERSIST_LONGSHOT_MAX_SNAP = "persist.camera.longshot.max";
+    private static int mLongShotMaxSnap = -1;
 
     private static final int MINIMUM_BRIGHTNESS = 0;
     private static final int MAXIMUM_BRIGHTNESS = 6;
@@ -967,8 +970,17 @@ public class PhotoModule
             Log.e(TAG, "[KPI Perf] PROFILE_SHUTTER_LAG mShutterLag = " + mShutterLag + "ms");
             synchronized(mCameraDevice) {
 
+                if (++mLongshotSnapNum >= mLongShotMaxSnap &&
+                    (mLongShotMaxSnap != -1)) {
+                    mLongshotActive = false;
+                    mUI.enableShutter(false);
+                    mCameraDevice.stopLongshot();
+                    return;
+                }
+
                 if (mCameraState != LONGSHOT ||
                     !mLongshotActive) {
+                    mCameraDevice.stopLongshot();
                     return;
                 }
 
@@ -1170,7 +1182,9 @@ public class PhotoModule
 
         @Override
         public void onPictureTaken(final byte [] jpegData, CameraProxy camera) {
-            mUI.enableShutter(true);
+            if (mCameraState != LONGSHOT) {
+                mUI.enableShutter(true);
+            }
             if (mPaused) {
                 return;
             }
@@ -1209,19 +1223,25 @@ public class PhotoModule
 
             mFocusManager.updateFocusUI(); // Ensure focus indicator is hidden.
 
+            if (isLongshotDone()) {
+                mCameraDevice.setLongshot(false);
+            }
+
             boolean needRestartPreview = !mIsImageCaptureIntent
                     && !mPreviewRestartSupport
                     && (mCameraState != LONGSHOT)
                     && (mSnapshotMode != CameraInfo.CAMERA_SUPPORT_MODE_ZSL)
-                    && (mReceivedSnapNum == mBurstSnapNum);
+                    && ((mReceivedSnapNum == mBurstSnapNum) && (mCameraState != LONGSHOT));
+            needRestartPreview |= (isLongshotDone() && !mFocusManager.isZslEnabled());
             if (needRestartPreview) {
                 setupPreview();
                 if (CameraUtil.FOCUS_MODE_CONTINUOUS_PICTURE.equals(
                     mFocusManager.getFocusMode())) {
                     mCameraDevice.cancelAutoFocus();
                 }
-            } else if ((mReceivedSnapNum == mBurstSnapNum)
-                        && (mCameraState != LONGSHOT)){
+            } else if (((mCameraState != LONGSHOT) && (mReceivedSnapNum == mBurstSnapNum))
+                        || isLongshotDone()){
+                mUI.enableShutter(true);
                 mFocusManager.resetTouchFocus();
                 if (CameraUtil.FOCUS_MODE_CONTINUOUS_PICTURE.equals(
                         mFocusManager.getFocusMode())) {
@@ -1315,7 +1335,8 @@ public class PhotoModule
                             }
                         }
                         // Animate capture with real jpeg data instead of a preview frame.
-                        if (mCameraState != LONGSHOT) {
+                        if ((mCameraState != LONGSHOT) ||
+                            isLongshotDone()) {
                             Size pic_size = mParameters.getPictureSize();
                             if ((pic_size.width <= 352) && (pic_size.height<= 288)) {
                                 mUI.setDownFactor(2); //Downsample by 2 for CIF & below
@@ -1354,6 +1375,10 @@ public class PhotoModule
 
                     if (mReceivedSnapNum == mBurstSnapNum) {
                         mJpegPictureCallbackTime = 0;
+                    }
+
+                    if (isLongshotDone()) {
+                        mLongshotSnapNum = 0;
                     }
 
                     if (mHiston && (mSnapshotMode ==CameraInfo.CAMERA_SUPPORT_MODE_ZSL)) {
@@ -1514,6 +1539,7 @@ public class PhotoModule
         }
 
         if (mCameraState == LONGSHOT) {
+            mLongshotSnapNum = 0;
             mCameraDevice.setLongshot(true);
         }
 
@@ -2019,19 +2045,7 @@ public class PhotoModule
         synchronized(mCameraDevice) {
            if (mCameraState == LONGSHOT) {
                mLongshotActive = false;
-               mCameraDevice.setLongshot(false);
-               mUI.animateCapture(mLastJpegData, mLastJpegOrientation, mMirror);
-               if (!mFocusManager.isZslEnabled()) {
-                   setupPreview();
-               } else {
-                   setCameraState(IDLE);
-                   mFocusManager.resetTouchFocus();
-                   if (CameraUtil.FOCUS_MODE_CONTINUOUS_PICTURE.equals(
-                           mFocusManager.getFocusMode())) {
-                       mCameraDevice.cancelAutoFocus();
-                   }
-                   mUI.resumeFaceDetection();
-               }
+               mUI.enableShutter(false);
            }
         }
 
@@ -2218,7 +2232,7 @@ public class PhotoModule
 
     private void updateRemainingPhotos() {
         if (mJpegFileSizeEstimation != 0) {
-            mRemainingPhotos = (int) 
+            mRemainingPhotos = (int)
                     ((mActivity.getStorageSpaceBytes() - Storage.LOW_STORAGE_THRESHOLD_BYTES)
                     / mJpegFileSizeEstimation);
         } else {
@@ -2656,6 +2670,10 @@ public class PhotoModule
     @Override
     public void stopPreview() {
         if (mCameraDevice != null && mCameraState != PREVIEW_STOPPED) {
+            if (mCameraState == LONGSHOT) {
+                mCameraDevice.setLongshot(false);
+                mLongshotActive = false;
+            }
             Log.v(TAG, "stopPreview");
             mCameraDevice.stopPreview();
         }
@@ -3214,6 +3232,9 @@ public class PhotoModule
         }
 
         updatePowerMode();
+
+        mLongShotMaxSnap = SystemProperties.getInt(PERSIST_LONGSHOT_MAX_SNAP, -1);
+        mParameters.set("max-longshot-snap",mLongShotMaxSnap);
     }
 
     private int estimateJpegFileSize(final Size size, final String quality) {
@@ -4439,6 +4460,11 @@ public class PhotoModule
 
         mCameraDevice.setParameters(mParameters);
         mParameters = mCameraDevice.getParameters();
+    }
+
+    public boolean isLongshotDone() {
+        return ((mCameraState == LONGSHOT) && (mLongshotSnapNum == mReceivedSnapNum) &&
+                !mLongshotActive);
     }
 }
 

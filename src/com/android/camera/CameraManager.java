@@ -375,5 +375,10 @@ public interface CameraManager {
          *                 {@code false} to disable it.
         */
         public void setLongshot(boolean enable);
+        /**
+         * Stop longshot.
+         *
+        */
+        public void stopLongshot();
     }
 }
