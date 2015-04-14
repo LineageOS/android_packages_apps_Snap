@@ -1871,13 +1871,11 @@ public class PhotoModule
         int oldOrientation = mOrientation;
         mOrientation = CameraUtil.roundOrientation(orientation, mOrientation);
         if (oldOrientation != mOrientation) {
-            Log.v(TAG, "onOrientationChanged, update parameters");
-            if (mParameters != null && mCameraDevice != null) {
-                synchronized (mCameraDevice) {
-                    setFlipValue();
-                    updatePowerMode();
-                    mCameraDevice.setParameters(mParameters);
-                }
+            if (mParameters != null && mCameraDevice != null && mCameraState == IDLE) {
+                Log.v(TAG, "onOrientationChanged, update parameters");
+                setFlipValue();
+                updatePowerMode();
+                mCameraDevice.setParameters(mParameters);
             }
             mUI.setOrientation(mOrientation, true);
             if (mGraphView != null) {
