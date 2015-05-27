@@ -153,6 +153,7 @@ public class PhotoMenu extends MenuController
                 CameraSettings.KEY_ISO,
                 CameraSettings.KEY_EXPOSURE,
                 CameraSettings.KEY_WHITE_BALANCE,
+                CameraSettings.KEY_QC_CHROMA_FLASH,
                 CameraSettings.KEY_FOCUS_MODE,
                 CameraSettings.KEY_FOCUS_TIME,
                 CameraSettings.KEY_SHUTTER_SPEED,
@@ -180,6 +181,7 @@ public class PhotoMenu extends MenuController
                 CameraSettings.KEY_ISO,
                 CameraSettings.KEY_EXPOSURE,
                 CameraSettings.KEY_WHITE_BALANCE,
+                CameraSettings.KEY_QC_CHROMA_FLASH,
                 CameraSettings.KEY_FOCUS_MODE,
                 CameraSettings.KEY_FOCUS_TIME,
                 CameraSettings.KEY_SHUTTER_SPEED,
@@ -1151,6 +1153,17 @@ public class PhotoMenu extends MenuController
             ListPreference lp = mPreferenceGroup
                     .findPreference(CameraSettings.KEY_ADVANCED_FEATURES);
             if (lp != null && refocusOn.equals(lp.getValue())) {
+                setPreference(CameraSettings.KEY_ADVANCED_FEATURES,
+                        mActivity.getString(R.string.pref_camera_advanced_feature_default));
+            }
+        }
+
+        String optizoomOn = mActivity.getString(R.string
+                .pref_camera_advanced_feature_value_optizoom_on);
+        if (notSame(pref, CameraSettings.KEY_SCENE_MODE, optizoomOn)) {
+            ListPreference lp = mPreferenceGroup
+                    .findPreference(CameraSettings.KEY_ADVANCED_FEATURES);
+            if (lp != null && optizoomOn.equals(lp.getValue())) {
                 setPreference(CameraSettings.KEY_ADVANCED_FEATURES,
                         mActivity.getString(R.string.pref_camera_advanced_feature_default));
             }

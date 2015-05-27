@@ -1867,7 +1867,11 @@ public class PhotoModule
                 (fssr != null && fssr.equals(fssrOn)) ||
                 (truePortrait != null && truePortrait.equals(truPortraitOn)) ||
                 (stillMore != null && stillMore.equals(stillMoreOn))) {
-            mSceneMode = sceneMode = Parameters.SCENE_MODE_AUTO;
+            if (optiZoom != null && optiZoom.equals(optiZoomOn)) {
+                sceneMode = null;
+            } else {
+                mSceneMode = sceneMode = Parameters.SCENE_MODE_AUTO;
+            }
             flashMode = Parameters.FLASH_MODE_OFF;
             focusMode = Parameters.FOCUS_MODE_INFINITY;
             redeyeReduction = mActivity.getString(R.string.
@@ -3682,6 +3686,8 @@ public class PhotoModule
 
         String refocusOn = mActivity.getString(R.string
                 .pref_camera_advanced_feature_value_refocus_on);
+        String optizoomOn = mActivity.getString(R.string
+                .pref_camera_advanced_feature_value_optizoom_on);
 
         if (CameraUtil.isSupported(mSceneMode, mParameters.getSupportedSceneModes())) {
             if (!mParameters.getSceneMode().equals(mSceneMode)) {
@@ -3697,6 +3703,11 @@ public class PhotoModule
             if (refocusOn.equals(mSceneMode)) {
                 try {
                     mUI.setPreference(CameraSettings.KEY_ADVANCED_FEATURES, refocusOn);
+                } catch (NullPointerException e) {
+                }
+            } else if (optizoomOn.equals(mSceneMode)) {
+                try {
+                    mUI.setPreference(CameraSettings.KEY_ADVANCED_FEATURES, optizoomOn);
                 } catch (NullPointerException e) {
                 }
             } else {
@@ -4413,6 +4424,10 @@ public class PhotoModule
                     mPreferences.getString(CameraSettings.KEY_CAMERA_SAVEPATH, "0").equals("1"));
             mActivity.updateStorageSpaceAndHint();
             updateRemainingPhotos();
+        }
+
+        if (CameraSettings.KEY_QC_CHROMA_FLASH.equals(pref.getKey())) {
+            mUI.setPreference(CameraSettings.KEY_ADVANCED_FEATURES, pref.getValue());
         }
 
         //call generic onSharedPreferenceChanged
