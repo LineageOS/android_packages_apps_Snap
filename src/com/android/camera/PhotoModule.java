@@ -640,6 +640,15 @@ public class PhotoModule
         mPendingSwitchCameraId = -1;
         setCameraId(mCameraId);
 
+        try {
+            if (mOpenCameraThread != null) {
+                mOpenCameraThread.join();
+            }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        mOpenCameraThread = null;
+
         // from onPause
         try {
             if (mOpenCameraThread != null) {
