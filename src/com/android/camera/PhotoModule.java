@@ -727,6 +727,15 @@ public class PhotoModule
         mSnapshotOnIdle = false;
         setCameraId(mCameraId);
 
+        try {
+            if (mOpenCameraThread != null) {
+                mOpenCameraThread.join();
+            }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        mOpenCameraThread = null;
+
         // from onPause
         try {
             if (mOpenCameraThread != null) {
