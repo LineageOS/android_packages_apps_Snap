@@ -1823,11 +1823,9 @@ public class VideoModule implements CameraModule,
                 startPreview();
             } else {
                 if (is4KEnabled()) {
-                    int[] fpsRange = CameraUtil.getMaxPreviewFpsRange(mParameters);
-                    if (fpsRange.length > 0) {
-                        mParameters.setPreviewFpsRange(
-                            fpsRange[Parameters.PREVIEW_FPS_MIN_INDEX],
-                            fpsRange[Parameters.PREVIEW_FPS_MAX_INDEX]);
+                    int fps = CameraUtil.getMaxPreviewFps(mParameters);
+                    if (fps > 0) {
+                        mParameters.setPreviewFrameRate(fps);
                     } else {
                         mParameters.setPreviewFrameRate(30);
                     }
