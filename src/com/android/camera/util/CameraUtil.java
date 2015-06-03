@@ -1238,6 +1238,15 @@ public class CameraUtil {
         return new int[0];
     }
 
+    public static int getMaxPreviewFps(Parameters params) {
+        List<Integer> frameRates = params.getSupportedPreviewFrameRates();
+        if (frameRates != null && frameRates.size() > 0) {
+            // The list is sorted. Return the last element.
+            return frameRates.get(frameRates.size() - 1).intValue();
+        }
+        return -1;
+    }
+
     private static class ImageFileNamer {
         private final SimpleDateFormat mFormat;
 
