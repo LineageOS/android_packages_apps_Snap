@@ -2064,7 +2064,7 @@ public class PhotoModule
     }
 
     @Override
-    public void onShutterButtonClick() {
+    public synchronized void onShutterButtonClick() {
         if (mPaused || mShutterPressing
                 || mUI.collapseCameraControls()
                 || (mCameraState == SWITCHING_CAMERA)
