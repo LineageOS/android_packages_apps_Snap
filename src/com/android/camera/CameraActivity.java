@@ -1355,7 +1355,8 @@ public class CameraActivity extends Activity
 
     private void removeData(int dataID) {
         mDataAdapter.removeData(CameraActivity.this, dataID);
-        if (mDataAdapter.getTotalNumber() > 1) {
+        final int placeholders = mSecureCamera ? 1 : 0;
+        if (mDataAdapter.getTotalNumber() > placeholders) {
             showUndoDeletionBar();
         } else {
             // If camera preview is the only view left in filmstrip,
