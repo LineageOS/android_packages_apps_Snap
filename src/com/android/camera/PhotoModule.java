@@ -539,6 +539,9 @@ public class PhotoModule
     }
 
     private void onPreviewStarted() {
+        if (mCameraState == SNAPSHOT_IN_PROGRESS) {
+            return;
+        }
         mUI.hidePreviewCover();
         setCameraState(IDLE);
         mFocusManager.onPreviewStarted();
