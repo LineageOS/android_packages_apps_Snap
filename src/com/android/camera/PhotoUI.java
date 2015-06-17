@@ -172,6 +172,15 @@ public class PhotoUI implements PieListener,
         return mCameraControls;
     }
 
+    private OnLayoutChangeListener mLayoutListener = new OnLayoutChangeListener() {
+        @Override
+        public void onLayoutChange(View v, int left, int top, int right,
+                int bottom, int oldLeft, int oldTop, int oldRight, int oldBottom) {
+            if (mMenu != null)
+                mMenu.tryToCloseSubList();
+        }
+    };
+
     private class DecodeTask extends AsyncTask<Void, Void, Bitmap> {
         private final byte [] mData;
         private int mOrientation;
@@ -260,6 +269,43 @@ public class PhotoUI implements PieListener,
 
                 if (mOrientationResize != mPrevOrientationResize
                         || mAspectRatioResize || !mIsLayoutInitializedAlready) {
+                    layoutPreview(mAspectRatio);
+                    mAspectRatioResize = false;
+                }
+            }
+        });
+
+        View surfaceContainer = mRootView.findViewById(R.id.preview_container);
+        surfaceContainer.addOnLayoutChangeListener(new OnLayoutChangeListener() {
+            @Override
+            public void onLayoutChange(View v, int left, int top, int right,
+                    int bottom, int oldLeft, int oldTop, int oldRight,
+                    int oldBottom) {
+                int width = right - left;
+                int height = bottom - top;
+
+                if (mMaxPreviewWidth == 0 && mMaxPreviewHeight == 0) {
+                    mMaxPreviewWidth = width;
+                    mMaxPreviewHeight = height;
+                }
+
+                int orientation = mActivity.getResources().getConfiguration().orientation;
+                if ((orientation == Configuration.ORIENTATION_PORTRAIT && width > height)
+                        || (orientation == Configuration.ORIENTATION_LANDSCAPE && width < height)) {
+                    // The screen has rotated; swap SurfaceView width & height
+                    // to ensure correct preview
+                    int oldWidth = width;
+                    width = height;
+                    height = oldWidth;
+                    Log.d(TAG, "Swapping SurfaceView width & height dimensions");
+                    if (mMaxPreviewWidth != 0 && mMaxPreviewHeight != 0) {
+                        int temp = mMaxPreviewWidth;
+                        mMaxPreviewWidth = mMaxPreviewHeight;
+                        mMaxPreviewHeight = temp;
+                    }
+                }
+                if (mOrientationResize != mPrevOrientationResize
+                        || mAspectRatioResize) {
                     layoutPreview(mAspectRatio);
                     mAspectRatioResize = false;
                 }
@@ -458,6 +504,9 @@ public class PhotoUI implements PieListener,
             mFaceView.setLayoutParams(lp);
         }
         mIsLayoutInitializedAlready = true;
+
+        mController.onScreenSizeChanged((int) mSurfaceTextureUncroppedWidth,
+                (int) mSurfaceTextureUncroppedHeight);
     }
 
     public void setSurfaceTextureSizeChangedListener(SurfaceTextureSizeChangedListener listener) {
@@ -665,6 +714,41 @@ public class PhotoUI implements PieListener,
         }
         RotateImageView muteButton = (RotateImageView)mRootView.findViewById(R.id.mute_button);
         muteButton.setVisibility(View.GONE);
+    }
+
+    public void showLocationDialog() {
+        mLocationDialog = new AlertDialog.Builder(mActivity)
+                .setTitle(R.string.remember_location_title)
+                .setMessage(R.string.remember_location_prompt)
+                .setPositiveButton(R.string.remember_location_yes,
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int arg1) {
+                                mController.enableRecordingLocation(true);
+                                mLocationDialog = null;
+                            }
+                        })
+                .setNegativeButton(R.string.remember_location_no,
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int arg1) {
+                                dialog.cancel();
+                            }
+                        })
+                .setOnCancelListener(new DialogInterface.OnCancelListener() {
+                    @Override
+                    public void onCancel(DialogInterface dialog) {
+                        mController.enableRecordingLocation(false);
+                        mLocationDialog = null;
+                    }
+                })
+                .setOnDismissListener(new DialogInterface.OnDismissListener() {
+                    @Override
+                    public void onDismiss(DialogInterface dialog) {
+                        mActivity.setSystemBarsVisibility(false);
+                    }
+                })
+                .show();
     }
 
     public void initializeZoom(Camera.Parameters params) {
