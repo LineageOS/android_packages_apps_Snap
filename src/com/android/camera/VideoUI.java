@@ -138,6 +138,16 @@ public class VideoUI implements PieRenderer.PieListener,
         SURFACE_VIEW;
     }
 
+    private OnLayoutChangeListener mLayoutListener = new OnLayoutChangeListener() {
+        @Override
+        public void onLayoutChange(View v, int left, int top, int right,
+                int bottom, int oldLeft, int oldTop, int oldRight, int oldBottom) {
+            if(mVideoMenu != null) {
+                mVideoMenu.tryToCloseSubList();
+            }
+        }
+    };
+
     public void showPreviewCover() {
         mPreviewCover.setVisibility(View.VISIBLE);
     }
@@ -207,6 +217,7 @@ public class VideoUI implements PieRenderer.PieListener,
         mSurfaceHolder = mSurfaceView.getHolder();
         mSurfaceHolder.addCallback(this);
         mSurfaceHolder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
+        mSurfaceView.addOnLayoutChangeListener(mLayoutListener);
         Log.v(TAG, "Using mdp_preview_content (MDP path)");
         View surfaceContainer = mRootView.findViewById(R.id.preview_container);
         surfaceContainer.addOnLayoutChangeListener(new OnLayoutChangeListener() {
@@ -434,7 +445,7 @@ public class VideoUI implements PieRenderer.PieListener,
                     scaledTextureHeight = l * 3 / 4;
                     break;
             }
-        } else {
+        } else if (mMaxPreviewWidth != 0 && mMaxPreviewHeight != 0) {
             float width = mMaxPreviewWidth, height = mMaxPreviewHeight;
             if (width == 0 || height == 0) return;
             if(mScreenRatio == CameraUtil.RATIO_4_3)
