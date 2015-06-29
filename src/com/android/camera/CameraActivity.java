@@ -19,6 +19,7 @@ package com.android.camera;
 
 import android.view.Display;
 import android.graphics.Point;
+import android.Manifest;
 import android.animation.Animator;
 import android.annotation.TargetApi;
 import android.app.ActionBar;
@@ -33,6 +34,7 @@ import android.content.IntentFilter;
 import android.content.ServiceConnection;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
+import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.database.Cursor;
 import android.graphics.Bitmap;
@@ -227,6 +229,7 @@ public class CameraActivity extends Activity
     private boolean mPaused = true;
     private View mPreviewCover;
     private FrameLayout mPreviewContentLayout;
+    private boolean mHasCriticalPermissions;
 
     private Uri[] mNfcPushUris = new Uri[1];
 
@@ -1428,6 +1431,11 @@ public class CameraActivity extends Activity
     @Override
     public void onCreate(Bundle state) {
         super.onCreate(state);
+        if (checkPermissions() || !mHasCriticalPermissions) {
+            Log.v(TAG, "onCreate: Missing critical permissions.");
+            finish();
+            return;
+        }
         // Check if this is in the secure camera mode.
         Intent intent = getIntent();
         String action = intent.getAction();
@@ -1637,7 +1645,9 @@ public class CameraActivity extends Activity
     @Override
     public void onUserInteraction() {
         super.onUserInteraction();
-        mCurrentModule.onUserInteraction();
+        if (mCurrentModule != null) {
+            mCurrentModule.onUserInteraction();
+        }
     }
 
     @Override
@@ -1691,8 +1701,53 @@ public class CameraActivity extends Activity
         if (focus) this.setSystemBarsVisibility(false);
     }
 
+    /**
+     * Checks if any of the needed Android runtime permissions are missing.
+     * If they are, then launch the permissions activity under one of the following conditions:
+     * a) If critical permissions are missing, display permission request again
+     * b) If non-critical permissions are missing, just display permission request once.
+     * Critical permissions are: camera, microphone and storage. The app cannot run without them.
+     * Non-critical permission is location.
+     */
+    private boolean checkPermissions() {
+        boolean requestPermission = false;
+
+        if (checkSelfPermission(Manifest.permission.CAMERA) ==
+                        PackageManager.PERMISSION_GRANTED &&
+                checkSelfPermission(Manifest.permission.RECORD_AUDIO) ==
+                        PackageManager.PERMISSION_GRANTED &&
+                checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) ==
+                        PackageManager.PERMISSION_GRANTED) {
+            mHasCriticalPermissions = true;
+        } else {
+            mHasCriticalPermissions = false;
+        }
+
+        if ((checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) !=
+                    PackageManager.PERMISSION_GRANTED) || !mHasCriticalPermissions) {
+            final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+            boolean isRequestShown = prefs.getBoolean(CameraSettings.KEY_REQUEST_PERMISSION, false);
+            if(!isRequestShown || !mHasCriticalPermissions) {
+                Log.v(TAG, "Request permission");
+                Intent intent = new Intent(this, PermissionsActivity.class);
+                startActivity(intent);
+                SharedPreferences.Editor editor = prefs.edit();
+                editor.putBoolean(CameraSettings.KEY_REQUEST_PERMISSION, true);
+                editor.apply();
+                requestPermission = true;
+           }
+        }
+        return requestPermission;
+    }
+
     @Override
     public void onResume() {
+        if (checkPermissions() || !mHasCriticalPermissions) {
+            super.onResume();
+            Log.v(TAG, "onResume: Missing critical permissions.");
+            finish();
+            return;
+        }
         UsageStatistics.onEvent(UsageStatistics.COMPONENT_CAMERA,
                 UsageStatistics.ACTION_FOREGROUNDED, this.getClass().getSimpleName());
 
@@ -1761,8 +1816,10 @@ public class CameraActivity extends Activity
         getContentResolver().unregisterContentObserver(mLocalVideosObserver);
         unregisterReceiver(mSDcardMountedReceiver);
 
-        mCursor.close();
-        mCursor=null;
+        if (mCursor != null) {
+            mCursor.close();
+            mCursor=null;
+        }
         super.onDestroy();
     }
 
