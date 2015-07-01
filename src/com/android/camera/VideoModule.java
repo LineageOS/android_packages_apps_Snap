@@ -776,7 +776,10 @@ public class VideoModule implements CameraModule,
         if (stop) {
             onStopVideoRecording();
         } else {
-            startVideoRecording();
+            if (!startVideoRecording()) {
+                // Show ui when start recording failed.
+                mUI.showUIafterRecording();
+            }
         }
 
         // Keep the shutter button disabled when in video capture intent
@@ -1832,7 +1835,7 @@ public class VideoModule implements CameraModule,
         return mMediaRecorderRecording;
     }
 
-    private void startVideoRecording() {
+    private boolean startVideoRecording() {
         Log.v(TAG, "startVideoRecording");
         mStartRecPending = true;
         mUI.cancelAnimations();
@@ -1843,7 +1846,7 @@ public class VideoModule implements CameraModule,
         if (mActivity.getStorageSpaceBytes() <= Storage.LOW_STORAGE_THRESHOLD_BYTES) {
             Log.v(TAG, "Storage issue, ignore the start request");
             mStartRecPending = false;
-            return;
+            return false;
         }
 
         if( mUnsupportedHFRVideoSize == true) {
@@ -1851,7 +1854,7 @@ public class VideoModule implements CameraModule,
             RotateTextToast.makeText(mActivity,R.string.error_app_unsupported_hfr,
                     Toast.LENGTH_SHORT).show();
             mStartRecPending = false;
-            return;
+            return false;
         }
 
         if (mUnsupportedHSRVideoSize == true) {
@@ -1859,7 +1862,7 @@ public class VideoModule implements CameraModule,
             RotateTextToast.makeText(mActivity,R.string.error_app_unsupported_hsr,
                     Toast.LENGTH_SHORT).show();
             mStartRecPending = false;
-            return;
+            return false;
         }
 
         if( mUnsupportedHFRVideoCodec == true) {
@@ -1867,7 +1870,7 @@ public class VideoModule implements CameraModule,
             RotateTextToast.makeText(mActivity, R.string.error_app_unsupported_hfr_codec,
                     Toast.LENGTH_SHORT).show();
             mStartRecPending = false;
-            return;
+            return false;
         }
         //??
         //if (!mCameraDevice.waitDone()) return;
@@ -1877,12 +1880,12 @@ public class VideoModule implements CameraModule,
         if (mUnsupportedResolution == true) {
               Log.v(TAG, "Unsupported Resolution according to target");
               mStartRecPending = false;
-              return;
+              return false;
         }
         if (mMediaRecorder == null) {
             Log.e(TAG, "Fail to initialize media recorder");
             mStartRecPending = false;
-            return;
+            return false;
         }
 
         pauseAudioPlayback();
@@ -1895,7 +1898,7 @@ public class VideoModule implements CameraModule,
             // If start fails, frameworks will not lock the camera for us.
             mCameraDevice.lock();
             mStartRecPending = false;
-            return;
+            return false;
         }
 
         mUI.hideUIwhileRecording();
@@ -1928,6 +1931,7 @@ public class VideoModule implements CameraModule,
         UsageStatistics.onEvent(UsageStatistics.COMPONENT_CAMERA,
                 UsageStatistics.ACTION_CAPTURE_START, "Video");
         mStartRecPending = false;
+        return true;
     }
 
     private Bitmap getVideoThumbnail() {
