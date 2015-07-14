@@ -179,7 +179,6 @@ public class PhotoMenu extends MenuController
                 CameraSettings.KEY_ISO,
                 CameraSettings.KEY_EXPOSURE,
                 CameraSettings.KEY_WHITE_BALANCE,
-                CameraSettings.KEY_FOCUS_MODE,
                 CameraSettings.KEY_REDEYE_REDUCTION
         };
 
@@ -195,8 +194,8 @@ public class PhotoMenu extends MenuController
                 CameraSettings.KEY_ISO,
                 CameraSettings.KEY_EXPOSURE,
                 CameraSettings.KEY_WHITE_BALANCE,
-                CameraSettings.KEY_FOCUS_MODE,
                 CameraSettings.KEY_REDEYE_REDUCTION,
+                CameraSettings.KEY_FOCUS_MODE,
                 CameraSettings.KEY_AUTO_HDR,
                 CameraSettings.KEY_HDR_MODE,
                 CameraSettings.KEY_HDR_NEED_1X,
