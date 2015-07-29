@@ -135,6 +135,7 @@ public class VideoMenu extends MenuController
                 CameraSettings.KEY_POWER_SHUTTER,
                 CameraSettings.KEY_MAX_BRIGHTNESS,
                 CameraSettings.KEY_SEE_MORE,
+                CameraSettings.KEY_NOISE_REDUCTION,
                 CameraSettings.KEY_DIS,
                 CameraSettings.KEY_VIDEO_EFFECT,
                 CameraSettings.KEY_VIDEO_TIME_LAPSE_FRAME_INTERVAL,
