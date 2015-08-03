@@ -4772,6 +4772,8 @@ public class PhotoModule
 
         //filter off unsupported settings
         final String settingOff = mActivity.getString(R.string.setting_off_value);
+        final String settingOn = mActivity.getString(R.string.setting_on_value);
+        final String zsl = mActivity.getString(R.string.pref_camera_zsl_default);
         if (!CameraSettings.isZSLHDRSupported(mParameters)) {
             //HDR internally uses AE-bracketing. Disable both if not supported.
             if (notSame(pref, CameraSettings.KEY_CAMERA_HDR, settingOff) ||
@@ -4780,6 +4782,9 @@ public class PhotoModule
             } else if (notSame(pref,CameraSettings.KEY_ZSL,settingOff)) {
                 mUI.setPreference(CameraSettings.KEY_CAMERA_HDR, settingOff);
                 mUI.setPreference(CameraSettings.KEY_AE_BRACKET_HDR, settingOff);
+            } else if (notSame(pref, CameraSettings.KEY_CAMERA_HDR, settingOn) ||
+                notSame(pref, CameraSettings.KEY_AE_BRACKET_HDR, settingOn)) {
+                mUI.setPreference(CameraSettings.KEY_ZSL, zsl);
             }
         }
 
