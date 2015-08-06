@@ -20,6 +20,7 @@ package com.android.camera.app;
 import android.app.Application;
 import android.content.Context;
 
+import com.android.camera.SDCard;
 import com.android.camera.util.CameraUtil;
 import com.android.camera.util.UsageStatistics;
 
@@ -33,6 +34,7 @@ public class CameraApp extends Application {
         mApp = this;
         UsageStatistics.initialize(this);
         CameraUtil.initialize(this);
+        SDCard.initialize(this);
     }
 
     public static Context getContext()
