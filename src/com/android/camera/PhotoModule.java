@@ -2740,7 +2740,8 @@ public class PhotoModule
 
     @Override
     public void stopPreview() {
-        if (mCameraDevice != null && mCameraState != PREVIEW_STOPPED) {
+        boolean isPreviewing = mCameraDevice.getCamera().previewEnabled();
+        if (mCameraDevice != null && isPreviewing) {
             if (mCameraState == LONGSHOT) {
                 mCameraDevice.setLongshot(false);
                 mLongshotActive = false;
