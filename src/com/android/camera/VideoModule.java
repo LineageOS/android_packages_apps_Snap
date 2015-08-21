@@ -1852,7 +1852,6 @@ public class VideoModule implements CameraModule,
         mStartRecPending = true;
         mUI.cancelAnimations();
         mUI.setSwipingEnabled(false);
-        mUI.hideUIwhileRecording();
         // When recording request is sent before starting preview, onPreviewFrame()
         // callback doesn't happen so removing preview cover here, instead.
         if (mUI.isPreviewCoverVisible()) {
@@ -1924,6 +1923,8 @@ public class VideoModule implements CameraModule,
             mStartRecPending = false;
             return false;
         }
+
+        mUI.hideUIwhileRecording();
 
         // Make sure the video recording has started before announcing
         // this in accessibility.
