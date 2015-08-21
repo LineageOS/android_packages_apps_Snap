@@ -607,7 +607,7 @@ public class CameraUtil {
         // TODO(andyhuibers): Don't hardcode this but use device's measurements.
         final int MAX_ASPECT_HEIGHT = 1080;
         // Use a very small tolerance because we want an exact match.
-        final double ASPECT_TOLERANCE = 0.01;
+        final double ASPECT_TOLERANCE = 0.02;
         if (sizes == null) return -1;
 
         int optimalSizeIndex = -1;
