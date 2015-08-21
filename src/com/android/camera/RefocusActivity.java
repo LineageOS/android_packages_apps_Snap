@@ -60,6 +60,8 @@ public class RefocusActivity extends Activity {
     private int mWidth;
     private int mHeight;
 
+    private View mAllInFocusView;
+
     private DepthMap mDepthMap;
     private int mCurrentImage = -1;
     private int mRequestedImage = -1;
@@ -92,6 +94,8 @@ public class RefocusActivity extends Activity {
                         if (mDepthMap != null) {
                             int depth = mDepthMap.getDepth(x / (float) w, y / (float) h);
                             setCurrentImage(depth);
+                            mAllInFocusView.setBackground(getDrawable(
+                                    R.drawable.refocus_button_disable));
                         }
                         break;
                 }
@@ -99,7 +103,8 @@ public class RefocusActivity extends Activity {
             }
         });
 
-        findViewById(R.id.refocus_all).setOnClickListener(new View.OnClickListener() {
+        mAllInFocusView = findViewById(R.id.refocus_all);
+        mAllInFocusView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View v) {
                 allInFocus();
@@ -150,6 +155,7 @@ public class RefocusActivity extends Activity {
 
     private void allInFocus() {
         setCurrentImage(NAMES.length - 1);
+        mAllInFocusView.setBackground(getDrawable(R.drawable.refocus_button_enable));
     }
 
     private class SaveImageTask extends AsyncTask<String, Void, Void> {
