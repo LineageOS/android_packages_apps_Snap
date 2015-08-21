@@ -1603,7 +1603,6 @@ public class VideoModule implements CameraModule,
         mStartRecPending = true;
         mUI.cancelAnimations();
         mUI.setSwipingEnabled(false);
-        mUI.hideUIwhileRecording();
 
         mActivity.updateStorageSpaceAndHint();
         if (mActivity.getStorageSpaceBytes() <= Storage.LOW_STORAGE_THRESHOLD_BYTES) {
@@ -1670,6 +1669,8 @@ public class VideoModule implements CameraModule,
             mStartRecPending = false;
             return;
         }
+
+        mUI.hideUIwhileRecording();
 
         // Make sure the video recording has started before announcing
         // this in accessibility.
