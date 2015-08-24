@@ -1832,6 +1832,17 @@ public class PhotoModule
             String whiteBalance = Parameters.WHITE_BALANCE_AUTO;
             focusMode = mFocusManager.getFocusMode();
             colorEffect = mParameters.getColorEffect();
+            String defaultEffect = mActivity.getString(R.string.pref_camera_coloreffect_default);
+            if (CameraUtil.SCENE_MODE_HDR.equals(mSceneMode)
+                    && colorEffect != null & !colorEffect.equals(defaultEffect)) {
+                disableLongShot = true;
+                // Change the colorEffect to default(None effect) when HDR ON.
+                colorEffect = defaultEffect;
+                mUI.setPreference(CameraSettings.KEY_COLOR_EFFECT, colorEffect);
+                mParameters.setColorEffect(colorEffect);
+                mCameraDevice.setParameters(mParameters);
+                mParameters = mCameraDevice.getParameters();
+            }
             exposureCompensation =
                 Integer.toString(mParameters.getExposureCompensation());
 
@@ -1843,9 +1854,6 @@ public class PhotoModule
                     getSharpnessSafe(),
                     colorEffect,
                     sceneMode, redeyeReduction, aeBracketing);
-            if (CameraUtil.SCENE_MODE_HDR.equals(mSceneMode)) {
-                disableLongShot = true;
-            }
         } else if (mFocusManager.isZslEnabled()) {
             focusMode = mParameters.getFocusMode();
             overrideCameraSettings(flashMode, null, focusMode,
