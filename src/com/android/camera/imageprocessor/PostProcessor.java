@@ -1328,7 +1328,7 @@ public class PostProcessor{
     private native int nativeFlipNV21(byte[] buf, int stride, int height, int gap, boolean isVertical);
     static {
         try {
-            System.loadLibrary("jni_imageutil");
+            System.loadLibrary("jni_snapimageutil");
             mIsSupported = true;
         } catch (UnsatisfiedLinkError e) {
             Log.d(TAG, e.toString());
