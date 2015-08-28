@@ -46,7 +46,7 @@ LOCAL_LDFLAGS := -llog -lGLESv2
 
 LOCAL_MODULE_TAGS := optional
 
-LOCAL_MODULE    := libjni_snapcammosaic
+LOCAL_MODULE    := libjni_snapmosaic
 include $(BUILD_SHARED_LIBRARY)
 
 # TinyPlanet
@@ -55,7 +55,7 @@ include $(CLEAR_VARS)
 LOCAL_CPP_EXTENSION := .cc
 LOCAL_LDFLAGS   := -llog -ljnigraphics
 LOCAL_SDK_VERSION := 9
-LOCAL_MODULE    := libjni_snapcamtinyplanet
+LOCAL_MODULE    := libjni_snaptinyplanet
 LOCAL_SRC_FILES := tinyplanet.cc
 
 LOCAL_CFLAGS    += -ffast-math -O3 -funroll-loops
@@ -67,7 +67,7 @@ include $(BUILD_SHARED_LIBRARY)
 include $(CLEAR_VARS)
 LOCAL_LDFLAGS   := -llog
 LOCAL_SDK_VERSION := 9
-LOCAL_MODULE    := libjni_imageutil
+LOCAL_MODULE    := libjni_snapimageutil
 LOCAL_MODULE_TAGS := optional
 LOCAL_SRC_FILES := image_util_jni.cpp
 LOCAL_CFLAGS    += -ffast-math -O3 -funroll-loops
