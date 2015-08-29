@@ -2824,9 +2824,6 @@ public class PhotoModule
         switch (keyCode) {
             case KeyEvent.KEYCODE_VOLUME_UP:
             case KeyEvent.KEYCODE_VOLUME_DOWN:
-                if (CameraUtil.volumeKeyShutterDisable(mActivity)) {
-                   return false;
-                }
             case KeyEvent.KEYCODE_FOCUS:
                 if (/*TODO: mActivity.isInCameraApp() &&*/ mFirstTimeInitialized) {
                     if (event.getRepeatCount() == 0) {
@@ -2902,8 +2899,7 @@ public class PhotoModule
         switch (keyCode) {
             case KeyEvent.KEYCODE_VOLUME_UP:
             case KeyEvent.KEYCODE_VOLUME_DOWN:
-                if (/*mActivity.isInCameraApp() && */ mFirstTimeInitialized
-                        && !CameraUtil.volumeKeyShutterDisable(mActivity)) {
+                if (/*mActivity.isInCameraApp() && */ mFirstTimeInitialized) {
                     onShutterButtonClick();
                     return true;
                 }
