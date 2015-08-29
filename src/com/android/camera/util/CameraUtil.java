@@ -1110,10 +1110,6 @@ public class CameraUtil {
         return ret;
     }
 
-    public static boolean volumeKeyShutterDisable(Context context) {
-        return context.getResources().getBoolean(R.bool.volume_key_shutter_disable);
-    }
-
     public static int determineRatio(int width, int height) {
         if (height != 0) {
             return determineRatio(((float) width) / height);
