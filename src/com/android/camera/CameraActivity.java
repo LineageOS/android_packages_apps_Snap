@@ -1672,6 +1672,13 @@ public class CameraActivity extends Activity
     }
 
     @Override
+    public void onWindowFocusChanged(boolean focus) {
+        // Hide action bar first since we are in full screen mode first, and
+        // switch the system UI to lights-out mode.
+        if (focus) this.setSystemBarsVisibility(false);
+    }
+
+    @Override
     public void onResume() {
         UsageStatistics.onEvent(UsageStatistics.COMPONENT_CAMERA,
                 UsageStatistics.ACTION_FOREGROUNDED, this.getClass().getSimpleName());
