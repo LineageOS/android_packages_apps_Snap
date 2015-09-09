@@ -462,7 +462,7 @@ public class FocusOverlayManager {
         }
     }
 
-    public String getFocusMode() {
+    public String getFocusMode(boolean fromVideo) {
         if (mOverrideFocusMode != null) return mOverrideFocusMode;
         if (mParameters == null) return Parameters.FOCUS_MODE_AUTO;
         List<String> supportedFocusModes = mParameters.getSupportedFocusModes();
@@ -472,8 +472,13 @@ public class FocusOverlayManager {
             mFocusMode = Parameters.FOCUS_MODE_AUTO;
         } else {
             // The default is continuous autofocus.
-            mFocusMode = mPreferences.getString(
-                    CameraSettings.KEY_FOCUS_MODE, null);
+            if (fromVideo) {
+                mFocusMode = mPreferences.getString(
+                        CameraSettings.KEY_VIDEOCAMERA_FOCUS_MODE, null);
+            } else {
+                mFocusMode = mPreferences.getString(
+                        CameraSettings.KEY_FOCUS_MODE, null);
+            }
 
             // Try to find a supported focus mode from the default list.
             if (mFocusMode == null) {
@@ -607,7 +612,7 @@ public class FocusOverlayManager {
     }
 
     private boolean needAutoFocusCall() {
-        String focusMode = getFocusMode();
+        String focusMode = getFocusMode(false);
         return !(focusMode.equals(Parameters.FOCUS_MODE_INFINITY)
                 || focusMode.equals(Parameters.FOCUS_MODE_FIXED)
                 || focusMode.equals(Parameters.FOCUS_MODE_EDOF));
