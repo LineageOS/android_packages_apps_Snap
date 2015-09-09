@@ -68,6 +68,7 @@ public class CameraSettings {
     public static final String KEY_PICTURE_SIZE = "pref_camera_picturesize_key";
     public static final String KEY_JPEG_QUALITY = "pref_camera_jpegquality_key";
     public static final String KEY_FOCUS_MODE = "pref_camera_focusmode_key";
+    public static final String KEY_VIDEOCAMERA_FOCUS_MODE = "pref_camera_video_focusmode_key";
     public static final String KEY_FOCUS_TIME = "pref_camera_focustime_key";
     public static final String KEY_FLASH_MODE = "pref_camera_flashmode_key";
     public static final String KEY_VIDEOCAMERA_FLASH_MODE = "pref_camera_video_flashmode_key";
@@ -1126,6 +1127,7 @@ public class CameraSettings {
         ListPreference sceneMode = group.findPreference(KEY_SCENE_MODE);
         ListPreference flashMode = group.findPreference(KEY_FLASH_MODE);
         ListPreference focusMode = group.findPreference(KEY_FOCUS_MODE);
+        ListPreference videoFocusMode = group.findPreference(KEY_VIDEOCAMERA_FOCUS_MODE);
         IconListPreference exposure =
                 (IconListPreference) group.findPreference(KEY_EXPOSURE);
         IconListPreference cameraIdPref =
@@ -1227,6 +1229,10 @@ public class CameraSettings {
         if (focusMode != null) {
             filterUnsupportedOptions(group,
                     focusMode, mParameters.getSupportedFocusModes());
+        }
+        if (videoFocusMode != null) {
+            filterUnsupportedOptions(group,
+                    videoFocusMode, mParameters.getSupportedFocusModes());
         }
         if (videoFlashMode != null) {
             filterUnsupportedOptions(group,
