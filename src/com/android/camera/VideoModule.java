@@ -318,7 +318,6 @@ public class VideoModule implements CameraModule,
     private boolean mUnsupportedHSRVideoSize = false;
     private boolean mUnsupportedHFRVideoCodec = false;
     private String mDefaultAntibanding = null;
-    boolean mUnsupportedProfile = false;
 
     // This Handler is used to post message back onto the main thread of the
     // application
@@ -772,16 +771,18 @@ public class VideoModule implements CameraModule,
             mParameters = mCameraDevice.getParameters();
             String defaultQuality = mActivity.getResources().getString(
                     R.string.pref_video_quality_default);
-            if (!defaultQuality.equals("")){
-                videoQuality = defaultQuality;
+            if (!defaultQuality.equals("")) {
+                if (CamcorderProfile.hasProfile(Integer.parseInt(defaultQuality))) {
+                    videoQuality = defaultQuality;
+                }
             } else {
-            // check for highest quality supported
-            videoQuality = CameraSettings.getSupportedHighestVideoQuality(
-                    mCameraId, mParameters);
+                // check for highest quality supported
+                videoQuality = CameraSettings.getSupportedHighestVideoQuality(
+                        mCameraId, mParameters);
             }
             mPreferences.edit().putString(CameraSettings.KEY_VIDEO_QUALITY, videoQuality).apply();
         }
-        int quality = CameraSettings.VIDEO_QUALITY_TABLE.get(videoQuality);
+        int quality = Integer.valueOf(videoQuality);
 
         // Set video quality.
         Intent intent = mActivity.getIntent();
@@ -803,12 +804,6 @@ public class VideoModule implements CameraModule,
         mCaptureTimeLapse = (mTimeBetweenTimeLapseFrameCaptureMs != 0);
         // TODO: This should be checked instead directly +1000.
         if (mCaptureTimeLapse) quality += 1000;
-        mUnsupportedProfile = false;
-        boolean hasProfile = CamcorderProfile.hasProfile(mCameraId, quality);
-        if (!hasProfile) {
-            mUnsupportedProfile = true;
-            return;
-        }
         mProfile = CamcorderProfile.get(mCameraId, quality);
         getDesiredPreviewSize();
         qcomReadVideoPreferences();
@@ -1674,13 +1669,6 @@ public class VideoModule implements CameraModule,
         if( mUnsupportedHFRVideoCodec == true) {
             Log.e(TAG, "Unsupported HFR and video codec combinations");
             RotateTextToast.makeText(mActivity, R.string.error_app_unsupported_hfr_codec,
-                    Toast.LENGTH_SHORT).show();
-            mStartRecPending = false;
-            return;
-        }
-        if (mUnsupportedProfile == true) {
-            Log.e(TAG, "Unsupported video profile");
-            RotateTextToast.makeText(mActivity, R.string.error_app_unsupported_profile,
                     Toast.LENGTH_SHORT).show();
             mStartRecPending = false;
             return;
