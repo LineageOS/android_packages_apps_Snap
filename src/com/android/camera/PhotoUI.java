@@ -1114,11 +1114,13 @@ public class PhotoUI implements PieListener,
     public void cancelCountDown() {
         if (mCountDownView == null) return;
         mCountDownView.cancelCountDown();
+        showUIAfterCountDown();
     }
 
     public void startCountDown(int sec, boolean playSound) {
         if (mCountDownView == null) initializeCountDown();
         mCountDownView.startCountDown(sec, playSound);
+        hideUIWhileCountDown();
     }
 
     public void showPreferencesToast() {
@@ -1293,5 +1295,15 @@ public class PhotoUI implements PieListener,
 
     public void adjustOrientation() {
         setOrientation(mOrientation, true);
+    }
+
+    public void hideUIWhileCountDown() {
+        mMenu.hideCameraControls(true);
+        mGestures.setZoomOnly(true);
+    }
+
+    public void showUIAfterCountDown() {
+        mMenu.hideCameraControls(false);
+        mGestures.setZoomOnly(false);
     }
 }
