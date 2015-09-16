@@ -220,10 +220,6 @@ public class ListMenu extends ListView
 
     @Override
     public boolean onTouchEvent(MotionEvent ev) {
-        if (ev.getAction() == MotionEvent.ACTION_MOVE) {
-            mListener.onListMenuTouched();
-            resetHighlight();
-        }
         return super.onTouchEvent(ev);
     }
 
