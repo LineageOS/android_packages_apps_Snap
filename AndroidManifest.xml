@@ -39,7 +39,6 @@
         android:icon="@mipmap/ic_launcher_camera"
         android:label="@string/app_name"
         android:largeHeap="true"
-        android:logo="@mipmap/ic_launcher_camera"
         android:restoreAnyVersion="true"
         android:supportsRtl="true"
         android:theme="@style/Theme.Camera" >
@@ -47,10 +46,8 @@
             android:name="com.android.camera.CameraActivity"
             android:clearTaskOnLaunch="true"
             android:configChanges="orientation|screenSize|keyboardHidden"
-            android:icon="@mipmap/ic_launcher_camera"
             android:label="@string/app_name"
             android:launchMode="singleTop"
-            android:logo="@mipmap/ic_launcher_gallery"
             android:screenOrientation="portrait"
             android:taskAffinity="com.android.camera.CameraActivity"
             android:theme="@style/Theme.Camera"
@@ -73,7 +70,6 @@
 
         <activity-alias
             android:name="com.android.camera.CameraLauncher"
-            android:icon="@mipmap/ic_launcher_camera"
             android:label="@string/app_name"
             android:launchMode="singleTop"
             android:targetActivity="com.android.camera.CameraActivity">
@@ -108,7 +104,6 @@
         <!-- Video camera and capture use the Camcorder label and icon. -->
         <activity-alias
             android:name="com.android.camera.VideoCamera"
-            android:icon="@mipmap/ic_launcher_video_camera"
             android:label="@string/video_camera_label"
             android:launchMode="singleTop"
             android:targetActivity="com.android.camera.PermissionsActivity">
@@ -127,10 +122,8 @@
             android:clearTaskOnLaunch="true"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:excludeFromRecents="true"
-            android:icon="@mipmap/ic_launcher_camera"
             android:label="@string/app_name"
             android:launchMode="singleInstance"
-            android:logo="@mipmap/ic_launcher_gallery"
             android:screenOrientation="portrait"
             android:taskAffinity="com.android.camera.SecureCameraActivity"
             android:theme="@style/Theme.Camera"
