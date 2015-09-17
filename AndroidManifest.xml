@@ -35,7 +35,6 @@
         android:icon="@mipmap/ic_launcher_camera"
         android:label="@string/app_name"
         android:largeHeap="true"
-        android:logo="@mipmap/ic_launcher_camera"
         android:restoreAnyVersion="true"
         android:supportsRtl="true"
         android:theme="@style/Theme.Camera" >
@@ -43,10 +42,8 @@
             android:name="com.android.camera.CameraActivity"
             android:clearTaskOnLaunch="true"
             android:configChanges="orientation|screenSize|keyboardHidden"
-            android:icon="@mipmap/ic_launcher_camera"
             android:label="@string/app_name"
             android:launchMode="singleTask"
-            android:logo="@mipmap/ic_launcher_gallery"
             android:screenOrientation="portrait"
             android:taskAffinity="com.android.camera.CameraActivity"
             android:theme="@style/Theme.Camera"
@@ -104,7 +101,6 @@
             android:name="com.android.camera.SettingsActivity"
             android:clearTaskOnLaunch="true"
             android:configChanges="orientation|screenSize|keyboardHidden"
-            android:icon="@mipmap/ic_launcher_camera"
             android:label="@string/app_name"
             android:launchMode="singleTop"
             android:parentActivityName="com.android.camera.CameraActivity">
@@ -126,14 +122,12 @@
             android:name="com.android.camera.SceneModeActivity"
             android:clearTaskOnLaunch="true"
             android:configChanges="orientation|screenSize|keyboardHidden"
-            android:icon="@mipmap/ic_launcher_camera"
             android:label="@string/app_name"
             android:launchMode="singleTop" >
         </activity>
 
         <activity-alias
             android:name="com.android.camera.CameraLauncher"
-            android:icon="@mipmap/ic_launcher_camera"
             android:label="@string/app_name"
             android:launchMode="singleTop"
             android:targetActivity="com.android.camera.CameraActivity">
@@ -150,10 +144,8 @@
             android:clearTaskOnLaunch="true"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:excludeFromRecents="true"
-            android:icon="@mipmap/ic_launcher_camera"
             android:label="@string/app_name"
             android:launchMode="singleInstance"
-            android:logo="@mipmap/ic_launcher_gallery"
             android:screenOrientation="portrait"
             android:taskAffinity="com.android.camera.SecureCameraActivity"
             android:theme="@style/Theme.Camera"
@@ -176,7 +168,6 @@
 
         <activity-alias
             android:name="com.android.camera.CameraGestureActivity"
-            android:icon="@mipmap/ic_launcher_camera"
             android:label="@string/camera_gesture_title"
             android:targetActivity="com.android.camera.SecureCameraActivity">
             <intent-filter>
