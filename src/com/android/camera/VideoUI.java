@@ -54,7 +54,6 @@ import com.android.camera.ui.ModuleSwitcher;
 import com.android.camera.ui.PieRenderer;
 import com.android.camera.ui.RenderOverlay;
 import com.android.camera.ui.RotateLayout;
-import com.android.camera.ui.RotateTextToast;
 import com.android.camera.ui.ZoomRenderer;
 import com.android.camera.ui.focus.FocusRing;
 import com.android.camera.util.CameraUtil;
@@ -1137,7 +1136,6 @@ public class VideoUI implements PieRenderer.PieListener,
         if (mZoomRenderer != null) {
             mZoomRenderer.setOrientation(orientation);
         }
-        RotateTextToast.setOrientation(orientation);
         mOrientation = orientation;
     }
 

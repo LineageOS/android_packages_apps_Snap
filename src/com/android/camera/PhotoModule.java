@@ -73,7 +73,6 @@ import com.android.camera.exif.ExifTag;
 import com.android.camera.exif.Rational;
 import com.android.camera.ui.CountDownView.OnCountDownFinishedListener;
 import com.android.camera.ui.ModuleSwitcher;
-import com.android.camera.ui.RotateTextToast;
 import com.android.camera.util.ApiHelper;
 import com.android.camera.util.CameraUtil;
 import com.android.camera.util.GcamHelper;
@@ -800,7 +799,7 @@ public class PhotoModule
     @Override
     public void onSwitchSavePath() {
         mUI.setPreference(CameraSettings.KEY_CAMERA_SAVEPATH, "1");
-        RotateTextToast.makeText(mActivity, R.string.on_switch_save_path_to_sdcard,
+        Toast.makeText(mActivity, R.string.on_switch_save_path_to_sdcard,
                 Toast.LENGTH_SHORT).show();
     }
 
@@ -955,7 +954,7 @@ public class PhotoModule
                     + " cached=" + info[Debug.MEMINFO_CACHED] * 1024
                     + " threshold=" + SECONDARY_SERVER_MEM);
             mLongshotActive = false;
-            RotateTextToast.makeText(mActivity,R.string.msg_cancel_longshot_for_limited_memory,
+            Toast.makeText(mActivity,R.string.msg_cancel_longshot_for_limited_memory,
                 Toast.LENGTH_SHORT).show();
             return true;
         }
@@ -1814,7 +1813,7 @@ public class PhotoModule
                                    null, null, null, colorEffect,
                                    sceneMode, redeyeReduction, aeBracketing);
             disableLongShot = true;
-            RotateTextToast.makeText(mActivity, R.string.advanced_capture_disable_continuous_shot,
+            Toast.makeText(mActivity, R.string.advanced_capture_disable_continuous_shot,
                     Toast.LENGTH_LONG).show();
         }
 
@@ -3236,7 +3235,7 @@ public class PhotoModule
             if (!pictureFormat.equals(PIXEL_FORMAT_JPEG)) {
                 mActivity.runOnUiThread(new Runnable() {
                     public void run() {
-                        RotateTextToast.makeText(mActivity, R.string.error_app_unsupported_raw,
+                        Toast.makeText(mActivity, R.string.error_app_unsupported_raw,
                                 Toast.LENGTH_SHORT).show();
                     }
                 });
@@ -3843,7 +3842,7 @@ public class PhotoModule
                         }
 
                     } else {
-                        RotateTextToast.makeText(mActivity, "Invalid focus position",
+                        Toast.makeText(mActivity, "Invalid focus position",
                                 Toast.LENGTH_SHORT).show();
                         return;
                     }
@@ -3857,7 +3856,7 @@ public class PhotoModule
                         updateCommonManual3ASettings();
                         onSharedPreferenceChanged();
                     } else {
-                        RotateTextToast.makeText(mActivity, "Invalid focus position",
+                        Toast.makeText(mActivity, "Invalid focus position",
                                 Toast.LENGTH_SHORT).show();
                     }
                 }
@@ -3934,7 +3933,7 @@ public class PhotoModule
                         updateCommonManual3ASettings();
                         onSharedPreferenceChanged();
                     } else {
-                        RotateTextToast.makeText(mActivity, "Invalid CCT", Toast.LENGTH_SHORT)
+                        Toast.makeText(mActivity, "Invalid CCT", Toast.LENGTH_SHORT)
                                 .show();
                     }
                 }
@@ -4007,11 +4006,11 @@ public class PhotoModule
                             updateCommonManual3ASettings();
                             onSharedPreferenceChanged();
                         } else {
-                            RotateTextToast.makeText(mActivity, "Invalid RGB gains",
+                            Toast.makeText(mActivity, "Invalid RGB gains",
                                     Toast.LENGTH_SHORT).show();
                         }
                     } else {
-                        RotateTextToast.makeText(mActivity, "Invalid RGB gains",
+                        Toast.makeText(mActivity, "Invalid RGB gains",
                                     Toast.LENGTH_SHORT).show();
                     }
                 }
@@ -4099,7 +4098,7 @@ public class PhotoModule
                         updateCommonManual3ASettings();
                         onSharedPreferenceChanged();
                     } else {
-                        RotateTextToast.makeText(mActivity, "Invalid ISO", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(mActivity, "Invalid ISO", Toast.LENGTH_SHORT).show();
                     }
                 }
             });
@@ -4135,7 +4134,7 @@ public class PhotoModule
                         updateCommonManual3ASettings();
                         onSharedPreferenceChanged();
                     } else {
-                        RotateTextToast.makeText(mActivity, "Invalid exposure time",
+                        Toast.makeText(mActivity, "Invalid exposure time",
                                 Toast.LENGTH_SHORT).show();
                     }
                 }
@@ -4188,7 +4187,7 @@ public class PhotoModule
                         updateCommonManual3ASettings();
                         onSharedPreferenceChanged();
                     } else {
-                        RotateTextToast.makeText(mActivity, "Invalid input", Toast.LENGTH_SHORT)
+                        Toast.makeText(mActivity, "Invalid input", Toast.LENGTH_SHORT)
                                 .show();
                     }
                 }
@@ -4334,8 +4333,7 @@ public class PhotoModule
     }
 
     private void showTapToFocusToast() {
-        // TODO: Use a toast?
-        new RotateTextToast(mActivity, R.string.tap_to_focus, 0).show();
+        Toast.makeText(mActivity, R.string.tap_to_focus,Toast.LENGTH_SHORT).show();
         // Clear the preference.
         Editor editor = mPreferences.edit();
         editor.putBoolean(CameraSettings.KEY_CAMERA_FIRST_USE_HINT_SHOWN, false);

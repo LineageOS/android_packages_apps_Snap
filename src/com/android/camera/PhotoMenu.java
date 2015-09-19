@@ -50,7 +50,6 @@ import com.android.camera.ui.ListSubMenu;
 import com.android.camera.ui.ListMenu;
 import com.android.camera.ui.RotateLayout;
 import com.android.camera.ui.RotateImageView;
-import com.android.camera.ui.RotateTextToast;
 import org.codeaurora.snapcam.R;
 import android.widget.HorizontalScrollView;
 import android.view.ViewGroup;
@@ -1070,7 +1069,7 @@ public class PhotoMenu extends MenuController
                     SharedPreferences prefs = PreferenceManager
                             .getDefaultSharedPreferences(mActivity);
                     prefs.edit().putBoolean(CameraSettings.KEY_DEVELOPER_MENU, true).apply();
-                    RotateTextToast.makeText(mActivity,
+                    Toast.makeText(mActivity,
                             "Camera developer option is enabled now", Toast.LENGTH_SHORT).show();
                 }
             } else {
@@ -1166,7 +1165,7 @@ public class PhotoMenu extends MenuController
             }
             updateSceneModeIcon((IconListPreference) scenePref);
 	} else if (notSame(pref,CameraSettings.KEY_AE_BRACKET_HDR,"Off")) {
-            RotateTextToast.makeText(mActivity,
+            Toast.makeText(mActivity,
                            R.string.flash_aebracket_message,Toast.LENGTH_SHORT).show();
             setPreference(CameraSettings.KEY_FLASH_MODE,Parameters.FLASH_MODE_OFF);
         } else if (notSame(pref,CameraSettings.KEY_FLASH_MODE,"Off")) {
@@ -1174,7 +1173,7 @@ public class PhotoMenu extends MenuController
                       mPreferenceGroup.findPreference(CameraSettings.KEY_AE_BRACKET_HDR);
             if (aePref != null) {
                 if (notSame(aePref,CameraSettings.KEY_AE_BRACKET_HDR,"Off")) {
-                   RotateTextToast.makeText(mActivity,
+                   Toast.makeText(mActivity,
                                   R.string.flash_aebracket_message,Toast.LENGTH_SHORT).show();
                 }
             }
@@ -1184,7 +1183,7 @@ public class PhotoMenu extends MenuController
             if (advancefeaturePref != null) {
                 if (notSame(advancefeaturePref, CameraSettings.KEY_ADVANCED_FEATURES,
                         mActivity.getString(R.string.pref_camera_advanced_feature_default))) {
-                    RotateTextToast.makeText(mActivity, R.string.longshot_enable_message,
+                    Toast.makeText(mActivity, R.string.longshot_enable_message,
                             Toast.LENGTH_LONG).show();
                 }
                 setPreference(CameraSettings.KEY_ADVANCED_FEATURES,
@@ -1196,7 +1195,7 @@ public class PhotoMenu extends MenuController
                     mPreferenceGroup.findPreference(CameraSettings.KEY_LONGSHOT);
             if (longshotPref != null ) {
                 if (notSame(longshotPref, CameraSettings.KEY_LONGSHOT, mSettingOff)) {
-                    RotateTextToast.makeText(mActivity, R.string.advance_feature_enable_msg,
+                    Toast.makeText(mActivity, R.string.advance_feature_enable_msg,
                             Toast.LENGTH_LONG).show();
                 }
                 setPreference(CameraSettings.KEY_LONGSHOT, mSettingOff);

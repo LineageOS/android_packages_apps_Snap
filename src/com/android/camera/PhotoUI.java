@@ -69,7 +69,6 @@ import com.android.camera.ui.PieRenderer;
 import com.android.camera.ui.PieRenderer.PieListener;
 import com.android.camera.ui.RenderOverlay;
 import com.android.camera.ui.RotateLayout;
-import com.android.camera.ui.RotateTextToast;
 import com.android.camera.ui.ZoomRenderer;
 import com.android.camera.ui.focus.FocusRing;
 import com.android.camera.util.CameraUtil;
@@ -115,7 +114,7 @@ public class PhotoUI implements PieListener,
 
     private PieRenderer mPieRenderer;
     private ZoomRenderer mZoomRenderer;
-    private RotateTextToast mNotSelectableToast;
+    private Toast mNotSelectableToast;
 
     private int mZoomMax;
     private List<Integer> mZoomRatios;
@@ -1125,7 +1124,7 @@ public class PhotoUI implements PieListener,
     public void showPreferencesToast() {
         if (mNotSelectableToast == null) {
             String str = mActivity.getResources().getString(R.string.not_selectable_in_scene_mode);
-            mNotSelectableToast = RotateTextToast.makeText(mActivity, str, Toast.LENGTH_SHORT);
+            mNotSelectableToast = Toast.makeText(mActivity, str, Toast.LENGTH_SHORT);
         }
         mNotSelectableToast.show();
     }
@@ -1229,7 +1228,6 @@ public class PhotoUI implements PieListener,
         }
         if (mCountDownView != null)
             mCountDownView.setOrientation(orientation);
-        RotateTextToast.setOrientation(orientation);
         if (mFaceView != null) {
             mFaceView.setDisplayRotation(orientation);
         }

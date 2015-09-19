@@ -51,7 +51,6 @@ import com.android.camera.ui.CameraControls;
 import com.android.camera.ui.CameraRootView;
 import com.android.camera.ui.ModuleSwitcher;
 import com.android.camera.ui.RotateLayout;
-import com.android.camera.ui.RotateTextToast;
 import com.android.camera.util.CameraUtil;
 import org.codeaurora.snapcam.R;
 
@@ -688,6 +687,5 @@ public class WideAnglePanoramaUI implements
         mReview.setRotation(-orientation);
         mTooFastPrompt.setRotation(-orientation);
         mCameraControls.setOrientation(orientation, animation);
-        RotateTextToast.setOrientation(orientation);
     }
 }

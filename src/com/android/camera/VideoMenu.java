@@ -43,7 +43,6 @@ import com.android.camera.ui.ListSubMenu;
 import com.android.camera.ui.ListMenu;
 import com.android.camera.ui.TimeIntervalPopup;
 import com.android.camera.ui.RotateImageView;
-import com.android.camera.ui.RotateTextToast;
 import org.codeaurora.snapcam.R;
 import android.widget.HorizontalScrollView;
 import android.widget.Toast;
@@ -831,7 +830,7 @@ public class VideoMenu extends MenuController
             ListPreference hfrPref =
                     mPreferenceGroup.findPreference(CameraSettings.KEY_VIDEO_HIGH_FRAME_RATE);
             if (hfrPref != null && !"off".equals(hfrPref.getValue())) {
-                RotateTextToast.makeText(mActivity, R.string.error_app_unsupported_hfr_selection,
+                Toast.makeText(mActivity, R.string.error_app_unsupported_hfr_selection,
                         Toast.LENGTH_LONG).show();
             }
             setPreference(CameraSettings.KEY_VIDEO_HIGH_FRAME_RATE, "off");
@@ -842,7 +841,7 @@ public class VideoMenu extends MenuController
             ListPreference lapsePref = mPreferenceGroup
                     .findPreference(CameraSettings.KEY_VIDEO_TIME_LAPSE_FRAME_INTERVAL);
             if (lapsePref != null && !defaultValue.equals(lapsePref.getValue())) {
-                RotateTextToast.makeText(mActivity, R.string.error_app_unsupported_hfr_selection,
+                Toast.makeText(mActivity, R.string.error_app_unsupported_hfr_selection,
                         Toast.LENGTH_LONG).show();
             }
             setPreference(CameraSettings.KEY_VIDEO_TIME_LAPSE_FRAME_INTERVAL, defaultValue);
