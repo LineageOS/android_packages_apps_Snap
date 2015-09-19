@@ -56,7 +56,6 @@ import android.widget.Toast;
 
 import com.android.camera.CameraPreference.OnPreferenceChangedListener;
 import com.android.camera.FocusOverlayManager.FocusUI;
-import com.android.camera.TsMakeupManager.MakeupLevelListener;
 import com.android.camera.ui.AbstractSettingPopup;
 import com.android.camera.ui.CameraControls;
 import com.android.camera.ui.CameraRootView;
@@ -141,7 +140,6 @@ public class PhotoUI implements PieListener,
     private RotateLayout mMenuLayout;
     private RotateLayout mSubMenuLayout;
     private LinearLayout mPreviewMenuLayout;
-    private LinearLayout mMakeupMenuLayout;
     private boolean mUIhidden = false;
     private int mPreviewOrientation = -1;
 
@@ -471,7 +469,7 @@ public class PhotoUI implements PieListener,
     }
 
     public void onCameraOpened(PreferenceGroup prefGroup, ComboPreferences prefs,
-            Camera.Parameters params, OnPreferenceChangedListener listener, MakeupLevelListener makeupListener) {
+            Camera.Parameters params, OnPreferenceChangedListener listener) {
         if (mPieRenderer == null) {
             mPieRenderer = new PieRenderer(mActivity);
             mPieRenderer.setPieListener(this);
@@ -479,7 +477,7 @@ public class PhotoUI implements PieListener,
         }
 
         if (mMenu == null) {
-            mMenu = new PhotoMenu(mActivity, this, makeupListener);
+            mMenu = new PhotoMenu(mActivity, this);
             mMenu.setListener(listener);
         }
         mMenu.initialize(prefGroup);
@@ -803,10 +801,6 @@ public class PhotoUI implements PieListener,
 
     public ViewGroup getPreviewMenuLayout() {
         return mPreviewMenuLayout;
-    }
-
-    public void setMakeupMenuLayout(LinearLayout layout) {
-        mMakeupMenuLayout = layout;
     }
 
     public void showPopup(ListView popup, int level, boolean animate) {
@@ -1287,27 +1281,6 @@ public class PhotoUI implements PieListener,
                     l.setOrientation(orientation, animation);
                 }
             }
-        }
-        if(mMakeupMenuLayout != null) {
-            View view = mMakeupMenuLayout.getChildAt(0);
-            if(view instanceof RotateLayout) {
-                for(int i = mMakeupMenuLayout.getChildCount() -1; i >= 0; --i) {
-                    RotateLayout l = (RotateLayout) mMakeupMenuLayout.getChildAt(i);
-                    l.setOrientation(orientation, animation);
-                }
-            } else {
-                ViewGroup vg = (ViewGroup) mMakeupMenuLayout.getChildAt(1);
-                if(vg != null) {
-                    for (int i = vg.getChildCount() - 1; i >= 0; --i) {
-                        ViewGroup vewiGroup = (ViewGroup) vg.getChildAt(i);
-                        if(vewiGroup instanceof RotateLayout) {
-                            RotateLayout l = (RotateLayout) vewiGroup;
-                            l.setOrientation(orientation, animation);
-                        }
-                    }
-                }
-            }
-
         }
         if (mCountDownView != null)
             mCountDownView.setOrientation(orientation);

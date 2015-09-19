@@ -135,11 +135,6 @@ public class ListPreference extends CameraPreference {
         persistStringValue(value);
     }
 
-    public void setMakeupSeekBarValue(String value) {
-        mValue = value;
-        persistStringValue(value);
-    }
-
     public void setValueIndex(int index) {
         setValue(mEntryValues[index].toString());
     }
