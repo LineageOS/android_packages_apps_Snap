@@ -126,6 +126,8 @@ public class VideoModule implements CameraModule,
     private Parameters mParameters;
     private boolean mFocusAreaSupported;
     private boolean mMeteringAreaSupported;
+    private boolean mAeLockSupported;
+    private boolean mAwbLockSupported;
 
     private boolean mIsInReviewMode;
     private boolean mSnapshotInProgress = false;
@@ -569,6 +571,20 @@ public class VideoModule implements CameraModule,
         mPendingSwitchCameraId = -1;
     }
 
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
+    private void setAutoExposureLockIfSupported() {
+        if (mAeLockSupported) {
+            mParameters.setAutoExposureLock(mFocusManager.getAeAwbLock());
+        }
+    }
+
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
+    private void setAutoWhiteBalanceLockIfSupported() {
+        if (mAwbLockSupported) {
+            mParameters.setAutoWhiteBalanceLock(mFocusManager.getAeAwbLock());
+        }
+    }
+
     @Override
     public void waitingLocationPermissionResult(boolean result) {
         mLocationManager.waitingLocationPermissionResult(result);
@@ -610,6 +626,8 @@ public class VideoModule implements CameraModule,
             mParameters.setFocusAreas(mFocusManager.getFocusAreas());
         if (mMeteringAreaSupported)
             mParameters.setMeteringAreas(mFocusManager.getMeteringAreas());
+        setAutoExposureLockIfSupported();
+        setAutoWhiteBalanceLockIfSupported();
         if (mFocusAreaSupported || mMeteringAreaSupported) {
             mParameters.setFocusMode(mFocusManager.getFocusMode(true));
             mCameraDevice.setParameters(mParameters);
@@ -3072,6 +3090,8 @@ public class VideoModule implements CameraModule,
     private void initializeCapabilities() {
         mFocusAreaSupported = CameraUtil.isFocusAreaSupported(mParameters);
         mMeteringAreaSupported = CameraUtil.isMeteringAreaSupported(mParameters);
+        mAeLockSupported = CameraUtil.isAutoExposureLockSupported(mParameters);
+        mAwbLockSupported = CameraUtil.isAutoWhiteBalanceLockSupported(mParameters);
     }
 
     // Preview texture has been copied. Now camera can be released and the
