@@ -3265,7 +3265,13 @@ public class PhotoModule
                 .equals(advancedFeature)) {
             // face detection must always be on for truePortrait
             if (CameraUtil.isSupported(Parameters.FACE_DETECTION_ON, mParameters.getSupportedFaceDetectionModes())) {
-                mUI.overrideSettings(CameraSettings.KEY_FACE_DETECTION, Parameters.FACE_DETECTION_ON);
+                mActivity.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        mUI.overrideSettings(CameraSettings.KEY_FACE_DETECTION, Parameters.FACE_DETECTION_ON);
+                    }
+                });
+
                 mParameters.setFaceDetectionMode(Parameters.FACE_DETECTION_ON);
                 if(mFaceDetectionEnabled == false) {
                     mFaceDetectionEnabled = true;
@@ -3275,7 +3281,12 @@ public class PhotoModule
         } else {
             // Set face detetction parameter.
             // clear override to re-enable setting if true portrait is off.
-            mUI.overrideSettings(CameraSettings.KEY_FACE_DETECTION, null);
+            mActivity.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    mUI.overrideSettings(CameraSettings.KEY_FACE_DETECTION, null);
+                }
+            });
 
             String faceDetection = mPreferences.getString(
                 CameraSettings.KEY_FACE_DETECTION,
