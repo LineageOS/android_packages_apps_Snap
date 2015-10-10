@@ -110,7 +110,7 @@ public class CameraUtil {
     public static final String KEY_SHOW_WHEN_LOCKED = "showWhenLocked";
 
     // Orientation hysteresis amount used in rounding, in degrees
-    public static final int ORIENTATION_HYSTERESIS = 5;
+    public static final int ORIENTATION_HYSTERESIS = 10;
 
     public static final String REVIEW_ACTION = "com.android.camera.action.REVIEW";
     // See android.hardware.Camera.ACTION_NEW_PICTURE.
@@ -567,7 +567,7 @@ public class CameraUtil {
         } else {
             int dist = Math.abs(orientation - orientationHistory);
             dist = Math.min( dist, 360 - dist );
-            changeOrientation = ( dist >= 45 + ORIENTATION_HYSTERESIS );
+            changeOrientation = ( dist >= 60 + ORIENTATION_HYSTERESIS );
         }
         if (changeOrientation) {
             return ((orientation + 45) / 90 * 90) % 360;
