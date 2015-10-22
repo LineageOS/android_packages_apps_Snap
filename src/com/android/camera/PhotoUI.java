@@ -235,10 +235,12 @@ public class PhotoUI implements PieListener,
                     int oldBottom) {
                 int width = right - left;
                 int height = bottom - top;
+                boolean isMaxSizeBeingValid = false;
 
                 if (mMaxPreviewWidth == 0 && mMaxPreviewHeight == 0) {
                     mMaxPreviewWidth = width;
                     mMaxPreviewHeight = height;
+                    isMaxSizeBeingValid = true;
                 }
 
                 int orientation = mActivity.getResources().getConfiguration().orientation;
@@ -257,7 +259,7 @@ public class PhotoUI implements PieListener,
                     }
                 }
                 if (mOrientationResize != mPrevOrientationResize
-                        || mAspectRatioResize) {
+                        || mAspectRatioResize || isMaxSizeBeingValid) {
                     layoutPreview(mAspectRatio);
                     mAspectRatioResize = false;
                 }
