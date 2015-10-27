@@ -328,7 +328,6 @@ public class VideoModule implements CameraModule,
     private boolean mUnsupportedHFRVideoSize = false;
     private boolean mUnsupportedHSRVideoSize = false;
     private boolean mUnsupportedHFRVideoCodec = false;
-    private String mDefaultAntibanding = null;
 
     public void onScreenSizeChanged(int width, int height) {
         if (mFocusManager != null) mFocusManager.setPreviewSize(width, height);
@@ -2278,22 +2277,14 @@ public class VideoModule implements CameraModule,
             }
         }
 
-        if (mDefaultAntibanding == null) {
-            mDefaultAntibanding = mParameters.getAntibanding();
-            Log.d(TAG, "default antibanding value = " + mDefaultAntibanding);
+        // Set anti banding parameter.
+        String antiBanding = mPreferences.getString(
+                 CameraSettings.KEY_ANTIBANDING,
+                 mActivity.getString(R.string.pref_camera_antibanding_default));
+        Log.v(TAG, "antiBanding value =" + antiBanding);
+        if (CameraUtil.isSupported(antiBanding, mParameters.getSupportedAntibanding())) {
+            mParameters.setAntibanding(antiBanding);
         }
-
-        if (disMode.equals("enable")) {
-            Log.d(TAG, "dis is enabled, set antibanding to auto.");
-            if (isSupported(Parameters.ANTIBANDING_AUTO, mParameters.getSupportedAntibanding())) {
-                mParameters.setAntibanding(Parameters.ANTIBANDING_AUTO);
-            }
-        } else {
-            if (isSupported(mDefaultAntibanding, mParameters.getSupportedAntibanding())) {
-                mParameters.setAntibanding(mDefaultAntibanding);
-            }
-        }
-        Log.d(TAG, "antiBanding value = " + mParameters.getAntibanding());
 
         String seeMoreMode = mPreferences.getString(
                 CameraSettings.KEY_SEE_MORE,
