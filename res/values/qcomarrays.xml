@@ -498,6 +498,17 @@
         <item>enable</item>
     </string-array>
 
+    <!-- Selfie flash -->
+    <string-array name="pref_selfie_flash_entries" translatable="false">
+        <item>@string/setting_off</item>
+        <item>@string/setting_on</item>
+    </string-array>
+
+    <string-array name="pref_selfie_flash_entryvalues" translatable="false">
+        <item>off</item>
+        <item>on</item>
+    </string-array>
+
     <!-- Face detection -->
     <string-array name="pref_camera_facedetection_entries" translatable="false">
         <item>@string/setting_off</item>
