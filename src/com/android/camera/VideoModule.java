@@ -1580,23 +1580,19 @@ public class VideoModule implements CameraModule,
         mProfile.audioCodec = mAudioEncoder;
         mProfile.duration = mMaxVideoDurationInMs;
 
-        // Set params individually for HFR case, as we do not want to encode audio
-        if ((isHFR || isHSR) && captureRate > 0) {
-            if (isHFR) {
-                mMediaRecorder.setOutputFormat(mProfile.fileFormat);
-                mMediaRecorder.setVideoFrameRate(mProfile.videoFrameRate);
-                mMediaRecorder.setVideoEncodingBitRate(mProfile.videoBitRate);
-                mMediaRecorder.setVideoEncoder(mProfile.videoCodec);
-            } else if (isHSR) {
-                mProfile.videoBitRate *= captureRate / 30;
-                mMediaRecorder.setAudioSource(MediaRecorder.AudioSource.CAMCORDER);
-                mMediaRecorder.setProfile(mProfile);
-            }
+        // Set params individually for HFR and timelapse
+        // cases, as we do not want to encode audio
+        if (isHFR || mCaptureTimeLapse) {
+            mMediaRecorder.setOutputFormat(mProfile.fileFormat);
+            mMediaRecorder.setVideoFrameRate(mProfile.videoFrameRate);
+            mMediaRecorder.setVideoEncodingBitRate(mProfile.videoBitRate);
+            mMediaRecorder.setVideoEncoder(mProfile.videoCodec);
+        } else if (isHSR) {
+            mProfile.videoBitRate *= captureRate / 30;
+            mMediaRecorder.setAudioSource(MediaRecorder.AudioSource.CAMCORDER);
+            mMediaRecorder.setProfile(mProfile);
         } else {
-            if (!mCaptureTimeLapse) {
-                mMediaRecorder.setAudioSource(MediaRecorder.AudioSource.CAMCORDER);
-            }
-
+            mMediaRecorder.setAudioSource(MediaRecorder.AudioSource.CAMCORDER);
             mMediaRecorder.setProfile(mProfile);
         }
 
