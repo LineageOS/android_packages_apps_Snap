@@ -1582,11 +1582,16 @@ public class VideoModule implements CameraModule,
 
         // Set params individually for HFR case, as we do not want to encode audio
         if ((isHFR || isHSR) && captureRate > 0) {
-            mMediaRecorder.setOutputFormat(mProfile.fileFormat);
-            mMediaRecorder.setVideoFrameRate(mProfile.videoFrameRate);
-            mMediaRecorder.setVideoEncodingBitRate(mProfile.videoBitRate *
-                                                ((isHSR ? captureRate : 30) / 30));
-            mMediaRecorder.setVideoEncoder(mProfile.videoCodec);
+            if (isHFR) {
+                mMediaRecorder.setOutputFormat(mProfile.fileFormat);
+                mMediaRecorder.setVideoFrameRate(mProfile.videoFrameRate);
+                mMediaRecorder.setVideoEncodingBitRate(mProfile.videoBitRate);
+                mMediaRecorder.setVideoEncoder(mProfile.videoCodec);
+            } else if (isHSR) {
+                mProfile.videoBitRate *= captureRate / 30;
+                mMediaRecorder.setAudioSource(MediaRecorder.AudioSource.CAMCORDER);
+                mMediaRecorder.setProfile(mProfile);
+            }
         } else {
             if (!mCaptureTimeLapse) {
                 mMediaRecorder.setAudioSource(MediaRecorder.AudioSource.CAMCORDER);
