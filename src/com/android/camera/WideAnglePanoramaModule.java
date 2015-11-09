@@ -68,7 +68,8 @@ public class WideAnglePanoramaModule
         implements CameraModule, WideAnglePanoramaController,
         SurfaceTexture.OnFrameAvailableListener {
 
-    public static final int DEFAULT_SWEEP_ANGLE = 160;
+    public static final int DEFAULT_SWEEP_ANGLE_PORTRAIT = 160;
+    public static final int DEFAULT_SWEEP_ANGLE_LANDSCAPE = 270;
     public static final int DEFAULT_BLEND_MODE = Mosaic.BLENDTYPE_HORIZONTAL;
     public static final int DEFAULT_CAPTURE_PIXELS = 960 * 720;
 
@@ -583,6 +584,9 @@ public class WideAnglePanoramaModule
         parameters.setAutoWhiteBalanceLock(true);
         configureCamera(parameters);
 
+        final int sweepAngle = (mDeviceOrientation == 90 || mDeviceOrientation == 270) ?
+                DEFAULT_SWEEP_ANGLE_LANDSCAPE : DEFAULT_SWEEP_ANGLE_PORTRAIT;
+
         mMosaicFrameProcessor.setProgressListener(new MosaicFrameProcessor.ProgressListener() {
             @Override
             public void onProgress(boolean isFinished, float panningRateX, float panningRateY,
@@ -591,8 +595,8 @@ public class WideAnglePanoramaModule
                 float accumulatedVerticalAngle = progressY * mVerticalViewAngle;
                 boolean isRotated = !(mDeviceOrientationAtCapture == mDeviceOrientation);
                 if (isFinished
-                        || (Math.abs(accumulatedHorizontalAngle) >= DEFAULT_SWEEP_ANGLE)
-                        || (Math.abs(accumulatedVerticalAngle) >= DEFAULT_SWEEP_ANGLE)
+                        || (Math.abs(accumulatedHorizontalAngle) >= sweepAngle)
+                        || (Math.abs(accumulatedVerticalAngle) >= sweepAngle)
                         || isRotated) {
                     stopCapture(false);
                 } else {
@@ -612,7 +616,7 @@ public class WideAnglePanoramaModule
         mUI.resetCaptureProgress();
         // TODO: calculate the indicator width according to different devices to reflect the actual
         // angle of view of the camera device.
-        mUI.setMaxCaptureProgress(DEFAULT_SWEEP_ANGLE);
+        mUI.setMaxCaptureProgress(sweepAngle);
         mUI.showCaptureProgress();
         mDeviceOrientationAtCapture = mDeviceOrientation;
         keepScreenOn();
