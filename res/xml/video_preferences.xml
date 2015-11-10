@@ -114,6 +114,7 @@
             camera:title="@string/pref_camera_dis_title"
             camera:singleIcon="@drawable/ic_settings_stabilization"
             camera:entries="@array/pref_camera_dis_entries"
+            camera:singleIcon="@drawable/ic_eis_menu"
             camera:entryValues="@array/pref_camera_dis_entryvalues" />
     <IconListPreference
             camera:key="pref_camera_video_coloreffect_key"
