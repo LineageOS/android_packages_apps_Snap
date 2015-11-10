@@ -315,7 +315,7 @@ public class WideAnglePanoramaModule
                 switch (msg.what) {
                     case MSG_LOW_RES_FINAL_MOSAIC_READY:
                         onBackgroundThreadFinished();
-                        showFinalMosaic((Bitmap) msg.obj);
+                        saveFinalMosaic((Bitmap) msg.obj);
                         saveHighResMosaic();
                         break;
                     case MSG_GENERATE_FINAL_MOSAIC_ERROR:
@@ -757,6 +757,7 @@ public class WideAnglePanoramaModule
                         mActivity.runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
+                                mUI.showFinalMosaic();
                                 mActivity.notifyNewMedia(uri);
                             }
                         });
@@ -815,8 +816,8 @@ public class WideAnglePanoramaModule
         }
     }
 
-    private void showFinalMosaic(Bitmap bitmap) {
-        mUI.showFinalMosaic(bitmap, getCaptureOrientation());
+    private void saveFinalMosaic(Bitmap bitmap) {
+        mUI.saveFinalMosaic(bitmap, getCaptureOrientation());
     }
 
     private Uri savePanorama(byte[] jpegData, int width, int height, int orientation) {
