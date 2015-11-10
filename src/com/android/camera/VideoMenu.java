@@ -117,6 +117,7 @@ public class VideoMenu extends MenuController
                 CameraSettings.KEY_EXPOSURE,
                 CameraSettings.KEY_WHITE_BALANCE,
                 CameraSettings.KEY_VIDEO_HIGH_FRAME_RATE,
+                CameraSettings.KEY_DIS,
                 CameraSettings.KEY_POWER_SHUTTER,
                 CameraSettings.KEY_MAX_BRIGHTNESS
         };
@@ -598,6 +599,21 @@ public class VideoMenu extends MenuController
         }
     }
 
+    private void overrideMenuFor4K() {
+        if(mListMenu != null && mUI.is4KEnabled())
+        {
+            mListMenu.setPreferenceEnabled(
+                    CameraSettings.KEY_DIS,false);
+            mListMenu.overrideSettings(
+                    CameraSettings.KEY_DIS, "disable");
+
+            mListMenu.setPreferenceEnabled(
+                    CameraSettings.KEY_SEE_MORE, false);
+            mListMenu.overrideSettings(
+                    CameraSettings.KEY_SEE_MORE, mActivity.getString(R.string.pref_camera_see_more_value_off));
+        }
+    }
+
     public void overrideCDSMode() {
         if (mListMenu != null) {
             ListPreference pref_tnr = mPreferenceGroup.
@@ -659,6 +675,7 @@ public class VideoMenu extends MenuController
             initializePopup();
         } else {
             overrideCDSMode();
+            overrideMenuFor4K();
         }
         mListMenu.overrideSettings(keyvalues);
 
@@ -694,6 +711,7 @@ public class VideoMenu extends MenuController
         mListMenu = popup1;
 
         overrideCDSMode();
+        overrideMenuFor4K();
     }
 
     public void popupDismissed(boolean topPopupOnly) {
