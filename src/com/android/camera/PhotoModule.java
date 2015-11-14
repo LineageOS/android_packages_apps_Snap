@@ -2847,6 +2847,7 @@ public class PhotoModule
         if (null != mCameraDevice ) {
             mCameraDevice.cancelAutoFocus();
             setCameraState(IDLE);
+            mFocusManager.setAeAwbLock(false);
             setCameraParameters(UPDATE_PARAM_PREFERENCE);
         }
     }
