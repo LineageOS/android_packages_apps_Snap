@@ -243,6 +243,9 @@ public class CameraSettings {
 
     public static final String KEY_REQUEST_PERMISSION  = "request_permission";
 
+    public static final String KEY_CAMERA2 = "pref_camera_camera2_key";
+    public static final String KEY_DUAL_CAMERA = "pref_camera_dual_camera_key";
+
     public static final String KEY_SELFIE_FLASH = "pref_selfie_flash_key";
 
     public static final String EXPOSURE_DEFAULT_VALUE = "0";
