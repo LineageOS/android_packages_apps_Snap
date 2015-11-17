@@ -48,6 +48,7 @@ import com.android.camera.ui.CameraRootView;
 import com.android.camera.ui.CountdownTimerPopup;
 import com.android.camera.ui.ListSubMenu;
 import com.android.camera.ui.ListMenu;
+import com.android.camera.ui.ModuleSwitcher;
 import com.android.camera.ui.RotateLayout;
 import com.android.camera.ui.RotateImageView;
 import com.android.camera.ui.RotateTextToast;
@@ -209,7 +210,8 @@ public class PhotoMenu extends MenuController
                 CameraSettings.KEY_AE_BRACKET_HDR,
                 CameraSettings.KEY_MANUAL_EXPOSURE,
                 CameraSettings.KEY_MANUAL_WB,
-                CameraSettings.KEY_MANUAL_FOCUS
+                CameraSettings.KEY_MANUAL_FOCUS,
+                CameraSettings.KEY_CAMERA2
         };
 
         initSwitchItem(CameraSettings.KEY_CAMERA_ID, mFrontBackSwitcher);
@@ -1046,6 +1048,18 @@ public class PhotoMenu extends MenuController
         mPopupStatus = POPUP_FIRST_LEVEL;
     }
 
+    public void removeAllView() {
+        if (mUI != null)
+            mUI.removeLevel2();
+
+        if (mListMenu != null) {
+            mUI.dismissLevel1();
+            mPopupStatus = POPUP_NONE;
+        }
+        closeSceneMode();
+        mPreviewMenuStatus = PREVIEW_MENU_NONE;
+    }
+
     public void closeAllView() {
         if (mUI != null)
             mUI.removeLevel2();
@@ -1190,6 +1204,19 @@ public class PhotoMenu extends MenuController
         }
 
         super.onSettingChanged(pref);
+        if (same(pref, CameraSettings.KEY_CAMERA2, "enable")) {
+            SharedPreferences prefs = PreferenceManager
+                    .getDefaultSharedPreferences(mActivity);
+            prefs.edit().putBoolean(CameraSettings.KEY_CAMERA2, true).apply();
+            CameraActivity.CAMERA_2_ON = true;
+            mActivity.onModuleSelected(ModuleSwitcher.CAPTURE_MODULE_INDEX);
+        } else if (notSame(pref, CameraSettings.KEY_CAMERA2, "enable")) {
+            SharedPreferences prefs = PreferenceManager
+                    .getDefaultSharedPreferences(mActivity);
+            prefs.edit().putBoolean(CameraSettings.KEY_CAMERA2, false).apply();
+            CameraActivity.CAMERA_2_ON = false;
+            mActivity.onModuleSelected(ModuleSwitcher.PHOTO_MODULE_INDEX);
+        }
     }
 
     public int getOrientation() {

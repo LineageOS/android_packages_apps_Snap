@@ -13,7 +13,7 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<com.android.camera.ui.CameraRootFrame xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/camera_root_frame"
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
@@ -32,4 +32,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" >
     </com.android.camera.ui.CameraRootView>
-</com.android.camera.ui.CameraRootFrame>
+    <com.android.camera.ui.CameraRootView
+        android:id="@+id/camera_capture_root"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+    </com.android.camera.ui.CameraRootView>
+</FrameLayout>
