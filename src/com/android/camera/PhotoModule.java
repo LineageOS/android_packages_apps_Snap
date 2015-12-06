@@ -4287,7 +4287,7 @@ public class PhotoModule
             }
 
             // Set focus time.
-            mFocusManager.setFocusTime(Integer.valueOf(
+            mFocusManager.setFocusTime(Integer.decode(
                     mPreferences.getString(CameraSettings.KEY_FOCUS_TIME,
                     mActivity.getString(R.string.pref_camera_focustime_default))));
         } else {
