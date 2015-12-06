@@ -27,6 +27,7 @@
 
     <!-- Touch focus duration -->
     <string-array name="pref_camera_focustime_duration_entries" translatable="false">
+        <item>@string/pref_camera_focustime_entry_0</item>
         <item>@string/pref_camera_focustime_entry_3</item>
         <item>@string/pref_camera_focustime_entry_5</item>
         <item>@string/pref_camera_focustime_entry_10</item>
@@ -35,10 +36,11 @@
 
     <!-- Stored in milliseconds -->
     <string-array name="pref_camera_focustime_duration_values" translatable="false">
+        <item>200</item>
         <item>3000</item>
         <item>5000</item>
         <item>10000</item>
-        <item>0</item>
+        <item>0x7FFFFFFF</item>
     </string-array>
 
     <!-- Shutter speed -->
