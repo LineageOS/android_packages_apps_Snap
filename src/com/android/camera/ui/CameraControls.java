@@ -422,8 +422,9 @@ public class CameraControls extends RotatableLayout {
     }
 
     public void hideUI() {
+        if(!isAnimating)
+            enableTouch(false);
         isAnimating = true;
-        enableTouch(false);
         int rotation = getUnifiedRotation();
         mFrontBackSwitcher.animate().cancel();
         mHdrSwitcher.animate().cancel();
@@ -493,8 +494,9 @@ public class CameraControls extends RotatableLayout {
     }
 
     public void showUI() {
+        if(!isAnimating)
+            enableTouch(false);
         isAnimating = true;
-        enableTouch(false);
         int rotation = getUnifiedRotation();
         mFrontBackSwitcher.animate().cancel();
         mHdrSwitcher.animate().cancel();
