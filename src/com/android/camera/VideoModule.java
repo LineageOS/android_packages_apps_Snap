@@ -2533,7 +2533,7 @@ public class VideoModule implements CameraModule,
         // Set focus time.
         mFocusManager.setFocusTime(Integer.valueOf(
                 mPreferences.getString(CameraSettings.KEY_VIDEOCAMERA_FOCUS_TIME,
-                mActivity.getString(R.string.pref_camera_focustime_default))));
+                mActivity.getString(R.string.pref_camera_video_focustime_default))));
     }
 
     @SuppressWarnings("deprecation")

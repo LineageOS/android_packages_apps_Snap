@@ -174,7 +174,7 @@
             camera:entryValues="@array/pref_video_focusmode_entryvalues" />
     <IconListPreference
             camera:key="pref_camera_video_focustime_key"
-            camera:defaultValue="@string/pref_camera_focustime_default"
+            camera:defaultValue="@string/pref_camera_video_focustime_default"
             camera:title="@string/pref_camera_focustime_title"
             camera:singleIcon="@drawable/ic_settings_focus_time"
             camera:entries="@array/pref_camera_focustime_duration_entries"
