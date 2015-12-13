@@ -4921,6 +4921,7 @@ public class PhotoModule
         mLocationManager.recordLocation(recordLocation);
         if(needRestart()){
             Log.v(TAG, "Restarting Preview... Camera Mode Changed");
+            setCameraParameters(UPDATE_PARAM_PREFERENCE);
             stopPreview();
             startPreview();
             setCameraState(IDLE);
