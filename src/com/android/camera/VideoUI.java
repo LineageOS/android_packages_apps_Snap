@@ -293,7 +293,7 @@ public class VideoUI implements PieRenderer.PieListener,
         mPrevOrientationResize = false;
 
         Point size = new Point();
-        mActivity.getWindowManager().getDefaultDisplay().getSize(size);
+        mActivity.getWindowManager().getDefaultDisplay().getRealSize(size);
         mScreenRatio = CameraUtil.determineRatio(size.x, size.y);
         calculateMargins(size);
         mCameraControls.setMargins(mTopMargin, mBottomMargin);
