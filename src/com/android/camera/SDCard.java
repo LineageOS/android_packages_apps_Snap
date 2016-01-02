@@ -28,20 +28,19 @@
 
 package com.android.camera;
 
-import android.app.ActivityThread;
+import android.content.Context;
 import android.os.UserHandle;
-import android.os.StatFs;
 import android.os.Environment;
 import android.os.storage.StorageVolume;
-import android.os.storage.IMountService;
-import android.os.ServiceManager;
+import android.os.storage.StorageManager;
 import android.util.Log;
 
 public class SDCard {
     private static final String TAG = "SDCard";
 
     private static final int VOLUME_SDCARD_INDEX = 1;
-    private IMountService mMountService = null;
+
+    private StorageManager mStorageManager = null;
     private StorageVolume mVolume = null;
     private String path = null;
     private String rawpath = null;
@@ -76,30 +75,24 @@ public class SDCard {
         return rawpath;
     }
 
-    public static synchronized SDCard instance() {
+    public static void initialize(Context context) {
         if (sSDCard == null) {
-            sSDCard = new SDCard();
+            sSDCard = new SDCard(context);
         }
+    }
+
+    public static synchronized SDCard instance() {
         return sSDCard;
     }
 
     private String getSDCardStorageState() {
-        try {
-            return mMountService.getVolumeState(mVolume.getPath());
-        } catch (Exception e) {
-            Log.w(TAG, "Failed to read SDCard storage state; assuming REMOVED: " + e);
-            return Environment.MEDIA_REMOVED;
-        }
+        return mVolume.getState();
     }
 
-    private SDCard() {
+    private SDCard(Context context) {
         try {
-            mMountService = IMountService.Stub.asInterface(ServiceManager
-                                                           .getService("mount"));
-
-            String packageName = ActivityThread.currentOpPackageName();
-
-            final StorageVolume[] volumes = mMountService.getVolumeList(UserHandle.myUserId(), packageName, 0);
+            mStorageManager = (StorageManager) context.getSystemService(Context.STORAGE_SERVICE);
+            final StorageVolume[] volumes = mStorageManager.getVolumeList();
             if (volumes.length > VOLUME_SDCARD_INDEX) {
                 mVolume = volumes[VOLUME_SDCARD_INDEX];
             }
