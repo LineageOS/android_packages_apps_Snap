@@ -174,10 +174,12 @@
     <!-- Red eye reduction -->
     <string name="pref_camera_redeyereduction_title">Red eye reduction</string>
     <string name="pref_camera_redeyereduction_default" translatable="false">disable</string>
+    <string name="pref_camera_redeyereduction_entry_disable">disable</string>
 
     <!-- AE bracketing -->
     <string name="pref_camera_ae_bracket_hdr_title">AE bracketing</string>
     <string name="pref_camera_ae_bracket_hdr_default" translatable="false">Off</string>
+    <string name="pref_camera_ae_bracket_hdr_entry_off" translatable="false">Off</string>
 
     <!-- High-framerate recording -->
     <string name="pref_camera_hfr_title">High-framerate recording</string>

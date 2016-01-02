@@ -1407,11 +1407,13 @@ public class CameraActivity extends Activity
         }
         GcamHelper.init(getContentResolver());
 
+/*
         mAudioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
         mOriginalMasterVol = mAudioManager.getMasterVolume();
         mShutterVol =  SystemProperties.getInt("persist.camera.snapshot.volume", -1);
         if (mShutterVol >= 0 && mShutterVol <= 100 )
             mAudioManager.setMasterVolume(mShutterVol,0);
+*/
 
         getWindow().requestFeature(Window.FEATURE_ACTION_BAR);
         setContentView(R.layout.camera_filmstrip);
@@ -1593,8 +1595,10 @@ public class CameraActivity extends Activity
 
     @Override
     public void onPause() {
+/*
         if (mShutterVol >= 0 && mShutterVol <= 100)
             mAudioManager.setMasterVolume(mOriginalMasterVol,0);
+*/
         // Delete photos that are pending deletion
         performDeletion();
         mOrientationListener.disable();
@@ -1618,9 +1622,10 @@ public class CameraActivity extends Activity
 
     @Override
     public void onResume() {
+/*
         if (mShutterVol >= 0 && mShutterVol <= 100)
             mAudioManager.setMasterVolume(mShutterVol,0);
-
+*/
         UsageStatistics.onEvent(UsageStatistics.COMPONENT_CAMERA,
                 UsageStatistics.ACTION_FOREGROUNDED, this.getClass().getSimpleName());
 
@@ -1681,8 +1686,10 @@ public class CameraActivity extends Activity
             mWakeLock.release();
             Log.d(TAG, "wake lock release");
         }
+/*
         if (mShutterVol >= 0 && mShutterVol <= 100)
             mAudioManager.setMasterVolume(mOriginalMasterVol,0);
+*/
         if (mSecureCamera) {
             unregisterReceiver(mScreenOffReceiver);
         }

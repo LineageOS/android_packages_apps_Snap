@@ -28,7 +28,8 @@
 
 package com.android.camera;
 
-import android.content.Context;
+import android.app.ActivityThread;
+import android.os.UserHandle;
 import android.os.StatFs;
 import android.os.Environment;
 import android.os.storage.StorageVolume;
@@ -95,7 +96,10 @@ public class SDCard {
         try {
             mMountService = IMountService.Stub.asInterface(ServiceManager
                                                            .getService("mount"));
-            final StorageVolume[] volumes = mMountService.getVolumeList();
+
+            String packageName = ActivityThread.currentOpPackageName();
+
+            final StorageVolume[] volumes = mMountService.getVolumeList(UserHandle.myUserId(), packageName, 0);
             if (volumes.length > VOLUME_SDCARD_INDEX) {
                 mVolume = volumes[VOLUME_SDCARD_INDEX];
             }

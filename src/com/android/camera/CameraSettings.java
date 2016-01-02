@@ -1175,11 +1175,13 @@ public class CameraSettings {
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR2)
     private static void getFineResolutionQuality(ArrayList<String> supported,
                                                  int cameraId,Parameters parameters) {
+/*
         if (CamcorderProfile.hasProfile(cameraId, CamcorderProfile.QUALITY_4kDCI)) {
            if (checkSupportedVideoQuality(parameters,4096,2160)) {
               supported.add(Integer.toString(CamcorderProfile.QUALITY_4kDCI));
            }
         }
+*/
         if (CamcorderProfile.hasProfile(cameraId, CamcorderProfile.QUALITY_2160P)) {
            if (checkSupportedVideoQuality(parameters,3840,2160)) {
               supported.add(Integer.toString(CamcorderProfile.QUALITY_2160P));
@@ -1200,24 +1202,9 @@ public class CameraSettings {
               supported.add(Integer.toString(CamcorderProfile.QUALITY_480P));
            }
         }
-        if (CamcorderProfile.hasProfile(cameraId, CamcorderProfile.QUALITY_FWVGA)) {
-           if (checkSupportedVideoQuality(parameters,864,480)){
-              supported.add(Integer.toString(CamcorderProfile.QUALITY_FWVGA));
-           }
-        }
-        if (CamcorderProfile.hasProfile(cameraId, CamcorderProfile.QUALITY_WVGA)) {
-           if (checkSupportedVideoQuality(parameters,800,480)){
-              supported.add(Integer.toString(CamcorderProfile.QUALITY_WVGA));
-           }
-        }
         if (CamcorderProfile.hasProfile(cameraId, CamcorderProfile.QUALITY_VGA)) {
            if (checkSupportedVideoQuality(parameters,640,480)){
               supported.add(Integer.toString(CamcorderProfile.QUALITY_VGA));
-           }
-        }
-        if (CamcorderProfile.hasProfile(cameraId, CamcorderProfile.QUALITY_HVGA)) {
-           if (checkSupportedVideoQuality(parameters,480,360)){
-              supported.add(Integer.toString(CamcorderProfile.QUALITY_HVGA));
            }
         }
         if (CamcorderProfile.hasProfile(cameraId, CamcorderProfile.QUALITY_CIF)) {
