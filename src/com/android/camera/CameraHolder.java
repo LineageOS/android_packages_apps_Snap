@@ -231,11 +231,17 @@ public class CameraHolder {
             mCameraId = cameraId;
             mParameters = mCameraDevice.getCamera().getParameters();
 
-            // LGE Camera
-            final boolean lgeCamera = context.getResources().getBoolean(R.bool.lge_camera);
-            if (lgeCamera && mParameters != null) {
-                Log.d(TAG, "Set parameter lge-camera = 1");
-                mParameters.set("lge-camera", "1");
+            // Manufacturer specific key values
+            String manufacturerKeyValues = context.getResources().getString(R.string.manufacturer_key_values);
+            if (manufacturerKeyValues != null && !manufacturerKeyValues.isEmpty()) {
+                String[] keyValuesArray = manufacturerKeyValues.split(";");
+                for (String kvPair : keyValuesArray) {
+                    String[] manufacturerParamPair = kvPair.split("=");
+                    if (!manufacturerParamPair[0].isEmpty() && !manufacturerParamPair[1].isEmpty()) {
+                        Log.d(TAG, "Set manufacturer specific parameter " + manufacturerParamPair[0] + "=" + manufacturerParamPair[1]);
+                        mParameters.set(manufacturerParamPair[0], manufacturerParamPair[1]);
+                    }
+                }
                 mCameraDevice.setParameters(mParameters);
             }
 
