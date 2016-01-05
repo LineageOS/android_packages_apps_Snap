@@ -165,6 +165,10 @@ public class CameraSettings {
     public static final String KEY_VIDEO_HSR = "video-hsr";
     public static final String KEY_QC_SEE_MORE_MODE = "see-more";
 
+    public static final String KEY_LUMINANCE_CONITION = "luminance-condition";
+    public static final String LUMINANCE_CONITION_LOW = "low";
+    public static final String LUMINANCE_CONITION_HIGH = "high";
+
     public static final String KEY_INTERNAL_PREVIEW_RESTART = "internal-restart";
     public static final String KEY_QC_ZSL_HDR_SUPPORTED = "zsl-hdr-supported";
     public static final String KEY_QC_LONGSHOT_SUPPORTED = "longshot-supported";
