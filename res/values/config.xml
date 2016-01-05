@@ -35,8 +35,9 @@
     <!-- Opens front camera using openLegacy() -->
     <bool name="front_camera_open_legacy">true</bool>
 
-    <!-- Set's parameter "lge-camera" for LGE devices. -->
-    <bool name="lge_camera">false</bool>
+    <!-- Set's manufacturer specific parameters on startup. 
+         Example: lge-camera=1;cam-mode=0 -->
+    <string name="manufacturer_key_values"></string>
 
     <!-- Use following iso parameter.
          Example: lg-iso
