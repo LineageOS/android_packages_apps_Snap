@@ -1138,6 +1138,20 @@ public class CameraUtil {
             }
         }
     }
+
+    public static boolean isLowLuminance(Parameters parameters) {
+        String lC = parameters.get(CameraSettings.KEY_LUMINANCE_CONDITION);
+
+        if (lC != null) {
+            if (lC.equals(CameraSettings.LUMINANCE_CONDITION_LOW)) {
+                Log.d(TAG, "Parameter " + CameraSettings.KEY_LUMINANCE_CONDITION +
+                        "=" + CameraSettings.LUMINANCE_CONDITION_LOW);
+                return true;
+            }
+        }
+        return false;
+   }
+
    public static String getFilpModeString(int value){
         switch(value){
             case 0:

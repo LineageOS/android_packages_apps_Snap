@@ -180,6 +180,10 @@ public class CameraSettings {
     public static final String KEY_QC_INSTANT_CAPTURE = "instant-capture";
     public static final String KEY_QC_INSTANT_CAPTURE_VALUES = "instant-capture-values";
 
+    public static final String KEY_LUMINANCE_CONDITION = "luminance-condition";
+    public static final String LUMINANCE_CONDITION_LOW = "low";
+    public static final String LUMINANCE_CONDITION_HIGH = "high";
+
     public static final String KEY_INTERNAL_PREVIEW_RESTART = "internal-restart";
     public static final String KEY_QC_ZSL_HDR_SUPPORTED = "zsl-hdr-supported";
     public static final String KEY_QC_LONGSHOT_SUPPORTED = "longshot-supported";

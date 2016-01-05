@@ -1715,6 +1715,13 @@ public class PhotoModule
             mParameters = mCameraDevice.getParameters();
         }
 
+        // LGE G4: Disable HDR if luminance is low and flash gets used
+        if (CameraUtil.isLowLuminance(mParameters)) {
+            mParameters.set(CameraSettings.KEY_SNAPCAM_HDR_MODE, "0");
+            mCameraDevice.setParameters(mParameters);
+            mParameters = mCameraDevice.getParameters();
+        }
+
         try {
             mBurstSnapNum = mParameters.getInt("num-snaps-per-shutter");
         }catch (NumberFormatException ex){
@@ -1762,6 +1769,17 @@ public class PhotoModule
                     mRawPictureCallback, mPostViewPictureCallback,
                     new JpegPictureCallback(loc));
             setCameraState(SNAPSHOT_IN_PROGRESS);
+
+            // LGE G4: Preview needs to be restarted when flash gets used
+            if (CameraUtil.isSupported(mParameters, CameraSettings.KEY_LUMINANCE_CONDITION)) {
+                String flashMode = mPreferences.getString(CameraSettings.KEY_FLASH_MODE,
+                        mActivity.getString(R.string.pref_camera_flashmode_default));
+                if (flashMode.equals(Parameters.FLASH_MODE_ON) ||
+                        (!flashMode.equals(Parameters.FLASH_MODE_OFF) &&
+                        CameraUtil.isLowLuminance(mParameters))) {
+                    setupPreview();
+                }
+            }
         }
 
         mNamedImages.nameNewImage(mCaptureStartTime, mRefocus);
