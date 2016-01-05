@@ -29,6 +29,13 @@
          of the fullscreen pano preview. -->
     <bool name="enable_warped_pano_preview">true</bool>
 
-    <!-- Set's parameter "lge-camera" for LGE devices -->
+    <!-- Set's parameter "lge-camera" for LGE devices. -->
     <bool name="lge_camera">false</bool>
+
+    <!-- Use custom iso parameter.
+         Example: lg-iso 
+                  lg-iso-values -->
+    <string name="key_iso"></string>
+    <string name="key_iso_values"></string>
+
 </resources>

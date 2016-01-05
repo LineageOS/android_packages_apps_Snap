@@ -244,6 +244,10 @@ public class CameraSettings {
     private final Parameters mParameters;
     private final CameraInfo[] mCameraInfo;
     private final int mCameraId;
+
+    public static String mKeyIso;
+    public static String mKeyIsoValues;
+
     private static final HashMap<Integer, String>
             VIDEO_ENCODER_TABLE = new HashMap<Integer, String>();
 
@@ -260,6 +264,17 @@ public class CameraSettings {
         mParameters = parameters;
         mCameraId = cameraId;
         mCameraInfo = cameraInfo;
+
+        // ISO
+        mKeyIso = mContext.getResources().getString(R.string.key_iso);
+        mKeyIsoValues = mContext.getResources().getString(R.string.key_iso_values);
+        
+        if (mKeyIso.isEmpty()) {
+            mKeyIso = "iso";
+        }
+        if (mKeyIsoValues.isEmpty()) {
+            mKeyIso = "iso-values";
+        }
     }
 
     public PreferenceGroup getPreferenceGroup(int preferenceRes) {
@@ -268,6 +283,27 @@ public class CameraSettings {
                 (PreferenceGroup) inflater.inflate(preferenceRes);
         if (mParameters != null) initPreference(group);
         return group;
+    }
+
+    public static List<String> getSupportedIsoValues(Parameters params) {
+        String isoValues = params.get(mKeyIsoValues);
+        if (isoValues == null) {
+            return null;
+        }
+        return split(isoValues);
+    }
+
+    public static String getISOValue(Parameters params) {
+        String iso = params.get(mKeyIso);
+        
+        if (iso == null) {
+            return null;
+        }
+        return iso;
+    }
+
+    public static void setISOValue(Parameters params, String iso) {
+        params.set(mKeyIso, iso);
     }
 
     public static String getSupportedHighestVideoQuality(
