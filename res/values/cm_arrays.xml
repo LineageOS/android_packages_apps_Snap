@@ -40,4 +40,52 @@
         <item>10000</item>
         <item>0</item>
     </string-array>
+
+    <!-- Shutter speed -->
+    <array name="pref_camera_shutter_speed_entries" translatable="false">
+        <item>@string/pref_camera_shutter_speed_entry_0</item>
+        <item>@string/pref_camera_shutter_speed_entry_1_6000</item>
+        <item>@string/pref_camera_shutter_speed_entry_1_4000</item>
+        <item>@string/pref_camera_shutter_speed_entry_1_2000</item>
+        <item>@string/pref_camera_shutter_speed_entry_1_1000</item>
+        <item>@string/pref_camera_shutter_speed_entry_1_500</item>
+        <item>@string/pref_camera_shutter_speed_entry_1_250</item>
+        <item>@string/pref_camera_shutter_speed_entry_1_125</item>
+        <item>@string/pref_camera_shutter_speed_entry_1_60</item>
+        <item>@string/pref_camera_shutter_speed_entry_1_30</item>
+        <item>@string/pref_camera_shutter_speed_entry_1_15</item>
+        <item>@string/pref_camera_shutter_speed_entry_1_8</item>
+        <item>@string/pref_camera_shutter_speed_entry_1_4</item>
+        <item>@string/pref_camera_shutter_speed_entry_1_2</item>
+        <item>@string/pref_camera_shutter_speed_entry_1</item>
+        <item>@string/pref_camera_shutter_speed_entry_2</item>
+        <item>@string/pref_camera_shutter_speed_entry_4</item>
+        <item>@string/pref_camera_shutter_speed_entry_8</item>
+        <item>@string/pref_camera_shutter_speed_entry_15</item>
+        <item>@string/pref_camera_shutter_speed_entry_30</item>
+    </array>
+
+    <string-array name="pref_camera_shutter_speed_entryvalues" translatable="false">
+        <item>0</item>
+        <item>1/6000</item>
+        <item>1/4000</item>
+        <item>1/2000</item>
+        <item>1/1000</item>
+        <item>1/500</item>
+        <item>1/250</item>
+        <item>1/125</item>
+        <item>1/60</item>
+        <item>1/30</item>
+        <item>1/15</item>
+        <item>1/8</item>
+        <item>1/4</item>
+        <item>1/2</item>
+        <item>1</item>
+        <item>2</item>
+        <item>4</item>
+        <item>8</item>
+        <item>15</item>
+        <item>30</item>
+    </string-array>
+
 </resources>

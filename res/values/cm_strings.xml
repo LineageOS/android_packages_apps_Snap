@@ -100,4 +100,29 @@
     <string name="pref_camera_focustime_entry_10">10s</string>
     <string name="pref_camera_focustime_entry_infinite">Infinite</string>
 
+    <!-- Shutter speed -->
+    <string name="pref_camera_shutter_speed_title">Shutter speed</string>
+    <string name="pref_camera_shutter_speed_default" translatable="false">0</string>
+
+    <string name="pref_camera_shutter_speed_entry_0" translatable="false">0</string>
+    <string name="pref_camera_shutter_speed_entry_1_6000" translatable="false">1/6000</string>
+    <string name="pref_camera_shutter_speed_entry_1_4000" translatable="false">1/4000</string>
+    <string name="pref_camera_shutter_speed_entry_1_2000" translatable="false">1/2000</string>
+    <string name="pref_camera_shutter_speed_entry_1_1000" translatable="false">1/1000</string>
+    <string name="pref_camera_shutter_speed_entry_1_500" translatable="false">1/500</string>
+    <string name="pref_camera_shutter_speed_entry_1_250" translatable="false">1/250</string>
+    <string name="pref_camera_shutter_speed_entry_1_125" translatable="false">1/125</string>
+    <string name="pref_camera_shutter_speed_entry_1_60" translatable="false">1/60</string>
+    <string name="pref_camera_shutter_speed_entry_1_30" translatable="false">1/30</string>
+    <string name="pref_camera_shutter_speed_entry_1_15" translatable="false">1/25</string>
+    <string name="pref_camera_shutter_speed_entry_1_8" translatable="false">1/8</string>
+    <string name="pref_camera_shutter_speed_entry_1_4" translatable="false">1/4</string>
+    <string name="pref_camera_shutter_speed_entry_1_2" translatable="false">1/2</string>
+    <string name="pref_camera_shutter_speed_entry_1" translatable="false">1</string>
+    <string name="pref_camera_shutter_speed_entry_2" translatable="false">2</string>
+    <string name="pref_camera_shutter_speed_entry_4" translatable="false">4</string>
+    <string name="pref_camera_shutter_speed_entry_8" translatable="false">8</string>
+    <string name="pref_camera_shutter_speed_entry_15" translatable="false">15</string>
+    <string name="pref_camera_shutter_speed_entry_30" translatable="false">30</string>
+
 </resources>
