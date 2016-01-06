@@ -3289,6 +3289,14 @@ public class PhotoModule
                 CameraSettings.setISOValue(mParameters, iso);
             }
         }
+        // Set shutter speed parameter
+        String shutterSpeed = mPreferences.getString(
+                CameraSettings.KEY_SHUTTER_SPEED,
+                mActivity.getString(R.string.pref_camera_shutter_speed_default));
+        if (CameraUtil.isSupported(shutterSpeed,
+            CameraSettings.getSupportedShutterSpeedValues(mParameters))) {
+            mParameters.set(CameraSettings.KEY_SNAPCAM_SHUTTER_SPEED, shutterSpeed);
+        }
         // Set color effect parameter.
         String colorEffect = mPreferences.getString(
                 CameraSettings.KEY_COLOR_EFFECT,
@@ -4147,6 +4155,19 @@ public class PhotoModule
         }
 
         mParameters.setJpegQuality(jpegQuality);
+
+        // When shutter speed gets disabled preview needs to be restarted
+        if (CameraUtil.isSupported(mParameters, CameraSettings.KEY_SNAPCAM_SHUTTER_SPEED)) {
+            String shutterSpeed = mPreferences.getString(CameraSettings.KEY_SHUTTER_SPEED, null);
+            if (shutterSpeed != null) {
+                String oldShutterSpeed = mParameters.get(CameraSettings.KEY_SNAPCAM_SHUTTER_SPEED);
+                if (!shutterSpeed.equals(oldShutterSpeed) && shutterSpeed.equals("0") &&
+                        mCameraState != PREVIEW_STOPPED) {
+                    Log.v(TAG, "Shutter speed disabled. Restart Preview");
+                    mRestartPreview = true;
+                }
+            }
+        }
 
         // For the following settings, we need to check if the settings are
         // still supported by latest driver, if not, ignore the settings.
