@@ -1321,6 +1321,8 @@ public class PhotoModule
 
         @Override
         public void onPictureTaken(byte [] jpegData, CameraProxy camera) {
+            String focusMode;
+
             mUI.stopSelfieFlash();
             mUI.enableShutter(true);
             if (mUI.isPreviewCoverVisible()) {
@@ -1399,15 +1401,17 @@ public class PhotoModule
 
             if (needRestartPreview) {
                 setupPreview();
-                if (CameraUtil.FOCUS_MODE_CONTINUOUS_PICTURE.equals(
-                    mFocusManager.getFocusMode())) {
+                focusMode = mFocusManager.getFocusMode();
+                if (CameraUtil.FOCUS_MODE_CONTINUOUS_PICTURE.equals(focusMode) ||
+                        CameraUtil.FOCUS_MODE_MW_CONTINUOUS_PICTURE.equals(focusMode)) {
                     mCameraDevice.cancelAutoFocus();
                 }
             } else if ((mReceivedSnapNum == mBurstSnapNum)
                         && (mCameraState != LONGSHOT)){
                 mFocusManager.resetTouchFocus();
-                if (CameraUtil.FOCUS_MODE_CONTINUOUS_PICTURE.equals(
-                        mFocusManager.getFocusMode())) {
+                focusMode = mFocusManager.getFocusMode();
+                if (CameraUtil.FOCUS_MODE_CONTINUOUS_PICTURE.equals(focusMode) ||
+                        CameraUtil.FOCUS_MODE_MW_CONTINUOUS_PICTURE.equals(focusMode)) {
                     mCameraDevice.cancelAutoFocus();
                 }
                 mUI.resumeFaceDetection();
@@ -2987,6 +2991,8 @@ public class PhotoModule
             return;
         }
 
+        String focusMode;
+
         synchronized (mCameraDevice) {
             SurfaceHolder sh = null;
             Log.v(TAG, "startPreview: SurfaceHolder (MDP path)");
@@ -3037,7 +3043,10 @@ public class PhotoModule
         if (!mSnapshotOnIdle && !mInstantCaptureSnapShot) {
             // If the focus mode is continuous autofocus, call cancelAutoFocus to
             // resume it because it may have been paused by autoFocus call.
-            if (CameraUtil.FOCUS_MODE_CONTINUOUS_PICTURE.equals(mFocusManager.getFocusMode()) && mCameraState !=INIT) {
+            focusMode = mFocusManager.getFocusMode();
+            if (CameraUtil.FOCUS_MODE_CONTINUOUS_PICTURE.equals(focusMode) &&
+                    mCameraState != INIT ||
+                    CameraUtil.FOCUS_MODE_MW_CONTINUOUS_PICTURE.equals(focusMode)) {
                 mCameraDevice.cancelAutoFocus();
             }
         } else {
@@ -3665,10 +3674,16 @@ public class PhotoModule
             mParameters.set(KEY_PICTURE_FORMAT, PIXEL_FORMAT_JPEG);
 
             //Try to set CAF for ZSL
-            if(CameraUtil.isSupported(Parameters.FOCUS_MODE_CONTINUOUS_PICTURE,
-                    mParameters.getSupportedFocusModes()) && !mFocusManager.isTouch()) {
-                mFocusManager.overrideFocusMode(Parameters.FOCUS_MODE_CONTINUOUS_PICTURE);
-                mParameters.setFocusMode(Parameters.FOCUS_MODE_CONTINUOUS_PICTURE);
+            if (!mFocusManager.isTouch()) {
+                if (CameraUtil.isSupported(CameraUtil.FOCUS_MODE_MW_CONTINUOUS_PICTURE,
+                        mParameters.getSupportedFocusModes())) {
+                    mFocusManager.overrideFocusMode(CameraUtil.FOCUS_MODE_MW_CONTINUOUS_PICTURE);
+                    mParameters.setFocusMode(CameraUtil.FOCUS_MODE_MW_CONTINUOUS_PICTURE);
+                } else if (CameraUtil.isSupported(Parameters.FOCUS_MODE_CONTINUOUS_PICTURE,
+                        mParameters.getSupportedFocusModes())) {
+                    mFocusManager.overrideFocusMode(Parameters.FOCUS_MODE_CONTINUOUS_PICTURE);
+                    mParameters.setFocusMode(Parameters.FOCUS_MODE_CONTINUOUS_PICTURE);
+                }
             } else if (mFocusManager.isTouch()) {
                 mFocusManager.overrideFocusMode(null);
                 mParameters.setFocusMode(mFocusManager.getFocusMode());
@@ -4278,7 +4293,8 @@ public class PhotoModule
 
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     private void updateAutoFocusMoveCallback() {
-        if (mParameters.getFocusMode().equals(CameraUtil.FOCUS_MODE_CONTINUOUS_PICTURE)) {
+        if (mParameters.getFocusMode().equals(CameraUtil.FOCUS_MODE_CONTINUOUS_PICTURE) ||
+                mParameters.getFocusMode().equals(CameraUtil.FOCUS_MODE_MW_CONTINUOUS_PICTURE)) {
             mCameraDevice.setAutoFocusMoveCallback(mHandler,
                     (CameraAFMoveCallback) mAutoFocusMoveCallback);
         } else {
@@ -5018,8 +5034,14 @@ public class PhotoModule
         mMeteringAreaSupported = CameraUtil.isMeteringAreaSupported(mInitialParams);
         mAeLockSupported = CameraUtil.isAutoExposureLockSupported(mInitialParams);
         mAwbLockSupported = CameraUtil.isAutoWhiteBalanceLockSupported(mInitialParams);
-        mContinuousFocusSupported = mInitialParams.getSupportedFocusModes().contains(
-                CameraUtil.FOCUS_MODE_CONTINUOUS_PICTURE);
+
+        List<String> supportedFocusModes = mInitialParams.getSupportedFocusModes();
+        if (supportedFocusModes.contains(CameraUtil.FOCUS_MODE_CONTINUOUS_PICTURE) ||
+                supportedFocusModes.contains(CameraUtil.FOCUS_MODE_MW_CONTINUOUS_PICTURE)) {
+            mContinuousFocusSupported = true;
+        } else {
+            mContinuousFocusSupported = false;
+        }
     }
 
     @Override
