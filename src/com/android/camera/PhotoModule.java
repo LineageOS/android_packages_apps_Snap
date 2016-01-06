@@ -3298,6 +3298,14 @@ public class PhotoModule
                 CameraSettings.setISOValue(mParameters, iso);
             }
         }
+        // Set shutter speed parameter
+        String shutterSpeed = mPreferences.getString(
+                CameraSettings.KEY_SHUTTER_SPEED,
+                mActivity.getString(R.string.pref_camera_shutter_speed_default));
+        if (CameraUtil.isSupported(shutterSpeed,
+            CameraSettings.getSupportedShutterSpeedValues(mParameters))) {
+            mParameters.set(CameraSettings.KEY_SNAPCAM_SHUTTER_SPEED, shutterSpeed);
+        }
         // Set color effect parameter.
         String colorEffect = mPreferences.getString(
                 CameraSettings.KEY_COLOR_EFFECT,
