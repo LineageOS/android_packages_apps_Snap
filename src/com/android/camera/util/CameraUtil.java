@@ -109,6 +109,7 @@ public class CameraUtil {
 
     // Fields from android.hardware.Camera.Parameters
     public static final String FOCUS_MODE_CONTINUOUS_PICTURE = "continuous-picture";
+    public static final String FOCUS_MODE_MW_CONTINUOUS_PICTURE = "mw_continuous-picture";
     public static final String RECORDING_HINT = "recording-hint";
     private static final String AUTO_EXPOSURE_LOCK_SUPPORTED = "auto-exposure-lock-supported";
     private static final String AUTO_WHITE_BALANCE_LOCK_SUPPORTED = "auto-whitebalance-lock-supported";
