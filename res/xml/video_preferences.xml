@@ -67,7 +67,7 @@
             camera:key="pref_camera_exposure_key"
             camera:defaultValue="@string/pref_exposure_default"
             camera:title="@string/pref_exposure_title"
-            camera:singleIcon="@drawable/ic_exposure_holo_light" />
+            camera:singleIcon="@drawable/ic_settings_exposure" />
     <IconListPreference
             camera:key="pref_camera_whitebalance_key"
             camera:defaultValue="@string/pref_camera_whitebalance_default"
@@ -207,10 +207,11 @@
             camera:title="@string/pref_camera_zoom_title"
             camera:entries="@array/pref_camera_zoom_entries"
             camera:entryValues="@array/pref_camera_zoom_entryvalues" />
-    <ListPreference
+    <IconListPreference
             camera:key="pref_power_shutter"
             camera:defaultValue="@string/pref_camera_power_shutter_default"
             camera:title="@string/pref_camera_power_shutter_title"
+            camera:singleIcon="@drawable/ic_settings_powershutter"
             camera:entries="@array/pref_switch_entries"
             camera:entryValues="@array/pref_switch_entryvalues" />
     <IconListPreference
