@@ -1108,8 +1108,6 @@ public class PhotoModule
                     return;
                 }
 
-                mUI.doShutterAnimation();
-
                 Location loc = getLocationAccordPictureFormat(mParameters.get(KEY_PICTURE_FORMAT));
 
                 mLongShotCaptureCount++;
