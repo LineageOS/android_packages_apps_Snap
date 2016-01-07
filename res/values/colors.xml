@@ -14,66 +14,66 @@
      limitations under the License.
 -->
 <resources>
-    <color name="default_background">#000</color>
+    <color name="default_background">@color/black</color>
 
     <!-- configuration for album set page -->
-    <color name="albumset_background">#1A1A1A</color>
-    <color name="albumset_placeholder">#333</color>
-    <color name="albumset_label_background">#EE414143</color>
-    <color name="albumset_label_title">#FBFBFB</color>
-    <color name="albumset_label_count">#A9ABAD</color>
+    <color name="albumset_background">@color/black</color>
+    <color name="albumset_placeholder">@color/black</color>
+    <color name="albumset_label_background">@color/black</color>
+    <color name="albumset_label_title">@color/white</color>
+    <color name="albumset_label_count">@color/grey</color>
 
     <!-- configuration for album page -->
-    <color name="album_background">#1A1A1A</color>
-    <color name="album_placeholder">#333</color>
+    <color name="album_background">@color/black</color>
+    <color name="album_placeholder">@color/black</color>
 
     <!-- configuration for photo page -->
-    <color name="photo_background">#1A1A1A</color>
-    <color name="photo_placeholder">#333</color>
+    <color name="photo_background">@color/black</color>
+    <color name="photo_placeholder">@color/black</color>
 
     <!-- configuration for manage cache page -->
-    <color name="cache_background">#1A1A1A</color>
-    <color name="cache_placeholder">#333</color>
+    <color name="cache_background">@color/black</color>
+    <color name="cache_placeholder">@color/black</color>
 
-    <color name="bitmap_screennail_placeholder">#333</color>
+    <color name="bitmap_screennail_placeholder">@color/black</color>
 
-    <color name="slideshow_background">#1A1A1A</color>
+    <color name="slideshow_background">@color/black</color>
 
-    <color name="button_dark_transparent_background">#6000</color>
+    <color name="button_dark_transparent_background">@color/black</color>
 
-    <color name="ingest_highlight_semitransparent">#8833b5e5</color>
-    <color name="ingest_date_tile_text">#33b5e5</color>
+    <color name="ingest_highlight_semitransparent">@color/blue</color>
+    <color name="ingest_date_tile_text">@color/blue</color>
 
     <!-- Camera resources below -->
 
-    <color name="recording_time_elapsed_text">#FFFFFFFF</color>
-    <color name="recording_time_remaining_text">#FFFF0033</color>
-    <color name="on_viewfinder_label_background_color">#77333333</color>
-    <color name="review_control_pressed_color">#FF33B5E5</color>
-    <color name="review_control_pressed_fan_color">#3F33B5E5</color>
-    <color name="review_background">#FF000000</color>
-    <color name="icon_disabled_color">#DD777777</color>
-    <color name="time_lapse_arc">#FFC5C5C5</color>
-    <color name="indicator_background">#40000000</color>
-    <color name="popup_title_color">#ff33b5e5</color>
-    <color name="popup_background">#ff282828</color>
-    <color name="pano_progress_empty">#FF2E2E2E</color>
-    <color name="pano_progress_done">#FF33525E</color>
-    <color name="pano_progress_indication">#FF0099CC</color>
-    <color name="pano_progress_indication_fast">#FFFF2222</color>
-    <color name="mode_selection_border">#33B5E5</color>
-    <color name="holo_blue_light">#ff33b5e5</color>
-    <color name="bright_foreground_disabled_holo_dark">#ff4c4c4c</color>
-    <color name="bright_foreground_holo_dark">#fff3f3f3</color>
-    <color name="face_detect_start">#80ffffff</color>
-    <color name="face_detect_success">#8050d060</color>
-    <color name="face_detect_fail">#80d05060</color>
-    <color name="gray">#FFAAAAAA</color>
+    <color name="recording_time_elapsed_text">@color/white</color>
+    <color name="recording_time_remaining_text">@color/red</color>
+    <color name="on_viewfinder_label_background_color">@color/black</color>
+    <color name="review_control_pressed_color">@color/blue</color>
+    <color name="review_control_pressed_fan_color">@color/blue</color>
+    <color name="review_background">@color/black</color>
+    <color name="icon_disabled_color">@color/grey</color>
+    <color name="time_lapse_arc">@color/grey</color>
+    <color name="indicator_background">@color/black</color>
+    <color name="popup_title_color">@color/blue</color>
+    <color name="popup_background">@color/black</color>
+    <color name="pano_progress_empty">@color/black</color>
+    <color name="pano_progress_done">#33525E</color>
+    <color name="pano_progress_indication">@color/blue</color>
+    <color name="pano_progress_indication_fast">@color/red</color>
+    <color name="mode_selection_border">@color/blue</color>
+    <color name="holo_blue_light">@color/blue</color>
+    <color name="bright_foreground_disabled_holo_dark">@color/black</color>
+    <color name="bright_foreground_holo_dark">@color/white</color>
+    <color name="face_detect_start">@color/white</color>
+    <color name="face_detect_success">@color/green</color>
+    <color name="face_detect_fail">@color/red</color>
+    <color name="gray">@color/grey</color>
 
-    <color name="setting_color">#ff10aadc</color>
-    <color name="setting_color_light">#ffade9fd</color>
-    <color name="list_divider_color">#d8ababab</color>
+    <color name="setting_color">@color/black</color>
+    <color name="setting_color_light">@color/white</color>
+    <color name="list_divider_color">@color/black</color>
 
-    <color name="camera_control_bg_opaque">#ff191919</color>
-    <color name="camera_control_bg_transparent">#4d191919</color>
+    <color name="camera_control_bg_opaque">@color/black</color>
+    <color name="camera_control_bg_transparent">@color/black</color>
 </resources>

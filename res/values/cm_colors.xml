@@ -13,16 +13,19 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/content"
-    android:orientation="horizontal"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_gravity="bottom|right"
-    android:layout_marginRight="8dip"
-    android:layout_marginBottom="8dip"
-    android:paddingLeft="8dip"
-    android:paddingRight="8dip"
-    android:paddingTop="16dip"
-    android:paddingBottom="16dip"
-    android:background="@color/black" />
+<resources>
+    <color name="white">#fafafa</color>
+    <color name="black">#212121</color>
+    <color name="grey">#e0e0e0</color>
+
+    <color name="red">#F44336</color>
+    <color name="green">#4CAF50</color>
+    <color name="blue">#3F51B5</color>
+
+    <color name="pic">@color/white</color>
+    <color name="pic_pressed">@color/grey</color>
+    <color name="video">@color/red</color>
+    <color name="video_pressed">#D32F2F</color>
+    <color name="pano">@color/green</color>
+    <color name="pano_pressed">#388E3C</color>
+</resources>
