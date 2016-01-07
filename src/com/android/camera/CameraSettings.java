@@ -39,6 +39,7 @@ import org.codeaurora.snapcam.R;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+import java.util.HashMap;
 import android.os.Build;
 import java.util.StringTokenizer;
 import android.os.SystemProperties;
@@ -251,6 +252,22 @@ public class CameraSettings {
     public static String mKeyIso = null;
     public static String mKeyIsoValues = null;
 
+    public static final HashMap<String, Integer>
+            VIDEO_QUALITY_TABLE = new HashMap<String, Integer>();
+
+    static {
+        //video qualities
+        VIDEO_QUALITY_TABLE.put("4096x2160", CamcorderProfile.QUALITY_4KDCI);
+        VIDEO_QUALITY_TABLE.put("3840x2160", CamcorderProfile.QUALITY_2160P);
+        VIDEO_QUALITY_TABLE.put("1920x1080", CamcorderProfile.QUALITY_1080P);
+        VIDEO_QUALITY_TABLE.put("1280x720",  CamcorderProfile.QUALITY_720P);
+        VIDEO_QUALITY_TABLE.put("720x480",   CamcorderProfile.QUALITY_480P);
+        VIDEO_QUALITY_TABLE.put("640x480",   CamcorderProfile.QUALITY_VGA);
+        VIDEO_QUALITY_TABLE.put("352x288",   CamcorderProfile.QUALITY_CIF);
+        VIDEO_QUALITY_TABLE.put("320x240",   CamcorderProfile.QUALITY_QVGA);
+        VIDEO_QUALITY_TABLE.put("176x144",   CamcorderProfile.QUALITY_QCIF);
+   }
+
     public CameraSettings(Activity activity, Parameters parameters,
                           int cameraId, CameraInfo[] cameraInfo) {
         mContext = activity;
@@ -320,7 +337,7 @@ public class CameraSettings {
             int cameraId, Parameters parameters) {
         // When launching the camera app first time, we will set the video quality
         // to the first one (i.e. highest quality) in the supported list
-        List<String> supported = getSupportedVideoQuality(cameraId,parameters);
+        List<String> supported = getSupportedVideoQualities(cameraId,parameters);
         assert (supported != null) : "No supported video quality is found";
         return supported.get(0);
     }
@@ -819,7 +836,7 @@ public class CameraSettings {
         }
 
         if (videoQuality != null) {
-            filterUnsupportedOptions(group, videoQuality, getSupportedVideoQuality(
+            filterUnsupportedOptions(group, videoQuality, getSupportedVideoQualities(
                    mCameraId,mParameters));
         }
 
@@ -1224,6 +1241,20 @@ public class CameraSettings {
             }
         }
 
+        return supported;
+    }
+
+    public static ArrayList<String> getSupportedVideoQualities(int cameraId,Parameters parameters) {
+        ArrayList<String> supported = new ArrayList<String>();
+        List<String> temp = sizeListToStringList(parameters.getSupportedVideoSizes());
+        for (String videoSize : temp) {
+            if (VIDEO_QUALITY_TABLE.containsKey(videoSize)) {
+                int profile = VIDEO_QUALITY_TABLE.get(videoSize);
+                if (CamcorderProfile.hasProfile(cameraId, profile)) {
+                      supported.add(videoSize);
+                }
+            }
+        }
         return supported;
     }
 
