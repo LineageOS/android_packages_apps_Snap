@@ -29,10 +29,6 @@ import android.hardware.Camera.CameraInfo;
 import android.hardware.Camera.Parameters;
 import android.hardware.Camera.Size;
 import android.media.CamcorderProfile;
-import android.media.MediaRecorder;
-import android.media.EncoderCapabilities;
-import android.media.EncoderCapabilities.VideoEncoderCap;
-import java.util.HashMap;
 import android.util.Log;
 
 import com.android.camera.util.ApiHelper;
@@ -254,16 +250,6 @@ public class CameraSettings {
 
     public static String mKeyIso = null;
     public static String mKeyIsoValues = null;
-
-    private static final HashMap<Integer, String>
-            VIDEO_ENCODER_TABLE = new HashMap<Integer, String>();
-
-    static {
-        VIDEO_ENCODER_TABLE.put(MediaRecorder.VideoEncoder.H263, "h263");
-        VIDEO_ENCODER_TABLE.put(MediaRecorder.VideoEncoder.H264, "h264");
-        VIDEO_ENCODER_TABLE.put(MediaRecorder.VideoEncoder.H265, "h265");
-        VIDEO_ENCODER_TABLE.put(MediaRecorder.VideoEncoder.MPEG_4_SP, "m4v");
-    }
 
     public CameraSettings(Activity activity, Parameters parameters,
                           int cameraId, CameraInfo[] cameraInfo) {
@@ -573,20 +559,6 @@ public class CameraSettings {
         return split(str);
     }
 
-    private static List<String> getSupportedVideoEncoders() {
-        ArrayList<String> supported = new ArrayList<String>();
-        String str = null;
-        List<VideoEncoderCap> videoEncoders = EncoderCapabilities.getVideoEncoders();
-        for (VideoEncoderCap videoEncoder: videoEncoders) {
-            str = VIDEO_ENCODER_TABLE.get(videoEncoder.mCodec);
-            if (str != null) {
-                supported.add(str);
-            }
-        }
-        return supported;
-
-    }
-
     private static ListPreference removeLeadingISO(ListPreference pref) {
         CharSequence entryValues[] = pref.getEntryValues();
         if (entryValues.length > 0) {
@@ -833,7 +805,6 @@ public class CameraSettings {
         ListPreference videoHfrMode =
                 group.findPreference(KEY_VIDEO_HIGH_FRAME_RATE);
         ListPreference seeMoreMode = group.findPreference(KEY_SEE_MORE);
-        ListPreference videoEncoder = group.findPreference(KEY_VIDEO_ENCODER);
 
         // Since the screen could be loaded from different resources, we need
         // to check if the preference is available here
@@ -850,10 +821,6 @@ public class CameraSettings {
         if (videoQuality != null) {
             filterUnsupportedOptions(group, videoQuality, getSupportedVideoQuality(
                    mCameraId,mParameters));
-        }
-
-        if (videoEncoder != null) {
-            filterUnsupportedOptions(group, videoEncoder, getSupportedVideoEncoders());
         }
 
         if (pictureSize != null) {
