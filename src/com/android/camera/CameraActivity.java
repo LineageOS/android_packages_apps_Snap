@@ -218,6 +218,7 @@ public class CameraActivity extends Activity
     private ViewGroup mUndoDeletionBar;
     private boolean mIsUndoingDeletion = false;
     private boolean mIsEditActivityInProgress = false;
+    private boolean mPaused = true;
     private View mPreviewCover;
     private FrameLayout mPreviewContentLayout;
 
@@ -1340,7 +1341,7 @@ public class CameraActivity extends Activity
 
                     @Override
                     protected void onPostExecute(MediaDetails mediaDetails) {
-                        if (mediaDetails != null) {
+                        if ((mediaDetails != null) && !mPaused) {
                             DetailsDialog.create(CameraActivity.this, mediaDetails).show();
                         }
                     }
@@ -1611,6 +1612,7 @@ public class CameraActivity extends Activity
         super.onPause();
         mCurrentModule.onPauseAfterSuper();
 
+        mPaused = true;
         mLocalImagesObserver.setActivityPaused(true);
         mLocalVideosObserver.setActivityPaused(true);
     }
@@ -1637,6 +1639,7 @@ public class CameraActivity extends Activity
         mOrientationListener.enable();
         mCurrentModule.onResumeBeforeSuper();
         super.onResume();
+        mPaused = false;
         mCurrentModule.onResumeAfterSuper();
 
         setSwipingEnabled(true);
