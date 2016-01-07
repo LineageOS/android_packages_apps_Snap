@@ -2097,8 +2097,11 @@ public class PhotoModule
                 || mUI.collapseCameraControls()
                 || (mCameraState == SWITCHING_CAMERA)
                 || (mCameraState == PREVIEW_STOPPED)
-                || (null == mFocusManager)) return;
+                || (null == mFocusManager)
+                || (null == mUI.getSurfaceHolder())) return;
+
         mShutterPressing = true;
+
         // Do not take the picture if there is not enough storage.
         if (mActivity.getStorageSpaceBytes() <= Storage.LOW_STORAGE_THRESHOLD_BYTES) {
             Log.i(TAG, "Not enough space or storage not ready. remaining="
