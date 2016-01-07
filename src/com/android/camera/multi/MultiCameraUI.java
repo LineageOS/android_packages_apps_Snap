@@ -188,13 +188,7 @@ public class MultiCameraUI implements PreviewGestures.SingleTapListener,
     private void initShutterButton() {
         mShutterButton = (ShutterButton) mRootView.findViewById(R.id.shutter_button);
         mShutterButton.setOnShutterButtonListener(mModule);
-        mShutterButton.setImageResource(R.drawable.one_ui_shutter_anim);
-        mShutterButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                doShutterAnimation();
-            }
-        });
+        mShutterButton.setImageResource(R.drawable.btn_new_shutter);
     }
 
     private void initializeThumbnail() {
@@ -277,12 +271,6 @@ public class MultiCameraUI implements PreviewGestures.SingleTapListener,
         mSceneModeSwitcher.setVisibility(View.INVISIBLE);
     }
 
-    private void doShutterAnimation() {
-        AnimationDrawable frameAnimation = (AnimationDrawable) mShutterButton.getDrawable();
-        frameAnimation.stop();
-        frameAnimation.start();
-    }
-
     private void initVideoButton() {
         mVideoButton = (ImageView) mRootView.findViewById(R.id.video_button);
         mVideoButton.setOnClickListener(new View.OnClickListener() {
@@ -356,7 +344,7 @@ public class MultiCameraUI implements PreviewGestures.SingleTapListener,
             //mFlashButton.init(true);
             mCameraControls.setVideoMode(false);
             mPauseButton.setVisibility(View.INVISIBLE);
-            mVideoButton.setImageResource(R.drawable.video_capture);
+            mVideoButton.setImageResource(R.drawable.btn_new_shutter_video);
             mRecordingTimeRect.setVisibility(View.GONE);
             mMuteButton.setVisibility(View.INVISIBLE);
             mShutterButton.setVisibility(View.INVISIBLE);
