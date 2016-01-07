@@ -488,7 +488,7 @@ public class CameraControls extends RotatableLayout {
                 mPreview.animate().translationXBy(-mSize).setDuration(ANIME_DURATION);
                 break;
         }
-        mRemainingPhotos.setVisibility(View.INVISIBLE);
+        //mRemainingPhotos.setVisibility(View.INVISIBLE);
         mRefocusToast.setVisibility(View.GONE);
     }
 
@@ -577,9 +577,9 @@ public class CameraControls extends RotatableLayout {
                 mPreview.animate().translationXBy(mSize).setDuration(ANIME_DURATION);
                 break;
         }
-        if (mRemainingPhotos.getVisibility() == View.INVISIBLE) {
+        /*if (mRemainingPhotos.getVisibility() == View.INVISIBLE) {
             mRemainingPhotos.setVisibility(View.VISIBLE);
-        }
+        }*/
         mRefocusToast.setVisibility(View.GONE);
     }
 
@@ -827,7 +827,7 @@ public class CameraControls extends RotatableLayout {
         mOrientation = orientation;
         View[] views = {
             mSceneModeSwitcher, mFilterModeSwitcher, mFrontBackSwitcher,
-            mHdrSwitcher, mMenu, mShutter, mPreview, mSwitcher
+            mHdrSwitcher, mMenu, mPreview, mSwitcher
         };
         for (View v : views) {
             ((RotateImageView) v).setOrientation(orientation, animation);
