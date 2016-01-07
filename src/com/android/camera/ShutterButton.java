@@ -22,14 +22,14 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
 
-import com.android.camera.ui.RotateImageView;
+//import com.android.camera.ui.RotateImageView;
 
 /**
  * A button designed to be used for the on-screen shutter button.
  * It's currently an {@code ImageView} that can call a delegate when the
  * pressed state changes.
  */
-public class ShutterButton extends RotateImageView {
+public class ShutterButton extends ImageView {
 
     private class LongClickListener implements View.OnLongClickListener {
          public boolean onLongClick(View v) {
@@ -88,7 +88,7 @@ public class ShutterButton extends RotateImageView {
      * Hook into the drawable state changing to get changes to isPressed -- the
      * onPressed listener doesn't always get called when the pressed state
      * changes.
-     */
+     *
     @Override
     protected void drawableStateChanged() {
         super.drawableStateChanged();
@@ -127,7 +127,7 @@ public class ShutterButton extends RotateImageView {
             }
             mOldPressed = pressed;
         }
-    }
+    }*/
 
     private void callShutterButtonFocus(boolean pressed) {
         if (mListener != null) {
