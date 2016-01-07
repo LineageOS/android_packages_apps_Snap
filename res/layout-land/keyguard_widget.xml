@@ -58,6 +58,6 @@
         android:layout_marginRight="2dip"
         android:contentDescription="@string/accessibility_mode_picker"
         android:scaleType="center"
-        android:src="@drawable/ic_switcher_menu_indicator" />
+        android:src="@android:color/transparent" />
 
 </RelativeLayout>
