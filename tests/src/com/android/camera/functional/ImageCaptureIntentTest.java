@@ -17,7 +17,7 @@
 package com.android.camera.functional;
 
 import com.android.camera.CameraActivity;
-import com.android.camera2.R;
+import org.codeaurora.snapcam.R;
 
 import android.app.Activity;
 import android.content.Intent;
