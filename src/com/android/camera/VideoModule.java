@@ -890,6 +890,13 @@ public class VideoModule implements CameraModule,
             }
             mPreferences.edit().putString(CameraSettings.KEY_VIDEO_QUALITY, videoQuality).apply();
         }
+
+        // videoQuality must be at least 3 chars long (1x1) and contain the letter "x"
+        if (videoQuality.length() < 3 && !videoQuality.contains("x")) {
+            Log.e(TAG, "Invalid video quality " + videoQuality + ". Fallback to 352x288.");
+            videoQuality = "352x288";
+        }
+
         int quality = CameraSettings.VIDEO_QUALITY_TABLE.get(videoQuality);
 
         // Set video quality.
