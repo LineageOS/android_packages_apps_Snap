@@ -61,7 +61,7 @@
         android:shadowDy="1"
         android:shadowRadius="2"
         android:text="@string/crop_save"
-        android:textColor="#33b5e5"
+        android:textColor="@color/white"
         android:textSize="10dip"
         android:textStyle="bold" />
 

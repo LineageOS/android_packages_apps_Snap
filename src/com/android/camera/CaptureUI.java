@@ -715,13 +715,8 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
             mVideoButton.setVisibility(View.VISIBLE);
         }
         mShutterButton.setOnShutterButtonListener(mModule);
-        mShutterButton.setImageResource(R.drawable.one_ui_shutter_anim);
-        mShutterButton.setOnClickListener(new View.OnClickListener()  {
-            @Override
-            public void onClick(View v) {
-                    doShutterAnimation();
-            }
-        });
+        mShutterButton.setImageResource(R.drawable.btn_new_shutter);
+
         mVideoButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -872,7 +867,7 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
         } else {
             mFlashButton.setVisibility(View.VISIBLE);
             mFlashButton.init(false);
-            mVideoButton.setImageResource(R.drawable.video_capture);
+            mVideoButton.setImageResource(R.drawable.btn_new_shutter_video);
             mRecordingTimeRect.setVisibility(View.GONE);
             mMuteButton.setVisibility(View.INVISIBLE);
         }
@@ -1284,12 +1279,6 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
         if (mModule.getCurrentIntentMode() != CaptureModule.INTENT_MODE_NORMAL) {
             mCameraControls.setIntentMode(mModule.getCurrentIntentMode());
         }
-    }
-
-    public void doShutterAnimation() {
-        AnimationDrawable frameAnimation = (AnimationDrawable) mShutterButton.getDrawable();
-        frameAnimation.stop();
-        frameAnimation.start();
     }
 
     public void showUI() {

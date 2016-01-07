@@ -23,9 +23,6 @@
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
             android:textAppearance="@style/OnScreenHintTextAppearance.Small"
-            android:textColor="#ffffffff"
-            android:shadowColor="#BB000000"
+            android:textColor="@color/white"
             android:shadowRadius="2.75" />
 </LinearLayout>
-
-

@@ -55,6 +55,6 @@
         android:layout_marginBottom="3dip"
         android:scaleType="center"
         android:contentDescription="@string/accessibility_mode_picker"
-        android:src="@drawable/ic_switcher_menu_indicator" />
+        android:src="@android:color/transparent" />
 
 </RelativeLayout>

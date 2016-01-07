@@ -230,7 +230,7 @@ public class OneUICameraControls extends RotatableLayout {
 
         mViews = new View[]{
                 mSceneModeSwitcher, mFilterModeSwitcher, mFrontBackSwitcher,
-                mFlashButton, mShutter,
+                mFlashButton,
                 mPreview, mVideoShutter, mPauseButton, mCancelButton
         };
         mBottomLargeSize = getResources().getDimensionPixelSize(
@@ -497,7 +497,7 @@ public class OneUICameraControls extends RotatableLayout {
         View[] views = {
                 mSceneModeSwitcher, mFilterModeSwitcher, mFrontBackSwitcher,
                 mFlashButton, mPreview, mMute,
-                mShutter, mVideoShutter, mMakeupSeekBarLowText, mMakeupSeekBarHighText,
+                mMakeupSeekBarLowText, mMakeupSeekBarHighText,
                 mPauseButton, mExitBestPhotpMode
         };
 
