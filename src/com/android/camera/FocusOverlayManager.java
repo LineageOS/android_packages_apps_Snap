@@ -321,8 +321,8 @@ public class FocusOverlayManager {
 
         // Ignore if the camera has detected some faces.
         if (mUI.hasFaces()) {
-            mUI.clearFocus();
             if (mIsAFRunning) {
+                mUI.clearFocus();
                 mUI.onFocusSucceeded(true);
                 mIsAFRunning = false;
             }
