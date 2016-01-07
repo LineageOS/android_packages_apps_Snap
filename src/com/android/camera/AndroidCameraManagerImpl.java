@@ -46,6 +46,7 @@ import android.hardware.Camera.CameraDataCallback;
 import android.hardware.Camera.CameraMetaDataCallback;
 import com.android.camera.util.ApiHelper;
 import android.os.ConditionVariable;
+import android.os.SystemProperties;
 
 import org.codeaurora.snapcam.R;
 
@@ -104,6 +105,7 @@ class AndroidCameraManagerImpl implements CameraManager {
     private static final int SET_AUTO_HDR_MODE = 801;
     private CameraHandler mCameraHandler;
     private android.hardware.Camera mCamera;
+    private static final String PERSIST_DIRECT_CALLBACK = "persist.camera.direct.cb";
 
     // Used to retain a copy of Parameters for setting parameters.
     private Parameters mParamsToSet;
@@ -733,6 +735,7 @@ class AndroidCameraManagerImpl implements CameraManager {
         private final Handler mHandler;
         private final CameraShutterCallback mCallback;
         private final CameraProxy mCamera;
+        private final boolean mDirectCallback;
 
         /**
          * Returns a new instance of {@link ShutterCallbackForward}.
@@ -754,15 +757,26 @@ class AndroidCameraManagerImpl implements CameraManager {
             mHandler = h;
             mCamera = camera;
             mCallback = cb;
+            mDirectCallback = SystemProperties.getBoolean(
+                    PERSIST_DIRECT_CALLBACK, false);
         }
 
         @Override
         public void onShutter() {
             final android.hardware.Camera currentCamera = mCamera.getCamera();
 
-                if (currentCamera.equals(mCamera.getCamera())) {
-                    mCallback.onShutter(mCamera);
-                }
+            if (mDirectCallback) {
+                mCallback.onShutter(mCamera);
+            } else {
+                mHandler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (currentCamera.equals(mCamera.getCamera())) {
+                            mCallback.onShutter(mCamera);
+                        }
+                    }
+                });
+            }
         }
     }
 
