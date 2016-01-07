@@ -667,12 +667,6 @@ public class PhotoUI implements PieListener,
         mShutterButton.setVisibility(View.VISIBLE);
     }
 
-    public void doShutterAnimation() {
-        AnimationDrawable frameAnimation = (AnimationDrawable) mShutterButton.getDrawable();
-        frameAnimation.stop();
-        frameAnimation.start();
-    }
-
     // called from onResume every other time
     public void initializeSecondTime(Camera.Parameters params) {
         initializeZoom(params);
