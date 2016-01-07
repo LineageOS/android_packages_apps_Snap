@@ -102,7 +102,7 @@ public class ModuleSwitcher extends RotateImageView
 
     private void init(Context context) {
         mItemSize = context.getResources().getDimensionPixelSize(R.dimen.switcher_size);
-        mIndicator = context.getResources().getDrawable(R.drawable.ic_switcher_menu_indicator);
+        mIndicator = context.getResources().getDrawable(R.color.transparent);
         initializeDrawables(context);
     }
 
