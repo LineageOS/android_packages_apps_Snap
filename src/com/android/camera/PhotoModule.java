@@ -3596,7 +3596,8 @@ public class PhotoModule
             String shutterSpeed = mPreferences.getString(CameraSettings.KEY_SHUTTER_SPEED, null);
             if (shutterSpeed != null) {
                 String oldShutterSpeed = mParameters.get(CameraSettings.KEY_SNAPCAM_SHUTTER_SPEED);
-                if(!shutterSpeed.equals(oldShutterSpeed) && shutterSpeed.equals("0") && mCameraState != PREVIEW_STOPPED) {
+                if(!shutterSpeed.equals(oldShutterSpeed) && shutterSpeed.equals("0")
+                        && mCameraState != PREVIEW_STOPPED) {
                     Log.v(TAG, "Shutter speed disabled. Restart Preview.");
                     mRestartPreview = true;
                 }
