@@ -15,4 +15,6 @@ LOCAL_PACKAGE_NAME := SnapTests
 
 LOCAL_INSTRUMENTATION_FOR := Snap
 
+LOCAL_AAPT_FLAGS += --rename-manifest-package org.cyanogenmod.snap
+
 include $(BUILD_PACKAGE)
