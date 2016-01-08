@@ -122,6 +122,7 @@ public class PhotoModule
     private int mReceivedSnapNum = 0;
     private int mLongshotSnapNum = 0;
     public boolean mFaceDetectionEnabled = false;
+    public boolean mDngCaptureEnabled = false;
     private DrawAutoHDR mDrawAutoHDR;
    /*Histogram variables*/
     private GraphView mGraphView;
@@ -1096,6 +1097,7 @@ public class PhotoModule
             implements CameraPictureCallback {
         @Override
         public void onPictureTaken(byte [] data, CameraProxy camera) {
+            Log.d(TAG, "PostViewPictureCallback: onPictureTaken");
             mPostViewPictureCallbackTime = System.currentTimeMillis();
             Log.v(TAG, "mShutterToPostViewCallbackTime = "
                     + (mPostViewPictureCallbackTime - mShutterCallbackTime)
@@ -1107,6 +1109,7 @@ public class PhotoModule
             implements CameraPictureCallback {
         @Override
         public void onPictureTaken(byte [] rawData, CameraProxy camera) {
+            Log.d(TAG, "RawPictureCallback: onPictureTaken");
             mRawPictureCallbackTime = System.currentTimeMillis();
             Log.v(TAG, "mShutterToRawCallbackTime = "
                     + (mRawPictureCallbackTime - mShutterCallbackTime) + "ms");
@@ -1122,6 +1125,7 @@ public class PhotoModule
 
         @Override
         public void onPictureTaken(final byte [] jpegData, CameraProxy camera) {
+            Log.d(TAG, "LongshotPictureCallback: onPictureTaken");
             if (mPaused) {
                 return;
             }
@@ -1181,6 +1185,7 @@ public class PhotoModule
 
         @Override
         public void onPictureTaken(final byte [] jpegData, CameraProxy camera) {
+            Log.d(TAG, "JpegPictureCallback: onPictureTaken");
             if (mCameraState != LONGSHOT) {
                 mUI.enableShutter(true);
             }
@@ -1513,6 +1518,7 @@ public class PhotoModule
 
     @Override
     public boolean capture() {
+        Log.d(TAG, "capture: start");
         // If we are already in the middle of taking a snapshot or the image save request
         // is full then ignore.
         if (mCameraDevice == null || mCameraState == SNAPSHOT_IN_PROGRESS
@@ -1605,6 +1611,7 @@ public class PhotoModule
         }
 
         if (mCameraState == LONGSHOT) {
+            Log.d(TAG, "capture: LONGSHOT");
             if(mLongshotSave) {
                 mCameraDevice.takePicture(mHandler,
                         new LongshotShutterCallback(),
@@ -1623,6 +1630,7 @@ public class PhotoModule
                     mRawPictureCallback, mPostViewPictureCallback,
                     new JpegPictureCallback(loc));
             setCameraState(SNAPSHOT_IN_PROGRESS);
+            Log.d(TAG, "capture: SNAPSHOT_IN_PROGRESS");
 
             // LGE G4: Preview needs to be restarted when flash got used while luminance is low
             if (CameraUtil.isLowLuminance(mParameters)) {
@@ -1638,6 +1646,8 @@ public class PhotoModule
         UsageStatistics.onEvent(UsageStatistics.COMPONENT_CAMERA,
                 UsageStatistics.ACTION_CAPTURE_DONE, "Photo", 0,
                 UsageStatistics.hashFileName(mNamedImages.mQueue.lastElement().title + ".jpg"));
+        
+        Log.d(TAG, "capture: exit");
         return true;
     }
 
@@ -2847,7 +2857,7 @@ public class PhotoModule
     }
 
     /** This can run on a background thread, so don't do UI updates here.*/
-    private void qcomUpdateCameraParametersPreference() {
+    private void qcomUpdateCameraParametersPreference() {      
         //qcom Related Parameter update
         String longshot_enable = mPreferences.getString(
                 CameraSettings.KEY_LONGSHOT,
@@ -2960,7 +2970,19 @@ public class PhotoModule
         if (CameraUtil.isSupported(shutterSpeed,
             CameraSettings.getSupportedShutterSpeedValues(mParameters))) {
             mParameters.set(CameraSettings.KEY_SNAPCAM_SHUTTER_SPEED, shutterSpeed);
-            ;
+        }
+        // Set dng capture parameter
+        String dngCapture = mPreferences.getString(
+                CameraSettings.KEY_DNG_CAPTURE,
+                mActivity.getString(R.string.pref_camera_dng_capture_default));
+        if (CameraUtil.isSupported(mParameters, CameraSettings.KEY_SNAPCAM_DNG_CAPTURE)) {
+            mParameters.set(CameraSettings.KEY_SNAPCAM_DNG_CAPTURE, dngCapture);
+            // ZSL has to be disabled when doing DNGs
+            if (dngCapture.equals("1")) {
+                mDngCaptureEnabled = true;
+            } else {
+                mDngCaptureEnabled = false;
+            }
         }
         // Set color effect parameter.
         String colorEffect = mPreferences.getString(
@@ -3216,7 +3238,14 @@ public class PhotoModule
                 });
             }
         }
+
+        // While doing DNGs, ZSL has to be disabled
+        if (mDngCaptureEnabled == true) {
+            zsl = "off";
+        }
+
         mParameters.setZSLMode(zsl);
+
         if(zsl.equals("on")) {
             //Switch on ZSL Camera mode
             mSnapshotMode = CameraInfo.CAMERA_SUPPORT_MODE_ZSL;
