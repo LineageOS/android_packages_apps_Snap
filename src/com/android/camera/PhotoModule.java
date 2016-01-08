@@ -2960,7 +2960,13 @@ public class PhotoModule
         if (CameraUtil.isSupported(shutterSpeed,
             CameraSettings.getSupportedShutterSpeedValues(mParameters))) {
             mParameters.set(CameraSettings.KEY_SNAPCAM_SHUTTER_SPEED, shutterSpeed);
-            ;
+        }
+        // Set dng capture parameter
+        String dngCapture = mPreferences.getString(
+                CameraSettings.KEY_DNG_CAPTURE,
+                mActivity.getString(R.string.pref_camera_dng_capture_default));
+        if (CameraUtil.isSupported(mParameters, CameraSettings.KEY_SNAPCAM_DNG_CAPTURE)) {
+            mParameters.set(CameraSettings.KEY_SNAPCAM_DNG_CAPTURE, dngCapture);
         }
         // Set color effect parameter.
         String colorEffect = mPreferences.getString(

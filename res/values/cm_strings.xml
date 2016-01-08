@@ -163,6 +163,10 @@
     <string name="pref_camera_focustime_entry_30">30s</string>
     <string name="pref_camera_focustime_entry_infinite">Infinite</string>
 
+    <!-- DNG capture -->
+    <string name="pref_camera_dng_capture_title">DNG Capture</string>
+    <string name="pref_camera_dng_capture_default" translatable="false">0</string>
+
     <!-- Shutter speed -->
     <string name="pref_camera_shutter_speed_title">Shutter speed</string>
     <string name="pref_camera_shutter_speed_default" translatable="false">0</string>
