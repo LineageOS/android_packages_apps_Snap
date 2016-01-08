@@ -4003,7 +4003,7 @@ public class PhotoModule
             Log.v(TAG, "new picture_size = " + size.width + " x " + size.height);
             if (old_size != null && size != null) {
                 if(!size.equals(old_size) && mCameraState != PREVIEW_STOPPED) {
-                    Log.v(TAG, "Picture Size changed. Restart Preview");
+                    Log.v(TAG, "Picture Size changed. Restart Preview.");
                     mRestartPreview = true;
                 }
             }
@@ -4169,6 +4169,19 @@ public class PhotoModule
         }
 
         mParameters.setJpegQuality(jpegQuality);
+
+        // When shutter speed gets disabled preview needs to be restarted
+        if (CameraUtil.isSupported(mParameters, CameraSettings.KEY_SNAPCAM_SHUTTER_SPEED)) {
+            String shutterSpeed = mPreferences.getString(CameraSettings.KEY_SHUTTER_SPEED, null);
+            if (shutterSpeed != null) {
+                String oldShutterSpeed = mParameters.get(CameraSettings.KEY_SNAPCAM_SHUTTER_SPEED);
+                if(!shutterSpeed.equals(oldShutterSpeed) && shutterSpeed.equals("0")
+                        && mCameraState != PREVIEW_STOPPED) {
+                    Log.v(TAG, "Shutter speed disabled. Restart Preview.");
+                    mRestartPreview = true;
+                }
+            }
+        }
 
         // For the following settings, we need to check if the settings are
         // still supported by latest driver, if not, ignore the settings.
