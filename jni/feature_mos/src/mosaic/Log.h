@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-#ifndef LOG_H_
+#ifndef LOG_H
 #define LOG_H
 
 #include <android/log.h>
