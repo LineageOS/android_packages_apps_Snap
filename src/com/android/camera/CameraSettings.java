@@ -1305,13 +1305,11 @@ public class CameraSettings {
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR2)
     private static void getFineResolutionQuality(ArrayList<String> supported,
                                                  int cameraId,Parameters parameters) {
-
         if (CamcorderProfile.hasProfile(cameraId, CamcorderProfile.QUALITY_4KDCI)) {
            if (checkSupportedVideoQuality(parameters,4096,2160)) {
               supported.add(Integer.toString(CamcorderProfile.QUALITY_4KDCI));
            }
         }
-
         if (CamcorderProfile.hasProfile(cameraId, CamcorderProfile.QUALITY_2160P)) {
            if (checkSupportedVideoQuality(parameters,3840,2160)) {
               supported.add(Integer.toString(CamcorderProfile.QUALITY_2160P));

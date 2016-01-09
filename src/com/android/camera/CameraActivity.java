@@ -119,8 +119,6 @@ import java.io.IOException;
 import static com.android.camera.CameraManager.CameraOpenErrorCallback;
 import com.android.camera.SDCard;
 
-import android.media.AudioManager;
-
 public class CameraActivity extends Activity
         implements ModuleSwitcher.ModuleSwitchListener,
         ActionBar.OnMenuVisibilityListener,
@@ -247,9 +245,6 @@ public class CameraActivity extends Activity
     // Keep track of data request here to avoid creating useless UpdateThumbnailTask.
     private boolean mDataRequested;
 
-    private AudioManager mAudioManager;
-    private int mShutterVol;
-    private int mOriginalMasterVol;
     private WakeLock mWakeLock;
     private Context mContext;
 
@@ -1413,14 +1408,6 @@ public class CameraActivity extends Activity
         mContext = getApplicationContext();
         SDCard.initialize(mContext);
 
-/*
-        mAudioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
-        mOriginalMasterVol = mAudioManager.getMasterVolume();
-        mShutterVol =  SystemProperties.getInt("persist.camera.snapshot.volume", -1);
-        if (mShutterVol >= 0 && mShutterVol <= 100 )
-            mAudioManager.setMasterVolume(mShutterVol,0);
-*/
-
         getWindow().requestFeature(Window.FEATURE_ACTION_BAR);
 
         LayoutInflater inflater = getLayoutInflater();
@@ -1607,10 +1594,6 @@ public class CameraActivity extends Activity
 
     @Override
     public void onPause() {
-/*
-        if (mShutterVol >= 0 && mShutterVol <= 100)
-            mAudioManager.setMasterVolume(mOriginalMasterVol,0);
-*/
         // Delete photos that are pending deletion
         performDeletion();
         mOrientationListener.disable();
@@ -1635,10 +1618,6 @@ public class CameraActivity extends Activity
 
     @Override
     public void onResume() {
-/*
-        if (mShutterVol >= 0 && mShutterVol <= 100)
-            mAudioManager.setMasterVolume(mShutterVol,0);
-*/
         UsageStatistics.onEvent(UsageStatistics.COMPONENT_CAMERA,
                 UsageStatistics.ACTION_FOREGROUNDED, this.getClass().getSimpleName());
 
@@ -1700,10 +1679,6 @@ public class CameraActivity extends Activity
             mWakeLock.release();
             Log.d(TAG, "wake lock release");
         }
-/*
-        if (mShutterVol >= 0 && mShutterVol <= 100)
-            mAudioManager.setMasterVolume(mOriginalMasterVol,0);
-*/
         if (mSecureCamera) {
             unregisterReceiver(mScreenOffReceiver);
         }
