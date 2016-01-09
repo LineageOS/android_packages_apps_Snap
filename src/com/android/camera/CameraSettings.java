@@ -191,6 +191,9 @@ public class CameraSettings {
     public static final String LUMINANCE_CONDITION_LOW = "low";
     public static final String LUMINANCE_CONDITION_HIGH = "high";
 
+    public static final String LGE_HDR_MODE_OFF = "0";
+    public static final String LGE_HDR_MODE_ON = "1";
+
     public static final String KEY_INTERNAL_PREVIEW_RESTART = "internal-restart";
     public static final String KEY_QC_ZSL_HDR_SUPPORTED = "zsl-hdr-supported";
     public static final String KEY_QC_LONGSHOT_SUPPORTED = "longshot-supported";
