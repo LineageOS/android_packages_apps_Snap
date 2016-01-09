@@ -135,6 +135,7 @@ public class PhotoModule
     private int mBurstSnapNum = 1;
     private int mReceivedSnapNum = 0;
     public boolean mFaceDetectionEnabled = false;
+    private boolean mLgeHdrMode = false;
     private DrawAutoHDR mDrawAutoHDR;
    /*Histogram variables*/
     private GraphView mGraphView;
@@ -257,7 +258,7 @@ public class PhotoModule
     private byte[] mLastJpegData;
     private int mLastJpegOrientation = 0;
 
-    private static Context mApplicationContext;
+    private static Context mApplicationContext = null;
 
     private Runnable mDoSnapRunnable = new Runnable() {
         @Override
@@ -604,6 +605,11 @@ public class PhotoModule
         mBlurDegreeProgressBar.setMax(100);
         Storage.setSaveSDCard(
             mPreferences.getString(CameraSettings.KEY_CAMERA_SAVEPATH, "0").equals("1"));
+
+        // LGE HDR mode
+        if (mApplicationContext != null) {
+            mLgeHdrMode = mApplicationContext.getResources().getBoolean(R.bool.lge_hdr_mode);
+        }
     }
 
     private void initializeControlByIntent() {
@@ -1203,6 +1209,7 @@ public class PhotoModule
             implements CameraPictureCallback {
         @Override
         public void onPictureTaken(byte [] data, CameraProxy camera) {
+            Log.d(TAG, "PostViewPictureCallback: onPictureTaken()");
             mPostViewPictureCallbackTime = System.currentTimeMillis();
             Log.v(TAG, "mShutterToPostViewCallbackTime = "
                     + (mPostViewPictureCallbackTime - mShutterCallbackTime)
@@ -1214,6 +1221,7 @@ public class PhotoModule
             implements CameraPictureCallback {
         @Override
         public void onPictureTaken(byte [] rawData, CameraProxy camera) {
+            Log.d(TAG, "RawPictureCallback: onPictureTaken()");
             mRawPictureCallbackTime = System.currentTimeMillis();
             Log.v(TAG, "mShutterToRawCallbackTime = "
                     + (mRawPictureCallbackTime - mShutterCallbackTime) + "ms");
@@ -1229,6 +1237,7 @@ public class PhotoModule
 
         @Override
         public void onPictureTaken(final byte [] jpegData, CameraProxy camera) {
+            Log.d(TAG, "LongshotPictureCallback: onPictureTaken()");
             if (mPaused) {
                 return;
             }
@@ -1357,7 +1366,7 @@ public class PhotoModule
                     mBurstSnapNum = 1;
                 }
             }
-            Log.v(TAG, "JpegPictureCallback: Received = " + mReceivedSnapNum +
+            Log.v(TAG, "JpegPictureCallback: Received = " + mReceivedSnapNum + " " +
                       "Burst count = " + mBurstSnapNum);
             // If postview callback has arrived, the captured image is displayed
             // in postview callback. If not, the captured image is displayed in
@@ -1384,17 +1393,24 @@ public class PhotoModule
                     && (mSnapshotMode != CameraInfoWrapper.CAMERA_SUPPORT_MODE_ZSL)
                     && (mReceivedSnapNum == mBurstSnapNum);
 
+            needRestartPreview |= mLgeHdrMode && (mCameraState != LONGSHOT);
+
             CameraInfo info = CameraHolder.instance().getCameraInfo()[mCameraId];
 
             final boolean isAuxCamera = info.facing > CameraInfo.CAMERA_FACING_FRONT;
             final boolean isBackCamera = info.facing == CameraInfo.CAMERA_FACING_BACK;
             final boolean isFrontCamera = info.facing == CameraInfo.CAMERA_FACING_FRONT;
-            final boolean auxCameraRestartPreviewOnPictureTaken = mApplicationContext
-                    .getResources().getBoolean(R.bool.additional_camera_restart_preview_onPictureTaken);
-            final boolean backCameraRestartPreviewOnPictureTaken = mApplicationContext
-                    .getResources().getBoolean(R.bool.back_camera_restart_preview_onPictureTaken);
-            final boolean frontCameraRestartPreviewOnPictureTaken = mApplicationContext
-                    .getResources().getBoolean(R.bool.front_camera_restart_preview_onPictureTaken);
+            boolean auxCameraRestartPreviewOnPictureTaken = false;
+            boolean backCameraRestartPreviewOnPictureTaken = false;
+            boolean frontCameraRestartPreviewOnPictureTaken = false;
+            if (mApplicationContext != null) {
+                auxCameraRestartPreviewOnPictureTaken = mApplicationContext.getResources()
+                        .getBoolean(R.bool.additional_camera_restart_preview_onPictureTaken);
+                backCameraRestartPreviewOnPictureTaken = mApplicationContext.getResources()
+                        .getBoolean(R.bool.back_camera_restart_preview_onPictureTaken);
+                frontCameraRestartPreviewOnPictureTaken = mApplicationContext.getResources()
+                        .getBoolean(R.bool.front_camera_restart_preview_onPictureTaken);
+            }
 
             if ((isAuxCamera && auxCameraRestartPreviewOnPictureTaken ||
                     isBackCamera && backCameraRestartPreviewOnPictureTaken ||
@@ -1404,6 +1420,7 @@ public class PhotoModule
             }
 
             if (needRestartPreview) {
+                Log.d(TAG, "JpegPictureCallback: needRestartPreview");
                 setupPreview();
                 focusMode = mFocusManager.getFocusMode();
                 if (CameraUtil.FOCUS_MODE_CONTINUOUS_PICTURE.equals(focusMode) ||
@@ -1763,7 +1780,7 @@ public class PhotoModule
 
         // LGE G4: Disable HDR if luminance is low and flash gets used
         if (CameraUtil.isLowLuminance(mParameters)) {
-            mParameters.set(CameraSettings.KEY_SNAPCAM_HDR_MODE, "0");
+            mParameters.set(CameraSettings.KEY_SNAPCAM_HDR_MODE, CameraSettings.LGE_HDR_MODE_OFF);
             mCameraDevice.setParameters(mParameters);
             mParameters = mCameraDevice.getParameters();
         }
@@ -3432,9 +3449,9 @@ public class PhotoModule
         String hdrMode = mPreferences.getString(
                 CameraSettings.KEY_HDR_MODE,
                 mActivity.getString(R.string.pref_camera_hdr_mode_default));
-        Log.v(TAG, "HDR Mode value =" + hdrMode);
         if (CameraUtil.isSupported(hdrMode,
                 CameraSettings.getSupportedHDRModes(mParameters))) {
+            Log.v(TAG, "HDR Mode value =" + hdrMode);
             mParameters.set(CameraSettings.KEY_SNAPCAM_HDR_MODE, hdrMode);
         }
 
@@ -3442,9 +3459,9 @@ public class PhotoModule
         String hdrNeed1x = mPreferences.getString(
                 CameraSettings.KEY_HDR_NEED_1X,
                 mActivity.getString(R.string.pref_camera_hdr_need_1x_default));
-        Log.v(TAG, "HDR need 1x value =" + hdrNeed1x);
         if (CameraUtil.isSupported(hdrNeed1x,
                 CameraSettings.getSupportedHDRNeed1x(mParameters))) {
+            Log.v(TAG, "HDR need 1x value =" + hdrNeed1x);
             mParameters.set(CameraSettings.KEY_SNAPCAM_HDR_NEED_1X, hdrNeed1x);
         }
 
@@ -4114,8 +4131,8 @@ public class PhotoModule
                 mActivity.getString(R.string.pref_camera_hdr_plus_default));
         boolean hdrOn = onValue.equals(hdr);
         boolean hdrPlusOn = onValue.equals(hdrPlus);
-
         boolean doGcamModeSwitch = false;
+
         if (hdrPlusOn && GcamHelper.hasGcamCapture()) {
             // Kick off mode switch to gcam.
             doGcamModeSwitch = true;
@@ -4128,7 +4145,20 @@ public class PhotoModule
                     mCameraDevice.setParameters(mParameters);
                     mParameters = mCameraDevice.getParameters();
                 }
+                if (mLgeHdrMode) {
+                    mParameters.set(CameraSettings.KEY_SNAPCAM_HDR_MODE,
+                            CameraSettings.LGE_HDR_MODE_ON);
+                    try {
+                        // Force enable ZSL mode for LG HDR
+                        mUI.setPreference(CameraSettings.KEY_ZSL, Parameters.ZSL_ON);
+                    } catch (NullPointerException e) {
+                    }
+                }
             } else {
+                if (mLgeHdrMode) {
+                    mParameters.set(CameraSettings.KEY_SNAPCAM_HDR_MODE,
+                            CameraSettings.LGE_HDR_MODE_OFF);
+                }
                 mSceneMode = mPreferences.getString(
                         CameraSettings.KEY_SCENE_MODE,
                         mActivity.getString(R.string.pref_camera_scenemode_default));
