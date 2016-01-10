@@ -3487,49 +3487,19 @@ public class PhotoModule
         Size optimalSize = CameraUtil.getOptimalPreviewSize(mActivity, sizes,
                 (double) size.width / size.height);
 
-        //Read Preview Resolution from adb command
-        //value: 0(default) - Default value as per snapshot aspect ratio
-        //value: 1 - 640x480
-        //value: 2 - 720x480
-        //value: 3 - 1280x720
-        //value: 4 - 1920x1080
-        //value: 5 - 2560x1440
-        int preview_resolution = SystemProperties.getInt("persist.camera.preview.size", 0);
-        switch (preview_resolution) {
-            case 1: {
-                optimalSize.width = 640;
-                optimalSize.height = 480;
-                Log.v(TAG, "Preview resolution hardcoded to 640x480");
-                break;
-            }
-            case 2: {
-                optimalSize.width = 720;
-                optimalSize.height = 480;
-                Log.v(TAG, "Preview resolution hardcoded to 720x480");
-                break;
-            }
-            case 3: {
-                optimalSize.width = 1280;
-                optimalSize.height = 720;
-                Log.v(TAG, "Preview resolution hardcoded to 1280x720");
-                break;
-            }
-            case 4: {
-                optimalSize.width = 1920;
-                optimalSize.height = 1080;
-                Log.v(TAG, "Preview resolution hardcoded to 1920x1080");
-                break;
-            }
-            case 5: {
-                optimalSize.width = 2560;
-                optimalSize.height = 1440;
-                Log.v(TAG, "Preview resolution hardcoded to 2560x1440");
-                break;
-            }
-            default: {
-                Log.v(TAG, "Preview resolution as per Snapshot aspect ratio");
-                break;
-            }
+        // Get default preview resolution from overlay
+        String previewSizeForPhoto =
+                mApplicationContext.getResources().getString(R.string.preview_size_for_photo);
+        try {
+            android.util.Size previewSize = android.util.Size.parseSize(previewSizeForPhoto);
+
+            optimalSize.width = previewSize.getWidth();
+            optimalSize.height = previewSize.getHeight();
+            Log.v(TAG, "Preview resolution hardcoded to " + optimalSize.width + "x" + optimalSize.height);
+        } catch (NumberFormatException e) {
+            Log.e(TAG, "Invalid preview resolution: " + previewSizeForPhoto);
+        } catch (NullPointerException e) {
+            Log.v(TAG, "No default preview resolution given");
         }
 
         Size original = mParameters.getPreviewSize();
