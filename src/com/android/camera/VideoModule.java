@@ -872,9 +872,8 @@ public class VideoModule implements CameraModule,
     private void readVideoPreferences() {
         // The preference stores values from ListPreference and is thus string type for all values.
         // We need to convert it to int manually.
-        String videoQuality = mPreferences.getString(CameraSettings.KEY_VIDEO_QUALITY,
-                        null);
-        if (videoQuality == null) {
+        String videoQuality = mPreferences.getString(CameraSettings.KEY_VIDEO_QUALITY, null);
+        if (videoQuality == null || (videoQuality.length() < 3 && !videoQuality.contains("x"))) {
             mParameters = mCameraDevice.getParameters();
             String defaultQuality = mActivity.getResources().getString(
                     R.string.pref_video_quality_default);
@@ -889,12 +888,6 @@ public class VideoModule implements CameraModule,
                         mCameraId, mParameters);
             }
             mPreferences.edit().putString(CameraSettings.KEY_VIDEO_QUALITY, videoQuality).apply();
-        }
-
-        // videoQuality must be at least 3 chars long (1x1) and contain the letter "x"
-        if (videoQuality.length() < 3 && !videoQuality.contains("x")) {
-            Log.e(TAG, "Invalid video quality " + videoQuality + ". Fallback to 352x288.");
-            videoQuality = "352x288";
         }
 
         int quality = CameraSettings.VIDEO_QUALITY_TABLE.get(videoQuality);
