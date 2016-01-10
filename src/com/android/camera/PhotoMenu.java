@@ -67,6 +67,7 @@ public class PhotoMenu extends MenuController
 
     private final String mSettingOff;
     private final String mSettingOn;
+    private String mEasterText;
 
     private String[] mOtherKeys1;
     private String[] mOtherKeys2;
@@ -97,6 +98,7 @@ public class PhotoMenu extends MenuController
     private boolean mIsTNREnabled = false;
     private boolean mIsCDSUpdated = false;
     private int privateCounter = 0;
+    private int easterCounter = 0;
     private static final int ANIMATION_DURATION = 300;
     private static final int CLICK_THRESHOLD = 200;
     private int previewMenuSize;
@@ -1068,9 +1070,42 @@ public class PhotoMenu extends MenuController
                             .getDefaultSharedPreferences(mActivity);
                     prefs.edit().putBoolean(CameraSettings.KEY_DEVELOPER_MENU, true).apply();
                     RotateTextToast.makeText(mActivity,
-                            "Camera developer option is enabled now", Toast.LENGTH_SHORT).show();
+                            mActivity.getString(R.string.developermmode_on), Toast.LENGTH_LONG).show();
                 }
             } else {
+                if (pref.getKey().equals(CameraSettings.KEY_MAX_BRIGHTNESS)) {
+                    easterCounter++;
+                    switch (easterCounter) {
+                        case 3:
+                            mEasterText = mActivity.getString(R.string.easter_0);
+                            break;
+                        case 4:
+                            mEasterText = mActivity.getString(R.string.easter_1);
+                            break;
+                        case 5:
+                            mEasterText = mActivity.getString(R.string.easter_3);
+                            break;
+                        case 6:
+                            mEasterText = mActivity.getString(R.string.easter_4);
+                            break;
+                        case 7:
+                            mEasterText = mActivity.getString(R.string.easter_5);
+                            break;
+                        case 8:
+                            mEasterText = mActivity.getString(R.string.easter_6);
+                            break;
+                    }
+                    // Show the message
+                    if (easterCounter > 2) {
+                        easterToast(mEasterText);
+                        // We reached the end, reset the counter
+                        if (easterCounter == 8) {
+                            easterCounter = 0;
+                        }
+                    }
+                } else {
+                    easterCounter = 0;
+                }
                 privateCounter = 0;
             }
         }
@@ -1090,6 +1125,10 @@ public class PhotoMenu extends MenuController
             mUI.showPopup(mListSubMenu, 2, true);
         }
         mPopupStatus = POPUP_SECOND_LEVEL;
+    }
+
+    public void easterToast(String mText) {
+        RotateTextToast.makeText(mActivity, mText, Toast.LENGTH_LONG).show();
     }
 
     public void onListMenuTouched() {
