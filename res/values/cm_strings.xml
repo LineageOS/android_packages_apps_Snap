@@ -75,6 +75,17 @@
     <!-- Settings screen, dialog choice for WQVGA picture size [CHAR LIMIT=15] -->
     <string name="pref_camera_picturesize_entry_wqvga">WQVGA</string>
 
+    <!-- Easter Egg -->
+    <string name="easter_0">Tip: you have to press on the ON/OFF text near the entry to toggle the preference</string>
+    <string name="easter_1">This is a camera app, there are no Easter Eggs here</string>
+    <string name="easter_2">Really, no Easter Eggs</string>
+    <string name="easter_3">If you are looking for an Easter Egg go to Settings app</string>
+    <string name="easter_4">Please. Stop it!</string>
+    <string name="easter_5">Enabled NoLagXBlazeSmooth Shot Mode. The quality of your pictures will improve drastically</string>
+    <string name="easter_6">What? Isn\'t that enough? I gave you your easter egg, go away now please...</string>
+
+    <string name="developermmode_on">Camera advanced mode is enabled now</string>
+
     <!-- Settings screen, scene mode -->
     <string name="pref_camera_scenemode_entry_refocus">Macro+</string>
     <string name="pref_camera_scenemode_entry_antimotionblur">Motion blur reduction</string>
