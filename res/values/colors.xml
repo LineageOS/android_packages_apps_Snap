@@ -14,7 +14,7 @@
      limitations under the License.
 -->
 <resources>
-    <color name="default_background">@color/black</color>
+    <color name="default_background">@color/background_ui</color>
 
     <!-- configuration for album set page -->
     <color name="albumset_background">@color/black</color>

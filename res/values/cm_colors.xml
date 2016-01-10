@@ -19,6 +19,8 @@
     <color name="grey">#e0e0e0</color>
     <color name="transparent">@android:color/transparent</color>
 
+    <color name="background_ui">#73212121</color>
+
     <color name="red">#F44336</color>
     <color name="green">#4CAF50</color>
     <color name="blue">#3F51B5</color>
