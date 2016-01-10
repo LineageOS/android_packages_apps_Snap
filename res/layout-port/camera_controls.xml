@@ -76,7 +76,6 @@
 
     <com.android.camera.ui.RotateImageView
         android:id="@+id/scene_mode_switcher"
-        android:src="@drawable/ic_sce"
         style="@style/ToggleButton" />
 
     <com.android.camera.ui.RotateImageView

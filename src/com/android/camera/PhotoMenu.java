@@ -897,7 +897,10 @@ public class PhotoMenu extends MenuController
         int ind = pref.getCurrentIndex();
         if (ind == -1)
             ind = 0;
-        ((ImageView) mSceneModeSwitcher).setImageResource(thumbnails[ind]);
+        // VectorDrawables can't be rotated 90/270 degrees on android M
+        // Hack: always return ic_sce so we don't have to create png-drawables for each scene (aka lazyness)
+        // TODO: switch back to  id  once that bug is fixed
+        ((ImageView) mSceneModeSwitcher).setImageResource(thumbnails[3]);
     }
 
     public void initFilterModeButton(View button) {
