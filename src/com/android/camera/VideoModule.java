@@ -1233,7 +1233,6 @@ public class VideoModule implements CameraModule,
 
     private void onPreviewStarted() {
         mUI.enableShutter(true);
-        mUI.hidePreviewCover();
     }
 
     @Override
