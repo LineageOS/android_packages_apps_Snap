@@ -3494,6 +3494,7 @@ public class PhotoModule
         //value: 2 - 720x480
         //value: 3 - 1280x720
         //value: 4 - 1920x1080
+        //value: 5 - 2560x1440
         int preview_resolution = SystemProperties.getInt("persist.camera.preview.size", 0);
         switch (preview_resolution) {
             case 1: {
@@ -3518,6 +3519,12 @@ public class PhotoModule
                 optimalSize.width = 1920;
                 optimalSize.height = 1080;
                 Log.v(TAG, "Preview resolution hardcoded to 1920x1080");
+                break;
+            }
+            case 5: {
+                optimalSize.width = 2560;
+                optimalSize.height = 1440;
+                Log.v(TAG, "Preview resolution hardcoded to 2560x1440");
                 break;
             }
             default: {
