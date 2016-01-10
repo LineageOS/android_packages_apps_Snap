@@ -383,7 +383,7 @@ public class FocusOverlayManager {
                     mState == STATE_SUCCESS || mState == STATE_FAIL)) {
             cancelAutoFocus();
         }
-        if (mPreviewRect.width() == 0 || mPreviewRect.height() == 0) return;
+        if (mPreviewRect.isEmpty() || !mPreviewRect.contains(x, y)) return;
         // Initialize variables.
         // Initialize mFocusArea.
         if (mFocusAreaSupported) {
