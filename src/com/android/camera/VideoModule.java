@@ -3090,18 +3090,19 @@ public class VideoModule implements CameraModule,
         mPreferences.setLocalId(mActivity, mCameraId);
         CameraSettings.upgradeLocalPreferences(mPreferences.getLocal());
         openCamera();
-        readVideoPreferences();
-        mUI.applySurfaceChange(VideoUI.SURFACE_STATUS.SURFACE_VIEW);
-        startPreview();
-        initializeVideoSnapshot();
-        resizeForPreviewAspectRatio();
-        initializeVideoControl();
 
         CameraHolder.CameraInfo info = CameraHolder.instance().getCameraInfo()[mCameraId];
         boolean mirror = (info.facing == CameraHolder.CameraInfo.CAMERA_FACING_FRONT);
         mParameters = mCameraDevice.getParameters();
         mFocusManager.setMirror(mirror);
         mFocusManager.setParameters(mParameters);
+
+        readVideoPreferences();
+        mUI.applySurfaceChange(VideoUI.SURFACE_STATUS.SURFACE_VIEW);
+        startPreview();
+        initializeVideoSnapshot();
+        resizeForPreviewAspectRatio();
+        initializeVideoControl();
 
         initializeCapabilities();
 
