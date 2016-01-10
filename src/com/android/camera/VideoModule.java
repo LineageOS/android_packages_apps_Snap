@@ -871,9 +871,8 @@ public class VideoModule implements CameraModule,
     private void readVideoPreferences() {
         // The preference stores values from ListPreference and is thus string type for all values.
         // We need to convert it to int manually.
-        String videoQuality = mPreferences.getString(CameraSettings.KEY_VIDEO_QUALITY,
-                        null);
-        if (videoQuality == null) {
+        String videoQuality = mPreferences.getString(CameraSettings.KEY_VIDEO_QUALITY, null);
+        if (videoQuality == null || (videoQuality.length() < 3 && !videoQuality.contains("x"))) {
             mParameters = mCameraDevice.getParameters();
             String defaultQuality = mActivity.getResources().getString(
                     R.string.pref_video_quality_default);
