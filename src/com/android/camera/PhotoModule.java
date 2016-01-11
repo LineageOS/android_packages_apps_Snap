@@ -3487,6 +3487,11 @@ public class PhotoModule
         Size optimalSize = CameraUtil.getOptimalPreviewSize(mActivity, sizes,
                 (double) size.width / size.height);
 
+        // Set mApplicationContext if it is null
+        if (mApplicationContext == null) {
+            mApplicationContext = CameraApp.getContext();
+        }
+
         // Get default preview resolution from overlay
         String previewSizeForPhoto =
                 mApplicationContext.getResources().getString(R.string.preview_size_for_photo);
