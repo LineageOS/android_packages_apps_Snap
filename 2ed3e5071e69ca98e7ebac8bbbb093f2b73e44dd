@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3fce034c_3059e459",
+        "filename": "src/com/android/camera/PhotoModule.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 3494,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2016-01-11T02:35:58Z",
+      "side": 1,
+      "message": "TextUtils.isEmpty(previewSizeForPhoto) \u0026\u0026 previewSizeForPhoto.contains(\"x\")",
+      "revId": "2ed3e5071e69ca98e7ebac8bbbb093f2b73e44dd",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
