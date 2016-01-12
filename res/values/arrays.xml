@@ -165,16 +165,20 @@
         <item>@string/pref_camera_picturesize_entry_13mp</item>
         <item>@string/pref_camera_picturesize_entry_12_8mp</item>
         <item>@string/pref_camera_picturesize_entry_12_7mp</item>
+        <item>@string/pref_camera_picturesize_entry_12_6mp</item>
         <item>@string/pref_camera_picturesize_entry_12mp</item>
         <item>@string/pref_camera_picturesize_entry_11_9mp</item>
         <item>@string/pref_camera_picturesize_entry_11_5mp</item>
         <item>@string/pref_camera_picturesize_entry_10_4mp</item>
         <item>@string/pref_camera_picturesize_entry_10mp</item>
+        <item>@string/pref_camera_picturesize_entry_10mp</item>
         <item>@string/pref_camera_picturesize_entry_9_7mp_wide</item>
+        <item>@string/pref_camera_picturesize_entry_9_4mp_wide</item>
         <item>@string/pref_camera_picturesize_entry_9mp</item>
         <item>@string/pref_camera_picturesize_entry_8_2mp_wide</item>
         <item>@string/pref_camera_picturesize_entry_8mp</item>
         <item>@string/pref_camera_picturesize_entry_7_7mp</item>
+        <item>@string/pref_camera_picturesize_entry_7_5mp_wide</item>
         <item>@string/pref_camera_picturesize_entry_6_4mp</item>
         <item>@string/pref_camera_picturesize_entry_6mp_wide</item>
         <item>@string/pref_camera_picturesize_entry_6mp_wide</item>
@@ -187,6 +191,7 @@
         <item>@string/pref_camera_picturesize_entry_3_7mp_wide</item>
         <item>@string/pref_camera_picturesize_entry_3mp</item>
         <item>@string/pref_camera_picturesize_entry_3mp</item>
+        <item>@string/pref_camera_picturesize_entry_2_5mp_wide</item>
         <item>@string/pref_camera_picturesize_entry_2_5mp</item>
         <item>@string/pref_camera_picturesize_entry_2_1mp_wide</item>
         <item>@string/pref_camera_picturesize_entry_2mp</item>
@@ -217,16 +222,20 @@
         <item>4160x3120</item>
         <item>4128x3096</item>
         <item>4128x3088</item>
+        <item>4096x3072</item>
         <item>4000x3000</item>
         <item>3984x2988</item>
         <item>3920x2940</item>
         <item>4128x2528</item>
         <item>4320x2432</item>
+        <item>3648x2736</item>
         <item>4160x2340</item>
+        <item>4096x2304</item>
         <item>3920x2204</item>
         <item>3840x2160</item>
         <item>3264x2448</item>
         <item>3200x2400</item>
+        <item>3648x2052</item>
         <item>3264x1968</item>
         <item>3264x1840</item>
         <item>3264x1836</item>
@@ -240,6 +249,7 @@
         <item>2048x1536</item>
         <item>2048x1520</item>
         <item>2048x1232</item>
+        <item>2048x1152</item>
         <item>1920x1080</item>
         <item>1600x1200</item>
         <item>1920x1088</item>
