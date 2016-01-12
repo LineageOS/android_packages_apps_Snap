@@ -4240,16 +4240,22 @@ public class PhotoModule
         final String settingOff = mActivity.getString(R.string.setting_off_value);
         final String settingOn = mActivity.getString(R.string.setting_on_value);
         if (!CameraSettings.isZSLHDRSupported(mParameters)) {
+            boolean isHDR = notSame(pref, CameraSettings.KEY_CAMERA_HDR, settingOff);
+            boolean isZSL = notSame(pref,CameraSettings.KEY_ZSL, settingOff);
+            boolean isAEHDRBr = notSame(pref, CameraSettings.KEY_AE_BRACKET_HDR, settingOn);
+
+            if (CameraSettings.KEY_SCENE_MODE.equals(pref.getKey())) {
+                isHDR |= (pref.getValue()).equals(CameraUtil.SCENE_MODE_HDR);
+            }
+
             //HDR internally uses AE-bracketing. Disable both if not supported.
-            if (notSame(pref, CameraSettings.KEY_CAMERA_HDR, settingOff) ||
-                notSame(pref, CameraSettings.KEY_AE_BRACKET_HDR, settingOff)) {
-                mUI.setPreference(CameraSettings.KEY_ZSL,settingOff);
-            } else if (notSame(pref,CameraSettings.KEY_ZSL,settingOff)) {
+            if (isHDR || isAEHDRBr) {
+                mUI.setPreference(CameraSettings.KEY_ZSL, settingOff);
+            } else if (isZSL) {
                 mUI.setPreference(CameraSettings.KEY_CAMERA_HDR, settingOff);
                 mUI.setPreference(CameraSettings.KEY_AE_BRACKET_HDR, settingOff);
-            } else if (notSame(pref, CameraSettings.KEY_CAMERA_HDR, settingOn) ||
-                notSame(pref, CameraSettings.KEY_AE_BRACKET_HDR, settingOn)) {
-                mUI.setPreference(CameraSettings.KEY_ZSL,settingOn);
+            } else if (!isHDR || !isAEHDRBr) {
+                mUI.setPreference(CameraSettings.KEY_ZSL, settingOn);
             }
         }
 
