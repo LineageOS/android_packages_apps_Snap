@@ -157,108 +157,118 @@
 
     <!-- Camera Preferences Picture size dialog box entries -->
     <string-array name="pref_camera_picturesize_entries" translatable="false">
-        <item>@string/pref_camera_picturesize_entry_20_7mp</item>
-        <item>@string/pref_camera_picturesize_entry_20_1mp_wide</item>
-        <item>@string/pref_camera_picturesize_entry_18mp</item>
-        <item>@string/pref_camera_picturesize_entry_16_2mp_wide</item>
-        <item>@string/pref_camera_picturesize_entry_16mp</item>
-        <item>@string/pref_camera_picturesize_entry_15_9mp_wide</item>
-        <item>@string/pref_camera_picturesize_entry_13mp</item>
-        <item>@string/pref_camera_picturesize_entry_13mp</item>
-        <item>@string/pref_camera_picturesize_entry_12_8mp</item>
-        <item>@string/pref_camera_picturesize_entry_12_7mp</item>
-        <item>@string/pref_camera_picturesize_entry_12mp</item>
-        <item>@string/pref_camera_picturesize_entry_11_9mp</item>
-        <item>@string/pref_camera_picturesize_entry_11_5mp</item>
-        <item>@string/pref_camera_picturesize_entry_10_4mp</item>
-        <item>@string/pref_camera_picturesize_entry_10mp</item>
-        <item>@string/pref_camera_picturesize_entry_9_7mp_wide</item>
-        <item>@string/pref_camera_picturesize_entry_9mp</item>
-        <item>@string/pref_camera_picturesize_entry_8_2mp_wide</item>
-        <item>@string/pref_camera_picturesize_entry_8mp</item>
-        <item>@string/pref_camera_picturesize_entry_7_7mp</item>
-        <item>@string/pref_camera_picturesize_entry_6_4mp</item>
-        <item>@string/pref_camera_picturesize_entry_6mp_wide</item>
-        <item>@string/pref_camera_picturesize_entry_6mp_wide</item>
-        <item>@string/pref_camera_picturesize_entry_5mp</item>
-        <item>@string/pref_camera_picturesize_entry_5mp</item>
-        <item>@string/pref_camera_picturesize_entry_5mp</item>
-        <item>@string/pref_camera_picturesize_entry_4_5mp</item>
-        <item>@string/pref_camera_picturesize_entry_4mp_wide</item>
-        <item>@string/pref_camera_picturesize_entry_4mp</item>
-        <item>@string/pref_camera_picturesize_entry_3_7mp_wide</item>
-        <item>@string/pref_camera_picturesize_entry_3mp</item>
-        <item>@string/pref_camera_picturesize_entry_3mp</item>
-        <item>@string/pref_camera_picturesize_entry_2_5mp</item>
-        <item>@string/pref_camera_picturesize_entry_2_1mp_wide</item>
-        <item>@string/pref_camera_picturesize_entry_2mp</item>
-        <item>@string/pref_camera_picturesize_entry_2mp_wide</item>
-        <item>@string/pref_camera_picturesize_entry_1_9mp</item>
-        <item>@string/pref_camera_picturesize_entry_1_5mp</item>
-        <item>@string/pref_camera_picturesize_entry_1_3mp</item>
-        <item>@string/pref_camera_picturesize_entry_1mp</item>
-        <item>@string/pref_camera_picturesize_entry_wxga</item>
-        <item>@string/pref_camera_picturesize_entry_xga</item>
-        <item>@string/pref_camera_picturesize_entry_svga</item>
-        <item>@string/pref_camera_picturesize_entry_wvga</item>
-        <item>@string/pref_camera_picturesize_entry_vga</item>
-        <item>@string/pref_camera_picturesize_entry_nhd_wide</item>
-        <item>@string/pref_camera_picturesize_entry_wqvga</item>
-        <item>@string/pref_camera_picturesize_entry_qvga</item>
+        <item>@string/pref_camera_picturesize_entry_20_7mp</item> <!-- 530 -->
+        <item>@string/pref_camera_picturesize_entry_20_1mp_wide</item> <!-- 520 -->
+        <item>@string/pref_camera_picturesize_entry_18mp</item> <!-- 510 -->
+        <item>@string/pref_camera_picturesize_entry_16_2mp_wide</item> <!-- 500 -->
+        <item>@string/pref_camera_picturesize_entry_16mp</item> <!-- 490 -->
+        <item>@string/pref_camera_picturesize_entry_15_9mp_wide</item> <!-- 480 -->
+        <item>@string/pref_camera_picturesize_entry_13mp</item> <!-- 470 -->
+        <item>@string/pref_camera_picturesize_entry_13mp</item> <!-- 460 -->
+        <item>@string/pref_camera_picturesize_entry_12_8mp</item> <!-- 450 -->
+        <item>@string/pref_camera_picturesize_entry_12_7mp</item> <!-- 440 -->
+        <item>@string/pref_camera_picturesize_entry_12_6mp</item> <!-- 430 -->
+        <item>@string/pref_camera_picturesize_entry_12mp</item> <!-- 420 -->
+        <item>@string/pref_camera_picturesize_entry_11_9mp</item> <!-- 410 -->
+        <item>@string/pref_camera_picturesize_entry_11_5mp</item> <!-- 400 -->
+        <item>@string/pref_camera_picturesize_entry_10_4mp</item> <!-- 390 -->
+        <item>@string/pref_camera_picturesize_entry_10mp</item> <!-- 380 -->
+        <item>@string/pref_camera_picturesize_entry_10mp</item> <!-- 370 -->
+        <item>@string/pref_camera_picturesize_entry_9_7mp_wide</item> <!-- 360 -->
+        <item>@string/pref_camera_picturesize_entry_9_4mp_wide</item> <!-- 350 -->
+        <item>@string/pref_camera_picturesize_entry_9mp</item> <!-- 340 -->
+        <item>@string/pref_camera_picturesize_entry_8_2mp_wide</item> <!-- 330 -->
+        <item>@string/pref_camera_picturesize_entry_8mp</item> <!-- 320 -->
+        <item>@string/pref_camera_picturesize_entry_7_7mp</item> <!-- 310 -->
+        <item>@string/pref_camera_picturesize_entry_7_5mp_wide</item> <!-- 300 -->
+        <item>@string/pref_camera_picturesize_entry_6_4mp</item> <!-- 290 -->
+        <item>@string/pref_camera_picturesize_entry_6mp_wide</item> <!-- 280 -->
+        <item>@string/pref_camera_picturesize_entry_6mp_wide</item> <!-- 270 -->
+        <item>@string/pref_camera_picturesize_entry_5mp</item> <!-- 260 -->
+        <item>@string/pref_camera_picturesize_entry_5mp</item> <!-- 250 -->
+        <item>@string/pref_camera_picturesize_entry_5mp</item> <!-- 240 -->
+        <item>@string/pref_camera_picturesize_entry_4_5mp</item> <!-- 230 -->
+        <item>@string/pref_camera_picturesize_entry_4mp_wide</item> <!-- 220 -->
+        <item>@string/pref_camera_picturesize_entry_4mp</item> <!-- 210 -->
+        <item>@string/pref_camera_picturesize_entry_3_7mp_wide</item> <!-- 200 -->
+        <item>@string/pref_camera_picturesize_entry_3mp</item> <!-- 190 -->
+        <item>@string/pref_camera_picturesize_entry_3mp</item> <!-- 180 -->
+        <item>@string/pref_camera_picturesize_entry_2_5mp</item> <!-- 170 -->
+        <item>@string/pref_camera_picturesize_entry_2_5mp_wide</item> <!-- 160 -->
+        <item>@string/pref_camera_picturesize_entry_2_1mp_wide</item> <!-- 150 -->
+        <item>@string/pref_camera_picturesize_entry_2mp</item> <!-- 140 -->
+        <item>@string/pref_camera_picturesize_entry_2mp_wide</item> <!-- 130 -->
+        <item>@string/pref_camera_picturesize_entry_1_9mp</item> <!-- 120 -->
+        <item>@string/pref_camera_picturesize_entry_1_5mp</item> <!-- 110 -->
+        <item>@string/pref_camera_picturesize_entry_1_3mp</item> <!-- 100 -->
+        <item>@string/pref_camera_picturesize_entry_1mp</item> <!-- 90 -->
+        <item>@string/pref_camera_picturesize_entry_wxga</item> <!-- 80 -->
+        <item>@string/pref_camera_picturesize_entry_xga</item> <!-- 70 -->
+        <item>@string/pref_camera_picturesize_entry_svga</item> <!-- 60 -->
+        <item>@string/pref_camera_picturesize_entry_wvga</item> <!-- 50 -->
+        <item>@string/pref_camera_picturesize_entry_vga</item> <!-- 40 -->
+        <item>@string/pref_camera_picturesize_entry_nhd_wide</item> <!-- 30 -->
+        <item>@string/pref_camera_picturesize_entry_wqvga</item> <!-- 20 -->
+        <item>@string/pref_camera_picturesize_entry_qvga</item> <!-- 10 -->
     </string-array>
 
     <!-- When launching the camera app first time, we will set the picture
          size to the first one in the list that is also supported by the
          driver -->
     <string-array name="pref_camera_picturesize_entryvalues" translatable="false">
-        <item>5248x3936</item>
-        <item>5376x3752</item>
-        <item>4992x3744</item>
-        <item>5376x3024</item>
-        <item>4608x3456</item>
-        <item>5312x2988</item>
-        <item>4208x3120</item>
-        <item>4160x3120</item>
-        <item>4128x3096</item>
-        <item>4128x3088</item>
-        <item>4000x3000</item>
-        <item>3984x2988</item>
-        <item>3920x2940</item>
-        <item>4128x2528</item>
-        <item>4320x2432</item>
-        <item>4160x2340</item>
-        <item>3920x2204</item>
-        <item>3840x2160</item>
-        <item>3264x2448</item>
-        <item>3200x2400</item>
-        <item>3264x1968</item>
-        <item>3264x1840</item>
-        <item>3264x1836</item>
-        <item>2592x1944</item>
-        <item>2592x1936</item>
-        <item>2560x1920</item>
-        <item>2592x1728</item>
-        <item>2688x1520</item>
-        <item>2560x1536</item>
-        <item>2560x1440</item>
-        <item>2048x1536</item>
-        <item>2048x1520</item>
-        <item>2048x1232</item>
-        <item>1920x1080</item>
-        <item>1600x1200</item>
-        <item>1920x1088</item>
-        <item>1392x1392</item>
-        <item>1600x960</item>
-        <item>1280x960</item>
-        <item>1280x720</item>
-        <item>1024x768</item>
-        <item>1024x600</item>
-        <item>800x600</item>
-        <item>800x480</item>
-        <item>640x480</item>
-        <item>640x360</item>
-        <item>480x320</item>
-        <item>320x240</item>
+        <item>5248x3936</item> <!-- 530 -->
+        <item>5376x3752</item> <!-- 520 -->
+        <item>4992x3744</item> <!-- 510 -->
+        <item>5376x3024</item> <!-- 500 -->
+        <item>4608x3456</item> <!-- 490 -->
+        <item>5312x2988</item> <!-- 480 -->
+        <item>4208x3120</item> <!-- 470 -->
+        <item>4160x3120</item> <!-- 460 -->
+        <item>4128x3096</item> <!-- 450 -->
+        <item>4128x3088</item> <!-- 440 -->
+        <item>4096x3072</item> <!-- 430 -->
+        <item>4000x3000</item> <!-- 420 -->
+        <item>3984x2988</item> <!-- 410 -->
+        <item>3920x2940</item> <!-- 400 -->
+        <item>4128x2528</item> <!-- 390 -->
+        <item>4320x2432</item> <!-- 380 -->
+        <item>3648x2736</item> <!-- 370 -->
+        <item>4160x2340</item> <!-- 360 -->
+        <item>4096x2304</item> <!-- 350 -->
+        <item>3920x2204</item> <!-- 340 -->
+        <item>3840x2160</item> <!-- 330 -->
+        <item>3264x2448</item> <!-- 320 -->
+        <item>3200x2400</item> <!-- 310 -->
+        <item>3648x2052</item> <!-- 300 -->
+        <item>3264x1968</item> <!-- 290 -->
+        <item>3264x1840</item> <!-- 280 -->
+        <item>3264x1836</item> <!-- 270 -->
+        <item>2592x1944</item> <!-- 260 -->
+        <item>2592x1936</item> <!-- 250 -->
+        <item>2560x1920</item> <!-- 240 -->
+        <item>2592x1728</item> <!-- 230 -->
+        <item>2688x1520</item> <!-- 220 -->
+        <item>2560x1536</item> <!-- 210 -->
+        <item>2560x1440</item> <!-- 200 -->
+        <item>2048x1536</item> <!-- 190 -->
+        <item>2048x1520</item> <!-- 180 -->
+        <item>2048x1232</item> <!-- 170 -->
+        <item>2048x1152</item> <!-- 160 -->
+        <item>1920x1080</item> <!-- 150 -->
+        <item>1600x1200</item> <!-- 140 -->
+        <item>1920x1088</item> <!-- 130 -->
+        <item>1392x1392</item> <!-- 120 -->
+        <item>1600x960</item> <!-- 110 -->
+        <item>1280x960</item> <!-- 100 -->
+        <item>1280x720</item> <!-- 90 -->
+        <item>1024x768</item> <!-- 80 -->
+        <item>1024x600</item> <!-- 70 -->
+        <item>800x600</item> <!-- 60 -->
+        <item>800x480</item> <!-- 50 -->
+        <item>640x480</item> <!-- 40 -->
+        <item>640x360</item> <!-- 30 -->
+        <item>480x320</item> <!-- 20 -->
+        <item>320x240</item> <!-- 10 -->
     </string-array>
 
     <!-- Camera Preferences focus mode dialog box entries -->
