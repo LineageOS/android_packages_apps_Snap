@@ -2790,6 +2790,11 @@ public class VideoModule implements CameraModule,
         // Set focus mode
         mParameters.setFocusMode(mFocusManager.getFocusMode(true));
 
+        // Set focus time.
+        mFocusManager.setFocusTime(Integer.valueOf(
+                mPreferences.getString(CameraSettings.KEY_VIDEOCAMERA_FOCUS_TIME,
+                mActivity.getString(R.string.pref_camera_focustime_default))));
+
         // Set face detetction parameter.
         String faceDetection = mPreferences.getString(
             CameraSettings.KEY_FACE_DETECTION,
