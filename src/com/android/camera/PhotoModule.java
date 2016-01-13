@@ -2430,7 +2430,7 @@ public class PhotoModule
             String[] defaultFocusModes = mActivity.getResources().getStringArray(
                     R.array.pref_camera_focusmode_default_array);
             synchronized (this){
-                if (mFocusManager == null) {
+                if (mFocusManager == null && mUI != null) {
                     mFocusManager = new FocusOverlayManager(mPreferences, defaultFocusModes,
                             mInitialParams, this, mMirror,
                             mActivity.getMainLooper(), mUI.getFocusRing());
