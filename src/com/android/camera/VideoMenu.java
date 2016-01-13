@@ -61,9 +61,7 @@ public class VideoMenu extends MenuController
     private static String TAG = "VideoMenu";
 
     private VideoUI mUI;
-    private String[] mOtherKeys1;
-    private String[] mOtherKeys2;
-
+    private String[] mOtherKeys;
     private ListMenu mListMenu;
     private ListSubMenu mListSubMenu;
     private View mPreviewMenu;
@@ -104,21 +102,8 @@ public class VideoMenu extends MenuController
         mPopupStatus = POPUP_NONE;
         mPreviewMenuStatus = POPUP_NONE;
         initFilterModeButton(mFilterModeSwitcher);
-        // settings popup
-        mOtherKeys1 = new String[] {
-                CameraSettings.KEY_VIDEOCAMERA_FLASH_MODE,
-                CameraSettings.KEY_VIDEO_QUALITY,
-                CameraSettings.KEY_VIDEOCAMERA_FOCUS_MODE,
-                CameraSettings.KEY_VIDEOCAMERA_FOCUS_TIME,
-                CameraSettings.KEY_RECORD_LOCATION,
-                CameraSettings.KEY_CAMERA_SAVEPATH,
-                CameraSettings.KEY_EXPOSURE,
-                CameraSettings.KEY_WHITE_BALANCE,
-                CameraSettings.KEY_VIDEO_HIGH_FRAME_RATE,
-                CameraSettings.KEY_POWER_SHUTTER,
-                CameraSettings.KEY_MAX_BRIGHTNESS
-        };
-        mOtherKeys2 = new String[] {
+
+        mOtherKeys = new String[] {
                 CameraSettings.KEY_VIDEOCAMERA_FLASH_MODE,
                 CameraSettings.KEY_VIDEO_QUALITY,
                 CameraSettings.KEY_VIDEO_SNAPSHOT_SIZE,
@@ -143,6 +128,7 @@ public class VideoMenu extends MenuController
                 CameraSettings.KEY_VIDEO_CDS_MODE,
                 CameraSettings.KEY_VIDEO_TNR_MODE
         };
+
         mFrontBackSwitcher.setVisibility(View.INVISIBLE);
         initSwitchItem(CameraSettings.KEY_CAMERA_ID, mFrontBackSwitcher);
     }
@@ -680,9 +666,8 @@ public class VideoMenu extends MenuController
         ListMenu popup1 = (ListMenu) inflater.inflate(
                 R.layout.list_menu, null, false);
         popup1.setSettingChangedListener(this);
-        String[] keys = mOtherKeys1;
-        if (mActivity.isDeveloperMenuEnabled())
-            keys = mOtherKeys2;
+
+        String[] keys = mOtherKeys;
         popup1.initialize(mPreferenceGroup, keys);
         if (mActivity.isSecureCamera()) {
             // Prevent location preference from getting changed in secure camera
