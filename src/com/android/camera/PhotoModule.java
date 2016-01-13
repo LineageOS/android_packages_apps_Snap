@@ -513,6 +513,7 @@ public class PhotoModule
             mOpenCameraThread.start();
         }
         mUI = new PhotoUI(activity, this, parent);
+        if (mFocusManager == null) initializeFocusManager();
         initializeControlByIntent();
         mQuickCapture = mActivity.getIntent().getBooleanExtra(EXTRA_QUICK_CAPTURE, false);
         mLocationManager = new LocationManager(mActivity, mUI);
@@ -2438,7 +2439,7 @@ public class PhotoModule
             String[] defaultFocusModes = mActivity.getResources().getStringArray(
                     R.array.pref_camera_focusmode_default_array);
             synchronized (this){
-                if (mFocusManager == null) {
+                if (mFocusManager == null && mUI != null && mInitialParams != null) {
                     mFocusManager = new FocusOverlayManager(mPreferences, defaultFocusModes,
                             mInitialParams, this, mMirror,
                             mActivity.getMainLooper(), mUI);
