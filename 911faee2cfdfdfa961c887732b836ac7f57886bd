@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1fcbff3d_28e3d207",
+        "filename": "src/com/android/camera/ui/CameraControls.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2016-01-14T17:41:38Z",
+      "side": 1,
+      "message": "Not sure if it isn\u0027t density specific...",
+      "range": {
+        "startLine": 261,
+        "startChar": 12,
+        "endLine": 261,
+        "endChar": 20
+      },
+      "revId": "911faee2cfdfdfa961c887732b836ac7f57886bd",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
