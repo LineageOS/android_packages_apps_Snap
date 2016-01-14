@@ -557,6 +557,10 @@ public class PhotoUI implements PieListener,
         }
     }
 
+    public boolean isCameraControlsAnimating() {
+        return mCameraControls.isAnimating();
+    }
+
     public void initializeControlByIntent() {
         if (!mActivity.isSecureCamera()) {
             mThumbnail = (ImageView) mRootView.findViewById(R.id.preview_thumb);
