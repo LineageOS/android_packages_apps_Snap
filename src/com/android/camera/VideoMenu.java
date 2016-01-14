@@ -38,7 +38,6 @@ import android.widget.LinearLayout;
 import android.widget.FrameLayout;
 import android.widget.FrameLayout.LayoutParams;
 
-import com.android.camera.ui.CameraControls;
 import com.android.camera.ui.ListSubMenu;
 import com.android.camera.ui.ListMenu;
 import com.android.camera.ui.TimeIntervalPopup;
@@ -641,7 +640,7 @@ public class VideoMenu extends MenuController
     }
 
     public void openFirstLevel() {
-        if (isMenuBeingShown() || CameraControls.isAnimating())
+        if (isMenuBeingShown() || mUI.isCameraControlsAnimating())
             return;
         if (mListMenu == null || mPopupStatus != POPUP_FIRST_LEVEL) {
             initializePopup();
