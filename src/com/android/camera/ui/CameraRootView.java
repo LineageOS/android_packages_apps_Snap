@@ -41,6 +41,7 @@ public class CameraRootView extends FrameLayout {
     private int mOffset = 0;
     private Object mDisplayListener;
     private MyDisplayListener mListener;
+    private Rect mLastInsets = new Rect();
 
     public interface MyDisplayListener {
         public void onDisplayChanged();
@@ -51,26 +52,18 @@ public class CameraRootView extends FrameLayout {
         initDisplayListener();
     }
 
+    public void redoFitSystemWindows() {
+        if (mLastInsets.left != 0 || mLastInsets.right != 0
+                || mLastInsets.top != 0 || mLastInsets.bottom != 0) {
+            Rect insets = new Rect(mLastInsets);
+            fitSystemWindows(insets);
+        }
+    }
+
     @Override
     protected boolean fitSystemWindows(Rect insets) {
-        // insets include status bar, navigation bar, etc
-        // In this case, we are only concerned with the size of nav bar
-        if (mCurrentInsets.equals(insets)) {
-            // Local copy of the insets is up to date. No need to do anything.
-            return false;
-        }
-
-        if (mOffset == 0) {
-            if (insets.bottom > 0) {
-                mOffset = insets.bottom;
-            } else if (insets.right > 0) {
-                mOffset = insets.right;
-            }
-        }
-        mCurrentInsets.set(insets);
-        // Make sure onMeasure will be called to adapt to the new insets.
-        requestLayout();
-        return false;
+        mLastInsets.set(insets);
+        return super.fitSystemWindows(insets);
     }
 
     public void initDisplayListener() {
