@@ -80,7 +80,7 @@
 
     <com.android.camera.ui.RotateImageView
         android:id="@+id/menu"
-        style="@style/MenuButton"
+        style="@style/ToggleButton"
         android:contentDescription="@string/accessibility_menu_button"
         android:src="@drawable/ic_settings" />
 
