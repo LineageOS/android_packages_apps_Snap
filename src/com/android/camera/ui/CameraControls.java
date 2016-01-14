@@ -61,7 +61,7 @@ public class CameraControls extends RotatableLayout {
     private int mSize;
     private static final int WIDTH_GRID = 5;
     private static final int HEIGHT_GRID = 7;
-    private static boolean isAnimating = false;
+    private boolean mAnimating = false;
     private ArrayList<View> mViewList;
     private View[] mAllViews, mTopViews, mBottomViews;
     private static final int ANIME_DURATION = 300;
@@ -92,7 +92,7 @@ public class CameraControls extends RotatableLayout {
             for (View v : mAllViews) {
                 v.setVisibility(View.INVISIBLE);
             }
-            isAnimating = false;
+            mAnimating = false;
             enableTouch(true);
         }
 
@@ -101,7 +101,7 @@ public class CameraControls extends RotatableLayout {
             for (View v : mAllViews) {
                 v.setVisibility(View.INVISIBLE);
             }
-            isAnimating = false;
+            mAnimating = false;
             enableTouch(true);
         }
     };
@@ -118,13 +118,13 @@ public class CameraControls extends RotatableLayout {
 
         @Override
         public void onAnimationEnd(Animator animation) {
-            isAnimating = false;
+            mAnimating = false;
             enableTouch(true);
         }
 
         @Override
         public void onAnimationCancel(Animator animation) {
-            isAnimating = false;
+            mAnimating = false;
             enableTouch(true);
         }
     };
@@ -146,8 +146,8 @@ public class CameraControls extends RotatableLayout {
         this(context, null);
     }
 
-    public static boolean isAnimating() {
-        return isAnimating;
+    public boolean isAnimating() {
+        return mAnimating;
     }
 
     public void enableTouch(boolean enable) {
@@ -399,9 +399,9 @@ public class CameraControls extends RotatableLayout {
     }
 
     public void hideUI() {
-        if(!isAnimating)
+        if (!mAnimating)
             enableTouch(false);
-        isAnimating = true;
+        mAnimating = true;
         int rotation = getUnifiedRotation();
         for (View v : mAllViews) {
             v.animate().cancel();
@@ -434,9 +434,9 @@ public class CameraControls extends RotatableLayout {
     }
 
     public void showUI() {
-        if(!isAnimating)
+        if (!mAnimating)
             enableTouch(false);
-        isAnimating = true;
+        mAnimating = true;
         int rotation = getUnifiedRotation();
         for (View v : mAllViews) {
             v.animate().cancel();
