@@ -60,6 +60,7 @@ public class CameraControls extends RotatableLayout {
     private ArrowTextView mRefocusToast;
 
     private int mSize;
+    private final Rect mInsets = new Rect();
     private static final int WIDTH_GRID = 5;
     private static final int HEIGHT_GRID = 7;
     private static boolean isAnimating = false;
@@ -222,6 +223,12 @@ public class CameraControls extends RotatableLayout {
             mViewList.add(mIndicators);
     }
 
+   @Override
+    protected boolean fitSystemWindows(Rect insets) {
+        mInsets.set(insets);
+        return false;
+    }
+
     @Override
     public void onFinishInflate() {
         super.onFinishInflate();
@@ -247,18 +254,20 @@ public class CameraControls extends RotatableLayout {
         adjustBackground();
         // As l,t,r,b are positions relative to parents, we need to convert them
         // to child's coordinates
-        r = r - l;
-        b = b - t;
+        r = r - l - mInsets.right;
+        b = b - t - mInsets.bottom;
         l = 0;
         t = 0;
         for (int i = 0; i < getChildCount(); i++) {
             View v = getChildAt(i);
             v.layout(l, t, r, b);
         }
+
         Rect shutter = new Rect();
         center(mShutter, l, t, r, b, orientation, rotation, shutter, SHUTTER_INDEX);
         mSize = (int) (Math.max(shutter.right - shutter.left, shutter.bottom - shutter.top) * 1.2f);
-        center(mBackgroundView, l, t, r, b, orientation, rotation, new Rect(), -1);
+        center(mBackgroundView, l, t, r + mInsets.right, b + mInsets.bottom,
+                orientation, rotation, new Rect(), -1);
         mBackgroundView.setVisibility(View.GONE);
         setLocation(r - l, b - t);
 
