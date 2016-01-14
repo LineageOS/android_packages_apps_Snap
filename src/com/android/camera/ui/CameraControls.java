@@ -30,6 +30,7 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
+import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 import android.view.ViewPropertyAnimator;
 import android.widget.FrameLayout;
@@ -255,6 +256,11 @@ public class CameraControls extends RotatableLayout {
             View v = getChildAt(i);
             v.layout(l, t, r, b);
         }
+
+        if (!ViewConfiguration.get(getContext()).hasPermanentMenuKey()) {
+            b -= 70;
+        }
+
         Rect shutter = new Rect();
         center(mShutter, l, t, r, b, orientation, rotation, shutter, SHUTTER_INDEX);
         mSize = (int) (Math.max(shutter.right - shutter.left, shutter.bottom - shutter.top) * 1.2f);
