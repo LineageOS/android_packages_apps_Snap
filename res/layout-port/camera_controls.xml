@@ -96,16 +96,13 @@
             android:id="@+id/remaining_photos_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@android:color/transparent"
-            android:textColor="@android:color/white"
-            android:visibility="gone" />
+            android:textColor="@android:color/white" />
 
         <ImageView
             android:id="@+id/remaining_photos_image"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/remaining_sheets"
-            android:visibility="gone" />
+            android:src="@drawable/remaining_sheets" />
     </LinearLayout>
 
 </com.android.camera.ui.CameraControls>
