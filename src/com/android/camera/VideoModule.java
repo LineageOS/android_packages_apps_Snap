@@ -1922,7 +1922,7 @@ public class VideoModule implements CameraModule,
         try {
             mMediaRecorder.start(); // Recording is now started
         } catch (RuntimeException e) {
-            Log.e(TAG, "Could not start media recorder. ", e);
+            Toast.makeText(mActivity,"Could not start media recorder.\n Can't start video recording.", Toast.LENGTH_LONG).show();
             releaseMediaRecorder();
             releaseAudioFocus();
             // If start fails, frameworks will not lock the camera for us.
