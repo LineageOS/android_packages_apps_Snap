@@ -598,13 +598,17 @@ public class VideoUI implements PieRenderer.PieListener,
             @Override
             public void onClick(View v) {
                 // Do not allow navigation to filmstrip during video recording
-                if (!mRecordingStarted && !CameraControls.isAnimating()) {
+                if (!mRecordingStarted && !isCameraControlsAnimating()) {
                     mActivity.gotoGallery();
                 }
             }
         });
 
         mActivity.setPreviewGestures(mGestures);
+    }
+
+    public boolean isCameraControlsAnimating() {
+        return mCameraControls.isAnimating();
     }
 
     public void setPrefChangedListener(OnPreferenceChangedListener listener) {
