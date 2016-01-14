@@ -2652,7 +2652,7 @@ public class VideoModule implements CameraModule,
             startPreview();
         }
         // Keep preview size up to date.
-        mParameters = mCameraDevice.getParameters();
+        mParameters.copyFrom(mCameraDevice.getParameters());
 
         // Update UI based on the new parameters.
         mUI.updateOnScreenIndicators(mParameters, mPreferences);
