@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1fcbff3d_d42aed8e",
+        "filename": "src/com/android/camera/PhotoModule.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1218,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2016-01-14T02:49:44Z",
+      "side": 1,
+      "message": "Don\u0027t need this extra line.",
+      "revId": "27ce32bf69e6b5a71fb043649dca1a4266bdb5ff",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1fcbff3d_b42de1a9",
+        "filename": "src/com/android/camera/PhotoModule.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1270,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2016-01-14T02:49:44Z",
+      "side": 1,
+      "message": "Don\u0027t need this extra line.",
+      "revId": "27ce32bf69e6b5a71fb043649dca1a4266bdb5ff",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
