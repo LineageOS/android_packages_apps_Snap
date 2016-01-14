@@ -22,6 +22,30 @@
       "revId": "911faee2cfdfdfa961c887732b836ac7f57886bd",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1fcbff3d_e8c5ca5c",
+        "filename": "src/com/android/camera/ui/CameraControls.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2016-01-14T18:31:30Z",
+      "side": 1,
+      "message": "You rather want to set the view to fitsSystemWindows\u003dtrue instead and subtract the bottom/right inset. See http://developer.android.com/reference/android/view/View.html#dispatchApplyWindowInsets%28android.view.WindowInsets%29",
+      "parentUuid": "1fcbff3d_28e3d207",
+      "range": {
+        "startLine": 261,
+        "startChar": 12,
+        "endLine": 261,
+        "endChar": 20
+      },
+      "revId": "911faee2cfdfdfa961c887732b836ac7f57886bd",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
