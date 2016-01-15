@@ -130,12 +130,7 @@ public class PhotoModule
     private int mReceivedSnapNum = 0;
     public boolean mFaceDetectionEnabled = false;
     private boolean mLgeHdrMode = false;
-    private DrawAutoHDR mDrawAutoHDR;
-   /*Histogram variables*/
-    private GraphView mGraphView;
-    private static final int STATS_DATA = 257;
-    public static int statsdata[] = new int[STATS_DATA];
-    public boolean mHiston = false;
+    public boolean mHistogramEnabled = false;
     // We number the request code from 1000 to avoid collision with Gallery.
     private static final int REQUEST_CROP = 1000;
 
@@ -176,7 +171,6 @@ public class PhotoModule
 
     private PhotoUI mUI;
 
-    public boolean mAutoHdrEnable;
     // The activity is going to switch to the specified camera id. This is
     // needed because texture copy is done in GL thread. -1 means camera is not
     // switching.
@@ -929,14 +923,6 @@ public class PhotoModule
         }
 
         mNamedImages = new NamedImages();
-        mGraphView = (GraphView)mRootView.findViewById(R.id.graph_view);
-        mDrawAutoHDR = (DrawAutoHDR )mRootView.findViewById(R.id.autohdr_view);
-        if (mGraphView == null || mDrawAutoHDR == null){
-            Log.e(TAG, "mGraphView or mDrawAutoHDR is null");
-        } else{
-            mGraphView.setPhotoModuleObject(this);
-            mDrawAutoHDR.setPhotoModuleObject(this);
-        }
 
         mFirstTimeInitialized = true;
         Log.d(TAG, "addIdleHandler in first time initialization");
@@ -1142,19 +1128,14 @@ public class PhotoModule
     private final class StatsCallback
            implements android.hardware.Camera.CameraDataCallback {
             @Override
-        public void onCameraData(int [] data, android.hardware.Camera camera) {
-            //if(!mPreviewing || !mHiston || !mFirstTimeInitialized){
-            if(!mHiston || !mFirstTimeInitialized){
+        public void onCameraData(final int [] data, android.hardware.Camera camera) {
+            if (!mHistogramEnabled || !mFirstTimeInitialized){
                 return;
             }
-            /*The first element in the array stores max hist value . Stats data begin from second value*/
-            synchronized(statsdata) {
-                System.arraycopy(data,0,statsdata,0,STATS_DATA);
-            }
             mActivity.runOnUiThread(new Runnable() {
+                @Override
                 public void run() {
-                    if(mGraphView != null)
-                        mGraphView.PreviewChanged();
+                    mUI.updateHistogramData(data);
                 }
            });
         }
@@ -1171,24 +1152,12 @@ public class PhotoModule
                 }
                 /* Checking if the meta data is for auto HDR */
                 if (metadata[0] == 3) {
-                    if (metadata[2] == 1) {
-                        mAutoHdrEnable = true;
-                        mActivity.runOnUiThread(new Runnable() {
-                            public void run() {
-                                if (mDrawAutoHDR != null)
-                                    mDrawAutoHDR.AutoHDR();
-                            }
-                        });
-                    }
-                    else {
-                        mAutoHdrEnable = false;
-                        mActivity.runOnUiThread(new Runnable() {
-                            public void run() {
-                                if (mDrawAutoHDR != null)
-                                    mDrawAutoHDR.AutoHDR();
-                            }
-                        });
-                    }
+                    boolean enable = metadata[2] == 1;
+                    mActivity.runOnUiThread(new Runnable() {
+                        public void run() {
+                            mUI.setAutoHdrEnabled(enable);
+                        }
+                    });
                 }
             }
         }
@@ -1552,16 +1521,15 @@ public class PhotoModule
                         mJpegPictureCallbackTime = 0;
                     }
 
-                    if (mHiston && (mSnapshotMode ==CameraInfo.CAMERA_SUPPORT_MODE_ZSL)) {
+                    if (mHistogramEnabled &&
+                            (mSnapshotMode == CameraInfo.CAMERA_SUPPORT_MODE_ZSL)) {
                         mActivity.runOnUiThread(new Runnable() {
-                        public void run() {
-                            if (mGraphView != null) {
-                                mGraphView.setVisibility(View.VISIBLE);
-                                mGraphView.PreviewChanged();
+                            @Override
+                            public void run() {
+                                mUI.setHistogramEnabled(true, getCamera());
                             }
-                        }
-                    });
-                }
+                        });
+                    }
                 if (mSnapshotMode == CameraInfo.CAMERA_SUPPORT_MODE_ZSL &&
                         mCameraState != LONGSHOT &&
                         mReceivedSnapNum == mBurstSnapNum &&
@@ -1686,15 +1654,15 @@ public class PhotoModule
         mJpegImageData = null;
 
         final boolean animateBefore = (mSceneMode == CameraUtil.SCENE_MODE_HDR);
-        if(mHiston) {
+        if(mHistogramEnabled) {
             if (mSnapshotMode != CameraInfo.CAMERA_SUPPORT_MODE_ZSL) {
-                mHiston = false;
+                mHistogramEnabled = false;
                 mCameraDevice.setHistogramMode(null);
             }
             mActivity.runOnUiThread(new Runnable() {
+                @Override
                 public void run() {
-                    if(mGraphView != null)
-                        mGraphView.setVisibility(View.INVISIBLE);
+                    mUI.setHistogramEnabled(false, null);
                 }
             });
         }
@@ -2203,23 +2171,12 @@ public class PhotoModule
             }
             mUI.tryToCloseSubList();
             mUI.setOrientation(mOrientation, true);
-            if (mGraphView != null) {
-                mGraphView.setRotation(-mOrientation);
-            }
         }
 
         // Show the toast after getting the first orientation changed.
         if (mHandler.hasMessages(SHOW_TAP_TO_FOCUS_TOAST)) {
             mHandler.removeMessages(SHOW_TAP_TO_FOCUS_TOAST);
             showTapToFocusToast();
-        }
-
-        // need to re-initialize mGraphView to show histogram on rotate
-        mGraphView = (GraphView)mRootView.findViewById(R.id.graph_view);
-        if(mGraphView != null){
-            mGraphView.setAlpha(0.75f);
-            mGraphView.setPhotoModuleObject(this);
-            mGraphView.PreviewChanged();
         }
     }
 
@@ -3713,27 +3670,14 @@ public class PhotoModule
         if (CameraUtil.isSupported(histogram,
             mParameters.getSupportedHistogramModes()) && mCameraDevice != null) {
             // Call for histogram
-            if(histogram.equals("enable")) {
-                mActivity.runOnUiThread(new Runnable() {
-                    public void run() {
-                        if(mGraphView != null) {
-                            mGraphView.setVisibility(View.VISIBLE);
-                            mGraphView.PreviewChanged();
-                        }
-                    }
-                });
-                mCameraDevice.setHistogramMode(mStatsCallback);
-                mHiston = true;
-            } else {
-                mHiston = false;
-                mActivity.runOnUiThread(new Runnable() {
-                    public void run() {
-                         if (mGraphView != null)
-                             mGraphView.setVisibility(View.INVISIBLE);
-                         }
-                    });
-                mCameraDevice.setHistogramMode(null);
-            }
+            mHistogramEnabled = histogram.equals("enable");
+            mActivity.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    mUI.setHistogramEnabled(mHistogramEnabled, getCamera());
+                }
+            });
+            mCameraDevice.setHistogramMode(mHistogramEnabled ? mStatsCallback : null);
         }
 
         setFlipValue();
@@ -3782,26 +3726,11 @@ public class PhotoModule
                     ("asd".equals(mSceneMode) || "auto".equals(mSceneMode)) &&
                     CameraUtil.isSupported("asd", mParameters.getSupportedSceneModes()) &&
                     (advancedFeature == null || "none".equals(advancedFeature))) {
-                mActivity.runOnUiThread(new Runnable() {
-                    public void run() {
-                        if (mDrawAutoHDR != null) {
-                            mDrawAutoHDR.setVisibility(View.VISIBLE);
-                        }
-                    }
-                });
                 mParameters.setSceneMode("asd");
                 mCameraDevice.setMetadataCb(mMetaDataCallback);
                 mParameters.set("auto-hdr-enable", "enable");
             }
             else {
-                mAutoHdrEnable = false;
-                mActivity.runOnUiThread( new Runnable() {
-                    public void run () {
-                        if (mDrawAutoHDR != null) {
-                            mDrawAutoHDR.setVisibility (View.INVISIBLE);
-                        }
-                    }
-                });
                 mCameraDevice.setMetadataCb(null);
                 mParameters.set("auto-hdr-enable", "disable");
             }
@@ -5150,142 +5079,5 @@ class JpegEncodingQualityMappings {
             return DEFAULT_QUALITY;
         }
         return CameraProfile.getJpegEncodingQualityParameter(quality.intValue());
-    }
-}
-
-class GraphView extends View {
-    private Bitmap  mBitmap;
-    private Paint   mPaint = new Paint();
-    private Paint   mPaintRect = new Paint();
-    private Canvas  mCanvas = new Canvas();
-    private float   mScale = (float)3;
-    private float   mWidth;
-    private float   mHeight;
-    private PhotoModule mPhotoModule;
-    private CameraManager.CameraProxy mGraphCameraDevice;
-    private float scaled;
-    private static final int STATS_SIZE = 256;
-
-    public GraphView(Context context, AttributeSet attrs) {
-        super(context,attrs);
-
-        mPaint.setFlags(Paint.ANTI_ALIAS_FLAG);
-        mPaintRect.setColor(0xFFFFFFFF);
-        mPaintRect.setStyle(Paint.Style.FILL);
-    }
-    @Override
-    protected void onSizeChanged(int w, int h, int oldw, int oldh) {
-        mBitmap = Bitmap.createBitmap(w, h, Bitmap.Config.RGB_565);
-        mCanvas.setBitmap(mBitmap);
-        mWidth = w;
-        mHeight = h;
-        super.onSizeChanged(w, h, oldw, oldh);
-    }
-    @Override
-    protected void onDraw(Canvas canvas) {
-        if(mPhotoModule == null || !mPhotoModule.mHiston ) {
-            return;
-        }
-
-        if (mBitmap != null) {
-            final Paint paint = mPaint;
-            final Canvas cavas = mCanvas;
-            final float border = 5;
-            float graphheight = mHeight - (2 * border);
-            float graphwidth = mWidth - (2 * border);
-            float left,top,right,bottom;
-            float bargap = 0.0f;
-            float barwidth = graphwidth/STATS_SIZE;
-
-            cavas.drawColor(0xFFAAAAAA);
-            paint.setColor(Color.BLACK);
-
-            for (int k = 0; k <= (graphheight /32) ; k++) {
-                float y = (float)(32 * k)+ border;
-                cavas.drawLine(border, y, graphwidth + border , y, paint);
-            }
-            for (int j = 0; j <= (graphwidth /32); j++) {
-                float x = (float)(32 * j)+ border;
-                cavas.drawLine(x, border, x, graphheight + border, paint);
-            }
-            synchronized(PhotoModule.statsdata) {
-                 //Assumption: The first element contains
-                //            the maximum value.
-                int maxValue = Integer.MIN_VALUE;
-                if ( 0 == PhotoModule.statsdata[0] ) {
-                    for ( int i = 1 ; i <= STATS_SIZE ; i++ ) {
-                         if ( maxValue < PhotoModule.statsdata[i] ) {
-                             maxValue = PhotoModule.statsdata[i];
-                         }
-                    }
-                } else {
-                    maxValue = PhotoModule.statsdata[0];
-                }
-                mScale = ( float ) maxValue;
-                for(int i=1 ; i<=STATS_SIZE ; i++)  {
-                    scaled = (PhotoModule.statsdata[i]/mScale)*STATS_SIZE;
-                    if(scaled >= (float)STATS_SIZE)
-                        scaled = (float)STATS_SIZE;
-                    left = (bargap * (i+1)) + (barwidth * i) + border;
-                    top = graphheight + border;
-                    right = left + barwidth;
-                    bottom = top - scaled;
-                    cavas.drawRect(left, top, right, bottom, mPaintRect);
-                }
-            }
-            canvas.drawBitmap(mBitmap, 0, 0, null);
-        }
-        if (mPhotoModule.mHiston && mPhotoModule!= null) {
-            mGraphCameraDevice = mPhotoModule.getCamera();
-            if (mGraphCameraDevice != null){
-                mGraphCameraDevice.sendHistogramData();
-            }
-        }
-    }
-    public void PreviewChanged() {
-        invalidate();
-    }
-    public void setPhotoModuleObject(PhotoModule photoModule) {
-        mPhotoModule = photoModule;
-    }
-}
-
-class DrawAutoHDR extends View{
-
-    private static final String TAG = "AutoHdrView";
-    private PhotoModule mPhotoModule;
-
-    public DrawAutoHDR (Context context, AttributeSet attrs) {
-        super(context,attrs);
-    }
-
-    @Override
-    protected void onDraw (Canvas canvas) {
-        if (mPhotoModule == null)
-            return;
-        if (mPhotoModule.mAutoHdrEnable) {
-            Paint AutoHDRPaint = new Paint();
-            AutoHDRPaint.setColor(Color.WHITE);
-            AutoHDRPaint.setAlpha (0);
-            canvas.drawPaint(AutoHDRPaint);
-            AutoHDRPaint.setStyle(Paint.Style.STROKE);
-            AutoHDRPaint.setColor(Color.MAGENTA);
-            AutoHDRPaint.setStrokeWidth(1);
-            AutoHDRPaint.setTextSize(32);
-            AutoHDRPaint.setAlpha (255);
-            canvas.drawText("HDR On",200,100,AutoHDRPaint);
-        }
-        else {
-            super.onDraw(canvas);
-            return;
-        }
-    }
-
-    public void AutoHDR () {
-        invalidate();
-    }
-
-    public void setPhotoModuleObject (PhotoModule photoModule) {
-        mPhotoModule = photoModule;
     }
 }

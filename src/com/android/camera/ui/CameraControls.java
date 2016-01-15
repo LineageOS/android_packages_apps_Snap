@@ -38,6 +38,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import org.codeaurora.snapcam.R;
+import com.android.camera.CameraManager;
 import com.android.camera.ui.ModuleSwitcher;
 import com.android.camera.ui.RotateImageView;
 import com.android.camera.ShutterButton;
@@ -65,6 +66,8 @@ public class CameraControls extends RotatableLayout {
     private View mReviewDoneButton;
     private View mReviewCancelButton;
     private View mReviewRetakeButton;
+    private View mAutoHdrNotice;
+    private HistogramView mHistogramView;
     private ArrowTextView mRefocusToast;
 
     private int mSize;
@@ -84,9 +87,11 @@ public class CameraControls extends RotatableLayout {
     private static final int INDICATOR_INDEX = 8;
     private static final int MUTE_INDEX = 9;
     private static final int VIDEO_SHUTTER_INDEX = 10;
+    private static final int HISTOGRAM_INDEX = 11;
+    private static final int AUTO_HDR_INDEX = 12;
     private static final int ANIME_DURATION = 300;
-    private float[][] mLocX = new float[4][11];
-    private float[][] mLocY = new float[4][11];
+    private float[][] mLocX = new float[4][13];
+    private float[][] mLocY = new float[4][13];
     private boolean mLocSet = false;
     private boolean mHideRemainingPhoto = false;
     private LinearLayout mRemainingPhotos;
@@ -297,6 +302,8 @@ public class CameraControls extends RotatableLayout {
         mFilterModeSwitcher = findViewById(R.id.filter_mode_switcher);
         mRemainingPhotos = (LinearLayout) findViewById(R.id.remaining_photos);
         mRemainingPhotosText = (TextView) findViewById(R.id.remaining_photos_text);
+        mAutoHdrNotice = (TextView) findViewById(R.id.auto_hdr_notice);
+        mHistogramView = (HistogramView) findViewById(R.id.histogram);
     }
 
     @Override
@@ -321,6 +328,13 @@ public class CameraControls extends RotatableLayout {
         center(mBackgroundView, l, t, r, b, orientation, rotation, new Rect(), -1);
         mBackgroundView.setVisibility(View.GONE);
         setLocation(r - l, b - t);
+
+        center(mAutoHdrNotice, l, t + mSize, r,
+                t + mSize + mAutoHdrNotice.getMeasuredHeight(),
+                orientation, rotation, new Rect(), AUTO_HDR_INDEX);
+        center(mHistogramView, l, t + mSize,
+                r, t + mSize + mHistogramView.getMeasuredHeight(),
+                orientation, rotation, new Rect(), HISTOGRAM_INDEX);
 
         View retake = findViewById(R.id.btn_retake);
         if (retake != null) {
@@ -514,6 +528,10 @@ public class CameraControls extends RotatableLayout {
         } else {
             mHdrSwitcher.setVisibility(status);
         }
+    }
+
+    public void setAutoHdrEnabled(boolean enabled) {
+        mAutoHdrNotice.setVisibility(enabled ? View.VISIBLE : View.GONE);
     }
 
     public void hideUI() {
@@ -995,19 +1013,30 @@ public class CameraControls extends RotatableLayout {
         }
     }
 
+    public void setHistogramEnabled(boolean enabled, CameraManager.CameraProxy camera) {
+        mHistogramView.setVisibility(enabled ? View.VISIBLE : View.GONE);
+        mHistogramView.setCamera(camera);
+    }
+
+    public void updateHistogramData(int[] data) {
+        mHistogramView.updateData(data);
+    }
+
     public void setOrientation(int orientation, boolean animation) {
         mOrientation = orientation;
         View[] views = {
             mSceneModeSwitcher, mFilterModeSwitcher, mFrontBackSwitcher,
             TsMakeupManager.HAS_TS_MAKEUP ? mTsMakeupSwitcher : mHdrSwitcher,
             mMenu, mShutter, mPreview, mSwitcher, mMute, mReviewRetakeButton,
-            mReviewCancelButton, mReviewDoneButton
+            mReviewCancelButton, mReviewDoneButton, mAutoHdrNotice, mHistogramView
         };
         for (View v : views) {
             if (v != null) {
                 if (v instanceof RotateImageView) {
                     ((RotateImageView) v).setOrientation(orientation,
                                                          animation);
+                } else if (v instanceof HistogramView) {
+                    ((HistogramView) v).setRotation(-orientation);
                 }
             }
         }
