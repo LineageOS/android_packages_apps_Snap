@@ -110,9 +110,6 @@ public class PhotoUI implements PieListener,
     private CameraControls mCameraControls;
     private AlertDialog mLocationDialog;
 
-    // Small indicators which show the camera settings in the viewfinder.
-    private OnScreenIndicators mOnScreenIndicators;
-
     private PieRenderer mPieRenderer;
     private ZoomRenderer mZoomRenderer;
     private RotateTextToast mNotSelectableToast;
@@ -292,7 +289,7 @@ public class PhotoUI implements PieListener,
             mFaceView = (FaceView) mRootView.findViewById(R.id.face_view);
             setSurfaceTextureSizeChangedListener(mFaceView);
         }
-        initIndicators();
+        mFocusRing = (FocusRing) mRootView.findViewById(R.id.focus_ring);
         mAnimationManager = new AnimationManager();
         mOrientationResize = false;
         mPrevOrientationResize = false;
@@ -469,11 +466,6 @@ public class PhotoUI implements PieListener,
         return mRootView;
     }
 
-    private void initIndicators() {
-        mOnScreenIndicators = new OnScreenIndicators(mActivity,
-                mRootView.findViewById(R.id.on_screen_indicators));
-    }
-
     public void onCameraOpened(PreferenceGroup prefGroup, ComboPreferences prefs,
             Camera.Parameters params, OnPreferenceChangedListener listener) {
         if (mPieRenderer == null) {
@@ -506,7 +498,6 @@ public class PhotoUI implements PieListener,
         mRenderOverlay.requestLayout();
 
         initializeZoom(params);
-        updateOnScreenIndicators(params, prefGroup, prefs);
         mActivity.setPreviewGestures(mGestures);
     }
 
@@ -695,30 +686,6 @@ public class PhotoUI implements PieListener,
         mMenu.overrideSettings(keyvalues);
     }
 
-    public void updateOnScreenIndicators(Camera.Parameters params,
-            PreferenceGroup group, ComboPreferences prefs) {
-        if (params == null || group == null) return;
-        mOnScreenIndicators.updateSceneOnScreenIndicator(params.getSceneMode());
-        mOnScreenIndicators.updateExposureOnScreenIndicator(params,
-                CameraSettings.readExposure(prefs));
-        mOnScreenIndicators.updateFlashOnScreenIndicator(params.getFlashMode());
-        int wbIndex = -1;
-        String wb = Camera.Parameters.WHITE_BALANCE_AUTO;
-        if (Camera.Parameters.SCENE_MODE_AUTO.equals(params.getSceneMode())) {
-            wb = params.getWhiteBalance();
-        }
-        ListPreference pref = group.findPreference(CameraSettings.KEY_WHITE_BALANCE);
-        if (pref != null) {
-            wbIndex = pref.findIndexOfValue(wb);
-        }
-        // make sure the correct value was found
-        // otherwise use auto index
-        mOnScreenIndicators.updateWBIndicator(wbIndex < 0 ? 2 : wbIndex);
-        boolean location = RecordLocationPreference.get(
-                prefs, mActivity.getContentResolver());
-        mOnScreenIndicators.updateLocationIndicator(location);
-    }
-
     public void setCameraState(int state) {
     }
 
@@ -783,7 +750,6 @@ public class PhotoUI implements PieListener,
         if (mPieRenderer != null) {
             mPieRenderer.setBlockFocus(!previewFocused);
         }
-        setShowMenu(previewFocused);
         if (!previewFocused && mCountDownView != null) mCountDownView.cancelCountDown();
     }
 
@@ -963,12 +929,6 @@ public class PhotoUI implements PieListener,
         }
     }
 
-    private void setShowMenu(boolean show) {
-        if (mOnScreenIndicators != null) {
-            mOnScreenIndicators.setVisibility(show ? View.VISIBLE : View.GONE);
-        }
-    }
-
     public boolean collapseCameraControls() {
         // TODO: Mode switcher should behave like a popup and should hide itself when there
         // is a touch outside of it.
@@ -991,7 +951,6 @@ public class PhotoUI implements PieListener,
         mCameraControls.hideCameraSettings();
         mDecodeTaskForReview = new DecodeImageForReview(jpegData, orientation, mirror);
         mDecodeTaskForReview.execute();
-        mOnScreenIndicators.setVisibility(View.GONE);
         mMenuButton.setVisibility(View.GONE);
         CameraUtil.fadeIn(mReviewDoneButton);
         mShutterButton.setVisibility(View.INVISIBLE);
@@ -1005,7 +964,6 @@ public class PhotoUI implements PieListener,
             mDecodeTaskForReview.cancel(true);
         }
         mReviewImage.setVisibility(View.GONE);
-        mOnScreenIndicators.setVisibility(View.VISIBLE);
         mMenuButton.setVisibility(View.VISIBLE);
         CameraUtil.fadeOut(mReviewDoneButton);
         mShutterButton.setVisibility(View.VISIBLE);
