@@ -321,7 +321,6 @@ public class VideoModule implements CameraModule,
 
     private int mVideoEncoder;
     private int mAudioEncoder;
-    private boolean mRestartPreview = false;
     private int videoWidth;
     private int videoHeight;
     boolean mUnsupportedResolution = false;
@@ -2625,9 +2624,6 @@ public class VideoModule implements CameraModule,
         // Keep preview size up to date.
         mParameters = mCameraDevice.getParameters();
 
-        // Update UI based on the new parameters.
-        mUI.updateOnScreenIndicators(mParameters, mPreferences);
-
         mFocusManager.setPreviewSize(videoWidth, videoHeight);
     }
 
@@ -2685,7 +2681,6 @@ public class VideoModule implements CameraModule,
             } else {
                 setCameraParameters();
             }
-            mUI.updateOnScreenIndicators(mParameters, mPreferences);
             Storage.setSaveSDCard(
                 mPreferences.getString(CameraSettings.KEY_CAMERA_SAVEPATH, "0").equals("1"));
             mActivity.updateStorageSpaceAndHint();
@@ -2739,7 +2734,6 @@ public class VideoModule implements CameraModule,
         // Start switch camera animation. Post a message because
         // onFrameAvailable from the old camera may already exist.
         mHandler.sendEmptyMessage(SWITCH_CAMERA_START_ANIMATION);
-        mUI.updateOnScreenIndicators(mParameters, mPreferences);
 
         //Display timelapse msg depending upon selection in front/back camera.
         mUI.showTimeLapseUI(mCaptureTimeLapse);
@@ -2820,7 +2814,6 @@ public class VideoModule implements CameraModule,
         }
         forceFlashOffIfSupported(forceOff);
         mCameraDevice.setParameters(mParameters);
-        mUI.updateOnScreenIndicators(mParameters, mPreferences);
     }
 
     @Override
