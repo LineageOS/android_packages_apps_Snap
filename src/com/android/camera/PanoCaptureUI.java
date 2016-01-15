@@ -80,9 +80,6 @@ public class PanoCaptureUI implements
     private ImageView mSceneModeLabelCloseIcon;
     private AlertDialog  mSceneModeInstructionalDialog = null;
 
-    // Small indicators which show the camera settings in the viewfinder.
-    private OnScreenIndicators mOnScreenIndicators;
-
     private AutoFitSurfaceView mSurfaceView = null;
     private Matrix mMatrix = null;
     private boolean mUIhidden = false;
@@ -225,7 +222,6 @@ public class PanoCaptureUI implements
                 mSceneModeLabelRect.setVisibility(View.GONE);
             }
         });
-        initIndicators();
 
         Point size = new Point();
         mActivity.getWindowManager().getDefaultDisplay().getSize(size);
@@ -276,11 +272,6 @@ public class PanoCaptureUI implements
 
     public View getRootView() {
         return mRootView;
-    }
-
-    private void initIndicators() {
-        mOnScreenIndicators = new OnScreenIndicators(mActivity,
-                mRootView.findViewById(R.id.on_screen_indicators));
     }
 
     public void onCameraOpened() {
@@ -353,13 +344,6 @@ public class PanoCaptureUI implements
             showUI();
         } else {
             hideUI();
-        }
-        setShowMenu(previewFocused);
-    }
-
-    private void setShowMenu(boolean show) {
-        if (mOnScreenIndicators != null) {
-            mOnScreenIndicators.setVisibility(show ? View.VISIBLE : View.GONE);
         }
     }
 

@@ -35,7 +35,5 @@
     <dimen name="effect_setting_clear_text_size">@dimen/effect_setting_clear_text_size_xlarge</dimen>
     <dimen name="effect_setting_clear_text_min_height">@dimen/effect_setting_clear_text_min_height_xlarge</dimen>
     <dimen name="effect_setting_type_text_left_padding">@dimen/effect_setting_type_text_left_padding_xlarge</dimen>
-    <dimen name="onscreen_indicators_height">@dimen/onscreen_indicators_height_xlarge</dimen>
-    <dimen name="onscreen_exposure_indicator_text_size">@dimen/onscreen_exposure_indicator_text_size_xlarge</dimen>
 </resources>
 
