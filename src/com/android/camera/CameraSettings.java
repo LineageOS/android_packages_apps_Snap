@@ -1336,4 +1336,11 @@ public class CameraSettings {
         return split(str);
     }
 
+    public static List<String> getSupportedZslModes(Parameters params) {
+        String str = params.get(KEY_QC_ZSL_HDR_SUPPORTED);
+        if (str == null) {
+            return null;
+        }
+        return split(str);
+    }
 }
