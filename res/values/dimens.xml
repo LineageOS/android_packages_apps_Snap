@@ -38,8 +38,6 @@
     <dimen name="effect_setting_clear_text_size">20dp</dimen>
     <dimen name="effect_setting_clear_text_min_height">45dp</dimen>
     <dimen name="effect_setting_type_text_left_padding">16dp</dimen>
-    <dimen name="onscreen_indicators_height">28dp</dimen>
-    <dimen name="onscreen_exposure_indicator_text_size">15dp</dimen>
     <dimen name="switch_padding">16dp</dimen>
     <dimen name="switch_min_width">96dp</dimen>
     <dimen name="switch_text_max_width">44dp</dimen>
@@ -50,7 +48,6 @@
     <dimen name="setting_popup_window_width_large">260dp</dimen>
     <dimen name="indicator_bar_width_large">72dp</dimen>
     <dimen name="setting_item_icon_width_large">48dp</dimen>
-    <dimen name="onscreen_indicators_height_large">36dp</dimen>
     <dimen name="pano_mosaic_surface_height_xlarge">480dp</dimen>
     <dimen name="pano_review_button_width_xlarge">180dp</dimen>
     <dimen name="pano_review_button_height_xlarge">115dp</dimen>
@@ -72,8 +69,6 @@
     <dimen name="effect_setting_clear_text_size_xlarge">23dp</dimen>
     <dimen name="effect_setting_clear_text_min_height_xlarge">44dp</dimen>
     <dimen name="effect_setting_type_text_left_padding_xlarge">26dp</dimen>
-    <dimen name="onscreen_indicators_height_xlarge">36dp</dimen>
-    <dimen name="onscreen_exposure_indicator_text_size_xlarge">18dp</dimen>
     <dimen name="pie_progress_radius">25dp</dimen>
     <dimen name="pie_progress_width">3dp</dimen>
     <dimen name="pie_radius_start">80dp</dimen>
