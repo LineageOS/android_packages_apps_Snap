@@ -121,14 +121,6 @@
             android:contentDescription="@string/accessibility_mode_picker" />
 	</LinearLayout>
 
-    <include
-        android:layout_width="64dip"
-        android:layout_height="64dip"
-        android:layout_gravity="bottom|right"
-        android:layout_marginBottom="8dip"
-        android:layout_marginRight="-8dip"
-        layout="@layout/menu_indicators" />
-
     <LinearLayout
         android:id="@+id/remaining_photos"
         android:layout_width="wrap_content"
