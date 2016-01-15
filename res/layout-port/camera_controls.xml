@@ -98,4 +98,18 @@
             android:src="@drawable/remaining_sheets" />
     </LinearLayout>
 
+    <com.android.camera.ui.HistogramView
+        android:id="@+id/histogram"
+        android:layout_width="200dip"
+        android:layout_height="200dip"
+        android:layout_marginTop="20dip"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/auto_hdr_notice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/auto_hdr_enabled"
+        android:visibility="gone" />
+
 </com.android.camera.ui.CameraControls>
