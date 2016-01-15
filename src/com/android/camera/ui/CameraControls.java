@@ -52,7 +52,6 @@ public class CameraControls extends RotatableLayout {
     private View mMenu;
     private View mFrontBackSwitcher;
     private View mHdrSwitcher;
-    private View mIndicators;
     private View mPreview;
     private View mSceneModeSwitcher;
     private View mFilterModeSwitcher;
@@ -191,7 +190,6 @@ public class CameraControls extends RotatableLayout {
         mFrontBackSwitcher = findViewById(R.id.front_back_switcher);
         mHdrSwitcher = findViewById(R.id.hdr_switcher);
         mMenu = findViewById(R.id.menu);
-        mIndicators = findViewById(R.id.on_screen_indicators);
         mPreview = findViewById(R.id.preview_thumb);
         mSceneModeSwitcher = findViewById(R.id.scene_mode_switcher);
         mFilterModeSwitcher = findViewById(R.id.filter_mode_switcher);
@@ -203,7 +201,7 @@ public class CameraControls extends RotatableLayout {
             mFrontBackSwitcher, mMenu
         };
         mBottomViews = new View[] {
-            mIndicators, mPreview, mShutter, mSwitcher
+            mPreview, mShutter, mSwitcher
         };
         mAllViews = new View[mTopViews.length + mBottomViews.length];
         for (int i = 0; i < mTopViews.length; i++) {
@@ -274,7 +272,6 @@ public class CameraControls extends RotatableLayout {
         }
 
         toRight(mSwitcher, expandedShutter, rotation);
-        toLeft(mIndicators, expandedShutter, rotation);
         toLeft(mPreview, expandedShutter, rotation);
 
         layoutToast(mRefocusToast, w, h, rotation);
@@ -452,7 +449,6 @@ public class CameraControls extends RotatableLayout {
             shutterAnim.stop();
 
         mMenu.setVisibility(View.VISIBLE);
-        mIndicators.setVisibility(View.VISIBLE);
         mPreview.setVisibility(View.VISIBLE);
 
         mFrontBackSwitcher.animate().setListener(inlistener);
