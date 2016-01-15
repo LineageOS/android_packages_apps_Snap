@@ -686,6 +686,18 @@ public class PhotoUI implements PieListener,
         mMenu.overrideSettings(keyvalues);
     }
 
+    public void setAutoHdrEnabled(boolean enabled) {
+        mCameraControls.setAutoHdrEnabled(enabled);
+    }
+
+    public void setHistogramEnabled(boolean enabled, CameraManager.CameraProxy camera) {
+        mCameraControls.setHistogramEnabled(enabled, camera);
+    }
+
+    public void updateHistogramData(int[] data) {
+        mCameraControls.updateHistogramData(data);
+    }
+
     public void setCameraState(int state) {
     }
 
