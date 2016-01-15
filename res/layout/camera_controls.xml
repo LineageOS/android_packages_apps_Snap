@@ -25,14 +25,6 @@
         android:layout_gravity="bottom"
         android:clickable="true" />
 
-    <include
-        android:layout_width="64dip"
-        android:layout_height="64dip"
-        android:layout_gravity="bottom|right"
-        android:layout_marginBottom="8dip"
-        android:layout_marginRight="-8dip"
-        layout="@layout/menu_indicators" />
-
     <com.android.camera.ui.RotateImageView
         android:id="@+id/menu"
         style="@style/MenuButton"
