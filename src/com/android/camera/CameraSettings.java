@@ -139,6 +139,7 @@ public class CameraSettings {
     private static final String KEY_QC_SUPPORTED_VIDEO_CDS_MODES = "video-cds-mode-values";
     private static final String KEY_QC_SUPPORTED_TNR_MODES = "tnr-mode-values";
     private static final String KEY_QC_SUPPORTED_VIDEO_TNR_MODES = "video-tnr-mode-values";
+    private static final String KEY_QC_SUPPORTED_ZSL_MODES = "zsl-values";
     private static final String KEY_QC_SUPPORTED_PREVIEW_FORMATS = "preview-format-values";
     private static final String KEY_SNAPCAM_SUPPORTED_HDR_MODES = "hdr-mode-values";
     private static final String KEY_SNAPCAM_SUPPORTED_HDR_NEED_1X = "hdr-need-1x-values";
@@ -1336,4 +1337,11 @@ public class CameraSettings {
         return split(str);
     }
 
+    public static List<String> getSupportedZslModes(Parameters params) {
+        String str = params.get(KEY_QC_SUPPORTED_ZSL_MODES);
+        if (str == null) {
+            return null;
+        }
+        return split(str);
+    }
 }
