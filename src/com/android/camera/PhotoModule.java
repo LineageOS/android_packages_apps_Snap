@@ -3244,7 +3244,11 @@ public class PhotoModule
                 });
             }
         }
-        mParameters.setZSLMode(zsl);
+
+        if (CameraUtil.isSupported(zsl, CameraSettings.getSupportedZslModes(mParameters))) {
+            mParameters.setZSLMode(zsl);
+        }
+
         if(zsl.equals("on")) {
             //Switch on ZSL Camera mode
             mSnapshotMode = CameraInfo.CAMERA_SUPPORT_MODE_ZSL;
