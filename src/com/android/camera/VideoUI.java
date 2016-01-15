@@ -85,7 +85,6 @@ public class VideoUI extends BaseUI implements PieRenderer.PieListener,
     private ZoomRenderer mZoomRenderer;
     private PreviewGestures mGestures;
     private View mMenuButton;
-    private OnScreenIndicators mOnScreenIndicators;
     private boolean mRecordingStarted = false;
     private VideoController mController;
     private int mZoomMax;
@@ -497,11 +496,6 @@ public class VideoUI extends BaseUI implements PieRenderer.PieListener,
         mSurfaceView.setVisibility(View.VISIBLE);
     }
 
-    private void initIndicators() {
-        mOnScreenIndicators = new OnScreenIndicators(mActivity,
-                mRootView.findViewById(R.id.on_screen_indicators));
-    }
-
     public void onCameraOpened(PreferenceGroup prefGroup, ComboPreferences prefs,
                                Camera.Parameters params, OnPreferenceChangedListener listener) {
         if (mPieRenderer == null) {
@@ -558,8 +552,6 @@ public class VideoUI extends BaseUI implements PieRenderer.PieListener,
 
     // called from onResume but only the first time
     public void initializeFirstTime() {
-        initIndicators();
-
         // Initialize shutter button.
         mShutterButton.setImageResource(R.drawable.btn_new_shutter_video);
         mShutterButton.addOnShutterButtonListener(mController);
@@ -572,18 +564,6 @@ public class VideoUI extends BaseUI implements PieRenderer.PieListener,
         mReviewImage = (ImageView) mRootView.findViewById(R.id.review_image);
         mShutterButton.requestFocus();
         mShutterButton.enableTouch(true);
-    }
-
-    public void updateOnScreenIndicators(Parameters param, ComboPreferences prefs) {
-        if (param == null) {
-            return;
-        }
-        mOnScreenIndicators.updateExposureOnScreenIndicator(param,
-                CameraSettings.readExposure(prefs));
-        mOnScreenIndicators.updateFlashOnScreenIndicator(param.getFlashMode());
-        boolean location = RecordLocationPreference.get(prefs);
-        mOnScreenIndicators.updateLocationIndicator(location);
-
     }
 
     public void setAspectRatio(double ratio) {
@@ -831,7 +811,6 @@ public class VideoUI extends BaseUI implements PieRenderer.PieListener,
 
     public void showRecordingUI(boolean recording) {
         mRecordingStarted = recording;
-        mOnScreenIndicators.setVisibility(recording ? View.GONE : View.VISIBLE);
         if (recording) {
             mShutterButton.setImageResource(R.drawable.shutter_button_video_stop);
             hideSwitcher();
@@ -863,25 +842,15 @@ public class VideoUI extends BaseUI implements PieRenderer.PieListener,
         CameraUtil.fadeIn(mReviewPlayButton);
         mReviewImage.setVisibility(View.VISIBLE);
         mCameraControls.hideCameraSettings();
-        mOnScreenIndicators.setVisibility(View.GONE);
     }
 
     public void hideReviewUI() {
         mReviewImage.setVisibility(View.GONE);
         mShutterButton.setEnabled(true);
         mCameraControls.hideCameraSettings();
-        mOnScreenIndicators.setVisibility(View.VISIBLE);
         CameraUtil.fadeOut(mReviewDoneButton);
         CameraUtil.fadeOut(mReviewPlayButton);
         CameraUtil.fadeIn(mShutterButton);
-    }
-
-    private void setShowMenu(boolean show) {
-        if (mController.isVideoCaptureIntent())
-            return;
-        if (mOnScreenIndicators != null) {
-            mOnScreenIndicators.setVisibility(show ? View.VISIBLE : View.GONE);
-        }
     }
 
     public void onPreviewFocusChanged(boolean previewFocused) {
@@ -894,7 +863,6 @@ public class VideoUI extends BaseUI implements PieRenderer.PieListener,
             // this can not happen in capture mode
             mRenderOverlay.setVisibility(previewFocused ? View.VISIBLE : View.GONE);
         }
-        setShowMenu(previewFocused);
     }
 
     public void initializeZoom(Parameters param) {

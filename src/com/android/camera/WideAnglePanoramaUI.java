@@ -412,9 +412,8 @@ public class WideAnglePanoramaUI extends BaseUI implements
         mShutterButton = (ShutterButton) mRootView.findViewById(R.id.shutter_button);
         mShutterButton.setImageResource(R.drawable.btn_new_shutter);
         mShutterButton.addOnShutterButtonListener(this);
-        // Hide menu and indicators.
+        // Hide menu
         mRootView.findViewById(R.id.menu).setVisibility(View.GONE);
-        mRootView.findViewById(R.id.on_screen_indicators).setVisibility(View.GONE);
         mReview.setBackgroundColor(mReviewBackground);
 
         // TODO: set display change listener properly.

@@ -468,7 +468,6 @@ public class VideoModule extends BaseModule<VideoUI> implements
 
                 case SET_VIDEO_UI_PARAMS: {
                     setCameraParameters(UPDATE_PARAM_PREFERENCE);
-                    mUI.updateOnScreenIndicators(mParameters, mPreferences);
                     break;
                 }
 
@@ -1267,7 +1266,6 @@ public class VideoModule extends BaseModule<VideoUI> implements
 
         mUI.initDisplayChangeListener();
         keepScreenOnAwhile();
-        mUI.updateOnScreenIndicators(mParameters, mPreferences);
         mUI.setSwitcherIndex();
 
         UsageStatistics.onContentViewChanged(
@@ -3148,7 +3146,6 @@ public class VideoModule extends BaseModule<VideoUI> implements
             forceFlashOffIfSupported(forceOff);
             mCameraDevice.setParameters(mParameters);
         }
-        mUI.updateOnScreenIndicators(mParameters, mPreferences);
     }
 
     @Override
