@@ -37,6 +37,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import org.codeaurora.snapcam.R;
+import com.android.camera.CameraManager;
 import com.android.camera.ui.ModuleSwitcher;
 import com.android.camera.ui.RotateImageView;
 import com.android.camera.ShutterButton;
@@ -55,6 +56,8 @@ public class CameraControls extends RotatableLayout {
     private View mPreview;
     private View mSceneModeSwitcher;
     private View mFilterModeSwitcher;
+    private View mAutoHdrNotice;
+    private HistogramView mHistogramView;
     private ArrowTextView mRefocusToast;
 
     private int mSize;
@@ -194,10 +197,12 @@ public class CameraControls extends RotatableLayout {
         mFilterModeSwitcher = findViewById(R.id.filter_mode_switcher);
         mRemainingPhotos = (LinearLayout) findViewById(R.id.remaining_photos);
         mRemainingPhotosText = (TextView) findViewById(R.id.remaining_photos_text);
+        mAutoHdrNotice = (TextView) findViewById(R.id.auto_hdr_notice);
+        mHistogramView = (HistogramView) findViewById(R.id.histogram);
 
         mTopViews = new View[] {
             mSceneModeSwitcher, mFilterModeSwitcher, mHdrSwitcher,
-            mFrontBackSwitcher, mMenu
+            mFrontBackSwitcher, mMenu, mAutoHdrNotice, mHistogramView
         };
         mBottomViews = new View[] {
             mPreview, mShutter, mSwitcher
@@ -249,6 +254,13 @@ public class CameraControls extends RotatableLayout {
         int h = b - t;
         asRow(true, w, h, rotation, mSceneModeSwitcher, mFilterModeSwitcher,
                 mFrontBackSwitcher, mHdrSwitcher, mMenu);
+
+        center(mAutoHdrNotice, l, t + mSize, r,
+                t + mSize + mAutoHdrNotice.getMeasuredHeight(),
+                orientation, rotation, new Rect());
+        center(mHistogramView, l, t + mSize,
+                r, t + mSize + mHistogramView.getMeasuredHeight(),
+                orientation, rotation, new Rect());
 
         Rect expandedShutter = new Rect(shutter);
         switch (rotation) {
@@ -395,6 +407,10 @@ public class CameraControls extends RotatableLayout {
         v.layout(result.left, result.top, result.right, result.bottom);
     }
 
+    public void setAutoHdrEnabled(boolean enabled) {
+        mAutoHdrNotice.setVisibility(enabled ? View.VISIBLE : View.GONE);
+    }
+
     public void hideUI() {
         if (!mAnimating)
             enableTouch(false);
@@ -406,7 +422,17 @@ public class CameraControls extends RotatableLayout {
         mFrontBackSwitcher.animate().setListener(outlistener);
         ((ModuleSwitcher) mSwitcher).removePopup();
         markVisibility();
-        int topTranslation = rotation == 0 || rotation == 90 ? -mSize : mSize;
+
+        // determine needed translation amount
+        int translation = 0;
+        for (View v : mTopViews) {
+            translation = Math.max(translation, v.getBottom());
+        }
+        for (View v : mBottomViews) {
+            translation = Math.max(translation, getHeight() - v.getTop());
+        }
+
+        int topTranslation = rotation == 0 || rotation == 90 ? -translation : translation;
         boolean isYTranslation = rotation == 0 || rotation == 180;
         animateViews(topTranslation, isYTranslation);
         //mRemainingPhotos.getVisibility(View.INVISIBLE);
@@ -422,9 +448,9 @@ public class CameraControls extends RotatableLayout {
         for (View v : views) {
             ViewPropertyAnimator vpa = v.animate();
             if (isYTranslation) {
-                vpa.translationYBy(translation);
+                vpa.translationY(translation);
             } else {
-                vpa.translationXBy(translation);
+                vpa.translationX(translation);
             }
             vpa.setDuration(ANIME_DURATION);
         }
@@ -451,9 +477,8 @@ public class CameraControls extends RotatableLayout {
         mPreview.setVisibility(View.VISIBLE);
 
         mFrontBackSwitcher.animate().setListener(inlistener);
-        int topTranslation = rotation == 0 || rotation == 90 ? mSize : -mSize;
         boolean isYTranslation = rotation == 0 || rotation == 180;
-        animateViews(topTranslation, isYTranslation);
+        animateViews(0, isYTranslation);
         /*if (mRemainingPhotos.getVisibility() == View.INVISIBLE) {
             mRemainingPhotos.setVisibility(View.VISIBLE);
         }*/
@@ -671,11 +696,22 @@ public class CameraControls extends RotatableLayout {
         mRemainingPhotos.setVisibility(show ? View.GONE : View.VISIBLE);
     }
 
+    public void setHistogramEnabled(boolean enabled, CameraManager.CameraProxy camera) {
+        mHistogramView.setVisibility(enabled ? View.VISIBLE : View.GONE);
+        mHistogramView.setCamera(camera);
+    }
+
+    public void updateHistogramData(int[] data) {
+        mHistogramView.updateData(data);
+    }
+
     public void setOrientation(int orientation, boolean animation) {
         mOrientation = orientation;
         for (View v : mAllViews) {
             if (v instanceof RotateImageView) {
                 ((RotateImageView) v).setOrientation(orientation, animation);
+            } else if (v instanceof HistogramView) {
+                ((HistogramView) v).setRotation(-orientation);
             }
         }
         layoutRemaingPhotos();
