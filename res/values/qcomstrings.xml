@@ -86,11 +86,11 @@
     <string name="pref_camera_advanced_feature_default" translatable="false">none</string>
 
     <string name="pref_camera_advanced_feature_entry_none">None</string>
-    <string name="pref_camera_advanced_feature_entry_ubifocus">Ubi Focus</string>
+    <string name="pref_camera_advanced_feature_entry_ubifocus" translatable="false">UbiFocus</string>
     <string name="pref_camera_advanced_feature_entry_refocus">Refocus</string>
-    <string name="pref_camera_advanced_feature_entry_chromaflash">Chroma Flash</string>
-    <string name="pref_camera_advanced_feature_entry_optizoom">Opti Zoom</string>
-    <string name="pref_camera_advanced_feature_entry_FSSR">FSSR</string>
+    <string name="pref_camera_advanced_feature_entry_chromaflash" translatable="false">ChromaFlash</string>
+    <string name="pref_camera_advanced_feature_entry_optizoom" translatable="false">OptiZoom</string>
+    <string name="pref_camera_advanced_feature_entry_FSSR" translatable="false">FSSR</string>
     <string name="pref_camera_advanced_feature_entry_trueportrait">True Portrait</string>
     <string name="pref_camera_advanced_feature_entry_multi_touch_focus">Multi-touch Focus</string>
 
@@ -186,7 +186,7 @@
     <string name="pref_camera_hfr_entry_hsr_120">High speed 120 FPS</string>
 
     <!-- See More -->
-    <string name="pref_camera_see_more_title">See More</string>
+    <string name="pref_camera_see_more_title" translatable="false">SeeMore</string>
     <string name="pref_camera_see_more_default" translatable="false">off</string>
 
     <!-- Denoise -->
