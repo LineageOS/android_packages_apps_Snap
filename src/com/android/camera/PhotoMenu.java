@@ -644,7 +644,8 @@ public class PhotoMenu extends MenuController
         if ((faceDetection != null) && !Parameters.FACE_DETECTION_ON.equals(faceDetection)) {
             popup1.setPreferenceEnabled(CameraSettings.KEY_FACE_RECOGNITION, false);
         }
-        popup1.setPreferenceEnabled(CameraSettings.KEY_ZSL, !mUI.isCountingDown());
+        popup1.setPreferenceEnabled(CameraSettings.KEY_ZSL, !mUI.isCountingDown() &&
+                !mActivity.getResources().getBoolean(R.bool.back_camera_force_disable_zsl));
 
         pref = mPreferenceGroup.findPreference(CameraSettings.KEY_ADVANCED_FEATURES);
         String advancedFeatures = (pref != null) ? pref.getValue() : null;
@@ -697,6 +698,13 @@ public class PhotoMenu extends MenuController
                     buttonSetEnabled(mHdrSwitcher, true);
                 }
             }
+        }
+
+        if (CameraHolder.instance().isBackCamera() &&
+                mActivity.getResources().getBoolean(R.bool.back_camera_force_disable_zsl)) {
+            popup1.setPreferenceEnabled(CameraSettings.KEY_ZSL, false);
+        } else {
+            popup1.setPreferenceEnabled(CameraSettings.KEY_ZSL, true);
         }
 
         if (mListener != null) {
