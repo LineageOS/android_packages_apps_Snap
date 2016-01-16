@@ -317,4 +317,8 @@ public class CameraHolder {
     public int getFrontCameraId() {
         return mFrontCameraId;
     }
+
+    public boolean isBackCamera() {
+        return mCameraId == getBackCameraId();
+    }
 }

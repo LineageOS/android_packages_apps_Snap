@@ -1684,6 +1684,15 @@ public class PhotoModule
         }
     }
 
+    private String getZslMode() {
+        CameraInfo camInfo = CameraHolder.instance().getCameraInfo()[mCameraId];
+        if (camInfo.facing == CameraInfo.CAMERA_FACING_BACK &&
+                mActivity.getResources().getBoolean(R.bool.back_camera_force_disable_zsl))
+            return Parameters.ZSL_OFF;
+        return mPreferences.getString(CameraSettings.KEY_ZSL,
+                mActivity.getString(R.string.pref_camera_zsl_default));
+    }
+
     private void updateCommonManual3ASettings() {
         mSceneMode = Parameters.SCENE_MODE_AUTO;
         String flashMode = Parameters.FLASH_MODE_OFF;
@@ -2171,9 +2180,7 @@ public class PhotoModule
             mUI.cancelCountDown();
         }
         if (seconds > 0) {
-            String zsl = mPreferences.getString(CameraSettings.KEY_ZSL,
-                    mActivity.getString(R.string.pref_camera_zsl_default));
-            mUI.overrideSettings(CameraSettings.KEY_ZSL, zsl);
+            mUI.overrideSettings(CameraSettings.KEY_ZSL, getZslMode());
             mUI.startCountDown(seconds, playSound);
         } else {
             mSnapshotOnIdle = false;
@@ -2766,8 +2773,7 @@ public class PhotoModule
     }
     private boolean needRestart() {
         mRestartPreview = false;
-        String zsl = mPreferences.getString(CameraSettings.KEY_ZSL,
-                                  mActivity.getString(R.string.pref_camera_zsl_default));
+        String zsl = getZslMode();
         if(zsl.equals("on") && mSnapshotMode != CameraInfo.CAMERA_SUPPORT_MODE_ZSL
            && mCameraState != PREVIEW_STOPPED) {
             //Switch on ZSL Camera mode
@@ -3173,8 +3179,6 @@ public class PhotoModule
             mParameters.setAntibanding(antiBanding);
         }
 
-        String zsl = mPreferences.getString(CameraSettings.KEY_ZSL,
-                                  mActivity.getString(R.string.pref_camera_zsl_default));
         String auto_hdr = mPreferences.getString(CameraSettings.KEY_AUTO_HDR,
                                        mActivity.getString(R.string.pref_camera_hdr_default));
         if (CameraUtil.isAutoHDRSupported(mParameters)) {
@@ -3201,6 +3205,8 @@ public class PhotoModule
                 });
             }
         }
+
+        String zsl = getZslMode();
         mParameters.setZSLMode(zsl);
         if(zsl.equals("on")) {
             //Switch on ZSL Camera mode
