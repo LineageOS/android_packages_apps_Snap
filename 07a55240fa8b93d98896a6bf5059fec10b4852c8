@@ -16,6 +16,24 @@
       "revId": "07a55240fa8b93d98896a6bf5059fec10b4852c8",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1fcbff3d_c06462bc",
+        "filename": "src/com/android/camera/PhotoModule.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 3250,
+      "author": {
+        "id": 13897
+      },
+      "writtenOn": "2016-01-16T07:52:15Z",
+      "side": 1,
+      "message": "Yeah, definitely...\n\nI should check whether it\u0027s better to force zsl to off or skip the code here below though.",
+      "parentUuid": "1fcbff3d_20c5268f",
+      "revId": "07a55240fa8b93d98896a6bf5059fec10b4852c8",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
