@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1fcbff3d_40007235",
+        "filename": "src/com/android/camera/PhotoModule.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 2690,
+      "author": {
+        "id": 8328
+      },
+      "writtenOn": "2016-01-16T19:41:08Z",
+      "side": 1,
+      "message": "already initialized here, if it would be null, the below block would throw a NPE",
+      "range": {
+        "startLine": 2690,
+        "startChar": 8,
+        "endLine": 2690,
+        "endChar": 60
+      },
+      "revId": "4b99617d2ff6a009d0956f3377107b42471f30c1",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
