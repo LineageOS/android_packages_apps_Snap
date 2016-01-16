@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1fcbff3d_20c5268f",
+        "filename": "src/com/android/camera/PhotoModule.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 3250,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2016-01-16T07:41:59Z",
+      "side": 1,
+      "message": "Shouldn\u0027t the if clause include the whole code block below?",
+      "revId": "07a55240fa8b93d98896a6bf5059fec10b4852c8",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
