@@ -699,6 +699,14 @@ public class PhotoMenu extends MenuController
             }
         }
 
+        if (CameraHolder.instance().isBackCamera() &&
+                mActivity.getResources().getBoolean(R.bool.back_camera_force_disable_zsl)) {
+            popup1.setPreferenceEnabled(CameraSettings.KEY_ZSL, false);
+            mUI.setPreference(CameraSettings.KEY_ZSL, Parameters.ZSL_OFF);
+        } else {
+            popup1.setPreferenceEnabled(CameraSettings.KEY_ZSL, true);
+        }
+
         if (mListener != null) {
             mListener.onSharedPreferenceChanged();
         }

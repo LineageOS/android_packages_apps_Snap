@@ -61,4 +61,7 @@
 
     <!-- Enable support for LGE HDR -->
     <bool name="lge_hdr_mode">false</bool>
+
+    <!-- Disable ZSL and hide related option for back camera -->
+    <bool name="back_camera_force_disable_zsl">false</bool>
 </resources>
