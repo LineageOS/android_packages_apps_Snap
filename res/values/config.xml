@@ -61,4 +61,9 @@
 
     <!-- Enable support for LGE HDR -->
     <bool name="lge_hdr_mode">false</bool>
+
+    <!-- Disable ZSL on camera initialization. This is needed to restore the
+         original sensor configuration in case the HAL configured specifically
+         for ZSL. -->
+    <bool name="use_zsl_workaround">false</bool>
 </resources>

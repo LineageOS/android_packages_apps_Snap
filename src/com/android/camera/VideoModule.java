@@ -216,6 +216,8 @@ public class VideoModule implements CameraModule,
     // The preview window is on focus
     private boolean mPreviewFocused = false;
 
+    private boolean mZslWorkaround = false;
+
     private final MediaSaveService.OnMediaSavedListener mOnVideoSavedListener =
             new MediaSaveService.OnMediaSavedListener() {
                 @Override
@@ -450,6 +452,7 @@ public class VideoModule implements CameraModule,
         mPreferences = new ComboPreferences(mActivity);
         CameraSettings.upgradeGlobalPreferences(mPreferences.getGlobal(), activity);
         mCameraId = getPreferredCameraId(mPreferences);
+        mZslWorkaround = mActivity.getResources().getBoolean(R.bool.use_zsl_workaround);
 
         mPreferences.setLocalId(mActivity, mCameraId);
         CameraSettings.upgradeLocalPreferences(mPreferences.getLocal());
@@ -1206,6 +1209,10 @@ public class VideoModule implements CameraModule,
         mCameraDevice.setErrorCallback(mErrorCallback);
         if (mPreviewing == true) {
             stopPreview();
+        }
+
+        if (mZslWorkaround) {
+            mParameters.setZSLMode(Parameters.ZSL_OFF);
         }
 
         setDisplayOrientation();

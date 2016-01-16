@@ -249,6 +249,8 @@ public class PhotoModule
 
     private boolean mShutterPressing = false;
 
+    private boolean mZslWorkaround = false;
+
     private static Context mApplicationContext = null;
 
     private Runnable mDoSnapRunnable = new Runnable() {
@@ -522,9 +524,10 @@ public class PhotoModule
         mSoundPool = new SoundPool(1, AudioManager.STREAM_NOTIFICATION, 0);
         mRefocusSound = mSoundPool.load(mActivity, R.raw.camera_click_x5, 1);
 
-        // LGE HDR mode
         if (mApplicationContext != null) {
+            // LGE HDR mode
             mLgeHdrMode = mApplicationContext.getResources().getBoolean(R.bool.lge_hdr_mode);
+            mZslWorkaround = mApplicationContext.getResources().getBoolean(R.bool.use_zsl_workaround);
         }
     }
 
@@ -2737,6 +2740,10 @@ public class PhotoModule
 
     @SuppressWarnings("deprecation")
     private void updateCameraParametersInitialize() {
+        if (mZslWorkaround) {
+            mParameters.setZSLMode(Parameters.ZSL_OFF);
+        }
+
         // Reset preview frame rate to the maximum because it may be lowered by
         // video camera application.
         int[] fpsRange = CameraUtil.getPhotoPreviewFpsRange(mParameters);
