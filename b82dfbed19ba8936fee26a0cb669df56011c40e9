@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1fcbff3d_03735417",
+        "filename": "src/com/android/camera/MediaSaveService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 523
+      },
+      "writtenOn": "2016-01-17T02:47:05Z",
+      "side": 1,
+      "message": "should be updated too",
+      "range": {
+        "startLine": 42,
+        "startChar": 45,
+        "endLine": 42,
+        "endChar": 49
+      },
+      "revId": "b82dfbed19ba8936fee26a0cb669df56011c40e9",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
