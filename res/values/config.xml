@@ -61,4 +61,28 @@
 
     <!-- Enable support for LGE HDR -->
     <bool name="lge_hdr_mode">false</bool>
+
+    <!-- Configs to control misc menu options -->
+    <bool name="show_auto_hdr_option">false</bool>
+    <bool name="show_hdr_mode_option">false</bool>
+    <bool name="show_hdr_need_1x_option">false</bool>
+    <bool name="show_cds_mode_option">false</bool>
+    <bool name="show_tnr_mode_option">false</bool>
+    <bool name="show_histogram_option">false</bool>
+    <bool name="show_zsl_option">false</bool>
+    <bool name="show_timer_sound_effects_option">false</bool>
+    <bool name="show_face_recognition_option">false</bool>
+    <bool name="show_selectable_zone_af_option">false</bool>
+    <bool name="show_picture_format_option">false</bool>
+    <bool name="show_saturation_option">false</bool>
+    <bool name="show_contrast_option">false</bool>
+    <bool name="show_sharpness_option">false</bool>
+    <bool name="show_autoexposure_option">false</bool>
+    <bool name="show_denoise_option">false</bool>
+    <bool name="show_antibanding_option">false</bool>
+    <bool name="show_advanced_features_option">false</bool>
+    <bool name="show_ae_bracket_hdr_option">false</bool>
+    <bool name="show_manual_exposure_option">false</bool>
+    <bool name="show_manual_wb_option">false</bool>
+    <bool name="show_manual_focus_option">false</bool>
 </resources>
