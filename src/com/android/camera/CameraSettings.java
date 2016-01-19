@@ -647,6 +647,7 @@ public class CameraSettings {
     private void qcomInitPreferences(PreferenceGroup group){
         //Qcom Preference add here
         ListPreference zsl = group.findPreference(KEY_ZSL);
+        ListPreference timerSoundEffects = group.findPreference(KEY_TIMER_SOUND_EFFECTS);
         ListPreference colorEffect = group.findPreference(KEY_COLOR_EFFECT);
         ListPreference camcorderColorEffect = group.findPreference(KEY_VIDEOCAMERA_COLOR_EFFECT);
         ListPreference faceDetection = group.findPreference(KEY_FACE_DETECTION);
@@ -687,19 +688,29 @@ public class CameraSettings {
             mIso = removeLeadingISO(mIso);
         }
 
+        if (auto_hdr != null) {
+            isQcomPreferenceEnabled(group, auto_hdr);
+        }
+
         if (hdr_need_1x != null) {
-            filterUnsupportedOptions(group,
-                    hdr_need_1x, getSupportedHDRNeed1x(mParameters));
+            if (isQcomPreferenceEnabled(group, hdr_need_1x)) {
+                filterUnsupportedOptions(group,
+                        hdr_need_1x, getSupportedHDRNeed1x(mParameters));
+            }
         }
 
         if (hdr_mode != null) {
-            filterUnsupportedOptions(group,
-                    hdr_mode, getSupportedHDRModes(mParameters));
+            if (isQcomPreferenceEnabled(group, hdr_mode)) {
+                filterUnsupportedOptions(group,
+                        hdr_mode, getSupportedHDRModes(mParameters));
+            }
         }
 
         if (cds_mode != null) {
-            filterUnsupportedOptions(group,
-                    cds_mode, getSupportedCDSModes(mParameters));
+            if (isQcomPreferenceEnabled(group, cds_mode)) {
+                filterUnsupportedOptions(group,
+                        cds_mode, getSupportedCDSModes(mParameters));
+            }
         }
 
         if (video_cds_mode != null) {
@@ -708,8 +719,10 @@ public class CameraSettings {
         }
 
         if (tnr_mode != null) {
-            filterUnsupportedOptions(group,
-                    tnr_mode, getSupportedTNRModes(mParameters));
+            if (isQcomPreferenceEnabled(group, tnr_mode)) {
+                filterUnsupportedOptions(group,
+                        tnr_mode, getSupportedTNRModes(mParameters));
+            }
         }
 
         if (video_tnr_mode != null) {
@@ -720,23 +733,37 @@ public class CameraSettings {
         ListPreference videoRotation = group.findPreference(KEY_VIDEO_ROTATION);
 
         if (selectableZoneAf != null) {
-            filterUnsupportedOptions(group,
-                    selectableZoneAf, mParameters.getSupportedSelectableZoneAf());
+            if (isQcomPreferenceEnabled(group, selectableZoneAf)) {
+                filterUnsupportedOptions(group,
+                        selectableZoneAf, mParameters.getSupportedSelectableZoneAf());
+            }
         }
 
-        if (saturation != null && !CameraUtil.isSupported(mParameters, "saturation") &&
+        if (saturation != null) {
+            if (!CameraUtil.isSupported(mParameters, "saturation") &&
                 !CameraUtil.isSupported(mParameters, "max-saturation")) {
-            removePreference(group, saturation.getKey());
+                removePreference(group, saturation.getKey());
+            } else {
+                isQcomPreferenceEnabled(group, saturation);
+            }
         }
 
-        if (contrast != null && !CameraUtil.isSupported(mParameters, "contrast") &&
+        if (contrast != null) {
+            if (!CameraUtil.isSupported(mParameters, "contrast") &&
                 !CameraUtil.isSupported(mParameters, "max-contrast")) {
-            removePreference(group, contrast.getKey());
+                removePreference(group, contrast.getKey());
+            } else {
+                isQcomPreferenceEnabled(group, contrast);
+            }
         }
 
-        if (sharpness != null && !CameraUtil.isSupported(mParameters, "sharpness") &&
+        if (sharpness != null) {
+            if (!CameraUtil.isSupported(mParameters, "sharpness") &&
                 !CameraUtil.isSupported(mParameters, "max-sharpness")) {
-            removePreference(group, sharpness.getKey());
+                removePreference(group, sharpness.getKey());
+            } else {
+                isQcomPreferenceEnabled(group, sharpness);
+            }
         }
 
         if (mIso != null) {
@@ -755,8 +782,10 @@ public class CameraSettings {
         }
 
         if (denoise != null) {
-            filterUnsupportedOptions(group,
-                    denoise, mParameters.getSupportedDenoiseModes());
+            if (isQcomPreferenceEnabled(group, denoise)) {
+                filterUnsupportedOptions(group,
+                        denoise, mParameters.getSupportedDenoiseModes());
+            }
         }
 
         if (videoHdr != null) {
@@ -775,23 +804,39 @@ public class CameraSettings {
         }
 
         if (aeBracketing != null) {
-            filterUnsupportedOptions(group,
-                     aeBracketing, getSupportedAEBracketingModes(mParameters));
+            if (isQcomPreferenceEnabled(group, aeBracketing)) {
+                filterUnsupportedOptions(group,
+                         aeBracketing, getSupportedAEBracketingModes(mParameters));
+            }
         }
 
         if (antiBanding != null) {
-            filterUnsupportedOptions(group,
-                    antiBanding, mParameters.getSupportedAntibanding());
+            if (isQcomPreferenceEnabled(group, antiBanding)) {
+                filterUnsupportedOptions(group,
+                        antiBanding, mParameters.getSupportedAntibanding());
+            }
         }
 
         if (faceRC != null) {
-            filterUnsupportedOptions(group,
-                    faceRC, getSupportedFaceRecognitionModes(mParameters));
+            if (isQcomPreferenceEnabled(group, faceRC)) {
+                filterUnsupportedOptions(group,
+                        faceRC, getSupportedFaceRecognitionModes(mParameters));
+            }
+        }
+
+        if (zsl != null) {
+            isQcomPreferenceEnabled(group, zsl);
+        }
+
+        if (timerSoundEffects != null) {
+            isQcomPreferenceEnabled(group, timerSoundEffects);
         }
 
         if (autoExposure != null) {
-            filterUnsupportedOptions(group,
-                    autoExposure, mParameters.getSupportedAutoexposure());
+            if (isQcomPreferenceEnabled(group, autoExposure)) {
+                filterUnsupportedOptions(group,
+                        autoExposure, mParameters.getSupportedAutoexposure());
+            }
         }
 
         if (videoSnapSize != null) {
@@ -799,21 +844,27 @@ public class CameraSettings {
                     mParameters.getSupportedPictureSizes()));
         }
 
-        if (histogram!= null) {
-            filterUnsupportedOptions(group,
-                    histogram, mParameters.getSupportedHistogramModes());
+        if (histogram != null) {
+            if (isQcomPreferenceEnabled(group, histogram)) {
+                filterUnsupportedOptions(group,
+                        histogram, mParameters.getSupportedHistogramModes());
+            }
         }
 
-        if (pictureFormat!= null) {
-            filterUnsupportedOptions(group,
-                    pictureFormat, getSupportedPictureFormatLists());
+        if (pictureFormat != null) {
+            if (isQcomPreferenceEnabled(group, pictureFormat)) {
+                filterUnsupportedOptions(group,
+                        pictureFormat, getSupportedPictureFormatLists());
+            }
         }
 
         if(advancedFeatures != null) {
-            filterUnsupportedOptions(group,
-                    advancedFeatures, getSupportedAdvancedFeatures(mParameters));
+            if (isQcomPreferenceEnabled(group, advancedFeatures)) {
+                filterUnsupportedOptions(group,
+                        advancedFeatures, getSupportedAdvancedFeatures(mParameters));
+            }
         }
-        if (longShot!= null && !isLongshotSupported(mParameters)) {
+        if (longShot != null && !isLongshotSupported(mParameters)) {
             removePreference(group, longShot.getKey());
         }
 
@@ -823,18 +874,24 @@ public class CameraSettings {
         }
 
         if (manualFocus != null) {
-            filterUnsupportedOptions(group,
-                    manualFocus, getSupportedManualFocusModes(mParameters));
+            if (isQcomPreferenceEnabled(group, manualFocus)) {
+                filterUnsupportedOptions(group,
+                        manualFocus, getSupportedManualFocusModes(mParameters));
+            }
         }
 
         if (manualWB != null) {
-            filterUnsupportedOptions(group,
-                    manualWB, getSupportedManualWBModes(mParameters));
+            if (isQcomPreferenceEnabled(group, manualWB)) {
+                filterUnsupportedOptions(group,
+                        manualWB, getSupportedManualWBModes(mParameters));
+            }
         }
 
         if (manualExposure != null) {
-            filterUnsupportedOptions(group,
-                    manualExposure, getSupportedManualExposureModes(mParameters));
+            if (isQcomPreferenceEnabled(group, manualExposure)) {
+                filterUnsupportedOptions(group,
+                        manualExposure, getSupportedManualExposureModes(mParameters));
+            }
         }
     }
 
@@ -1030,6 +1087,167 @@ public class CameraSettings {
             }
         }
         return false;
+    }
+
+    private boolean isQcomPreferenceEnabled(PreferenceGroup group, ListPreference pref) {
+        boolean isDeveloper = ((CameraActivity) mContext).isDeveloperMenuEnabled();
+        if (!isDeveloper) {
+            switch(pref.getKey()) {
+                case KEY_AUTO_HDR:
+                    boolean autoHdrOption = mContext.getResources().getBoolean(R.bool.show_auto_hdr_option);
+                    if (!autoHdrOption) {
+                        removePreference(group, pref.getKey());
+                        return false;
+                    }
+                break;
+                case KEY_HDR_MODE:
+                    boolean hdrModeOption = mContext.getResources().getBoolean(R.bool.show_hdr_mode_option);
+                    if (!hdrModeOption) {
+                        removePreference(group, pref.getKey());
+                        return false;
+                    }
+                break;
+                case KEY_HDR_NEED_1X:
+                    boolean hdrNeed1xOption = mContext.getResources().getBoolean(R.bool.show_hdr_need_1x_option);
+                    if (!hdrNeed1xOption) {
+                        removePreference(group, pref.getKey());
+                        return false;
+                    }
+                break;
+                case KEY_CDS_MODE:
+                    boolean cdsOption = mContext.getResources().getBoolean(R.bool.show_cds_mode_option);
+                    if (!cdsOption) {
+                        removePreference(group, pref.getKey());
+                        return false;
+                    }
+                case KEY_TNR_MODE:
+                    boolean tnrOption = mContext.getResources().getBoolean(R.bool.show_tnr_mode_option);
+                    if (!tnrOption) {
+                        removePreference(group, pref.getKey());
+                        return false;
+                    }
+                break;
+                case KEY_HISTOGRAM:
+                    boolean histogramOption = mContext.getResources().getBoolean(R.bool.show_histogram_option);
+                    if (!histogramOption) {
+                        removePreference(group, pref.getKey());
+                        return false;
+                    }
+                break;
+                case KEY_ZSL:
+                    boolean zslOption = mContext.getResources().getBoolean(R.bool.show_zsl_option);
+                    if (!zslOption) {
+                        removePreference(group, pref.getKey());
+                        return false;
+                    }
+                break;
+                case KEY_TIMER_SOUND_EFFECTS:
+                    boolean timerSoundEffectsOption = mContext.getResources().getBoolean(R.bool.show_timer_sound_effects_option);
+                    if (!timerSoundEffectsOption) {
+                        removePreference(group, pref.getKey());
+                        return false;
+                    }
+                break;
+                case KEY_FACE_RECOGNITION:
+                    boolean faceRecognitionOption = mContext.getResources().getBoolean(R.bool.show_face_recognition_option);
+                    if (!faceRecognitionOption) {
+                        removePreference(group, pref.getKey());
+                        return false;
+                    }
+                break;
+                case KEY_SELECTABLE_ZONE_AF:
+                    boolean selectableZoneAfOption = mContext.getResources().getBoolean(R.bool.show_selectable_zone_af_option);
+                    if (!selectableZoneAfOption) {
+                        removePreference(group, pref.getKey());
+                        return false;
+                    }
+                break;
+                case KEY_PICTURE_FORMAT:
+                    boolean pictureFormatOption = mContext.getResources().getBoolean(R.bool.show_picture_format_option);
+                    if (!pictureFormatOption) {
+                        removePreference(group, pref.getKey());
+                        return false;
+                    }
+                case KEY_SATURATION:
+                    boolean saturationOption = mContext.getResources().getBoolean(R.bool.show_saturation_option);
+                    if (!saturationOption) {
+                        removePreference(group, pref.getKey());
+                        return false;
+                    }
+                break;
+                case KEY_CONTRAST:
+                    boolean contrastOption = mContext.getResources().getBoolean(R.bool.show_contrast_option);
+                    if (!contrastOption) {
+                        removePreference(group, pref.getKey());
+                        return false;
+                    }
+                case KEY_SHARPNESS:
+                    boolean sharpnessOption = mContext.getResources().getBoolean(R.bool.show_sharpness_option);
+                    if (!sharpnessOption) {
+                        removePreference(group, pref.getKey());
+                        return false;
+                    }
+                case KEY_AUTOEXPOSURE:
+                    boolean autoexposureOption = mContext.getResources().getBoolean(R.bool.show_autoexposure_option);
+                    if (!autoexposureOption) {
+                        removePreference(group, pref.getKey());
+                        return false;
+                    }
+                break;
+                case KEY_DENOISE:
+                    boolean denoiseOption = mContext.getResources().getBoolean(R.bool.show_denoise_option);
+                    if (!denoiseOption) {
+                        removePreference(group, pref.getKey());
+                        return false;
+                    }
+                break;
+                case KEY_ANTIBANDING:
+                    boolean antibandingOption = mContext.getResources().getBoolean(R.bool.show_antibanding_option);
+                    if (!antibandingOption) {
+                        removePreference(group, pref.getKey());
+                        return false;
+                    }
+                break;
+                case KEY_ADVANCED_FEATURES:
+                    boolean advancedFeaturesOption = mContext.getResources().getBoolean(R.bool.show_advanced_features_option);
+                    if (!advancedFeaturesOption) {
+                        removePreference(group, pref.getKey());
+                        return false;
+                    }
+                break;
+                case KEY_AE_BRACKET_HDR:
+                    boolean aeBracketHdrOption = mContext.getResources().getBoolean(R.bool.show_ae_bracket_hdr_option);
+                    if (!aeBracketHdrOption) {
+                        removePreference(group, pref.getKey());
+                        return false;
+                    }
+                break;
+                case KEY_MANUAL_EXPOSURE:
+                    boolean manualExposureOption = mContext.getResources().getBoolean(R.bool.show_manual_exposure_option);
+                    if (!manualExposureOption) {
+                        removePreference(group, pref.getKey());
+                        return false;
+                    }
+                break;
+                case KEY_MANUAL_WB:
+                    boolean manualWbOption = mContext.getResources().getBoolean(R.bool.show_manual_wb_option);
+                    if (!manualWbOption) {
+                        removePreference(group, pref.getKey());
+                        return false;
+                    }
+                break;
+                case KEY_MANUAL_FOCUS:
+                    boolean manualFocusOption = mContext.getResources().getBoolean(R.bool.show_manual_focus_option);
+                    if (!manualFocusOption) {
+                        removePreference(group, pref.getKey());
+                        return false;
+                    }
+                break;
+                default:
+                    return true;
+            }
+        }
+        return true;
     }
 
     private void filterUnsupportedOptions(PreferenceGroup group,

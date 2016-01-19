@@ -68,8 +68,7 @@ public class PhotoMenu extends MenuController
     private final String mSettingOff;
     private final String mSettingOn;
 
-    private String[] mOtherKeys1;
-    private String[] mOtherKeys2;
+    private String[] keys;
     private ListMenu mListMenu;
     private View mPreviewMenu;
     private static final int POPUP_NONE = 0;
@@ -142,27 +141,7 @@ public class PhotoMenu extends MenuController
             mHdrSwitcher.setVisibility(View.INVISIBLE);
         }
 
-        mOtherKeys1 = new String[] {
-                CameraSettings.KEY_FLASH_MODE,
-                CameraSettings.KEY_RECORD_LOCATION,
-                CameraSettings.KEY_PICTURE_SIZE,
-                CameraSettings.KEY_JPEG_QUALITY,
-                CameraSettings.KEY_TIMER,
-                CameraSettings.KEY_CAMERA_SAVEPATH,
-                CameraSettings.KEY_LONGSHOT,
-                CameraSettings.KEY_FACE_DETECTION,
-                CameraSettings.KEY_ISO,
-                CameraSettings.KEY_EXPOSURE,
-                CameraSettings.KEY_WHITE_BALANCE,
-                CameraSettings.KEY_FOCUS_MODE,
-                CameraSettings.KEY_FOCUS_TIME,
-                CameraSettings.KEY_SHUTTER_SPEED,
-                CameraSettings.KEY_REDEYE_REDUCTION,
-                CameraSettings.KEY_POWER_SHUTTER,
-                CameraSettings.KEY_MAX_BRIGHTNESS
-        };
-
-        mOtherKeys2 = new String[] {
+        keys = new String[] {
                 CameraSettings.KEY_FLASH_MODE,
                 CameraSettings.KEY_RECORD_LOCATION,
                 CameraSettings.KEY_PICTURE_SIZE,
@@ -599,9 +578,6 @@ public class PhotoMenu extends MenuController
 
         popup1.setSettingChangedListener(this);
 
-        String[] keys = mOtherKeys1;
-        if (mActivity.isDeveloperMenuEnabled())
-            keys = mOtherKeys2;
         popup1.initialize(mPreferenceGroup, keys);
         if (mActivity.isSecureCamera()) {
             // Prevent location preference from getting changed in secure camera
