@@ -21,7 +21,7 @@
 
     <color name="red">#F44336</color>
     <color name="green">#4CAF50</color>
-    <color name="blue">#3F51B5</color>
+    <color name="blue">#2196F3</color>
 
     <color name="pic">@color/white</color>
     <color name="pic_pressed">@color/grey</color>
