@@ -2,10 +2,16 @@
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
     android:width="@dimen/shutter_size"
     android:height="@dimen/shutter_size"
-    android:viewportWidth="24"
-    android:viewportHeight="24">
+    android:viewportWidth="80"
+    android:viewportHeight="80">
 
     <path
         android:fillColor="@color/pic_pressed"
-        android:pathData="M 12 2 C 17.5228474983 2 22 6.47715250169 22 12 C 22 17.5228474983 17.5228474983 22 12 22 C 6.47715250169 22 2 17.5228474983 2 12 C 2 6.47715250169 6.47715250169 2 12 2 Z" />
+        android:strokeWidth="1"
+        android:pathData="M 40 12.5 C 55.1878306203 12.5 67.5 24.8121693797 67.5 40 C 67.5 55.1878306203 55.1878306203 67.5 40 67.5 C 24.8121693797 67.5 12.5 55.1878306203 12.5 40 C 12.5 24.8121693797 24.8121693797 12.5 40 12.5 Z" />
+    <path
+        android:strokeColor="@color/blue"
+        android:strokeWidth="7"
+        android:pathData="M 40 3.5 C 60.1583933688 3.5 76.5 19.8416066312 76.5 40 C 76.5 60.1583933688 60.1583933688 76.5 40 76.5 C 19.8416066312 76.5 3.5 60.1583933688 3.5 40 C 3.5 19.8416066312 19.8416066312 3.5 40 3.5 Z" />
+
 </vector>
