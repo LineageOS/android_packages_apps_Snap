@@ -76,5 +76,5 @@
     <color name="list_divider_color">@color/black</color>
 
     <color name="camera_control_bg_opaque">@color/black</color>
-    <color name="camera_control_bg_transparent">@color/black</color>
+    <color name="camera_control_bg_transparent">#40212121</color>
 </resources>
