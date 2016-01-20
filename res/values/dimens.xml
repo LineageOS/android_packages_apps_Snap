@@ -174,4 +174,6 @@
     <!-- Margins for 4:3 preview on 16:9 screen with 640dp height -->
     <dimen name="preview_top_margin">57dp</dimen>
     <dimen name="preview_bottom_margin">103dp</dimen>
+
+    <dimen name="shutter_stroke">8dp</dimen>
 </resources>
