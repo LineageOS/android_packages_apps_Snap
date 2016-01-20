@@ -26,7 +26,7 @@
             camera:entries="@array/pref_camera_flashmode_entries"
             camera:entryValues="@array/pref_camera_flashmode_entryvalues"
             camera:labelList="@array/pref_camera_flashmode_labels"
-            camera:singleIcon="@drawable/ic_settings_flash" />
+            camera:singleIcon="@drawable/ic_flash_on" />
     <IconListPreference
             camera:key="pref_camera_exposure_key"
             camera:defaultValue="@string/pref_exposure_default"
@@ -79,29 +79,32 @@
             camera:entries="@array/pref_camera_focusmode_entries"
             camera:labelList="@array/pref_camera_focusmode_labels"
             camera:entryValues="@array/pref_camera_focusmode_entryvalues" />
-     <IconListPreference
+    <IconListPreference
             camera:key="pref_camera_focustime_key"
             camera:defaultValue="@string/pref_camera_focustime_default"
             camera:title="@string/pref_camera_focustime_title"
             camera:singleIcon="@drawable/ic_settings_focus_time"
             camera:entries="@array/pref_camera_focustime_duration_entries"
             camera:entryValues="@array/pref_camera_focustime_duration_values" />
-    <ListPreference
+    <IconListPreference
             camera:key="pref_camera_ae_bracket_hdr_key"
             camera:defaultValue="@string/pref_camera_ae_bracket_hdr_default"
             camera:title="@string/pref_camera_ae_bracket_hdr_title"
+            camera:singleIcon="@drawable/ic_settings_ae"
             camera:entries="@array/pref_camera_ae_bracket_hdr_entries"
             camera:entryValues="@array/pref_camera_ae_bracket_hdr_entryvalues" />
-     <ListPreference
+    <IconListPreference
             camera:key="pref_camera_cds_mode_key"
             camera:defaultValue="@string/pref_camera_cds_default"
             camera:title="@string/pref_camera_cds_title"
+            camera:singleIcon="@drawable/ic_settings_cds"
             camera:entries="@array/pref_camera_cds_entries"
             camera:entryValues="@array/pref_camera_cds_entryvalues" />
-    <ListPreference
+    <IconListPreference
             camera:key="pref_camera_tnr_mode_key"
             camera:defaultValue="@string/pref_camera_tnr_default"
             camera:title="@string/pref_camera_tnr_title"
+            camera:singleIcon="@drawable/ic_settings_tnr"
             camera:entries="@array/pref_camera_tnr_entries"
             camera:entryValues="@array/pref_camera_tnr_entryvalues" />
     <IconListPreference
@@ -135,22 +138,25 @@
             camera:defaultValue="@string/pref_camera_timer_default"
             camera:singleIcon="@drawable/ic_settings_countdowntimer"
             camera:title="@string/pref_camera_timer_title" />
-    <ListPreference
+    <IconListPreference
             camera:key="pref_camera_timer_sound_key"
             camera:defaultValue="@string/pref_camera_timer_sound_default"
             camera:title="@string/pref_camera_timer_sound_title"
+            camera:singleIcon="@drawable/ic_settings_sound"
             camera:entries="@array/pref_camera_timer_sound_entries"
             camera:entryValues="@array/pref_camera_timer_sound_entryvalues" />
-    <ListPreference
+    <IconListPreference
             camera:key="pref_camera_scenedetect_key"
             camera:defaultValue="@string/pref_camera_scenedetect_default"
             camera:title="@string/pref_camera_scenedetect_title"
+            camera:singleIcon="@drawable/ic_sce"
             camera:entries="@array/pref_camera_scenedetect_entries"
             camera:entryValues="@array/pref_camera_scenedetect_entryvalues" />
-    <ListPreference
+    <IconListPreference
             camera:key="pref_camera_facerc_key"
             camera:defaultValue="@string/pref_camera_facerc_default"
             camera:title="@string/pref_camera_facerc_title"
+            camera:singleIcon="@drawable/ic_settings_facerec"
             camera:entries="@array/pref_camera_facerc_entries"
             camera:entryValues="@array/pref_camera_facerc_entryvalues" />
     <IconListPreference
@@ -184,58 +190,67 @@
             camera:entries="@array/pref_camera_iso_entries"
             camera:singleIcon="@drawable/ic_settings_iso"
             camera:entryValues="@array/pref_camera_iso_entryvalues" />
-    <ListPreference
+    <IconListPreference
             camera:key="pref_camera_histogram_key"
             camera:defaultValue="@string/pref_camera_histogram_default"
             camera:title="@string/pref_camera_histogram_title"
+            camera:singleIcon="@drawable/ic_settings_histogram"
             camera:entries="@array/pref_camera_histogram_entries"
             camera:entryValues="@array/pref_camera_histogram_entryvalues" />
-    <ListPreference
+    <IconListPreference
             camera:key="pref_camera_antibanding_key"
             camera:defaultValue="@string/pref_camera_antibanding_default"
             camera:title="@string/pref_camera_antibanding_title"
             camera:entries="@array/pref_camera_antibanding_entries"
+            camera:singleIcon="@drawable/ic_settings_antibanding"
             camera:entryValues="@array/pref_camera_antibanding_entryvalues" />
-    <ListPreference
+    <IconListPreference
             camera:key="pref_camera_pictureformat_key"
             camera:defaultValue="@string/pref_camera_picture_format_default"
             camera:title="@string/pref_camera_picture_format_title"
+            camera:singleIcon="@drawable/ic_settings_format"
             camera:entries="@array/pref_camera_picture_format_entries"
             camera:entryValues="@array/pref_camera_picture_format_entryvalues" />
-    <ListPreference
+    <IconListPreference
             camera:key="pref_camera_sharpness_key"
             camera:defaultValue="@string/pref_camera_sharpness_default"
             camera:title="@string/pref_camera_sharpness_title"
+            camera:singleIcon="@drawable/ic_settings_sharpness"
             camera:entries="@array/pref_camera_sharpness_entries"
             camera:entryValues="@array/pref_camera_multilevel_sharpness_entryvalues"/>
-    <ListPreference
+    <IconListPreference
             camera:key="pref_camera_contrast_key"
             camera:defaultValue="@string/pref_camera_contrast_default"
             camera:title="@string/pref_camera_contrast_title"
+            camera:singleIcon="@drawable/ic_settings_contrast"
             camera:entries="@array/pref_camera_contrast_entries"
             camera:entryValues="@array/pref_camera_multilevel_entryvalues" />
-    <ListPreference
+    <IconListPreference
             camera:key="pref_camera_saturation_key"
             camera:defaultValue="@string/pref_camera_saturation_default"
             camera:title="@string/pref_camera_saturation_title"
+            camera:singleIcon="@drawable/ic_settings_saturation"
             camera:entries="@array/pref_camera_saturation_entries"
             camera:entryValues="@array/pref_camera_multilevel_entryvalues" />
-    <ListPreference
+    <IconListPreference
             camera:key="pref_camera_denoise_key"
             camera:defaultValue="@string/pref_camera_denoise_default"
             camera:title="@string/pref_camera_denoise_title"
+            camera:singleIcon="@drawable/ic_settings_denoise"
             camera:entries="@array/pref_camera_denoise_entries"
             camera:entryValues="@array/pref_camera_denoise_entryvalues" />
-    <ListPreference
+    <IconListPreference
             camera:key="pref_camera_autoexposure_key"
             camera:defaultValue="@string/pref_camera_autoexposure_default"
             camera:title="@string/pref_camera_autoexposure_title"
             camera:entries="@array/pref_camera_autoexposure_entries"
+            camera:singleIcon="@drawable/ic_settings_auto_exposure"
             camera:entryValues="@array/pref_camera_autoexposure_entryvalues" />
-    <ListPreference
+    <IconListPreference
             camera:key="pref_camera_skinToneEnhancement_key"
             camera:defaultValue="@string/pref_camera_skinToneEnhancement_default"
             camera:title="@string/pref_camera_skinToneEnhancement_title"
+            camera:singleIcon="@drawable/ic_settings_skin"
             camera:entries="@array/pref_camera_skinToneEnhancement_entries"
             camera:entryValues="@array/pref_camera_skinToneEnhancement_entryvalues" />
     <IconListPreference
@@ -300,16 +315,18 @@
             camera:entries="@array/pref_camera_shuttersound_entries"
             camera:singleIcon="@drawable/ic_settings_shuttersound"
             camera:entryValues="@array/pref_camera_shuttersound_entryvalues" />
-    <ListPreference
+    <IconListPreference
             camera:key="pref_camera_selectablezoneaf_key"
             camera:defaultValue="@string/pref_camera_selectablezoneaf_default"
             camera:title="@string/pref_camera_selectablezoneaf_title"
+            camera:singleIcon="@drawable/ic_settings_focus_zone"
             camera:entries="@array/pref_camera_selectablezoneaf_entries"
             camera:entryValues="@array/pref_camera_selectablezoneaf_entryvalues" />
-    <ListPreference
+    <IconListPreference
             camera:key="pref_camera_zsl_key"
             camera:defaultValue="@string/pref_camera_zsl_default"
             camera:title="@string/pref_camera_zsl_title"
+            camera:singleIcon="@drawable/ic_settings_zsl"
             camera:entries="@array/pref_camera_zsl_entries"
             camera:entryValues="@array/pref_camera_zsl_entryvalues" />
     <IconListPreference
@@ -319,10 +336,11 @@
             camera:entries="@array/pref_camera_savepath_entries"
             camera:singleIcon="@drawable/ic_settings_storage"
             camera:entryValues="@array/pref_camera_savepath_entryvalues" />
-    <ListPreference
+    <IconListPreference
             camera:key="pref_camera_advanced_features_key"
             camera:defaultValue="@string/pref_camera_advanced_feature_default"
             camera:title="@string/pref_camera_advanced_features_title"
+            camera:singleIcon="@drawable/ic_settings_advanced"
             camera:entries="@array/pref_camera_advanced_features_entries"
             camera:entryValues="@array/pref_camera_advanced_features_entryvalues" />
     <IconListPreference
@@ -332,45 +350,46 @@
             camera:entries="@array/pref_camera_longshot_entries"
             camera:singleIcon="@drawable/ic_settings_continuous"
             camera:entryValues="@array/pref_camera_longshot_entryvalues" />
-    <ListPreference
+    <IconListPreference
             camera:key="pref_camera_auto_hdr_key"
             camera:defaultValue="@string/pref_camera_auto_hdr_default"
             camera:title="@string/pref_camera_auto_hdr_title"
+            camera:singleIcon="@drawable/ic_settings_hdr_auto"
             camera:entries="@array/pref_camera_auto_hdr_entries"
             camera:entryValues="@array/pref_camera_auto_hdr_entryvalues" />
-
-    <ListPreference
+    <IconListPreference
             camera:key="pref_camera_hdr_mode_key"
             camera:defaultValue="@string/pref_camera_hdr_mode_default"
             camera:title="@string/pref_camera_hdr_mode_title"
+            camera:singleIcon="@drawable/ic_hdr"
             camera:entries="@array/pref_camera_hdr_mode_entries"
             camera:entryValues="@array/pref_camera_hdr_mode_entryvalues" />
-
-    <ListPreference
+    <IconListPreference
             camera:key="pref_camera_hdr_need_1x_key"
             camera:defaultValue="@string/pref_camera_hdr_need_1x_default"
             camera:title="@string/pref_camera_hdr_need_1x_title"
+            camera:singleIcon="@drawable/ic_settings_onex"
             camera:entries="@array/pref_camera_hdr_need_1x_entries"
             camera:entryValues="@array/pref_camera_hdr_need_1x_entryvalues" />
-
-    <ListPreference
+    <IconListPreference
             camera:key="pref_camera_manual_exp_key"
             camera:defaultValue="@string/pref_camera_manual_exp_default"
             camera:title="@string/pref_camera_manual_exp_title"
+            camera:singleIcon="@drawable/ic_settings_manualexp"
             camera:entries="@array/pref_camera_manual_exp_entries"
             camera:entryValues="@array/pref_camera_manual_exp_entry_values" />
-
-    <ListPreference
+    <IconListPreference
             camera:key="pref_camera_manual_wb_key"
             camera:defaultValue="@string/pref_camera_manual_wb_default"
             camera:title="@string/pref_camera_manual_wb_title"
+            camera:singleIcon="@drawable/ic_settings_wb"
             camera:entries="@array/pref_camera_manual_wb_entries"
             camera:entryValues="@array/pref_camera_manual_wb_entry_values" />
-
-    <ListPreference
+    <IconListPreference
             camera:key="pref_camera_manual_focus_key"
             camera:defaultValue="@string/pref_camera_manual_focus_default"
             camera:title="@string/pref_camera_manual_focus_title"
+            camera:singleIcon="@drawable/ic_settings_manualfocus"
             camera:entries="@array/pref_camera_manual_focus_entries"
             camera:entryValues="@array/pref_camera_manual_focus_entry_values" />
 
@@ -405,6 +424,7 @@
             camera:key="pref_camera2_camera2_key"
             camera:defaultValue="@string/setting_off_value"
             camera:title="@string/pref_camera2_camera2_title"
+            camera:singleIcon="@drawable/ic_settings_camera"
             camera:entries="@array/pref_camera2_camera2_entries"
             camera:entryValues="@array/pref_camera2_camera2_entryvalues" />
 
@@ -420,6 +440,7 @@
             camera:key="pref_camera_zoom_key"
             camera:defaultValue="@string/pref_camera_zoom_default"
             camera:title="@string/pref_camera_zoom_title"
+            camera:singleIcon="@drawable/ic_settings_zoom"
             camera:entries="@array/pref_camera_zoom_entries"
             camera:entryValues="@array/pref_camera_zoom_entryvalues" />
 
