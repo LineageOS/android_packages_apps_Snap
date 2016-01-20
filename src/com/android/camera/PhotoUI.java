@@ -303,6 +303,11 @@ public class PhotoUI implements PieListener,
             int bm = mActivity.getResources().getDimensionPixelSize(R.dimen.preview_bottom_margin);
             mTopMargin = l / 4 * tm / (tm + bm);
             mBottomMargin = l / 4 - mTopMargin;
+            Log.d("SnapLayoutDebug", "l: " + l);
+            Log.d("SnapLayoutDebug", "tm: " + tm);
+            Log.d("SnapLayoutDebug", "bm: " + bm);
+            Log.d("SnapLayoutDebug", "mTopMargin: " + mTopMargin);
+            Log.d("SnapLayoutDebug", "mBottomMargin: " + mBottomMargin);
         }
         mCameraControls.setMargins(mTopMargin, mBottomMargin);
     }
