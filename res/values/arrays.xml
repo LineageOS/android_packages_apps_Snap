@@ -504,55 +504,55 @@
         <item>@drawable/ic_scene_mode_auto</item>
         <item>@drawable/ic_scene_mode_hdr</item>
         <item>@drawable/ic_scene_mode_refocus</item>
-        <item>@drawable/ic_sce</item>
-        <item>@drawable/ic_sce</item>
-        <item>@drawable/ic_sce</item>
-        <item>@drawable/ic_sce</item>
-        <item>@drawable/ic_sce</item>
-        <item>@drawable/ic_sce</item>
+        <item>@drawable/ic_scene_mode_action</item>
+        <item>@drawable/ic_scene_mode_entry_antimotionblur</item>
+        <item>@drawable/ic_scene_mode_entry_aqua</item>
+        <item>@drawable/ic_scene_mode_entry_ar</item>
+        <item>@drawable/ic_scene_mode_entry_baby</item>
+        <item>@drawable/ic_scene_mode_entry_backgroundblur</item>
         <item>@drawable/ic_scene_mode_backlight</item>
         <item>@drawable/ic_scene_mode_backlight</item>
-        <item>@drawable/ic_sce</item>
-        <item>@drawable/ic_sce</item>
-        <item>@drawable/ic_sce</item>
+        <item>@drawable/ic_scene_mode_entry_backlightportrait</item>
+        <item>@drawable/ic_scene_mode_entry_backlightportrait</item>
+        <item>@drawable/ic_scene_mode_entry_barcode</item>
         <item>@drawable/ic_scene_mode_beach</item>
-        <item>@drawable/ic_sce</item>
+        <item>@drawable/ic_scene_mode_entry_beauty</item>
         <item>@drawable/ic_scene_mode_candlelight</item>
-        <item>@drawable/ic_sce</item>
-        <item>@drawable/ic_sce</item>
-        <item>@drawable/ic_sce</item>
-        <item>@drawable/ic_sce</item>
-        <item>@drawable/ic_sce</item>
-        <item>@drawable/ic_sce</item>
-        <item>@drawable/ic_sce</item>
-        <item>@drawable/ic_sce</item>
+        <item>@drawable/ic_scene_mode_entry_cine</item>
+        <item>@drawable/ic_scene_mode_entry_closeup</item>
+        <item>@drawable/ic_scene_mode_entry_dark</item>
+        <item>@drawable/ic_scene_mode_entry_dish</item>
+        <item>@drawable/ic_scene_mode_entry_duskdawn</item>
+        <item>@drawable/ic_scene_mode_entry_document</item>
+        <item>@drawable/ic_scene_mode_entry_fallcolor</item>
+        <item>@drawable/ic_scene_mode_entry_fireworks</item>
         <item>@drawable/ic_scene_mode_flower</item>
-        <item>@drawable/ic_sce</item>
-        <item>@drawable/ic_sce</item>
-        <item>@drawable/ic_sce</item>
+        <item>@drawable/ic_scene_mode_entry_handheldtwilight</item>
+        <item>@drawable/ic_scene_mode_entry_highsensitivity</item>
+        <item>@drawable/ic_scene_mode_entry_indoor</item>
         <item>@drawable/ic_scene_mode_landscape</item>
-        <item>@drawable/ic_sce</item>
-        <item>@drawable/ic_sce</item>
-        <item>@drawable/ic_sce</item>
-        <item>@drawable/ic_scene_mode_night</item>
-        <item>@drawable/ic_sce</item>
-        <item>@drawable/ic_sce</item>
-        <item>@drawable/ic_sce</item>
-        <item>@drawable/ic_sce</item>
-        <item>@drawable/ic_sce</item>
-        <item>@drawable/ic_sce</item>
+        <item>@drawable/ic_scene_mode_entry_macro</item>
+        <item>@drawable/ic_scene_mode_entry_mix_illuminant</item>
+        <item>@drawable/ic_scene_mode_entry_mood</item>
+        <item>@drawable/ic_scene_mode_entry_night</item>
+        <item>@drawable/ic_scene_mode_entry_nightportrait</item>
+        <item>@drawable/ic_scene_mode_entry_nightportrait</item>
+        <item>@drawable/ic_scene_mode_entry_nightindoor</item>
+        <item>@drawable/ic_scene_mode_entry_oldfilm</item>
+        <item>@drawable/ic_scene_mode_party</item>
+        <item>@drawable/ic_scene_mode_pet</item>
         <item>@drawable/ic_scene_mode_portrait</item>
         <item>@drawable/ic_scene_mode_snow</item>
-        <item>@drawable/ic_sce</item>
+        <item>@drawable/ic_scene_softskin</item>
         <item>@drawable/ic_scene_mode_sports</item>
-        <item>@drawable/ic_sce</item>
-        <item>@drawable/ic_sce</item>
+        <item>@drawable/ic_scene_mode_entry_spotlight</item>
+        <item>@drawable/ic_scene_mode_entry_steadyphoto</item>
         <item>@drawable/ic_scene_mode_sunset</item>
-        <item>@drawable/ic_sce</item>
-        <item>@drawable/ic_sce</item>
-        <item>@drawable/ic_sce</item>
-        <item>@drawable/ic_sce</item>
-        <item>@drawable/ic_sce</item>
+        <item>@drawable/ic_scene_mode_entry_supernight</item>
+        <item>@drawable/ic_scene_mode_entry_sweepstitch</item>
+        <item>@drawable/ic_scene_mode_entry_text</item>
+        <item>@drawable/ic_scene_mode_entry_theatre</item>
+        <item>@drawable/ic_scene_mode_entry_whiteboard</item>
     </array>
 
     <string-array name="pref_camera_scenemode_labels">
@@ -572,58 +572,57 @@
     </array>
 
     <string-array name="pref_camera_scenemode_entryvalues" translatable="false">
-        <item>auto</item>
+        <item>@string/scene_auto</item>
         <item>hdr</item>
         <item>@string/pref_camera_advanced_feature_value_refocus_on</item>
-        <item>action</item>
-        <item>anti-motion-blur</item>
-        <item>aqua</item>
-        <item>AR</item>
-        <item>baby</item>
-        <item>background-blur</item>
-        <item>back-light</item>
-        <item>backlight</item>
-        <item>backlight_portrait</item>
-        <item>backlight-portrait</item>
-        <item>barcode</item>
-        <item>beach</item>
-        <item>beauty-mode</item>
-        <item>candlelight</item>
-        <item>cine</item>
-        <item>closeup</item>
-        <item>dark</item>
-        <item>dish</item>
-        <item>dusk-dawn</item>
-        <item>document</item>
-        <item>fall-color</item>
-        <item>fireworks</item>
-        <item>flowers</item>
-        <item>handheld-twilight</item>
-        <item>high-sensitivity</item>
-        <item>indoor</item>
-        <item>landscape</item>
-        <item>macro</item>
-        <item>mix-illuminant</item>
-        <item>mood</item>
-        <item>night</item>
-        <item>night-portrait</item>
-        <item>nightportrait</item>
-        <item>night-indoor</item>
-        <item>old-film</item>
-        <item>party</item>
-        <item>pet</item>
-        <item>portrait</item>
-        <item>snow</item>
-        <item>soft-skin</item>
-        <item>sports</item>
-        <item>spot-light</item>
-        <item>steadyphoto</item>
-        <item>sunset</item>
-        <item>super-night</item>
-        <item>sweep-stitch</item>
-        <item>text</item>
-        <item>theatre</item>
-        <item>white-board</item>
+        <item>@string/scene_action</item>
+        <item>@string/scene_amb</item>
+        <item>@string/scene_aqua</item>
+        <item>@string/scene_ar</item>
+        <item>@string/scene_baby</item>
+        <item>@string/scene_backgroundblur</item>
+        <item>@string/scene_backlight</item>
+        <item>@string/scene_backlight_portrait</item>
+        <item>@string/scene_backlight_portrait</item>
+        <item>@string/scene_barcode</item>
+        <item>@string/scene_beach</item>
+        <item>@string/scene_beauty_mode</item>
+        <item>@string/scene_candlelight</item>
+        <item>@string/scene_cine</item>
+        <item>@string/scene_closeup</item>
+        <item>@string/scene_dark</item>
+        <item>@string/scene_dish</item>
+        <item>@string/scene_dusk_dawn</item>
+        <item>@string/scene_document</item>
+        <item>@string/scene_fall_color</item>
+        <item>@string/scene_fireworks</item>
+        <item>@string/scene_flowers</item>
+        <item>@string/scene_handheld_twilight</item>
+        <item>@string/scene_high_sensitivity</item>
+        <item>@string/scene_indoor</item>
+        <item>@string/scene_landscape</item>
+        <item>@string/scene_macro</item>
+        <item>@string/scene_mix_illuminant</item>
+        <item>@string/scene_mood</item>
+        <item>@string/scene_night</item>
+        <item>@string/scene_nightportrait</item>
+        <item>@string/scene_nightportrait</item>
+        <item>@string/scene_night_indoor</item>
+        <item>@string/scene_old_film</item>
+        <item>@string/scene_party</item>
+        <item>@string/scene_pet</item>
+        <item>@string/scene_portrait</item>
+        <item>@string/scene_snow</item>
+        <item>@string/scene_soft_skin</item>
+        <item>@string/scene_sports</item>
+        <item>@string/scene_spotlight</item>
+        <item>@string/scene_steadyphoto</item>
+        <item>@string/scene_sunset</item>
+        <item>@string/scene_supernight</item>
+        <item>@string/scene_sweepstitch</item>
+        <item>@string/scene_text</item>
+        <item>@string/scene_theatre</item>
+        <item>@string/scene_whiteboard</item>
     </string-array>
 
     <array name="camera_id_entries" translatable="false">

@@ -225,4 +225,53 @@
     <string name="pref_camera_shutter_speed_entry_30" translatable="false">30</string>
 
     <string name="auto_hdr_enabled">Auto HDR enabled</string>
+
+    <string name="scene_auto">Auto</string>
+    <string name="scene_hdr">HDR</string>
+    <string name="scene_action">Action</string>
+    <string name="scene_amb">Anti motion blur</string>
+    <string name="scene_aqua">Aqua</string>
+    <string name="scene_ar">AR</string>
+    <string name="scene_baby">Baby</string>
+    <string name="scene_backgroundblur">Background blur</string>
+    <string name="scene_backlight">Backlight</string>
+    <string name="scene_backlight_portrait">Backlight portrait</string>
+    <string name="scene_barcode">Barcode</string>
+    <string name="scene_beach">Beach</string>
+    <string name="scene_beauty_mode">Beauty mode</string>
+    <string name="scene_candlelight">Candlelight</string>
+    <string name="scene_cine">Cine</string>
+    <string name="scene_closeup">Closeup</string>
+    <string name="scene_dark">Dark</string>
+    <string name="scene_dish">Dish</string>
+    <string name="scene_dusk_dawn">Dusk dawn</string>
+    <string name="scene_document">Document</string>
+    <string name="scene_fall_color">Fall colors</string>
+    <string name="scene_fireworks">Fireworks</string>
+    <string name="scene_flowers">Flowers</string>
+    <string name="scene_handheld_twilight">Handeld twilight</string>
+    <string name="scene_high_sensitivity">High sensivity</string>
+    <string name="scene_indoor">Indoor</string>
+    <string name="scene_landscape">Landscape</string>
+    <string name="scene_macro">Macro</string>
+    <string name="scene_mix_illuminant">Mix-illuminant</string>
+    <string name="scene_mood">Mood</string>
+    <string name="scene_night">Night</string>
+    <string name="scene_nightportrait">Night portrait</string>
+    <string name="scene_night_indoor">Night indoor</string>
+    <string name="scene_old_film">Old film</string>
+    <string name="scene_party">Party</string>
+    <string name="scene_pet">Pet</string>
+    <string name="scene_portrait">Portrait</string>
+    <string name="scene_snow">Snow</string>
+    <string name="scene_soft_skin">Skin</string>
+    <string name="scene_sports">Sport</string>
+    <string name="scene_spotlight">Spotlight</string>
+    <string name="scene_steadyphoto">Steady photo</string>
+    <string name="scene_sunset">Sunset</string>
+    <string name="scene_supernight">Supernight</string>
+    <string name="scene_sweepstitch">Sweepstich</string>
+    <string name="scene_text">Text</string>
+    <string name="scene_theatre">Theatre</string>
+    <string name="scene_whiteboard">Whiteboard</string>
 </resources>
