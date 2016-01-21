@@ -110,7 +110,7 @@
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:excludeFromRecents="true"
             android:label="@string/app_name"
-            android:launchMode="singleTop"
+            android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:taskAffinity="com.android.camera.SecureCameraActivity"
             android:theme="@style/Theme.Camera"
