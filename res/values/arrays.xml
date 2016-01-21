@@ -413,55 +413,55 @@
         <item>@drawable/ic_scene_mode_hdr</item>
         <item>@drawable/ic_scene_mode_refocus</item>
         <item>@drawable/ic_scene_mode_optizoom</item>
-        <item>@drawable/ic_sce</item>
-        <item>@drawable/ic_sce</item>
-        <item>@drawable/ic_sce</item>
-        <item>@drawable/ic_sce</item>
-        <item>@drawable/ic_sce</item>
-        <item>@drawable/ic_sce</item>
+        <item>@drawable/ic_scene_mode_action</item>
+        <item>@drawable/ic_scene_mode_entry_antimotionblur</item>
+        <item>@drawable/ic_scene_mode_entry_aqua</item>
+        <item>@drawable/ic_scene_mode_entry_ar</item>
+        <item>@drawable/ic_scene_mode_entry_baby</item>
+        <item>@drawable/ic_scene_mode_entry_backgroundblur</item>
         <item>@drawable/ic_scene_mode_backlight</item>
         <item>@drawable/ic_scene_mode_backlight</item>
-        <item>@drawable/ic_sce</item>
-        <item>@drawable/ic_sce</item>
-        <item>@drawable/ic_sce</item>
+        <item>@drawable/ic_scene_mode_entry_backlightportrait</item>
+        <item>@drawable/ic_scene_mode_entry_backlightportrait</item>
+        <item>@drawable/ic_scene_mode_entry_barcode</item>
         <item>@drawable/ic_scene_mode_beach</item>
-        <item>@drawable/ic_sce</item>
+        <item>@drawable/ic_scene_mode_entry_beauty</item>
         <item>@drawable/ic_scene_mode_candlelight</item>
-        <item>@drawable/ic_sce</item>
-        <item>@drawable/ic_sce</item>
-        <item>@drawable/ic_sce</item>
-        <item>@drawable/ic_sce</item>
-        <item>@drawable/ic_sce</item>
-        <item>@drawable/ic_sce</item>
-        <item>@drawable/ic_sce</item>
-        <item>@drawable/ic_sce</item>
+        <item>@drawable/ic_scene_mode_entry_cine</item>
+        <item>@drawable/ic_scene_mode_entry_closeup</item>
+        <item>@drawable/ic_scene_mode_entry_dark</item>
+        <item>@drawable/ic_scene_mode_entry_dish</item>
+        <item>@drawable/ic_scene_mode_entry_duskdawn</item>
+        <item>@drawable/ic_scene_mode_entry_document</item>
+        <item>@drawable/ic_scene_mode_entry_fallcolor</item>
+        <item>@drawable/ic_scene_mode_entry_fireworks</item>
         <item>@drawable/ic_scene_mode_flower</item>
-        <item>@drawable/ic_sce</item>
-        <item>@drawable/ic_sce</item>
-        <item>@drawable/ic_sce</item>
+        <item>@drawable/ic_scene_mode_entry_handheldtwilight</item>
+        <item>@drawable/ic_scene_mode_entry_highsensitivity</item>
+        <item>@drawable/ic_scene_mode_entry_indoor</item>
         <item>@drawable/ic_scene_mode_landscape</item>
-        <item>@drawable/ic_sce</item>
-        <item>@drawable/ic_sce</item>
-        <item>@drawable/ic_sce</item>
-        <item>@drawable/ic_scene_mode_night</item>
-        <item>@drawable/ic_sce</item>
-        <item>@drawable/ic_sce</item>
-        <item>@drawable/ic_sce</item>
-        <item>@drawable/ic_sce</item>
-        <item>@drawable/ic_sce</item>
-        <item>@drawable/ic_sce</item>
+        <item>@drawable/ic_scene_mode_entry_macro</item>
+        <item>@drawable/ic_scene_mode_entry_mix_illuminant</item>
+        <item>@drawable/ic_scene_mode_entry_mood</item>
+        <item>@drawable/ic_scene_mode_entry_night</item>
+        <item>@drawable/ic_scene_mode_entry_nightportrait</item>
+        <item>@drawable/ic_scene_mode_entry_nightportrait</item>
+        <item>@drawable/ic_scene_mode_entry_nightindoor</item>
+        <item>@drawable/ic_scene_mode_entry_oldfilm</item>
+        <item>@drawable/ic_scene_mode_party</item>
+        <item>@drawable/ic_scene_mode_pet</item>
         <item>@drawable/ic_scene_mode_portrait</item>
         <item>@drawable/ic_scene_mode_snow</item>
-        <item>@drawable/ic_sce</item>
+        <item>@drawable/ic_scene_mode_softskin</item>
         <item>@drawable/ic_scene_mode_sports</item>
-        <item>@drawable/ic_sce</item>
-        <item>@drawable/ic_sce</item>
+        <item>@drawable/ic_scene_mode_entry_spotlight</item>
+        <item>@drawable/ic_scene_mode_entry_steadyphoto</item>
         <item>@drawable/ic_scene_mode_sunset</item>
-        <item>@drawable/ic_sce</item>
-        <item>@drawable/ic_sce</item>
-        <item>@drawable/ic_sce</item>
-        <item>@drawable/ic_sce</item>
-        <item>@drawable/ic_sce</item>
+        <item>@drawable/ic_scene_mode_entry_supernight</item>
+        <item>@drawable/ic_scene_mode_entry_sweepstitch</item>
+        <item>@drawable/ic_scene_mode_entry_text</item>
+        <item>@drawable/ic_scene_mode_entry_theatre</item>
+        <item>@drawable/ic_scene_mode_entry_whiteboard</item>
         <item>@drawable/ic_scene_mode_smartauto</item>
     </array>
 
