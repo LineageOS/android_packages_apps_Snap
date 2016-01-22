@@ -1355,7 +1355,7 @@ public class PhotoModule
                 mParameters = mCameraDevice.getParameters();
                 mBurstSnapNum = CameraUtil.getNumSnapsPerShutter(mParameters);
             }
-            Log.v(TAG, "JpegPictureCallback: Received = " + mReceivedSnapNum +
+            Log.v(TAG, "JpegPictureCallback: Received = " + mReceivedSnapNum + " " +
                       "Burst count = " + mBurstSnapNum);
             // If postview callback has arrived, the captured image is displayed
             // in postview callback. If not, the captured image is displayed in
@@ -1382,7 +1382,7 @@ public class PhotoModule
                     && (mSnapshotMode != CameraInfoWrapper.CAMERA_SUPPORT_MODE_ZSL)
                     && (mReceivedSnapNum == mBurstSnapNum);
 
-            needRestartPreview |= mLgeHdrMode;
+            needRestartPreview |= mLgeHdrMode && (mCameraState != LONGSHOT);
 
             boolean backCameraRestartPreviewOnPictureTaken = false;
             boolean frontCameraRestartPreviewOnPictureTaken = false;
@@ -1395,13 +1395,14 @@ public class PhotoModule
 
             CameraInfo info = CameraHolder.instance().getCameraInfo()[mCameraId];
             if ((info.facing == CameraInfo.CAMERA_FACING_BACK
-                    && backCameraRestartPreviewOnPictureTaken)
+                    && backCameraRestartPreviewOnPictureTaken && (mCameraState != LONGSHOT))
                     || (info.facing == CameraInfo.CAMERA_FACING_FRONT
-                    && frontCameraRestartPreviewOnPictureTaken)) {
+                    && frontCameraRestartPreviewOnPictureTaken && (mCameraState != LONGSHOT))) {
                 needRestartPreview = true;
             }
 
             if (needRestartPreview) {
+                Log.d(TAG, "JpegPictureCallback: needRestartPreview");
                 setupPreview();
                 if (CameraUtil.FOCUS_MODE_CONTINUOUS_PICTURE.equals(mFocusManager.getFocusMode())
                         || CameraUtil.FOCUS_MODE_MW_CONTINUOUS_PICTURE.equals(mFocusManager.getFocusMode())) {
