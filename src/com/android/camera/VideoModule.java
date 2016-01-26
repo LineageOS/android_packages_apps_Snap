@@ -1601,12 +1601,6 @@ public class VideoModule implements CameraModule,
         if (mCaptureTimeLapse) {
             double fps = 1000 / (double) mTimeBetweenTimeLapseFrameCaptureMs;
             setCaptureRate(mMediaRecorder, fps);
-        } else if (isHSR && captureRate > 0) {
-            Log.i(TAG, "Setting capture-rate = " + captureRate);
-            mMediaRecorder.setCaptureRate(captureRate);
-            // for HSR, encoder's target-framerate = capture-rate
-            Log.i(TAG, "Setting fps = " + captureRate + " for HSR");
-            mMediaRecorder.setVideoFrameRate(captureRate);
         }
 
         setRecordLocation();
