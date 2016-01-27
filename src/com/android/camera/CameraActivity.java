@@ -621,14 +621,22 @@ public class CameraActivity extends Activity
             intent.putExtra(KEY_TOTAL_NUMBER, (adapter.getTotalNumber() -1));
             startActivity(intent);
         } catch (ActivityNotFoundException ex) {
-            try {
-                Log.w(TAG, "Gallery not found");
-                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-                intent.putExtra(KEY_FROM_SNAPCAM, true);
-                startActivity(intent);
-            } catch (ActivityNotFoundException e) {
-                Log.w(TAG, "No Activity could be found to open image or video");
-            }
+            gotoViewPhoto(uri);
+        } catch (IllegalArgumentException ex) {
+            gotoViewPhoto(uri);
+        }
+    }
+
+    private void gotoViewPhoto(Uri uri) {
+        try {
+            Log.w(TAG, "Gallery not found");
+            Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+            intent.putExtra(KEY_FROM_SNAPCAM, true);
+            startActivity(intent);
+        } catch (ActivityNotFoundException e) {
+            Log.w(TAG, "No Activity could be found to open image or video");
+        } catch (IllegalArgumentException e) {
+            Log.w(TAG, "No Activity could be found to open image or video");
         }
     }
 
