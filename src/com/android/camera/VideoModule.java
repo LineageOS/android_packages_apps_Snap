@@ -1120,6 +1120,11 @@ public class VideoModule implements CameraModule,
     @Override
     public void onResumeBeforeSuper() {
         mPaused = false;
+        mPreferences = new ComboPreferences(mActivity);
+        CameraSettings.upgradeGlobalPreferences(mPreferences.getGlobal(), mActivity);
+        mCameraId = getPreferredCameraId(mPreferences);
+        mPreferences.setLocalId(mActivity, mCameraId);
+        CameraSettings.upgradeLocalPreferences(mPreferences.getLocal());
     }
 
     @Override
@@ -1128,6 +1133,7 @@ public class VideoModule implements CameraModule,
         mZoomValue = 0;
         resetExposureCompensation();
 
+        initializeVideoControl();
         showVideoSnapshotUI(false);
 
         if (!mPreviewing) {
@@ -1147,6 +1153,7 @@ public class VideoModule implements CameraModule,
         // Initializing it here after the preview is started.
         mUI.initializeZoom(mParameters);
         mUI.setPreviewGesturesVideoUI();
+        mUI.setSwitcherIndex();
         keepScreenOnAwhile();
 
         mOrientationManager.resume();

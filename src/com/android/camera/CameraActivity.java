@@ -189,8 +189,14 @@ public class CameraActivity extends Activity
     private PlaceholderManager mPlaceholderManager;
     private int mCurrentModuleIndex;
     private CameraModule mCurrentModule;
+    private PhotoModule mPhotoModule;
+    private VideoModule mVideoModule;
+    private WideAnglePanoramaModule mPanoModule;
     private FrameLayout mAboveFilmstripControlLayout;
-    private CameraRootView mCameraModuleRootView;
+    private FrameLayout mCameraRootFrame;
+    private CameraRootView mCameraPhotoModuleRootView;
+    private CameraRootView mCameraVideoModuleRootView;
+    private CameraRootView mCameraPanoModuleRootView;
     private FilmStripView mFilmStripView;
     private ProgressBar mBottomProgress;
     private View mPanoStitchingPanel;
@@ -1440,7 +1446,12 @@ public class CameraActivity extends Activity
 
         LayoutInflater inflater = getLayoutInflater();
         View rootLayout = inflater.inflate(R.layout.camera, null, false);
-        mCameraModuleRootView = (CameraRootView) rootLayout.findViewById(R.id.camera_app_root);
+        mCameraRootFrame = (FrameLayout)rootLayout.findViewById(R.id.camera_root_frame);
+        mCameraPhotoModuleRootView =
+                (CameraRootView)rootLayout.findViewById(R.id.camera_photo_root);
+        mCameraVideoModuleRootView =
+                (CameraRootView)rootLayout.findViewById(R.id.camera_video_root);
+        mCameraPanoModuleRootView = (CameraRootView)rootLayout.findViewById(R.id.camera_pano_root);
 
         int moduleIndex = -1;
         if (MediaStore.INTENT_ACTION_VIDEO_CAMERA.equals(getIntent().getAction())
@@ -1481,7 +1492,6 @@ public class CameraActivity extends Activity
 
         mOrientationListener = new MyOrientationEventListener(this);
         setModuleFromIndex(moduleIndex);
-        mCurrentModule.init(this, mCameraModuleRootView);
 
         mActionBar = getActionBar();
         mActionBar.addOnMenuVisibilityListener(this);
@@ -1892,32 +1902,53 @@ public class CameraActivity extends Activity
      * index an sets it as mCurrentModule.
      */
     private void setModuleFromIndex(int moduleIndex) {
+        mCameraPhotoModuleRootView.setVisibility(View.GONE);
+        mCameraVideoModuleRootView.setVisibility(View.GONE);
+        mCameraPanoModuleRootView.setVisibility(View.GONE);
+        mCameraRootFrame.removeAllViews();
         mCurrentModuleIndex = moduleIndex;
         switch (moduleIndex) {
             case ModuleSwitcher.VIDEO_MODULE_INDEX:
-                mCurrentModule = new VideoModule();
+                if(mVideoModule == null) {
+                    mVideoModule = new VideoModule();
+                    mVideoModule.init(this, mCameraVideoModuleRootView);
+                }
+                mCurrentModule = mVideoModule;
+                mCameraRootFrame.addView(mCameraVideoModuleRootView);
+                mCameraVideoModuleRootView.setVisibility(View.VISIBLE);
                 break;
 
             case ModuleSwitcher.PHOTO_MODULE_INDEX:
-                mCurrentModule = new PhotoModule();
+                if(mPhotoModule == null) {
+                    mPhotoModule = new PhotoModule();
+                    mPhotoModule.init(this, mCameraPhotoModuleRootView);
+                }
+                mCurrentModule = mPhotoModule;
+                mCameraRootFrame.addView(mCameraPhotoModuleRootView);
+                mCameraPhotoModuleRootView.setVisibility(View.VISIBLE);
                 break;
 
             case ModuleSwitcher.WIDE_ANGLE_PANO_MODULE_INDEX:
-                mCurrentModule = new WideAnglePanoramaModule();
+                if(mPanoModule == null) {
+                    mPanoModule = new WideAnglePanoramaModule();
+                    mPanoModule.init(this, mCameraPanoModuleRootView);
+                }
+                mCurrentModule = mPanoModule;
+                mCameraRootFrame.addView(mCameraPanoModuleRootView);
+                mCameraPanoModuleRootView.setVisibility(View.VISIBLE);
                 break;
 
-            case ModuleSwitcher.LIGHTCYCLE_MODULE_INDEX:
-                mCurrentModule = PhotoSphereHelper.createPanoramaModule();
-                break;
-            case ModuleSwitcher.GCAM_MODULE_INDEX:
-                // Force immediate release of Camera instance
-                CameraHolder.instance().strongRelease();
-                mCurrentModule = GcamHelper.createGcamModule();
-                break;
+            case ModuleSwitcher.LIGHTCYCLE_MODULE_INDEX: //Unused module for now
+            case ModuleSwitcher.GCAM_MODULE_INDEX:  //Unused module for now
             default:
                 // Fall back to photo mode.
-                mCurrentModule = new PhotoModule();
-                mCurrentModuleIndex = ModuleSwitcher.PHOTO_MODULE_INDEX;
+                if(mPhotoModule == null) {
+                    mPhotoModule = new PhotoModule();
+                    mPhotoModule.init(this, mCameraPhotoModuleRootView);
+                }
+                mCurrentModule = mPhotoModule;
+                mCameraRootFrame.addView(mCameraPhotoModuleRootView);
+                mCameraPhotoModuleRootView.setVisibility(View.VISIBLE);
                 break;
         }
     }
@@ -1957,11 +1988,10 @@ public class CameraActivity extends Activity
     }
 
     private void openModule(CameraModule module) {
-        module.init(this, mCameraModuleRootView);
         // Re-apply the last fitSystemWindows() run. Our views rely on this, but
         // the framework's ActionBarOverlayLayout effectively prevents this if the
         // actual insets haven't changed.
-        mCameraModuleRootView.redoFitSystemWindows();
+        //mCameraModuleRootView.redoFitSystemWindows();
         module.onResumeBeforeSuper();
         module.onResumeAfterSuper();
     }
@@ -1969,8 +1999,6 @@ public class CameraActivity extends Activity
     private void closeModule(CameraModule module) {
         module.onPauseBeforeSuper();
         module.onPauseAfterSuper();
-        ((ViewGroup) mCameraModuleRootView).removeAllViews();
-        ((ViewGroup) mCameraModuleRootView).clearDisappearingChildren();
     }
 
     private void performDeletion() {
