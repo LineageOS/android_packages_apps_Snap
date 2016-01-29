@@ -472,7 +472,7 @@
     <string name="on_switch_save_path_to_sdcard">Internal storage space is not enough, switched storage location to SD card</string>
 
     <!-- The message is shown in toast when click showOnMap Menu and there is no map app -->
-    <string name="map_activity_not_found_err">There is no map app for show location</string>
+    <string name="map_activity_not_found_err">There is no maps app installed to show the location</string>
 
     <!-- Continous shot enable message -->
     <string name="longshot_enable_message">Advanced features are not supported in continuous shot mode</string>
