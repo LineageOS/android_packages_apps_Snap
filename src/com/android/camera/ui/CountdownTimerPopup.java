@@ -37,11 +37,9 @@ import org.codeaurora.snapcam.R;
 public class CountdownTimerPopup extends AbstractSettingPopup {
     private static final String TAG = "TimerSettingPopup";
     private NumberPicker mNumberSpinner;
-    private String[] mDurations;
     private ListPreference mTimer;
     private ListPreference mBeep;
     private Listener mListener;
-    private Button mConfirmButton;
     private View mPickerTitle;
     private CheckBox mTimerSound;
     private View mSoundTitle;
@@ -66,7 +64,7 @@ public class CountdownTimerPopup extends AbstractSettingPopup {
 
         // Duration
         CharSequence[] entries = mTimer.getEntryValues();
-        mDurations = new String[entries.length];
+        String[] mDurations = new String[entries.length];
         Locale locale = getResources().getConfiguration().locale;
         mDurations[0] = getResources().getString(R.string.setting_off); // Off
         for (int i = 1; i < entries.length; i++)
@@ -83,7 +81,7 @@ public class CountdownTimerPopup extends AbstractSettingPopup {
                 setTimeSelectionEnabled(newValue != 0);
             }
         });
-        mConfirmButton = (Button) findViewById(R.id.timer_set_button);
+        Button mConfirmButton = (Button) findViewById(R.id.timer_set_button);
         mPickerTitle = findViewById(R.id.set_time_interval_title);
 
         // Disable focus on the spinners to prevent keyboard from coming up
@@ -143,3 +141,4 @@ public class CountdownTimerPopup extends AbstractSettingPopup {
         }
     }
 }
+
