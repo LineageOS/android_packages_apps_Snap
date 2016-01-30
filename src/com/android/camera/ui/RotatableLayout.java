@@ -220,14 +220,12 @@ public class RotatableLayout extends FrameLayout {
         int ml = lp.leftMargin;
         int mr = lp.rightMargin;
         int mt = lp.topMargin;
-        int mb = lp.bottomMargin;
-        lp.leftMargin = mb;
+        lp.leftMargin = lp.bottomMargin;
         lp.rightMargin = mt;
         lp.topMargin = ml;
         lp.bottomMargin = mr;
         int width = lp.width;
-        int height = lp.height;
-        lp.width = height;
+        lp.width = lp.height;
         lp.height = width;
         view.setLayoutParams(lp);
     }
@@ -269,8 +267,7 @@ public class RotatableLayout extends FrameLayout {
         lp.topMargin = mr;
         lp.bottomMargin = ml;
         int width = lp.width;
-        int height = lp.height;
-        lp.width = height;
+        lp.width = lp.height;
         lp.height = width;
         view.setLayoutParams(lp);
     }
@@ -281,3 +278,4 @@ public class RotatableLayout extends FrameLayout {
         rotateClockwise(view);
     }
 }
+

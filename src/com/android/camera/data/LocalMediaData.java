@@ -383,10 +383,9 @@ public abstract class LocalMediaData implements LocalData {
             long sizeInBytes = c.getLong(COL_SIZE);
             double latitude = c.getDouble(COL_LATITUDE);
             double longitude = c.getDouble(COL_LONGITUDE);
-            PhotoData result = new PhotoData(id, title, mimeType, dateTakenInSeconds,
+            return new PhotoData(id, title, mimeType, dateTakenInSeconds,
                     dateModifiedInSeconds, path, orientation, width, height,
                     sizeInBytes, latitude, longitude);
-            return result;
         }
 
         @Override
@@ -684,10 +683,9 @@ public abstract class LocalMediaData implements LocalData {
             double latitude = c.getDouble(COL_LATITUDE);
             double longitude = c.getDouble(COL_LONGITUDE);
             long durationInSeconds = c.getLong(COL_DURATION) / 1000;
-            VideoData d = new VideoData(id, title, mimeType, dateTakenInSeconds,
+            return new VideoData(id, title, mimeType, dateTakenInSeconds,
                     dateModifiedInSeconds, path, width, height, sizeInBytes,
                     latitude, longitude, durationInSeconds);
-            return d;
         }
 
         @Override
@@ -863,3 +861,4 @@ public abstract class LocalMediaData implements LocalData {
         }
     }
 }
+

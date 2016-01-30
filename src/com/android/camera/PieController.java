@@ -171,7 +171,7 @@ public class PieController {
                     index = (index + 1) % values.length;
                     pref.setValueIndex(index);
                     // when enable HDR,inform to disable Continuous Shot
-                    if (index == 1 && prefKey == CameraSettings.KEY_CAMERA_HDR)
+                    if (index == 1 && prefKey.equals(CameraSettings.KEY_CAMERA_HDR))
                     {
                         RotateTextToast.makeText(mActivity, R.string.HDR_disable_continuous_shot,
                                 Toast.LENGTH_LONG).show();
@@ -189,8 +189,7 @@ public class PieController {
 
 
     public PieItem makeDialItem(ListPreference pref, int iconId, float center, float sweep) {
-        PieItem item = makeItem(iconId);
-        return item;
+        return makeItem(iconId);
     }
 
     public void addItem(String prefKey) {
@@ -271,3 +270,4 @@ public class PieController {
         reloadPreference(pref);
     }
 }
+

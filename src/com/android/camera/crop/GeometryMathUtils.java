@@ -70,10 +70,9 @@ public final class GeometryMathUtils {
         if (denom == 0)
             return null;
         float u = (t3 * t4 + t5 * t2) / denom;
-        float[] intersect = {
+        return new float[]{
                 b0 + u * t0, b1 + u * t1
         };
-        return intersect;
     }
 
     public static float[] shortestVectorFromPointToLine(float[] point, float[] line) {
@@ -90,10 +89,9 @@ public final class GeometryMathUtils {
         float[] ret = {
                 (x1 + u * (x2 - x1)), (y1 + u * (y2 - y1))
         };
-        float[] vec = {
+        return new float[]{
                 ret[0] - point[0], ret[1] - point[1]
         };
-        return vec;
     }
 
     // A . B
@@ -103,10 +101,9 @@ public final class GeometryMathUtils {
 
     public static float[] normalize(float[] a) {
         float length = (float) Math.sqrt(a[0] * a[0] + a[1] * a[1]);
-        float[] b = {
+        return new float[]{
                 a[0] / length, a[1] / length
         };
-        return b;
     }
 
     // A onto B
@@ -116,10 +113,9 @@ public final class GeometryMathUtils {
     }
 
     public static float[] getVectorFromPoints(float[] point1, float[] point2) {
-        float[] p = {
+        return new float[]{
                 point2[0] - point1[0], point2[1] - point1[1]
         };
-        return p;
     }
 
     public static float[] getUnitVectorFromPoints(float[] point1, float[] point2) {
@@ -160,9 +156,8 @@ public final class GeometryMathUtils {
     }
 
     public static Rect roundNearest(RectF r) {
-        Rect q = new Rect(Math.round(r.left), Math.round(r.top), Math.round(r.right),
+        return new Rect(Math.round(r.left), Math.round(r.top), Math.round(r.right),
                 Math.round(r.bottom));
-        return q;
     }
 
     private static int getRotationForOrientation(int orientation) {
@@ -179,3 +174,4 @@ public final class GeometryMathUtils {
     }
 
 }
+

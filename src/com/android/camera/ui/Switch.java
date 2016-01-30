@@ -189,12 +189,11 @@ public class Switch extends CompoundButton {
 
     private Layout makeLayout(CharSequence text, int maxWidth) {
         int actual_width = (int) Math.ceil(Layout.getDesiredWidth(text, mTextPaint));
-        StaticLayout l = new StaticLayout(text, 0, text.length(), mTextPaint,
+        return new StaticLayout(text, 0, text.length(), mTextPaint,
                 actual_width,
                 Layout.Alignment.ALIGN_NORMAL, 1.f, 0, true,
                 TextUtils.TruncateAt.END,
                 (int) Math.min(actual_width, maxWidth));
-        return l;
     }
 
     /**
@@ -491,3 +490,4 @@ public class Switch extends CompoundButton {
         }
     }
 }
+

@@ -38,13 +38,12 @@ public class CropMath {
      */
 
     public static float[] getCornersFromRect(RectF r) {
-        float[] corners = {
+        return new float[]{
                 r.left, r.top,
                 r.right, r.top,
                 r.right, r.bottom,
                 r.left, r.bottom
         };
-        return corners;
     }
 
     /**
@@ -256,3 +255,4 @@ public class CropMath {
     }
 
 }
+

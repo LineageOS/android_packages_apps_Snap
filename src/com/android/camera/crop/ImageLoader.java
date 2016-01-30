@@ -423,8 +423,7 @@ public final class ImageLoader {
             try {
                 ExifInterface exif = new ExifInterface();
                 exif.readExif(path);
-                List<ExifTag> taglist = exif.getAllTags();
-                return taglist;
+                return exif.getAllTags();
             } catch (IOException e) {
                 Log.w(LOGTAG, "Failed to read EXIF tags", e);
             }
@@ -432,3 +431,4 @@ public final class ImageLoader {
         return null;
     }
 }
+

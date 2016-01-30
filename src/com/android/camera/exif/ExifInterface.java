@@ -1534,8 +1534,7 @@ public class ExifInterface {
         int definedCount = getComponentCountFromInfo(info);
         boolean hasDefinedCount = (definedCount != ExifTag.SIZE_UNDEFINED);
         int ifdId = getTrueIfd(tagId);
-        ExifTag t = new ExifTag(getTrueTagKey(tagId), type, definedCount, ifdId, hasDefinedCount);
-        return t;
+        return new ExifTag(getTrueTagKey(tagId), type, definedCount, ifdId, hasDefinedCount);
     }
 
     /**

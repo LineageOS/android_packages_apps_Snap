@@ -333,8 +333,7 @@ public class SaveImage {
 
     private static File getLocalAuxDirectory(File dstFile) {
         File dstDirectory = dstFile.getParentFile();
-        File auxDiretory = new File(dstDirectory + "/" + AUX_DIR_NAME);
-        return auxDiretory;
+        return new File(dstDirectory + "/" + AUX_DIR_NAME);
     }
 
     public static Uri makeAndInsertUri(Context context, Uri sourceUri) {
@@ -536,3 +535,4 @@ public class SaveImage {
     }
 
 }
+

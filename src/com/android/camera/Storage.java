@@ -229,8 +229,7 @@ public class Storage {
             dir.mkdirs();
             try {
                 StatFs stat = new StatFs(SDCard.instance().getDirectory());
-                long ret = stat.getAvailableBlocks() * (long) stat.getBlockSize();
-                return ret;
+                return stat.getAvailableBlocks() * (long) stat.getBlockSize();
             } catch (Exception e) {
             }
             return UNKNOWN_SIZE;
@@ -307,3 +306,4 @@ public class Storage {
         return uri;
     }
 }
+

@@ -351,13 +351,12 @@ public class WideAnglePanoramaUI implements
         int height = size.y;
         int xOffset = 0;
         int yOffset = 0;
-        int w = width;
         int h = height;
 
-        h = w * 4 / 3;
+        h = width * 4 / 3;
         yOffset = (height - h) / 2;
 
-        FrameLayout.LayoutParams param = new FrameLayout.LayoutParams(w, h);
+        FrameLayout.LayoutParams param = new FrameLayout.LayoutParams(width, h);
         mTextureView.setLayoutParams(param);
         mTextureView.setX(xOffset);
         mTextureView.setY(yOffset);
@@ -690,3 +689,4 @@ public class WideAnglePanoramaUI implements
         RotateTextToast.setOrientation(orientation);
     }
 }
+

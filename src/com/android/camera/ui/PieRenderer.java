@@ -731,11 +731,10 @@ public class PieRenderer extends OverlayRenderer
 
     private boolean inside(PointF polar, PieItem item, int pos, int count) {
         float start = getSliceCenter(item, pos, count) - SWEEP_SLICE / 2f;
-        boolean res =  (mArcRadius < polar.y)
+        return (mArcRadius < polar.y)
                 && (start < polar.x)
                 && (start + SWEEP_SLICE > polar.x)
                 && (!mTapMode || (mArcRadius + mRadiusInc > polar.y));
-        return res;
     }
 
     private void getPolar(float x, float y, boolean useOffset, PointF res) {
@@ -1121,3 +1120,4 @@ public class PieRenderer extends OverlayRenderer
     }
 
 }
+

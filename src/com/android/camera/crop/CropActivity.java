@@ -675,7 +675,7 @@ public class CropActivity extends Activity {
             Log.w(LOGTAG, "could not get crop");
             return null;
         }
-        RectF scaledCrop = CropMath.getScaledCropBounds(crop, photo, imageBounds);
-        return scaledCrop;
+        return CropMath.getScaledCropBounds(crop, photo, imageBounds);
     }
 }
+

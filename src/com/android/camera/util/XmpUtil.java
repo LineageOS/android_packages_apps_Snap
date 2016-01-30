@@ -116,8 +116,7 @@ public class XmpUtil {
         System.arraycopy(
             section.data, XMP_HEADER_SIZE, buffer, 0, buffer.length);
         try {
-          XMPMeta result = XMPMetaFactory.parseFromBuffer(buffer);
-          return result;
+          return XMPMetaFactory.parseFromBuffer(buffer);
         } catch (XMPException e) {
           Log.d(TAG, "XMP parse error", e);
           return null;
@@ -403,3 +402,4 @@ public class XmpUtil {
 
   private XmpUtil() {}
 }
+
