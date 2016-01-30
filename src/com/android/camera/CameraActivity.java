@@ -176,17 +176,12 @@ public class CameraActivity extends Activity
     private static final int SUPPORT_SHOW_ON_MAP = 1 << 9;
     private static final int SUPPORT_ALL = 0xffffffff;
 
-    // Pie Setting Menu enabled
-    private static boolean PIE_MENU_ENABLED = false;
     private boolean mDeveloperMenuEnabled = false;
 
     /** This data adapter is used by FilmStripView. */
     private LocalDataAdapter mDataAdapter;
-    /** This data adapter represents the real local camera data. */
-    private LocalDataAdapter mWrappedDataAdapter;
 
     private PanoramaStitchingManager mPanoramaManager;
-    private PlaceholderManager mPlaceholderManager;
     private int mCurrentModuleIndex;
     private CameraModule mCurrentModule;
     private FrameLayout mAboveFilmstripControlLayout;
@@ -230,9 +225,6 @@ public class CameraActivity extends Activity
     private LocalMediaObserver mLocalImagesObserver;
     private LocalMediaObserver mLocalVideosObserver;
 
-    private final int DEFAULT_SYSTEM_UI_VISIBILITY = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-                                                   | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION;
-
     private boolean mPendingDeletion = false;
 
     private Intent mVideoShareIntent;
@@ -242,12 +234,8 @@ public class CameraActivity extends Activity
 
     private ImageView mThumbnail;
     private CircularDrawable mThumbnailDrawable;
-    // FilmStripView.setDataAdapter fires 2 onDataLoaded calls before any data is actually loaded
-    // Keep track of data request here to avoid creating useless UpdateThumbnailTask.
-    private boolean mDataRequested;
 
     private WakeLock mWakeLock;
-    private Context mContext;
 
     private class MyOrientationEventListener
             extends OrientationEventListener {
@@ -377,6 +365,7 @@ public class CameraActivity extends Activity
     }
 
     public static boolean isPieMenuEnabled() {
+        boolean PIE_MENU_ENABLED = false;
         return PIE_MENU_ENABLED;
     }
 
@@ -629,6 +618,8 @@ public class CameraActivity extends Activity
 
         View decorView = getWindow().getDecorView();
         int currentSystemUIVisibility = decorView.getSystemUiVisibility();
+        int DEFAULT_SYSTEM_UI_VISIBILITY = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION;
         int newSystemUIVisibility = DEFAULT_SYSTEM_UI_VISIBILITY
                 | (visible ? View.SYSTEM_UI_FLAG_VISIBLE :
                     View.SYSTEM_UI_FLAG_LOW_PROFILE
@@ -1407,7 +1398,7 @@ public class CameraActivity extends Activity
         }
         GcamHelper.init(getContentResolver());
 
-        mContext = getApplicationContext();
+        Context mContext = getApplicationContext();
         SDCard.initialize(mContext);
 
         getWindow().requestFeature(Window.FEATURE_ACTION_BAR);
@@ -1471,7 +1462,7 @@ public class CameraActivity extends Activity
         this.setSystemBarsVisibility(false);
         mPanoramaManager = AppManagerFactory.getInstance(this)
                 .getPanoramaStitchingManager();
-        mPlaceholderManager = AppManagerFactory.getInstance(this)
+        PlaceholderManager mPlaceholderManager = AppManagerFactory.getInstance(this)
                 .getGcamProcessingManager();
         mPanoramaManager.addTaskListener(mStitchingListener);
         mPlaceholderManager.addTaskListener(mPlaceholderListener);
@@ -1482,7 +1473,8 @@ public class CameraActivity extends Activity
                 FilmStripView.ImageData.SIZE_FULL);
 
         // Put a CameraPreviewData at the first position.
-        mWrappedDataAdapter = new FixedFirstDataAdapter(
+        /* This data adapter represents the real local camera data. */
+        LocalDataAdapter mWrappedDataAdapter = new FixedFirstDataAdapter(
                 new CameraDataAdapter(new ColorDrawable(
                         getResources().getColor(R.color.photo_placeholder))),
                 mCameraPreviewData);
@@ -1498,7 +1490,7 @@ public class CameraActivity extends Activity
             mFilmStripView.setDataAdapter(mDataAdapter);
             if (!isCaptureIntent()) {
                 mDataAdapter.requestLoad(getContentResolver());
-                mDataRequested = true;
+                boolean mDataRequested = true;
             }
         } else {
             // Put a lock placeholder as the last image by setting its date to
@@ -2123,3 +2115,4 @@ public class CameraActivity extends Activity
         return mCurrentModule;
     }
 }
+
