@@ -471,19 +471,19 @@ public class ExifInterface {
         public static final short DID_NOT_FIRED = 0;
         public static final short FIRED = 1;
         // 1st~2nd bits
-        public static final short RETURN_NO_STROBE_RETURN_DETECTION_FUNCTION = 0 << 1;
+        public static final short RETURN_NO_STROBE_RETURN_DETECTION_FUNCTION = 0;
         public static final short RETURN_STROBE_RETURN_LIGHT_NOT_DETECTED = 2 << 1;
         public static final short RETURN_STROBE_RETURN_LIGHT_DETECTED = 3 << 1;
         // 3rd~4th bits
-        public static final short MODE_UNKNOWN = 0 << 3;
+        public static final short MODE_UNKNOWN = 0;
         public static final short MODE_COMPULSORY_FLASH_FIRING = 1 << 3;
         public static final short MODE_COMPULSORY_FLASH_SUPPRESSION = 2 << 3;
         public static final short MODE_AUTO_MODE = 3 << 3;
         // 5th bit
-        public static final short FUNCTION_PRESENT = 0 << 5;
+        public static final short FUNCTION_PRESENT = 0;
         public static final short FUNCTION_NO_FUNCTION = 1 << 5;
         // 6th bit
-        public static final short RED_EYE_REDUCTION_NO_OR_UNKNOWN = 0 << 6;
+        public static final short RED_EYE_REDUCTION_NO_OR_UNKNOWN = 0;
         public static final short RED_EYE_REDUCTION_SUPPORT = 1 << 6;
     }
 
@@ -2083,7 +2083,7 @@ public class ExifInterface {
         };
         int ifdFlags = getFlagsFromAllowedIfds(ifdAllowedIfds) << 24;
         mTagInfo.put(ExifInterface.TAG_MAKE,
-                ifdFlags | ExifTag.TYPE_ASCII << 16 | ExifTag.SIZE_UNDEFINED);
+                ifdFlags | ExifTag.TYPE_ASCII << 16);
         mTagInfo.put(ExifInterface.TAG_IMAGE_WIDTH,
                 ifdFlags | ExifTag.TYPE_UNSIGNED_LONG << 16 | 1);
         mTagInfo.put(ExifInterface.TAG_IMAGE_LENGTH,
@@ -2111,11 +2111,11 @@ public class ExifInterface {
         mTagInfo.put(ExifInterface.TAG_RESOLUTION_UNIT,
                 ifdFlags | ExifTag.TYPE_UNSIGNED_SHORT << 16 | 1);
         mTagInfo.put(ExifInterface.TAG_STRIP_OFFSETS,
-                ifdFlags | ExifTag.TYPE_UNSIGNED_LONG << 16 | ExifTag.SIZE_UNDEFINED);
+                ifdFlags | ExifTag.TYPE_UNSIGNED_LONG << 16);
         mTagInfo.put(ExifInterface.TAG_ROWS_PER_STRIP,
                 ifdFlags | ExifTag.TYPE_UNSIGNED_LONG << 16 | 1);
         mTagInfo.put(ExifInterface.TAG_STRIP_BYTE_COUNTS,
-                ifdFlags | ExifTag.TYPE_UNSIGNED_LONG << 16 | ExifTag.SIZE_UNDEFINED);
+                ifdFlags | ExifTag.TYPE_UNSIGNED_LONG << 16);
         mTagInfo.put(ExifInterface.TAG_TRANSFER_FUNCTION,
                 ifdFlags | ExifTag.TYPE_UNSIGNED_SHORT << 16 | 3 * 256);
         mTagInfo.put(ExifInterface.TAG_WHITE_POINT,
@@ -2129,17 +2129,17 @@ public class ExifInterface {
         mTagInfo.put(ExifInterface.TAG_DATE_TIME,
                 ifdFlags | ExifTag.TYPE_ASCII << 16 | 20);
         mTagInfo.put(ExifInterface.TAG_IMAGE_DESCRIPTION,
-                ifdFlags | ExifTag.TYPE_ASCII << 16 | ExifTag.SIZE_UNDEFINED);
+                ifdFlags | ExifTag.TYPE_ASCII << 16);
         mTagInfo.put(ExifInterface.TAG_MAKE,
-                ifdFlags | ExifTag.TYPE_ASCII << 16 | ExifTag.SIZE_UNDEFINED);
+                ifdFlags | ExifTag.TYPE_ASCII << 16);
         mTagInfo.put(ExifInterface.TAG_MODEL,
-                ifdFlags | ExifTag.TYPE_ASCII << 16 | ExifTag.SIZE_UNDEFINED);
+                ifdFlags | ExifTag.TYPE_ASCII << 16);
         mTagInfo.put(ExifInterface.TAG_SOFTWARE,
-                ifdFlags | ExifTag.TYPE_ASCII << 16 | ExifTag.SIZE_UNDEFINED);
+                ifdFlags | ExifTag.TYPE_ASCII << 16);
         mTagInfo.put(ExifInterface.TAG_ARTIST,
-                ifdFlags | ExifTag.TYPE_ASCII << 16 | ExifTag.SIZE_UNDEFINED);
+                ifdFlags | ExifTag.TYPE_ASCII << 16);
         mTagInfo.put(ExifInterface.TAG_COPYRIGHT,
-                ifdFlags | ExifTag.TYPE_ASCII << 16 | ExifTag.SIZE_UNDEFINED);
+                ifdFlags | ExifTag.TYPE_ASCII << 16);
         mTagInfo.put(ExifInterface.TAG_EXIF_IFD,
                 ifdFlags | ExifTag.TYPE_UNSIGNED_LONG << 16 | 1);
         mTagInfo.put(ExifInterface.TAG_GPS_IFD,
@@ -2173,9 +2173,9 @@ public class ExifInterface {
         mTagInfo.put(ExifInterface.TAG_PIXEL_Y_DIMENSION,
                 exifFlags | ExifTag.TYPE_UNSIGNED_LONG << 16 | 1);
         mTagInfo.put(ExifInterface.TAG_MAKER_NOTE,
-                exifFlags | ExifTag.TYPE_UNDEFINED << 16 | ExifTag.SIZE_UNDEFINED);
+                exifFlags | ExifTag.TYPE_UNDEFINED << 16);
         mTagInfo.put(ExifInterface.TAG_USER_COMMENT,
-                exifFlags | ExifTag.TYPE_UNDEFINED << 16 | ExifTag.SIZE_UNDEFINED);
+                exifFlags | ExifTag.TYPE_UNDEFINED << 16);
         mTagInfo.put(ExifInterface.TAG_RELATED_SOUND_FILE,
                 exifFlags | ExifTag.TYPE_ASCII << 16 | 13);
         mTagInfo.put(ExifInterface.TAG_DATE_TIME_ORIGINAL,
@@ -2183,11 +2183,11 @@ public class ExifInterface {
         mTagInfo.put(ExifInterface.TAG_DATE_TIME_DIGITIZED,
                 exifFlags | ExifTag.TYPE_ASCII << 16 | 20);
         mTagInfo.put(ExifInterface.TAG_SUB_SEC_TIME,
-                exifFlags | ExifTag.TYPE_ASCII << 16 | ExifTag.SIZE_UNDEFINED);
+                exifFlags | ExifTag.TYPE_ASCII << 16);
         mTagInfo.put(ExifInterface.TAG_SUB_SEC_TIME_ORIGINAL,
-                exifFlags | ExifTag.TYPE_ASCII << 16 | ExifTag.SIZE_UNDEFINED);
+                exifFlags | ExifTag.TYPE_ASCII << 16);
         mTagInfo.put(ExifInterface.TAG_SUB_SEC_TIME_DIGITIZED,
-                exifFlags | ExifTag.TYPE_ASCII << 16 | ExifTag.SIZE_UNDEFINED);
+                exifFlags | ExifTag.TYPE_ASCII << 16);
         mTagInfo.put(ExifInterface.TAG_IMAGE_UNIQUE_ID,
                 exifFlags | ExifTag.TYPE_ASCII << 16 | 33);
         mTagInfo.put(ExifInterface.TAG_EXPOSURE_TIME,
@@ -2197,11 +2197,11 @@ public class ExifInterface {
         mTagInfo.put(ExifInterface.TAG_EXPOSURE_PROGRAM,
                 exifFlags | ExifTag.TYPE_UNSIGNED_SHORT << 16 | 1);
         mTagInfo.put(ExifInterface.TAG_SPECTRAL_SENSITIVITY,
-                exifFlags | ExifTag.TYPE_ASCII << 16 | ExifTag.SIZE_UNDEFINED);
+                exifFlags | ExifTag.TYPE_ASCII << 16);
         mTagInfo.put(ExifInterface.TAG_ISO_SPEED_RATINGS,
-                exifFlags | ExifTag.TYPE_UNSIGNED_SHORT << 16 | ExifTag.SIZE_UNDEFINED);
+                exifFlags | ExifTag.TYPE_UNSIGNED_SHORT << 16);
         mTagInfo.put(ExifInterface.TAG_OECF,
-                exifFlags | ExifTag.TYPE_UNDEFINED << 16 | ExifTag.SIZE_UNDEFINED);
+                exifFlags | ExifTag.TYPE_UNDEFINED << 16);
         mTagInfo.put(ExifInterface.TAG_SHUTTER_SPEED_VALUE,
                 exifFlags | ExifTag.TYPE_RATIONAL << 16 | 1);
         mTagInfo.put(ExifInterface.TAG_APERTURE_VALUE,
@@ -2223,11 +2223,11 @@ public class ExifInterface {
         mTagInfo.put(ExifInterface.TAG_FOCAL_LENGTH,
                 exifFlags | ExifTag.TYPE_UNSIGNED_RATIONAL << 16 | 1);
         mTagInfo.put(ExifInterface.TAG_SUBJECT_AREA,
-                exifFlags | ExifTag.TYPE_UNSIGNED_SHORT << 16 | ExifTag.SIZE_UNDEFINED);
+                exifFlags | ExifTag.TYPE_UNSIGNED_SHORT << 16);
         mTagInfo.put(ExifInterface.TAG_FLASH_ENERGY,
                 exifFlags | ExifTag.TYPE_UNSIGNED_RATIONAL << 16 | 1);
         mTagInfo.put(ExifInterface.TAG_SPATIAL_FREQUENCY_RESPONSE,
-                exifFlags | ExifTag.TYPE_UNDEFINED << 16 | ExifTag.SIZE_UNDEFINED);
+                exifFlags | ExifTag.TYPE_UNDEFINED << 16);
         mTagInfo.put(ExifInterface.TAG_FOCAL_PLANE_X_RESOLUTION,
                 exifFlags | ExifTag.TYPE_UNSIGNED_RATIONAL << 16 | 1);
         mTagInfo.put(ExifInterface.TAG_FOCAL_PLANE_Y_RESOLUTION,
@@ -2245,7 +2245,7 @@ public class ExifInterface {
         mTagInfo.put(ExifInterface.TAG_SCENE_TYPE,
                 exifFlags | ExifTag.TYPE_UNDEFINED << 16 | 1);
         mTagInfo.put(ExifInterface.TAG_CFA_PATTERN,
-                exifFlags | ExifTag.TYPE_UNDEFINED << 16 | ExifTag.SIZE_UNDEFINED);
+                exifFlags | ExifTag.TYPE_UNDEFINED << 16);
         mTagInfo.put(ExifInterface.TAG_CUSTOM_RENDERED,
                 exifFlags | ExifTag.TYPE_UNSIGNED_SHORT << 16 | 1);
         mTagInfo.put(ExifInterface.TAG_EXPOSURE_MODE,
@@ -2267,7 +2267,7 @@ public class ExifInterface {
         mTagInfo.put(ExifInterface.TAG_SHARPNESS,
                 exifFlags | ExifTag.TYPE_UNSIGNED_SHORT << 16 | 1);
         mTagInfo.put(ExifInterface.TAG_DEVICE_SETTING_DESCRIPTION,
-                exifFlags | ExifTag.TYPE_UNDEFINED << 16 | ExifTag.SIZE_UNDEFINED);
+                exifFlags | ExifTag.TYPE_UNDEFINED << 16);
         mTagInfo.put(ExifInterface.TAG_SUBJECT_DISTANCE_RANGE,
                 exifFlags | ExifTag.TYPE_UNSIGNED_SHORT << 16 | 1);
         mTagInfo.put(ExifInterface.TAG_INTEROPERABILITY_IFD, exifFlags
@@ -2294,7 +2294,7 @@ public class ExifInterface {
         mTagInfo.put(ExifInterface.TAG_GPS_TIME_STAMP,
                 gpsFlags | ExifTag.TYPE_UNSIGNED_RATIONAL << 16 | 3);
         mTagInfo.put(ExifInterface.TAG_GPS_SATTELLITES,
-                gpsFlags | ExifTag.TYPE_ASCII << 16 | ExifTag.SIZE_UNDEFINED);
+                gpsFlags | ExifTag.TYPE_ASCII << 16);
         mTagInfo.put(ExifInterface.TAG_GPS_STATUS,
                 gpsFlags | ExifTag.TYPE_ASCII << 16 | 2);
         mTagInfo.put(ExifInterface.TAG_GPS_MEASURE_MODE,
@@ -2314,7 +2314,7 @@ public class ExifInterface {
         mTagInfo.put(ExifInterface.TAG_GPS_IMG_DIRECTION,
                 gpsFlags | ExifTag.TYPE_UNSIGNED_RATIONAL << 16 | 1);
         mTagInfo.put(ExifInterface.TAG_GPS_MAP_DATUM,
-                gpsFlags | ExifTag.TYPE_ASCII << 16 | ExifTag.SIZE_UNDEFINED);
+                gpsFlags | ExifTag.TYPE_ASCII << 16);
         mTagInfo.put(ExifInterface.TAG_GPS_DEST_LATITUDE_REF,
                 gpsFlags | ExifTag.TYPE_ASCII << 16 | 2);
         mTagInfo.put(ExifInterface.TAG_GPS_DEST_LATITUDE,
@@ -2328,9 +2328,9 @@ public class ExifInterface {
         mTagInfo.put(ExifInterface.TAG_GPS_DEST_DISTANCE,
                 gpsFlags | ExifTag.TYPE_UNSIGNED_RATIONAL << 16 | 1);
         mTagInfo.put(ExifInterface.TAG_GPS_PROCESSING_METHOD,
-                gpsFlags | ExifTag.TYPE_UNDEFINED << 16 | ExifTag.SIZE_UNDEFINED);
+                gpsFlags | ExifTag.TYPE_UNDEFINED << 16);
         mTagInfo.put(ExifInterface.TAG_GPS_AREA_INFORMATION,
-                gpsFlags | ExifTag.TYPE_UNDEFINED << 16 | ExifTag.SIZE_UNDEFINED);
+                gpsFlags | ExifTag.TYPE_UNDEFINED << 16);
         mTagInfo.put(ExifInterface.TAG_GPS_DATE_STAMP,
                 gpsFlags | ExifTag.TYPE_ASCII << 16 | 11);
         mTagInfo.put(ExifInterface.TAG_GPS_DIFFERENTIAL,
@@ -2340,8 +2340,7 @@ public class ExifInterface {
             IfdId.TYPE_IFD_INTEROPERABILITY
         };
         int interopFlags = getFlagsFromAllowedIfds(interopAllowedIfds) << 24;
-        mTagInfo.put(TAG_INTEROPERABILITY_INDEX, interopFlags | ExifTag.TYPE_ASCII << 16
-                | ExifTag.SIZE_UNDEFINED);
+        mTagInfo.put(TAG_INTEROPERABILITY_INDEX, interopFlags | ExifTag.TYPE_ASCII << 16);
     }
 
     protected static int getAllowedIfdFlagsFromInfo(int info) {
@@ -2406,3 +2405,4 @@ public class ExifInterface {
     }
 
 }
+
