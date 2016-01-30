@@ -106,7 +106,7 @@ class ExifParser {
     /**
      * Option bit to request to parse IFD0.
      */
-    public static final int OPTION_IFD_0 = 1 << 0;
+    public static  final int OPTION_IFD_0 = 1;
     /**
      * Option bit to request to parse IFD1.
      */
