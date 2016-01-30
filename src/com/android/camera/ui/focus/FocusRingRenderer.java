@@ -35,7 +35,7 @@ abstract class FocusRingRenderer implements DynamicAnimation {
     /**
      * Primary focus states that a focus ring renderer can go through.
      */
-    protected static enum FocusState {
+    protected enum FocusState {
         STATE_INACTIVE,
         STATE_ENTER,
         STATE_ACTIVE,
