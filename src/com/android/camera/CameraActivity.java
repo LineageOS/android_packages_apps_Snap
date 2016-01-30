@@ -164,7 +164,7 @@ public class CameraActivity extends Activity
 
     // Supported operations at FilmStripView. Different data has different
     // set of supported operations.
-    private static final int SUPPORT_DELETE = 1 << 0;
+    private static final int SUPPORT_DELETE = 1;
     private static final int SUPPORT_ROTATE = 1 << 1;
     private static final int SUPPORT_INFO = 1 << 2;
     private static final int SUPPORT_CROP = 1 << 3;
