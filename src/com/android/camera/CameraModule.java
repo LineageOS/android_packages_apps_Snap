@@ -23,51 +23,53 @@ import android.view.View;
 
 public interface CameraModule {
 
-    public void init(CameraActivity activity, View frame);
+    void init(CameraActivity activity, View frame);
 
-    public void onPreviewFocusChanged(boolean previewFocused);
+    void onPreviewFocusChanged(boolean previewFocused);
 
-    public void onPauseBeforeSuper();
+    void onPauseBeforeSuper();
 
-    public void onPauseAfterSuper();
+    void onPauseAfterSuper();
 
-    public void onResumeBeforeSuper();
+    void onResumeBeforeSuper();
 
-    public void onResumeAfterSuper();
+    void onResumeAfterSuper();
 
-    public void onConfigurationChanged(Configuration config);
+    @SuppressWarnings("UnnecessaryInterfaceModifier")
+    void onConfigurationChanged(Configuration config);
 
-    public void onStop();
+    void onStop();
 
-    public void installIntentFilter();
+    void installIntentFilter();
 
-    public void onActivityResult(int requestCode, int resultCode, Intent data);
+    void onActivityResult(int requestCode, int resultCode, Intent data);
 
-    public boolean onBackPressed();
+    boolean onBackPressed();
 
-    public boolean onKeyDown(int keyCode, KeyEvent event);
+    boolean onKeyDown(int keyCode, KeyEvent event);
 
-    public boolean onKeyUp(int keyCode, KeyEvent event);
+    boolean onKeyUp(int keyCode, KeyEvent event);
 
-    public void onSingleTapUp(View view, int x, int y);
+    void onSingleTapUp(View view, int x, int y);
 
-    public void onPreviewTextureCopied();
+    void onPreviewTextureCopied();
 
-    public void onCaptureTextureCopied();
+    void onCaptureTextureCopied();
 
-    public void onUserInteraction();
+    void onUserInteraction();
 
-    public boolean updateStorageHintOnResume();
+    boolean updateStorageHintOnResume();
 
-    public void onOrientationChanged(int orientation);
+    void onOrientationChanged(int orientation);
 
-    public void onShowSwitcherPopup();
+    void onShowSwitcherPopup();
 
-    public void onMediaSaveServiceConnected(MediaSaveService s);
+    void onMediaSaveServiceConnected(MediaSaveService s);
 
-    public boolean arePreviewControlsVisible();
+    boolean arePreviewControlsVisible();
 
-    public void resizeForPreviewAspectRatio();
+    void resizeForPreviewAspectRatio();
 
-    public void onSwitchSavePath();
+    void onSwitchSavePath();
 }
+

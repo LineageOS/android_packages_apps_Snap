@@ -49,54 +49,54 @@ public interface CameraManager {
      * An interface which wraps
      * {@link android.hardware.Camera.AutoFocusCallback}.
      */
-    public interface CameraAFCallback {
-        public void onAutoFocus(boolean focused, CameraProxy camera);
+    interface CameraAFCallback {
+        void onAutoFocus(boolean focused, CameraProxy camera);
     }
 
     /**
      * An interface which wraps
      * {@link android.hardware.Camera.AutoFocusMoveCallback}.
      */
-    public interface CameraAFMoveCallback {
-        public void onAutoFocusMoving(boolean moving, CameraProxy camera);
+    interface CameraAFMoveCallback {
+        void onAutoFocusMoving(boolean moving, CameraProxy camera);
     }
 
     /**
      * An interface which wraps
      * {@link android.hardware.Camera.ShutterCallback}.
      */
-    public interface CameraShutterCallback {
-        public void onShutter(CameraProxy camera);
+    interface CameraShutterCallback {
+        void onShutter(CameraProxy camera);
     }
 
     /**
      * An interface which wraps
      * {@link android.hardware.Camera.PictureCallback}.
      */
-    public interface CameraPictureCallback {
-        public void onPictureTaken(byte[] data, CameraProxy camera);
+    interface CameraPictureCallback {
+        void onPictureTaken(byte[] data, CameraProxy camera);
     }
 
     /**
      * An interface which wraps
      * {@link android.hardware.Camera.PreviewCallback}.
      */
-    public interface CameraPreviewDataCallback {
-        public void onPreviewFrame(byte[] data, CameraProxy camera);
+    interface CameraPreviewDataCallback {
+        void onPreviewFrame(byte[] data, CameraProxy camera);
     }
 
     /**
      * An interface which wraps
      * {@link android.hardware.Camera.FaceDetectionListener}.
      */
-    public interface CameraFaceDetectionCallback {
+    interface CameraFaceDetectionCallback {
         /**
          * Callback for face detection.
          *
          * @param faces   Recognized face in the preview.
          * @param camera  The camera which the preview image comes from.
          */
-        public void onFaceDetection(Camera.Face[] faces, CameraProxy camera);
+        void onFaceDetection(Camera.Face[] faces, CameraProxy camera);
     }
 
     /**
@@ -105,14 +105,14 @@ public interface CameraManager {
      * in the framework, {@link android.hardware.Camera.ErrorCallback}, which
      * is used after the camera is opened.
      */
-    public interface CameraOpenErrorCallback {
+    interface CameraOpenErrorCallback {
         /**
          * Callback when {@link com.android.camera.CameraDisabledException} is
          * caught.
          *
          * @param cameraId The disabled camera.
          */
-        public void onCameraDisabled(int cameraId);
+        void onCameraDisabled(int cameraId);
 
         /**
          * Callback when {@link com.android.camera.CameraHardwareException} is
@@ -120,7 +120,7 @@ public interface CameraManager {
          *
          * @param cameraId The camera with the hardware failure.
          */
-        public void onDeviceOpenFailure(int cameraId);
+        void onDeviceOpenFailure(int cameraId);
 
         /**
          * Callback when {@link java.io.IOException} is caught during
@@ -129,7 +129,7 @@ public interface CameraManager {
          * @param mgr The {@link com.android.camera.CameraManager}
          *            with the reconnect failure.
          */
-        public void onReconnectionFailure(CameraManager mgr);
+        void onReconnectionFailure(CameraManager mgr);
     }
 
     /**
@@ -141,7 +141,7 @@ public interface CameraManager {
      * @param cameraId The camera ID to open.
      * @return   An instance of {@link CameraProxy} on success. null on failure.
      */
-    public CameraProxy cameraOpen(
+    CameraProxy cameraOpen(
             Handler handler, int cameraId, CameraOpenErrorCallback callback);
 
     /**
@@ -149,7 +149,7 @@ public interface CameraManager {
      * camera handler thread. All camera operations made through this interface is
      * asynchronous by default except those mentioned specifically.
      */
-    public interface CameraProxy {
+    interface CameraProxy {
 
         /**
          * Returns the underlying {@link android.hardware.Camera} object used
@@ -157,20 +157,20 @@ public interface CameraManager {
          * camera device over to {@link android.media.MediaRecorder} for
          * recording.
          */
-        public android.hardware.Camera getCamera();
+        android.hardware.Camera getCamera();
 
         /**
          * Releases the camera device synchronously.
          * This function must be synchronous so the caller knows exactly when the camera
          * is released and can continue on.
          */
-        public void release();
+        void release();
 
         /**
          * Sets the metadata cb
          * @cb Metadata callback object
         */
-        public void setMetadataCb (CameraMetaDataCallback cb);
+        void setMetadataCb(CameraMetaDataCallback cb);
 
         /**
          * Reconnects to the camera device.
@@ -181,46 +181,46 @@ public interface CameraManager {
          * @param cb The callback when any error happens.
          * @return {@code false} on errors.
          */
-        public boolean reconnect(Handler handler, CameraOpenErrorCallback cb);
+        boolean reconnect(Handler handler, CameraOpenErrorCallback cb);
 
         /**
          * Unlocks the camera device.
          *
          * @see android.hardware.Camera#unlock()
          */
-        public void unlock();
+        void unlock();
 
         /**
          * Locks the camera device.
          * @see android.hardware.Camera#lock()
          */
-        public void lock();
+        void lock();
 
         /**
          * Sets the {@link android.graphics.SurfaceTexture} for preview.
          *
          * @param surfaceTexture The {@link SurfaceTexture} for preview.
          */
-        public void setPreviewTexture(final SurfaceTexture surfaceTexture);
+        void setPreviewTexture(final SurfaceTexture surfaceTexture);
 
         /**
          * Sets the {@link android.view.SurfaceHolder} for preview.
          *
          * @param surfaceHolder The {@link SurfaceHolder} for preview.
          */
-        public void setPreviewDisplay(final SurfaceHolder surfaceHolder);
+        void setPreviewDisplay(final SurfaceHolder surfaceHolder);
 
         /**
          * Starts the camera preview.
          */
-        public void startPreview();
+        void startPreview();
 
         /**
          * Stops the camera preview synchronously.
          * {@code stopPreview()} must be synchronous to ensure that the caller can
          * continues to release resources related to camera preview.
          */
-        public void stopPreview();
+        void stopPreview();
 
         /**
          * Sets the callback for preview data.
@@ -229,7 +229,7 @@ public interface CameraManager {
          * @param cb         The callback to be invoked when the preview data is available.
          * @see  android.hardware.Camera#setPreviewCallback(android.hardware.Camera.PreviewCallback)
          */
-        public void setPreviewDataCallback(Handler handler, CameraPreviewDataCallback cb);
+        void setPreviewDataCallback(Handler handler, CameraPreviewDataCallback cb);
 
         /**
          * Sets the callback for preview data.
@@ -238,15 +238,15 @@ public interface CameraManager {
          * @param cb      The callback to be invoked when the preview data is available.
          * @see android.hardware.Camera#setPreviewCallbackWithBuffer(android.hardware.Camera.PreviewCallback)
          */
-        public void setPreviewDataCallbackWithBuffer(Handler handler, CameraPreviewDataCallback cb);
+        void setPreviewDataCallbackWithBuffer(Handler handler, CameraPreviewDataCallback cb);
 
-        public void setOneShotPreviewCallback(Handler handler, CameraPreviewDataCallback cb);
+        void setOneShotPreviewCallback(Handler handler, CameraPreviewDataCallback cb);
         /**
          * Adds buffer for the preview callback.
          *
          * @param callbackBuffer The buffer allocated for the preview data.
          */
-        public void addCallbackBuffer(byte[] callbackBuffer);
+        void addCallbackBuffer(byte[] callbackBuffer);
 
         /**
          * Starts the auto-focus process. The result will be returned through the callback.
@@ -254,12 +254,12 @@ public interface CameraManager {
          * @param handler The handler in which the callback will be invoked.
          * @param cb      The auto-focus callback.
          */
-        public void autoFocus(Handler handler, CameraAFCallback cb);
+        void autoFocus(Handler handler, CameraAFCallback cb);
 
         /**
          * Cancels the auto-focus process.
          */
-        public void cancelAutoFocus();
+        void cancelAutoFocus();
 
         /**
          * Sets the auto-focus callback
@@ -268,7 +268,7 @@ public interface CameraManager {
          * @param cb      The callback to be invoked when the preview data is available.
          */
         @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
-        public void setAutoFocusMoveCallback(Handler handler, CameraAFMoveCallback cb);
+        void setAutoFocusMoveCallback(Handler handler, CameraAFMoveCallback cb);
 
         /**
          * Instrument the camera to take a picture.
@@ -283,7 +283,7 @@ public interface CameraManager {
          *         android.hardware.Camera.PictureCallback,
          *         android.hardware.Camera.PictureCallback)
          */
-        public void takePicture(
+        void takePicture(
                 Handler handler,
                 CameraShutterCallback shutter,
                 CameraPictureCallback raw,
@@ -295,14 +295,14 @@ public interface CameraManager {
          *
          * @param degrees The rotation in degrees. Should be 0, 90, 180 or 270.
          */
-        public void setDisplayOrientation(int degrees);
+        void setDisplayOrientation(int degrees);
 
         /**
          * Sets the listener for zoom change.
          *
          * @param listener The listener.
          */
-        public void setZoomChangeListener(OnZoomChangeListener listener);
+        void setZoomChangeListener(OnZoomChangeListener listener);
 
         /**
          * Sets the face detection listener.
@@ -310,17 +310,17 @@ public interface CameraManager {
          * @param handler  The handler in which the callback will be invoked.
          * @param callback The callback for face detection results.
          */
-        public void setFaceDetectionCallback(Handler handler, CameraFaceDetectionCallback callback);
+        void setFaceDetectionCallback(Handler handler, CameraFaceDetectionCallback callback);
 
         /**
          * Starts the face detection.
          */
-        public void startFaceDetection();
+        void startFaceDetection();
 
         /**
          * Stops the face detection.
          */
-        public void stopFaceDetection();
+        void stopFaceDetection();
 
         /**
          * Registers an error callback.
@@ -328,14 +328,14 @@ public interface CameraManager {
          * @param cb The error callback.
          * @see android.hardware.Camera#setErrorCallback(android.hardware.Camera.ErrorCallback)
          */
-        public void setErrorCallback(ErrorCallback cb);
+        void setErrorCallback(ErrorCallback cb);
 
         /**
          * Sets the camera parameters.
          *
          * @param params The camera parameters to use.
          */
-        public void setParameters(Parameters params);
+        void setParameters(Parameters params);
 
         /**
          * Gets the current camera parameters synchronously. This method is
@@ -343,13 +343,13 @@ public interface CameraManager {
          * the parameters. If the parameters are already cached, it returns
          * immediately.
          */
-        public Parameters getParameters();
+        Parameters getParameters();
 
         /**
          * Forces {@code CameraProxy} to update the cached version of the camera
          * parameters regardless of the dirty bit.
          */
-        public void refreshParameters();
+        void refreshParameters();
 
         /**
          * Enables/Disables the camera shutter sound.
@@ -357,29 +357,30 @@ public interface CameraManager {
          * @param enable   {@code true} to enable the shutter sound,
          *                 {@code false} to disable it.
          */
-        public void enableShutterSound(boolean enable);
+        void enableShutterSound(boolean enable);
         /**
          * Set histogram Mode
          *
          * @param cb   cameraDataCallback to use
          */
-        public void setHistogramMode(CameraDataCallback cb);
+        void setHistogramMode(CameraDataCallback cb);
         /**
          * Send the Histogram Data.
          *
         */
-        public void sendHistogramData();
+        void sendHistogramData();
         /**
          * Enables/Disables longshot mode.
          *
          * @param enable   {@code true} to enable longshot mode,
          *                 {@code false} to disable it.
         */
-        public void setLongshot(boolean enable);
+        void setLongshot(boolean enable);
         /**
          * Stop longshot.
          *
         */
-        public void stopLongshot();
+        void stopLongshot();
     }
 }
+
