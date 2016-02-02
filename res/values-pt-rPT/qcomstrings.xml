@@ -191,7 +191,7 @@
   <string name="msg_cancel_longshot_for_limited_memory">Está a ficar sem memória. A cancelar o modo de disparo contínuo</string>
   <string name="flash_aebracket_message">O flash não é suportado no modo AEB</string>
   <string name="on_switch_save_path_to_sdcard">O espaço de armazenamento interno não é suficiente. O local de armazenamento foi alterado para o cartão SD</string>
-  <string name="map_activity_not_found_err">Não há nenhuma aplicação de mapas para visualizar a localização</string>
+  <string name="map_activity_not_found_err">Não há nenhuma aplicação de mapas instalada para mostrar a localização</string>
   <string name="longshot_enable_message">As funcionalidades avançadas não são suportadas no modo de disparo contínuo</string>
   <string name="advance_feature_enable_msg">O disparo contínuo não é suportado quando as funcionalidades avançadas estão ativadas</string>
   <string name="HDR_disable_continuous_shot">Ativar o HDR irá desativar o disparo contínuo</string>

@@ -191,7 +191,7 @@
   <string name="msg_cancel_longshot_for_limited_memory">Esaurimento della memoria, annullamento scatto continuo</string>
   <string name="flash_aebracket_message">Il flash non è supportato in modalità di bracketing AE</string>
   <string name="on_switch_save_path_to_sdcard">Le spazio d\'archiviazione interno è insufficiente, la memoria predefinita è ora la scheda SD</string>
-  <string name="map_activity_not_found_err">Nessun\'app Mappe installata per mostrare la posizione</string>
+  <string name="map_activity_not_found_err">Non c\'è nessuna app mappe installata per mostrare la posizione</string>
   <string name="longshot_enable_message">Le funzioni avanzate non sono supportate durante la modalità scatto continuo</string>
   <string name="advance_feature_enable_msg">Lo scatto continuo non è supportato quando sono attive le funzioni avanzate</string>
   <string name="HDR_disable_continuous_shot">Attivando l\'HDR lo scatto continuo sarà disattivato</string>

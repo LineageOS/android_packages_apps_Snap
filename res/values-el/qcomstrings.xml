@@ -46,6 +46,8 @@
   <string name="pref_camera_manual_wb_entry_color_temperature">Θερμοκρασία χρώματος</string>
   <string name="pref_camera_manual_wb_entry_off">Ανενεργή</string>
   <string name="pref_camera_manual_focus_title">Χειροκίνητη εστίαση</string>
+  <string name="pref_camera_manual_focus_entry_scale_mode">Λειτουργία κλίμακας</string>
+  <string name="pref_camera_manual_focus_entry_diopter_mode">Λειτουργία διόπτρας</string>
   <string name="pref_camera_manual_focus_entry_off">Ανενεργή</string>
   <string name="pref_camera_video_hdr_title">Video HDR</string>
   <string name="pref_camera_cds_title">Λειτουργία CDS</string>
@@ -166,6 +168,7 @@
   <string name="pref_camera_hdr_mode_title">Λειτουργία HDR</string>
   <string name="pref_camera_hdr_mode_entry_sensor">HDR αισθητήρα</string>
   <string name="pref_camera_hdr_mode_entry_multi_frame">HDR πολλαπλών καρέ</string>
+  <string name="pref_camera_hdr_need_1x_title">HDR με 1 καρέ</string>
   <string name="pref_camera_video_rotation_title">Περιστροφή βίντεο</string>
   <string name="pref_camera_video_rotation_entry_0">0 μοίρες</string>
   <string name="pref_camera_video_rotation_entry_90">90 μοίρες</string>
@@ -175,5 +178,13 @@
   <string name="pref_camera_savepath_entry_0">Εσωτερικός αποθ. χώρος</string>
   <string name="pref_camera_savepath_entry_1">Κάρτα SD</string>
   <string name="camera_gesture_title">Εκκίνηση φωτογρ. μηχανής</string>
+  <string name="all_in_focus">Όλα σε εστίαση</string>
+  <string name="error_app_unsupported_hfr_selection">Η υψηλή ταχύτητα/αργή κίνηση δεν υποστηρίζεται με Σταθεροποίηση/Time lapse/HDR.</string>
+  <string name="error_app_unsupported_hfr">Δεν υποστηρίζεται βίντεο αργής κίνησης για το επιλεγμένο μέγεθος βίντεο. Επιλέξτε ένα μικρότερο μέγεθος βίντεο</string>
+  <string name="error_app_unsupported_dis">Δεν υποστηρίζεται η λειτουργία σταθεροποίησης για το επιλεγμένο μέγεθος βίντεο. Επιλέξτε ένα μικρότερο μέγεθος βίντεο</string>
+  <string name="error_app_unsupported_hsr">Δεν υποστηρίζεται βίντεο υψηλής ταχύτητας για το επιλεγμένο μέγεθος βίντεο. Επιλέξτε ένα μικρότερο μέγεθος βίντεο</string>
   <string name="error_app_unsupported">Μη υποστηριζόμενη ανάλυση βίντεο για αυτόν τον τύπο κωδικοποιητή</string>
+  <string name="on_switch_save_path_to_sdcard">Ο εσωτερικός χώρος αποθήκευσης δεν επαρκεί, αλλαγή χώρου αποθήκευσης σε κάρτα SD</string>
+  <string name="map_activity_not_found_err">Δεν υπάρχει εγκατεστημένη καμία εφαρμογή χαρτών ώστε να δείτε την τοποθεσία</string>
+  <string name="video_quality_4k_disable_IS">Η ενεργοποίηση 4K βίντεο θα απενεργοποιήσει τη λειτουργία σταθεροποίησης</string>
 </resources>
