@@ -101,6 +101,9 @@
   <string name="pref_camera_iso_entry_iso6400">ISO6400</string>
   <string name="pref_camera_iso_entry_iso12800">ISO12800</string>
   <string name="pref_camera_antibanding_title">アンチバンディング</string>
+  <string name="pref_camera_antibanding_entry_0">オート</string>
+  <string name="pref_camera_antibanding_entry_1">50 Hz（ヨーロッパ）</string>
+  <string name="pref_camera_antibanding_entry_2">60 Hz（アメリカ）</string>
   <string name="pref_camera_coloreffect_title">色彩効果</string>
   <string name="pref_camera_coloreffect_entry_none">なし</string>
   <string name="pref_camera_coloreffect_entry_mono">モノクロ</string>
@@ -152,7 +155,7 @@
   <string name="pref_camera_saturation_entry_level9">レベル9</string>
   <string name="pref_camera_saturation_entry_level10">レベル10</string>
   <string name="pref_camera_picture_format_title">写真の形式</string>
-  <string name="pref_camera_jpegquality_title">写真の画質</string>
+  <string name="pref_camera_jpegquality_title">画質</string>
   <string name="pref_camera_jpegquality_entry_0">55%</string>
   <string name="pref_camera_jpegquality_entry_1">65%（標準）</string>
   <string name="pref_camera_jpegquality_entry_2">75%（ファイン）</string>
@@ -188,7 +191,7 @@
   <string name="msg_cancel_longshot_for_limited_memory">メモリが不足しているため、連写を中止しました</string>
   <string name="flash_aebracket_message">フラッシュは自動段階露出モードでは使用できません</string>
   <string name="on_switch_save_path_to_sdcard">内部ストレージの容量が少なくなっているため、ストレージの場所をSDカードに切り替えました</string>
-  <string name="map_activity_not_found_err">位置情報を表示するための地図アプリがありません</string>
+  <string name="map_activity_not_found_err">位置情報を表示するマップアプリがインストールされていません</string>
   <string name="longshot_enable_message">高度な機能は連写モードでは使用できません</string>
   <string name="advance_feature_enable_msg">高度な機能が有効になっている場合は連写は使用できません</string>
   <string name="HDR_disable_continuous_shot">HDRを有効にすると連写が無効になります</string>

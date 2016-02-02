@@ -191,7 +191,7 @@
   <string name="msg_cancel_longshot_for_limited_memory">Понестаје меморије, искључујем непрекидно окидање</string>
   <string name="flash_aebracket_message">Блиц није подржан у режиму издвајања AE</string>
   <string name="on_switch_save_path_to_sdcard">Простор унутрашњег складишта није довољан, пребачена локација складишта на SD картицу</string>
-  <string name="map_activity_not_found_err">Нема апликације мапе да прикаже локацију</string>
+  <string name="map_activity_not_found_err">Нема апликације мапа инсталиране да прикаже локацију</string>
   <string name="longshot_enable_message">Напредне могућности нису подржанеу режиму непрестаног окидања</string>
   <string name="advance_feature_enable_msg">Непрекидно окидање није подржано при укљученим напредним могућностима</string>
   <string name="HDR_disable_continuous_shot">Омогућавање HDR-а ће донемогућити непрекидно окидање</string>

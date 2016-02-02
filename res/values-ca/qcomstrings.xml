@@ -191,7 +191,7 @@
   <string name="msg_cancel_longshot_for_limited_memory">S\'està acabant la memòria, cancel·lant el disparador continu</string>
   <string name="flash_aebracket_message">El flaix no està suportat en el mode de bracketing d\'exposició automàtica</string>
   <string name="on_switch_save_path_to_sdcard">Espai d\'emmagatzematge intern insuficient, s\'ha canviat l\'ubicació de l\'emmagatzematge cap a la targeta SD</string>
-  <string name="map_activity_not_found_err">No hi ha cap aplicació de mapes per mostrar la ubicació</string>
+  <string name="map_activity_not_found_err">No hi ha cap aplicació de mapes instal·lada per mostrar la ubicació</string>
   <string name="longshot_enable_message">Les característiques avançades no estan suportades en el mode d\'obturador continu</string>
   <string name="advance_feature_enable_msg">El mode d\'obturador continu no és compatible quan s\'habiliten les característiques avançades</string>
   <string name="HDR_disable_continuous_shot">Habilitant l\'HDR es deshabilitarà el mode d\'obturador continu</string>

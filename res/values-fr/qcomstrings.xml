@@ -191,7 +191,6 @@
   <string name="msg_cancel_longshot_for_limited_memory">Plus assez de mémoire, prise de vue continue annulée</string>
   <string name="flash_aebracket_message">Le flash n\'est pas supporté dans le mode AE bracketing</string>
   <string name="on_switch_save_path_to_sdcard">Plus assez de mémoire interne, stockage basculé sur la carte SD</string>
-  <string name="map_activity_not_found_err">Il n\'y a pas d\'application de localisation</string>
   <string name="longshot_enable_message">Les fonctionnalités avancées ne sont pas supportées dans le mode de prise de vue continue</string>
   <string name="advance_feature_enable_msg">La prise de vue continue n\'est pas supportée quand les fonctionnalités avancées sont activées</string>
   <string name="HDR_disable_continuous_shot">Activer HDR désactivera le mode rafale</string>

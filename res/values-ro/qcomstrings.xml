@@ -21,6 +21,9 @@
     limitations under the License.
 -->
 <resources>
+  <string name="pref_camera_autoexposure_title">Expunere automată</string>
+  <string name="pref_camera_autoexposure_entry_frameaverage">Media cadrului</string>
+  <string name="pref_camera_autoexposure_entry_spotmetering">Măsurare punctuală</string>
   <string name="pref_camera_videoencoder_title">Codec video</string>
   <string name="pref_camera_audioencoder_title">Codec audio</string>
   <string name="pref_camera_selectablezoneaf_entry_auto">Auto</string>
@@ -29,11 +32,23 @@
   <string name="pref_camera_manual_exp_entry_ISO_priority">Prioritate ISO</string>
   <string name="pref_camera_manual_wb_entry_color_temperature">Temperatura culorii</string>
   <string name="pref_camera_manual_wb_entry_off">Oprit</string>
+  <string name="pref_camera_manual_focus_title">Focalizare manuală</string>
   <string name="pref_camera_manual_focus_entry_off">Oprit</string>
   <string name="pref_camera_video_hdr_title">Video HDR</string>
   <string name="pref_camera_cds_title">Mod CDS</string>
   <string name="pref_camera_cds_entry_auto">Automat</string>
+  <string name="pref_camera_video_cds_title">Mod video CDS</string>
   <string name="pref_camera_video_cds_entry_auto">Automat</string>
+  <string name="pref_camera_tnr_title">Mod TNR</string>
+  <string name="pref_camera_video_tnr_title">Mod video TNR</string>
+  <string name="pref_camera_facedetection_title">Detectare față</string>
+  <string name="pref_camera_hfr_entry_2x">Mișcare lentă 60 FPS</string>
+  <string name="pref_camera_hfr_entry_3x">Mișcare lentă 90 FPS</string>
+  <string name="pref_camera_hfr_entry_4x">Mișcare lentă 120 FPS</string>
+  <string name="pref_camera_hfr_entry_8x">Mișcare lentă 240 FPS</string>
+  <string name="pref_camera_hfr_entry_hsr_60">Viteză mărită 60 FPS</string>
+  <string name="pref_camera_hfr_entry_hsr_90">Viteză mărită 90 FPS</string>
+  <string name="pref_camera_hfr_entry_hsr_120">Viteză mărită 120 FPS</string>
   <string name="pref_camera_denoise_title">Înlăturare zgomot</string>
   <string name="pref_camera_iso_title">ISO</string>
   <string name="pref_camera_iso_entry_auto">Auto</string>
@@ -65,6 +80,10 @@
   <string name="pref_camera_iso_entry_iso3200">ISO3200</string>
   <string name="pref_camera_iso_entry_iso6400">ISO6400</string>
   <string name="pref_camera_iso_entry_iso12800">ISO12800</string>
+  <string name="pref_camera_antibanding_entry_0">Automat</string>
+  <string name="pref_camera_antibanding_entry_1">50 Hz (Europa)</string>
+  <string name="pref_camera_antibanding_entry_2">60 Hz (SUA)</string>
+  <string name="pref_camera_coloreffect_title">Efect de culoare</string>
   <string name="pref_camera_coloreffect_entry_mono">Mono</string>
   <string name="pref_camera_coloreffect_entry_sepia">Sepia</string>
   <string name="pref_camera_coloreffect_entry_negative">Negativ</string>

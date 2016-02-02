@@ -16,10 +16,12 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="pref_camera_picturesize_entry_21mp">2100 万像素</string>
   <string name="pref_camera_picturesize_entry_20_7mp">2070 万像素</string>
   <string name="pref_camera_picturesize_entry_20_1mp_wide">2010 万像素 (16:9)</string>
   <string name="pref_camera_picturesize_entry_18mp">1800 万像素</string>
   <string name="pref_camera_picturesize_entry_16_2mp_wide">1620 万像素 (16:9)</string>
+  <string name="pref_camera_picturesize_entry_16_1mp_wide">1610 万像素 (16:9)</string>
   <string name="pref_camera_picturesize_entry_16mp">1600 万像素</string>
   <string name="pref_camera_picturesize_entry_15_9mp_wide">1590 万像素 (16:9)</string>
   <string name="pref_camera_picturesize_entry_13mp">1300 万像素</string>

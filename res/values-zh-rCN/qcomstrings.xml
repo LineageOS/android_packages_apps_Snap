@@ -191,7 +191,7 @@
   <string name="msg_cancel_longshot_for_limited_memory">内存消耗殆尽，正在取消连拍模式</string>
   <string name="flash_aebracket_message">AE 曝光模式不支持使用闪光灯</string>
   <string name="on_switch_save_path_to_sdcard">内部存储空间不足，已将存储位置切换到 SD 卡</string>
-  <string name="map_activity_not_found_err">没有地图应用可以显示地理位置</string>
+  <string name="map_activity_not_found_err">找不到用于显示地点的地图应用</string>
   <string name="longshot_enable_message">在连拍模式下高级功能不被支持</string>
   <string name="advance_feature_enable_msg">当高级功能启用时，连拍不被支持</string>
   <string name="HDR_disable_continuous_shot">启用 HDR 将会禁用连拍</string>

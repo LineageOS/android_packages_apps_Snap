@@ -191,7 +191,6 @@
   <string name="msg_cancel_longshot_for_limited_memory">A memória está acabando. Cancelando o modo de disparo contínuo</string>
   <string name="flash_aebracket_message">Flash não é suportado no modo assistente de auto-exposição</string>
   <string name="on_switch_save_path_to_sdcard">Não há espaço no armazenamento interno, mudando o local de armazenamento para cartão SD</string>
-  <string name="map_activity_not_found_err">Não há nenhum aplicativo de mapa para visualizar a localização</string>
   <string name="longshot_enable_message">Recursos avançados não são suportados no modo de disparo contínuo</string>
   <string name="advance_feature_enable_msg">Disparo contínuo não é suportado quando recursos avançados estão ativados</string>
   <string name="HDR_disable_continuous_shot">Ao ativar HDR o modo disparo contínuo será desativado</string>
