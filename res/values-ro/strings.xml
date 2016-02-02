@@ -15,9 +15,33 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="app_name">Cameră</string>
+  <string name="video_camera_label">Cameră video</string>
   <string name="details_ms">%1$02d:%2$02d</string>
+  <string name="details_hms">%1$d:%2$02d:%3$02d</string>
+  <plurals name="delete_selection">
+    <item quantity="one">Ștergeți articolul selectat?</item>
+    <item quantity="few">Ștergeți articolele selectate?</item>
+    <item quantity="other">Ștergeți articolele selectate?</item>
+  </plurals>
+  <string name="deleted">S-a șters</string>
   <string name="undo">ANULAȚI</string>
   <string name="details">Detalii</string>
+  <plurals name="number_of_items_selected">
+    <item quantity="one">%1$d selectat</item>
+    <item quantity="few">%1$d selectate</item>
+    <item quantity="other">%1$d selectate</item>
+  </plurals>
+  <plurals name="number_of_albums_selected">
+    <item quantity="one">%1$d selectat</item>
+    <item quantity="few">%1$d selectate</item>
+    <item quantity="other">%1$d selectate</item>
+  </plurals>
+  <plurals name="number_of_groups_selected">
+    <item quantity="one">%1$d selectat</item>
+    <item quantity="few">%1$d selectate</item>
+    <item quantity="other">%1$d selectate</item>
+  </plurals>
   <string name="rotate_left">Rotește spre stânga</string>
   <string name="rotate_right">Rotește spre dreapta</string>
   <string name="edit">Editare</string>
@@ -31,6 +55,7 @@
   <string name="duration">Durată</string>
   <string name="mimetype">Tip MIME</string>
   <string name="file_size">Dimens. fișier</string>
+  <string name="maker">Producător</string>
   <string name="model">Model</string>
   <string name="flash">Bliț</string>
   <string name="aperture">Apertură</string>
@@ -41,8 +66,11 @@
   <string name="unit_mm">mm</string>
   <string name="manual">Manual</string>
   <string name="auto">Automat</string>
+  <string name="flash_on">Bliț activat</string>
   <string name="flash_off">Fără bliț</string>
   <string name="please_wait">Așteptați</string>
+  <string name="cannot_connect_camera">Nu se poate realiza conexiunea la camera foto.</string>
+  <string name="camera_disabled">Camera foto a fost dezactivată din cauza politicilor de securitate.</string>
   <string name="wait">Așteptați\u2026</string>
   <string name="no_storage" product="default">Introduceți un card SD înainte de a utiliza camera foto.</string>
   <string name="access_sd_fail" product="default">Nu s-a putut accesa cardul SD.</string>
@@ -64,6 +92,7 @@
   <string name="pref_camera_focusmode_label_infinity">INFINIT</string>
   <string name="pref_camera_focusmode_label_macro">MACRO</string>
   <string name="pref_camera_flashmode_title">Mod bliț</string>
+  <string name="pref_camera_flashmode_label">MOD BLIȚ</string>
   <string name="pref_camera_flashmode_entry_auto">Automat</string>
   <string name="pref_camera_flashmode_entry_on">Activat</string>
   <string name="pref_camera_flashmode_entry_off">Dezactivat</string>
@@ -82,6 +111,7 @@
   <string name="pref_camera_whitebalance_label_daylight">LUMINĂ DE ZI</string>
   <string name="pref_camera_whitebalance_label_fluorescent">FLUORESCENT</string>
   <string name="pref_camera_whitebalance_label_cloudy">ÎNNORAT</string>
+  <string name="pref_camera_scenemode_title">Mod Scenă</string>
   <string name="pref_camera_scenemode_entry_auto">Automat</string>
   <string name="pref_camera_scenemode_entry_hdr_plus">HDR+</string>
   <string name="pref_camera_scenemode_entry_hdr">HDR</string>
@@ -99,6 +129,7 @@
   <string name="pref_camera_scenemode_label_sunset">APUS DE SOARE</string>
   <string name="pref_camera_scenemode_label_party">PETRECERE</string>
   <string name="pref_camera_countdown_label_off">CRONOMETRU DEZACTIVAT</string>
+  <string name="pref_camera_countdown_label_one">1 SECUNDĂ</string>
   <string name="pref_camera_countdown_label_three">3 SECUNDE</string>
   <string name="pref_camera_countdown_label_ten">10 SECUNDE</string>
   <string name="pref_camera_countdown_label_fifteen">15 SECUNDE</string>
@@ -107,7 +138,9 @@
   <string name="pref_camera_hdr_label">HDR</string>
   <string name="dialog_ok">OK</string>
   <string name="pano_too_fast_prompt">Prea repede</string>
+  <string name="pano_dialog_prepare_preview">Se pregătește panorama</string>
   <string name="pano_dialog_title">Panoramă</string>
+  <string name="pano_review_saving_indication_str">Se salvează\u2026</string>
   <string name="pref_video_effect_title">Efecte</string>
   <string name="effect_goofy_face_big_eyes">Ochi mari</string>
   <string name="effect_goofy_face_big_mouth">Gură mare</string>
@@ -116,9 +149,11 @@
   <string name="effect_goofy_face_small_eyes">Ochi mici</string>
   <string name="effect_backdropper_space">În spațiu</string>
   <string name="effect_backdropper_sunset">Apus de soare</string>
+  <string name="clear_effects">Ștergeți efectele</string>
   <string name="effect_silly_faces">FEȚE CARAGHIOASE</string>
   <string name="effect_background">FUNDAL</string>
   <string name="accessibility_shutter_button">Obturator</string>
+  <string name="accessibility_menu_button">Buton Meniu</string>
   <string name="accessibility_switch_to_video">Comutați la modul video</string>
   <string name="accessibility_switch_to_panorama">Comutați la panoramă</string>
   <string name="capital_on">ACTIVAT</string>
@@ -173,4 +208,5 @@
   <string name="camera_menu_more_label">MAI MULTE OPȚIUNI</string>
   <string name="camera_menu_settings_label">SETĂRI</string>
   <string name="tiny_planet_zoom">Zoom</string>
+  <string name="cannot_load_image">Nu se poate încărca imaginea!</string>
 </resources>

@@ -53,8 +53,10 @@
   <string name="rotate_right">Obróć w prawo</string>
   <string name="edit">Edytuj</string>
   <string name="crop_action">Przytnij</string>
+  <string name="trim_action">Przytnij</string>
   <string name="set_as">Ustaw jako</string>
   <string name="video_err">Nie można odtworzyć filmu.</string>
+  <string name="crop_saved">Przycięte zdjęcie zapisano w folderze <xliff:g id="FOLDER_NAME">%s</xliff:g>.</string>
   <string name="title">Tytuł</string>
   <string name="description">Opis</string>
   <string name="time">Czas</string>

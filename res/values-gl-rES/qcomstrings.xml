@@ -141,7 +141,6 @@
   <string name="msg_cancel_longshot_for_limited_memory">A execución sobarda a memoria dispoñíbel, anúlase o disparo continuo</string>
   <string name="flash_aebracket_message">O flash non é compatíbel co modo de AE de composición (bracketing)</string>
   <string name="on_switch_save_path_to_sdcard">O espazo de almacenamento interno non chega, trocouse por almacenar na tarxeta SD</string>
-  <string name="map_activity_not_found_err">Non hai ningunha aplicación de mapas para amosar a localización</string>
   <string name="longshot_enable_message">As funcionalidades avanzadas non son compatíbeis co modo de disparo continuo</string>
   <string name="advance_feature_enable_msg">O disparo continuo non é posíbel cando están activadas as funcionalidades avanzadas</string>
   <string name="HDR_disable_continuous_shot">Ao activar HDR desactivarase o disparo continuo</string>

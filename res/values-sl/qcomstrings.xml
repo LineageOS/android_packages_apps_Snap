@@ -191,7 +191,7 @@
   <string name="msg_cancel_longshot_for_limited_memory">Zmanjkuje pomnilnika, preklicevanje neprekinjenega fotografiranja</string>
   <string name="flash_aebracket_message">Bliskavica ni podprta v načinu korekture samodejne osvetlitve</string>
   <string name="on_switch_save_path_to_sdcard">Na notranjem pomnilniku je premalo prostora, preklop na kartico SD</string>
-  <string name="map_activity_not_found_err">Manjka aplikacija z zemljevidi, prikaz lokacije ni možen</string>
+  <string name="map_activity_not_found_err">Ni nameščene aplikacije za zemljevide, da bi se prikazala lokacija</string>
   <string name="longshot_enable_message">Napredne značilnosti niso podprte v neprekinjenem fotografiranju</string>
   <string name="advance_feature_enable_msg">Neprekinjeno fotografiranje ni možno z omogočenimi naprednimi možnostmi</string>
   <string name="HDR_disable_continuous_shot">Omogočanje HDR-a bo onemogočilo neprekinjeno fotografiranje</string>
