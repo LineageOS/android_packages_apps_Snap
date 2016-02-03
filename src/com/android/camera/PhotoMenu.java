@@ -1031,6 +1031,7 @@ public class PhotoMenu extends MenuController
 
     public void onListMenuTouched() {
         mUI.removeLevel2();
+        mPopupStatus = POPUP_FIRST_LEVEL;
     }
 
     public void closeAllView() {
