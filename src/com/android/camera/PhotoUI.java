@@ -165,7 +165,9 @@ public class PhotoUI implements PieListener,
             Camera.Parameters parameters = ((PhotoModule)mController).getParameters();
             if(parameters != null) {
                 Camera.Size size = parameters.getPreviewSize();
-                setAspectRatio((float) size.width / size.height);
+                if (size != null) {
+                    setAspectRatio((float) size.width / size.height);
+                }
             }
         }
     };
