@@ -495,6 +495,8 @@
     <!-- Toast after 2k4k video is enabled to inform SeeMore has been disabled -->
     <string name="video_quality_4k_disable_SeeMore">SeeMore cannot be enabled during 4k video</string>
 
+    <string name="initial_recording_seconds" translatable="false">00:00</string>
+
     <!-- TODO: Remove these? -->
     <string name="pref_camera_redeyereduction_entry_disable" translatable="false">disable</string>
 
