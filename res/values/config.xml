@@ -61,4 +61,8 @@
 
     <!-- Enable support for LGE HDR -->
     <bool name="lge_hdr_mode">false</bool>
+
+    <!-- Force maximum number of cameras -->
+    <integer name="force_max_number_of_cameras">-1</integer>
 </resources>
+
