@@ -742,7 +742,14 @@ public class PhotoMenu extends MenuController
                     return;
                 int index = pref.findIndexOfValue(pref.getValue());
                 CharSequence[] values = pref.getEntryValues();
-                index = (index + 1) % values.length;
+                int count = values.length;
+                if (prefKey == "pref_camera_id_key") {
+                    int maxCameras = mActivity.getResources()
+                                 .getInteger(R.integer.force_max_number_of_cameras);
+                    if (maxCameras != -1)
+                        count = maxCameras;
+                }
+                index = (index + 1) % count;
                 pref.setValueIndex(index);
                 ((ImageView) v).setImageResource(
                         ((IconListPreference) pref).getLargeIconIds()[index]);
