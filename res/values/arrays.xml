@@ -201,8 +201,10 @@
         <item>@string/pref_camera_picturesize_entry_2mp</item> <!-- 140 -->
         <item>@string/pref_camera_picturesize_entry_2mp_wide</item> <!-- 130 -->
         <item>@string/pref_camera_picturesize_entry_1_9mp</item> <!-- 120 -->
+        <item>@string/pref_camera_picturesize_entry_1_6mp</item> <!-- 115 -->
         <item>@string/pref_camera_picturesize_entry_1_5mp</item> <!-- 110 -->
         <item>@string/pref_camera_picturesize_entry_1_3mp</item> <!-- 100 -->
+        <item>@string/pref_camera_picturesize_entry_1_2mp_wide</item> <!-- 95 -->
         <item>@string/pref_camera_picturesize_entry_1mp</item> <!-- 90 -->
         <item>@string/pref_camera_picturesize_entry_wxga</item> <!-- 80 -->
         <item>@string/pref_camera_picturesize_entry_xga</item> <!-- 70 -->
@@ -262,8 +264,10 @@
         <item>1600x1200</item> <!-- 140 -->
         <item>1920x1088</item> <!-- 130 -->
         <item>1392x1392</item> <!-- 120 -->
+        <item>1440x1080</item> <!-- 115 -->
         <item>1600x960</item> <!-- 110 -->
         <item>1280x960</item> <!-- 100 -->
+        <item>1440x810</item> <!-- 95 -->
         <item>1280x720</item> <!-- 90 -->
         <item>1024x768</item> <!-- 80 -->
         <item>1024x600</item> <!-- 70 -->
