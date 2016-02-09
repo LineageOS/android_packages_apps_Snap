@@ -40,7 +40,7 @@
         <item>3000</item>
         <item>5000</item>
         <item>10000</item>
-        <item>0x7FFFFFFF</item>
+        <item>2147483647</item>
     </string-array>
 
     <!-- Shutter speed -->
