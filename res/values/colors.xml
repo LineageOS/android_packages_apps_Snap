@@ -95,4 +95,6 @@
     <color name="help_menu_switcher_1">#00ff00</color>
     <color name="help_menu_switcher_2">#ffffff</color>
     <color name="help_menu_switcher_3">#ffffff</color>
+
+    <color name="toast_text">@color/white</color>
 </resources>
