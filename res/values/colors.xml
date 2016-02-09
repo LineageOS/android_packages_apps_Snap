@@ -77,4 +77,6 @@
 
     <color name="camera_control_bg_opaque">@color/black</color>
     <color name="camera_control_bg_transparent">#40212121</color>
+
+    <color name="toast_text">@color/white</color>
 </resources>
