@@ -339,4 +339,8 @@
         <item name="android:gravity">center</item>
         <item name="android:textSize">18sp</item>
     </style>
+
+    <style name="ToastTextAppearance" parent="@android:style/TextAppearance">
+        <item name="android:fontFamily">sans-serif-condensed</item>
+    </style>
 </resources>
