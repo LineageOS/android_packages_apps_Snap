@@ -298,4 +298,7 @@
     <style name="PanoViewHorizontalBar">
         <item name="android:background">@android:color/transparent</item>
     </style>
+    <style name="ToastTextAppearance" parent="@android:style/TextAppearance">
+        <item name="android:fontFamily">sans-serif-condensed</item>
+    </style>
 </resources>
