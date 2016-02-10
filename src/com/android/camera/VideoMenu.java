@@ -321,7 +321,7 @@ public class VideoMenu extends MenuController
 
     public void animateFadeIn(final ListView v) {
         ViewPropertyAnimator vp = v.animate();
-        vp.alpha(0.85f).setDuration(ANIMATION_DURATION);
+        vp.alpha(1f).setDuration(ANIMATION_DURATION);
         vp.start();
     }
 
@@ -628,10 +628,8 @@ public class VideoMenu extends MenuController
                             pref.setValueIndex(j);
                             changeFilterModeControlIcon(pref.getValue());
                             for (View v1 : views) {
-                                v1.setBackground(null);
+                                v1.setActivated(v1 == v);
                             }
-                            ImageView image = (ImageView) v.findViewById(R.id.image);
-                            image.setBackgroundColor(0xff33b5e5);
                             onSettingChanged(pref);
                         }
 
@@ -640,9 +638,8 @@ public class VideoMenu extends MenuController
                 }
             });
 
-            views[j] = imageView;
-            if (i == init)
-                imageView.setBackgroundColor(0xff33b5e5);
+            views[j] = layout2;
+            layout2.setActivated(i == init);
             TextView label = (TextView) layout2.findViewById(R.id.label);
             imageView.setImageResource(thumbnails[i]);
             label.setText(entries[i]);
