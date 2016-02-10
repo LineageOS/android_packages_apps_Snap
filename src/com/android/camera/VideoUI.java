@@ -892,9 +892,9 @@ public class VideoUI implements PieRenderer.PieListener,
                 mVideoMenu.animateSlideIn(mMenuLayout, CameraActivity.SETTING_LIST_WIDTH_1, true);
             if (level == 2)
                 mVideoMenu.animateFadeIn(popup);
+        } else {
+            popup.setAlpha(1f);
         }
-        else
-            popup.setAlpha(0.85f);
     }
 
     public ViewGroup getMenuLayout() {

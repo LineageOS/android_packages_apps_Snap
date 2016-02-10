@@ -457,7 +457,7 @@ public class PhotoMenu extends MenuController
 
     public void animateFadeIn(final ListView v) {
         ViewPropertyAnimator vp = v.animate();
-        vp.alpha(0.85f).setDuration(ANIMATION_DURATION);
+        vp.alpha(1f).setDuration(ANIMATION_DURATION);
         vp.start();
     }
 
@@ -1150,10 +1150,8 @@ public class PhotoMenu extends MenuController
                             onSettingChanged(pref);
                             updateSceneModeIcon(pref);
                             for (View v1 : views) {
-                                v1.setBackgroundResource(R.drawable.scene_mode_view_border);
+                                v1.setActivated(v1 == v);
                             }
-                            View border = v.findViewById(R.id.border);
-                            border.setBackgroundResource(R.drawable.scene_mode_view_border_selected);
                             animateSlideOutPreviewMenu();
                         }
 
@@ -1162,10 +1160,8 @@ public class PhotoMenu extends MenuController
                 }
             });
 
-            View border = layout2.findViewById(R.id.border);
-            views[j] = border;
-            if (i == init)
-                border.setBackgroundResource(R.drawable.scene_mode_view_border_selected);
+            views[j] = layout2;
+            layout2.setActivated(i == init);
             imageView.setImageResource(thumbnails[i]);
             label.setText(entries[i]);
             layout.addView(layout2);
@@ -1301,19 +1297,16 @@ public class PhotoMenu extends MenuController
                             changeFilterModeControlIcon(pref.getValue());
                             onSettingChanged(pref);
                             for (View v1 : views) {
-                                v1.setBackground(null);
+                                v1.setActivated(v1 == v);
                             }
-                            ImageView image = (ImageView) v.findViewById(R.id.image);
-                            image.setBackgroundColor(0xff33b5e5);
                         }
                     }
                     return true;
                 }
             });
 
-            views[j] = imageView;
-            if (i == init)
-                imageView.setBackgroundColor(0xff33b5e5);
+            views[j] = layout2;
+            layout2.setActivated(i == init);
             TextView label = (TextView) layout2.findViewById(R.id.label);
             imageView.setImageResource(thumbnails[i]);
             label.setText(entries[i]);

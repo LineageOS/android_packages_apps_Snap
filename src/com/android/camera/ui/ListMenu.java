@@ -120,8 +120,7 @@ public class ListMenu extends ListView
                         + " position " + position);
             }
             if (position == mHighlighted)
-                view.setBackgroundColor(getContext().getResources()
-                        .getColor(R.color.setting_color));
+                view.setActivated(true);
             return view;
         }
 
@@ -160,7 +159,6 @@ public class ListMenu extends ListView
         ArrayAdapter<ListPreference> mListItemAdapter = new MoreSettingAdapter();
         setAdapter(mListItemAdapter);
         setOnItemClickListener(this);
-        setSelector(android.R.color.transparent);
         // Initialize mEnabled
         mEnabled = new boolean[mListItem.size()];
         for (int i = 0; i < mEnabled.length; i++) {
@@ -183,7 +181,6 @@ public class ListMenu extends ListView
         ArrayAdapter<ListPreference> mListItemAdapter = new MoreSettingAdapter();
         setAdapter(mListItemAdapter);
         setOnItemClickListener(this);
-        setSelector(android.R.color.transparent);
         // Initialize mEnabled
         mEnabled = new boolean[mListItem.size()];
         for (int i = 0; i < mEnabled.length; i++) {
@@ -243,8 +240,7 @@ public class ListMenu extends ListView
     public void resetHighlight() {
         int count = getChildCount();
         for (int i = 0; i < count; i++) {
-            View v = getChildAt(i);
-            v.setBackground(null);
+            getChildAt(i).setActivated(false);
         }
         mHighlighted = -1;
     }
@@ -265,7 +261,7 @@ public class ListMenu extends ListView
             resetHighlight();
             ListPreference pref = mListItem.get(position);
             mHighlighted = position;
-            view.setBackgroundColor(getContext().getResources().getColor(R.color.setting_color));
+            view.setActivated(true);
             mListener.onPreferenceClicked(pref, (int) view.getY());
         }
 
