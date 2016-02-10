@@ -26,11 +26,11 @@
      OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
      IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->
-<shape xmlns:android="http://schemas.android.com/apk/res/android"
-    android:shape="rectangle" >
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <stroke
-        android:width="1dip"
-        android:color="#cc33b5e5" />
+    <item android:drawable="@color/setting_list_pressed" android:state_pressed="true"/>
+    <item android:drawable="@color/setting_list_selected" android:state_checked="true"/>
+    <item android:drawable="@color/setting_list_selected" android:state_activated="true"/>
+    <item android:drawable="@android:color/transparent"/>
 
-</shape>
+</selector>

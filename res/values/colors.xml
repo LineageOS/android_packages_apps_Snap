@@ -57,7 +57,7 @@
     <color name="time_lapse_arc">@color/grey</color>
     <color name="indicator_background">@color/black</color>
     <color name="popup_title_color">@color/blue</color>
-    <color name="popup_background">@color/black</color>
+    <color name="popup_background">#c0212121</color>
     <color name="pano_progress_empty">@color/black</color>
     <color name="pano_progress_done">#33525E</color>
     <color name="pano_progress_indication">@color/blue</color>
@@ -72,9 +72,10 @@
     <color name="gray">@color/grey</color>
     <color name="yellow_half_transparent">#80EEEE00</color>
 
-    <color name="setting_color">@color/black</color>
-    <color name="setting_color_light">@color/white</color>
-    <color name="list_divider_color">@color/black</color>
+    <color name="setting_list_selected">#40fafafa</color>
+    <color name="setting_list_pressed">#60fafafa</color>
+    <color name="list_divider_color">#e0212121</color>
+    <color name="scene_item_selected">@color/setting_list_selected</color>
 
     <color name="camera_control_bg_opaque">@color/black</color>
     <color name="camera_control_bg_transparent">#40212121</color>
