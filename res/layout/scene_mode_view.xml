@@ -30,15 +30,13 @@
     android:layout_width="wrap_content"
     android:layout_height="match_parent"
     android:layout_gravity="center"
-    android:orientation="vertical"
     android:padding="@dimen/scene_mode_padding" >
 
     <LinearLayout
-        android:id="@+id/border"
         android:layout_width="@dimen/scene_mode_width"
         android:layout_height="@dimen/scene_mode_height"
         android:layout_gravity="center"
-        android:background="@drawable/scene_mode_view_border"
+        android:background="@drawable/scene_filter_item_bg"
         android:orientation="vertical"
         android:padding="2dp" >
 
@@ -54,10 +52,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:gravity="center"
-            android:shadowColor="@android:color/black"
-            android:shadowDx="1"
-            android:shadowDy="1"
-            android:shadowRadius="2"
             android:singleLine="true"
             android:textColor="@android:color/white"
             android:textSize="13sp"
