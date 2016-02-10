@@ -222,7 +222,6 @@ class MyPagerAdapter extends PagerAdapter {
                         v.setBackground(null);
                     }
                 }
-                view.setBackgroundResource(R.drawable.scene_mode_view_border_selected);
                 SettingsManager.getInstance().setValueIndex(SettingsManager.KEY_SCENE_MODE, index);
                 mActivity.finish();
             }
@@ -293,9 +292,6 @@ class GridAdapter extends BaseAdapter {
         int idx = position + mPage * mActivity.getElmentPerPage();
         viewHolder.imageView.setImageResource(mActivity.getThumbnails()[idx]);
         viewHolder.textTitle.setText(mActivity.getEntries()[position + mPage * mActivity.getElmentPerPage()]);
-        if (idx == mActivity.getCurrentScene()) {
-            view.setBackgroundResource(R.drawable.scene_mode_view_border_selected);
-        }
 
         return view;
     }
