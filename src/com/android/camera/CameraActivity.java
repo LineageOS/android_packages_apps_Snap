@@ -2019,7 +2019,9 @@ public class CameraActivity extends Activity
     public void onModuleSelected(int moduleIndex) {
         if (moduleIndex == 0 && CAMERA_2_ON) moduleIndex = ModuleSwitcher.CAPTURE_MODULE_INDEX;
         if (mCurrentModuleIndex == moduleIndex) {
-            return;
+            if (mCurrentModuleIndex != ModuleSwitcher.CAPTURE_MODULE_INDEX) {
+                return;
+            }
         }
         CameraHolder.instance().keep();
         closeModule(mCurrentModule);
