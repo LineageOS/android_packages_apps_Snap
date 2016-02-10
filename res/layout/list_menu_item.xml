@@ -30,6 +30,7 @@
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
+    android:background="@drawable/setting_list_item_bg"
     android:padding="5dip" >
 
     <ImageView
@@ -56,10 +57,6 @@
         android:layout_below="@id/title"
         android:layout_marginTop="1dip"
         android:layout_toRightOf="@+id/list_image"
-        android:shadowColor="@android:color/black"
-        android:shadowDx="1"
-        android:shadowDy="1"
-        android:shadowRadius="2"
         android:text="@string/crop_save"
         android:textColor="@color/white"
         android:textSize="10dip"

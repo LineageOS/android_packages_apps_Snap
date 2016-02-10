@@ -837,8 +837,9 @@ public class PhotoUI implements PieListener,
                 mMenu.animateSlideIn(mMenuLayout, CameraActivity.SETTING_LIST_WIDTH_1, true);
             if (level == 2)
                 mMenu.animateFadeIn(popup);
-        } else
-            popup.setAlpha(0.85f);
+        } else {
+            popup.setAlpha(1f);
+        }
     }
 
     public void removeLevel2() {
