@@ -45,10 +45,6 @@
         android:id="@+id/text"
         style="@style/CustomSettingItemTitle"
         android:layout_toRightOf="@+id/image"
-        android:shadowColor="@android:color/transparent"
-        android:shadowDx="1"
-        android:shadowDy="1"
-        android:shadowRadius="2"
         android:textColor="@android:color/white"
         android:textStyle="bold" />
 

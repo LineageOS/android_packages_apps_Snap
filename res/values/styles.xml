@@ -120,7 +120,7 @@
         <item name="android:layout_height">@dimen/setting_row_height</item>
         <item name="android:paddingLeft">@dimen/setting_item_list_margin</item>
         <item name="android:paddingRight">@dimen/setting_item_list_margin</item>
-        <item name="android:background">@drawable/setting_picker</item>
+        <item name="android:background">@drawable/setting_list_item_bg</item>
     </style>
     <style name="CustomSettingRow">
         <item name="android:gravity">center_vertical</item>
@@ -129,7 +129,7 @@
         <item name="android:layout_height">@dimen/setting_row_height</item>
         <item name="android:paddingLeft">4dp</item>
         <item name="android:paddingRight">@dimen/setting_item_list_margin</item>
-        <item name="android:background">@drawable/setting_picker</item>
+        <item name="android:background">@drawable/setting_list_item_bg</item>
     </style>
     <style name="OnViewfinderLabel">
         <item name="android:gravity">center</item>
@@ -167,7 +167,7 @@
         <item name="android:paddingBottom">9dp</item>
         <item name="android:paddingLeft">2dp</item>
         <item name="android:paddingRight">2dp</item>
-        <item name="android:background">@drawable/setting_picker</item>
+        <item name="android:background">@drawable/setting_list_item_bg</item>
     </style>
     <style name="EffectSettingItemTitle">
         <item name="android:textSize">@dimen/effect_setting_item_text_size</item>
