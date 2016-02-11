@@ -108,9 +108,6 @@
   <string name="pref_camera_flashmode_label_redeye">OCHI ROȘII</string>
   <string name="pref_camera_focustime_entry_5">5s</string>
   <string name="pref_camera_focustime_entry_10">10s</string>
-  <string name="pref_camera_focustime_entry_15">15s</string>
-  <string name="pref_camera_focustime_entry_20">20s</string>
-  <string name="pref_camera_focustime_entry_30">30s</string>
   <string name="pref_camera_focustime_entry_infinite">Infinit</string>
   <string name="pref_camera_shutter_speed_title">Viteza obturatorului</string>
   <string name="auto_hdr_enabled">HDR automat activat</string>

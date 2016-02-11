@@ -131,9 +131,6 @@
   <string name="pref_camera_focustime_title">Фокус касанием</string>
   <string name="pref_camera_focustime_entry_5">5 секунд</string>
   <string name="pref_camera_focustime_entry_10">10 секунд</string>
-  <string name="pref_camera_focustime_entry_15">15 секунд</string>
-  <string name="pref_camera_focustime_entry_20">20 секунд</string>
-  <string name="pref_camera_focustime_entry_30">30 секунд</string>
   <string name="pref_camera_focustime_entry_infinite">Бесконечно</string>
   <string name="pref_camera_shutter_speed_title">Время экспозиции</string>
   <string name="auto_hdr_enabled">Авто HDR включён</string>

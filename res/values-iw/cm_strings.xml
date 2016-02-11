@@ -122,9 +122,6 @@
   <string name="pref_camera_max_brightness_title">בהירות מסך מירבית</string>
   <string name="pref_camera_focustime_entry_5">5 שנ\'</string>
   <string name="pref_camera_focustime_entry_10">10 שנ\'</string>
-  <string name="pref_camera_focustime_entry_15">15 שנ\'</string>
-  <string name="pref_camera_focustime_entry_20">20 שנ\'</string>
-  <string name="pref_camera_focustime_entry_30">30 שנ\'</string>
   <string name="pref_camera_focustime_entry_infinite">אינסופי</string>
   <string name="pref_camera_shutter_speed_title">מהירות צמצם</string>
   <string name="auto_hdr_enabled">HDR אוטומטי מופעל</string>
