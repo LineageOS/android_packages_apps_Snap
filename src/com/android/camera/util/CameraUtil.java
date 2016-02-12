@@ -134,7 +134,6 @@ public class CameraUtil {
     public static final int RATIO_16_9 = 1;
     public static final int RATIO_4_3 = 2;
     public static final int RATIO_3_2 = 3;
-    public static final int RATIO_1_1 = 4;
 
     public static boolean isSupported(String value, List<String> supported) {
         return supported == null ? false : supported.indexOf(value) >= 0;
@@ -1183,9 +1182,6 @@ public class CameraUtil {
         }
         if (minDiffRatio > diffFrom_16_9) {
             retRatio = RATIO_16_9;
-        }
-        if (ratio == 1) {
-            retRatio = RATIO_1_1;
         }
         return retRatio;
     }
