@@ -254,6 +254,7 @@ public class CameraSettings {
 
     public static String mKeyIso = null;
     public static String mKeyIsoValues = null;
+    public boolean mAlwaysShowHdr = false;
 
     public static final HashMap<String, Integer>
             VIDEO_QUALITY_TABLE = new HashMap<String, Integer>();
@@ -325,6 +326,8 @@ public class CameraSettings {
         // ISO
         mKeyIso = mContext.getResources().getString(R.string.key_iso);
         mKeyIsoValues = mContext.getResources().getString(R.string.key_iso_values);
+
+        mAlwaysShowHdr = mContext.getResources().getBoolean(R.bool.always_show_hdr_button);
 
         if (mKeyIso == null || mKeyIso.isEmpty()) {
             mKeyIso = "iso";
@@ -933,7 +936,7 @@ public class CameraSettings {
         if (videoEffect != null) {
             filterUnsupportedOptions(group, videoEffect, null);
         }
-        if (cameraHdr != null && (!ApiHelper.HAS_CAMERA_HDR
+        if (cameraHdr != null && (!mAlwaysShowHdr) && (!ApiHelper.HAS_CAMERA_HDR
                 || !CameraUtil.isCameraHdrSupported(mParameters))) {
             removePreference(group, cameraHdr.getKey());
         }

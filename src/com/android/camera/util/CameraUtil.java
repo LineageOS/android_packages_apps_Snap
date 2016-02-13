@@ -156,6 +156,9 @@ public class CameraUtil {
     }
 
     public static boolean isCameraHdrSupported(Parameters params) {
+        if (CameraSettings.getSupportedHDRModes(params) != null) {
+            return true;
+        }
         List<String> supported = params.getSupportedSceneModes();
         return (supported != null) && supported.contains(SCENE_MODE_HDR);
     }

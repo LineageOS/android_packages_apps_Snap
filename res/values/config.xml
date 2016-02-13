@@ -61,4 +61,7 @@
 
     <!-- Enable support for LGE HDR -->
     <bool name="lge_hdr_mode">false</bool>
+
+    <!-- Always show HDR button -->
+    <bool name="always_show_hdr_button">false</bool>
 </resources>
