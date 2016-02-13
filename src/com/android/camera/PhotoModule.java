@@ -1565,8 +1565,7 @@ public class PhotoModule
             mParameters = mCameraDevice.getParameters();
         }
 
-         // LGE G4: Disable hdr if luminance is low and flash get's used
-        if (CameraUtil.isLowLuminance(mParameters)) {
+        if (CameraUtil.isLowLuminance(mParameters) && mLgeHdrMode) {
             mParameters.set(CameraSettings.KEY_SNAPCAM_HDR_MODE, CameraSettings.LGE_HDR_MODE_OFF);
             mCameraDevice.setParameters(mParameters);
             mParameters = mCameraDevice.getParameters();
