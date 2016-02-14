@@ -26,6 +26,7 @@
     <item quantity="other">VIll du radera markerade objekt?</item>
   </plurals>
   <string name="share">Dela</string>
+  <string name="share_panorama">Dela panoramabild</string>
   <string name="share_as_photo">Dela som foto</string>
   <string name="deleted">Borttagen</string>
   <string name="undo">ÅNGRA</string>
@@ -36,26 +37,30 @@
     <item quantity="other">%1$d har valts</item>
   </plurals>
   <plurals name="number_of_albums_selected">
-    <item quantity="one">%1$d har valts</item>
-    <item quantity="other">%1$d har valts</item>
+    <item quantity="one">%1$d vald</item>
+    <item quantity="other">%1$d valda</item>
   </plurals>
   <plurals name="number_of_groups_selected">
-    <item quantity="one">%1$d har valts</item>
-    <item quantity="other">%1$d har valts</item>
+    <item quantity="one">%1$d vald</item>
+    <item quantity="other">%1$d valda</item>
   </plurals>
   <string name="show_on_map">Visa på karta</string>
   <string name="rotate_left">Rotera åt vänster</string>
   <string name="rotate_right">Rotera åt höger</string>
   <string name="edit">Redigera</string>
   <string name="crop_action">Beskär</string>
+  <string name="trim_action">Trimma</string>
   <string name="set_as">Ange som</string>
   <string name="video_err">Det går inte att spela upp videon.</string>
+  <string name="crop_saved">
+Den beskurna bilden har sparats i <xliff:g id="folder_name">%s</xliff:g>.</string>
   <string name="title">Titel</string>
   <string name="description">Beskrivning</string>
   <string name="time">Tid</string>
   <string name="location">Plats</string>
   <string name="path">Sökväg</string>
   <string name="width">Bredd</string>
+  <string name="height">Höjd</string>
   <string name="orientation">Orientering</string>
   <string name="duration">Längd</string>
   <string name="mimetype">MIME-typ</string>
@@ -73,14 +78,18 @@
   <string name="auto">Auto</string>
   <string name="flash_on">Blixt utlöst</string>
   <string name="flash_off">Ingen blixt</string>
-  <string name="unknown">Okänt</string>
+  <string name="unknown">Okänd</string>
+  <string name="try_to_set_local_album_available_offline">Objektet lagras lokalt och är tillgängligt offline.</string>
   <string name="please_wait">Vänta</string>
   <string name="rendering_photo_sphere">Bearbetar sfäriskt foto</string>
   <string name="camera_error_title">Kamerafel</string>
   <string name="cannot_connect_camera">Det går inte att ansluta till kameran.</string>
+  <string name="camera_disabled">Kameran har inaktiverats på grund av gällande säkerhetspolicyer.</string>
   <string name="wait">Vänta\u2026</string>
+  <string name="no_storage" product="default">Sätt i ett SD-kort innan du använder kameran.</string>
   <string name="preparing_sd" product="default">Förbereder SD-kort\u2026</string>
   <string name="access_sd_fail" product="default">Kunde inte komma åt SD-kort.</string>
+  <string name="time_lapse_title">Intervallinspelning</string>
   <string name="capturing">Tar ett foto …</string>
   <string name="pref_camera_id_title">Välj kamera</string>
   <string name="pref_camera_id_entry_back">Bakre</string>
@@ -92,10 +101,13 @@
     <item quantity="one">1 sekund</item>
     <item quantity="other">%d sekunder</item>
   </plurals>
+  <string name="pref_camera_timer_sound_title">Ljudsignal under nedräkningen</string>
   <string name="setting_off">Av</string>
   <string name="setting_on">På</string>
   <string name="pref_video_quality_title">Videokvalitet</string>
+  <string name="pref_video_time_lapse_frame_interval_title">Intervallinspelning</string>
   <string name="pref_camera_settings_category">Kamerainställningar</string>
+  <string name="pref_camcorder_settings_category">Videokamerainställningar</string>
   <string name="pref_camera_picturesize_title">Bildstorlek</string>
   <string name="pref_camera_focusmode_title">Fokusläge</string>
   <string name="pref_camera_focusmode_entry_auto">Auto</string>
@@ -153,6 +165,7 @@
   <string name="pref_camera_id_label_back">FRÄMRE KAMERA</string>
   <string name="pref_camera_id_label_front">BAKRE KAMERA</string>
   <string name="dialog_ok">OK</string>
+  <string name="spaceIsLow_content" product="default">Den delade lagringsenheten börjar bli full. Ändra inställningen för kvalitet eller ta bort några bilder eller andra filer.</string>
   <string name="video_reach_size_limit">Storleksgränsen är nådd.</string>
   <string name="pano_too_fast_prompt">För snabbt</string>
   <string name="pano_dialog_prepare_preview">Förbereder panorama</string>
@@ -243,6 +256,7 @@
   <string name="set_duration">Ange längden i sekunder</string>
   <string name="count_down_title_text">Nedräkning innan fotot tas</string>
   <string name="remember_location_title">Vill du spara platser för foton?</string>
+  <string name="remember_location_prompt">Tagga dina foton och videor med de platser där de tas eller spelas in.\n\nAndra appar får åtkomst till den här informationen tillsammans med dina sparade bilder.</string>
   <string name="remember_location_no">Nej tack</string>
   <string name="remember_location_yes">Ja</string>
   <string name="camera_menu_more_label">FLER ALTERNATIV</string>

@@ -54,8 +54,10 @@
   <string name="pref_camera_picturesize_entry_2mp_wide">200 万像素 (16:9)</string>
   <string name="pref_camera_picturesize_entry_2mp">200 万像素</string>
   <string name="pref_camera_picturesize_entry_1_9mp">190 万像素</string>
+  <string name="pref_camera_picturesize_entry_1_6mp">160 万像素</string>
   <string name="pref_camera_picturesize_entry_1_5mp">150 万像素</string>
   <string name="pref_camera_picturesize_entry_1_3mp">130 万像素</string>
+  <string name="pref_camera_picturesize_entry_1_2mp_wide">120 万像素 (16:9)</string>
   <string name="pref_camera_picturesize_entry_1mp">100 万像素</string>
   <string name="pref_camera_picturesize_entry_wxga">WXGA</string>
   <string name="pref_camera_picturesize_entry_xga">XGA</string>
@@ -129,11 +131,10 @@
   <string name="pref_camera_power_shutter_title">电源键快门</string>
   <string name="pref_camera_max_brightness_title">屏幕亮度最大化</string>
   <string name="pref_camera_focustime_title">触摸对焦持续时间</string>
+  <string name="pref_camera_focustime_entry_0">0 秒</string>
+  <string name="pref_camera_focustime_entry_3">3 秒</string>
   <string name="pref_camera_focustime_entry_5">5 秒</string>
   <string name="pref_camera_focustime_entry_10">10 秒</string>
-  <string name="pref_camera_focustime_entry_15">15 秒</string>
-  <string name="pref_camera_focustime_entry_20">20 秒</string>
-  <string name="pref_camera_focustime_entry_30">30 秒</string>
   <string name="pref_camera_focustime_entry_infinite">无限</string>
   <string name="pref_camera_shutter_speed_title">快门速度</string>
   <string name="auto_hdr_enabled">自动 HDR 已启用</string>

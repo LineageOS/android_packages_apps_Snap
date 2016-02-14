@@ -45,6 +45,7 @@
   <string name="rotate_left">Rotește spre stânga</string>
   <string name="rotate_right">Rotește spre dreapta</string>
   <string name="edit">Editare</string>
+  <string name="set_as">Setați ca</string>
   <string name="title">Titlu</string>
   <string name="description">Descriere</string>
   <string name="location">Locație</string>
@@ -68,11 +69,13 @@
   <string name="auto">Automat</string>
   <string name="flash_on">Bliț activat</string>
   <string name="flash_off">Fără bliț</string>
+  <string name="unknown">Necunoscută</string>
   <string name="please_wait">Așteptați</string>
   <string name="cannot_connect_camera">Nu se poate realiza conexiunea la camera foto.</string>
   <string name="camera_disabled">Camera foto a fost dezactivată din cauza politicilor de securitate.</string>
   <string name="wait">Așteptați\u2026</string>
   <string name="no_storage" product="default">Introduceți un card SD înainte de a utiliza camera foto.</string>
+  <string name="preparing_sd" product="default">Se pregătește cardul SD\u2026</string>
   <string name="access_sd_fail" product="default">Nu s-a putut accesa cardul SD.</string>
   <string name="pref_camera_id_entry_back">Înapoi</string>
   <string name="pref_camera_recordlocation_title">Stocați locația</string>
@@ -84,6 +87,7 @@
   </plurals>
   <string name="setting_off">Dezactivat</string>
   <string name="setting_on">Activat</string>
+  <string name="pref_video_quality_title">Calitatea video</string>
   <string name="pref_camera_focusmode_title">Mod focalizare</string>
   <string name="pref_camera_focusmode_entry_auto">Automat</string>
   <string name="pref_camera_focusmode_entry_infinity">Infinit</string>
@@ -137,10 +141,13 @@
   <string name="pref_exposure_label">EXPUNERE</string>
   <string name="pref_camera_hdr_label">HDR</string>
   <string name="dialog_ok">OK</string>
+  <string name="video_reach_size_limit">Dimensiune limită atinsă.</string>
   <string name="pano_too_fast_prompt">Prea repede</string>
   <string name="pano_dialog_prepare_preview">Se pregătește panorama</string>
   <string name="pano_dialog_title">Panoramă</string>
+  <string name="pano_capture_indication">Se fotografiază panorama</string>
   <string name="pano_review_saving_indication_str">Se salvează\u2026</string>
+  <string name="tap_to_focus">Atingeți pentru a focaliza.</string>
   <string name="pref_video_effect_title">Efecte</string>
   <string name="effect_goofy_face_big_eyes">Ochi mari</string>
   <string name="effect_goofy_face_big_mouth">Gură mare</string>

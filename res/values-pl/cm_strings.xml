@@ -54,8 +54,10 @@
   <string name="pref_camera_picturesize_entry_2mp_wide">2 MP (16:9)</string>
   <string name="pref_camera_picturesize_entry_2mp">2 MP</string>
   <string name="pref_camera_picturesize_entry_1_9mp">1.9 MP</string>
+  <string name="pref_camera_picturesize_entry_1_6mp">1.6 MP</string>
   <string name="pref_camera_picturesize_entry_1_5mp">1.5 MP</string>
   <string name="pref_camera_picturesize_entry_1_3mp">1.3 MP</string>
+  <string name="pref_camera_picturesize_entry_1_2mp_wide">1.2 MP (16:9)</string>
   <string name="pref_camera_picturesize_entry_1mp">1 MP</string>
   <string name="pref_camera_picturesize_entry_wxga">WXGA</string>
   <string name="pref_camera_picturesize_entry_xga">XGA</string>
@@ -109,6 +111,7 @@
   <string name="pref_camera_scenemode_entry_theatre">Teatr</string>
   <string name="pref_camera_scenemode_entry_whiteboard">Biała tablica</string>
   <string name="pref_camera_focusmode_entry_continuous">Ciągły</string>
+  <string name="pref_camera_focusmode_entry_mw_continuous">Ciągły (MW)</string>
   <string name="pref_camera_focusmode_entry_extended">Rozszerzony</string>
   <string name="pref_camera_focusmode_entry_facedetect">Wykrywanie twarzy</string>
   <string name="pref_camera_focusmode_entry_facepriority">Priorytet twarzy</string>
@@ -128,11 +131,10 @@
   <string name="pref_camera_power_shutter_title">Migawka przyciskiem zasilania</string>
   <string name="pref_camera_max_brightness_title">Jasny ekran</string>
   <string name="pref_camera_focustime_title">Czas ustawiania ostrości</string>
+  <string name="pref_camera_focustime_entry_0">0s</string>
+  <string name="pref_camera_focustime_entry_3">3s</string>
   <string name="pref_camera_focustime_entry_5">5 sekund</string>
   <string name="pref_camera_focustime_entry_10">10 sekund</string>
-  <string name="pref_camera_focustime_entry_15">15 sekund</string>
-  <string name="pref_camera_focustime_entry_20">20 sekund</string>
-  <string name="pref_camera_focustime_entry_30">30 sekund</string>
   <string name="pref_camera_focustime_entry_infinite">Nieskończony</string>
   <string name="pref_camera_shutter_speed_title">Czas migawki</string>
   <string name="auto_hdr_enabled">Włączony autom. HDR</string>

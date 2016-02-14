@@ -155,7 +155,7 @@
   <string name="pref_camera_saturation_entry_level9">Ниво 9</string>
   <string name="pref_camera_saturation_entry_level10">Ниво 10</string>
   <string name="pref_camera_picture_format_title">Формат на картината</string>
-  <string name="pref_camera_jpegquality_title">Качество на картината</string>
+  <string name="pref_camera_jpegquality_title">Качество на снимката</string>
   <string name="pref_camera_jpegquality_entry_0">55%</string>
   <string name="pref_camera_jpegquality_entry_1">65 % (нормално)</string>
   <string name="pref_camera_jpegquality_entry_2">75 % (висока)</string>

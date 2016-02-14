@@ -26,10 +26,14 @@
   <string name="pref_camera_autoexposure_entry_spotmetering">Măsurare punctuală</string>
   <string name="pref_camera_videoencoder_title">Codec video</string>
   <string name="pref_camera_audioencoder_title">Codec audio</string>
+  <string name="pref_camera_zsl_title">Întârziere declanșator zero</string>
   <string name="pref_camera_selectablezoneaf_entry_auto">Auto</string>
+  <string name="pref_camera_selectablezoneaf_entry_spotmetering">Măsurare punctuală</string>
   <string name="pref_camera_advanced_features_title">Caracteristici avansate</string>
   <string name="pref_camera_manual_exp_title">Expunere manuală</string>
   <string name="pref_camera_manual_exp_entry_ISO_priority">Prioritate ISO</string>
+  <string name="pref_camera_manual_exp_entry_user_setting">Setare utilizator</string>
+  <string name="pref_camera_manual_wb_title">Balans de alb manual</string>
   <string name="pref_camera_manual_wb_entry_color_temperature">Temperatura culorii</string>
   <string name="pref_camera_manual_wb_entry_off">Oprit</string>
   <string name="pref_camera_manual_focus_title">Focalizare manuală</string>
@@ -98,6 +102,8 @@
   <string name="pref_camera_coloreffect_entry_redtint">Tentă roșie</string>
   <string name="pref_camera_coloreffect_entry_bluetint">Tentă albastră</string>
   <string name="pref_camera_coloreffect_entry_greentint">Tentă verde</string>
+  <string name="pref_camera_dis_title">Stabilizare video</string>
+  <string name="pref_camera_facerc_title">Recunoașterea feței</string>
   <string name="pref_camera_sharpness_title">Claritate</string>
   <string name="pref_camera_sharpness_entry_level0">Nivel 0</string>
   <string name="pref_camera_sharpness_entry_level1">Nivel 1</string>
@@ -130,6 +136,7 @@
   <string name="pref_camera_saturation_entry_level8">Nivel 8</string>
   <string name="pref_camera_saturation_entry_level9">Nivel 9</string>
   <string name="pref_camera_saturation_entry_level10">Nivel 10</string>
+  <string name="pref_camera_picture_format_title">Formatul pozei</string>
   <string name="pref_camera_jpegquality_title">Calitatea imaginii</string>
   <string name="pref_camera_jpegquality_entry_0">55%</string>
   <string name="pref_camera_jpegquality_entry_1">65% (normal)</string>
@@ -148,4 +155,5 @@
   <string name="pref_camera_savepath_title">Amplasarea stocării</string>
   <string name="pref_camera_savepath_entry_0">Stocare internă</string>
   <string name="pref_camera_savepath_entry_1">Card SD</string>
+  <string name="on_switch_save_path_to_sdcard">Spațiul stocării interne nu este suficient, comutat stocarea pe cardul SD</string>
 </resources>

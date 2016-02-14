@@ -38,6 +38,8 @@
   <string name="pref_camera_advanced_feature_entry_none">Keine</string>
   <string name="pref_camera_advanced_feature_entry_multi_touch_focus">Multi-Touch-Fokus</string>
   <string name="pref_camera_manual_exp_title">Manuelle Belichtung</string>
+  <string name="pref_camera_manual_exp_entry_ISO_priority">Belichtungsautomatik</string>
+  <string name="pref_camera_manual_exp_entry_exptime_priority">Blendenautomatik</string>
   <string name="pref_camera_manual_exp_entry_user_setting">Benutzereinstellung</string>
   <string name="pref_camera_manual_exp_entry_off">Aus</string>
   <string name="pref_camera_manual_wb_title">Manueller Weißabgleich</string>
@@ -45,6 +47,7 @@
   <string name="pref_camera_manual_wb_entry_rbgb_gains">RBGB-Verstärkung</string>
   <string name="pref_camera_manual_wb_entry_off">Aus</string>
   <string name="pref_camera_manual_focus_title">Manueller Fokus</string>
+  <string name="pref_camera_manual_focus_entry_scale_mode">Skalierungsmodus</string>
   <string name="pref_camera_manual_focus_entry_diopter_mode">Diopter-Modus</string>
   <string name="pref_camera_manual_focus_entry_off">Aus</string>
   <string name="pref_camera_video_hdr_title">Video (HDR)</string>
@@ -176,6 +179,7 @@
   <string name="pref_camera_savepath_entry_0">Interner Speicher</string>
   <string name="pref_camera_savepath_entry_1">SD-Karte</string>
   <string name="camera_gesture_title">Kamera starten</string>
+  <string name="all_in_focus">Alles im Fokus</string>
   <string name="refocus_toast">Tippen Sie hier, um das letzte Foto neu zu fokussieren,</string>
   <string name="error_app_unsupported_hfr_selection">Aufnahmen mit hoher Bildrate werden bei Bildstabilisierung, Zeitraffer und HDR nicht unterstützt.</string>
   <string name="error_app_unsupported_hfr">Zeitlupen-Videos werden bei der ausgewählten Auflösung nicht unterstützt. Wählen Sie eine niedrigere Auflösung</string>
@@ -187,6 +191,7 @@
   <string name="msg_cancel_longshot_for_limited_memory">Speicherplatz wird knapp. Abbruch der kontinuierlichen Aufnahme</string>
   <string name="flash_aebracket_message">Der Blitz wird im Belichtungsreihenmodus nicht unterstützt</string>
   <string name="on_switch_save_path_to_sdcard">Der Interne Speicher reicht nicht aus. Der Speicherort wurde auf SD-Karte geändert</string>
+  <string name="map_activity_not_found_err">Es ist keine Karten-App zum Anzeigen des Standorts installiert</string>
   <string name="longshot_enable_message">Erweiterte Funktionen werden im kontinuierlichen Aufnahmemodus nicht unterstützt</string>
   <string name="advance_feature_enable_msg">Kontinuierlicher Aufnahmemodus wird nicht unterstützt, wenn erweiterte Funktionen aktiviert sind</string>
   <string name="HDR_disable_continuous_shot">Aktivierung von HDR deaktiviert die kontinuierliche Aufnahme</string>

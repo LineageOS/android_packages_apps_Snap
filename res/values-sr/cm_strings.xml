@@ -54,8 +54,10 @@
   <string name="pref_camera_picturesize_entry_2mp_wide">2 MP (16:9)</string>
   <string name="pref_camera_picturesize_entry_2mp">2 MP</string>
   <string name="pref_camera_picturesize_entry_1_9mp">1,9 MP</string>
+  <string name="pref_camera_picturesize_entry_1_6mp">1.6 MP</string>
   <string name="pref_camera_picturesize_entry_1_5mp">1,5 MP</string>
   <string name="pref_camera_picturesize_entry_1_3mp">1.3 MP</string>
+  <string name="pref_camera_picturesize_entry_1_2mp_wide">1.2 MP (16:9)</string>
   <string name="pref_camera_picturesize_entry_1mp">1 MP</string>
   <string name="pref_camera_picturesize_entry_wxga">WXGA</string>
   <string name="pref_camera_picturesize_entry_xga">XGA</string>
@@ -129,11 +131,10 @@
   <string name="pref_camera_power_shutter_title">Power окидач</string>
   <string name="pref_camera_max_brightness_title">Светли екран</string>
   <string name="pref_camera_focustime_title">Трајање додирног фокуса</string>
+  <string name="pref_camera_focustime_entry_0">0с</string>
+  <string name="pref_camera_focustime_entry_3">3с</string>
   <string name="pref_camera_focustime_entry_5">5с</string>
   <string name="pref_camera_focustime_entry_10">10с</string>
-  <string name="pref_camera_focustime_entry_15">15с</string>
-  <string name="pref_camera_focustime_entry_20">20с</string>
-  <string name="pref_camera_focustime_entry_30">30с</string>
   <string name="pref_camera_focustime_entry_infinite">Неограничен</string>
   <string name="pref_camera_shutter_speed_title">Брзина затварача</string>
   <string name="auto_hdr_enabled">Аутоматски HDR омогућен</string>

@@ -181,7 +181,7 @@
   <string name="camera_gesture_title">Iniciar a câmara</string>
   <string name="all_in_focus">Tudo em foco</string>
   <string name="refocus_toast">Para voltar a focar a última fotografia, toque aqui</string>
-  <string name="error_app_unsupported_hfr_selection">A gravação em alta velocidade não é suportada quando a Estabilização, o Intervalo de tempo ou o HDR estão ativados.</string>
+  <string name="error_app_unsupported_hfr_selection">A gravação em alta velocidade não é suportada quando a estabilização, o intervalo de tempo ou o HDR estão ativados.</string>
   <string name="error_app_unsupported_hfr">A câmara lenta não é suportada na resolução de vídeo selecionada. Selecione uma resolução de vídeo inferior</string>
   <string name="error_app_unsupported_dis">A estabilização não é suportada para o tamanho de vídeo selecionado. Selecione um tamanho de vídeo inferior</string>
   <string name="error_app_unsupported_hsr">O modo de alta velocidade não é suportado para a resolução de vídeo selecionada. Selecione uma resolução de vídeo inferior</string>

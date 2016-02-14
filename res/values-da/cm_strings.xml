@@ -66,6 +66,8 @@
   <string name="pref_camera_picturesize_entry_wqvga">WQVGA</string>
   <string name="pref_camera_picturesize_entry_qvga">QVGA</string>
   <string name="pref_camera_scenemode_entry_refocus">Makro+</string>
+  <string name="pref_camera_scenemode_entry_antimotionblur">Reduktion af bevægelsesslør</string>
+  <string name="pref_camera_scenemode_entry_aqua">Vand</string>
   <string name="pref_camera_focusmode_entry_hyperfocal">Hyperfokal</string>
   <string name="pref_camera_coloreffect_entry_washed">Udvasket</string>
   <string name="pref_camera_coloreffect_entry_vintage_warm">Klassisk varm</string>
@@ -81,9 +83,6 @@
   <string name="pref_camera_focustime_title">Varighed for berøringsfokus</string>
   <string name="pref_camera_focustime_entry_5">5s</string>
   <string name="pref_camera_focustime_entry_10">10s</string>
-  <string name="pref_camera_focustime_entry_15">15s</string>
-  <string name="pref_camera_focustime_entry_20">20s</string>
-  <string name="pref_camera_focustime_entry_30">30s</string>
   <string name="pref_camera_focustime_entry_infinite">Uendelig</string>
   <string name="pref_camera_shutter_speed_title">Lukkerhastighed</string>
   <string name="auto_hdr_enabled">Auto HDR aktiveret</string>

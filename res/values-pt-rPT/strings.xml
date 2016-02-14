@@ -88,14 +88,14 @@
   <string name="no_storage" product="default">Insira um cartão SD antes de utilizar a câmara.</string>
   <string name="preparing_sd" product="default">A preparar cartão SD\u2026</string>
   <string name="access_sd_fail" product="default">Não foi possível aceder ao cartão SD.</string>
-  <string name="time_lapse_title">Gravação com intervalo de tempo</string>
+  <string name="time_lapse_title">Gravação em intervalo de tempo</string>
   <string name="capturing">A capturar</string>
   <string name="pref_camera_id_title">Escolher câmara</string>
   <string name="pref_camera_id_entry_back">Posterior</string>
   <string name="pref_camera_id_entry_front">Frontal</string>
   <string name="pref_camera_recordlocation_title">Armazenar localização</string>
   <string name="pref_camera_location_label">LOCALIZAÇÃO</string>
-  <string name="pref_camera_timer_title">Temporizador contagem decr.</string>
+  <string name="pref_camera_timer_title">Temporizador de contagem decr.</string>
   <plurals name="pref_camera_timer_entry">
     <item quantity="one">1 segundo</item>
     <item quantity="other">%d segundos</item>
