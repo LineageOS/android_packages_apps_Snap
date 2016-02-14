@@ -117,9 +117,6 @@
   <string name="pref_camera_focustime_title">Duración do toque de enfoque</string>
   <string name="pref_camera_focustime_entry_5">5s</string>
   <string name="pref_camera_focustime_entry_10">10s</string>
-  <string name="pref_camera_focustime_entry_15">15s</string>
-  <string name="pref_camera_focustime_entry_20">20s</string>
-  <string name="pref_camera_focustime_entry_30">30s</string>
   <string name="pref_camera_focustime_entry_infinite">Infinito</string>
   <string name="pref_camera_shutter_speed_title">Velocidade de disparo</string>
 </resources>

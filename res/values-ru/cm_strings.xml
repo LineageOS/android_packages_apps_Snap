@@ -54,8 +54,10 @@
   <string name="pref_camera_picturesize_entry_2mp_wide">2 Мп (16:9)</string>
   <string name="pref_camera_picturesize_entry_2mp">2 Мп</string>
   <string name="pref_camera_picturesize_entry_1_9mp">1,9 Мп</string>
+  <string name="pref_camera_picturesize_entry_1_6mp">1,6 Мп</string>
   <string name="pref_camera_picturesize_entry_1_5mp">1,5 Мп</string>
   <string name="pref_camera_picturesize_entry_1_3mp">1,3 Мп</string>
+  <string name="pref_camera_picturesize_entry_1_2mp_wide">1,2 Мп (16:9)</string>
   <string name="pref_camera_picturesize_entry_1mp">1 Мп</string>
   <string name="pref_camera_picturesize_entry_wxga">WXGA</string>
   <string name="pref_camera_picturesize_entry_xga">XGA</string>
@@ -129,11 +131,10 @@
   <string name="pref_camera_power_shutter_title">Съёмка кн. питания</string>
   <string name="pref_camera_max_brightness_title">Максимальная яркость экрана</string>
   <string name="pref_camera_focustime_title">Фокус касанием</string>
+  <string name="pref_camera_focustime_entry_0">0 секунд</string>
+  <string name="pref_camera_focustime_entry_3">3 cекунды</string>
   <string name="pref_camera_focustime_entry_5">5 секунд</string>
   <string name="pref_camera_focustime_entry_10">10 секунд</string>
-  <string name="pref_camera_focustime_entry_15">15 секунд</string>
-  <string name="pref_camera_focustime_entry_20">20 секунд</string>
-  <string name="pref_camera_focustime_entry_30">30 секунд</string>
   <string name="pref_camera_focustime_entry_infinite">Бесконечно</string>
   <string name="pref_camera_shutter_speed_title">Время экспозиции</string>
   <string name="auto_hdr_enabled">Авто HDR включён</string>

@@ -131,9 +131,6 @@
   <string name="pref_camera_focustime_title">Fókusz tartás</string>
   <string name="pref_camera_focustime_entry_5">5 mp</string>
   <string name="pref_camera_focustime_entry_10">10 mp</string>
-  <string name="pref_camera_focustime_entry_15">15 mp</string>
-  <string name="pref_camera_focustime_entry_20">20 mp</string>
-  <string name="pref_camera_focustime_entry_30">30 mp</string>
   <string name="pref_camera_focustime_entry_infinite">Végtelen</string>
   <string name="pref_camera_shutter_speed_title">Zársebesség</string>
   <string name="auto_hdr_enabled">Auto HDR engedélyezve</string>

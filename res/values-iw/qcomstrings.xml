@@ -96,6 +96,7 @@
   <string name="pref_camera_antibanding_entry_2">60 הרץ (ארה\"ב)</string>
   <string name="pref_camera_coloreffect_title">אפקט צבע</string>
   <string name="pref_camera_coloreffect_entry_none">ללא</string>
+  <string name="pref_camera_coloreffect_entry_mono">מונוכרום</string>
   <string name="pref_camera_coloreffect_entry_sepia">ספיה</string>
   <string name="pref_camera_coloreffect_entry_negative">תשליל (נגטיב)</string>
   <string name="pref_camera_coloreffect_entry_solarize">סולריזציה</string>
@@ -150,7 +151,9 @@
   <string name="pref_camera_jpegquality_entry_3">85% (איכותי מאוד)</string>
   <string name="pref_camera_jpegquality_entry_4">95%</string>
   <string name="pref_camera_jpegquality_entry_5">100%</string>
+  <string name="pref_camera_histogram_title">היסטוגרמה</string>
   <string name="pref_camera_scenedetect_title">זיהוי סצינה אוטומטי</string>
+  <string name="pref_camera_longshot_title">צילום מתמשך</string>
   <string name="pref_camera_auto_hdr_title">HDR אוטומטי</string>
   <string name="pref_camera_hdr_mode_title">מצב HDR</string>
   <string name="pref_camera_hdr_mode_entry_sensor">חיישן HDR</string>
@@ -165,5 +168,6 @@
   <string name="pref_camera_savepath_entry_1">כרטיס זיכרון</string>
   <string name="camera_gesture_title">הפעל מצלמה</string>
   <string name="all_in_focus">הכל בפוקוס</string>
+  <string name="refocus_toast">למיקוד מחדש של התמונה האחרונה, לחץ כאן</string>
   <string name="error_app_unsupported_hfr">סרטוני הילוך איטי אינם נתמכים ברזולוציה שנבחרה. בחר רזולוציה נמוכה יותר</string>
 </resources>
