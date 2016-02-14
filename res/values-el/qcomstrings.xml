@@ -34,7 +34,7 @@
   <string name="pref_camera_selectablezoneaf_entry_centerweighted">Βάρος προς το κέντρο</string>
   <string name="pref_camera_selectablezoneaf_entry_frameaverage">Μέσος όρος κάδρου</string>
   <string name="pref_camera_selectablezoneaf_entry_spotmetering">Σημειακή μέτρηση</string>
-  <string name="pref_camera_advanced_features_title">Προηγμένα χαρακτηριστικά</string>
+  <string name="pref_camera_advanced_features_title">Προηγμένες δυνατότητες</string>
   <string name="pref_camera_advanced_feature_entry_none">Κανένα</string>
   <string name="pref_camera_advanced_feature_entry_multi_touch_focus">Εστίαση πολλαπλής αφής</string>
   <string name="pref_camera_manual_exp_title">Χειροκίνητη έκθεση</string>
@@ -44,6 +44,7 @@
   <string name="pref_camera_manual_exp_entry_off">Ανενεργή</string>
   <string name="pref_camera_manual_wb_title">Χειροκίνητη ισορροπία λευκού</string>
   <string name="pref_camera_manual_wb_entry_color_temperature">Θερμοκρασία χρώματος</string>
+  <string name="pref_camera_manual_wb_entry_rbgb_gains">Κέρδος RBGB</string>
   <string name="pref_camera_manual_wb_entry_off">Ανενεργή</string>
   <string name="pref_camera_manual_focus_title">Χειροκίνητη εστίαση</string>
   <string name="pref_camera_manual_focus_entry_scale_mode">Λειτουργία κλίμακας</string>
@@ -179,12 +180,22 @@
   <string name="pref_camera_savepath_entry_1">Κάρτα SD</string>
   <string name="camera_gesture_title">Εκκίνηση φωτογρ. μηχανής</string>
   <string name="all_in_focus">Όλα σε εστίαση</string>
+  <string name="refocus_toast">Για επανεστίαση της τελευταίας φωτογραφίας, πατήστε εδώ</string>
   <string name="error_app_unsupported_hfr_selection">Η υψηλή ταχύτητα/αργή κίνηση δεν υποστηρίζεται με Σταθεροποίηση/Time lapse/HDR.</string>
   <string name="error_app_unsupported_hfr">Δεν υποστηρίζεται βίντεο αργής κίνησης για το επιλεγμένο μέγεθος βίντεο. Επιλέξτε ένα μικρότερο μέγεθος βίντεο</string>
   <string name="error_app_unsupported_dis">Δεν υποστηρίζεται η λειτουργία σταθεροποίησης για το επιλεγμένο μέγεθος βίντεο. Επιλέξτε ένα μικρότερο μέγεθος βίντεο</string>
   <string name="error_app_unsupported_hsr">Δεν υποστηρίζεται βίντεο υψηλής ταχύτητας για το επιλεγμένο μέγεθος βίντεο. Επιλέξτε ένα μικρότερο μέγεθος βίντεο</string>
+  <string name="error_app_unsupported_hfr_codec">Υποστηρίζεται μόνο η κωδικοποίηση H.264 κατά τη λήψη βίντεο υψηλού ρυθμού καρέ</string>
   <string name="error_app_unsupported">Μη υποστηριζόμενη ανάλυση βίντεο για αυτόν τον τύπο κωδικοποιητή</string>
+  <string name="error_app_unsupported_raw">Δεν υποστηρίζεται Raw τύπος εικόνας κατά την λειτουργία Μηδενικής καθυστέρησης κλείστρου. Επιλέξτε JPEG</string>
+  <string name="msg_cancel_longshot_for_limited_memory">Η μνήμη εξαντλείται, ακυρώνεται η συνεχής λήψη</string>
+  <string name="flash_aebracket_message">Δεν υποστηρίζεται φλας στην λειτουργία bracketing αυτόματης έκθεσης</string>
   <string name="on_switch_save_path_to_sdcard">Ο εσωτερικός χώρος αποθήκευσης δεν επαρκεί, αλλαγή χώρου αποθήκευσης σε κάρτα SD</string>
   <string name="map_activity_not_found_err">Δεν υπάρχει εγκατεστημένη καμία εφαρμογή χαρτών ώστε να δείτε την τοποθεσία</string>
+  <string name="longshot_enable_message">Οι προηγμένες δυνατότητες δεν υποστηρίζονται στην λειτουργία συνεχής λήψης</string>
+  <string name="advance_feature_enable_msg">Η συνεχής λήψη δεν υποστηρίζεται όταν είναι ενεργοποιημένες οι προηγμένες δυνατότητες</string>
+  <string name="HDR_disable_continuous_shot">Η ενεργοποίηση του HDR θα απενεργοποιήσει την συνεχή λήψη</string>
+  <string name="advanced_capture_disable_continuous_shot">Η ενεργοποίηση της προηγμένης σύλληψης θα απενεργοποιήσει την συνεχή λήψη</string>
   <string name="video_quality_4k_disable_IS">Η ενεργοποίηση 4K βίντεο θα απενεργοποιήσει τη λειτουργία σταθεροποίησης</string>
+  <string name="video_quality_4k_disable_SeeMore">Το SeeMore δεν μπορεί να ενεργοποιηθεί κατά τη διάρκεια 4Κ βίντεο</string>
 </resources>

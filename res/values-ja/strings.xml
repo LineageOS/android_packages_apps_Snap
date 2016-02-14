@@ -141,12 +141,12 @@
   <string name="pref_camera_scenemode_entry_action">スポーツ</string>
   <string name="pref_camera_scenemode_entry_night">夜景</string>
   <string name="pref_camera_scenemode_entry_sunset">夕焼け</string>
-  <string name="pref_camera_scenemode_entry_party">パーティー</string>
+  <string name="pref_camera_scenemode_entry_party">パーティ</string>
   <string name="pref_camera_scenemode_label_auto">なし</string>
   <string name="pref_camera_scenemode_label_action">スポーツ</string>
   <string name="pref_camera_scenemode_label_night">夜景</string>
   <string name="pref_camera_scenemode_label_sunset">夕焼け</string>
-  <string name="pref_camera_scenemode_label_party">パーティー</string>
+  <string name="pref_camera_scenemode_label_party">パーティ</string>
   <string name="pref_camera_countdown_label_off">タイマーOFF</string>
   <string name="pref_camera_countdown_label_one">1秒</string>
   <string name="pref_camera_countdown_label_three">3秒</string>

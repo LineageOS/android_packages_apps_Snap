@@ -80,6 +80,7 @@
   <string name="unknown">לא ידוע</string>
   <string name="try_to_set_local_album_available_offline">הפריט מאוחסן מקומית וזמין במצב לא מקוון.</string>
   <string name="please_wait">אנא המתן</string>
+  <string name="rendering_photo_sphere">מעבד צילום כדורי</string>
   <string name="camera_error_title">שגיאת מצלמה</string>
   <string name="cannot_connect_camera">לא ניתן להתחבר למצלמה.</string>
   <string name="camera_disabled">המצלמה הושבתה בשל מדיניות אבטחה.</string>
@@ -123,13 +124,16 @@
   <string name="pref_camera_whitebalance_title">איזון לבן</string>
   <string name="pref_camera_whitebalance_label">איזון לבן</string>
   <string name="pref_camera_whitebalance_entry_auto">אוטומטי</string>
+  <string name="pref_camera_whitebalance_entry_incandescent">נורת להט</string>
   <string name="pref_camera_whitebalance_entry_daylight">אור יום</string>
   <string name="pref_camera_whitebalance_entry_fluorescent">פלורסנט</string>
   <string name="pref_camera_whitebalance_entry_cloudy">מעונן</string>
   <string name="pref_camera_whitebalance_label_auto">אוטומטי</string>
+  <string name="pref_camera_whitebalance_label_incandescent">נורת להט</string>
   <string name="pref_camera_whitebalance_label_daylight">אור יום</string>
   <string name="pref_camera_whitebalance_label_fluorescent">פלורסנט</string>
   <string name="pref_camera_whitebalance_label_cloudy">מעונן</string>
+  <string name="pref_camera_scenemode_title">מצב נוף</string>
   <string name="pref_camera_scenemode_entry_auto">אוטומטי</string>
   <string name="pref_camera_scenemode_entry_hdr_plus">HDR+‎</string>
   <string name="pref_camera_scenemode_entry_hdr">HDR</string>
@@ -151,6 +155,7 @@
   <string name="pref_camera_countdown_label_three">3 שניות</string>
   <string name="pref_camera_countdown_label_ten">10 שניות</string>
   <string name="pref_camera_countdown_label_fifteen">15 שניות</string>
+  <string name="not_selectable_in_scene_mode">לא ניתן לבחירה במצב נוף.</string>
   <string name="pref_exposure_title">חשיפה</string>
   <string name="pref_exposure_label">חשיפה</string>
   <string name="pref_camera_hdr_label">HDR</string>
@@ -184,11 +189,14 @@
   <string name="clear_effects">נקה אפקטים</string>
   <string name="effect_silly_faces">פרצופים מצחיקים</string>
   <string name="effect_background">רקע</string>
+  <string name="accessibility_shutter_button">לחצן הצילום</string>
   <string name="accessibility_menu_button">לחצן תפריט</string>
+  <string name="accessibility_mode_picker">בורר מצב מצלמה, וידאו או פנורמה</string>
   <string name="accessibility_check_box">‏תיבת סימון %1$s</string>
   <string name="accessibility_switch_to_camera">עבור לצילום תמונות</string>
   <string name="accessibility_switch_to_video">עבור לצילום וידאו</string>
   <string name="accessibility_switch_to_panorama">עבור לצילום פנורמה</string>
+  <string name="accessibility_switch_to_photo_sphere">‏עבור לצילום כדורי</string>
   <string name="accessibility_switch_to_gcam">עבור לאיכות גבוהה</string>
   <string name="accessibility_review_cancel">ביטול בדיקה</string>
   <string name="accessibility_review_ok">בדיקה בוצעה</string>
@@ -250,4 +258,7 @@
   <string name="tiny_planet_zoom">זום</string>
   <string name="tiny_planet_rotate">סובב</string>
   <string name="crop_save">שמור</string>
+  <string name="cannot_load_image">לא ניתן לטעון את התמונה!</string>
+  <string name="switch_photo_filmstrip">תצוגה בסרט שקופיות</string>
+  <string name="setting_wallpaper">מגדיר טפט</string>
 </resources>
