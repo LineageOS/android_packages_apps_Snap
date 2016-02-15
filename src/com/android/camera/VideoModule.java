@@ -1587,10 +1587,6 @@ public class VideoModule implements CameraModule,
             mMediaRecorder.setVideoFrameRate(mProfile.videoFrameRate);
             mMediaRecorder.setVideoEncodingBitRate(mProfile.videoBitRate);
             mMediaRecorder.setVideoEncoder(mProfile.videoCodec);
-        } else if (isHSR) {
-            mProfile.videoBitRate *= captureRate / 30;
-            mMediaRecorder.setAudioSource(MediaRecorder.AudioSource.CAMCORDER);
-            mMediaRecorder.setProfile(mProfile);
         } else {
             mMediaRecorder.setAudioSource(MediaRecorder.AudioSource.CAMCORDER);
             mMediaRecorder.setProfile(mProfile);
