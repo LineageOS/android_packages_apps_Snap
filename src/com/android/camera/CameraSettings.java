@@ -1115,9 +1115,9 @@ public class CameraSettings {
                     getSupportedSeeMoreModes(mParameters));
         }
 
-        if ((videoHfrMode != null) &&
-            (ParametersWrapper.getSupportedHfrSizes(mParameters) == null)) {
-                filterUnsupportedOptions(group, videoHfrMode, null);
+        if (videoHfrMode != null) {
+            filterUnsupportedOptions(group, videoHfrMode, getSupportedHighFrameRateModes(
+                    mParameters));
         }
 
         if (videoQuality != null) {
@@ -1496,6 +1496,29 @@ public class CameraSettings {
         initialCameraPictureSize(context, parameters);
         writePreferredCameraId(preferences, currentCameraId);
     }
+
+    public static List<String> getSupportedHighFrameRateModes(Parameters params) {
+        ArrayList<String> supported = new ArrayList<String>();
+        List<String> supportedModes = params.getSupportedVideoHighFrameRateModes();
+        String hsr = params.get(KEY_VIDEO_HSR);
+
+        if (supportedModes == null) {
+            return null;
+        }
+
+        for (String highFrameRateMode : supportedModes) {
+            if (highFrameRateMode.equals("off")) {
+                supported.add(highFrameRateMode);
+            } else {
+                supported.add("hfr" + highFrameRateMode);
+                if (hsr != null) {
+                    supported.add("hsr" + highFrameRateMode);
+                }
+            }
+        }
+        return supported;
+    }
+
     public static ArrayList<String> getSupportedVideoQualities(int cameraId,
             Parameters parameters) {
         ArrayList<String> supported = new ArrayList<String>();
