@@ -799,8 +799,12 @@ public class CameraSettings {
         }
 
         if (videoSnapSize != null) {
-            filterUnsupportedOptions(group, videoSnapSize, sizeListToStringList(
-                    mParameters.getSupportedPictureSizes()));
+            if (CameraUtil.isVideoSnapshotSupported(mParameters)) {
+                filterUnsupportedOptions(group, videoSnapSize, sizeListToStringList(
+                        mParameters.getSupportedPictureSizes()));
+            } else {
+                removePreference(group, videoSnapSize.getKey());
+            }
         }
 
         if (histogram != null) {
