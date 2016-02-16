@@ -26,7 +26,7 @@
             camera:entries="@array/pref_camera_flashmode_entries"
             camera:entryValues="@array/pref_camera_flashmode_entryvalues"
             camera:labelList="@array/pref_camera_flashmode_labels"
-            camera:singleIcon="@drawable/ic_flash_on" />
+            camera:singleIcon="@drawable/ic_settings_flash" />
     <IconListPreference
             camera:key="pref_camera_exposure_key"
             camera:defaultValue="@string/pref_exposure_default"
