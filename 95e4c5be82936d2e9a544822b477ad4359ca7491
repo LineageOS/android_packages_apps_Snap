@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ffb9cba7_3224a20d",
+        "filename": "src/com/android/camera/PhotoModule.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 1569,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2016-02-16T01:03:01Z",
+      "side": 1,
+      "message": "Is this really needed? I see another check for isLowLuminance without mLgeHdrMode check",
+      "revId": "95e4c5be82936d2e9a544822b477ad4359ca7491",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
