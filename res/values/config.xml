@@ -61,4 +61,8 @@
 
     <!-- Enable support for LGE HDR -->
     <bool name="lge_hdr_mode">false</bool>
+
+    <!-- Enable NV12 for both video and photo preview if preview size doesn't
+         change while switching from one to the other -->
+    <bool name="cpp_duplication">false</bool>
 </resources>
