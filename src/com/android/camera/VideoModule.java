@@ -2326,7 +2326,8 @@ public class VideoModule implements CameraModule,
         // 1. setprop "persist.camera.cpp.duplication" is enabled(Default value is enabled)
         // 2. If both preview & video resolution are exactly same
         boolean isDuplicationEnabled =
-                SystemProperties.getBoolean(PERSIST_CAMERA_CPP_DUPLICATION, true);
+                SystemProperties.getBoolean(PERSIST_CAMERA_CPP_DUPLICATION,
+                        mActivity.getResources().getBoolean(R.bool.cpp_duplication));
         if (isDuplicationEnabled && (mDesiredPreviewWidth == mProfile.videoFrameWidth) &&
                 (mDesiredPreviewHeight == mProfile.videoFrameHeight)
                 && CameraUtil.isSupported(FORMAT_NV12_VENUS,
