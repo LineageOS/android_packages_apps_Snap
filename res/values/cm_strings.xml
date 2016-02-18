@@ -16,6 +16,8 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
+    <!-- Settings screen, dialog choice for 24 megapixels picture size [CHAR LIMIT=15] -->
+    <string name="pref_camera_picturesize_entry_24mp">24M pixels</string>
     <!-- Settings screen, dialog choice for 21 megapixels picture size [CHAR LIMIT=15] -->
     <string name="pref_camera_picturesize_entry_21mp">21 MP</string>
     <!-- Settings screen, dialog choice for 20.7 megapixels picture size [CHAR LIMIT=15] -->
