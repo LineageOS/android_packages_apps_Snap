@@ -1040,6 +1040,10 @@ public class CameraSettings {
             removePreference(group, longShot.getKey());
         }
 
+        if (auto_hdr != null && !CameraUtil.isAutoHDRSupported(mParameters)) {
+            removePreference(group, auto_hdr.getKey());
+        }
+
         if (videoRotation != null) {
             filterUnsupportedOptions(group,
                     videoRotation, ParametersWrapper.getSupportedVideoRotationValues(mParameters));
