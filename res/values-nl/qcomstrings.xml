@@ -88,6 +88,7 @@
   <string name="pref_camera_iso_entry_iso6400">6400</string>
   <string name="pref_camera_iso_entry_iso12800">12800</string>
   <string name="pref_camera_antibanding_title">Anti-banding</string>
+  <string name="pref_camera_antibanding_entry_0">Automatisch</string>
   <string name="pref_camera_antibanding_entry_1">50 Hz (Europa)</string>
   <string name="pref_camera_antibanding_entry_2">60 Hz (USA)</string>
   <string name="pref_camera_coloreffect_title">Kleureffect</string>
@@ -150,6 +151,8 @@
   <string name="pref_camera_jpegquality_entry_5">100%</string>
   <string name="pref_camera_histogram_title">Histogram</string>
   <string name="pref_camera_scenedetect_title">Automatische scènedetectie</string>
+  <string name="pref_camera_longshot_title">Continue opname</string>
+  <string name="pref_camera_auto_hdr_title">Auto-HDR</string>
   <string name="pref_camera_video_rotation_entry_0">0 graden</string>
   <string name="pref_camera_video_rotation_entry_90">90 graden</string>
   <string name="pref_camera_video_rotation_entry_180">180 graden</string>
@@ -163,4 +166,6 @@
   <string name="error_app_unsupported_hsr">Hoge snelheid video wordt niet ondersteund bij deze resolutie</string>
   <string name="error_app_unsupported_hfr_codec">Alleen H.264-videocodec ondersteund bij opname met hoge beeldsnelheid</string>
   <string name="error_app_unsupported">Videoresolutie niet ondersteund bij deze codec</string>
+  <string name="msg_cancel_longshot_for_limited_memory">Niet genoeg geheugen, continue opname wordt afgebroken</string>
+  <string name="video_quality_4k_disable_SeeMore">SeeMore kan niet worden ingeschakeld tijdens 4k video</string>
 </resources>

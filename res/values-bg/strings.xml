@@ -49,7 +49,7 @@
   <string name="rotate_right">Завъртане надясно</string>
   <string name="edit">Редактиране</string>
   <string name="crop_action">Подрязване</string>
-  <string name="trim_action">Отрязване</string>
+  <string name="trim_action">Радактиране</string>
   <string name="set_as">Задаване като</string>
   <string name="video_err">Клипът не може да се пусне.</string>
   <string name="crop_saved">Подрязаното изображение е запазено в/ъв „<xliff:g id="FOLDER_NAME">%s</xliff:g>“.</string>
@@ -57,20 +57,20 @@
   <string name="description">Описание</string>
   <string name="time">Час</string>
   <string name="location">Местоположение</string>
-  <string name="path">Път</string>
+  <string name="path">Метоположение</string>
   <string name="width">Ширина</string>
   <string name="height">Височина</string>
   <string name="orientation">Ориентация</string>
   <string name="duration">Времетраене</string>
   <string name="mimetype">Тип MIME</string>
-  <string name="file_size">Файлов размер</string>
+  <string name="file_size">Размер на файла</string>
   <string name="maker">Автор</string>
   <string name="model">Модел</string>
   <string name="flash">Светкавица</string>
   <string name="aperture">Бленда</string>
-  <string name="focal_length">Фокус: Дължина</string>
+  <string name="focal_length">Фокусно разстояние</string>
   <string name="white_balance">Бяло: Баланс</string>
-  <string name="exposure_time">Експонация</string>
+  <string name="exposure_time">Скорост</string>
   <string name="iso">ISO</string>
   <string name="unit_mm">мм</string>
   <string name="manual">Ръчно</string>
@@ -85,9 +85,9 @@
   <string name="cannot_connect_camera">Не може да се установи връзка с камерата.</string>
   <string name="camera_disabled">Камерата е деактивирана заради правилата за сигурност.</string>
   <string name="wait">Моля, изчакайте…</string>
-  <string name="no_storage" product="default">Поставете SD карта, преди да използвате камерата.</string>
-  <string name="preparing_sd" product="default">SD картата се подготвя\u2026</string>
-  <string name="access_sd_fail" product="default">Няма достъп до SD картата.</string>
+  <string name="no_storage" product="default">Поставете карта памет, преди да използвате камерата.</string>
+  <string name="preparing_sd" product="default">Картата памет се подготвя\u2026</string>
+  <string name="access_sd_fail" product="default">Няма достъп до картата памет.</string>
   <string name="time_lapse_title">Запис на цайтрафера</string>
   <string name="capturing">Заснема се</string>
   <string name="pref_camera_id_title">Избиране на камера</string>
@@ -109,15 +109,15 @@
   <string name="pref_camcorder_settings_category">Настройки на видеокамерата</string>
   <string name="pref_camera_picturesize_title">Резолюция на снимката</string>
   <string name="pref_camera_focusmode_title">Фокусен режим</string>
-  <string name="pref_camera_focusmode_entry_auto">Автоматично</string>
+  <string name="pref_camera_focusmode_entry_auto">Автоматичен</string>
   <string name="pref_camera_focusmode_entry_infinity">Безкрайност</string>
   <string name="pref_camera_focusmode_entry_macro">Макро</string>
-  <string name="pref_camera_focusmode_label_auto">АВТОМАТИЧНО</string>
+  <string name="pref_camera_focusmode_label_auto">АВТОМАТИЧЕН</string>
   <string name="pref_camera_focusmode_label_infinity">БЕЗКРАЙНОСТ</string>
   <string name="pref_camera_focusmode_label_macro">МАКРО</string>
   <string name="pref_camera_flashmode_title">Режим на светкавицата</string>
   <string name="pref_camera_flashmode_label">РЕЖИМ НА СВЕТКАВИЦАТА</string>
-  <string name="pref_camera_flashmode_entry_auto">Автоматично</string>
+  <string name="pref_camera_flashmode_entry_auto">Автоматична</string>
   <string name="pref_camera_flashmode_entry_on">Вкл.</string>
   <string name="pref_camera_flashmode_entry_off">Изкл.</string>
   <string name="pref_camera_flashmode_label_auto">АВТОМАТИЧНА СВЕТКАВИЦА</string>
@@ -136,7 +136,7 @@
   <string name="pref_camera_whitebalance_label_fluorescent">ФЛУОРЕСЦЕНТНА СВЕТЛИНА</string>
   <string name="pref_camera_whitebalance_label_cloudy">ОБЛАЧНО</string>
   <string name="pref_camera_scenemode_title">Сценичен режим</string>
-  <string name="pref_camera_scenemode_entry_auto">Автоматично</string>
+  <string name="pref_camera_scenemode_entry_auto">Автоматичен</string>
   <string name="pref_camera_scenemode_entry_hdr_plus">HDR+</string>
   <string name="pref_camera_scenemode_entry_hdr">HDR</string>
   <string name="pref_camera_scenemode_entry_turn_hdr_plus_on">ВКЛЮЧВАНЕ НА HDR+</string>
@@ -164,7 +164,7 @@
   <string name="pref_camera_id_label_back">ПРЕДНА КАМЕРА</string>
   <string name="pref_camera_id_label_front">ЗАДНА КАМЕРА</string>
   <string name="dialog_ok">ОK</string>
-  <string name="spaceIsLow_content" product="default">Мястото на SD картата ви привършва. Променете настройката за качество или изтрийте някои изображения или други файлове.</string>
+  <string name="spaceIsLow_content" product="default">Мястото на картата памет Ви привършва. Променете настройката за качество или изтрийте някои изображения или други файлове.</string>
   <string name="video_reach_size_limit">Достигнато е ограничението за размер.</string>
   <string name="pano_too_fast_prompt">Твърде бързо</string>
   <string name="pano_dialog_prepare_preview">Панорамата се подготвя</string>
@@ -193,7 +193,7 @@
   <string name="effect_silly_faces">СМЕШНИ ЛИЦА</string>
   <string name="effect_background">ФОН</string>
   <string name="accessibility_shutter_button">Затвор</string>
-  <string name="accessibility_menu_button">Бутон за меню</string>
+  <string name="accessibility_menu_button">Меню бутон</string>
   <string name="accessibility_mode_picker">Инструмент за избор между фотоапарат, видеокамера или панорама</string>
   <string name="accessibility_check_box">Квадратче за отметка „%1$s“</string>
   <string name="accessibility_switch_to_camera">Превключване към фотоапарат</string>

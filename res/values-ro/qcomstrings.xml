@@ -30,9 +30,11 @@
   <string name="pref_camera_selectablezoneaf_entry_auto">Auto</string>
   <string name="pref_camera_selectablezoneaf_entry_spotmetering">Măsurare punctuală</string>
   <string name="pref_camera_advanced_features_title">Caracteristici avansate</string>
+  <string name="pref_camera_advanced_feature_entry_none">Fără</string>
   <string name="pref_camera_manual_exp_title">Expunere manuală</string>
   <string name="pref_camera_manual_exp_entry_ISO_priority">Prioritate ISO</string>
   <string name="pref_camera_manual_exp_entry_user_setting">Setare utilizator</string>
+  <string name="pref_camera_manual_exp_entry_off">Oprit</string>
   <string name="pref_camera_manual_wb_title">Balans de alb manual</string>
   <string name="pref_camera_manual_wb_entry_color_temperature">Temperatura culorii</string>
   <string name="pref_camera_manual_wb_entry_off">Oprit</string>
@@ -156,4 +158,5 @@
   <string name="pref_camera_savepath_entry_0">Stocare internă</string>
   <string name="pref_camera_savepath_entry_1">Card SD</string>
   <string name="on_switch_save_path_to_sdcard">Spațiul stocării interne nu este suficient, comutat stocarea pe cardul SD</string>
+  <string name="map_activity_not_found_err">Nu există nicio aplicație cu hărți instalată care să arate locația</string>
 </resources>

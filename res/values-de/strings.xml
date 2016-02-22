@@ -29,7 +29,7 @@
   <string name="share_panorama">Panorama teilen</string>
   <string name="share_as_photo">Als Foto teilen</string>
   <string name="deleted">Gelöscht</string>
-  <string name="undo">Rückgängig</string>
+  <string name="undo">RÜCKGÄNGIG</string>
   <string name="details">Details</string>
   <string name="close">Schließen</string>
   <plurals name="number_of_items_selected">
@@ -51,7 +51,7 @@
   <string name="crop_action">Zuschneiden</string>
   <string name="trim_action">Zuschneiden</string>
   <string name="set_as">Festlegen als</string>
-  <string name="video_err">Fehler bei Videowiedergabe</string>
+  <string name="video_err">Fehler bei der Videowiedergabe</string>
   <string name="crop_saved">Zugeschnittenes Bild in <xliff:g id="FOLDER_NAME">%s</xliff:g> gespeichert</string>
   <string name="title">Titel</string>
   <string name="description">Beschreibung</string>
@@ -87,15 +87,19 @@
   <string name="wait">Bitte warten\u2026</string>
   <string name="no_storage" product="default">Legen Sie vor Verwendung der Kamera eine SD-Karte ein.</string>
   <string name="preparing_sd" product="default">SD-Karte wird vorbereitet\u2026</string>
-  <string name="access_sd_fail" product="default">Kein Zugriff auf SD-Karte möglich</string>
+  <string name="access_sd_fail" product="default">Auf die SD-Karte konnte nicht zugegriffen werden.</string>
   <string name="time_lapse_title">Zeitrafferaufnahme</string>
-  <string name="capturing">Wird aufgenommen</string>
+  <string name="capturing">Aufnahme wird erstellt…</string>
   <string name="pref_camera_id_title">Kamera wählen</string>
-  <string name="pref_camera_id_entry_back">Rückseite</string>
-  <string name="pref_camera_id_entry_front">Vorderseite</string>
+  <string name="pref_camera_id_entry_back">Hauptkamera</string>
+  <string name="pref_camera_id_entry_front">Frontkamera</string>
   <string name="pref_camera_recordlocation_title">Ort speichern</string>
-  <string name="pref_camera_location_label">STANDORT</string>
+  <string name="pref_camera_location_label">ORT</string>
   <string name="pref_camera_timer_title">Countdown-Timer</string>
+  <plurals name="pref_camera_timer_entry">
+    <item quantity="one">1 Sekunde</item>
+    <item quantity="other">%d Sekunden</item>
+  </plurals>
   <string name="pref_camera_timer_sound_title">Piepton bei Countdown</string>
   <string name="setting_off">Aus</string>
   <string name="setting_on">An</string>
@@ -135,8 +139,8 @@
   <string name="pref_camera_scenemode_entry_auto">Automatisch</string>
   <string name="pref_camera_scenemode_entry_hdr_plus">HDR+</string>
   <string name="pref_camera_scenemode_entry_hdr">HDR</string>
-  <string name="pref_camera_scenemode_entry_turn_hdr_plus_on">HDR+ an</string>
-  <string name="pref_camera_scenemode_entry_turn_hdr_plus_off">HDR+ aus</string>
+  <string name="pref_camera_scenemode_entry_turn_hdr_plus_on">HDR+ AN</string>
+  <string name="pref_camera_scenemode_entry_turn_hdr_plus_off">HDR+ AUS</string>
   <string name="pref_camera_scenemode_entry_turn_hdr_on">HDR an</string>
   <string name="pref_camera_scenemode_entry_turn_hdr_off">HDR AUS</string>
   <string name="pref_camera_scenemode_entry_action">Bewegung</string>
@@ -145,14 +149,14 @@
   <string name="pref_camera_scenemode_entry_party">Party</string>
   <string name="pref_camera_scenemode_label_auto">KEINER</string>
   <string name="pref_camera_scenemode_label_action">BEWEGUNG</string>
-  <string name="pref_camera_scenemode_label_night">NACHT</string>
+  <string name="pref_camera_scenemode_label_night">NACHTAUFNAHME</string>
   <string name="pref_camera_scenemode_label_sunset">SONNENUNTERGANG</string>
   <string name="pref_camera_scenemode_label_party">PARTY</string>
   <string name="pref_camera_countdown_label_off">TIMER AUS</string>
-  <string name="pref_camera_countdown_label_one">1 Sekunde</string>
-  <string name="pref_camera_countdown_label_three">3 Sekunden</string>
-  <string name="pref_camera_countdown_label_ten">10 Sekunden</string>
-  <string name="pref_camera_countdown_label_fifteen">15 Sekunden</string>
+  <string name="pref_camera_countdown_label_one">1 SEKUNDE</string>
+  <string name="pref_camera_countdown_label_three">3 SEKUNDEN</string>
+  <string name="pref_camera_countdown_label_ten">10 SEKUNDEN</string>
+  <string name="pref_camera_countdown_label_fifteen">15 SEKUNDEN</string>
   <string name="not_selectable_in_scene_mode">Nicht auswählbar im Szenenmodus.</string>
   <string name="pref_exposure_title">Belichtung</string>
   <string name="pref_exposure_label">BELICHTUNG</string>
@@ -166,7 +170,7 @@
   <string name="pano_dialog_prepare_preview">Panorama wird vorbereitet</string>
   <string name="pano_dialog_panorama_failed">Speichern des Panoramas nicht möglich</string>
   <string name="pano_dialog_title">Panorama</string>
-  <string name="pano_capture_indication">Panorama aufnehmen</string>
+  <string name="pano_capture_indication">Panorama wird aufgenommen</string>
   <string name="pano_dialog_waiting_previous">Warten auf vorheriges Panorama</string>
   <string name="pano_review_saving_indication_str">Speichern\u2026</string>
   <string name="pano_review_rendering">Panorama wird gerendert</string>

@@ -58,6 +58,7 @@
   <string name="pref_camera_tnr_title">TNRモード</string>
   <string name="pref_camera_video_tnr_title">動画TNRモード</string>
   <string name="pref_camera_facedetection_title">顔認識</string>
+  <string name="pref_selfie_flash_title">自撮りフラッシュ</string>
   <string name="pref_camera_redeyereduction_title">赤目軽減</string>
   <string name="pref_camera_ae_bracket_hdr_title">自動段階露出</string>
   <string name="pref_camera_hfr_title">スローモーション</string>
