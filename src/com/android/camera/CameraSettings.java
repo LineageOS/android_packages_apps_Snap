@@ -164,6 +164,7 @@ public class CameraSettings {
     public static final String KEY_SNAPCAM_HDR_NEED_1X = "hdr-need-1x";
     public static final String KEY_VIDEO_HSR = "video-hsr";
     public static final String KEY_QC_SEE_MORE_MODE = "see-more";
+    public static final String KEY_QC_FACE_DETECTION = "face-detection";
 
     public static final String KEY_LUMINANCE_CONITION = "luminance-condition";
     public static final String LUMINANCE_CONITION_LOW = "low";
@@ -793,6 +794,10 @@ public class CameraSettings {
                     faceRC, getSupportedFaceRecognitionModes(mParameters));
         }
 
+        if (faceDetection != null && !isFaceDetectionSupported(mParameters)) {
+            removePreference(group, faceDetection.getKey());
+        }
+
         if (autoExposure != null) {
             filterUnsupportedOptions(group,
                     autoExposure, mParameters.getSupportedAutoexposure());
@@ -1337,6 +1342,17 @@ public class CameraSettings {
         if (null != params) {
             String val = params.get(KEY_QC_ZSL_HDR_SUPPORTED);
             if ((null != val) && (TRUE.equals(val))) {
+                ret = true;
+            }
+        }
+        return ret;
+    }
+
+    public static boolean isFaceDetectionSupported(Parameters params) {
+        boolean ret = false;
+        if (null != params) {
+            String val = params.get(KEY_QC_FACE_DETECTION);
+            if (null != val) {
                 ret = true;
             }
         }
