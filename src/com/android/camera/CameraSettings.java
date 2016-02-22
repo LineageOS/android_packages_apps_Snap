@@ -140,6 +140,7 @@ public class CameraSettings {
     private static final String KEY_QC_SUPPORTED_TNR_MODES = "tnr-mode-values";
     private static final String KEY_QC_SUPPORTED_VIDEO_TNR_MODES = "video-tnr-mode-values";
     private static final String KEY_QC_SUPPORTED_PREVIEW_FORMATS = "preview-format-values";
+    private static final String KEY_QC_SUPPORTED_FACE_DETECTION = "face-detection-values";
     private static final String KEY_SNAPCAM_SUPPORTED_HDR_MODES = "hdr-mode-values";
     private static final String KEY_SNAPCAM_SUPPORTED_HDR_NEED_1X = "hdr-need-1x-values";
     public static final String KEY_SNAPCAM_SHUTTER_SPEED = "shutter-speed";
@@ -449,6 +450,14 @@ public class CameraSettings {
 
     public static List<String> getSupportedFaceRecognitionModes(Parameters params) {
         String str = params.get(KEY_QC_SUPPORTED_FACE_RECOGNITION_MODES);
+        if (str == null) {
+            return null;
+        }
+        return split(str);
+    }
+
+    public static List<String> getSupportedFaceDetection(Parameters params) {
+        String str = params.get(KEY_QC_SUPPORTED_FACE_DETECTION);
         if (str == null) {
             return null;
         }
@@ -791,6 +800,11 @@ public class CameraSettings {
         if (faceRC != null) {
             filterUnsupportedOptions(group,
                     faceRC, getSupportedFaceRecognitionModes(mParameters));
+        }
+
+        if (faceDetection != null) {
+            filterUnsupportedOptions(group,
+                    faceDetection, getSupportedFaceDetection(mParameters));
         }
 
         if (autoExposure != null) {
