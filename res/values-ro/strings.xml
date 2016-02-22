@@ -19,6 +19,7 @@
   <string name="video_camera_label">Cameră video</string>
   <string name="details_ms">%1$02d:%2$02d</string>
   <string name="details_hms">%1$d:%2$02d:%3$02d</string>
+  <string name="set_image">Setați fotografia ca</string>
   <plurals name="delete_selection">
     <item quantity="one">Ștergeți articolul selectat?</item>
     <item quantity="few">Ștergeți articolele selectate?</item>
@@ -45,6 +46,7 @@
   <string name="rotate_left">Rotește spre stânga</string>
   <string name="rotate_right">Rotește spre dreapta</string>
   <string name="edit">Editare</string>
+  <string name="crop_action">Decupați</string>
   <string name="set_as">Setați ca</string>
   <string name="title">Titlu</string>
   <string name="description">Descriere</string>
@@ -78,6 +80,7 @@
   <string name="preparing_sd" product="default">Se pregătește cardul SD\u2026</string>
   <string name="access_sd_fail" product="default">Nu s-a putut accesa cardul SD.</string>
   <string name="pref_camera_id_entry_back">Înapoi</string>
+  <string name="pref_camera_id_entry_front">Frontală</string>
   <string name="pref_camera_recordlocation_title">Stocați locația</string>
   <string name="pref_camera_location_label">LOCAȚIE</string>
   <plurals name="pref_camera_timer_entry">
@@ -140,6 +143,7 @@
   <string name="pref_exposure_title">Expunere</string>
   <string name="pref_exposure_label">EXPUNERE</string>
   <string name="pref_camera_hdr_label">HDR</string>
+  <string name="pref_camera_id_label_back">CAMERA FRONTALĂ</string>
   <string name="dialog_ok">OK</string>
   <string name="video_reach_size_limit">Dimensiune limită atinsă.</string>
   <string name="pano_too_fast_prompt">Prea repede</string>

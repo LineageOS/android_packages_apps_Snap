@@ -170,6 +170,7 @@
   <string name="pref_camera_id_label_front">TYLNY APARAT</string>
   <string name="dialog_ok">OK</string>
   <string name="spaceIsLow_content" product="default">Na karcie SD kończy się miejsce. Zmień ustawienia jakości albo usuń niektóre zdjęcia lub inne pliki.</string>
+  <string name="video_reach_size_limit">Film osiągnął największy możliwy rozmiar.</string>
   <string name="pano_too_fast_prompt">Za szybko</string>
   <string name="pano_dialog_prepare_preview">Przygotowuję panoramę</string>
   <string name="pano_dialog_panorama_failed">Nie udało się zapisać panoramy.</string>
@@ -205,6 +206,9 @@
   <string name="accessibility_switch_to_panorama">Przełącz na panoramę</string>
   <string name="accessibility_switch_to_photo_sphere">Przełącz na Zdjęcie Sferyczne</string>
   <string name="accessibility_switch_to_gcam">Włącz wysoką jakość</string>
+  <string name="accessibility_review_cancel">Przegląd: anuluj</string>
+  <string name="accessibility_review_ok">Przegląd: gotowe</string>
+  <string name="accessibility_review_retake">Przegląd: zrób zdjęcie/nagraj film ponownie</string>
   <string name="capital_on">WŁ.</string>
   <string name="capital_off">WYŁ.</string>
   <string name="pref_video_time_lapse_frame_interval_off">Wyłączona</string>
@@ -261,6 +265,8 @@
   <string name="remember_location_yes">Tak</string>
   <string name="camera_menu_more_label">WIĘCEJ OPCJI</string>
   <string name="camera_menu_settings_label">USTAWIENIA</string>
+  <string name="create_tiny_planet">Utwórz małą planetkę</string>
+  <string name="saving_tiny_planet">Zapisuję małą planetkę&#8230;</string>
   <string name="tiny_planet_zoom">Powiększ</string>
   <string name="tiny_planet_rotate">Obróć</string>
   <string name="crop_save">Zapisz</string>
