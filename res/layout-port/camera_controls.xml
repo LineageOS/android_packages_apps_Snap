@@ -25,10 +25,6 @@
         android:layout_gravity="bottom"
         android:clickable="true" />
 
-    <com.android.camera.ui.RotateImageView
-        android:id="@+id/filter_mode_switcher"
-        style="@style/ToggleButton" />
-
     <com.android.camera.ui.ModuleSwitcher
         android:id="@+id/camera_switcher"
         style="@style/SwitcherButton"
@@ -60,11 +56,17 @@
         android:scaleType="fitCenter" />
 
     <com.android.camera.ui.RotateImageView
+        android:id="@+id/menu"
+        style="@style/ToggleButton"
+        android:contentDescription="@string/accessibility_menu_button"
+        android:src="@drawable/ic_settings" />
+
+    <com.android.camera.ui.RotateImageView
         android:id="@+id/front_back_switcher"
         style="@style/ToggleButton" />
 
     <com.android.camera.ui.RotateImageView
-        android:id="@+id/hdr_switcher"
+        android:id="@+id/filter_mode_switcher"
         style="@style/ToggleButton" />
 
     <com.android.camera.ui.RotateImageView
@@ -72,10 +74,8 @@
         style="@style/ToggleButton" />
 
     <com.android.camera.ui.RotateImageView
-        android:id="@+id/menu"
-        style="@style/ToggleButton"
-        android:contentDescription="@string/accessibility_menu_button"
-        android:src="@drawable/ic_settings" />
+        android:id="@+id/hdr_switcher"
+        style="@style/ToggleButton" />
 
     <LinearLayout
         android:id="@+id/remaining_photos"
