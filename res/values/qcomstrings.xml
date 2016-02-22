@@ -809,7 +809,7 @@
     <string name="pref_hdr_mode_value_multi_frame" translatable="false">hdr-mode-multiframe</string>
 
     <!-- Settings screen, Selectable HDR need 1x frame default value -->
-    <string name="pref_camera_hdr_need_1x_default" translatable="false">@string/pref_hdr_need_1x_value_true</string>
+    <string name="pref_camera_hdr_need_1x_default" translatable="false">@string/pref_hdr_need_1x_value_false</string>
 
     <!-- Settings screen, Selectable HDR need 1x frame title -->
     <string name="pref_camera_hdr_need_1x_title">HDR needs 1x frame</string>
