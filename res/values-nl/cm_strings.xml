@@ -16,17 +16,21 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="pref_camera_picturesize_entry_21mp">21 MP</string>
   <string name="pref_camera_picturesize_entry_20_7mp">20,7 MP</string>
   <string name="pref_camera_picturesize_entry_20_1mp_wide">20,1 MP (16:9)</string>
   <string name="pref_camera_picturesize_entry_18mp">18 MP</string>
   <string name="pref_camera_picturesize_entry_16_2mp_wide">16,2 MP (16:9)</string>
+  <string name="pref_camera_picturesize_entry_16_1mp_wide">16,1 MP (16:9)</string>
   <string name="pref_camera_picturesize_entry_16mp">16 MP</string>
   <string name="pref_camera_picturesize_entry_15_9mp_wide">15,9 MP (16:9)</string>
   <string name="pref_camera_picturesize_entry_13mp">13 megapixel</string>
   <string name="pref_camera_picturesize_entry_12_8mp">12,8 megapixel</string>
   <string name="pref_camera_picturesize_entry_12_7mp">12,7 MP</string>
   <string name="pref_camera_picturesize_entry_12_6mp">12,6 MP</string>
+  <string name="pref_camera_picturesize_entry_12_2mp">12,2 MP</string>
   <string name="pref_camera_picturesize_entry_12mp">12 MP</string>
+  <string name="pref_camera_picturesize_entry_11_9mp_wide">11,9 MP (16:9)</string>
   <string name="pref_camera_picturesize_entry_11_9mp">11,9 MP</string>
   <string name="pref_camera_picturesize_entry_11_5mp">11,5 MP</string>
   <string name="pref_camera_picturesize_entry_10_4mp">10,4 MP</string>
@@ -34,6 +38,7 @@
   <string name="pref_camera_picturesize_entry_9_7mp_wide">9,7 MP (16:9)</string>
   <string name="pref_camera_picturesize_entry_9_4mp_wide">9,4 MP (16:9)</string>
   <string name="pref_camera_picturesize_entry_9mp">9 MP</string>
+  <string name="pref_camera_picturesize_entry_8_9mp">8,9 MP</string>
   <string name="pref_camera_picturesize_entry_8_2mp_wide">8,2 MP (16:9)</string>
   <string name="pref_camera_picturesize_entry_8mp">8 MP</string>
   <string name="pref_camera_picturesize_entry_7_7mp">7,7 MP</string>
@@ -52,8 +57,10 @@
   <string name="pref_camera_picturesize_entry_2mp_wide">2 MP (16:9)</string>
   <string name="pref_camera_picturesize_entry_2mp">2 MP</string>
   <string name="pref_camera_picturesize_entry_1_9mp">1,9 MP</string>
+  <string name="pref_camera_picturesize_entry_1_6mp">1,6 MP</string>
   <string name="pref_camera_picturesize_entry_1_5mp">1,5 MP</string>
   <string name="pref_camera_picturesize_entry_1_3mp">1,3 MP</string>
+  <string name="pref_camera_picturesize_entry_1_2mp_wide">1,2 MP (16:9)</string>
   <string name="pref_camera_picturesize_entry_1mp">1 MP</string>
   <string name="pref_camera_picturesize_entry_wxga">WXGA</string>
   <string name="pref_camera_picturesize_entry_xga">XGA</string>
@@ -107,6 +114,7 @@
   <string name="pref_camera_scenemode_entry_theatre">Theater</string>
   <string name="pref_camera_scenemode_entry_whiteboard">Whiteboard</string>
   <string name="pref_camera_focusmode_entry_continuous">Continu</string>
+  <string name="pref_camera_focusmode_entry_mw_continuous">Continu (MW)</string>
   <string name="pref_camera_focusmode_entry_extended">Uitgebreid</string>
   <string name="pref_camera_focusmode_entry_facedetect">Gezichtsdetectie</string>
   <string name="pref_camera_focusmode_entry_facepriority">Gezichtsprioriteit</string>
@@ -126,8 +134,11 @@
   <string name="pref_camera_power_shutter_title">Aan/uit-knop</string>
   <string name="pref_camera_max_brightness_title">Helder scherm</string>
   <string name="pref_camera_focustime_title">Duur aanraakfocus</string>
+  <string name="pref_camera_focustime_entry_0">0 sec.</string>
+  <string name="pref_camera_focustime_entry_3">3 sec.</string>
   <string name="pref_camera_focustime_entry_5">5 sec.</string>
   <string name="pref_camera_focustime_entry_10">10 sec.</string>
   <string name="pref_camera_focustime_entry_infinite">Oneindig</string>
   <string name="pref_camera_shutter_speed_title">Sluitertijd</string>
+  <string name="auto_hdr_enabled">Auto-HDR ingeschakeld</string>
 </resources>

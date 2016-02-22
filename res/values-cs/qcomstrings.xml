@@ -58,6 +58,7 @@
   <string name="pref_camera_tnr_title">Režim TNR</string>
   <string name="pref_camera_video_tnr_title">Režim video TNR</string>
   <string name="pref_camera_facedetection_title">Detekce obličeje</string>
+  <string name="pref_selfie_flash_title">Selfie blesk</string>
   <string name="pref_camera_redeyereduction_title">Redukce červených očí</string>
   <string name="pref_camera_ae_bracket_hdr_title">Automatický expoziční bracketing</string>
   <string name="pref_camera_hfr_title">Zpomalený pohyb</string>

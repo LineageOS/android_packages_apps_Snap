@@ -28,7 +28,9 @@
   <string name="pref_camera_picturesize_entry_12_8mp">12,8 mio.  sl. točk</string>
   <string name="pref_camera_picturesize_entry_12_7mp">12,7 mio.  sl. točk</string>
   <string name="pref_camera_picturesize_entry_12_6mp">12,6 mio.  sl. točk</string>
+  <string name="pref_camera_picturesize_entry_12_2mp">12,2 mio. sl. točk</string>
   <string name="pref_camera_picturesize_entry_12mp">12 mio.  sl. točk</string>
+  <string name="pref_camera_picturesize_entry_11_9mp_wide">(16:9) 11,9 mio. sl. točk</string>
   <string name="pref_camera_picturesize_entry_11_9mp">11,9 mio.  sl. točk</string>
   <string name="pref_camera_picturesize_entry_11_5mp">11,5 mio.  sl. točk</string>
   <string name="pref_camera_picturesize_entry_10_4mp">10,4 mio.  sl. točk</string>
@@ -36,6 +38,7 @@
   <string name="pref_camera_picturesize_entry_9_7mp_wide">(16:9) 9,7 mio.  sl. točk</string>
   <string name="pref_camera_picturesize_entry_9_4mp_wide">(16:9) 9,4 mio.  sl. točk</string>
   <string name="pref_camera_picturesize_entry_9mp">9 mio.  sl. točk</string>
+  <string name="pref_camera_picturesize_entry_8_9mp">8,9 mio. sl. točk</string>
   <string name="pref_camera_picturesize_entry_8_2mp_wide">(16:9) 8,2 mio.  sl. točk</string>
   <string name="pref_camera_picturesize_entry_8mp">8 mio.  sl. točk</string>
   <string name="pref_camera_picturesize_entry_7_7mp">7,7 mio.  sl. točk</string>

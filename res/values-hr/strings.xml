@@ -20,7 +20,7 @@
   <string name="details_ms">%1$02d:%2$02d</string>
   <string name="details_hms">%1$d:%2$02d:%3$02d</string>
   <string name="set_image">Postavi sliku kao</string>
-  <string name="delete">Izbriši</string>
+  <string name="delete">Obriši</string>
   <plurals name="delete_selection">
     <item quantity="one">Obrisati označenu stavku?</item>
     <item quantity="few">Obrisati označenu stavku?</item>
