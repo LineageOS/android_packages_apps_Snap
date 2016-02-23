@@ -395,8 +395,13 @@ public class PhotoUI implements PieListener,
         } else {
             float width = mMaxPreviewWidth, height = mMaxPreviewHeight;
             if (width == 0 || height == 0) return;
-            if(mScreenRatio == CameraUtil.RATIO_4_3)
-                height -=  (mTopMargin + mBottomMargin);
+            if (mScreenRatio == CameraUtil.RATIO_4_3) {
+                if (height > width) {
+                    height -= (mTopMargin + mBottomMargin);
+                } else {
+                    width -= (mTopMargin + mBottomMargin);
+                }
+            }
             if (mOrientationResize) {
                 scaledTextureWidth = height * mAspectRatio;
                 if (scaledTextureWidth > width) {
@@ -415,7 +420,7 @@ public class PhotoUI implements PieListener,
                         scaledTextureHeight = height;
                     }
                 } else {
-                    if(Math.max(height, width * mAspectRatio) > height) {
+                    if (Math.max(height, width * mAspectRatio) > height) {
                         scaledTextureWidth = height / mAspectRatio;
                         scaledTextureHeight = height;
                     } else {
@@ -436,7 +441,7 @@ public class PhotoUI implements PieListener,
                 lp = new FrameLayout.LayoutParams((int) scaledTextureWidth,
                         (int) scaledTextureHeight, Gravity.CENTER);
             }
-            if(mScreenRatio == CameraUtil.RATIO_4_3) {
+            if (mScreenRatio == CameraUtil.RATIO_4_3) {
                 lp.gravity = Gravity.CENTER_HORIZONTAL | Gravity.TOP;
                 lp.setMargins(0, mTopMargin, 0, mBottomMargin);
             }
