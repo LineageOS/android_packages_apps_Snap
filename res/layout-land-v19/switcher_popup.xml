@@ -21,4 +21,5 @@
     android:layout_gravity="bottom|right"
     android:layout_marginRight="8dip"
     android:layout_marginBottom="8dip"
-    android:background="@color/black" />
+    android:background="@color/white"
+    android:elevation="6dp" />
