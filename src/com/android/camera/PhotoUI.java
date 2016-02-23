@@ -151,6 +151,11 @@ public class PhotoUI implements PieListener,
     private int mOrientation;
     private float mScreenBrightness = 0.0f;
 
+    public enum SURFACE_STATUS {
+        HIDE,
+        SURFACE_VIEW;
+    }
+
     public interface SurfaceTextureSizeChangedListener {
         public void onSurfaceTextureSizeChanged(int uncroppedWidth, int uncroppedHeight);
     }
@@ -220,6 +225,14 @@ public class PhotoUI implements PieListener,
         }
     }
 
+    public synchronized void applySurfaceChange(SURFACE_STATUS status) {
+        if(status == SURFACE_STATUS.HIDE) {
+            mSurfaceView.setVisibility(View.GONE);
+            return;
+        }
+        mSurfaceView.setVisibility(View.VISIBLE);
+    }
+
     public PhotoUI(CameraActivity activity, PhotoController controller, View parent) {
         mActivity = activity;
         mController = controller;
@@ -232,11 +245,8 @@ public class PhotoUI implements PieListener,
         mSurfaceHolder = mSurfaceView.getHolder();
         mSurfaceHolder.addCallback(this);
         mSurfaceHolder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
-        mSurfaceView.addOnLayoutChangeListener(mLayoutListener);
         Log.v(TAG, "Using mdp_preview_content (MDP path)");
-
-        View surfaceContainer = mRootView.findViewById(R.id.preview_container);
-        surfaceContainer.addOnLayoutChangeListener(new OnLayoutChangeListener() {
+        mSurfaceView.addOnLayoutChangeListener(new OnLayoutChangeListener() {
             @Override
             public void onLayoutChange(View v, int left, int top, int right,
                     int bottom, int oldLeft, int oldTop, int oldRight,
@@ -244,6 +254,8 @@ public class PhotoUI implements PieListener,
                 int width = right - left;
                 int height = bottom - top;
                 boolean isMaxSizeBeingValid = false;
+
+                tryToCloseSubList();
 
                 if (mMaxPreviewWidth == 0 && mMaxPreviewHeight == 0) {
                     mMaxPreviewWidth = width;
