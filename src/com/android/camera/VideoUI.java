@@ -26,6 +26,7 @@ import android.graphics.Color;
 import android.graphics.Point;
 import android.graphics.drawable.ColorDrawable;
 import android.hardware.Camera.Parameters;
+import android.hardware.Camera.Face;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.MotionEvent;
@@ -35,6 +36,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnLayoutChangeListener;
 import android.view.ViewGroup;
+import android.view.ViewStub;
 import android.widget.FrameLayout;
 import android.widget.FrameLayout.LayoutParams;
 import android.widget.ImageView;
@@ -44,10 +46,13 @@ import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.view.View.OnLayoutChangeListener;
 
+import com.android.camera.CameraManager.CameraProxy;
 import com.android.camera.CameraPreference.OnPreferenceChangedListener;
+import com.android.camera.PhotoUI.SurfaceTextureSizeChangedListener;
 import com.android.camera.ui.AbstractSettingPopup;
 import com.android.camera.ui.CameraControls;
 import com.android.camera.ui.CameraRootView;
+import com.android.camera.ui.FaceView;
 import com.android.camera.ui.ListSubMenu;
 import com.android.camera.ui.ModuleSwitcher;
 import com.android.camera.ui.PieRenderer;
@@ -62,7 +67,8 @@ public class VideoUI implements PieRenderer.PieListener,
         PreviewGestures.SingleTapListener,
         CameraRootView.MyDisplayListener,
         SurfaceHolder.Callback,
-        PauseButton.OnPauseButtonListener {
+        PauseButton.OnPauseButtonListener,
+        CameraManager.CameraFaceDetectionCallback{
     private static final String TAG = "CAM_VideoUI";
     // module fields
     private final FocusRing mFocusRing;
@@ -122,6 +128,12 @@ public class VideoUI implements PieRenderer.PieListener,
         HIDE,
         SURFACE_VIEW;
     }
+
+    //Face detection
+    private FaceView mFaceView;
+    private SurfaceTextureSizeChangedListener mSurfaceTextureSizeListener;
+    private float mSurfaceTextureUncroppedWidth;
+    private float mSurfaceTextureUncroppedHeight;
 
     public void showPreviewCover() {
         mPreviewCover.setVisibility(View.VISIBLE);
@@ -248,6 +260,15 @@ public class VideoUI implements PieRenderer.PieListener,
         initializeOverlay();
         initializeControlByIntent();
         initializePauseButton();
+
+        mCameraControls = (CameraControls) mRootView.findViewById(R.id.camera_controls);
+        ViewStub faceViewStub = (ViewStub) mRootView
+                .findViewById(R.id.face_view_stub);
+        if (faceViewStub != null) {
+            faceViewStub.inflate();
+            mFaceView = (FaceView) mRootView.findViewById(R.id.face_view);
+            setSurfaceTextureSizeChangedListener(mFaceView);
+        }
         mAnimationManager = new AnimationManager();
         mOrientationResize = false;
         mPrevOrientationResize = false;
@@ -269,6 +290,10 @@ public class VideoUI implements PieRenderer.PieListener,
     public void cameraOrientationPreviewResize(boolean orientation){
        mPrevOrientationResize = mOrientationResize;
        mOrientationResize = orientation;
+    }
+
+    public void setSurfaceTextureSizeChangedListener(SurfaceTextureSizeChangedListener listener) {
+        mSurfaceTextureSizeListener = listener;
     }
 
     public void initializeSurfaceView() {
@@ -381,7 +406,7 @@ public class VideoUI implements PieRenderer.PieListener,
                     scaledTextureHeight = l * 3 / 4;
                     break;
             }
-        } else if (mMaxPreviewWidth != 0 && mMaxPreviewHeight != 0) {
+        } else {
             float width = mMaxPreviewWidth, height = mMaxPreviewHeight;
             if (mOrientationResize) {
                 scaledTextureWidth = height * mAspectRatio;
@@ -425,9 +450,27 @@ public class VideoUI implements PieRenderer.PieListener,
             }
         }
 
+        if (mSurfaceTextureUncroppedWidth != scaledTextureWidth ||
+                mSurfaceTextureUncroppedHeight != scaledTextureHeight) {
+            mSurfaceTextureUncroppedWidth = scaledTextureWidth;
+            mSurfaceTextureUncroppedHeight = scaledTextureHeight;
+            if (mSurfaceTextureSizeListener != null) {
+                mSurfaceTextureSizeListener.onSurfaceTextureSizeChanged(
+                        (int) mSurfaceTextureUncroppedWidth,
+                        (int) mSurfaceTextureUncroppedHeight);
+                Log.d(TAG, "mSurfaceTextureUncroppedWidth=" + mSurfaceTextureUncroppedWidth
+                        + "mSurfaceTextureUncroppedHeight=" + mSurfaceTextureUncroppedHeight);
+            }
+        }
+
+
         if(lp != null) {
             mSurfaceView.setLayoutParams(lp);
             mSurfaceView.requestLayout();
+            if (mFaceView != null) {
+                mFaceView.setLayoutParams(lp);
+            }
+
         }
 
         if (scaledTextureWidth > 0 && scaledTextureHeight > 0) {
@@ -538,6 +581,10 @@ public class VideoUI implements PieRenderer.PieListener,
     }
 
     public void setDisplayOrientation(int orientation) {
+        if (mFaceView != null) {
+             mFaceView.setDisplayOrientation(orientation);
+        }
+
         if ((mPreviewOrientation == -1 || mPreviewOrientation != orientation)
                 && mVideoMenu != null && mVideoMenu.isPreviewMenuBeingShown()) {
             dismissSceneModeMenu();
@@ -1148,5 +1195,36 @@ public class VideoUI implements PieRenderer.PieListener,
 
     public FocusRing getFocusRing() {
         return mFocusRing;
+    }
+
+    @Override
+    public void onFaceDetection(Face[] faces, CameraProxy camera) {
+        Log.d(TAG, "onFacedetectopmn");
+        mFaceView.setFaces(faces);
+    }
+
+    public void pauseFaceDetection() {
+        if (mFaceView != null) mFaceView.pause();
+    }
+
+    public void resumeFaceDetection() {
+        if (mFaceView != null) mFaceView.resume();
+    }
+
+    public void onStartFaceDetection(int orientation, boolean mirror) {
+        mFaceView.setBlockDraw(false);
+        mFaceView.clear();
+        mFaceView.setVisibility(View.VISIBLE);
+        mFaceView.setDisplayOrientation(orientation);
+        mFaceView.setMirror(mirror);
+        mFaceView.resume();
+    }
+
+    public void onStopFaceDetection() {
+        if (mFaceView != null) {
+            mFaceView.setBlockDraw(true);
+            mFaceView.clear();
+        }
+>>>>>>> 7252fd0... SnapdragonCamera: Add face detection icon to video
     }
 }
