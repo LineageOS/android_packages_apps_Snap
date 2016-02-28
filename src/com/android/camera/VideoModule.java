@@ -96,6 +96,7 @@ public class VideoModule implements CameraModule,
     private static final int SHOW_TAP_TO_SNAPSHOT_TOAST = 7;
     private static final int SWITCH_CAMERA = 8;
     private static final int SWITCH_CAMERA_START_ANIMATION = 9;
+    private static final int SET_FOCUS_RATIO = 10;
 
     private static final int SCREEN_DELAY = 2 * 60 * 1000;
 
@@ -391,6 +392,11 @@ public class VideoModule implements CameraModule,
                     break;
                 }
 
+                case SET_FOCUS_RATIO: {
+                    mUI.getFocusRing().setRadiusRatio((Float)msg.obj);
+                    break;
+                }
+
                 default:
                     Log.v(TAG, "Unhandled message: " + msg.what);
                     break;
@@ -546,15 +552,27 @@ public class VideoModule implements CameraModule,
 
     @Override
     public void setFocusParameters() {
-        if (mFocusAreaSupported)
-            mParameters.setFocusAreas(mFocusManager.getFocusAreas());
-        if (mMeteringAreaSupported)
-            mParameters.setMeteringAreas(mFocusManager.getMeteringAreas());
+        updateCameraParametersFocus();
+        mCameraDevice.setParameters(mParameters);
+    }
+
+    private void updateCameraParametersFocus() {
         setAutoExposureLockIfSupported();
         setAutoWhiteBalanceLockIfSupported();
-        if (mFocusAreaSupported || mMeteringAreaSupported) {
-            mParameters.setFocusMode(mFocusManager.getFocusMode(true));
-            mCameraDevice.setParameters(mParameters);
+        setFocusAreasIfSupported();
+        setMeteringAreasIfSupported();
+        mParameters.setFocusMode(mFocusManager.getFocusMode(true));
+    }
+
+    private void setFocusAreasIfSupported() {
+        if (mFocusAreaSupported) {
+            mParameters.setFocusAreas(mFocusManager.getFocusAreas());
+        }
+    }
+
+    private void setMeteringAreasIfSupported() {
+        if (mMeteringAreaSupported) {
+            mParameters.setMeteringAreas(mFocusManager.getMeteringAreas());
         }
     }
 
@@ -840,12 +858,20 @@ public class VideoModule implements CameraModule,
         @Override
         public void onAutoFocus(
                 boolean focused, CameraProxy camera) {
-            Log.v(TAG, "AutoFocusCallback, mPaused=" + mPaused);
             if (mPaused) return;
 
-            //setCameraState(IDLE);
+            mCameraDevice.refreshParameters();
+            mFocusManager.setParameters(mCameraDevice.getParameters());
             mFocusManager.onAutoFocus(focused, false);
         }
+    }
+
+    @Override
+    public void setFocusRatio(float ratio) {
+        mHandler.removeMessages(SET_FOCUS_RATIO);
+        Message m = mHandler.obtainMessage(SET_FOCUS_RATIO);
+        m.obj = ratio;
+        mHandler.sendMessage(m);
     }
 
     private void readVideoPreferences() {
@@ -2538,6 +2564,10 @@ public class VideoModule implements CameraModule,
             mParameters.setPreviewFrameRate(mProfile.videoFrameRate);
         }
 
+        // Set focus mode
+        mFocusManager.overrideFocusMode(null);
+        updateCameraParametersFocus();
+
         forceFlashOffIfSupported(!mPreviewFocused);
         videoWidth = mProfile.videoFrameWidth;
         videoHeight = mProfile.videoFrameHeight;
@@ -2576,9 +2606,6 @@ public class VideoModule implements CameraModule,
             mZoomValue = p.getZoom();
             mParameters.setZoom(mZoomValue);
         }
-
-        // Set focus mode
-        mParameters.setFocusMode(mFocusManager.getFocusMode(true));
 
         mParameters.set(CameraUtil.RECORDING_HINT, CameraUtil.TRUE);
 
