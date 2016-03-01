@@ -1915,6 +1915,8 @@ public class CameraActivity extends Activity
                 if (mVideoModule == null) {
                     mVideoModule = new VideoModule();
                     mVideoModule.init(this, mCameraVideoModuleRootView);
+                } else {
+                    mVideoModule.reinit();
                 }
                 mCurrentModule = mVideoModule;
                 rootView = mCameraVideoModuleRootView;
@@ -1936,6 +1938,8 @@ public class CameraActivity extends Activity
                 if (mPhotoModule == null) {
                     mPhotoModule = new PhotoModule();
                     mPhotoModule.init(this, mCameraPhotoModuleRootView);
+                } else {
+                    mPhotoModule.reinit();
                 }
                 mCurrentModule = mPhotoModule;
                 rootView = mCameraPhotoModuleRootView;
