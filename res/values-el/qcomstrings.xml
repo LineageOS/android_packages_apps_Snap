@@ -21,46 +21,71 @@
     limitations under the License.
 -->
 <resources>
+  <!-- Preferences -->
+  <!-- Video quality setting entry. Videos will be recorded in VGA quality. [CHAR LIMIT=24] -->
+  <!-- Video quality setting entry. Videos will be recorded in CIF quality. [CHAR LIMIT=24] -->
+  <!-- Video quality setting entry. Videos will be recorded in QVGA quality. [CHAR LIMIT=24] -->
+  <!-- Video quality setting entry. Videos will be recorded in QCIF quality. [CHAR LIMIT=24] -->
+  <!-- Auto exposure -->
   <string name="pref_camera_autoexposure_title">Λειτουργία αυτόματης έκθεσης</string>
   <string name="pref_camera_autoexposure_entry_centerweighted">Βάρος προς το κέντρο</string>
   <string name="pref_camera_autoexposure_entry_frameaverage">Μέσος όρος κάδρου</string>
   <string name="pref_camera_autoexposure_entry_spotmetering">Σημειακή μέτρηση</string>
+  <!-- Video codec -->
   <string name="pref_camera_videoencoder_title">Κωδικοποιητής βίντεο</string>
+  <!-- Audio codec -->
   <string name="pref_camera_audioencoder_title">Κωδικοποιητής ήχου</string>
+  <!-- Skin tone enhancement -->
   <string name="pref_camera_skinToneEnhancement_title">Βελτίωση τόνου δέρματος</string>
+  <!-- Zero shutter lag-->
   <string name="pref_camera_zsl_title">Μηδενική καθυστέρηση κλείστρου</string>
+  <!-- Autofocus zone -->
   <string name="pref_camera_selectablezoneaf_title">Ζώνη αυτόματης εστίασης</string>
   <string name="pref_camera_selectablezoneaf_entry_auto">Αυτόματη</string>
   <string name="pref_camera_selectablezoneaf_entry_centerweighted">Βάρος προς το κέντρο</string>
   <string name="pref_camera_selectablezoneaf_entry_frameaverage">Μέσος όρος κάδρου</string>
   <string name="pref_camera_selectablezoneaf_entry_spotmetering">Σημειακή μέτρηση</string>
+  <!-- Advanced features -->
   <string name="pref_camera_advanced_features_title">Προηγμένες δυνατότητες</string>
   <string name="pref_camera_advanced_feature_entry_none">Κανένα</string>
   <string name="pref_camera_advanced_feature_entry_multi_touch_focus">Εστίαση πολλαπλής αφής</string>
+  <!-- Manual exposure -->
   <string name="pref_camera_manual_exp_title">Χειροκίνητη έκθεση</string>
   <string name="pref_camera_manual_exp_entry_ISO_priority">Προτεραιότητα ISO</string>
   <string name="pref_camera_manual_exp_entry_exptime_priority">Προτεραιότητα χρόνου έκθεσης</string>
   <string name="pref_camera_manual_exp_entry_user_setting">Ρύθμιση χρήστη</string>
   <string name="pref_camera_manual_exp_entry_off">Ανενεργή</string>
+  <!-- Manual white balance -->
   <string name="pref_camera_manual_wb_title">Χειροκίνητη ισορροπία λευκού</string>
   <string name="pref_camera_manual_wb_entry_color_temperature">Θερμοκρασία χρώματος</string>
   <string name="pref_camera_manual_wb_entry_rbgb_gains">Κέρδος RBGB</string>
   <string name="pref_camera_manual_wb_entry_off">Ανενεργή</string>
+  <!-- Manual focus -->
   <string name="pref_camera_manual_focus_title">Χειροκίνητη εστίαση</string>
   <string name="pref_camera_manual_focus_entry_scale_mode">Λειτουργία κλίμακας</string>
   <string name="pref_camera_manual_focus_entry_diopter_mode">Λειτουργία διόπτρας</string>
   <string name="pref_camera_manual_focus_entry_off">Ανενεργή</string>
+  <!-- Video HDR-->
   <string name="pref_camera_video_hdr_title">Video HDR</string>
+  <!-- CDS mode-->
   <string name="pref_camera_cds_title">Λειτουργία CDS</string>
   <string name="pref_camera_cds_entry_auto">Αυτόματη</string>
+  <!-- Video CDS-->
   <string name="pref_camera_video_cds_title">Λειτουργία βίντεο CDS</string>
   <string name="pref_camera_video_cds_entry_auto">Αυτόματη</string>
+  <!-- TNR-->
   <string name="pref_camera_tnr_title">Λειτουργία TNR</string>
+  <!-- Video TNR -->
   <string name="pref_camera_video_tnr_title">Λειτουργία βίντεο TNR</string>
+  <!-- Face detection -->
   <string name="pref_camera_facedetection_title">Εντοπισμός προσώπου</string>
+  <!-- Selfie Flash -->
   <string name="pref_selfie_flash_title">Φλας σέλφι</string>
+  <!-- Red eye reduction -->
   <string name="pref_camera_redeyereduction_title">Μείωση κόκκινων ματιών</string>
+  <!-- AE bracketing -->
   <string name="pref_camera_ae_bracket_hdr_title">Bracketing αυτόματης έκθεσης</string>
+  <!-- High-framerate recording -->
   <string name="pref_camera_hfr_title">Εγγραφή υψηλού ρυθμού καρέ</string>
   <string name="pref_camera_hfr_entry_off">Απενεργοποιημένη</string>
   <string name="pref_camera_hfr_entry_2x">Αργή κίνηση 60 FPS</string>
@@ -70,7 +95,10 @@
   <string name="pref_camera_hfr_entry_hsr_60">Υψηλή ταχύτητα 60 FPS</string>
   <string name="pref_camera_hfr_entry_hsr_90">Υψηλή ταχύτητα 90 FPS</string>
   <string name="pref_camera_hfr_entry_hsr_120">Υψηλή ταχύτητα 120 FPS</string>
+  <!-- See More -->
+  <!-- Denoise -->
   <string name="pref_camera_denoise_title">Αφαίρεση θορύβου</string>
+  <!-- ISO -->
   <string name="pref_camera_iso_title">ISO</string>
   <string name="pref_camera_iso_entry_auto">Αυτόματο</string>
   <string name="pref_camera_iso_entry_isodeblur">Αυτόματο (HJR)</string>
@@ -101,15 +129,18 @@
   <string name="pref_camera_iso_entry_iso3200">ISO3200</string>
   <string name="pref_camera_iso_entry_iso6400">ISO6400</string>
   <string name="pref_camera_iso_entry_iso12800">ISO12800</string>
+  <!-- Antibanding -->
   <string name="pref_camera_antibanding_title">Antibanding</string>
   <string name="pref_camera_antibanding_entry_0">Αυτόματο</string>
   <string name="pref_camera_antibanding_entry_1">50 Hz (Ευρώπη)</string>
   <string name="pref_camera_antibanding_entry_2">60 Hz (ΗΠΑ)</string>
+  <!-- Color effect -->
   <string name="pref_camera_coloreffect_title">Εφέ χρώματος</string>
   <string name="pref_camera_coloreffect_entry_none">Κανένα</string>
   <string name="pref_camera_coloreffect_entry_mono">Μονόχρωμο</string>
   <string name="pref_camera_coloreffect_entry_sepia">Σέπια</string>
   <string name="pref_camera_coloreffect_entry_negative">Αρνητικό</string>
+  <!-- Color effect that overexposes and reverses some of the tones. -->
   <string name="pref_camera_coloreffect_entry_solarize">Υπερφωτισμός</string>
   <string name="pref_camera_coloreffect_entry_posterize">Ποστεροποίηση</string>
   <string name="pref_camera_coloreffect_entry_aqua">Νερό</string>
@@ -121,8 +152,11 @@
   <string name="pref_camera_coloreffect_entry_redtint">Κόκκινη απόχρωση</string>
   <string name="pref_camera_coloreffect_entry_bluetint">Μπλε απόχρωση</string>
   <string name="pref_camera_coloreffect_entry_greentint">Πράσινη απόχρωση</string>
+  <!-- Stabilization -->
   <string name="pref_camera_dis_title">Σταθεροποίηση βίντεο</string>
+  <!-- Face recognition -->
   <string name="pref_camera_facerc_title">Εντοπισμός προσώπου</string>
+  <!-- Sharpness -->
   <string name="pref_camera_sharpness_title">Οξύτητα</string>
   <string name="pref_camera_sharpness_entry_level0">Επίπεδο 0</string>
   <string name="pref_camera_sharpness_entry_level1">Επίπεδο 1</string>
@@ -131,6 +165,7 @@
   <string name="pref_camera_sharpness_entry_level4">Επίπεδο 4</string>
   <string name="pref_camera_sharpness_entry_level5">Επίπεδο 5</string>
   <string name="pref_camera_sharpness_entry_level6">Επίπεδο 6</string>
+  <!-- Contrast -->
   <string name="pref_camera_contrast_title">Αντίθεση</string>
   <string name="pref_camera_contrast_entry_level0">Επίπεδο 0</string>
   <string name="pref_camera_contrast_entry_level1">Επίπεδο 1</string>
@@ -143,6 +178,7 @@
   <string name="pref_camera_contrast_entry_level8">Επίπεδο 8</string>
   <string name="pref_camera_contrast_entry_level9">Επίπεδο 9</string>
   <string name="pref_camera_contrast_entry_level10">Επίπεδο 10</string>
+  <!-- Saturation -->
   <string name="pref_camera_saturation_title">Κορεσμός</string>
   <string name="pref_camera_saturation_entry_level0">Επίπεδο 0</string>
   <string name="pref_camera_saturation_entry_level1">Επίπεδο 1</string>
@@ -155,7 +191,9 @@
   <string name="pref_camera_saturation_entry_level8">Επίπεδο 8</string>
   <string name="pref_camera_saturation_entry_level9">Επίπεδο 9</string>
   <string name="pref_camera_saturation_entry_level10">Επίπεδο 10</string>
+  <!-- Picture format -->
   <string name="pref_camera_picture_format_title">Τύπος εικόνας</string>
+  <!-- Picture quality -->
   <string name="pref_camera_jpegquality_title">Ποιότητα εικόνας</string>
   <string name="pref_camera_jpegquality_entry_0">55%</string>
   <string name="pref_camera_jpegquality_entry_1">65% (κανονική)</string>
@@ -163,40 +201,68 @@
   <string name="pref_camera_jpegquality_entry_3">85% (τέλεια)</string>
   <string name="pref_camera_jpegquality_entry_4">95%</string>
   <string name="pref_camera_jpegquality_entry_5">100%</string>
+  <!-- Histogram -->
   <string name="pref_camera_histogram_title">Ιστόγραμμα</string>
+  <!-- Auto scene detection -->
   <string name="pref_camera_scenedetect_title">Αυτόματος εντοπισμός σκηνής</string>
+  <!-- Continuous shot -->
   <string name="pref_camera_longshot_title">Συνεχής λήψη</string>
+  <!-- Auto HDR -->
   <string name="pref_camera_auto_hdr_title">Αυτόματο HDR</string>
+  <!-- HDR mode -->
   <string name="pref_camera_hdr_mode_title">Λειτουργία HDR</string>
   <string name="pref_camera_hdr_mode_entry_sensor">HDR αισθητήρα</string>
   <string name="pref_camera_hdr_mode_entry_multi_frame">HDR πολλαπλών καρέ</string>
+  <!-- HDR needs 1x frame -->
   <string name="pref_camera_hdr_need_1x_title">HDR με 1 καρέ</string>
+  <!-- Video rotation -->
   <string name="pref_camera_video_rotation_title">Περιστροφή βίντεο</string>
   <string name="pref_camera_video_rotation_entry_0">0 μοίρες</string>
   <string name="pref_camera_video_rotation_entry_90">90 μοίρες</string>
   <string name="pref_camera_video_rotation_entry_180">180 μοίρες</string>
   <string name="pref_camera_video_rotation_entry_270">270 μοίρες</string>
+  <!-- Storage location -->
   <string name="pref_camera_savepath_title">Τοποθεσία αποθήκευσης</string>
   <string name="pref_camera_savepath_entry_0">Εσωτερικός αποθ. χώρος</string>
   <string name="pref_camera_savepath_entry_1">Κάρτα SD</string>
+  <!-- Misc -->
+  <!-- The alias of CameraActivity for gesture operation -->
   <string name="camera_gesture_title">Εκκίνηση φωτογρ. μηχανής</string>
   <string name="all_in_focus">Όλα σε εστίαση</string>
   <string name="refocus_toast">Για επανεστίαση της τελευταίας φωτογραφίας, πατήστε εδώ</string>
+  <!-- Toast messages -->
+  <!-- The message is shown in toast when the app encounters an unsupported selection for High-framerate recording mode -->
   <string name="error_app_unsupported_hfr_selection">Η υψηλή ταχύτητα/αργή κίνηση δεν υποστηρίζεται με Σταθεροποίηση/Time lapse/HDR.</string>
+  <!-- The message is shown in dialog when the app encounters an unsupported resolution for Slow motion mode -->
   <string name="error_app_unsupported_hfr">Δεν υποστηρίζεται βίντεο αργής κίνησης για το επιλεγμένο μέγεθος βίντεο. Επιλέξτε ένα μικρότερο μέγεθος βίντεο</string>
+  <!-- The message is shown in toast when the app encounters an unsupported resolution for Stabilization mode -->
   <string name="error_app_unsupported_dis">Δεν υποστηρίζεται η λειτουργία σταθεροποίησης για το επιλεγμένο μέγεθος βίντεο. Επιλέξτε ένα μικρότερο μέγεθος βίντεο</string>
+  <!-- The message is shown in dialog when the app encounters an unsupported resolution for High speed mode -->
   <string name="error_app_unsupported_hsr">Δεν υποστηρίζεται βίντεο υψηλής ταχύτητας για το επιλεγμένο μέγεθος βίντεο. Επιλέξτε ένα μικρότερο μέγεθος βίντεο</string>
+  <!-- The message is shown in dialog when the app encounters an unsupported video codec for HFR mode -->
   <string name="error_app_unsupported_hfr_codec">Υποστηρίζεται μόνο η κωδικοποίηση H.264 κατά τη λήψη βίντεο υψηλού ρυθμού καρέ</string>
+  <!-- The message is shown in dialog when the app encounters an unsupported video resolution-->
   <string name="error_app_unsupported">Μη υποστηριζόμενη ανάλυση βίντεο για αυτόν τον τύπο κωδικοποιητή</string>
+  <!--The message is shown in dialog when the raw snapshot is selected in Zero shutter lag mode-->
   <string name="error_app_unsupported_raw">Δεν υποστηρίζεται Raw τύπος εικόνας κατά την λειτουργία Μηδενικής καθυστέρησης κλείστρου. Επιλέξτε JPEG</string>
   <string name="msg_cancel_longshot_for_limited_memory">Η μνήμη εξαντλείται, ακυρώνεται η συνεχής λήψη</string>
+  <!-- Toast showing non-supported functionality for flash in AE bracket -->
   <string name="flash_aebracket_message">Δεν υποστηρίζεται φλας στην λειτουργία bracketing αυτόματης έκθεσης</string>
+  <!-- toast message for storage location switch -->
   <string name="on_switch_save_path_to_sdcard">Ο εσωτερικός χώρος αποθήκευσης δεν επαρκεί, αλλαγή χώρου αποθήκευσης σε κάρτα SD</string>
+  <!-- The message is shown in toast when click showOnMap Menu and there is no map app -->
   <string name="map_activity_not_found_err">Δεν υπάρχει εγκατεστημένη καμία εφαρμογή χαρτών ώστε να δείτε την τοποθεσία</string>
+  <!-- Continous shot enable message -->
   <string name="longshot_enable_message">Οι προηγμένες δυνατότητες δεν υποστηρίζονται στην λειτουργία συνεχής λήψης</string>
+  <!-- Advance features enable message -->
   <string name="advance_feature_enable_msg">Η συνεχής λήψη δεν υποστηρίζεται όταν είναι ενεργοποιημένες οι προηγμένες δυνατότητες</string>
+  <!-- Toast after enable HDR function to inform continuous shot has disabled -->
   <string name="HDR_disable_continuous_shot">Η ενεργοποίηση του HDR θα απενεργοποιήσει την συνεχή λήψη</string>
+  <!-- Toast after enable advanced capture function to inform continuous shot has disabled -->
   <string name="advanced_capture_disable_continuous_shot">Η ενεργοποίηση της προηγμένης σύλληψης θα απενεργοποιήσει την συνεχή λήψη</string>
+  <!-- Toast after enable 2k4k video quality to inform IS has disabled -->
   <string name="video_quality_4k_disable_IS">Η ενεργοποίηση 4K βίντεο θα απενεργοποιήσει τη λειτουργία σταθεροποίησης</string>
+  <!-- Toast after 2k4k video is enabled to inform SeeMore has been disabled -->
   <string name="video_quality_4k_disable_SeeMore">Το SeeMore δεν μπορεί να ενεργοποιηθεί κατά τη διάρκεια 4Κ βίντεο</string>
+  <!-- TODO: Remove these? -->
 </resources>

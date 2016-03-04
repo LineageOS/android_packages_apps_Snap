@@ -21,46 +21,71 @@
     limitations under the License.
 -->
 <resources>
+  <!-- Preferences -->
+  <!-- Video quality setting entry. Videos will be recorded in VGA quality. [CHAR LIMIT=24] -->
+  <!-- Video quality setting entry. Videos will be recorded in CIF quality. [CHAR LIMIT=24] -->
+  <!-- Video quality setting entry. Videos will be recorded in QVGA quality. [CHAR LIMIT=24] -->
+  <!-- Video quality setting entry. Videos will be recorded in QCIF quality. [CHAR LIMIT=24] -->
+  <!-- Auto exposure -->
   <string name="pref_camera_autoexposure_title">Automaattinen valotus</string>
   <string name="pref_camera_autoexposure_entry_centerweighted">Keskelle painotettu</string>
   <string name="pref_camera_autoexposure_entry_frameaverage">Kehysten keskiarvo</string>
   <string name="pref_camera_autoexposure_entry_spotmetering">Pisteeseen kohdistettu</string>
+  <!-- Video codec -->
   <string name="pref_camera_videoencoder_title">Videon pakkaus</string>
+  <!-- Audio codec -->
   <string name="pref_camera_audioencoder_title">Audion pakkaus</string>
+  <!-- Skin tone enhancement -->
   <string name="pref_camera_skinToneEnhancement_title">Ihonvärin muutos</string>
+  <!-- Zero shutter lag-->
   <string name="pref_camera_zsl_title">Ei laukaisuviivettä (ZSL)</string>
+  <!-- Autofocus zone -->
   <string name="pref_camera_selectablezoneaf_title">Automaattitarkennusalue</string>
   <string name="pref_camera_selectablezoneaf_entry_auto">Automaattinen</string>
   <string name="pref_camera_selectablezoneaf_entry_centerweighted">Keskelle painotettu</string>
   <string name="pref_camera_selectablezoneaf_entry_frameaverage">Kehysten keskiarvo</string>
   <string name="pref_camera_selectablezoneaf_entry_spotmetering">Pisteeseen kohdistettu</string>
+  <!-- Advanced features -->
   <string name="pref_camera_advanced_features_title">Edistyneet toiminnot</string>
   <string name="pref_camera_advanced_feature_entry_none">Ei mitään</string>
   <string name="pref_camera_advanced_feature_entry_multi_touch_focus">Monikosketustarkennus</string>
+  <!-- Manual exposure -->
   <string name="pref_camera_manual_exp_title">Manuaalinen valotus</string>
   <string name="pref_camera_manual_exp_entry_ISO_priority">ISO:n tärkeys</string>
   <string name="pref_camera_manual_exp_entry_exptime_priority">Valotusajan tärkeys</string>
   <string name="pref_camera_manual_exp_entry_user_setting">Käyttäjäasetukset</string>
   <string name="pref_camera_manual_exp_entry_off">Pois käyt.</string>
+  <!-- Manual white balance -->
   <string name="pref_camera_manual_wb_title">Manuaalinen valkotasapaino</string>
   <string name="pref_camera_manual_wb_entry_color_temperature">Värilämpötila</string>
   <string name="pref_camera_manual_wb_entry_rbgb_gains">RBGB hyödynnys</string>
   <string name="pref_camera_manual_wb_entry_off">Pois käyt.</string>
+  <!-- Manual focus -->
   <string name="pref_camera_manual_focus_title">Manuaalinen tarkennus</string>
   <string name="pref_camera_manual_focus_entry_scale_mode">Skaalaustila</string>
   <string name="pref_camera_manual_focus_entry_diopter_mode">Dioptriatila</string>
   <string name="pref_camera_manual_focus_entry_off">Pois käyt.</string>
+  <!-- Video HDR-->
   <string name="pref_camera_video_hdr_title">Video HDR</string>
+  <!-- CDS mode-->
   <string name="pref_camera_cds_title">CDS-tila</string>
   <string name="pref_camera_cds_entry_auto">Auto</string>
+  <!-- Video CDS-->
   <string name="pref_camera_video_cds_title">Video CDS-tila</string>
   <string name="pref_camera_video_cds_entry_auto">Auto</string>
+  <!-- TNR-->
   <string name="pref_camera_tnr_title">TNR-tila</string>
+  <!-- Video TNR -->
   <string name="pref_camera_video_tnr_title">Video TNR-tila</string>
+  <!-- Face detection -->
   <string name="pref_camera_facedetection_title">Kasvojentunnistus</string>
+  <!-- Selfie Flash -->
   <string name="pref_selfie_flash_title">Etukameran salama</string>
+  <!-- Red eye reduction -->
   <string name="pref_camera_redeyereduction_title">Punasilmäisyyden vähentäminen</string>
+  <!-- AE bracketing -->
   <string name="pref_camera_ae_bracket_hdr_title">Automaattisen valotuksen kiinnitys</string>
+  <!-- High-framerate recording -->
   <string name="pref_camera_hfr_title">Hidastuskuvaus</string>
   <string name="pref_camera_hfr_entry_off">Pois käyt.</string>
   <string name="pref_camera_hfr_entry_2x">Hidastuskuvaus 60 FPS</string>
@@ -70,7 +95,10 @@
   <string name="pref_camera_hfr_entry_hsr_60">Suurnopeuskuvaus 60 FPS</string>
   <string name="pref_camera_hfr_entry_hsr_90">Suurnopeuskuvaus 90 FPS</string>
   <string name="pref_camera_hfr_entry_hsr_120">Suurnopeuskuvaus 120 FPS</string>
+  <!-- See More -->
+  <!-- Denoise -->
   <string name="pref_camera_denoise_title">Denoise-tila</string>
+  <!-- ISO -->
   <string name="pref_camera_iso_title">ISO</string>
   <string name="pref_camera_iso_entry_auto">Automaattinen</string>
   <string name="pref_camera_iso_entry_isodeblur">Automaattinen (HJR)</string>
@@ -101,15 +129,18 @@
   <string name="pref_camera_iso_entry_iso3200">ISO3200</string>
   <string name="pref_camera_iso_entry_iso6400">ISO6400</string>
   <string name="pref_camera_iso_entry_iso12800">ISO12800</string>
+  <!-- Antibanding -->
   <string name="pref_camera_antibanding_title">Antibanding</string>
   <string name="pref_camera_antibanding_entry_0">Auto</string>
   <string name="pref_camera_antibanding_entry_1">50 Hz (Eurooppa)</string>
   <string name="pref_camera_antibanding_entry_2">60 Hz (USA)</string>
+  <!-- Color effect -->
   <string name="pref_camera_coloreffect_title">Väriefekti</string>
   <string name="pref_camera_coloreffect_entry_none">Ei mitään</string>
   <string name="pref_camera_coloreffect_entry_mono">Mono</string>
   <string name="pref_camera_coloreffect_entry_sepia">Seepia</string>
   <string name="pref_camera_coloreffect_entry_negative">Negatiivi</string>
+  <!-- Color effect that overexposes and reverses some of the tones. -->
   <string name="pref_camera_coloreffect_entry_solarize">Ylivalotus</string>
   <string name="pref_camera_coloreffect_entry_posterize">Juliste</string>
   <string name="pref_camera_coloreffect_entry_aqua">Vesi</string>
@@ -121,8 +152,11 @@
   <string name="pref_camera_coloreffect_entry_redtint">Punainen sävy</string>
   <string name="pref_camera_coloreffect_entry_bluetint">Sininen sävy</string>
   <string name="pref_camera_coloreffect_entry_greentint">Vihreä sävy</string>
+  <!-- Stabilization -->
   <string name="pref_camera_dis_title">Kuvan vakauttaminen</string>
+  <!-- Face recognition -->
   <string name="pref_camera_facerc_title">Kasvojen tunnistus</string>
+  <!-- Sharpness -->
   <string name="pref_camera_sharpness_title">Terävyys</string>
   <string name="pref_camera_sharpness_entry_level0">Taso 0</string>
   <string name="pref_camera_sharpness_entry_level1">Taso 1</string>
@@ -131,6 +165,7 @@
   <string name="pref_camera_sharpness_entry_level4">Taso 4</string>
   <string name="pref_camera_sharpness_entry_level5">Taso 5</string>
   <string name="pref_camera_sharpness_entry_level6">Taso 6</string>
+  <!-- Contrast -->
   <string name="pref_camera_contrast_title">Kontrasti</string>
   <string name="pref_camera_contrast_entry_level0">Taso 0</string>
   <string name="pref_camera_contrast_entry_level1">Taso 1</string>
@@ -143,6 +178,7 @@
   <string name="pref_camera_contrast_entry_level8">Taso 8</string>
   <string name="pref_camera_contrast_entry_level9">Taso 9</string>
   <string name="pref_camera_contrast_entry_level10">Taso 10</string>
+  <!-- Saturation -->
   <string name="pref_camera_saturation_title">Kylläisyys</string>
   <string name="pref_camera_saturation_entry_level0">Taso 0</string>
   <string name="pref_camera_saturation_entry_level1">Taso 1</string>
@@ -155,7 +191,9 @@
   <string name="pref_camera_saturation_entry_level8">Taso 8</string>
   <string name="pref_camera_saturation_entry_level9">Taso 9</string>
   <string name="pref_camera_saturation_entry_level10">Taso 10</string>
+  <!-- Picture format -->
   <string name="pref_camera_picture_format_title">Kuvan muoto</string>
+  <!-- Picture quality -->
   <string name="pref_camera_jpegquality_title">Kuvan laatu</string>
   <string name="pref_camera_jpegquality_entry_0">55%</string>
   <string name="pref_camera_jpegquality_entry_1">65% (normaali)</string>
@@ -163,40 +201,68 @@
   <string name="pref_camera_jpegquality_entry_3">85% (erittäin hyvä)</string>
   <string name="pref_camera_jpegquality_entry_4">95%</string>
   <string name="pref_camera_jpegquality_entry_5">100%</string>
+  <!-- Histogram -->
   <string name="pref_camera_histogram_title">Histogrammi</string>
+  <!-- Auto scene detection -->
   <string name="pref_camera_scenedetect_title">Automaattinen kohtauksen tunnistus</string>
+  <!-- Continuous shot -->
   <string name="pref_camera_longshot_title">Jatkuva kuvaaminen</string>
+  <!-- Auto HDR -->
   <string name="pref_camera_auto_hdr_title">Auto HDR</string>
+  <!-- HDR mode -->
   <string name="pref_camera_hdr_mode_title">HDR-tila</string>
   <string name="pref_camera_hdr_mode_entry_sensor">Sensori-HDR</string>
   <string name="pref_camera_hdr_mode_entry_multi_frame">Multi-frame HDR</string>
+  <!-- HDR needs 1x frame -->
   <string name="pref_camera_hdr_need_1x_title">HDR tarvitsee 1x kehyksen</string>
+  <!-- Video rotation -->
   <string name="pref_camera_video_rotation_title">Videon asento</string>
   <string name="pref_camera_video_rotation_entry_0">0 astetta</string>
   <string name="pref_camera_video_rotation_entry_90">90 astetta</string>
   <string name="pref_camera_video_rotation_entry_180">180 astetta</string>
   <string name="pref_camera_video_rotation_entry_270">270 astetta</string>
+  <!-- Storage location -->
   <string name="pref_camera_savepath_title">Tallennustila</string>
   <string name="pref_camera_savepath_entry_0">Sisäinen tallennustila</string>
   <string name="pref_camera_savepath_entry_1">SD-kortti</string>
+  <!-- Misc -->
+  <!-- The alias of CameraActivity for gesture operation -->
   <string name="camera_gesture_title">Käynnistä kamera</string>
   <string name="all_in_focus">Tarkenna kaikki</string>
   <string name="refocus_toast">Uudelleentarkentaaksesi viimeisen kuvan, napauta tästä</string>
+  <!-- Toast messages -->
+  <!-- The message is shown in toast when the app encounters an unsupported selection for High-framerate recording mode -->
   <string name="error_app_unsupported_hfr_selection">Suurnopeus-/Hidastuskuvaus ei ole tuettu käytettäessä DIS:iä tai TimeLapsea</string>
+  <!-- The message is shown in dialog when the app encounters an unsupported resolution for Slow motion mode -->
   <string name="error_app_unsupported_hfr">Hidastuskuvausta ei tueta valitulla resoluutiolla</string>
+  <!-- The message is shown in toast when the app encounters an unsupported resolution for Stabilization mode -->
   <string name="error_app_unsupported_dis">Vakauttamista ei tueta valitulla videon koolla- Valitse matalempi videon koko</string>
+  <!-- The message is shown in dialog when the app encounters an unsupported resolution for High speed mode -->
   <string name="error_app_unsupported_hsr">Suurnopeuskuvausta ei tueta valitulla resoluutiolla</string>
+  <!-- The message is shown in dialog when the app encounters an unsupported video codec for HFR mode -->
   <string name="error_app_unsupported_hfr_codec">Vain H.264 videon koodausta tuetaan käytettäessä hidastuskuvausta</string>
+  <!-- The message is shown in dialog when the app encounters an unsupported video resolution-->
   <string name="error_app_unsupported">Videon resoluutiota ei tueta tällä koodaustyypillä</string>
+  <!--The message is shown in dialog when the raw snapshot is selected in Zero shutter lag mode-->
   <string name="error_app_unsupported_raw">RAW-kuvamuotoa ei tueta Ei laukaisuviivettä-tilassa. Valitse JPEG</string>
   <string name="msg_cancel_longshot_for_limited_memory">Muisti on loppumassa, peruutetaan jatkuva kuvaaminen</string>
+  <!-- Toast showing non-supported functionality for flash in AE bracket -->
   <string name="flash_aebracket_message">Salamaa ei tueta AE bracketing-tilassa</string>
+  <!-- toast message for storage location switch -->
   <string name="on_switch_save_path_to_sdcard">Sisäisessä tallennustilassa ei ole tarpeeksi tilaa, vaihdettu tallennustila SD-korttiin</string>
+  <!-- The message is shown in toast when click showOnMap Menu and there is no map app -->
   <string name="map_activity_not_found_err">Karttasovellusta ei asennettu näyttämään sijaintia</string>
+  <!-- Continous shot enable message -->
   <string name="longshot_enable_message">Kehittyneitä ominaisuksia ei tueta jatkuvan kuvaamisen tilassa</string>
+  <!-- Advance features enable message -->
   <string name="advance_feature_enable_msg">Jatkuvaa kuvaamista ei tueta kehittyneiden ominaisuuksien ollessa käytössä</string>
+  <!-- Toast after enable HDR function to inform continuous shot has disabled -->
   <string name="HDR_disable_continuous_shot">HDR:n käyttöönotto poistaa jatkuvan kuvaamisen käytöstä</string>
+  <!-- Toast after enable advanced capture function to inform continuous shot has disabled -->
   <string name="advanced_capture_disable_continuous_shot">Kehittyneen kuvauksen käyttöönotto poistaa jatkuvan kuvauksen käytöstä</string>
+  <!-- Toast after enable 2k4k video quality to inform IS has disabled -->
   <string name="video_quality_4k_disable_IS">Vakaus poistetaan käytöstä 4K-kuvaamisen aikana</string>
+  <!-- Toast after 2k4k video is enabled to inform SeeMore has been disabled -->
   <string name="video_quality_4k_disable_SeeMore">SeeMorea ei voida ottaa käyttöön 4K-videon aikana</string>
+  <!-- TODO: Remove these? -->
 </resources>

@@ -15,12 +15,20 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <!-- The name of the Android Camera application. [CHAR LIMIT=16] -->
   <string name="app_name">Kamera</string>
+  <!-- The label for the Video Camera activity. [CHAR LIMIT=16] -->
   <string name="video_camera_label">Videokamera</string>
+  <!-- Used to format short video duration in Details dialog. minutes:seconds e.g. 00:30 -->
   <string name="details_ms">%1$02d:%2$02d</string>
+  <!-- Used to format video duration in Details dialog. hours:minutes:seconds e.g. 0:21:30 -->
   <string name="details_hms">%1$d:%2$02d:%3$02d</string>
+  <!-- Displayed in the title of the dialog for things to do with a picture
+             that is to be "set as" (e.g. set as contact photo or set as wallpaper) -->
   <string name="set_image">Aseta kuva</string>
+  <!-- Details dialog "OK" button. Dismisses dialog. -->
   <string name="delete">Poista</string>
+  <!-- String Delete the selected media item(s) [CHAR LIMIT=50] -->
   <plurals name="delete_selection">
     <item quantity="one">Poista valittu kohde?</item>
     <item quantity="other">Poista valitut kohteet?</item>
@@ -28,246 +36,491 @@
   <string name="share">Jaa</string>
   <string name="share_panorama">Jaa panoraama</string>
   <string name="share_as_photo">Jaa kuvana</string>
+  <!-- The label shown after an image is deleted [CHAR LIMIT=16] -->
   <string name="deleted">Poistettu</string>
+  <!-- The label on the button which when clicked will undo a deletion of image [CHAR LIMIT=16]-->
   <string name="undo">KUMOA</string>
   <string name="details">Tiedot</string>
   <string name="close">Sulje</string>
+  <!-- String indicating how many media item(s) is(are) selected
+            eg. 1 selected [CHAR LIMIT=30] -->
   <plurals name="number_of_items_selected">
     <item quantity="one">%1$d valittu</item>
     <item quantity="other">%1$d valittu</item>
   </plurals>
+  <!-- String indicating how many media album(s) is(are) selected
+            eg. 1 selected [CHAR LIMIT=30] -->
   <plurals name="number_of_albums_selected">
     <item quantity="one">%1$d valittu</item>
     <item quantity="other">%1$d valittu</item>
   </plurals>
+  <!-- String indicating how many media group(s) is(are) selected
+            eg. 1 selected [CHAR LIMIT=30] -->
   <plurals name="number_of_groups_selected">
     <item quantity="one">%1$d valittu</item>
     <item quantity="other">%1$d valittu</item>
   </plurals>
+  <!-- String indicating timestamp of photo or video -->
   <string name="show_on_map">Näytä kartalla</string>
   <string name="rotate_left">Kierrä vasemmalle</string>
   <string name="rotate_right">Kierrä oikealle</string>
+  <!-- String used as a menu label. The user can choose to edit the image
+         [CHAR_LIMIT=20]-->
   <string name="edit">Muokkaa</string>
+  <!-- The title of the menu item to let user crop the image. [CHAR LIMIT=15] -->
   <string name="crop_action">Kuvanrajaus</string>
+  <!-- The title of the menu item to let user trim the video. [CHAR LIMIT=15] -->
   <string name="trim_action">Leikkaus</string>
+  <!-- The title of the menu item to let user set the image as background etc. [CHAR LIMIT=15] -->
   <string name="set_as">Aseta kuva</string>
+  <!-- String indicating an error when playing the video. [CHAR LIMIT=30] -->
   <string name="video_err">Videon toistaminen epäonnistui.</string>
+  <!-- Toast message shown when the cropped image has been saved in the
+         %s folder (string: folder_download) [CHAR LIMIT=50]-->
   <string name="crop_saved">
         Rajattu kuva tallennettu kansioon <xliff:g id="folder_name">%s</xliff:g>.</string>
+  <!-- Text indicating the title of a media item in details window [CHAR LIMIT=14] -->
   <string name="title">Nimi</string>
+  <!-- Text indicating the description of a media item in details window [CHAR LIMIT=14] -->
   <string name="description">Kuvaus</string>
+  <!-- Text indicating the creation time of a media item in details window [CHAR LIMIT=14] -->
   <string name="time">Aika</string>
+  <!-- Text indicating the location of a media item in details window [CHAR LIMIT=14] -->
   <string name="location">Sijainti</string>
+  <!-- Text indicating the path of a media item in details window [CHAR LIMIT=14] -->
   <string name="path">Polku</string>
+  <!-- Text indicating the width of a media item in details window [CHAR LIMIT=14] -->
   <string name="width">Leveys</string>
+  <!-- Text indicating the height of a media item in details window [CHAR LIMIT=14] -->
   <string name="height">Korkeus</string>
+  <!-- Text indicating the orientation of a media item in details window [CHAR LIMIT=14] -->
   <string name="orientation">Suunta</string>
+  <!-- Text indicating the duration of a video item in details window [CHAR LIMIT=18] -->
   <string name="duration">Kesto</string>
+  <!-- Text indicating the mime type of a media item in details window [CHAR LIMIT=14] -->
   <string name="mimetype">MIME-tyyppi</string>
+  <!-- Text indicating the file size of a media item in details window [CHAR LIMIT=14] -->
   <string name="file_size">Tiedoston koko</string>
+  <!-- Text indicating the maker of a media item in details window [CHAR LIMIT=14] -->
   <string name="maker">Tekijä</string>
+  <!-- Text indicating the model of a media item in details window [CHAR LIMIT=14] -->
   <string name="model">Malli</string>
+  <!-- Text indicating flash info of a media item in details window [CHAR LIMIT=14] -->
   <string name="flash">Salama</string>
+  <!-- Text indicating aperture of a media item in details window [CHAR LIMIT=14] -->
   <string name="aperture">Aukko</string>
+  <!-- Text indicating the focal length of a media item in details window [CHAR LIMIT=14] -->
   <string name="focal_length">Polttoväli</string>
+  <!-- Text indicating the white balance of a media item in details window [CHAR LIMIT=18] -->
   <string name="white_balance">Valkotasapaino</string>
+  <!-- Text indicating the exposure time of a media item in details window [CHAR LIMIT=14] -->
   <string name="exposure_time">Valotusaika</string>
+  <!-- Text indicating the ISO speed rating of a media item in details window [CHAR LIMIT=14] -->
   <string name="iso">ISO</string>
+  <!-- String indicating the time units in seconds. [CHAR LIMIT=8] -->
+  <!-- String indicating the length units in milli-meters. [CHAR LIMIT=8] -->
   <string name="unit_mm">mm</string>
+  <!-- String indicating how camera shooting feature is used. [CHAR LIMIT=12] -->
   <string name="manual">Manuaal.</string>
+  <!-- String indicating how camera shooting feature is used. [CHAR LIMIT=12 -->
   <string name="auto">Auto</string>
+  <!-- String indicating camera flash is fired. [CHAR LIMIT=14] -->
   <string name="flash_on">Salama käyt.</string>
+  <!-- String indicating camera flash is not used. [CHAR LIMIT=14] -->
   <string name="flash_off">Ei salamaa</string>
+  <!-- String indicating image width or height is unknown. [CHAR LIMIT=14] -->
   <string name="unknown">Ei tiedossa</string>
+  <!-- Toast message shown after we try to make a local album available offline
+         [CHAR LIMIT=150] -->
   <string name="try_to_set_local_album_available_offline">
         Tämä kohde on tallennettu laitteelle ja käytettävissä offline-tilassa.</string>
+  <!-- The content of a dialog showing trimming in progress. [CHAR LIMIT=30] -->
   <string name="please_wait">Odota</string>
+  <!-- Text to show with progress bar while stitching a photo sphere. 'Photo sphere' is a product name. [CHAR LIMIT=35]-->
   <string name="rendering_photo_sphere">Muunnetaan Photo Spherea</string>
+  <!-- title for the dialog showing the error of camera hardware -->
   <string name="camera_error_title">Kameravirhe</string>
+  <!-- message for the dialog showing the error of camera hardware -->
   <string name="cannot_connect_camera">Ei yhteyttä kameraan.</string>
+  <!-- message for the dialog showing the camera is disabled because of security policies. Camera cannot be used. -->
   <string name="camera_disabled">Kamera on poistettu käytöstä suojauskäytäntöjen vuoksi.</string>
+  <!-- alert to the user to wait for some operation to complete -->
   <string name="wait">Odota\u2026</string>
+  <!-- alert to the user that an SD card must be installed before using the camera -->
   <string name="no_storage" product="default">Aseta SD-kortti ennen kameran käyttämistä.</string>
+  <!-- alert to the user that the SD card is being disk-checked -->
   <string name="preparing_sd" product="default">Valmistellaan SD-korttia\u2026</string>
+  <!-- alert to the user that the camera fails to read or write the SD card. -->
   <string name="access_sd_fail" product="default">SD-korttia ei voi käyttää.</string>
+  <!-- A label that overlays on top of the preview frame to indicate the camcorder is in time lapse mode [CHAR LIMIT=35] -->
   <string name="time_lapse_title">Intervallikuvauksen tallennus</string>
+  <!-- Screen display message during image capture to indicate that the capture is in progress, like during HDR+. [CHAR LIMIT=20] -->
   <string name="capturing">Kuvataan</string>
+  <!-- Settings screen, camera selection dialog title. Users can select a camera from the phone (front-facing or back-facing). [CHAR LIMIT=20] -->
   <string name="pref_camera_id_title">Valitse kamera</string>
+  <!-- In select camera setting, back facing camera. [CHAR LIMIT=14] -->
   <string name="pref_camera_id_entry_back">Edellinen</string>
+  <!-- In select camera setting, front-facing camera. [CHAR LIMIT=14] -->
   <string name="pref_camera_id_entry_front">Etupuoli</string>
+  <!-- Settings screen, setting title text -->
   <string name="pref_camera_recordlocation_title">Tallenna sijainti</string>
+  <!--  Label for record location preference [CHAR LIMIT=50] -->
   <string name="pref_camera_location_label">SIJAINTI</string>
+  <!-- Title for countdown timer on camera settings screen [CHAR LIMIT=30]-->
   <string name="pref_camera_timer_title">Ajastin</string>
+  <!-- Entry for countdown timer setting. e.g. 1 second, 10 seconds, etc. [CHAR LIMIT=30]-->
   <plurals name="pref_camera_timer_entry">
     <item quantity="one">1 sekunti</item>
     <item quantity="other">%d sekuntia</item>
   </plurals>
+  <!-- Text followed by a checkbox to turn on/off sound effects during the countdown. [CHAR LIMIT = 24]-->
   <string name="pref_camera_timer_sound_title">Ajastimen ääni</string>
+  <!-- Entry of a on/off setting. The setting is turned off. [CHAR LIMIT=15] -->
   <string name="setting_off">Ei käyt.</string>
+  <!-- Entry of a on/off setting. The setting is turned on. [CHAR LIMIT=15] -->
   <string name="setting_on">Käytössä</string>
+  <!-- The value of a camera preference indicating the setting is off. -->
+  <!-- The value of a camera preference indicating the setting is on. -->
+  <!-- The Video quality settings in preference [CHAR LIMIT=21] -->
   <string name="pref_video_quality_title">Videon laatu</string>
+  <!-- The default quality value is NULL -->
+  <!-- Video quality setting entry.
+    Videos will be recorded in 4k DCI quality. [CHAR LIMIT=24] -->
+  <!-- Video quality setting entry.
+    Videos will be recorded in 4k UHD quality. [CHAR LIMIT=24] -->
+  <!-- Video quality setting entry. Videos will be recorded in 1080p quality. [CHAR LIMIT=24] -->
+  <!-- Video quality setting entry. Videos will be recorded in 720p quality. [CHAR LIMIT=24] -->
+  <!-- Video quality setting entry. Videos will be recorded in 480p quality. [CHAR LIMIT=24] -->
+  <!-- Describes the preference dialog for choosing interval between frame capture for
+    time lapse recording. Appears at top of the dialog. [CHAR LIMIT=30] -->
   <string name="pref_video_time_lapse_frame_interval_title">Intervallikuvaus</string>
+  <!-- Settings screen, Camera setting category title -->
   <string name="pref_camera_settings_category">Kameran asetukset</string>
+  <!-- Settings screen, Camcorder setting category title -->
   <string name="pref_camcorder_settings_category">Videokameran asetukset</string>
+  <!-- Settings screen, Picture size title -->
   <string name="pref_camera_picturesize_title">Kuvan koko</string>
+  <!-- Settings screen, Focus mode title -->
   <string name="pref_camera_focusmode_title">Tarkennustila</string>
+  <!-- Settings screen, Focus mode dialog radio button choices -->
   <string name="pref_camera_focusmode_entry_auto">Auto</string>
+  <!-- A setting that lets the camera focus into infinity. [CHAR LIMIT=20] -->
   <string name="pref_camera_focusmode_entry_infinity">Loputon</string>
+  <!-- A setting that lets the camera operate in macro focus mode for nearby objects. [CHAR LIMIT=20] -->
   <string name="pref_camera_focusmode_entry_macro">Makro</string>
+  <!-- Menu, focus mode labels [CHAR LIMIT=50] -->
   <string name="pref_camera_focusmode_label_auto">AUTO</string>
   <string name="pref_camera_focusmode_label_infinity">LOPUTON</string>
   <string name="pref_camera_focusmode_label_macro">MAKRO</string>
+  <!-- Default flash mode setting.-->
+  <!-- Value for flash off setting-->
+  <!-- Settings screen, Flash mode title -->
   <string name="pref_camera_flashmode_title">Salaman tila</string>
+  <!-- flash label [CHAR LIMIT=50] -->
   <string name="pref_camera_flashmode_label">SALAMAN TILA</string>
+  <!-- Settings screen, Flash mode 'auto'. [CHAR LIMIT=12] -->
   <string name="pref_camera_flashmode_entry_auto">Auto</string>
+  <!-- Settings screen, Flash mode 'alway on'. [CHAR LIMIT=12] -->
   <string name="pref_camera_flashmode_entry_on">Käytössä</string>
+  <!-- Settings screen, Flash mode 'always off'. [CHAR LIMIT=12] -->
   <string name="pref_camera_flashmode_entry_off">Ei käyt.</string>
+  <!-- Menu, flash mode labels [CHAR LIMIT=50] -->
   <string name="pref_camera_flashmode_label_auto">AUTOMAATTINEN SALAMA</string>
   <string name="pref_camera_flashmode_label_on">SALAMA PÄÄLLÄ</string>
   <string name="pref_camera_flashmode_label_off">SALAMA POIS</string>
+  <!-- Default videocamera flash mode setting.-->
+  <!-- Default white balance setting. -->
+  <!-- Settings screen, white balance title -->
   <string name="pref_camera_whitebalance_title">Valkotasapaino</string>
+  <!-- Menu, white balance label -->
   <string name="pref_camera_whitebalance_label">VALKOTASAPAINO</string>
+  <!-- Settings screen, White balance dialog radio button choices -->
   <string name="pref_camera_whitebalance_entry_auto">Auto</string>
   <string name="pref_camera_whitebalance_entry_incandescent">Hehkulamppuvalo</string>
   <string name="pref_camera_whitebalance_entry_daylight">Päivänvalo</string>
   <string name="pref_camera_whitebalance_entry_fluorescent">Loisteputkivalo</string>
   <string name="pref_camera_whitebalance_entry_cloudy">Pilvinen</string>
+  <!-- Menu, White balance labels [CHAR LIMIT=50] -->
   <string name="pref_camera_whitebalance_label_auto">AUTOMAATTINEN</string>
   <string name="pref_camera_whitebalance_label_incandescent">HEHKULAMPPUVALO</string>
   <string name="pref_camera_whitebalance_label_daylight">PÄIVÄNVALO</string>
   <string name="pref_camera_whitebalance_label_fluorescent">LOISTEPUTKIVALO</string>
   <string name="pref_camera_whitebalance_label_cloudy">PILVINEN</string>
+  <!-- Default scene mode setting. -->
+  <!-- Settings screen, Select Scene mode -->
   <string name="pref_camera_scenemode_title">Kuvaustila</string>
+  <!-- Settings menu, scene mode choices [CHAR LIMIT=16] -->
   <string name="pref_camera_scenemode_entry_auto">Auto</string>
+  <!-- Scene mode that uses HDR plus (better HDR) [CHAR LIMIT=16] -->
   <string name="pref_camera_scenemode_entry_hdr_plus">HDR+</string>
+  <!-- Scene mode that uses HDR (high dynamic range) [CHAR LIMIT=16] -->
   <string name="pref_camera_scenemode_entry_hdr">HDR</string>
+  <!-- Scene mode to turn on HDR (better high dynamic range) [CHAR LIMIT=50] -->
   <string name="pref_camera_scenemode_entry_turn_hdr_plus_on">HDR+ KÄYTÖSSÄ</string>
+  <!-- Scene mode to turn off HDR (better high dynamic range) [CHAR LIMIT=50] -->
   <string name="pref_camera_scenemode_entry_turn_hdr_plus_off">HDR+ EI KÄYTÖSSÄ</string>
+  <!-- Scene mode to turn on HDR (high dynamic range) [CHAR LIMIT=50] -->
   <string name="pref_camera_scenemode_entry_turn_hdr_on">HDR KÄYTÖSSÄ</string>
+  <!-- Scene mode to turn off HDR (high dynamic range) [CHAR LIMIT=50] -->
   <string name="pref_camera_scenemode_entry_turn_hdr_off">HDR EI KÄYTÖSSÄ</string>
+  <!-- Scene mode that takes an image quickly with little motion blur. [CHAR LIMIT=16] -->
   <string name="pref_camera_scenemode_entry_action">Toiminto</string>
+  <!-- Scene mode that takes long exposures to capture night scenes without flash. [CHAR LIMIT=16] -->
   <string name="pref_camera_scenemode_entry_night">Yö</string>
+  <!-- Scene mode optimized for taking images in the sunset. [CHAR LIMIT=16] -->
   <string name="pref_camera_scenemode_entry_sunset">Auringonlasku</string>
+  <!-- Scene mode optimized for taking indoor low-lights pictures. [CHAR LIMIT=16] -->
   <string name="pref_camera_scenemode_entry_party">Juhlat</string>
+  <!-- Settings menu, scene mode labels [CHAR LIMIT=50] -->
   <string name="pref_camera_scenemode_label_auto">EI MITÄÄN</string>
+  <!-- Scene mode that takes an image quickly with little motion blur. [CHAR LIMIT=50] -->
   <string name="pref_camera_scenemode_label_action">TOIMINTA</string>
+  <!-- Scene mode that takes long exposures to capture night scenes without flash. [CHAR LIMIT=50] -->
   <string name="pref_camera_scenemode_label_night">YÖ</string>
+  <!-- Scene mode optimized for taking images in the sunset. [CHAR LIMIT=50] -->
   <string name="pref_camera_scenemode_label_sunset">AURINGONLASKU</string>
+  <!-- Scene mode optimized for taking indoor low-lights pictures. [CHAR LIMIT=50] -->
   <string name="pref_camera_scenemode_label_party">JUHLAT</string>
+  <!-- Settings menu countdown timer off [CHAR LIMIT=50] -->
   <string name="pref_camera_countdown_label_off">AJASTIN POIS KÄYT.</string>
+  <!-- Settings menu countdown timer 1 second [CHAR LIMIT=50] -->
   <string name="pref_camera_countdown_label_one">1 SEKUNTI</string>
+  <!-- Settings menu countdown timer 3 seconds [CHAR LIMIT=50] -->
   <string name="pref_camera_countdown_label_three">3 SEKUNTIA</string>
+  <!-- Settings menu countdown timer 10 seconds [CHAR LIMIT=50] -->
   <string name="pref_camera_countdown_label_ten">10 SEKUNTIA</string>
+  <!-- Settings menu countdown timer 15 seconds [CHAR LIMIT=50] -->
   <string name="pref_camera_countdown_label_fifteen">15 SEKUNTIA</string>
+  <!-- Toast after trying to select a setting that is not allowed to change in scene mode [CHAR LIMIT=NONE] -->
   <string name="not_selectable_in_scene_mode">Ei valittavissa kuvaustilassa.</string>
+  <!-- Exposure settings in preference -->
   <string name="pref_exposure_title">Valotus</string>
+  <!--  menu label exposure compensation [CHAR LIMIT=50] -->
   <string name="pref_exposure_label">VALOTUS</string>
+  <!-- Default HDR entry value -->
+  <!-- Default HDR+ entry value -->
+  <!-- HDR label ON [CHAR LIMIT=60] -->
   <string name="pref_camera_hdr_label">HDR</string>
+  <!-- switch camera label back [CHAR LIMIT=60] -->
   <string name="pref_camera_id_label_back">ETUKAMERA</string>
+  <!-- switch camera label front [CHAR LIMIT=60] -->
   <string name="pref_camera_id_label_front">TAKAKAMERA</string>
+  <!-- Dialog "OK" button. Dismisses dialog. -->
   <string name="dialog_ok">OK</string>
+  <!-- Low-memory dialog message [CHAR LIMIT=NONE] -->
   <string name="spaceIsLow_content" product="default">SD-korttisi tila on vähissä. Vaihda laatuasetusta tai poista kuvia tai muita tiedostoja.</string>
+  <!-- Camera format string for new image files. Passed to java.text.SimpleDateFormat. -->
+  <!-- Video Camera format string for new video files. Passed to java.text.SimpleDateFormat. -->
+  <!-- Filename prefix for panorama output. -->
+  <!-- The message shown when video record reaches size limit. -->
   <string name="video_reach_size_limit">Videon koko on suurin mahdollinen.</string>
+  <!-- The text shown when the panorama panning speed is to fast [CHAR LIMIT=16] -->
   <string name="pano_too_fast_prompt">Liian nopea</string>
+  <!-- The text shown in the progress dialog when panorama preview is generating in the background [CHAR LIMIT=30] -->
   <string name="pano_dialog_prepare_preview">Valmistellaan panoraamaa</string>
+  <!-- The text shown in the dialog when panorama saving failed [CHAR LIMIT=40] -->
   <string name="pano_dialog_panorama_failed">Panoraaman tallennus epäonnistui.</string>
+  <!-- The text shown on the dialog title in the dialogs for Panorama [CHAR LIMIT=12] -->
   <string name="pano_dialog_title">Panoraama</string>
+  <!-- The text shown on the top-left corner of the screen to indicate the capturing is on going [CHAR LIMIT=27] -->
   <string name="pano_capture_indication">Panoraamakuvaus</string>
+  <!-- The text shown in the progress dialog when waiting for previous panorama finishing [CHAR LIMIT=40] -->
   <string name="pano_dialog_waiting_previous">Odotetaan edellistä panoraamaa</string>
+  <!-- The text shown on the bottom-left corner of the screen to indicate that the saving is in process [CHAR LIMIT=13] -->
   <string name="pano_review_saving_indication_str">Tallennetaan\u2026</string>
+  <!-- The text shown on the screen to indicate that the panorama is rendering [CHAR LIMIT=27] -->
   <string name="pano_review_rendering">Panoraamaa hahmonnetaan</string>
+  <!-- Toast telling users tapping on the viewfinder will trigger autofocus [CHAR LIMIT=28] -->
   <string name="tap_to_focus">Tarkenna koskettamalla.</string>
+  <!-- Default effect setting that clears the effect. -->
+  <!-- Title of video effect setting popup window -->
   <string name="pref_video_effect_title">Tehosteet</string>
+  <!-- Effect setting item that clear the effect. [CHAR LIMIT=14] -->
   <string name="effect_none">Ei mitään</string>
+  <!-- Effect setting item that squeezes the face. [CHAR LIMIT=14] -->
   <string name="effect_goofy_face_squeeze">Litistetty</string>
+  <!-- Effect setting item that makes eyes big. [CHAR LIMIT=14] -->
   <string name="effect_goofy_face_big_eyes">Isot silmät</string>
+  <!-- Effect setting item that makes mouth big. [CHAR LIMIT=14] -->
   <string name="effect_goofy_face_big_mouth">Iso suu</string>
+  <!-- Effect setting item that makes mouth small. [CHAR LIMIT=14] -->
   <string name="effect_goofy_face_small_mouth">Pieni suu</string>
+  <!-- Effect setting item that makes nose big. [CHAR LIMIT=14] -->
   <string name="effect_goofy_face_big_nose">Iso nenä</string>
+  <!-- Effect setting item that makes eyes small. [CHAR LIMIT=14] -->
   <string name="effect_goofy_face_small_eyes">Pienet silmät</string>
+  <!-- Effect setting item that replaces background with Android in Space. [CHAR LIMIT=14] -->
   <string name="effect_backdropper_space">Avaruus</string>
+  <!-- Effect setting item that replaces background with a sunset. [CHAR LIMIT=14] -->
   <string name="effect_backdropper_sunset">Auringonlasku</string>
+  <!-- Effect setting item that replaces background with video from gallery. [CHAR LIMIT=14] -->
   <string name="effect_backdropper_gallery">Oma video</string>
+  <!-- Toast telling users tapping on the viewfinder will take a picture [CHAR LIMIT=54] -->
   <string name="video_snapshot_hint">Ota kuva tallennuksen aikana koskettamalla ruutua.</string>
+  <!-- Announcement telling users video recording has just started [CHAR LIMIT=NONE] -->
   <string name="video_recording_started">Videon tallennus on aloitettu.</string>
+  <!-- Announcement telling users video recording has just stopped [CHAR LIMIT=NONE] -->
   <string name="video_recording_stopped">Videon tallennus on pysäytetty.</string>
+  <!-- A button in effect setting popup to clear the effect. [CHAR LIMIT=26] -->
   <string name="clear_effects">Poista tehosteet</string>
+  <!-- Title of category for silly face effects. [CHAR LIMIT=26] -->
   <string name="effect_silly_faces">HAUSKAT KASVOT</string>
+  <!-- Title of category for background replacement effects. [CHAR LIMIT=26] -->
   <string name="effect_background">TAUSTA</string>
+  <!-- The shutter button. [CHAR LIMIT = NONE] -->
   <string name="accessibility_shutter_button">Suljin</string>
+  <!-- The menu button. [CHAR LIMIT = NONE] -->
   <string name="accessibility_menu_button">Valikkopainike</string>
+  <!-- The mode picker to switch between camera, video and panorama. [CHAR LIMIT = NONE] -->
   <string name="accessibility_mode_picker">Kamera-, video- tai panoraamavalitsin</string>
+  <!-- The check box in camera settings, such as store location. [CHAR LIMIT = NONE] -->
   <string name="accessibility_check_box">Valintaruutu %1$s</string>
+  <!-- The button to switch to Camera mode. [CHAR LIMIT = NONE] -->
   <string name="accessibility_switch_to_camera">Vaihda kuvatilaan</string>
+  <!-- The button to switch to Video mode. [CHAR LIMIT = NONE] -->
   <string name="accessibility_switch_to_video">Vaihda videoon</string>
+  <!-- The button to switch to Panorama mode. [CHAR LIMIT = NONE] -->
   <string name="accessibility_switch_to_panorama">Vaihda panoraamaan</string>
+  <!-- The button to switch to the Photo Sphere mode. [CHAR LIMIT = NONE] -->
   <string name="accessibility_switch_to_photo_sphere">Vaihda Photo Sphere -tilaan</string>
+  <!-- The button to switch to the high quality mode. [CHAR LIMIT = NONE] -->
   <string name="accessibility_switch_to_gcam">Korkealaatuinen</string>
+  <!-- The button in review mode indicating that the photo taking, video recording, and panorama saving session should be canceled [CHAR LIMIT = NONE] -->
   <string name="accessibility_review_cancel">Peruuta esikatselu</string>
+  <!-- The button in review mode indicating that the taken photo/video is OK to be attached/uploaded [CHAR LIMIT = NONE] -->
   <string name="accessibility_review_ok">Esikatselu valmis</string>
+  <!-- button in review mode indicate the user want to retake another photo/video for attachment [
+CHAR LIMIT = NONE] -->
   <string name="accessibility_review_retake">Kuvaa uudelleen</string>
+  <!-- Default text for a button that can be toggled on and off. -->
   <string name="capital_on">KÄYTÖSSÄ</string>
+  <!-- Default text for a button that can be toggled on and off. -->
   <string name="capital_off">EI KÄYTÖSSÄ</string>
+  <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
   <string name="pref_video_time_lapse_frame_interval_off">Ei käyt.</string>
+  <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
   <string name="pref_video_time_lapse_frame_interval_500">0,5 sekuntia</string>
+  <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
   <string name="pref_video_time_lapse_frame_interval_1000">1 sekunti</string>
+  <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
   <string name="pref_video_time_lapse_frame_interval_1500">1,5 sekuntia</string>
+  <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
   <string name="pref_video_time_lapse_frame_interval_2000">2 sekuntia</string>
+  <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
   <string name="pref_video_time_lapse_frame_interval_2500">2,5 sekuntia</string>
+  <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
   <string name="pref_video_time_lapse_frame_interval_3000">3 sekuntia</string>
+  <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
   <string name="pref_video_time_lapse_frame_interval_4000">4 sekuntia</string>
+  <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
   <string name="pref_video_time_lapse_frame_interval_5000">5 sekuntia</string>
+  <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
   <string name="pref_video_time_lapse_frame_interval_6000">6 sekuntia</string>
+  <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
   <string name="pref_video_time_lapse_frame_interval_10000">10 sekuntia</string>
+  <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
   <string name="pref_video_time_lapse_frame_interval_12000">12 sekuntia</string>
+  <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
   <string name="pref_video_time_lapse_frame_interval_15000">15 sekuntia</string>
+  <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
   <string name="pref_video_time_lapse_frame_interval_24000">24 sekuntia</string>
+  <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
   <string name="pref_video_time_lapse_frame_interval_30000">0,5 minuuttia</string>
+  <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
   <string name="pref_video_time_lapse_frame_interval_60000">1 minuutti</string>
+  <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
   <string name="pref_video_time_lapse_frame_interval_90000">1,5 minuuttia</string>
+  <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
   <string name="pref_video_time_lapse_frame_interval_120000">2 minuuttia</string>
+  <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
   <string name="pref_video_time_lapse_frame_interval_150000">2,5 minuuttia</string>
+  <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
   <string name="pref_video_time_lapse_frame_interval_180000">3 minuuttia</string>
+  <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
   <string name="pref_video_time_lapse_frame_interval_240000">4 minuuttia</string>
+  <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
   <string name="pref_video_time_lapse_frame_interval_300000">5 minuuttia</string>
+  <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
   <string name="pref_video_time_lapse_frame_interval_360000">6 minuuttia</string>
+  <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
   <string name="pref_video_time_lapse_frame_interval_600000">10 minuuttia</string>
+  <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
   <string name="pref_video_time_lapse_frame_interval_720000">12 minuuttia</string>
+  <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
   <string name="pref_video_time_lapse_frame_interval_900000">15 minuuttia</string>
+  <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
   <string name="pref_video_time_lapse_frame_interval_1440000">24 minuuttia</string>
+  <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
   <string name="pref_video_time_lapse_frame_interval_1800000">0,5 tuntia</string>
+  <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
   <string name="pref_video_time_lapse_frame_interval_3600000">1 tunti</string>
+  <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
   <string name="pref_video_time_lapse_frame_interval_5400000">1,5 tuntia</string>
+  <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
   <string name="pref_video_time_lapse_frame_interval_7200000">2 tuntia</string>
+  <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
   <string name="pref_video_time_lapse_frame_interval_9000000">2,5 tuntia</string>
+  <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
   <string name="pref_video_time_lapse_frame_interval_10800000">3 tuntia</string>
+  <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
   <string name="pref_video_time_lapse_frame_interval_14400000">4 tuntia</string>
+  <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
   <string name="pref_video_time_lapse_frame_interval_18000000">5 tuntia</string>
+  <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
   <string name="pref_video_time_lapse_frame_interval_21600000">6 tuntia</string>
+  <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
   <string name="pref_video_time_lapse_frame_interval_36000000">10 tuntia</string>
+  <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
   <string name="pref_video_time_lapse_frame_interval_43200000">12 tuntia</string>
+  <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
   <string name="pref_video_time_lapse_frame_interval_54000000">15 tuntia</string>
+  <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
   <string name="pref_video_time_lapse_frame_interval_86400000">24 tuntia</string>
+  <!-- Seconds: a unit of time for time lapse intervals. [CHAR LIMIT = 20] -->
   <string name="time_lapse_seconds">sekuntia</string>
+  <!-- Minutes: a unit of time for time lapse intervals. [CHAR LIMIT = 20] -->
   <string name="time_lapse_minutes">minuuttia</string>
+  <!-- Hours: a unit of time for time lapse intervals. [CHAR LIMIT = 20] -->
   <string name="time_lapse_hours">tuntia</string>
+  <!-- The button to confirm time-lapse setting changes. [CHAR LIMIT = 20] -->
   <string name="time_lapse_interval_set">Valmis</string>
+  <!-- Title in time interval picker for setting time interval. [CHAR LIMIT = 30]-->
   <string name="set_time_interval">Aseta aikaväli</string>
+  <!-- Help text that is shown when the time lapse feature is turned off. [CHAR LIMIT = 180]-->
   <string name="set_time_interval_help">Intervallikuvaus ei ole käytössä. Ota ominaisuus käyttöön, jos haluat määrittää aikavälin.</string>
+  <!-- Title in timer setting for setting the duration for the countdown timer. [CHAR LIMIT = 50]-->
   <string name="set_duration">Aseta kesto sekunteina</string>
+  <!-- On-screen hint during timer countdown for taking a photo. [CHAR LIMIT = 60]-->
   <string name="count_down_title_text">Kuva otetaan, kun ajastin saavuttaa nollan</string>
+  <!-- Title for first run dialog asking if the user wants to remember photo locations [CHAR LIMIT = 50] -->
   <string name="remember_location_title">Muistetaanko valokuvien sijainnit?</string>
+  <!-- Message for first run dialog asking if the user wants to remember photo locations [CHAR LIMIT = None] -->
   <string name="remember_location_prompt">Merkitse valokuviin ja videoihin niiden kuvauspaikat.\n\nMuut sovellukset voivat käyttää näitä tietoja tallennettujen kuviesi yhteydessä.</string>
+  <!-- Negative answer for first run dialog asking if the user wants to remember photo locations [CHAR LIMIT = 20] -->
   <string name="remember_location_no">Ei kiitos</string>
+  <!-- Positive answer for first run dialog asking if the user wants to remember photo locations [CHAR LIMIT = 20] -->
   <string name="remember_location_yes">Kyllä</string>
+  <!-- Camera menu labels -->
+  <!-- more options label [CHAR LIMIT=50] -->
   <string name="camera_menu_more_label">LISÄÄ ASETUKSIA</string>
+  <!-- settings label [CHAR LIMIT=50] -->
   <string name="camera_menu_settings_label">ASETUKSET</string>
+  <!--  Tiny Planet -->
+  <!-- Button to press for creating a tiny planet image. [CHAR LIMIT = 30] -->
   <string name="create_tiny_planet">Luo Tiny Planet -kuva</string>
+  <!-- Message shown while a tiny planet image is being saved. [CHAR LIMIT = 30] -->
   <string name="saving_tiny_planet">Tallennetaan Tiny Planet&#8230;</string>
+  <!-- Label above a slider that let's the user set the zoom of a tiny planet image. [CHAR LIMIT = 15] -->
   <string name="tiny_planet_zoom">Zoomaa</string>
+  <!-- Label above a slider that let's the user set the rotation of a tiny planet image. [CHAR LIMIT = 15] -->
   <string name="tiny_planet_rotate">Kierrä</string>
+  <!-- Crop -->
+  <!-- Label for the save button in the crop activity action bar [CHAR LIMIT=20] -->
   <string name="crop_save">Tallenna</string>
+  <!--  String shown when we cannot load the image when starting the activity [CHAR LIMIT=NONE] -->
   <string name="cannot_load_image">Kuvaa ei voi ladata.</string>
+  <!-- Label for album filmstrip button -->
   <string name="switch_photo_filmstrip">Filminauhanäkymä</string>
+  <!--  String shown when setting the homepage wallpaper in the background [CHAR LIMIT=NONE] -->
   <string name="setting_wallpaper">Asetetaan taustakuvaa</string>
 </resources>

@@ -21,46 +21,71 @@
     limitations under the License.
 -->
 <resources>
+  <!-- Preferences -->
+  <!-- Video quality setting entry. Videos will be recorded in VGA quality. [CHAR LIMIT=24] -->
+  <!-- Video quality setting entry. Videos will be recorded in CIF quality. [CHAR LIMIT=24] -->
+  <!-- Video quality setting entry. Videos will be recorded in QVGA quality. [CHAR LIMIT=24] -->
+  <!-- Video quality setting entry. Videos will be recorded in QCIF quality. [CHAR LIMIT=24] -->
+  <!-- Auto exposure -->
   <string name="pref_camera_autoexposure_title">Samodejna osvetlitev</string>
   <string name="pref_camera_autoexposure_entry_centerweighted">Sredinsko uravnoteženo</string>
   <string name="pref_camera_autoexposure_entry_frameaverage">Povprečje okvirja</string>
   <string name="pref_camera_autoexposure_entry_spotmetering">Točkovno</string>
+  <!-- Video codec -->
   <string name="pref_camera_videoencoder_title">Kodek slike</string>
+  <!-- Audio codec -->
   <string name="pref_camera_audioencoder_title">Kodek zvoka</string>
+  <!-- Skin tone enhancement -->
   <string name="pref_camera_skinToneEnhancement_title">Izboljšanje tona kože</string>
+  <!-- Zero shutter lag-->
   <string name="pref_camera_zsl_title">Brez zakasnitve sprožilca</string>
+  <!-- Autofocus zone -->
   <string name="pref_camera_selectablezoneaf_title">Področje sam. ostrenja</string>
   <string name="pref_camera_selectablezoneaf_entry_auto">Samod.</string>
   <string name="pref_camera_selectablezoneaf_entry_centerweighted">Sredinsko uravnoteženo</string>
   <string name="pref_camera_selectablezoneaf_entry_frameaverage">Povprečje okvirja</string>
   <string name="pref_camera_selectablezoneaf_entry_spotmetering">Točkovno</string>
-  <string name="pref_camera_advanced_features_title">Napredne funkcije</string>
+  <!-- Advanced features -->
+  <string name="pref_camera_advanced_features_title">Napredne značilnosti</string>
   <string name="pref_camera_advanced_feature_entry_none">Brez</string>
   <string name="pref_camera_advanced_feature_entry_multi_touch_focus">Ostrenje z več dotiki</string>
+  <!-- Manual exposure -->
   <string name="pref_camera_manual_exp_title">Ročna osvetlitev</string>
   <string name="pref_camera_manual_exp_entry_ISO_priority">Prednost ISO</string>
   <string name="pref_camera_manual_exp_entry_exptime_priority">Časovna prednost osvetlitve</string>
   <string name="pref_camera_manual_exp_entry_user_setting">Uporabniške nastavitve</string>
   <string name="pref_camera_manual_exp_entry_off">Izklopljeno</string>
+  <!-- Manual white balance -->
   <string name="pref_camera_manual_wb_title">Ročno uravnavanje beline</string>
   <string name="pref_camera_manual_wb_entry_color_temperature">Temperatura barve</string>
   <string name="pref_camera_manual_wb_entry_rbgb_gains">Vrednosti RBGB</string>
   <string name="pref_camera_manual_wb_entry_off">Izklopljeno</string>
+  <!-- Manual focus -->
   <string name="pref_camera_manual_focus_title">Ročno ostrenje</string>
   <string name="pref_camera_manual_focus_entry_scale_mode">Način lestvice</string>
   <string name="pref_camera_manual_focus_entry_diopter_mode">Način dioptrije</string>
   <string name="pref_camera_manual_focus_entry_off">Izklopljeno</string>
+  <!-- Video HDR-->
   <string name="pref_camera_video_hdr_title">HDR slike</string>
+  <!-- CDS mode-->
   <string name="pref_camera_cds_title">Način CDS</string>
   <string name="pref_camera_cds_entry_auto">Samod.</string>
+  <!-- Video CDS-->
   <string name="pref_camera_video_cds_title">Način slike CDS</string>
   <string name="pref_camera_video_cds_entry_auto">Samodejno</string>
+  <!-- TNR-->
   <string name="pref_camera_tnr_title">Način TNR</string>
+  <!-- Video TNR -->
   <string name="pref_camera_video_tnr_title">Način slike TNR</string>
+  <!-- Face detection -->
   <string name="pref_camera_facedetection_title">Zaznavanje obraza</string>
+  <!-- Selfie Flash -->
   <string name="pref_selfie_flash_title">Bliskavica samoposnetka</string>
+  <!-- Red eye reduction -->
   <string name="pref_camera_redeyereduction_title">Zmanjšanje učinka rdečih oči</string>
+  <!-- AE bracketing -->
   <string name="pref_camera_ae_bracket_hdr_title">Korektura sam. osvetlitve</string>
+  <!-- High-framerate recording -->
   <string name="pref_camera_hfr_title">Počasni posnetek</string>
   <string name="pref_camera_hfr_entry_off">Izk.</string>
   <string name="pref_camera_hfr_entry_2x">Počasni posnetek 60 sl./s</string>
@@ -70,7 +95,10 @@
   <string name="pref_camera_hfr_entry_hsr_60">Visoka hitrost 60 sl./s</string>
   <string name="pref_camera_hfr_entry_hsr_90">Visoka hitrost 90 sl./s</string>
   <string name="pref_camera_hfr_entry_hsr_120">Visoka hitrost 120 sl./s</string>
+  <!-- See More -->
+  <!-- Denoise -->
   <string name="pref_camera_denoise_title">Odstr. šuma</string>
+  <!-- ISO -->
   <string name="pref_camera_iso_title">ISO</string>
   <string name="pref_camera_iso_entry_auto">Samod.</string>
   <string name="pref_camera_iso_entry_isodeblur">Samodejno (HJR)</string>
@@ -101,15 +129,18 @@
   <string name="pref_camera_iso_entry_iso3200">ISO 3200</string>
   <string name="pref_camera_iso_entry_iso6400">ISO 6400</string>
   <string name="pref_camera_iso_entry_iso12800">ISO 12800</string>
+  <!-- Antibanding -->
   <string name="pref_camera_antibanding_title">Odstranjevanje pasov</string>
   <string name="pref_camera_antibanding_entry_0">Samod.</string>
   <string name="pref_camera_antibanding_entry_1">50 Hz (Evropa)</string>
   <string name="pref_camera_antibanding_entry_2">60 Hz (ZDA)</string>
+  <!-- Color effect -->
   <string name="pref_camera_coloreffect_title">Barvni učinek</string>
   <string name="pref_camera_coloreffect_entry_none">Brez</string>
   <string name="pref_camera_coloreffect_entry_mono">Mono</string>
   <string name="pref_camera_coloreffect_entry_sepia">Sepija</string>
   <string name="pref_camera_coloreffect_entry_negative">Negativ</string>
+  <!-- Color effect that overexposes and reverses some of the tones. -->
   <string name="pref_camera_coloreffect_entry_solarize">Osvetli</string>
   <string name="pref_camera_coloreffect_entry_posterize">Posteriziraj</string>
   <string name="pref_camera_coloreffect_entry_aqua">Akva</string>
@@ -121,8 +152,11 @@
   <string name="pref_camera_coloreffect_entry_redtint">Rdeči odtenek</string>
   <string name="pref_camera_coloreffect_entry_bluetint">Modri odtenek</string>
   <string name="pref_camera_coloreffect_entry_greentint">Zeleni odtenek</string>
+  <!-- Stabilization -->
   <string name="pref_camera_dis_title">Ustalitev</string>
+  <!-- Face recognition -->
   <string name="pref_camera_facerc_title">Zaznavanje obraza</string>
+  <!-- Sharpness -->
   <string name="pref_camera_sharpness_title">Ostrina</string>
   <string name="pref_camera_sharpness_entry_level0">Raven 0</string>
   <string name="pref_camera_sharpness_entry_level1">1. raven</string>
@@ -131,6 +165,7 @@
   <string name="pref_camera_sharpness_entry_level4">4. raven</string>
   <string name="pref_camera_sharpness_entry_level5">5. raven</string>
   <string name="pref_camera_sharpness_entry_level6">6. raven</string>
+  <!-- Contrast -->
   <string name="pref_camera_contrast_title">Kontrast</string>
   <string name="pref_camera_contrast_entry_level0">Raven 0</string>
   <string name="pref_camera_contrast_entry_level1">1. raven</string>
@@ -143,6 +178,7 @@
   <string name="pref_camera_contrast_entry_level8">8. raven</string>
   <string name="pref_camera_contrast_entry_level9">9. raven</string>
   <string name="pref_camera_contrast_entry_level10">10. raven</string>
+  <!-- Saturation -->
   <string name="pref_camera_saturation_title">Nasičenost</string>
   <string name="pref_camera_saturation_entry_level0">Raven 0</string>
   <string name="pref_camera_saturation_entry_level1">1. raven</string>
@@ -155,7 +191,9 @@
   <string name="pref_camera_saturation_entry_level8">8. raven</string>
   <string name="pref_camera_saturation_entry_level9">9. raven</string>
   <string name="pref_camera_saturation_entry_level10">10. raven</string>
+  <!-- Picture format -->
   <string name="pref_camera_picture_format_title">Oblika slike</string>
+  <!-- Picture quality -->
   <string name="pref_camera_jpegquality_title">Kakovost slike</string>
   <string name="pref_camera_jpegquality_entry_0">55 %</string>
   <string name="pref_camera_jpegquality_entry_1">65 % (običajna)</string>
@@ -163,40 +201,68 @@
   <string name="pref_camera_jpegquality_entry_3">85 % (super fina)</string>
   <string name="pref_camera_jpegquality_entry_4">95 %</string>
   <string name="pref_camera_jpegquality_entry_5">100 %</string>
+  <!-- Histogram -->
   <string name="pref_camera_histogram_title">Histogram</string>
+  <!-- Auto scene detection -->
   <string name="pref_camera_scenedetect_title">Samodejno zaznavanje prizora</string>
+  <!-- Continuous shot -->
   <string name="pref_camera_longshot_title">Neprekinjeno fotografiranje</string>
+  <!-- Auto HDR -->
   <string name="pref_camera_auto_hdr_title">Samodejni HDR</string>
+  <!-- HDR mode -->
   <string name="pref_camera_hdr_mode_title">Način HDR</string>
   <string name="pref_camera_hdr_mode_entry_sensor">Tipalo HDR</string>
   <string name="pref_camera_hdr_mode_entry_multi_frame">Večslikovni HDR</string>
+  <!-- HDR needs 1x frame -->
   <string name="pref_camera_hdr_need_1x_title">HDR potrebuje sliko 1x</string>
+  <!-- Video rotation -->
   <string name="pref_camera_video_rotation_title">Sukanje videoposnetka</string>
   <string name="pref_camera_video_rotation_entry_0">0 stopinj</string>
   <string name="pref_camera_video_rotation_entry_90">90 stopinj</string>
   <string name="pref_camera_video_rotation_entry_180">180 stopinj</string>
   <string name="pref_camera_video_rotation_entry_270">270 stopinj</string>
+  <!-- Storage location -->
   <string name="pref_camera_savepath_title">Mesto za shranjevanje</string>
   <string name="pref_camera_savepath_entry_0">Notranji pomnilnik</string>
   <string name="pref_camera_savepath_entry_1">Kartica SD</string>
+  <!-- Misc -->
+  <!-- The alias of CameraActivity for gesture operation -->
   <string name="camera_gesture_title">Zaženi fotoaparat</string>
   <string name="all_in_focus">V celoti izostreno</string>
   <string name="refocus_toast">Za ponovno ostrenje zadnje slike tapnite tukaj</string>
+  <!-- Toast messages -->
+  <!-- The message is shown in toast when the app encounters an unsupported selection for High-framerate recording mode -->
   <string name="error_app_unsupported_hfr_selection">Počasni posnetek ni podprt ob uporabi ustalitve/časovnega zamika/HDR-a.</string>
+  <!-- The message is shown in dialog when the app encounters an unsupported resolution for Slow motion mode -->
   <string name="error_app_unsupported_hfr">Počasni posnetek ni podprt za izbrano ločljivost</string>
+  <!-- The message is shown in toast when the app encounters an unsupported resolution for Stabilization mode -->
   <string name="error_app_unsupported_dis">Ustalitev ni podprta v izbrani ločljivosti videoposnetka. Izberite nižjo ločljivost</string>
+  <!-- The message is shown in dialog when the app encounters an unsupported resolution for High speed mode -->
   <string name="error_app_unsupported_hsr">Visoka hitrost ni podprta za izbrano ločljivost</string>
+  <!-- The message is shown in dialog when the app encounters an unsupported video codec for HFR mode -->
   <string name="error_app_unsupported_hfr_codec">Ko je vključen Počasni posnetek, je podprto samo kodiranje slike H.264</string>
+  <!-- The message is shown in dialog when the app encounters an unsupported video resolution-->
   <string name="error_app_unsupported">Nepodprta ločljivost videoposnetka za to vrsto kodeka</string>
+  <!--The message is shown in dialog when the raw snapshot is selected in Zero shutter lag mode-->
   <string name="error_app_unsupported_raw">Slikovna oblika RAW ni podprta v načinu brez zakasnitve sprožilca. Izberite JPEG</string>
   <string name="msg_cancel_longshot_for_limited_memory">Zmanjkuje pomnilnika, preklicevanje neprekinjenega fotografiranja</string>
+  <!-- Toast showing non-supported functionality for flash in AE bracket -->
   <string name="flash_aebracket_message">Bliskavica ni podprta v načinu korekture samodejne osvetlitve</string>
+  <!-- toast message for storage location switch -->
   <string name="on_switch_save_path_to_sdcard">Na notranjem pomnilniku je premalo prostora, preklop na kartico SD</string>
+  <!-- The message is shown in toast when click showOnMap Menu and there is no map app -->
   <string name="map_activity_not_found_err">Ni nameščene aplikacije za zemljevide, da bi se prikazala lokacija</string>
+  <!-- Continous shot enable message -->
   <string name="longshot_enable_message">Napredne značilnosti niso podprte v neprekinjenem fotografiranju</string>
-  <string name="advance_feature_enable_msg">Neprekinjeno fotografiranje ni možno z omogočenimi naprednimi možnostmi</string>
+  <!-- Advance features enable message -->
+  <string name="advance_feature_enable_msg">Neprekinjeno fotografiranje ni možno z omogočenimi naprednimi značilnostmi</string>
+  <!-- Toast after enable HDR function to inform continuous shot has disabled -->
   <string name="HDR_disable_continuous_shot">Omogočanje HDR-a bo onemogočilo neprekinjeno fotografiranje</string>
+  <!-- Toast after enable advanced capture function to inform continuous shot has disabled -->
   <string name="advanced_capture_disable_continuous_shot">Omogočanje naprednega zajema bo onemogočilo neprekinjeno fotografiranje</string>
+  <!-- Toast after enable 2k4k video quality to inform IS has disabled -->
   <string name="video_quality_4k_disable_IS">Omogočanje ločljivosti videoposnetka 4k bo onemogočilo ustalitev</string>
+  <!-- Toast after 2k4k video is enabled to inform SeeMore has been disabled -->
   <string name="video_quality_4k_disable_SeeMore">SeeMora ni možno omogočiti v videoposnetku 4k</string>
+  <!-- TODO: Remove these? -->
 </resources>
