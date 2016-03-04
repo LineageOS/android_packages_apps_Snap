@@ -21,45 +21,71 @@
     limitations under the License.
 -->
 <resources>
+  <!-- Preferences -->
+  <!-- Video quality setting entry. Videos will be recorded in VGA quality. [CHAR LIMIT=24] -->
+  <!-- Video quality setting entry. Videos will be recorded in CIF quality. [CHAR LIMIT=24] -->
+  <!-- Video quality setting entry. Videos will be recorded in QVGA quality. [CHAR LIMIT=24] -->
+  <!-- Video quality setting entry. Videos will be recorded in QCIF quality. [CHAR LIMIT=24] -->
+  <!-- Auto exposure -->
   <string name="pref_camera_autoexposure_title">Automatisk exponering</string>
   <string name="pref_camera_autoexposure_entry_centerweighted">Mittvägd</string>
   <string name="pref_camera_autoexposure_entry_frameaverage">Bildgenomsnitt</string>
   <string name="pref_camera_autoexposure_entry_spotmetering">Punktmätning</string>
+  <!-- Video codec -->
   <string name="pref_camera_videoencoder_title">Videokodek</string>
+  <!-- Audio codec -->
   <string name="pref_camera_audioencoder_title">Ljudkodek</string>
+  <!-- Skin tone enhancement -->
   <string name="pref_camera_skinToneEnhancement_title">Hudfärgsförstärkning</string>
+  <!-- Zero shutter lag-->
   <string name="pref_camera_zsl_title">Ingen slutarfördröjning</string>
+  <!-- Autofocus zone -->
   <string name="pref_camera_selectablezoneaf_title">Autofokusområde</string>
   <string name="pref_camera_selectablezoneaf_entry_auto">Auto</string>
   <string name="pref_camera_selectablezoneaf_entry_centerweighted">Mittvägd</string>
   <string name="pref_camera_selectablezoneaf_entry_frameaverage">Bildgenomsnitt</string>
   <string name="pref_camera_selectablezoneaf_entry_spotmetering">Punktmätning</string>
+  <!-- Advanced features -->
   <string name="pref_camera_advanced_features_title">Avancerade funktioner</string>
   <string name="pref_camera_advanced_feature_entry_none">Ingen</string>
   <string name="pref_camera_advanced_feature_entry_multi_touch_focus">Flertrycksfokus</string>
+  <!-- Manual exposure -->
   <string name="pref_camera_manual_exp_title">Manuell exponering</string>
   <string name="pref_camera_manual_exp_entry_ISO_priority">Prioritera ISO</string>
   <string name="pref_camera_manual_exp_entry_exptime_priority">Prioritera exponeringstid</string>
   <string name="pref_camera_manual_exp_entry_user_setting">Användarinställning</string>
   <string name="pref_camera_manual_exp_entry_off">Av</string>
+  <!-- Manual white balance -->
   <string name="pref_camera_manual_wb_title">Manuell vitbalans</string>
   <string name="pref_camera_manual_wb_entry_color_temperature">Färgtemperatur</string>
   <string name="pref_camera_manual_wb_entry_rbgb_gains">RBGB förstärkning</string>
   <string name="pref_camera_manual_wb_entry_off">Av</string>
+  <!-- Manual focus -->
   <string name="pref_camera_manual_focus_title">Manuell fokus</string>
   <string name="pref_camera_manual_focus_entry_scale_mode">Skalningsläge</string>
   <string name="pref_camera_manual_focus_entry_diopter_mode">Dioptri läge</string>
   <string name="pref_camera_manual_focus_entry_off">Av</string>
+  <!-- Video HDR-->
   <string name="pref_camera_video_hdr_title">Video HDR</string>
+  <!-- CDS mode-->
   <string name="pref_camera_cds_title">CDS-läge</string>
   <string name="pref_camera_cds_entry_auto">Auto</string>
+  <!-- Video CDS-->
   <string name="pref_camera_video_cds_title">CDS-videoläge</string>
   <string name="pref_camera_video_cds_entry_auto">Auto</string>
+  <!-- TNR-->
   <string name="pref_camera_tnr_title">TNR-läge</string>
+  <!-- Video TNR -->
   <string name="pref_camera_video_tnr_title">TNR-videoläge</string>
+  <!-- Face detection -->
   <string name="pref_camera_facedetection_title">Ansiktsigenkänning</string>
+  <!-- Selfie Flash -->
+  <string name="pref_selfie_flash_title">Selfie blixt</string>
+  <!-- Red eye reduction -->
   <string name="pref_camera_redeyereduction_title">Röda ögon-reduktion</string>
+  <!-- AE bracketing -->
   <string name="pref_camera_ae_bracket_hdr_title">Automatisk exponeringsvariation</string>
+  <!-- High-framerate recording -->
   <string name="pref_camera_hfr_title">Inspelning med hög framerate</string>
   <string name="pref_camera_hfr_entry_off">Av</string>
   <string name="pref_camera_hfr_entry_2x">Slow Motion 60 FPS</string>
@@ -69,7 +95,10 @@
   <string name="pref_camera_hfr_entry_hsr_60">Höghastighet 60 FPS</string>
   <string name="pref_camera_hfr_entry_hsr_90">Höghastighet 90 FPS</string>
   <string name="pref_camera_hfr_entry_hsr_120">Höghastighet 120 FPS</string>
+  <!-- See More -->
+  <!-- Denoise -->
   <string name="pref_camera_denoise_title">Brusreducering</string>
+  <!-- ISO -->
   <string name="pref_camera_iso_title">ISO</string>
   <string name="pref_camera_iso_entry_auto">Auto</string>
   <string name="pref_camera_iso_entry_isodeblur">Auto (HJR)</string>
@@ -100,15 +129,18 @@
   <string name="pref_camera_iso_entry_iso3200">ISO3200</string>
   <string name="pref_camera_iso_entry_iso6400">ISO6400</string>
   <string name="pref_camera_iso_entry_iso12800">ISO12800</string>
+  <!-- Antibanding -->
   <string name="pref_camera_antibanding_title">Antibandning</string>
   <string name="pref_camera_antibanding_entry_0">Auto</string>
   <string name="pref_camera_antibanding_entry_1">50 Hz (Europa)</string>
   <string name="pref_camera_antibanding_entry_2">60 Hz (USA)</string>
+  <!-- Color effect -->
   <string name="pref_camera_coloreffect_title">Färgeffekt</string>
   <string name="pref_camera_coloreffect_entry_none">Ingen</string>
   <string name="pref_camera_coloreffect_entry_mono">Mono</string>
   <string name="pref_camera_coloreffect_entry_sepia">Sepia</string>
   <string name="pref_camera_coloreffect_entry_negative">Negativ</string>
+  <!-- Color effect that overexposes and reverses some of the tones. -->
   <string name="pref_camera_coloreffect_entry_solarize">Solarisera</string>
   <string name="pref_camera_coloreffect_entry_posterize">Affischiera</string>
   <string name="pref_camera_coloreffect_entry_aqua">Vatten</string>
@@ -120,8 +152,11 @@
   <string name="pref_camera_coloreffect_entry_redtint">Röd toning</string>
   <string name="pref_camera_coloreffect_entry_bluetint">Blå toning</string>
   <string name="pref_camera_coloreffect_entry_greentint">Grön toning</string>
+  <!-- Stabilization -->
   <string name="pref_camera_dis_title">Stabilisering</string>
+  <!-- Face recognition -->
   <string name="pref_camera_facerc_title">Ansiktsigenkänning</string>
+  <!-- Sharpness -->
   <string name="pref_camera_sharpness_title">Skärpa</string>
   <string name="pref_camera_sharpness_entry_level0">Nivå 0</string>
   <string name="pref_camera_sharpness_entry_level1">Nivå 1</string>
@@ -130,6 +165,7 @@
   <string name="pref_camera_sharpness_entry_level4">Nivå 4</string>
   <string name="pref_camera_sharpness_entry_level5">Nivå 5</string>
   <string name="pref_camera_sharpness_entry_level6">Nivå 6</string>
+  <!-- Contrast -->
   <string name="pref_camera_contrast_title">Kontrast</string>
   <string name="pref_camera_contrast_entry_level0">Nivå 0</string>
   <string name="pref_camera_contrast_entry_level1">Nivå 1</string>
@@ -142,6 +178,7 @@
   <string name="pref_camera_contrast_entry_level8">Nivå 8</string>
   <string name="pref_camera_contrast_entry_level9">Nivå 9</string>
   <string name="pref_camera_contrast_entry_level10">Nivå 10</string>
+  <!-- Saturation -->
   <string name="pref_camera_saturation_title">Mättnad</string>
   <string name="pref_camera_saturation_entry_level0">Nivå 0</string>
   <string name="pref_camera_saturation_entry_level1">Nivå 1</string>
@@ -154,7 +191,9 @@
   <string name="pref_camera_saturation_entry_level8">Nivå 8</string>
   <string name="pref_camera_saturation_entry_level9">Nivå 9</string>
   <string name="pref_camera_saturation_entry_level10">Nivå 10</string>
+  <!-- Picture format -->
   <string name="pref_camera_picture_format_title">Bildformat</string>
+  <!-- Picture quality -->
   <string name="pref_camera_jpegquality_title">Bildkvalitet</string>
   <string name="pref_camera_jpegquality_entry_0">55%</string>
   <string name="pref_camera_jpegquality_entry_1">65% (normal)</string>
@@ -162,40 +201,68 @@
   <string name="pref_camera_jpegquality_entry_3">85% (superfin)</string>
   <string name="pref_camera_jpegquality_entry_4">95%</string>
   <string name="pref_camera_jpegquality_entry_5">100%</string>
+  <!-- Histogram -->
   <string name="pref_camera_histogram_title">Histogram</string>
+  <!-- Auto scene detection -->
   <string name="pref_camera_scenedetect_title">Automatisk scendetektion</string>
+  <!-- Continuous shot -->
   <string name="pref_camera_longshot_title">Kontinuerlig bildtagning</string>
+  <!-- Auto HDR -->
   <string name="pref_camera_auto_hdr_title">Auto HDR</string>
+  <!-- HDR mode -->
   <string name="pref_camera_hdr_mode_title">HDR-läge</string>
   <string name="pref_camera_hdr_mode_entry_sensor">Sensor HDR</string>
   <string name="pref_camera_hdr_mode_entry_multi_frame">Flerbilds-HDR</string>
+  <!-- HDR needs 1x frame -->
   <string name="pref_camera_hdr_need_1x_title">HDR behöver 1 x bild</string>
+  <!-- Video rotation -->
   <string name="pref_camera_video_rotation_title">Videorotation</string>
   <string name="pref_camera_video_rotation_entry_0">0 grader</string>
   <string name="pref_camera_video_rotation_entry_90">90 grader</string>
   <string name="pref_camera_video_rotation_entry_180">180 grader</string>
   <string name="pref_camera_video_rotation_entry_270">270 grader</string>
+  <!-- Storage location -->
   <string name="pref_camera_savepath_title">Lagringsplats</string>
   <string name="pref_camera_savepath_entry_0">Intern lagring</string>
   <string name="pref_camera_savepath_entry_1">SD-kort</string>
+  <!-- Misc -->
+  <!-- The alias of CameraActivity for gesture operation -->
   <string name="camera_gesture_title">Starta kamera</string>
   <string name="all_in_focus">Allt i fokus</string>
   <string name="refocus_toast">För att återfokusera senaste bilden, klicka här</string>
+  <!-- Toast messages -->
+  <!-- The message is shown in toast when the app encounters an unsupported selection for High-framerate recording mode -->
   <string name="error_app_unsupported_hfr_selection">Höghastighetsinspelning stöds inte när du använder stabilisering/intervallinspelning/HDR.</string>
+  <!-- The message is shown in dialog when the app encounters an unsupported resolution for Slow motion mode -->
   <string name="error_app_unsupported_hfr">Slow motion-läget stöds inte för den valda videostorleken. Välj en lägre videostorlek</string>
+  <!-- The message is shown in toast when the app encounters an unsupported resolution for Stabilization mode -->
   <string name="error_app_unsupported_dis">Stabilisering stöds inte för den valda videostorleken. Välj en lägre videostorlek</string>
+  <!-- The message is shown in dialog when the app encounters an unsupported resolution for High speed mode -->
   <string name="error_app_unsupported_hsr">Höghastighetsläge stöds inte för den valda videostorleken. Välj en lägre videostorlek</string>
+  <!-- The message is shown in dialog when the app encounters an unsupported video codec for HFR mode -->
   <string name="error_app_unsupported_hfr_codec">Bara H264 videokodning stöds när HFR är på</string>
+  <!-- The message is shown in dialog when the app encounters an unsupported video resolution-->
   <string name="error_app_unsupported">Videoupplösningen fungerar inte med denna kodek</string>
+  <!--The message is shown in dialog when the raw snapshot is selected in Zero shutter lag mode-->
   <string name="error_app_unsupported_raw">RAW bildformat stöds inte i läget ingen slutarfördröjning. Välj JPEG</string>
   <string name="msg_cancel_longshot_for_limited_memory">Minnet håller på att ta slut, avbryter kontinuerlig bildtagning</string>
+  <!-- Toast showing non-supported functionality for flash in AE bracket -->
   <string name="flash_aebracket_message">Blixt stöds inte i AE-Bracketingläge</string>
+  <!-- toast message for storage location switch -->
   <string name="on_switch_save_path_to_sdcard">Det finns inte tillräckligt internt lagringsutrymme, bytte lagringsplats till SD-kort</string>
+  <!-- The message is shown in toast when click showOnMap Menu and there is no map app -->
   <string name="map_activity_not_found_err">Det finns ingen kartapp installerad för att visa platsen</string>
+  <!-- Continous shot enable message -->
   <string name="longshot_enable_message">Avancerade funktioner stöds inte vid kontinuerlig bildtagning</string>
+  <!-- Advance features enable message -->
   <string name="advance_feature_enable_msg">Kontinuerlig bildtagning stöds inte när avancerade funktioner är aktiverade</string>
+  <!-- Toast after enable HDR function to inform continuous shot has disabled -->
   <string name="HDR_disable_continuous_shot">Aktivering av HDR kommer att inaktivera kontinuerlig bildtagning</string>
+  <!-- Toast after enable advanced capture function to inform continuous shot has disabled -->
   <string name="advanced_capture_disable_continuous_shot">Aktivering av avancerad bildfångst kommer att inaktivera kontinuerlig bildtagning</string>
+  <!-- Toast after enable 2k4k video quality to inform IS has disabled -->
   <string name="video_quality_4k_disable_IS">Aktivering av 4k videostorlek inaktiverar stabilisering</string>
+  <!-- Toast after 2k4k video is enabled to inform SeeMore has been disabled -->
   <string name="video_quality_4k_disable_SeeMore">SeeMore kan inte aktiveras vid 4k video</string>
+  <!-- TODO: Remove these? -->
 </resources>

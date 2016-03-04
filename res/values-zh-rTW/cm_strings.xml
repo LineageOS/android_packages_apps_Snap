@@ -16,55 +16,110 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <!-- Settings screen, dialog choice for 21 megapixels picture size [CHAR LIMIT=15] -->
   <string name="pref_camera_picturesize_entry_21mp">2100 萬像素</string>
+  <!-- Settings screen, dialog choice for 20.7 megapixels picture size [CHAR LIMIT=15] -->
   <string name="pref_camera_picturesize_entry_20_7mp">2070 萬像素</string>
+  <!-- Settings screen, dialog choice for 20.1 megapixels picture size [CHAR LIMIT=15] -->
   <string name="pref_camera_picturesize_entry_20_1mp_wide">2010 萬像素 (16:9)</string>
+  <!-- Settings screen, dialog choice for 18 megapixels picture size [CHAR LIMIT=15] -->
   <string name="pref_camera_picturesize_entry_18mp">1800 萬像素</string>
+  <!-- Settings screen, dialog choice for 16.2 megapixels picture size [CHAR LIMIT=15] -->
   <string name="pref_camera_picturesize_entry_16_2mp_wide">1620 萬像素 (16:9)</string>
+  <!-- Settings screen, dialog choice for 16.1 megapixels picture size [CHAR LIMIT=15] -->
   <string name="pref_camera_picturesize_entry_16_1mp_wide">1610 萬像素 (16:9)</string>
+  <!-- Settings screen, dialog choice for 16 megapixels picture size [CHAR LIMIT=15] -->
   <string name="pref_camera_picturesize_entry_16mp">1600 萬像素</string>
+  <!-- Settings screen, dialog choice for 15.9 megapixels picture size [CHAR LIMIT=15] -->
   <string name="pref_camera_picturesize_entry_15_9mp_wide">1590 萬像素 (16:9)</string>
+  <!-- Settings screen, dialog choice for 13 megapixels picture size [CHAR LIMIT=15] -->
   <string name="pref_camera_picturesize_entry_13mp">1300 萬像素</string>
+  <!-- Settings screen, dialog choice for 12.8 megapixels picture size [CHAR LIMIT=15] -->
   <string name="pref_camera_picturesize_entry_12_8mp">1280 萬像素</string>
+  <!-- Settings screen, dialog choice for 12.7 megapixels picture size [CHAR LIMIT=15] -->
   <string name="pref_camera_picturesize_entry_12_7mp">1270 萬像素</string>
+  <!-- Settings screen, dialog choice for 12.6 megapixels picture size [CHAR LIMIT=15] -->
   <string name="pref_camera_picturesize_entry_12_6mp">1260 萬像素</string>
+  <!-- Settings screen, dialog choice for 12.2 megapixels picture size [CHAR LIMIT=15] -->
+  <!-- Settings screen, dialog choice for 12 megapixels picture size [CHAR LIMIT=15] -->
   <string name="pref_camera_picturesize_entry_12mp">1200 萬像素</string>
+  <!-- Settings screen, dialog choice for 11.9 megapixels picture size [CHAR LIMIT=15] -->
+  <!-- Settings screen, dialog choice for 11.9 megapixels picture size [CHAR LIMIT=15] -->
   <string name="pref_camera_picturesize_entry_11_9mp">1190 萬像素</string>
+  <!-- Settings screen, dialog choice for 11.5 megapixels picture size [CHAR LIMIT=15] -->
   <string name="pref_camera_picturesize_entry_11_5mp">1150 萬像素</string>
+  <!-- Settings screen, dialog choice for 10.4 megapixels picture size [CHAR LIMIT=15] -->
   <string name="pref_camera_picturesize_entry_10_4mp">1040 萬像素</string>
+  <!-- Settings screen, dialog choice for 10 megapixels picture size [CHAR LIMIT=15] -->
   <string name="pref_camera_picturesize_entry_10mp">1000 萬像素</string>
+  <!-- Settings screen, dialog choice for 9.7 megapixels picture size [CHAR LIMIT=15] -->
   <string name="pref_camera_picturesize_entry_9_7mp_wide">970 萬像素 (16:9)</string>
+  <!-- Settings screen, dialog choice for 9.4 megapixels picture size [CHAR LIMIT=15] -->
   <string name="pref_camera_picturesize_entry_9_4mp_wide">940 萬像素 (16:9)</string>
+  <!-- Settings screen, dialog choice for 9 megapixels picture size [CHAR LIMIT=15] -->
   <string name="pref_camera_picturesize_entry_9mp">900 萬像素</string>
+  <!-- Settings screen, dialog choice for 8.9 megapixels picture size [CHAR LIMIT=15] -->
+  <!-- Settings screen, dialog choice for 8.2 megapixels picture size [CHAR LIMIT=15] -->
   <string name="pref_camera_picturesize_entry_8_2mp_wide">820 萬像素 (16:9)</string>
+  <!-- Settings screen, dialog choice for 8 megapixels picture size [CHAR LIMIT=15] -->
   <string name="pref_camera_picturesize_entry_8mp">800 萬像素</string>
+  <!-- Settings screen, dialog choice for 7.7 megapixels picture size [CHAR LIMIT=15] -->
   <string name="pref_camera_picturesize_entry_7_7mp">770 萬像素</string>
+  <!-- Settings screen, dialog choice for 7.5 megapixels picture size [CHAR LIMIT=15] -->
   <string name="pref_camera_picturesize_entry_7_5mp_wide">750 萬像素 (16:9)</string>
+  <!-- Settings screen, dialog choice for 6.4 megapixels picture size [CHAR LIMIT=15] -->
   <string name="pref_camera_picturesize_entry_6_4mp">640 萬像素</string>
+  <!-- Settings screen, dialog choice for 6 megapixels picture size [CHAR LIMIT=15] -->
   <string name="pref_camera_picturesize_entry_6mp_wide">600 萬像素 (16:9)</string>
+  <!-- Settings screen, dialog choice for 5 megapixels picture size [CHAR LIMIT=15] -->
   <string name="pref_camera_picturesize_entry_5mp">500 萬像素</string>
+  <!-- Settings screen, dialog choice for 4.5 megapixels picture size [CHAR LIMIT=15] -->
   <string name="pref_camera_picturesize_entry_4_5mp">450 萬像素</string>
+  <!-- Settings screen, dialog choice for 4 megapixels picture size [CHAR LIMIT=15] -->
   <string name="pref_camera_picturesize_entry_4mp_wide">400 萬像素 (16:9)</string>
+  <!-- Settings screen, dialog choice for 4 megapixels picture size [CHAR LIMIT=15] -->
   <string name="pref_camera_picturesize_entry_4mp">400 萬像素</string>
+  <!-- Settings screen, dialog choice for 3.7 megapixels picture size [CHAR LIMIT=15] -->
   <string name="pref_camera_picturesize_entry_3_7mp_wide">370 萬像素 (16:9)</string>
+  <!-- Settings screen, dialog choice for 3 megapixels picture size [CHAR LIMIT=15] -->
   <string name="pref_camera_picturesize_entry_3mp">300 萬像素</string>
+  <!-- Settings screen, dialog choice for 2.5 megapixels picture size [CHAR LIMIT=15] -->
   <string name="pref_camera_picturesize_entry_2_5mp_wide">250 萬像素 (16:9)</string>
+  <!-- Settings screen, dialog choice for 2.5 megapixels picture size [CHAR LIMIT=15] -->
   <string name="pref_camera_picturesize_entry_2_5mp">250 萬像素</string>
+  <!-- Settings screen, dialog choice for 2.1 megapixels picture size [CHAR LIMIT=15] -->
   <string name="pref_camera_picturesize_entry_2_1mp_wide">210 萬像素 (16:9)</string>
+  <!-- Settings screen, dialog choice for 2 megapixels picture size [CHAR LIMIT=15] -->
   <string name="pref_camera_picturesize_entry_2mp_wide">200 萬像素 (16:9)</string>
+  <!-- Settings screen, dialog choice for 2 megapixels picture size [CHAR LIMIT=15] -->
   <string name="pref_camera_picturesize_entry_2mp">200 萬像素</string>
+  <!-- Settings screen, dialog choice for 1.9 megapixels picture size [CHAR LIMIT=15] -->
   <string name="pref_camera_picturesize_entry_1_9mp">190 萬像素</string>
+  <!-- Settings screen, dialog choice for 1.6 megapixels picture size [CHAR LIMIT=15] -->
+  <!-- Settings screen, dialog choice for 1.5 megapixels picture size [CHAR LIMIT=15] -->
   <string name="pref_camera_picturesize_entry_1_5mp">150 萬像素</string>
+  <!-- Settings screen, dialog choice for 1.3 megapixels picture size [CHAR LIMIT=15] -->
   <string name="pref_camera_picturesize_entry_1_3mp">130 萬像素</string>
+  <!-- Settings screen, dialog choice for 1.2 megapixels picture size [CHAR LIMIT=15] -->
+  <!-- Settings screen, dialog choice for 1 megapixels picture size [CHAR LIMIT=15] -->
   <string name="pref_camera_picturesize_entry_1mp">100 萬像素</string>
+  <!-- Settings screen, dialog choice for WXGA picture size [CHAR LIMIT=15] -->
   <string name="pref_camera_picturesize_entry_wxga">WXGA</string>
+  <!-- Settings screen, dialog choice for XGA picture size [CHAR LIMIT=15] -->
   <string name="pref_camera_picturesize_entry_xga">XGA</string>
+  <!-- Settings screen, dialog choice for SVGA picture size [CHAR LIMIT=15] -->
   <string name="pref_camera_picturesize_entry_svga">SVGA</string>
+  <!-- Settings screen, dialog choice for WVGA picture size [CHAR LIMIT=15] -->
   <string name="pref_camera_picturesize_entry_wvga">WVGA</string>
+  <!-- Settings screen, dialog choice for VGA picture size [CHAR LIMIT=15] -->
   <string name="pref_camera_picturesize_entry_vga">VGA</string>
+  <!-- Settings screen, dialog choice for nHD picture size [CHAR LIMIT=15] -->
   <string name="pref_camera_picturesize_entry_nhd_wide">nHD (16:9)</string>
+  <!-- Settings screen, dialog choice for WQVGA picture size [CHAR LIMIT=15] -->
   <string name="pref_camera_picturesize_entry_wqvga">WQVGA</string>
+  <!-- Settings screen, dialog choice for QVGA picture size [CHAR LIMIT=15] -->
   <string name="pref_camera_picturesize_entry_qvga">QVGA</string>
+  <!-- Settings screen, scene mode -->
   <string name="pref_camera_scenemode_entry_refocus">Marco+</string>
   <string name="pref_camera_scenemode_entry_antimotionblur">降低動態模糊</string>
   <string name="pref_camera_scenemode_entry_aqua">水色</string>
@@ -108,6 +163,7 @@
   <string name="pref_camera_scenemode_entry_text">文字</string>
   <string name="pref_camera_scenemode_entry_theatre">劇院</string>
   <string name="pref_camera_scenemode_entry_whiteboard">白板</string>
+  <!-- Settings screen, focus mode -->
   <string name="pref_camera_focusmode_entry_continuous">連續</string>
   <string name="pref_camera_focusmode_entry_mw_continuous">連續 (MW)</string>
   <string name="pref_camera_focusmode_entry_extended">擴展</string>
@@ -117,6 +173,7 @@
   <string name="pref_camera_focusmode_entry_normal">一般</string>
   <string name="pref_camera_focusmode_entry_portrait">肖像</string>
   <string name="pref_camera_focusmode_entry_hyperfocal">超焦距</string>
+  <!-- Color effects -->
   <string name="pref_camera_coloreffect_entry_washed">沖蝕</string>
   <string name="pref_camera_coloreffect_entry_vintage_warm">仿古暖色</string>
   <string name="pref_camera_coloreffect_entry_vintage_cold">仿古冷色</string>
@@ -124,14 +181,19 @@
   <string name="pref_camera_coloreffect_entry_point_green">綠點</string>
   <string name="pref_camera_coloreffect_entry_point_red_yellow">紅黃點</string>
   <string name="pref_camera_coloreffect_entry_cartoonize">卡通化</string>
+  <!-- Red eye flash mode title -->
   <string name="pref_camera_flashmode_entry_redeye">紅眼</string>
   <string name="pref_camera_flashmode_label_redeye">紅眼</string>
+  <!-- Power shutter -->
   <string name="pref_camera_power_shutter_title">電源按鈕快門</string>
+  <!-- Max brightness -->
   <string name="pref_camera_max_brightness_title">明亮螢幕</string>
+  <!-- Touch focus duration -->
   <string name="pref_camera_focustime_title">觸控對焦持續時間</string>
   <string name="pref_camera_focustime_entry_5">5 秒</string>
   <string name="pref_camera_focustime_entry_10">10 秒</string>
   <string name="pref_camera_focustime_entry_infinite">無限</string>
+  <!-- Shutter speed -->
   <string name="pref_camera_shutter_speed_title">快門速度</string>
   <string name="auto_hdr_enabled">已啟用自動 HDR</string>
 </resources>

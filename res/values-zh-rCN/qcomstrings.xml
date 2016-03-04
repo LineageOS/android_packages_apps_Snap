@@ -21,46 +21,71 @@
     limitations under the License.
 -->
 <resources>
+  <!-- Preferences -->
+  <!-- Video quality setting entry. Videos will be recorded in VGA quality. [CHAR LIMIT=24] -->
+  <!-- Video quality setting entry. Videos will be recorded in CIF quality. [CHAR LIMIT=24] -->
+  <!-- Video quality setting entry. Videos will be recorded in QVGA quality. [CHAR LIMIT=24] -->
+  <!-- Video quality setting entry. Videos will be recorded in QCIF quality. [CHAR LIMIT=24] -->
+  <!-- Auto exposure -->
   <string name="pref_camera_autoexposure_title">自动曝光</string>
   <string name="pref_camera_autoexposure_entry_centerweighted">中心测光</string>
   <string name="pref_camera_autoexposure_entry_frameaverage">平均帧</string>
   <string name="pref_camera_autoexposure_entry_spotmetering">点测光</string>
+  <!-- Video codec -->
   <string name="pref_camera_videoencoder_title">视频编码器</string>
+  <!-- Audio codec -->
   <string name="pref_camera_audioencoder_title">音频编码器</string>
+  <!-- Skin tone enhancement -->
   <string name="pref_camera_skinToneEnhancement_title">皮肤色调增强</string>
+  <!-- Zero shutter lag-->
   <string name="pref_camera_zsl_title">零快门延迟</string>
+  <!-- Autofocus zone -->
   <string name="pref_camera_selectablezoneaf_title">自动对焦区域</string>
   <string name="pref_camera_selectablezoneaf_entry_auto">自动</string>
   <string name="pref_camera_selectablezoneaf_entry_centerweighted">中心测光</string>
   <string name="pref_camera_selectablezoneaf_entry_frameaverage">平均帧</string>
   <string name="pref_camera_selectablezoneaf_entry_spotmetering">点测光</string>
+  <!-- Advanced features -->
   <string name="pref_camera_advanced_features_title">高级功能</string>
   <string name="pref_camera_advanced_feature_entry_none">无</string>
   <string name="pref_camera_advanced_feature_entry_multi_touch_focus">多点触摸对焦</string>
+  <!-- Manual exposure -->
   <string name="pref_camera_manual_exp_title">手动曝光</string>
   <string name="pref_camera_manual_exp_entry_ISO_priority">ISO 优先</string>
   <string name="pref_camera_manual_exp_entry_exptime_priority">曝光时间优先</string>
   <string name="pref_camera_manual_exp_entry_user_setting">用户设置</string>
   <string name="pref_camera_manual_exp_entry_off">关闭</string>
+  <!-- Manual white balance -->
   <string name="pref_camera_manual_wb_title">手动白平衡</string>
   <string name="pref_camera_manual_wb_entry_color_temperature">色温</string>
   <string name="pref_camera_manual_wb_entry_rbgb_gains">RBGB 增益</string>
   <string name="pref_camera_manual_wb_entry_off">关闭</string>
+  <!-- Manual focus -->
   <string name="pref_camera_manual_focus_title">手动对焦</string>
   <string name="pref_camera_manual_focus_entry_scale_mode">比例模式</string>
   <string name="pref_camera_manual_focus_entry_diopter_mode">屈光模式</string>
   <string name="pref_camera_manual_focus_entry_off">关闭</string>
+  <!-- Video HDR-->
   <string name="pref_camera_video_hdr_title">视频 HDR</string>
+  <!-- CDS mode-->
   <string name="pref_camera_cds_title">CDS 模式</string>
   <string name="pref_camera_cds_entry_auto">自动</string>
+  <!-- Video CDS-->
   <string name="pref_camera_video_cds_title">视频 CDS 模式</string>
   <string name="pref_camera_video_cds_entry_auto">自动</string>
+  <!-- TNR-->
   <string name="pref_camera_tnr_title">TNR 模式</string>
+  <!-- Video TNR -->
   <string name="pref_camera_video_tnr_title">视频 TNR 模式</string>
+  <!-- Face detection -->
   <string name="pref_camera_facedetection_title">人脸检测</string>
+  <!-- Selfie Flash -->
   <string name="pref_selfie_flash_title">自拍闪光灯</string>
+  <!-- Red eye reduction -->
   <string name="pref_camera_redeyereduction_title">红眼消除</string>
+  <!-- AE bracketing -->
   <string name="pref_camera_ae_bracket_hdr_title">自动包围曝光</string>
+  <!-- High-framerate recording -->
   <string name="pref_camera_hfr_title">高帧率录制</string>
   <string name="pref_camera_hfr_entry_off">关闭</string>
   <string name="pref_camera_hfr_entry_2x">60 FPS 慢动作</string>
@@ -70,7 +95,10 @@
   <string name="pref_camera_hfr_entry_hsr_60">60 FPS 高速</string>
   <string name="pref_camera_hfr_entry_hsr_90">90 FPS 高速</string>
   <string name="pref_camera_hfr_entry_hsr_120">120 FPS 高速</string>
+  <!-- See More -->
+  <!-- Denoise -->
   <string name="pref_camera_denoise_title">降噪</string>
+  <!-- ISO -->
   <string name="pref_camera_iso_title">ISO</string>
   <string name="pref_camera_iso_entry_auto">自动</string>
   <string name="pref_camera_iso_entry_isodeblur">自动 (HJR)</string>
@@ -101,15 +129,18 @@
   <string name="pref_camera_iso_entry_iso3200">ISO3200</string>
   <string name="pref_camera_iso_entry_iso6400">ISO6400</string>
   <string name="pref_camera_iso_entry_iso12800">ISO12800</string>
+  <!-- Antibanding -->
   <string name="pref_camera_antibanding_title">抗条纹</string>
   <string name="pref_camera_antibanding_entry_0">自动</string>
   <string name="pref_camera_antibanding_entry_1">50 Hz (欧洲)</string>
   <string name="pref_camera_antibanding_entry_2">60 Hz (美国)</string>
+  <!-- Color effect -->
   <string name="pref_camera_coloreffect_title">色彩效果</string>
   <string name="pref_camera_coloreffect_entry_none">无</string>
   <string name="pref_camera_coloreffect_entry_mono">黑白</string>
   <string name="pref_camera_coloreffect_entry_sepia">棕褐色</string>
   <string name="pref_camera_coloreffect_entry_negative">负片</string>
+  <!-- Color effect that overexposes and reverses some of the tones. -->
   <string name="pref_camera_coloreffect_entry_solarize">过度曝光</string>
   <string name="pref_camera_coloreffect_entry_posterize">色调分离</string>
   <string name="pref_camera_coloreffect_entry_aqua">水底</string>
@@ -121,8 +152,11 @@
   <string name="pref_camera_coloreffect_entry_redtint">红色调</string>
   <string name="pref_camera_coloreffect_entry_bluetint">蓝色调</string>
   <string name="pref_camera_coloreffect_entry_greentint">绿色调</string>
+  <!-- Stabilization -->
   <string name="pref_camera_dis_title">视频防抖</string>
+  <!-- Face recognition -->
   <string name="pref_camera_facerc_title">人脸识别</string>
+  <!-- Sharpness -->
   <string name="pref_camera_sharpness_title">锐度</string>
   <string name="pref_camera_sharpness_entry_level0">0 级</string>
   <string name="pref_camera_sharpness_entry_level1">1 级</string>
@@ -131,6 +165,7 @@
   <string name="pref_camera_sharpness_entry_level4">4 级</string>
   <string name="pref_camera_sharpness_entry_level5">5 级</string>
   <string name="pref_camera_sharpness_entry_level6">6 级</string>
+  <!-- Contrast -->
   <string name="pref_camera_contrast_title">对比度</string>
   <string name="pref_camera_contrast_entry_level0">0 级</string>
   <string name="pref_camera_contrast_entry_level1">1 级</string>
@@ -143,6 +178,7 @@
   <string name="pref_camera_contrast_entry_level8">8 级</string>
   <string name="pref_camera_contrast_entry_level9">9 级</string>
   <string name="pref_camera_contrast_entry_level10">10 级</string>
+  <!-- Saturation -->
   <string name="pref_camera_saturation_title">饱和度</string>
   <string name="pref_camera_saturation_entry_level0">0 级</string>
   <string name="pref_camera_saturation_entry_level1">1 级</string>
@@ -155,7 +191,9 @@
   <string name="pref_camera_saturation_entry_level8">8 级</string>
   <string name="pref_camera_saturation_entry_level9">9 级</string>
   <string name="pref_camera_saturation_entry_level10">10 级</string>
+  <!-- Picture format -->
   <string name="pref_camera_picture_format_title">图片格式</string>
+  <!-- Picture quality -->
   <string name="pref_camera_jpegquality_title">图片质量</string>
   <string name="pref_camera_jpegquality_entry_0">55%</string>
   <string name="pref_camera_jpegquality_entry_1">65% (正常)</string>
@@ -163,40 +201,68 @@
   <string name="pref_camera_jpegquality_entry_3">85% (超精细)</string>
   <string name="pref_camera_jpegquality_entry_4">95%</string>
   <string name="pref_camera_jpegquality_entry_5">100%</string>
+  <!-- Histogram -->
   <string name="pref_camera_histogram_title">直方图</string>
+  <!-- Auto scene detection -->
   <string name="pref_camera_scenedetect_title">自动场景检测</string>
+  <!-- Continuous shot -->
   <string name="pref_camera_longshot_title">连拍</string>
+  <!-- Auto HDR -->
   <string name="pref_camera_auto_hdr_title">自动 HDR</string>
+  <!-- HDR mode -->
   <string name="pref_camera_hdr_mode_title">HDR 模式</string>
   <string name="pref_camera_hdr_mode_entry_sensor">传感器 HDR</string>
   <string name="pref_camera_hdr_mode_entry_multi_frame">多帧 HDR</string>
+  <!-- HDR needs 1x frame -->
   <string name="pref_camera_hdr_need_1x_title">HDR 需要 1x 帧</string>
+  <!-- Video rotation -->
   <string name="pref_camera_video_rotation_title">视频旋转</string>
   <string name="pref_camera_video_rotation_entry_0">0 度</string>
   <string name="pref_camera_video_rotation_entry_90">90 度</string>
   <string name="pref_camera_video_rotation_entry_180">180 度</string>
   <string name="pref_camera_video_rotation_entry_270">270 度</string>
+  <!-- Storage location -->
   <string name="pref_camera_savepath_title">存储位置</string>
   <string name="pref_camera_savepath_entry_0">内部存储</string>
   <string name="pref_camera_savepath_entry_1">SD 卡</string>
+  <!-- Misc -->
+  <!-- The alias of CameraActivity for gesture operation -->
   <string name="camera_gesture_title">启动相机</string>
   <string name="all_in_focus">全焦</string>
   <string name="refocus_toast">点击此处为上张照片重新对焦</string>
+  <!-- Toast messages -->
+  <!-- The message is shown in toast when the app encounters an unsupported selection for High-framerate recording mode -->
   <string name="error_app_unsupported_hfr_selection">稳定化 / 延时 / HDR 不支持高帧率拍摄。</string>
+  <!-- The message is shown in dialog when the app encounters an unsupported resolution for Slow motion mode -->
   <string name="error_app_unsupported_hfr">所选的视频大小不支持慢动作模式。选择一个较低的视频大小</string>
+  <!-- The message is shown in toast when the app encounters an unsupported resolution for Stabilization mode -->
   <string name="error_app_unsupported_dis">所选的视频大小不支持稳定化。选择一个较低的视频大小</string>
+  <!-- The message is shown in dialog when the app encounters an unsupported resolution for High speed mode -->
   <string name="error_app_unsupported_hsr">所选的视频大小不支持高速模式。选择一个较低的视频大小</string>
+  <!-- The message is shown in dialog when the app encounters an unsupported video codec for HFR mode -->
   <string name="error_app_unsupported_hfr_codec">开启高帧率时仅支持 H264 视频编码</string>
+  <!-- The message is shown in dialog when the app encounters an unsupported video resolution-->
   <string name="error_app_unsupported">视频大小不支持此编码器类型</string>
+  <!--The message is shown in dialog when the raw snapshot is selected in Zero shutter lag mode-->
   <string name="error_app_unsupported_raw">零快门延迟模式不支持 Raw 格式的图片。请选择 JPEG 格式</string>
   <string name="msg_cancel_longshot_for_limited_memory">内存消耗殆尽，正在取消连拍模式</string>
+  <!-- Toast showing non-supported functionality for flash in AE bracket -->
   <string name="flash_aebracket_message">AE 曝光模式不支持使用闪光灯</string>
+  <!-- toast message for storage location switch -->
   <string name="on_switch_save_path_to_sdcard">内部存储空间不足，已将存储位置切换到 SD 卡</string>
+  <!-- The message is shown in toast when click showOnMap Menu and there is no map app -->
   <string name="map_activity_not_found_err">找不到用于显示地点的地图应用</string>
+  <!-- Continous shot enable message -->
   <string name="longshot_enable_message">在连拍模式下高级功能不被支持</string>
+  <!-- Advance features enable message -->
   <string name="advance_feature_enable_msg">当高级功能启用时，连拍不被支持</string>
+  <!-- Toast after enable HDR function to inform continuous shot has disabled -->
   <string name="HDR_disable_continuous_shot">启用 HDR 将会禁用连拍</string>
+  <!-- Toast after enable advanced capture function to inform continuous shot has disabled -->
   <string name="advanced_capture_disable_continuous_shot">启用高级功能将会禁用连拍</string>
+  <!-- Toast after enable 2k4k video quality to inform IS has disabled -->
   <string name="video_quality_4k_disable_IS">启用 4K 视频尺寸将会禁用稳定化</string>
+  <!-- Toast after 2k4k video is enabled to inform SeeMore has been disabled -->
   <string name="video_quality_4k_disable_SeeMore">SeeMore 功能无法在录制 4K 视频时启用</string>
+  <!-- TODO: Remove these? -->
 </resources>
