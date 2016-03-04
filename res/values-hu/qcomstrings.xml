@@ -21,46 +21,71 @@
     limitations under the License.
 -->
 <resources>
+  <!-- Preferences -->
+  <!-- Video quality setting entry. Videos will be recorded in VGA quality. [CHAR LIMIT=24] -->
+  <!-- Video quality setting entry. Videos will be recorded in CIF quality. [CHAR LIMIT=24] -->
+  <!-- Video quality setting entry. Videos will be recorded in QVGA quality. [CHAR LIMIT=24] -->
+  <!-- Video quality setting entry. Videos will be recorded in QCIF quality. [CHAR LIMIT=24] -->
+  <!-- Auto exposure -->
   <string name="pref_camera_autoexposure_title">Automatikus expozíció</string>
   <string name="pref_camera_autoexposure_entry_centerweighted">Középre súlyozott</string>
   <string name="pref_camera_autoexposure_entry_frameaverage">Átlagoló</string>
   <string name="pref_camera_autoexposure_entry_spotmetering">Spot mérés</string>
+  <!-- Video codec -->
   <string name="pref_camera_videoencoder_title">Videó tömörítő</string>
+  <!-- Audio codec -->
   <string name="pref_camera_audioencoder_title">Audió tömörítő</string>
+  <!-- Skin tone enhancement -->
   <string name="pref_camera_skinToneEnhancement_title">Bőrszín fokozás</string>
+  <!-- Zero shutter lag-->
   <string name="pref_camera_zsl_title">Zéró zárkésés</string>
+  <!-- Autofocus zone -->
   <string name="pref_camera_selectablezoneaf_title">Választható fókusz módok</string>
   <string name="pref_camera_selectablezoneaf_entry_auto">Automatikus</string>
   <string name="pref_camera_selectablezoneaf_entry_centerweighted">Középre súlyozott</string>
   <string name="pref_camera_selectablezoneaf_entry_frameaverage">Átlagoló</string>
   <string name="pref_camera_selectablezoneaf_entry_spotmetering">Spot mérés</string>
+  <!-- Advanced features -->
   <string name="pref_camera_advanced_features_title">Speciális funkciók</string>
   <string name="pref_camera_advanced_feature_entry_none">Nincs</string>
   <string name="pref_camera_advanced_feature_entry_multi_touch_focus">Több pontra fókuszálás</string>
+  <!-- Manual exposure -->
   <string name="pref_camera_manual_exp_title">Kézi expozíció</string>
   <string name="pref_camera_manual_exp_entry_ISO_priority">ISO prioritás</string>
   <string name="pref_camera_manual_exp_entry_exptime_priority">Expozíciós idő prioritás</string>
   <string name="pref_camera_manual_exp_entry_user_setting">Felhasználói beállítás</string>
   <string name="pref_camera_manual_exp_entry_off">Ki</string>
+  <!-- Manual white balance -->
   <string name="pref_camera_manual_wb_title">Manuális fehéregyensúly</string>
   <string name="pref_camera_manual_wb_entry_color_temperature">Színhőmérséklet</string>
   <string name="pref_camera_manual_wb_entry_rbgb_gains">RBGB erősítés</string>
   <string name="pref_camera_manual_wb_entry_off">Ki</string>
+  <!-- Manual focus -->
   <string name="pref_camera_manual_focus_title">Manuális fókusz</string>
   <string name="pref_camera_manual_focus_entry_scale_mode">Skála mód</string>
   <string name="pref_camera_manual_focus_entry_diopter_mode">Dioptria mód</string>
   <string name="pref_camera_manual_focus_entry_off">Ki</string>
+  <!-- Video HDR-->
   <string name="pref_camera_video_hdr_title">Videó HDR</string>
+  <!-- CDS mode-->
   <string name="pref_camera_cds_title">CDS mód</string>
   <string name="pref_camera_cds_entry_auto">Automatikus</string>
+  <!-- Video CDS-->
   <string name="pref_camera_video_cds_title">Videó CDS mód</string>
   <string name="pref_camera_video_cds_entry_auto">Automatikus</string>
+  <!-- TNR-->
   <string name="pref_camera_tnr_title">TNR mód</string>
+  <!-- Video TNR -->
   <string name="pref_camera_video_tnr_title">Videó TNR mód</string>
+  <!-- Face detection -->
   <string name="pref_camera_facedetection_title">Arckeresés</string>
+  <!-- Selfie Flash -->
   <string name="pref_selfie_flash_title">Szelfi vaku</string>
+  <!-- Red eye reduction -->
   <string name="pref_camera_redeyereduction_title">Vörösszem csökkentés</string>
+  <!-- AE bracketing -->
   <string name="pref_camera_ae_bracket_hdr_title">Automatikus expozíció sorozat</string>
+  <!-- High-framerate recording -->
   <string name="pref_camera_hfr_title">Lassított felvétel</string>
   <string name="pref_camera_hfr_entry_off">Ki</string>
   <string name="pref_camera_hfr_entry_2x">Lassított felvétel 60 FPS</string>
@@ -70,7 +95,10 @@
   <string name="pref_camera_hfr_entry_hsr_60">Gyorsított felvétel 60 FPS</string>
   <string name="pref_camera_hfr_entry_hsr_90">Gyorsított felvétel 90 FPS</string>
   <string name="pref_camera_hfr_entry_hsr_120">Gyorsított felvétel 120 FPS</string>
+  <!-- See More -->
+  <!-- Denoise -->
   <string name="pref_camera_denoise_title">Zajcsökkentés</string>
+  <!-- ISO -->
   <string name="pref_camera_iso_title">Válasszon ISO értéket</string>
   <string name="pref_camera_iso_entry_auto">Automatikus</string>
   <string name="pref_camera_iso_entry_isodeblur">ISO Automatikus (HJR)</string>
@@ -101,15 +129,18 @@
   <string name="pref_camera_iso_entry_iso3200">ISO3200</string>
   <string name="pref_camera_iso_entry_iso6400">ISO6400</string>
   <string name="pref_camera_iso_entry_iso12800">ISO12800</string>
+  <!-- Antibanding -->
   <string name="pref_camera_antibanding_title">Csikozódáscsökkentés</string>
   <string name="pref_camera_antibanding_entry_0">Automatikus</string>
   <string name="pref_camera_antibanding_entry_1">50 Hz (Európa)</string>
   <string name="pref_camera_antibanding_entry_2">60 Hz (USA)</string>
+  <!-- Color effect -->
   <string name="pref_camera_coloreffect_title">Szín effektek</string>
   <string name="pref_camera_coloreffect_entry_none">Nincs</string>
   <string name="pref_camera_coloreffect_entry_mono">Fekete-fehér</string>
   <string name="pref_camera_coloreffect_entry_sepia">Szépia</string>
   <string name="pref_camera_coloreffect_entry_negative">Negatív</string>
+  <!-- Color effect that overexposes and reverses some of the tones. -->
   <string name="pref_camera_coloreffect_entry_solarize">Szolarizált</string>
   <string name="pref_camera_coloreffect_entry_posterize">Poszterizált</string>
   <string name="pref_camera_coloreffect_entry_aqua">Víz</string>
@@ -121,8 +152,11 @@
   <string name="pref_camera_coloreffect_entry_redtint">Vörös árnyalat</string>
   <string name="pref_camera_coloreffect_entry_bluetint">Kék árnyalat</string>
   <string name="pref_camera_coloreffect_entry_greentint">Zöld árnyalat</string>
+  <!-- Stabilization -->
   <string name="pref_camera_dis_title">Digitális képstabilizáció</string>
+  <!-- Face recognition -->
   <string name="pref_camera_facerc_title">Arcfelismerés</string>
+  <!-- Sharpness -->
   <string name="pref_camera_sharpness_title">Élesség</string>
   <string name="pref_camera_sharpness_entry_level0">Szint 0</string>
   <string name="pref_camera_sharpness_entry_level1">Szint 1</string>
@@ -131,6 +165,7 @@
   <string name="pref_camera_sharpness_entry_level4">Szint 4</string>
   <string name="pref_camera_sharpness_entry_level5">Szint 5</string>
   <string name="pref_camera_sharpness_entry_level6">Szint 6</string>
+  <!-- Contrast -->
   <string name="pref_camera_contrast_title">Kontraszt</string>
   <string name="pref_camera_contrast_entry_level0">Szint 0</string>
   <string name="pref_camera_contrast_entry_level1">Szint 1</string>
@@ -143,6 +178,7 @@
   <string name="pref_camera_contrast_entry_level8">Szint 8</string>
   <string name="pref_camera_contrast_entry_level9">Szint 9</string>
   <string name="pref_camera_contrast_entry_level10">Szint 10</string>
+  <!-- Saturation -->
   <string name="pref_camera_saturation_title">Telítettség</string>
   <string name="pref_camera_saturation_entry_level0">Szint 0</string>
   <string name="pref_camera_saturation_entry_level1">Szint 1</string>
@@ -155,7 +191,9 @@
   <string name="pref_camera_saturation_entry_level8">Szint 8</string>
   <string name="pref_camera_saturation_entry_level9">Szint 9</string>
   <string name="pref_camera_saturation_entry_level10">Szint 10</string>
+  <!-- Picture format -->
   <string name="pref_camera_picture_format_title">Válasszon kép formátumot</string>
+  <!-- Picture quality -->
   <string name="pref_camera_jpegquality_title">Képminőség</string>
   <string name="pref_camera_jpegquality_entry_0">55%</string>
   <string name="pref_camera_jpegquality_entry_1">65% (normál)</string>
@@ -163,40 +201,68 @@
   <string name="pref_camera_jpegquality_entry_3">85% (szuper finom)</string>
   <string name="pref_camera_jpegquality_entry_4">95%</string>
   <string name="pref_camera_jpegquality_entry_5">100%</string>
+  <!-- Histogram -->
   <string name="pref_camera_histogram_title">Hisztogram</string>
+  <!-- Auto scene detection -->
   <string name="pref_camera_scenedetect_title">Automatikus fotóüzemmód</string>
+  <!-- Continuous shot -->
   <string name="pref_camera_longshot_title">Folyamatos felvétel</string>
+  <!-- Auto HDR -->
   <string name="pref_camera_auto_hdr_title">Auto HDR</string>
+  <!-- HDR mode -->
   <string name="pref_camera_hdr_mode_title">HDR mód</string>
   <string name="pref_camera_hdr_mode_entry_sensor">HDR szenzor</string>
   <string name="pref_camera_hdr_mode_entry_multi_frame">Multi-keret HDR</string>
+  <!-- HDR needs 1x frame -->
   <string name="pref_camera_hdr_need_1x_title">HDR 1x keretet igényel</string>
+  <!-- Video rotation -->
   <string name="pref_camera_video_rotation_title">Videó elforgatás</string>
   <string name="pref_camera_video_rotation_entry_0">0 fok</string>
   <string name="pref_camera_video_rotation_entry_90">90 fok</string>
   <string name="pref_camera_video_rotation_entry_180">180 fok</string>
   <string name="pref_camera_video_rotation_entry_270">270 fok</string>
+  <!-- Storage location -->
   <string name="pref_camera_savepath_title">Tárolási hely</string>
   <string name="pref_camera_savepath_entry_0">Belső tároló</string>
   <string name="pref_camera_savepath_entry_1">SD-kártya</string>
+  <!-- Misc -->
+  <!-- The alias of CameraActivity for gesture operation -->
   <string name="camera_gesture_title">Kamera indítása</string>
   <string name="all_in_focus">Minden a fókuszban</string>
   <string name="refocus_toast">Utolsó fotó újrafókuszálásához érintse meg itt</string>
+  <!-- Toast messages -->
+  <!-- The message is shown in toast when the app encounters an unsupported selection for High-framerate recording mode -->
   <string name="error_app_unsupported_hfr_selection">Lassított felvétel mód nem támogatott Stabilizáció/Gyorsított felvétel/HDR használatakor.</string>
+  <!-- The message is shown in dialog when the app encounters an unsupported resolution for Slow motion mode -->
   <string name="error_app_unsupported_hfr">Lassított felvétel mód nem támogatott a kiválasztott videó méretnél. Válasszon egy alacsonyabb méretet</string>
+  <!-- The message is shown in toast when the app encounters an unsupported resolution for Stabilization mode -->
   <string name="error_app_unsupported_dis">Stabilizáció nem támogatott a kiválasztott videó méretnél. Válasszon egy alacsonyabb méretet</string>
+  <!-- The message is shown in dialog when the app encounters an unsupported resolution for High speed mode -->
   <string name="error_app_unsupported_hsr">Gyorsított felvétel mód nem támogatott a kiválasztott videó méretnél. Válasszon egy alacsonyabb méretet</string>
+  <!-- The message is shown in dialog when the app encounters an unsupported video codec for HFR mode -->
   <string name="error_app_unsupported_hfr_codec">Bekapcsolt HFR esetén csak a H264 videó kódolás támogatott</string>
+  <!-- The message is shown in dialog when the app encounters an unsupported video resolution-->
   <string name="error_app_unsupported">Nem támogatott videófelbontás ehhez a tömörítőhöz</string>
+  <!--The message is shown in dialog when the raw snapshot is selected in Zero shutter lag mode-->
   <string name="error_app_unsupported_raw">Raw képformátum a zéró zárkésés módban nem támogatott. Válassza a JPEG formátumot</string>
   <string name="msg_cancel_longshot_for_limited_memory">Kevés a szabad memória, folyamatos felvétel megszakítása</string>
+  <!-- Toast showing non-supported functionality for flash in AE bracket -->
   <string name="flash_aebracket_message">A vaku nem támogatott az automatikus expozíció sorozat módban</string>
+  <!-- toast message for storage location switch -->
   <string name="on_switch_save_path_to_sdcard">Belső tárhely nem elég, tárhely az SD-kártyára váltva</string>
+  <!-- The message is shown in toast when click showOnMap Menu and there is no map app -->
   <string name="map_activity_not_found_err">Nincs telepítve térkép alkalmazás a hely megjelenítéséhez</string>
+  <!-- Continous shot enable message -->
   <string name="longshot_enable_message">Speciális funkciók nem használhatóak a folyamatos felvétel módban</string>
+  <!-- Advance features enable message -->
   <string name="advance_feature_enable_msg">Folyamatos felvétel nem támogatott, ha a speciális funkciók engedélyezve vannak</string>
+  <!-- Toast after enable HDR function to inform continuous shot has disabled -->
   <string name="HDR_disable_continuous_shot">HDR engedélyezése letiltja a folyamatos felvételt</string>
+  <!-- Toast after enable advanced capture function to inform continuous shot has disabled -->
   <string name="advanced_capture_disable_continuous_shot">A speciális funkciók engedélyezése letiltja a folyamatos felvételt</string>
+  <!-- Toast after enable 2k4k video quality to inform IS has disabled -->
   <string name="video_quality_4k_disable_IS">4k videóméret enegedélyezése letiltja a stabilizációt</string>
+  <!-- Toast after 2k4k video is enabled to inform SeeMore has been disabled -->
   <string name="video_quality_4k_disable_SeeMore">SeeMore nem engedélyezhető 4k videó alatt</string>
+  <!-- TODO: Remove these? -->
 </resources>

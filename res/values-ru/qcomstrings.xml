@@ -21,48 +21,73 @@
     limitations under the License.
 -->
 <resources>
+  <!-- Preferences -->
+  <!-- Video quality setting entry. Videos will be recorded in VGA quality. [CHAR LIMIT=24] -->
+  <!-- Video quality setting entry. Videos will be recorded in CIF quality. [CHAR LIMIT=24] -->
+  <!-- Video quality setting entry. Videos will be recorded in QVGA quality. [CHAR LIMIT=24] -->
+  <!-- Video quality setting entry. Videos will be recorded in QCIF quality. [CHAR LIMIT=24] -->
+  <!-- Auto exposure -->
   <string name="pref_camera_autoexposure_title">Автоэкспозиция</string>
   <string name="pref_camera_autoexposure_entry_centerweighted">По центру кадра</string>
   <string name="pref_camera_autoexposure_entry_frameaverage">Усреднённый</string>
-  <string name="pref_camera_autoexposure_entry_spotmetering">Точечный</string>
+  <string name="pref_camera_autoexposure_entry_spotmetering">Точечный замер</string>
+  <!-- Video codec -->
   <string name="pref_camera_videoencoder_title">Видеокодек</string>
+  <!-- Audio codec -->
   <string name="pref_camera_audioencoder_title">Аудиокодек</string>
+  <!-- Skin tone enhancement -->
   <string name="pref_camera_skinToneEnhancement_title">Улучшение цвета кожи</string>
+  <!-- Zero shutter lag-->
   <string name="pref_camera_zsl_title">Нулевая задержка затвора</string>
+  <!-- Autofocus zone -->
   <string name="pref_camera_selectablezoneaf_title">Зона автофокуса</string>
   <string name="pref_camera_selectablezoneaf_entry_auto">Авто</string>
   <string name="pref_camera_selectablezoneaf_entry_centerweighted">По центру кадра</string>
   <string name="pref_camera_selectablezoneaf_entry_frameaverage">Усреднённый</string>
   <string name="pref_camera_selectablezoneaf_entry_spotmetering">Точечный замер</string>
+  <!-- Advanced features -->
   <string name="pref_camera_advanced_features_title">Расширенные настройки</string>
-  <string name="pref_camera_advanced_feature_entry_none">Отключено</string>
+  <string name="pref_camera_advanced_feature_entry_none">Без эффекта</string>
   <string name="pref_camera_advanced_feature_entry_multi_touch_focus">Многоточечная фокусировка</string>
-  <string name="pref_camera_manual_exp_title">Ручная экспозиция</string>
+  <!-- Manual exposure -->
+  <string name="pref_camera_manual_exp_title">Ручная экспокоррекция</string>
   <string name="pref_camera_manual_exp_entry_ISO_priority">Приоритет ISO</string>
   <string name="pref_camera_manual_exp_entry_exptime_priority">Приоритет выдержки</string>
-  <string name="pref_camera_manual_exp_entry_user_setting">Пользов. настройки</string>
-  <string name="pref_camera_manual_exp_entry_off">Откл.</string>
+  <string name="pref_camera_manual_exp_entry_user_setting">Параметры пользователя</string>
+  <string name="pref_camera_manual_exp_entry_off">Отключить</string>
+  <!-- Manual white balance -->
   <string name="pref_camera_manual_wb_title">Ручной баланс белого</string>
   <string name="pref_camera_manual_wb_entry_color_temperature">Цветовая температура</string>
-  <string name="pref_camera_manual_wb_entry_rbgb_gains">Уровни RBGB</string>
-  <string name="pref_camera_manual_wb_entry_off">Откл.</string>
+  <string name="pref_camera_manual_wb_entry_rbgb_gains">Уровни RGBG</string>
+  <string name="pref_camera_manual_wb_entry_off">Откл</string>
+  <!-- Manual focus -->
   <string name="pref_camera_manual_focus_title">Ручная фокусировка</string>
   <string name="pref_camera_manual_focus_entry_scale_mode">Режим шкалы</string>
   <string name="pref_camera_manual_focus_entry_diopter_mode">Режим диоптрий</string>
-  <string name="pref_camera_manual_focus_entry_off">Откл.</string>
+  <string name="pref_camera_manual_focus_entry_off">Откл</string>
+  <!-- Video HDR-->
   <string name="pref_camera_video_hdr_title">HDR-видеосъёмка</string>
+  <!-- CDS mode-->
   <string name="pref_camera_cds_title">Режим CDS</string>
   <string name="pref_camera_cds_entry_auto">Авто</string>
-  <string name="pref_camera_video_cds_title">Режим CDS для видео</string>
+  <!-- Video CDS-->
+  <string name="pref_camera_video_cds_title">Режим CDS видео</string>
   <string name="pref_camera_video_cds_entry_auto">Авто</string>
-  <string name="pref_camera_tnr_title">Режим временного ШП</string>
-  <string name="pref_camera_video_tnr_title">Шумоподавл. для видео</string>
-  <string name="pref_camera_facedetection_title">Определение лиц</string>
+  <!-- TNR-->
+  <string name="pref_camera_tnr_title">TNR режим</string>
+  <!-- Video TNR -->
+  <string name="pref_camera_video_tnr_title">Режим TNR видео</string>
+  <!-- Face detection -->
+  <string name="pref_camera_facedetection_title">Распознавание лиц</string>
+  <!-- Selfie Flash -->
   <string name="pref_selfie_flash_title">Фронт. вспышка</string>
-  <string name="pref_camera_redeyereduction_title">Ум. эфф. красных глаз</string>
+  <!-- Red eye reduction -->
+  <string name="pref_camera_redeyereduction_title">Устр. эфф. красных глаз</string>
+  <!-- AE bracketing -->
   <string name="pref_camera_ae_bracket_hdr_title">Автобрекетинг</string>
+  <!-- High-framerate recording -->
   <string name="pref_camera_hfr_title">Ускоренная съёмка</string>
-  <string name="pref_camera_hfr_entry_off">Откл.</string>
+  <string name="pref_camera_hfr_entry_off">Выкл.</string>
   <string name="pref_camera_hfr_entry_2x">Замедл. движ. — 60 к/с</string>
   <string name="pref_camera_hfr_entry_3x">Замедл. движ. — 90 к/с</string>
   <string name="pref_camera_hfr_entry_4x">Замедл. движ. — 120 к/с</string>
@@ -70,12 +95,15 @@
   <string name="pref_camera_hfr_entry_hsr_60">Ускор. съёмка — 60 к/с</string>
   <string name="pref_camera_hfr_entry_hsr_90">Ускор. съёмка — 90 к/с</string>
   <string name="pref_camera_hfr_entry_hsr_120">Ускор. съёмка — 120 к/с</string>
+  <!-- See More -->
+  <!-- Denoise -->
   <string name="pref_camera_denoise_title">Шумоподавление</string>
+  <!-- ISO -->
   <string name="pref_camera_iso_title">Значение ISO</string>
   <string name="pref_camera_iso_entry_auto">Авто</string>
   <string name="pref_camera_iso_entry_isodeblur">Aвто (уменьш. размытия)</string>
   <string name="pref_camera_iso_entry_iso50">ISO50</string>
-  <string name="pref_camera_iso_entry_iso100">ISO100</string>
+  <string name="pref_camera_iso_entry_iso100">ISO 100</string>
   <string name="pref_camera_iso_entry_iso125">ISO125</string>
   <string name="pref_camera_iso_entry_iso150">ISO150</string>
   <string name="pref_camera_iso_entry_iso200">ISO200</string>
@@ -101,15 +129,18 @@
   <string name="pref_camera_iso_entry_iso3200">ISO3200</string>
   <string name="pref_camera_iso_entry_iso6400">ISO6400</string>
   <string name="pref_camera_iso_entry_iso12800">ISO12800</string>
+  <!-- Antibanding -->
   <string name="pref_camera_antibanding_title">Подавление мерцания</string>
   <string name="pref_camera_antibanding_entry_0">Авто</string>
   <string name="pref_camera_antibanding_entry_1">50 Гц (Европа)</string>
   <string name="pref_camera_antibanding_entry_2">60 Гц (США)</string>
+  <!-- Color effect -->
   <string name="pref_camera_coloreffect_title">Графический эффект</string>
   <string name="pref_camera_coloreffect_entry_none">Нет</string>
   <string name="pref_camera_coloreffect_entry_mono">Ч/Б</string>
   <string name="pref_camera_coloreffect_entry_sepia">Сепия</string>
   <string name="pref_camera_coloreffect_entry_negative">Негатив</string>
+  <!-- Color effect that overexposes and reverses some of the tones. -->
   <string name="pref_camera_coloreffect_entry_solarize">Соляризация</string>
   <string name="pref_camera_coloreffect_entry_posterize">Постеризация</string>
   <string name="pref_camera_coloreffect_entry_aqua">Под водой</string>
@@ -121,8 +152,11 @@
   <string name="pref_camera_coloreffect_entry_redtint">Красный оттенок</string>
   <string name="pref_camera_coloreffect_entry_bluetint">Синий оттенок</string>
   <string name="pref_camera_coloreffect_entry_greentint">Зелёный оттенок</string>
+  <!-- Stabilization -->
   <string name="pref_camera_dis_title">Стабилизатор изобр.</string>
+  <!-- Face recognition -->
   <string name="pref_camera_facerc_title">Распознавание лиц</string>
+  <!-- Sharpness -->
   <string name="pref_camera_sharpness_title">Резкость</string>
   <string name="pref_camera_sharpness_entry_level0">Уровень 0</string>
   <string name="pref_camera_sharpness_entry_level1">Уровень 1</string>
@@ -131,6 +165,7 @@
   <string name="pref_camera_sharpness_entry_level4">Уровень 4</string>
   <string name="pref_camera_sharpness_entry_level5">Уровень 5</string>
   <string name="pref_camera_sharpness_entry_level6">Уровень 6</string>
+  <!-- Contrast -->
   <string name="pref_camera_contrast_title">Контрастность</string>
   <string name="pref_camera_contrast_entry_level0">Уровень 0</string>
   <string name="pref_camera_contrast_entry_level1">Уровень 1</string>
@@ -143,6 +178,7 @@
   <string name="pref_camera_contrast_entry_level8">Уровень 8</string>
   <string name="pref_camera_contrast_entry_level9">Уровень 9</string>
   <string name="pref_camera_contrast_entry_level10">Уровень 10</string>
+  <!-- Saturation -->
   <string name="pref_camera_saturation_title">Насыщенность</string>
   <string name="pref_camera_saturation_entry_level0">Уровень 0</string>
   <string name="pref_camera_saturation_entry_level1">Уровень 1</string>
@@ -155,7 +191,9 @@
   <string name="pref_camera_saturation_entry_level8">Уровень 8</string>
   <string name="pref_camera_saturation_entry_level9">Уровень 9</string>
   <string name="pref_camera_saturation_entry_level10">Уровень 10</string>
+  <!-- Picture format -->
   <string name="pref_camera_picture_format_title">Формат изображения</string>
+  <!-- Picture quality -->
   <string name="pref_camera_jpegquality_title">Качество изображения</string>
   <string name="pref_camera_jpegquality_entry_0">55%</string>
   <string name="pref_camera_jpegquality_entry_1">65% (обычное)</string>
@@ -163,40 +201,68 @@
   <string name="pref_camera_jpegquality_entry_3">85% (очень высокое)</string>
   <string name="pref_camera_jpegquality_entry_4">95%</string>
   <string name="pref_camera_jpegquality_entry_5">100%</string>
+  <!-- Histogram -->
   <string name="pref_camera_histogram_title">Гистограмма</string>
+  <!-- Auto scene detection -->
   <string name="pref_camera_scenedetect_title">Распозн. условий съёмки</string>
+  <!-- Continuous shot -->
   <string name="pref_camera_longshot_title">Непрерывная съёмка</string>
+  <!-- Auto HDR -->
   <string name="pref_camera_auto_hdr_title">Авто HDR</string>
+  <!-- HDR mode -->
   <string name="pref_camera_hdr_mode_title">Режим HDR</string>
   <string name="pref_camera_hdr_mode_entry_sensor">HDR матрицы</string>
   <string name="pref_camera_hdr_mode_entry_multi_frame">Многокадровый HDR</string>
+  <!-- HDR needs 1x frame -->
   <string name="pref_camera_hdr_need_1x_title">HDR требует 1 кадр</string>
+  <!-- Video rotation -->
   <string name="pref_camera_video_rotation_title">Поворот видео</string>
   <string name="pref_camera_video_rotation_entry_0">0 градусов</string>
   <string name="pref_camera_video_rotation_entry_90">90 градусов</string>
   <string name="pref_camera_video_rotation_entry_180">180 градусов</string>
   <string name="pref_camera_video_rotation_entry_270">270 градусов</string>
+  <!-- Storage location -->
   <string name="pref_camera_savepath_title">Место хранения</string>
   <string name="pref_camera_savepath_entry_0">Внутренняя память</string>
   <string name="pref_camera_savepath_entry_1">SD-карта</string>
+  <!-- Misc -->
+  <!-- The alias of CameraActivity for gesture operation -->
   <string name="camera_gesture_title">Включить камеру</string>
   <string name="all_in_focus">Все в фокусе</string>
-  <string name="refocus_toast">Чтобы перефокусировать последнее фото, нажмите здесь</string>
+  <string name="refocus_toast">Нажмите, чтобы перефокусировать последнее фото</string>
+  <!-- Toast messages -->
+  <!-- The message is shown in toast when the app encounters an unsupported selection for High-framerate recording mode -->
   <string name="error_app_unsupported_hfr_selection">Ускоренная съёмка не поддерживается при включённой стабилизации изобр., включённом HDR или в режиме замедленной съёмки.</string>
-  <string name="error_app_unsupported_hfr">Замедл. движения не поддерживается для текущего разрешения. Установите более низкое разрешение видеозаписи.</string>
-  <string name="error_app_unsupported_dis">Стабилизация изображ. не поддерживается для текущего разрешения. Установите более низкое разрешение видеозаписи.</string>
-  <string name="error_app_unsupported_hsr">Ускоренная съёмка не поддерживается для текущего разрешения. Установите более низкое разрешение видеозаписи.</string>
+  <!-- The message is shown in dialog when the app encounters an unsupported resolution for Slow motion mode -->
+  <string name="error_app_unsupported_hfr">Замедл. движения не поддерживается для текущего разрешения видео. Установите более низкое разрешение</string>
+  <!-- The message is shown in toast when the app encounters an unsupported resolution for Stabilization mode -->
+  <string name="error_app_unsupported_dis">Стабилизация изображ. не поддерживается для текущего разрешения видео. Установите более низкое разрешение</string>
+  <!-- The message is shown in dialog when the app encounters an unsupported resolution for High speed mode -->
+  <string name="error_app_unsupported_hsr">Ускоренная съёмка не поддерживается для текущего разрешения видео. Установите более низкое разрешение</string>
+  <!-- The message is shown in dialog when the app encounters an unsupported video codec for HFR mode -->
   <string name="error_app_unsupported_hfr_codec">Ускоренная съёмка возможна только с видеокодеком H264</string>
+  <!-- The message is shown in dialog when the app encounters an unsupported video resolution-->
   <string name="error_app_unsupported">Видеокодек не поддерживает выбранное разрешение</string>
-  <string name="error_app_unsupported_raw">Съёмка в формате RAW не поддерживается при включённой технологии нулевого запаздывания затвора (ZSL). Переключите формат изображения на JPEG.</string>
-  <string name="msg_cancel_longshot_for_limited_memory">Не хватает памяти, непрерывная съёмка отменена</string>
+  <!--The message is shown in dialog when the raw snapshot is selected in Zero shutter lag mode-->
+  <string name="error_app_unsupported_raw">Съёмка в формате RAW не поддерживается при включённой технологии нулевого запаздывания затвора (ZSL). Выберите формат JPEG</string>
+  <string name="msg_cancel_longshot_for_limited_memory">Недостаточно памяти. Непрерывная съёмка отменена</string>
+  <!-- Toast showing non-supported functionality for flash in AE bracket -->
   <string name="flash_aebracket_message">Использование вспышки в режиме автобрекетинга невозможно</string>
-  <string name="on_switch_save_path_to_sdcard">Внутренней памяти недостаточно, переключились на SD-карту</string>
+  <!-- toast message for storage location switch -->
+  <string name="on_switch_save_path_to_sdcard">Внутренней памяти недостаточно. Выбрано сохранение на SD-карту</string>
+  <!-- The message is shown in toast when click showOnMap Menu and there is no map app -->
   <string name="map_activity_not_found_err">Приложение для работы с картами не установлено. Показ местоположения невозможен.</string>
+  <!-- Continous shot enable message -->
   <string name="longshot_enable_message">Расширенные функции не поддерживаются в режиме непрерывной съёмки</string>
+  <!-- Advance features enable message -->
   <string name="advance_feature_enable_msg">Непрерывная съёмка не поддерживается, когда включены расширенные функции</string>
+  <!-- Toast after enable HDR function to inform continuous shot has disabled -->
   <string name="HDR_disable_continuous_shot">Включение HDR отключит непрерывную съёмку</string>
+  <!-- Toast after enable advanced capture function to inform continuous shot has disabled -->
   <string name="advanced_capture_disable_continuous_shot">Включение расширенных функций отключит непрерывную съёмку</string>
+  <!-- Toast after enable 2k4k video quality to inform IS has disabled -->
   <string name="video_quality_4k_disable_IS">Включение видеосъёмки с разрешением 4K отключит стабилизацию</string>
-  <string name="video_quality_4k_disable_SeeMore">SeeMore не может быть включен во время 4k видео</string>
+  <!-- Toast after 2k4k video is enabled to inform SeeMore has been disabled -->
+  <string name="video_quality_4k_disable_SeeMore">SeeMore не может быть включен во время 4K видео</string>
+  <!-- TODO: Remove these? -->
 </resources>

@@ -21,45 +21,71 @@
     limitations under the License.
 -->
 <resources>
+  <!-- Preferences -->
+  <!-- Video quality setting entry. Videos will be recorded in VGA quality. [CHAR LIMIT=24] -->
+  <!-- Video quality setting entry. Videos will be recorded in CIF quality. [CHAR LIMIT=24] -->
+  <!-- Video quality setting entry. Videos will be recorded in QVGA quality. [CHAR LIMIT=24] -->
+  <!-- Video quality setting entry. Videos will be recorded in QCIF quality. [CHAR LIMIT=24] -->
+  <!-- Auto exposure -->
   <string name="pref_camera_autoexposure_title">Automatische Belichtung</string>
   <string name="pref_camera_autoexposure_entry_centerweighted">Mittenbetont</string>
   <string name="pref_camera_autoexposure_entry_frameaverage">Integral</string>
   <string name="pref_camera_autoexposure_entry_spotmetering">Spotmessung</string>
+  <!-- Video codec -->
   <string name="pref_camera_videoencoder_title">Video-Encoder</string>
+  <!-- Audio codec -->
   <string name="pref_camera_audioencoder_title">Audio-Encoder</string>
+  <!-- Skin tone enhancement -->
   <string name="pref_camera_skinToneEnhancement_title">Hauttöne verbessern</string>
+  <!-- Zero shutter lag-->
   <string name="pref_camera_zsl_title">Keine Auslöseverzögerung</string>
+  <!-- Autofocus zone -->
   <string name="pref_camera_selectablezoneaf_title">Autofokus-Bereich</string>
   <string name="pref_camera_selectablezoneaf_entry_auto">Automatisch</string>
   <string name="pref_camera_selectablezoneaf_entry_centerweighted">Mittenbetont</string>
   <string name="pref_camera_selectablezoneaf_entry_frameaverage">Integral</string>
   <string name="pref_camera_selectablezoneaf_entry_spotmetering">Spotmessung</string>
+  <!-- Advanced features -->
   <string name="pref_camera_advanced_features_title">Erweiterte Funktionen</string>
   <string name="pref_camera_advanced_feature_entry_none">Keine</string>
   <string name="pref_camera_advanced_feature_entry_multi_touch_focus">Multi-Touch-Fokus</string>
+  <!-- Manual exposure -->
   <string name="pref_camera_manual_exp_title">Manuelle Belichtung</string>
   <string name="pref_camera_manual_exp_entry_ISO_priority">Belichtungsautomatik</string>
   <string name="pref_camera_manual_exp_entry_exptime_priority">Blendenautomatik</string>
   <string name="pref_camera_manual_exp_entry_user_setting">Benutzereinstellung</string>
   <string name="pref_camera_manual_exp_entry_off">Aus</string>
+  <!-- Manual white balance -->
   <string name="pref_camera_manual_wb_title">Manueller Weißabgleich</string>
   <string name="pref_camera_manual_wb_entry_color_temperature">Farbtemperatur</string>
   <string name="pref_camera_manual_wb_entry_rbgb_gains">RBGB-Verstärkung</string>
   <string name="pref_camera_manual_wb_entry_off">Aus</string>
+  <!-- Manual focus -->
   <string name="pref_camera_manual_focus_title">Manueller Fokus</string>
   <string name="pref_camera_manual_focus_entry_scale_mode">Skalierungsmodus</string>
   <string name="pref_camera_manual_focus_entry_diopter_mode">Diopter-Modus</string>
   <string name="pref_camera_manual_focus_entry_off">Aus</string>
+  <!-- Video HDR-->
   <string name="pref_camera_video_hdr_title">Video (HDR)</string>
+  <!-- CDS mode-->
   <string name="pref_camera_cds_title">CDS-Modus</string>
   <string name="pref_camera_cds_entry_auto">Automatisch</string>
+  <!-- Video CDS-->
   <string name="pref_camera_video_cds_title">CDS-Videomodus</string>
   <string name="pref_camera_video_cds_entry_auto">Automatisch</string>
+  <!-- TNR-->
   <string name="pref_camera_tnr_title">TNR-Modus</string>
+  <!-- Video TNR -->
   <string name="pref_camera_video_tnr_title">Video-TNR-Modus</string>
+  <!-- Face detection -->
   <string name="pref_camera_facedetection_title">Gesichtserkennung</string>
+  <!-- Selfie Flash -->
+  <string name="pref_selfie_flash_title">Frontblitz</string>
+  <!-- Red eye reduction -->
   <string name="pref_camera_redeyereduction_title">Rote-Augen-Korrektur</string>
+  <!-- AE bracketing -->
   <string name="pref_camera_ae_bracket_hdr_title">Belichtungsreihe</string>
+  <!-- High-framerate recording -->
   <string name="pref_camera_hfr_title">Zeitlupe</string>
   <string name="pref_camera_hfr_entry_off">Aus</string>
   <string name="pref_camera_hfr_entry_2x">Zeitlupe 60 FPS</string>
@@ -69,7 +95,10 @@
   <string name="pref_camera_hfr_entry_hsr_60">Highspeed 60 FPS</string>
   <string name="pref_camera_hfr_entry_hsr_90">Highspeed 90 FPS</string>
   <string name="pref_camera_hfr_entry_hsr_120">Highspeed 120 FPS</string>
+  <!-- See More -->
+  <!-- Denoise -->
   <string name="pref_camera_denoise_title">Rauschreduzierung</string>
+  <!-- ISO -->
   <string name="pref_camera_iso_title">ISO</string>
   <string name="pref_camera_iso_entry_auto">Automatisch</string>
   <string name="pref_camera_iso_entry_isodeblur">Automatisch (HJR)</string>
@@ -100,15 +129,18 @@
   <string name="pref_camera_iso_entry_iso3200">ISO 3200</string>
   <string name="pref_camera_iso_entry_iso6400">ISO 6400</string>
   <string name="pref_camera_iso_entry_iso12800">ISO 12800</string>
+  <!-- Antibanding -->
   <string name="pref_camera_antibanding_title">Anti-Banding</string>
   <string name="pref_camera_antibanding_entry_0">Automatisch</string>
   <string name="pref_camera_antibanding_entry_1">50 Hz (Europa)</string>
   <string name="pref_camera_antibanding_entry_2">60 Hz (USA)</string>
+  <!-- Color effect -->
   <string name="pref_camera_coloreffect_title">Farbeffekt</string>
   <string name="pref_camera_coloreffect_entry_none">Kein</string>
   <string name="pref_camera_coloreffect_entry_mono">Schwarzweiß</string>
   <string name="pref_camera_coloreffect_entry_sepia">Sepia</string>
   <string name="pref_camera_coloreffect_entry_negative">Negativ</string>
+  <!-- Color effect that overexposes and reverses some of the tones. -->
   <string name="pref_camera_coloreffect_entry_solarize">Solarisiert</string>
   <string name="pref_camera_coloreffect_entry_posterize">Posterisiert</string>
   <string name="pref_camera_coloreffect_entry_aqua">Aquarell</string>
@@ -120,8 +152,11 @@
   <string name="pref_camera_coloreffect_entry_redtint">Rotstich</string>
   <string name="pref_camera_coloreffect_entry_bluetint">Blaustich</string>
   <string name="pref_camera_coloreffect_entry_greentint">Grünstich</string>
+  <!-- Stabilization -->
   <string name="pref_camera_dis_title">Bildstabilisierung</string>
+  <!-- Face recognition -->
   <string name="pref_camera_facerc_title">Gesichtserkennung</string>
+  <!-- Sharpness -->
   <string name="pref_camera_sharpness_title">Schärfe</string>
   <string name="pref_camera_sharpness_entry_level0">Stufe 0</string>
   <string name="pref_camera_sharpness_entry_level1">Stufe 1</string>
@@ -130,6 +165,7 @@
   <string name="pref_camera_sharpness_entry_level4">Stufe 4</string>
   <string name="pref_camera_sharpness_entry_level5">Stufe 5</string>
   <string name="pref_camera_sharpness_entry_level6">Stufe 6</string>
+  <!-- Contrast -->
   <string name="pref_camera_contrast_title">Kontrast</string>
   <string name="pref_camera_contrast_entry_level0">Stufe 0</string>
   <string name="pref_camera_contrast_entry_level1">Stufe 1</string>
@@ -142,6 +178,7 @@
   <string name="pref_camera_contrast_entry_level8">Stufe 8</string>
   <string name="pref_camera_contrast_entry_level9">Stufe 9</string>
   <string name="pref_camera_contrast_entry_level10">Stufe 10</string>
+  <!-- Saturation -->
   <string name="pref_camera_saturation_title">Sättigung</string>
   <string name="pref_camera_saturation_entry_level0">Stufe 0</string>
   <string name="pref_camera_saturation_entry_level1">Stufe 1</string>
@@ -154,7 +191,9 @@
   <string name="pref_camera_saturation_entry_level8">Stufe 8</string>
   <string name="pref_camera_saturation_entry_level9">Stufe 9</string>
   <string name="pref_camera_saturation_entry_level10">Stufe 10</string>
+  <!-- Picture format -->
   <string name="pref_camera_picture_format_title">Bildformat</string>
+  <!-- Picture quality -->
   <string name="pref_camera_jpegquality_title">Bildqualität</string>
   <string name="pref_camera_jpegquality_entry_0">55 %</string>
   <string name="pref_camera_jpegquality_entry_1">65 % (normal)</string>
@@ -162,40 +201,68 @@
   <string name="pref_camera_jpegquality_entry_3">85 % (sehr hoch)</string>
   <string name="pref_camera_jpegquality_entry_4">95 %</string>
   <string name="pref_camera_jpegquality_entry_5">100 %</string>
+  <!-- Histogram -->
   <string name="pref_camera_histogram_title">Histogramm</string>
+  <!-- Auto scene detection -->
   <string name="pref_camera_scenedetect_title">Automatische Szenenerkennung</string>
+  <!-- Continuous shot -->
   <string name="pref_camera_longshot_title">Kontinuierliche Aufnahme</string>
+  <!-- Auto HDR -->
   <string name="pref_camera_auto_hdr_title">Auto-HDR</string>
+  <!-- HDR mode -->
   <string name="pref_camera_hdr_mode_title">HDR-Modus</string>
   <string name="pref_camera_hdr_mode_entry_sensor">Sensor-HDR</string>
   <string name="pref_camera_hdr_mode_entry_multi_frame">Mehrbild-HDR</string>
+  <!-- HDR needs 1x frame -->
   <string name="pref_camera_hdr_need_1x_title">HDR benötigt 1x Bild</string>
+  <!-- Video rotation -->
   <string name="pref_camera_video_rotation_title">Videodrehung</string>
   <string name="pref_camera_video_rotation_entry_0">0 Grad</string>
   <string name="pref_camera_video_rotation_entry_90">90 Grad</string>
   <string name="pref_camera_video_rotation_entry_180">180 Grad</string>
   <string name="pref_camera_video_rotation_entry_270">270 Grad</string>
+  <!-- Storage location -->
   <string name="pref_camera_savepath_title">Speicherort</string>
   <string name="pref_camera_savepath_entry_0">Interner Speicher</string>
   <string name="pref_camera_savepath_entry_1">SD-Karte</string>
+  <!-- Misc -->
+  <!-- The alias of CameraActivity for gesture operation -->
   <string name="camera_gesture_title">Kamera starten</string>
   <string name="all_in_focus">Alles im Fokus</string>
   <string name="refocus_toast">Tippen Sie hier, um das letzte Foto neu zu fokussieren.</string>
+  <!-- Toast messages -->
+  <!-- The message is shown in toast when the app encounters an unsupported selection for High-framerate recording mode -->
   <string name="error_app_unsupported_hfr_selection">Aufnahmen mit hoher Bildrate bzw. in Zeitlupe werden bei Bildstabilisierung, Zeitraffer und HDR nicht unterstützt.</string>
+  <!-- The message is shown in dialog when the app encounters an unsupported resolution for Slow motion mode -->
   <string name="error_app_unsupported_hfr">Zeitlupen-Videos werden bei der ausgewählten Auflösung nicht unterstützt. Wählen Sie eine niedrigere Auflösung.</string>
+  <!-- The message is shown in toast when the app encounters an unsupported resolution for Stabilization mode -->
   <string name="error_app_unsupported_dis">Stabilisierung ist für die gewählte Videoauflösung nicht verfügbar. Bitte kleinere Auflösung auswählen</string>
+  <!-- The message is shown in dialog when the app encounters an unsupported resolution for High speed mode -->
   <string name="error_app_unsupported_hsr">Highspeed-Videos werden bei der ausgewählten Auflösung nicht unterstützt.</string>
+  <!-- The message is shown in dialog when the app encounters an unsupported video codec for HFR mode -->
   <string name="error_app_unsupported_hfr_codec">Bei aktivierter Zeitlupe wird nur die H.264 Video-Codierung unterstützt.</string>
+  <!-- The message is shown in dialog when the app encounters an unsupported video resolution-->
   <string name="error_app_unsupported">Die gewählte Auflösung wird von diesem Codec nicht unterstützt.</string>
+  <!--The message is shown in dialog when the raw snapshot is selected in Zero shutter lag mode-->
   <string name="error_app_unsupported_raw">Das Raw-Format ist im \"Keine Auslöseverzögerung\"-Modus nicht verfügbar. Bitte JPEG auswählen</string>
   <string name="msg_cancel_longshot_for_limited_memory">Speicherplatz wird knapp. Abbruch der kontinuierlichen Aufnahme</string>
+  <!-- Toast showing non-supported functionality for flash in AE bracket -->
   <string name="flash_aebracket_message">Der Blitz wird im Belichtungsreihenmodus nicht unterstützt.</string>
+  <!-- toast message for storage location switch -->
   <string name="on_switch_save_path_to_sdcard">Der Interne Speicher reicht nicht aus. Der Speicherort wurde auf SD-Karte geändert.</string>
+  <!-- The message is shown in toast when click showOnMap Menu and there is no map app -->
   <string name="map_activity_not_found_err">Es ist keine Karten-App zum Anzeigen des Standorts installiert.</string>
+  <!-- Continous shot enable message -->
   <string name="longshot_enable_message">Erweiterte Funktionen werden im kontinuierlichen Aufnahmemodus nicht unterstützt.</string>
+  <!-- Advance features enable message -->
   <string name="advance_feature_enable_msg">Der kontinuierliche Aufnahmemodus wird nicht unterstützt, wenn erweiterte Funktionen aktiviert sind.</string>
+  <!-- Toast after enable HDR function to inform continuous shot has disabled -->
   <string name="HDR_disable_continuous_shot">Die Aktivierung von HDR deaktiviert die kontinuierliche Aufnahme.</string>
+  <!-- Toast after enable advanced capture function to inform continuous shot has disabled -->
   <string name="advanced_capture_disable_continuous_shot">Die Aktivierung der erweiterten Aufnahme deaktiviert die kontinuierliche Aufnahme.</string>
+  <!-- Toast after enable 2k4k video quality to inform IS has disabled -->
   <string name="video_quality_4k_disable_IS">Das Aktivieren der 4K-Videoauflösung deaktiviert die Videostabilisierung.</string>
+  <!-- Toast after 2k4k video is enabled to inform SeeMore has been disabled -->
   <string name="video_quality_4k_disable_SeeMore">SeeMore kann während einer 4K-Videoaufnahme nicht aktiviert sein.</string>
+  <!-- TODO: Remove these? -->
 </resources>

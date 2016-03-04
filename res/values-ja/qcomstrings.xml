@@ -21,46 +21,71 @@
     limitations under the License.
 -->
 <resources>
+  <!-- Preferences -->
+  <!-- Video quality setting entry. Videos will be recorded in VGA quality. [CHAR LIMIT=24] -->
+  <!-- Video quality setting entry. Videos will be recorded in CIF quality. [CHAR LIMIT=24] -->
+  <!-- Video quality setting entry. Videos will be recorded in QVGA quality. [CHAR LIMIT=24] -->
+  <!-- Video quality setting entry. Videos will be recorded in QCIF quality. [CHAR LIMIT=24] -->
+  <!-- Auto exposure -->
   <string name="pref_camera_autoexposure_title">自動露出</string>
   <string name="pref_camera_autoexposure_entry_centerweighted">中央部重点測光</string>
   <string name="pref_camera_autoexposure_entry_frameaverage">フレームアベレージ</string>
   <string name="pref_camera_autoexposure_entry_spotmetering">スポット測光</string>
+  <!-- Video codec -->
   <string name="pref_camera_videoencoder_title">ビデオコーデック</string>
+  <!-- Audio codec -->
   <string name="pref_camera_audioencoder_title">オーディオコーデック</string>
+  <!-- Skin tone enhancement -->
   <string name="pref_camera_skinToneEnhancement_title">肌の色合いの強調</string>
+  <!-- Zero shutter lag-->
   <string name="pref_camera_zsl_title">ゼロシャッターラグ</string>
+  <!-- Autofocus zone -->
   <string name="pref_camera_selectablezoneaf_title">オートフォーカスゾーン</string>
   <string name="pref_camera_selectablezoneaf_entry_auto">オート</string>
   <string name="pref_camera_selectablezoneaf_entry_centerweighted">中央部重点測光</string>
   <string name="pref_camera_selectablezoneaf_entry_frameaverage">フレームアベレージ</string>
   <string name="pref_camera_selectablezoneaf_entry_spotmetering">スポット測光</string>
+  <!-- Advanced features -->
   <string name="pref_camera_advanced_features_title">高度な機能</string>
   <string name="pref_camera_advanced_feature_entry_none">なし</string>
   <string name="pref_camera_advanced_feature_entry_multi_touch_focus">マルチタッチフォーカス</string>
+  <!-- Manual exposure -->
   <string name="pref_camera_manual_exp_title">マニュアル露出</string>
   <string name="pref_camera_manual_exp_entry_ISO_priority">ISO優先順位</string>
   <string name="pref_camera_manual_exp_entry_exptime_priority">露出時間の優先順位</string>
   <string name="pref_camera_manual_exp_entry_user_setting">ユーザー設定</string>
   <string name="pref_camera_manual_exp_entry_off">OFF</string>
+  <!-- Manual white balance -->
   <string name="pref_camera_manual_wb_title">マニュアルホワイトバランス</string>
   <string name="pref_camera_manual_wb_entry_color_temperature">色温度</string>
   <string name="pref_camera_manual_wb_entry_rbgb_gains">RBGBゲイン</string>
   <string name="pref_camera_manual_wb_entry_off">OFF</string>
+  <!-- Manual focus -->
   <string name="pref_camera_manual_focus_title">マニュアルフォーカス</string>
   <string name="pref_camera_manual_focus_entry_scale_mode">スケールモード</string>
   <string name="pref_camera_manual_focus_entry_diopter_mode">視度モード</string>
   <string name="pref_camera_manual_focus_entry_off">OFF</string>
+  <!-- Video HDR-->
   <string name="pref_camera_video_hdr_title">動画HDR</string>
+  <!-- CDS mode-->
   <string name="pref_camera_cds_title">CDSモード</string>
   <string name="pref_camera_cds_entry_auto">オート</string>
+  <!-- Video CDS-->
   <string name="pref_camera_video_cds_title">動画CDSモード</string>
   <string name="pref_camera_video_cds_entry_auto">オート</string>
+  <!-- TNR-->
   <string name="pref_camera_tnr_title">TNRモード</string>
+  <!-- Video TNR -->
   <string name="pref_camera_video_tnr_title">動画TNRモード</string>
+  <!-- Face detection -->
   <string name="pref_camera_facedetection_title">顔認識</string>
+  <!-- Selfie Flash -->
   <string name="pref_selfie_flash_title">自撮りフラッシュ</string>
+  <!-- Red eye reduction -->
   <string name="pref_camera_redeyereduction_title">赤目軽減</string>
+  <!-- AE bracketing -->
   <string name="pref_camera_ae_bracket_hdr_title">自動段階露出</string>
+  <!-- High-framerate recording -->
   <string name="pref_camera_hfr_title">スローモーション</string>
   <string name="pref_camera_hfr_entry_off">OFF</string>
   <string name="pref_camera_hfr_entry_2x">スローモーション 60 FPS</string>
@@ -70,7 +95,10 @@
   <string name="pref_camera_hfr_entry_hsr_60">ハイスピード 60 FPS</string>
   <string name="pref_camera_hfr_entry_hsr_90">ハイスピード 90 FPS</string>
   <string name="pref_camera_hfr_entry_hsr_120">ハイスピード 120 FPS</string>
+  <!-- See More -->
+  <!-- Denoise -->
   <string name="pref_camera_denoise_title">ノイズ除去</string>
+  <!-- ISO -->
   <string name="pref_camera_iso_title">ISO</string>
   <string name="pref_camera_iso_entry_auto">オート</string>
   <string name="pref_camera_iso_entry_isodeblur">オート（HJR）</string>
@@ -101,15 +129,18 @@
   <string name="pref_camera_iso_entry_iso3200">ISO3200</string>
   <string name="pref_camera_iso_entry_iso6400">ISO6400</string>
   <string name="pref_camera_iso_entry_iso12800">ISO12800</string>
+  <!-- Antibanding -->
   <string name="pref_camera_antibanding_title">アンチバンディング</string>
   <string name="pref_camera_antibanding_entry_0">オート</string>
   <string name="pref_camera_antibanding_entry_1">50 Hz（ヨーロッパ）</string>
   <string name="pref_camera_antibanding_entry_2">60 Hz（アメリカ）</string>
+  <!-- Color effect -->
   <string name="pref_camera_coloreffect_title">色彩効果</string>
   <string name="pref_camera_coloreffect_entry_none">なし</string>
   <string name="pref_camera_coloreffect_entry_mono">モノクロ</string>
   <string name="pref_camera_coloreffect_entry_sepia">セピア</string>
   <string name="pref_camera_coloreffect_entry_negative">ネガ</string>
+  <!-- Color effect that overexposes and reverses some of the tones. -->
   <string name="pref_camera_coloreffect_entry_solarize">ソラリゼーション</string>
   <string name="pref_camera_coloreffect_entry_posterize">ポスタライズ</string>
   <string name="pref_camera_coloreffect_entry_aqua">アクア</string>
@@ -121,8 +152,11 @@
   <string name="pref_camera_coloreffect_entry_redtint">淡い赤色</string>
   <string name="pref_camera_coloreffect_entry_bluetint">淡い青色</string>
   <string name="pref_camera_coloreffect_entry_greentint">淡い緑色</string>
+  <!-- Stabilization -->
   <string name="pref_camera_dis_title">手ぶれ補正</string>
+  <!-- Face recognition -->
   <string name="pref_camera_facerc_title">顔認識</string>
+  <!-- Sharpness -->
   <string name="pref_camera_sharpness_title">シャープネス</string>
   <string name="pref_camera_sharpness_entry_level0">レベル0</string>
   <string name="pref_camera_sharpness_entry_level1">レベル1</string>
@@ -131,6 +165,7 @@
   <string name="pref_camera_sharpness_entry_level4">レベル4</string>
   <string name="pref_camera_sharpness_entry_level5">レベル5</string>
   <string name="pref_camera_sharpness_entry_level6">レベル6</string>
+  <!-- Contrast -->
   <string name="pref_camera_contrast_title">コントラスト</string>
   <string name="pref_camera_contrast_entry_level0">レベル0</string>
   <string name="pref_camera_contrast_entry_level1">レベル1</string>
@@ -143,6 +178,7 @@
   <string name="pref_camera_contrast_entry_level8">レベル8</string>
   <string name="pref_camera_contrast_entry_level9">レベル9</string>
   <string name="pref_camera_contrast_entry_level10">レベル10</string>
+  <!-- Saturation -->
   <string name="pref_camera_saturation_title">彩度</string>
   <string name="pref_camera_saturation_entry_level0">レベル0</string>
   <string name="pref_camera_saturation_entry_level1">レベル1</string>
@@ -155,7 +191,9 @@
   <string name="pref_camera_saturation_entry_level8">レベル8</string>
   <string name="pref_camera_saturation_entry_level9">レベル9</string>
   <string name="pref_camera_saturation_entry_level10">レベル10</string>
+  <!-- Picture format -->
   <string name="pref_camera_picture_format_title">写真の形式</string>
+  <!-- Picture quality -->
   <string name="pref_camera_jpegquality_title">画質</string>
   <string name="pref_camera_jpegquality_entry_0">55%</string>
   <string name="pref_camera_jpegquality_entry_1">65%（標準）</string>
@@ -163,40 +201,68 @@
   <string name="pref_camera_jpegquality_entry_3">85%（スーパーファイン）</string>
   <string name="pref_camera_jpegquality_entry_4">95%</string>
   <string name="pref_camera_jpegquality_entry_5">100%</string>
+  <!-- Histogram -->
   <string name="pref_camera_histogram_title">ヒストグラム</string>
+  <!-- Auto scene detection -->
   <string name="pref_camera_scenedetect_title">自動シーン認識</string>
+  <!-- Continuous shot -->
   <string name="pref_camera_longshot_title">連写</string>
+  <!-- Auto HDR -->
   <string name="pref_camera_auto_hdr_title">オートHDR</string>
+  <!-- HDR mode -->
   <string name="pref_camera_hdr_mode_title">HDRモード</string>
   <string name="pref_camera_hdr_mode_entry_sensor">センサーHDR</string>
   <string name="pref_camera_hdr_mode_entry_multi_frame">マルチフレームHDR</string>
+  <!-- HDR needs 1x frame -->
   <string name="pref_camera_hdr_need_1x_title">HDRは1倍のフレームを必要とします</string>
+  <!-- Video rotation -->
   <string name="pref_camera_video_rotation_title">動画の回転</string>
   <string name="pref_camera_video_rotation_entry_0">0度</string>
   <string name="pref_camera_video_rotation_entry_90">90度</string>
   <string name="pref_camera_video_rotation_entry_180">180度</string>
   <string name="pref_camera_video_rotation_entry_270">270度</string>
+  <!-- Storage location -->
   <string name="pref_camera_savepath_title">ストレージの場所</string>
   <string name="pref_camera_savepath_entry_0">内部ストレージ</string>
   <string name="pref_camera_savepath_entry_1">SDカード</string>
+  <!-- Misc -->
+  <!-- The alias of CameraActivity for gesture operation -->
   <string name="camera_gesture_title">カメラを起動</string>
   <string name="all_in_focus">全焦点</string>
   <string name="refocus_toast">前の写真をリフォーカスするには、ここをタップしてください</string>
+  <!-- Toast messages -->
+  <!-- The message is shown in toast when the app encounters an unsupported selection for High-framerate recording mode -->
   <string name="error_app_unsupported_hfr_selection">高フレームレート録画は手ぶれ補正/低速度撮影/HDR使用時は使用できません。</string>
+  <!-- The message is shown in dialog when the app encounters an unsupported resolution for Slow motion mode -->
   <string name="error_app_unsupported_hfr">選択した動画サイズではスローモーションモードは使用できません。小さい動画サイズを選択してください。</string>
+  <!-- The message is shown in toast when the app encounters an unsupported resolution for Stabilization mode -->
   <string name="error_app_unsupported_dis">手ぶれ補正は選択した動画サイズでは使用できません。小さい動画サイズを選択してください。</string>
+  <!-- The message is shown in dialog when the app encounters an unsupported resolution for High speed mode -->
   <string name="error_app_unsupported_hsr">ハイスピードモードは選択した解像度では使用できません。小さい動画サイズを選択してください。</string>
+  <!-- The message is shown in dialog when the app encounters an unsupported video codec for HFR mode -->
   <string name="error_app_unsupported_hfr_codec">HFRがONになっている場合はH.264ビデオエンコーディングのみ使用できます</string>
+  <!-- The message is shown in dialog when the app encounters an unsupported video resolution-->
   <string name="error_app_unsupported">このエンコーダの種類では使用できない動画の解像度です</string>
+  <!--The message is shown in dialog when the raw snapshot is selected in Zero shutter lag mode-->
   <string name="error_app_unsupported_raw">RAW画像形式はゼロシャッターラグモードでは使用できません。JPEGを選択してください。</string>
   <string name="msg_cancel_longshot_for_limited_memory">メモリが不足しているため、連写を中止しました</string>
+  <!-- Toast showing non-supported functionality for flash in AE bracket -->
   <string name="flash_aebracket_message">フラッシュは自動段階露出モードでは使用できません</string>
+  <!-- toast message for storage location switch -->
   <string name="on_switch_save_path_to_sdcard">内部ストレージの容量が少なくなっているため、ストレージの場所をSDカードに切り替えました</string>
+  <!-- The message is shown in toast when click showOnMap Menu and there is no map app -->
   <string name="map_activity_not_found_err">位置情報を表示するマップアプリがインストールされていません</string>
+  <!-- Continous shot enable message -->
   <string name="longshot_enable_message">高度な機能は連写モードでは使用できません</string>
+  <!-- Advance features enable message -->
   <string name="advance_feature_enable_msg">高度な機能が有効になっている場合は連写は使用できません</string>
+  <!-- Toast after enable HDR function to inform continuous shot has disabled -->
   <string name="HDR_disable_continuous_shot">HDRを有効にすると連写が無効になります</string>
+  <!-- Toast after enable advanced capture function to inform continuous shot has disabled -->
   <string name="advanced_capture_disable_continuous_shot">高度な撮影を有効にすると連写が無効になります</string>
+  <!-- Toast after enable 2k4k video quality to inform IS has disabled -->
   <string name="video_quality_4k_disable_IS">4K動画サイズを有効にすると手ぶれ補正が無効になります</string>
+  <!-- Toast after 2k4k video is enabled to inform SeeMore has been disabled -->
   <string name="video_quality_4k_disable_SeeMore">4K動画が有効になっている間はその他の設定を有効にすることはできません</string>
+  <!-- TODO: Remove these? -->
 </resources>

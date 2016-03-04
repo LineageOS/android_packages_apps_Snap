@@ -21,35 +21,62 @@
     limitations under the License.
 -->
 <resources>
+  <!-- Preferences -->
+  <!-- Video quality setting entry. Videos will be recorded in VGA quality. [CHAR LIMIT=24] -->
+  <!-- Video quality setting entry. Videos will be recorded in CIF quality. [CHAR LIMIT=24] -->
+  <!-- Video quality setting entry. Videos will be recorded in QVGA quality. [CHAR LIMIT=24] -->
+  <!-- Video quality setting entry. Videos will be recorded in QCIF quality. [CHAR LIMIT=24] -->
+  <!-- Auto exposure -->
   <string name="pref_camera_autoexposure_title">חשיפה אוטומטית</string>
+  <!-- Video codec -->
   <string name="pref_camera_videoencoder_title">קידוד וידאו</string>
+  <!-- Audio codec -->
   <string name="pref_camera_audioencoder_title">קידוד שמע</string>
+  <!-- Skin tone enhancement -->
   <string name="pref_camera_skinToneEnhancement_title">שיפור גוון עור</string>
+  <!-- Zero shutter lag-->
+  <string name="pref_camera_zsl_title">צילום מיידי</string>
+  <!-- Autofocus zone -->
   <string name="pref_camera_selectablezoneaf_title">איזור פוקוס אוטומטי</string>
   <string name="pref_camera_selectablezoneaf_entry_auto">אוטומטי</string>
+  <!-- Advanced features -->
   <string name="pref_camera_advanced_features_title">תכונות מתקדמות</string>
   <string name="pref_camera_advanced_feature_entry_none">ללא</string>
+  <!-- Manual exposure -->
   <string name="pref_camera_manual_exp_title">חשיפה ידנית</string>
   <string name="pref_camera_manual_exp_entry_ISO_priority">עדיפות ISO</string>
   <string name="pref_camera_manual_exp_entry_exptime_priority">עדיפות זמן החשיפה</string>
   <string name="pref_camera_manual_exp_entry_user_setting">הגדרת המשתמש</string>
   <string name="pref_camera_manual_exp_entry_off">כבוי</string>
+  <!-- Manual white balance -->
   <string name="pref_camera_manual_wb_title">איזון לבן ידני</string>
   <string name="pref_camera_manual_wb_entry_color_temperature">טמפרטורת צבע</string>
   <string name="pref_camera_manual_wb_entry_rbgb_gains">חוזק ערוצי צבע</string>
   <string name="pref_camera_manual_wb_entry_off">כבוי</string>
+  <!-- Manual focus -->
   <string name="pref_camera_manual_focus_title">מיקוד ידני</string>
   <string name="pref_camera_manual_focus_entry_scale_mode">מצב קנה-מידה</string>
   <string name="pref_camera_manual_focus_entry_off">כבוי</string>
+  <!-- Video HDR-->
   <string name="pref_camera_video_hdr_title">וידאו HDR</string>
+  <!-- CDS mode-->
   <string name="pref_camera_cds_title">מצב CDS</string>
   <string name="pref_camera_cds_entry_auto">אוטומטי</string>
+  <!-- Video CDS-->
   <string name="pref_camera_video_cds_title">מצב וידאו CDS</string>
   <string name="pref_camera_video_cds_entry_auto">אוטומטי</string>
+  <!-- TNR-->
   <string name="pref_camera_tnr_title">מצב TNR</string>
+  <!-- Video TNR -->
   <string name="pref_camera_video_tnr_title">מצב וידאו TNR</string>
+  <!-- Face detection -->
   <string name="pref_camera_facedetection_title">זיהוי פנים</string>
+  <!-- Selfie Flash -->
+  <string name="pref_selfie_flash_title">פלאש סלפי</string>
+  <!-- Red eye reduction -->
   <string name="pref_camera_redeyereduction_title">הפחתת עיניים אדומות</string>
+  <!-- AE bracketing -->
+  <!-- High-framerate recording -->
   <string name="pref_camera_hfr_title">הקלטה בקצב פריימים גבוה</string>
   <string name="pref_camera_hfr_entry_off">כבוי</string>
   <string name="pref_camera_hfr_entry_2x">הילוך איטי - 60 פריימים/שנייה</string>
@@ -59,7 +86,10 @@
   <string name="pref_camera_hfr_entry_hsr_60">מהירות גבוהה - 60 פריימים/שנייה</string>
   <string name="pref_camera_hfr_entry_hsr_90">מהירות גבוהה - 90 פריימים/שנייה</string>
   <string name="pref_camera_hfr_entry_hsr_120">מהירות גבוהה - 120 פריימים/שנייה</string>
+  <!-- See More -->
+  <!-- Denoise -->
   <string name="pref_camera_denoise_title">הסרת רעש</string>
+  <!-- ISO -->
   <string name="pref_camera_iso_title">ISO</string>
   <string name="pref_camera_iso_entry_auto">אוטומטי</string>
   <string name="pref_camera_iso_entry_isodeblur">אוטומטי (HJR)</string>
@@ -90,15 +120,18 @@
   <string name="pref_camera_iso_entry_iso3200">ISO3200</string>
   <string name="pref_camera_iso_entry_iso6400">ISO6400</string>
   <string name="pref_camera_iso_entry_iso12800">ISO12800</string>
+  <!-- Antibanding -->
   <string name="pref_camera_antibanding_title">החלקת פסי גוונים</string>
   <string name="pref_camera_antibanding_entry_0">אוטומטי</string>
   <string name="pref_camera_antibanding_entry_1">50 הרץ (אירופה)</string>
   <string name="pref_camera_antibanding_entry_2">60 הרץ (ארה\"ב)</string>
+  <!-- Color effect -->
   <string name="pref_camera_coloreffect_title">אפקט צבע</string>
   <string name="pref_camera_coloreffect_entry_none">ללא</string>
   <string name="pref_camera_coloreffect_entry_mono">מונוכרום</string>
   <string name="pref_camera_coloreffect_entry_sepia">ספיה</string>
   <string name="pref_camera_coloreffect_entry_negative">תשליל (נגטיב)</string>
+  <!-- Color effect that overexposes and reverses some of the tones. -->
   <string name="pref_camera_coloreffect_entry_solarize">סולריזציה</string>
   <string name="pref_camera_coloreffect_entry_posterize">פוסטריזציה</string>
   <string name="pref_camera_coloreffect_entry_aqua">מים</string>
@@ -110,7 +143,10 @@
   <string name="pref_camera_coloreffect_entry_redtint">גוון אדום</string>
   <string name="pref_camera_coloreffect_entry_bluetint">גוון כחול</string>
   <string name="pref_camera_coloreffect_entry_greentint">גוון ירוק</string>
+  <!-- Stabilization -->
+  <!-- Face recognition -->
   <string name="pref_camera_facerc_title">זיהוי פנים</string>
+  <!-- Sharpness -->
   <string name="pref_camera_sharpness_title">חדות</string>
   <string name="pref_camera_sharpness_entry_level0">רמה 0</string>
   <string name="pref_camera_sharpness_entry_level1">רמה 1</string>
@@ -119,6 +155,7 @@
   <string name="pref_camera_sharpness_entry_level4">רמה 4</string>
   <string name="pref_camera_sharpness_entry_level5">רמה 5</string>
   <string name="pref_camera_sharpness_entry_level6">רמה 6</string>
+  <!-- Contrast -->
   <string name="pref_camera_contrast_title">ניגודיות</string>
   <string name="pref_camera_contrast_entry_level0">רמה 0</string>
   <string name="pref_camera_contrast_entry_level1">רמה 1</string>
@@ -131,6 +168,7 @@
   <string name="pref_camera_contrast_entry_level8">רמה 8</string>
   <string name="pref_camera_contrast_entry_level9">רמה 9</string>
   <string name="pref_camera_contrast_entry_level10">רמה 10</string>
+  <!-- Saturation -->
   <string name="pref_camera_saturation_title">רוויה</string>
   <string name="pref_camera_saturation_entry_level0">רמה 0</string>
   <string name="pref_camera_saturation_entry_level1">רמה 1</string>
@@ -143,7 +181,9 @@
   <string name="pref_camera_saturation_entry_level8">רמה 8</string>
   <string name="pref_camera_saturation_entry_level9">רמה 9</string>
   <string name="pref_camera_saturation_entry_level10">רמה 10</string>
+  <!-- Picture format -->
   <string name="pref_camera_picture_format_title">פורמט תמונה</string>
+  <!-- Picture quality -->
   <string name="pref_camera_jpegquality_title">איכות תמונה</string>
   <string name="pref_camera_jpegquality_entry_0">55%</string>
   <string name="pref_camera_jpegquality_entry_1">65% (רגיל)</string>
@@ -151,23 +191,62 @@
   <string name="pref_camera_jpegquality_entry_3">85% (איכותי מאוד)</string>
   <string name="pref_camera_jpegquality_entry_4">95%</string>
   <string name="pref_camera_jpegquality_entry_5">100%</string>
+  <!-- Histogram -->
   <string name="pref_camera_histogram_title">היסטוגרמה</string>
+  <!-- Auto scene detection -->
   <string name="pref_camera_scenedetect_title">זיהוי סצינה אוטומטי</string>
+  <!-- Continuous shot -->
   <string name="pref_camera_longshot_title">צילום מתמשך</string>
+  <!-- Auto HDR -->
   <string name="pref_camera_auto_hdr_title">HDR אוטומטי</string>
+  <!-- HDR mode -->
   <string name="pref_camera_hdr_mode_title">מצב HDR</string>
   <string name="pref_camera_hdr_mode_entry_sensor">חיישן HDR</string>
   <string name="pref_camera_hdr_mode_entry_multi_frame">HDR מרובה פריימים</string>
+  <!-- HDR needs 1x frame -->
+  <!-- Video rotation -->
   <string name="pref_camera_video_rotation_title">סיבוב וידאו</string>
   <string name="pref_camera_video_rotation_entry_0">0 מעלות</string>
   <string name="pref_camera_video_rotation_entry_90">90 מעלות</string>
   <string name="pref_camera_video_rotation_entry_180">180 מעלות</string>
   <string name="pref_camera_video_rotation_entry_270">270 מעלות</string>
+  <!-- Storage location -->
   <string name="pref_camera_savepath_title">מיקום אחסון</string>
   <string name="pref_camera_savepath_entry_0">אחסון פנימי</string>
   <string name="pref_camera_savepath_entry_1">כרטיס זיכרון</string>
+  <!-- Misc -->
+  <!-- The alias of CameraActivity for gesture operation -->
   <string name="camera_gesture_title">הפעל מצלמה</string>
   <string name="all_in_focus">הכל בפוקוס</string>
   <string name="refocus_toast">למיקוד מחדש של התמונה האחרונה, לחץ כאן</string>
+  <!-- Toast messages -->
+  <!-- The message is shown in toast when the app encounters an unsupported selection for High-framerate recording mode -->
+  <!-- The message is shown in dialog when the app encounters an unsupported resolution for Slow motion mode -->
   <string name="error_app_unsupported_hfr">סרטוני הילוך איטי אינם נתמכים ברזולוציה שנבחרה. בחר רזולוציה נמוכה יותר</string>
+  <!-- The message is shown in toast when the app encounters an unsupported resolution for Stabilization mode -->
+  <!-- The message is shown in dialog when the app encounters an unsupported resolution for High speed mode -->
+  <string name="error_app_unsupported_hsr">סרטוני מהירות גבוהה אינם נתמכים ברזולוציה שנבחרה. בחר רזולוציה נמוכה יותר</string>
+  <!-- The message is shown in dialog when the app encounters an unsupported video codec for HFR mode -->
+  <string name="error_app_unsupported_hfr_codec">רק קידוד וידאו H264 נתמך כאשר הילוך איטי פעיל</string>
+  <!-- The message is shown in dialog when the app encounters an unsupported video resolution-->
+  <string name="error_app_unsupported">רזולוציה זו לא נתמכת עבור קידוד וידאו זה</string>
+  <!--The message is shown in dialog when the raw snapshot is selected in Zero shutter lag mode-->
+  <string name="error_app_unsupported_raw">תמונה בפורמט Raw לא נתמך במצב צילום מיידי. בחר בפורמט JPEG</string>
+  <string name="msg_cancel_longshot_for_limited_memory">הזיכרון הולך להיגמר, מבטל צילום מתמשך</string>
+  <!-- Toast showing non-supported functionality for flash in AE bracket -->
+  <!-- toast message for storage location switch -->
+  <string name="on_switch_save_path_to_sdcard">שטח האחסון הפנימי אינו מספיק, בוצעה החלפת מיקום האחסון לכרטיס הזיכרון</string>
+  <!-- The message is shown in toast when click showOnMap Menu and there is no map app -->
+  <string name="map_activity_not_found_err">אין אף יישום מפות כדי להראות את המיקום בעזרתו</string>
+  <!-- Continous shot enable message -->
+  <string name="longshot_enable_message">תכונות מתקדמות אינן נתמכות במצב צילום מתמשך</string>
+  <!-- Advance features enable message -->
+  <string name="advance_feature_enable_msg">צילום מתמשך אינו נתמך כאשר אפשרויות מתקדמות מופעלות</string>
+  <!-- Toast after enable HDR function to inform continuous shot has disabled -->
+  <string name="HDR_disable_continuous_shot">הפעלת HDR תבטל את אפשרות הצילום המתמשך</string>
+  <!-- Toast after enable advanced capture function to inform continuous shot has disabled -->
+  <string name="advanced_capture_disable_continuous_shot">הפעלת צילום מתקדם תבטל את הצילום המתמשך</string>
+  <!-- Toast after enable 2k4k video quality to inform IS has disabled -->
+  <!-- Toast after 2k4k video is enabled to inform SeeMore has been disabled -->
+  <!-- TODO: Remove these? -->
 </resources>
