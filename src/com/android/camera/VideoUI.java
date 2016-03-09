@@ -1031,6 +1031,11 @@ public class VideoUI implements PieRenderer.PieListener,
                 mPieRenderer.setBlockFocus(false);
             }
         }
+
+        @Override
+        public void onZoomValueChanged(float value) {
+
+        }
     }
 
     // SurfaceHolder callbacks
