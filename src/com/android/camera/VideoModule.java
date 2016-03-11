@@ -676,6 +676,7 @@ public class VideoModule implements CameraModule,
                 setFlipValue();
                 mCameraDevice.setParameters(mParameters);
             }
+            mUI.tryToCloseSubList();
             mUI.setOrientation(newOrientation, true);
         }
 
