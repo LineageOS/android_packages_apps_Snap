@@ -621,8 +621,22 @@ public class CameraActivity extends Activity
             intent.putExtra(KEY_TOTAL_NUMBER, (adapter.getTotalNumber() -1));
             startActivity(intent);
         } catch (ActivityNotFoundException ex) {
-            gotoViewPhoto(uri);
+            gotoReviewPhoto(uri);
         } catch (IllegalArgumentException ex) {
+            gotoReviewPhoto(uri);
+        }
+    }
+
+    private void gotoReviewPhoto(Uri uri) {
+        try {
+            Log.w(TAG, "Gallery not found");
+            Intent intent = new Intent(CameraUtil.REVIEW_ACTION, uri);
+            startActivity(intent);
+            intent.putExtra(KEY_FROM_SNAPCAM, true);
+            intent.putExtra(KEY_TOTAL_NUMBER, getDataAdapter().getTotalNumber() - 1);
+        } catch (ActivityNotFoundException e) {
+            gotoViewPhoto(uri);
+        } catch (IllegalArgumentException e) {
             gotoViewPhoto(uri);
         }
     }
