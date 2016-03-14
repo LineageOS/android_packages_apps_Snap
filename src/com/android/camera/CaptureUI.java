@@ -1334,6 +1334,8 @@ public class CaptureUI extends BaseUI implements PreviewGestures.SingleTapListen
             mSubMenuLayout.setOrientation(orientation, animation);
         if (mSceneAndFilterLayout != null) {
             ViewGroup vg = (ViewGroup) mSceneAndFilterLayout.getChildAt(0);
+            if (vg != null)
+                vg = (ViewGroup) vg.getChildAt(0);
             if (vg != null) {
                 for (int i = vg.getChildCount() - 1; i >= 0; --i) {
                     RotateLayout l = (RotateLayout) vg.getChildAt(i);
