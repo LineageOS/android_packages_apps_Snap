@@ -63,6 +63,7 @@ import com.android.camera.ui.CountDownView;
 import com.android.camera.ui.focus.FocusRing;
 import com.android.camera.ui.ListMenu;
 import com.android.camera.ui.ListSubMenu;
+import com.android.camera.ui.ModuleSwitcher;
 import com.android.camera.ui.PieRenderer;
 import com.android.camera.ui.RenderOverlay;
 import com.android.camera.ui.RotateImageView;
@@ -210,6 +211,7 @@ public class CaptureUI extends BaseUI implements PreviewGestures.SingleTapListen
     private ImageView mVideoButton;
     private RenderOverlay mRenderOverlay;
     private View mMenuButton;
+    private ModuleSwitcher mSwitcher;
     private CountDownView mCountDownView;
     private PieRenderer mPieRenderer;
     private ZoomRenderer mZoomRenderer;
@@ -296,6 +298,19 @@ public class CaptureUI extends BaseUI implements PreviewGestures.SingleTapListen
             mTrackingFocusRenderer.setVisible(false);
         }
 
+        mSwitcher = (ModuleSwitcher) mRootView.findViewById(R.id.camera_switcher);
+        mSwitcher.setCurrentIndex(ModuleSwitcher.PHOTO_MODULE_INDEX);
+        mSwitcher.setSwitchListener(mActivity);
+        mSwitcher.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mModule.getCameraState() == PhotoController.LONGSHOT) {
+                    return;
+                }
+                mSwitcher.showPopup();
+                mSwitcher.setOrientation(mOrientation, false);
+            }
+        });
         mMenuButton = mRootView.findViewById(R.id.menu);
 
         mRecordingTime.setPauseListener(this);
@@ -498,9 +513,11 @@ public class CaptureUI extends BaseUI implements PreviewGestures.SingleTapListen
         mMenuButton.setVisibility(recording ? View.GONE : View.VISIBLE);
         if (recording) {
             mVideoButton.setImageResource(R.drawable.shutter_button_video_stop);
+            hideSwitcher();
             mMuteButton.setVisibility(View.VISIBLE);
         } else {
             mVideoButton.setImageResource(R.drawable.btn_new_shutter_video);
+            showSwitcher();
             stopRecordingTimer();
             mMuteButton.setVisibility(View.INVISIBLE);
         }
@@ -518,6 +535,19 @@ public class CaptureUI extends BaseUI implements PreviewGestures.SingleTapListen
         mFrontBackSwitcher.setVisibility(View.VISIBLE);
         mFilterModeSwitcher.setVisibility(View.VISIBLE);
         mSceneModeSwitcher.setVisibility(View.VISIBLE);
+    }
+
+    public void hideSwitcher() {
+        mSwitcher.closePopup();
+        mSwitcher.setVisibility(View.INVISIBLE);
+    }
+
+    public void showSwitcher() {
+        mSwitcher.setVisibility(View.VISIBLE);
+    }
+
+    public void setSwitcherIndex() {
+        mSwitcher.setCurrentIndex(ModuleSwitcher.PHOTO_MODULE_INDEX);
     }
 
     public void addSceneMode() {
@@ -1044,6 +1074,7 @@ public class CaptureUI extends BaseUI implements PreviewGestures.SingleTapListen
         if (mFrontBackSwitcher != null) mFrontBackSwitcher.setVisibility(status);
         if (mSceneModeSwitcher != null) mSceneModeSwitcher.setVisibility(status);
         if (mFilterModeSwitcher != null) mFilterModeSwitcher.setVisibility(status);
+        if (mSwitcher != null) mSwitcher.setVisibility(status);
     }
 
     public boolean isCameraControlsAnimating() {
@@ -1162,8 +1193,12 @@ public class CaptureUI extends BaseUI implements PreviewGestures.SingleTapListen
             // ignore backs while we're taking a picture
             return true;
         }
-        mCameraControls.collapse();
-        return false;
+        if (mSwitcher != null && mSwitcher.showsPopup()) {
+            mSwitcher.closePopup();
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public SurfaceHolder getSurfaceHolder() {
@@ -1270,7 +1305,7 @@ public class CaptureUI extends BaseUI implements PreviewGestures.SingleTapListen
     }
 
     public boolean collapseCameraControls() {
-        mCameraControls.collapse();
+        mSwitcher.closePopup();
         // Remove all the popups/dialog boxes
         boolean ret = false;
         removeAllMenu();
