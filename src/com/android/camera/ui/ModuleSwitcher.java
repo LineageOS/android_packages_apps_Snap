@@ -69,6 +69,7 @@ public class ModuleSwitcher extends RotateImageView {
     private int[] mModuleIds;
     private int[][] mDrawAndDescIds;
     private PopupWindow mPopup;
+    private boolean mShowingPopup;
     private LinearLayout mContent;
 
     private float mTranslationX;
@@ -109,6 +110,12 @@ public class ModuleSwitcher extends RotateImageView {
             if (i == GCAM_MODULE_INDEX) {
                 continue; // don't add to UI
             }
+            // Remove some modules if we're using camera api v2
+            if (mCurrentIndex == CAPTURE_MODULE_INDEX) {
+                if (i == VIDEO_MODULE_INDEX) {
+                    continue; // don't add to UI
+                }
+            }
             mModuleIds[index] = i;
             mDrawAndDescIds[index++] = DRAW_AND_DESC_IDS[i];
         }
@@ -116,7 +123,7 @@ public class ModuleSwitcher extends RotateImageView {
 
     public void setCurrentIndex(int i) {
         mCurrentIndex = i;
-        if (i == GCAM_MODULE_INDEX) {
+        if (i == GCAM_MODULE_INDEX || i == CAPTURE_MODULE_INDEX) {
           setImageResource(R.drawable.ic_switch_camera);
         } else {
           setImageResource(mDrawAndDescIds[i][0]);
@@ -185,7 +192,12 @@ public class ModuleSwitcher extends RotateImageView {
         closePopup();
     }
 
+    public boolean showsPopup() {
+        return mShowingPopup;
+    }
+
     private void showSwitcher() {
+        mShowingPopup = true;
         mPopup = getPopup();
         mPopup.showAsDropDown(this, ((getWidth() / 2) - (mContent.getMeasuredWidth() / 2)),
                 -(mContent.getMeasuredHeight() + Math.round(0.75f * getHeight())),
@@ -193,6 +205,7 @@ public class ModuleSwitcher extends RotateImageView {
     }
 
     public void closePopup() {
+        mShowingPopup = false;
         if (mPopup != null) {
             mPopup.dismiss();
             mPopup = null;
