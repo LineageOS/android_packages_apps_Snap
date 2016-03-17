@@ -27,64 +27,242 @@
   <!-- Video quality setting entry. Videos will be recorded in QVGA quality. [CHAR LIMIT=24] -->
   <!-- Video quality setting entry. Videos will be recorded in QCIF quality. [CHAR LIMIT=24] -->
   <!-- Auto exposure -->
+  <string name="pref_camera_autoexposure_title">Phơi sáng tự động</string>
+  <string name="pref_camera_autoexposure_entry_centerweighted">Đo sáng trọng tâm</string>
+  <string name="pref_camera_autoexposure_entry_frameaverage">Khung hình trung bình</string>
+  <string name="pref_camera_autoexposure_entry_spotmetering">Đo sáng điểm</string>
   <!-- Video codec -->
+  <string name="pref_camera_videoencoder_title">Codec video</string>
   <!-- Audio codec -->
+  <string name="pref_camera_audioencoder_title">Codec âm thanh</string>
   <!-- Skin tone enhancement -->
+  <string name="pref_camera_skinToneEnhancement_title">Tăng cường màu da</string>
   <!-- Zero shutter lag-->
+  <string name="pref_camera_zsl_title">Độ trễ chụp bằng không</string>
   <!-- Autofocus zone -->
+  <string name="pref_camera_selectablezoneaf_title">Khu vực lấy nét tự động</string>
+  <string name="pref_camera_selectablezoneaf_entry_auto">Tự động</string>
+  <string name="pref_camera_selectablezoneaf_entry_centerweighted">Đo sáng trọng tâm</string>
+  <string name="pref_camera_selectablezoneaf_entry_frameaverage">Khung hình trung bình</string>
+  <string name="pref_camera_selectablezoneaf_entry_spotmetering">Đo sáng điểm</string>
   <!-- Advanced features -->
+  <string name="pref_camera_advanced_features_title">Tính năng nâng cao</string>
+  <string name="pref_camera_advanced_feature_entry_none">Không có</string>
+  <string name="pref_camera_advanced_feature_entry_multi_touch_focus">Lấy nét đa chạm</string>
   <!-- Manual exposure -->
+  <string name="pref_camera_manual_exp_title">Phơi sáng thủ công</string>
+  <string name="pref_camera_manual_exp_entry_ISO_priority">Ưu tiên ISO</string>
+  <string name="pref_camera_manual_exp_entry_exptime_priority">Ưu tiên thời gian phơi sáng</string>
+  <string name="pref_camera_manual_exp_entry_user_setting">Cài đặt của người dùng</string>
+  <string name="pref_camera_manual_exp_entry_off">Tắt</string>
   <!-- Manual white balance -->
+  <string name="pref_camera_manual_wb_title">Cân bằng trắng thủ công</string>
+  <string name="pref_camera_manual_wb_entry_color_temperature">Nhiệt độ màu</string>
+  <string name="pref_camera_manual_wb_entry_rbgb_gains">Tăng RBGB</string>
+  <string name="pref_camera_manual_wb_entry_off">Tắt</string>
   <!-- Manual focus -->
+  <string name="pref_camera_manual_focus_title">Lấy nét thủ công</string>
+  <string name="pref_camera_manual_focus_entry_scale_mode">Chế độ thu phóng</string>
+  <string name="pref_camera_manual_focus_entry_diopter_mode">Chế độ thước ngắm</string>
+  <string name="pref_camera_manual_focus_entry_off">Tắt</string>
   <!-- Video HDR-->
+  <string name="pref_camera_video_hdr_title">Video HDR</string>
   <!-- CDS mode-->
+  <string name="pref_camera_cds_title">Chế độ CDS</string>
+  <string name="pref_camera_cds_entry_auto">Tự động</string>
   <!-- Video CDS-->
+  <string name="pref_camera_video_cds_title">Chế độ Video CDS</string>
+  <string name="pref_camera_video_cds_entry_auto">Tự động</string>
   <!-- TNR-->
+  <string name="pref_camera_tnr_title">Chế độ TNR</string>
   <!-- Video TNR -->
+  <string name="pref_camera_video_tnr_title">Chế độ Video TNR</string>
   <!-- Face detection -->
+  <string name="pref_camera_facedetection_title">Nhận diện khuôn mặt</string>
   <!-- Selfie Flash -->
+  <string name="pref_selfie_flash_title">Đèn flash tự sướng</string>
   <!-- Red eye reduction -->
+  <string name="pref_camera_redeyereduction_title">Giảm mắt đỏ</string>
   <!-- AE bracketing -->
+  <string name="pref_camera_ae_bracket_hdr_title">Chụp liên tục với độ phơi sáng tự động</string>
   <!-- High-framerate recording -->
+  <string name="pref_camera_hfr_title">Quay với tốc độ khung cao</string>
+  <string name="pref_camera_hfr_entry_off">Tắt</string>
+  <string name="pref_camera_hfr_entry_2x">Chuyển động chậm 60 FPS</string>
+  <string name="pref_camera_hfr_entry_3x">Chuyển động chậm 90 FPS</string>
+  <string name="pref_camera_hfr_entry_4x">Chuyển động chậm 120 FPS</string>
+  <string name="pref_camera_hfr_entry_8x">Chuyển động chậm 240 FPS</string>
+  <string name="pref_camera_hfr_entry_hsr_60">Tốc độ cao 60 FPS</string>
+  <string name="pref_camera_hfr_entry_hsr_90">Tốc độ cao 90 FPS</string>
+  <string name="pref_camera_hfr_entry_hsr_120">Tốc độ cao 120 FPS</string>
   <!-- See More -->
   <!-- Denoise -->
+  <string name="pref_camera_denoise_title">Giảm nhiễu</string>
   <!-- ISO -->
+  <string name="pref_camera_iso_title">ISO</string>
+  <string name="pref_camera_iso_entry_auto">Tự động</string>
+  <string name="pref_camera_iso_entry_isodeblur">Tự động (HJR)</string>
+  <string name="pref_camera_iso_entry_iso50">ISO50</string>
+  <string name="pref_camera_iso_entry_iso100">ISO100</string>
+  <string name="pref_camera_iso_entry_iso125">ISO125</string>
+  <string name="pref_camera_iso_entry_iso150">ISO150</string>
+  <string name="pref_camera_iso_entry_iso200">ISO200</string>
+  <string name="pref_camera_iso_entry_iso250">ISO250</string>
+  <string name="pref_camera_iso_entry_iso300">ISO300</string>
+  <string name="pref_camera_iso_entry_iso320">ISO320</string>
+  <string name="pref_camera_iso_entry_iso350">ISO350</string>
+  <string name="pref_camera_iso_entry_iso400">ISO400</string>
+  <string name="pref_camera_iso_entry_iso450">ISO450</string>
+  <string name="pref_camera_iso_entry_iso500">ISO500</string>
+  <string name="pref_camera_iso_entry_iso600">ISO600</string>
+  <string name="pref_camera_iso_entry_iso640">ISO640</string>
+  <string name="pref_camera_iso_entry_iso700">ISO700</string>
+  <string name="pref_camera_iso_entry_iso800">ISO800</string>
+  <string name="pref_camera_iso_entry_iso1000">ISO1000</string>
+  <string name="pref_camera_iso_entry_iso1200">ISO1200</string>
+  <string name="pref_camera_iso_entry_iso1250">ISO1250</string>
+  <string name="pref_camera_iso_entry_iso1500">ISO1500</string>
+  <string name="pref_camera_iso_entry_iso1600">ISO1600</string>
+  <string name="pref_camera_iso_entry_iso2000">ISO2000</string>
+  <string name="pref_camera_iso_entry_iso2500">ISO2500</string>
+  <string name="pref_camera_iso_entry_iso2700">ISO2700</string>
+  <string name="pref_camera_iso_entry_iso3200">ISO3200</string>
+  <string name="pref_camera_iso_entry_iso6400">ISO6400</string>
+  <string name="pref_camera_iso_entry_iso12800">ISO12800</string>
   <!-- Antibanding -->
+  <string name="pref_camera_antibanding_title">Chống rung</string>
+  <string name="pref_camera_antibanding_entry_0">Tự động</string>
+  <string name="pref_camera_antibanding_entry_1">50 Hz (Châu Âu)</string>
+  <string name="pref_camera_antibanding_entry_2">60 Hz (Hoa Kỳ)</string>
   <!-- Color effect -->
+  <string name="pref_camera_coloreffect_title">Hiệu ứng màu sắc</string>
+  <string name="pref_camera_coloreffect_entry_none">Không có</string>
+  <string name="pref_camera_coloreffect_entry_mono">Đơn sắc</string>
+  <string name="pref_camera_coloreffect_entry_sepia">Nâu đỏ</string>
+  <string name="pref_camera_coloreffect_entry_negative">Âm bản</string>
   <!-- Color effect that overexposes and reverses some of the tones. -->
+  <string name="pref_camera_coloreffect_entry_solarize">Hiệu ứng ảnh vì bị phơi sáng quá</string>
+  <string name="pref_camera_coloreffect_entry_posterize">Rạn ảnh</string>
+  <string name="pref_camera_coloreffect_entry_aqua">Nước</string>
+  <string name="pref_camera_coloreffect_entry_emboss">Chạm nổi</string>
+  <string name="pref_camera_coloreffect_entry_sketch">Phác họa</string>
+  <string name="pref_camera_coloreffect_entry_neon">Neon</string>
+  <string name="pref_camera_coloreffect_entry_pastel">Phấn nhạt</string>
+  <string name="pref_camera_coloreffect_entry_mosaic">Khảm</string>
+  <string name="pref_camera_coloreffect_entry_redtint">Sắc đỏ</string>
+  <string name="pref_camera_coloreffect_entry_bluetint">Sắc xanh dương</string>
+  <string name="pref_camera_coloreffect_entry_greentint">Sắc xanh lá cây</string>
   <!-- Stabilization -->
+  <string name="pref_camera_dis_title">Ổn định</string>
   <!-- Face recognition -->
+  <string name="pref_camera_facerc_title">Nhận diện khuôn mặt</string>
   <!-- Sharpness -->
+  <string name="pref_camera_sharpness_title">Độ sắc nét</string>
+  <string name="pref_camera_sharpness_entry_level0">Mức 0</string>
+  <string name="pref_camera_sharpness_entry_level1">Mức 1</string>
+  <string name="pref_camera_sharpness_entry_level2">Mức 2 (mặc định)</string>
+  <string name="pref_camera_sharpness_entry_level3">Mức 3</string>
+  <string name="pref_camera_sharpness_entry_level4">Mức 4</string>
+  <string name="pref_camera_sharpness_entry_level5">Mức 5</string>
+  <string name="pref_camera_sharpness_entry_level6">Mức 6</string>
   <!-- Contrast -->
+  <string name="pref_camera_contrast_title">Độ tương phản</string>
+  <string name="pref_camera_contrast_entry_level0">Mức 0</string>
+  <string name="pref_camera_contrast_entry_level1">Mức 1</string>
+  <string name="pref_camera_contrast_entry_level2">Mức 2</string>
+  <string name="pref_camera_contrast_entry_level3">Mức 3</string>
+  <string name="pref_camera_contrast_entry_level4">Mức 4</string>
+  <string name="pref_camera_contrast_entry_level5">Mức 5 (mặc định)</string>
+  <string name="pref_camera_contrast_entry_level6">Mức 6</string>
+  <string name="pref_camera_contrast_entry_level7">Mức 7</string>
+  <string name="pref_camera_contrast_entry_level8">Mức 8</string>
+  <string name="pref_camera_contrast_entry_level9">Mức 9</string>
+  <string name="pref_camera_contrast_entry_level10">Mức 10</string>
   <!-- Saturation -->
+  <string name="pref_camera_saturation_title">Độ bão hòa</string>
+  <string name="pref_camera_saturation_entry_level0">Mức 0</string>
+  <string name="pref_camera_saturation_entry_level1">Mức 1</string>
+  <string name="pref_camera_saturation_entry_level2">Mức 2</string>
+  <string name="pref_camera_saturation_entry_level3">Mức 3</string>
+  <string name="pref_camera_saturation_entry_level4">Mức 4</string>
+  <string name="pref_camera_saturation_entry_level5">Mức 5 (mặc định)</string>
+  <string name="pref_camera_saturation_entry_level6">Mức 6</string>
+  <string name="pref_camera_saturation_entry_level7">Mức 7</string>
+  <string name="pref_camera_saturation_entry_level8">Mức 8</string>
+  <string name="pref_camera_saturation_entry_level9">Mức 9</string>
+  <string name="pref_camera_saturation_entry_level10">Mức 10</string>
   <!-- Picture format -->
+  <string name="pref_camera_picture_format_title">Định dạng ảnh</string>
   <!-- Picture quality -->
+  <string name="pref_camera_jpegquality_title">Chất lượng ảnh</string>
+  <string name="pref_camera_jpegquality_entry_0">55%</string>
+  <string name="pref_camera_jpegquality_entry_1">65% (bình thường)</string>
+  <string name="pref_camera_jpegquality_entry_2">75% (tốt)</string>
+  <string name="pref_camera_jpegquality_entry_3">85% (rất tốt)</string>
+  <string name="pref_camera_jpegquality_entry_4">95%</string>
+  <string name="pref_camera_jpegquality_entry_5">100%</string>
   <!-- Histogram -->
+  <string name="pref_camera_histogram_title">Biểu đồ</string>
   <!-- Auto scene detection -->
+  <string name="pref_camera_scenedetect_title">Tự phát hiện cảnh</string>
   <!-- Continuous shot -->
+  <string name="pref_camera_longshot_title">Chụp liên tục</string>
   <!-- Auto HDR -->
+  <string name="pref_camera_auto_hdr_title">HDR Tự động</string>
   <!-- HDR mode -->
+  <string name="pref_camera_hdr_mode_title">Chế độ HDR</string>
+  <string name="pref_camera_hdr_mode_entry_sensor">Cảm biến HDR</string>
+  <string name="pref_camera_hdr_mode_entry_multi_frame">HDR đa khung</string>
   <!-- HDR needs 1x frame -->
+  <string name="pref_camera_hdr_need_1x_title">HDR cần 1 x khung</string>
   <!-- Video rotation -->
+  <string name="pref_camera_video_rotation_title">Xoay video</string>
+  <string name="pref_camera_video_rotation_entry_0">0 độ</string>
+  <string name="pref_camera_video_rotation_entry_90">90 độ</string>
+  <string name="pref_camera_video_rotation_entry_180">180 độ</string>
+  <string name="pref_camera_video_rotation_entry_270">270 độ</string>
   <!-- Storage location -->
+  <string name="pref_camera_savepath_title">Vị trí lưu trữ</string>
+  <string name="pref_camera_savepath_entry_0">Bộ nhớ trong</string>
+  <string name="pref_camera_savepath_entry_1">Thẻ nhớ</string>
   <!-- Misc -->
   <!-- The alias of CameraActivity for gesture operation -->
+  <string name="camera_gesture_title">Khởi động máy ảnh</string>
+  <string name="all_in_focus">Lấy nét tất cả</string>
+  <string name="refocus_toast">Để lấy nét lại ảnh cuối, chạm vào đây</string>
   <!-- Toast messages -->
   <!-- The message is shown in toast when the app encounters an unsupported selection for High-framerate recording mode -->
+  <string name="error_app_unsupported_hfr_selection">Quay với tốc độ khung cao không được hỗ trợ khi sử dụng chế độ Ổn định/Tua thời gian/HDR.</string>
   <!-- The message is shown in dialog when the app encounters an unsupported resolution for Slow motion mode -->
+  <string name="error_app_unsupported_hfr">Chế độ chuyển động chậm không được hỗ trợ ở kích thước video đã chọn. Chọn kích thước video thấp hơn</string>
   <!-- The message is shown in toast when the app encounters an unsupported resolution for Stabilization mode -->
+  <string name="error_app_unsupported_dis">Ổn định hoá không hỗ trợ ở kích thước video đã chọn. Chọn kích thước video thấp hơn</string>
   <!-- The message is shown in dialog when the app encounters an unsupported resolution for High speed mode -->
+  <string name="error_app_unsupported_hsr">Chế độ tốc độ cao không được hỗ trợ ở kích thước video đã chọn. Chọn kích thước video thấp hơn</string>
   <!-- The message is shown in dialog when the app encounters an unsupported video codec for HFR mode -->
+  <string name="error_app_unsupported_hfr_codec">Chỉ mã hóa video H264 được hỗ trợ khi bật HFR</string>
   <!-- The message is shown in dialog when the app encounters an unsupported video resolution-->
+  <string name="error_app_unsupported">Độ phân giải video không được hỗ trợ cho kiểu bộ giải mã này</string>
   <!--The message is shown in dialog when the raw snapshot is selected in Zero shutter lag mode-->
+  <string name="error_app_unsupported_raw">Không hỗ trợ định dạng ảnh raw trong chế độ màn trập không độ trễ. Chọn JPEG</string>
+  <string name="msg_cancel_longshot_for_limited_memory">Hết bộ nhớ, đang huỷ chụp liên tục</string>
   <!-- Toast showing non-supported functionality for flash in AE bracket -->
+  <string name="flash_aebracket_message">Không hỗ trợ đèn flash trong chế độ Chụp liên tục với độ phơi sáng tự động</string>
   <!-- toast message for storage location switch -->
+  <string name="on_switch_save_path_to_sdcard">Bộ nhớ trong không đủ, đã chuyển vị trí lưu trữ sang thẻ nhớ</string>
   <!-- The message is shown in toast when click showOnMap Menu and there is no map app -->
+  <string name="map_activity_not_found_err">Không có ứng dụng bản đồ được cài đặt để hiện vị trí</string>
   <!-- Continous shot enable message -->
+  <string name="longshot_enable_message">Các tính năng nâng cao không được hỗ trợ trong chế độ chụp liên tục</string>
   <!-- Advance features enable message -->
+  <string name="advance_feature_enable_msg">Chụp liên tục không được hỗ trợ khi các tính năng nâng cao được kích hoạt</string>
   <!-- Toast after enable HDR function to inform continuous shot has disabled -->
+  <string name="HDR_disable_continuous_shot">Kích hoạt HDR sẽ vô hiệu hóa chế độ chụp liên tục</string>
   <!-- Toast after enable advanced capture function to inform continuous shot has disabled -->
+  <string name="advanced_capture_disable_continuous_shot">Kích hoạt chụp nâng cao sẽ vô hiệu hóa chế độ chụp liên tục</string>
   <!-- Toast after enable 2k4k video quality to inform IS has disabled -->
+  <string name="video_quality_4k_disable_IS">Kích hoạt kích thước video 4k sẽ vô hiệu hóa Ổn định hình ảnh</string>
   <!-- Toast after 2k4k video is enabled to inform SeeMore has been disabled -->
+  <string name="video_quality_4k_disable_SeeMore">Không thể kích hoạt SeeMore lúc quay video 4k</string>
   <!-- TODO: Remove these? -->
 </resources>

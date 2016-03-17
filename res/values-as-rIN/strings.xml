@@ -16,82 +16,171 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- The name of the Android Camera application. [CHAR LIMIT=16] -->
+  <string name="app_name">কেমেৰা</string>
   <!-- The label for the Video Camera activity. [CHAR LIMIT=16] -->
+  <string name="video_camera_label">কেমকৰ্ডাৰ</string>
   <!-- Used to format short video duration in Details dialog. minutes:seconds e.g. 00:30 -->
+  <string name="details_ms">%1$02d:%2$02d</string>
   <!-- Used to format video duration in Details dialog. hours:minutes:seconds e.g. 0:21:30 -->
+  <string name="details_hms">%1$d:%2$02d:%3$02d</string>
   <!-- Displayed in the title of the dialog for things to do with a picture
              that is to be "set as" (e.g. set as contact photo or set as wallpaper) -->
+  <string name="set_image">ছবিছন যি হিচাপে ছেট কৰিব</string>
   <!-- Details dialog "OK" button. Dismisses dialog. -->
+  <string name="delete">মচি দিয়া</string>
   <!-- String Delete the selected media item(s) [CHAR LIMIT=50] -->
+  <plurals name="delete_selection">
+    <item quantity="one">বাচনি কৰা আইটেম মচি দিওঁক?</item>
+    <item quantity="other">বাচনি কৰা আইটেমসমূহ মচি দিওঁক?</item>
+  </plurals>
+  <string name="share">শ্বেয়াৰ</string>
+  <string name="share_panorama">পেনোৰামা শ্বেয়াৰ কৰক</string>
+  <string name="share_as_photo">ফটো হিচাপে শ্বেয়াৰ কৰক</string>
   <!-- The label shown after an image is deleted [CHAR LIMIT=16] -->
+  <string name="deleted">মচি পেলোৱা হল</string>
   <!-- The label on the button which when clicked will undo a deletion of image [CHAR LIMIT=16]-->
+  <string name="undo">ওভতাই অনা</string>
+  <string name="details">বিৱৰণ</string>
+  <string name="close">বন্ধ</string>
   <!-- String indicating how many media item(s) is(are) selected
             eg. 1 selected [CHAR LIMIT=30] -->
+  <plurals name="number_of_items_selected">
+    <item quantity="one">%1$d বাচনি কৰা হল</item>
+    <item quantity="other">%1$d বাচনি কৰা হল</item>
+  </plurals>
   <!-- String indicating how many media album(s) is(are) selected
             eg. 1 selected [CHAR LIMIT=30] -->
+  <plurals name="number_of_albums_selected">
+    <item quantity="one">%1$d বাচনি কৰা হল</item>
+    <item quantity="other">%1$d বাচনি কৰা হল</item>
+  </plurals>
   <!-- String indicating how many media group(s) is(are) selected
             eg. 1 selected [CHAR LIMIT=30] -->
+  <plurals name="number_of_groups_selected">
+    <item quantity="one">%1$d বাচনি কৰা হল</item>
+    <item quantity="other">%1$d বাচনি কৰা হল</item>
+  </plurals>
   <!-- String indicating timestamp of photo or video -->
+  <string name="show_on_map">মেপত প্ৰদৰ্শন কৰক</string>
+  <string name="rotate_left">বাওঁফালে ঘূৰোৱা</string>
+  <string name="rotate_right">সোঁফালে ঘূৰোৱা</string>
   <!-- String used as a menu label. The user can choose to edit the image
          [CHAR_LIMIT=20]-->
+  <string name="edit">সম্পাদনা</string>
   <!-- The title of the menu item to let user crop the image. [CHAR LIMIT=15] -->
+  <string name="crop_action">ক্ৰপ</string>
   <!-- The title of the menu item to let user trim the video. [CHAR LIMIT=15] -->
+  <string name="trim_action">ট্ৰিম</string>
   <!-- The title of the menu item to let user set the image as background etc. [CHAR LIMIT=15] -->
+  <string name="set_as">হিচাপে ছেট কৰক</string>
   <!-- String indicating an error when playing the video. [CHAR LIMIT=30] -->
+  <string name="video_err">ভিডিঅ চলাব নোৱাৰি।</string>
   <!-- Toast message shown when the cropped image has been saved in the
          %s folder (string: folder_download) [CHAR LIMIT=50]-->
+  <string name="crop_saved">ক্ৰ\'প কৰা প্ৰতিচ্ছবি <xliff:g id="folder_name">%s</xliff:g>-লৈ সংৰক্ষণ কৰা হৈছে৷</string>
   <!-- Text indicating the title of a media item in details window [CHAR LIMIT=14] -->
+  <string name="title">শিৰোনাম</string>
   <!-- Text indicating the description of a media item in details window [CHAR LIMIT=14] -->
+  <string name="description">বৰ্ণনা</string>
   <!-- Text indicating the creation time of a media item in details window [CHAR LIMIT=14] -->
+  <string name="time">সময়</string>
   <!-- Text indicating the location of a media item in details window [CHAR LIMIT=14] -->
+  <string name="location">স্থান</string>
   <!-- Text indicating the path of a media item in details window [CHAR LIMIT=14] -->
+  <string name="path">পাথ</string>
   <!-- Text indicating the width of a media item in details window [CHAR LIMIT=14] -->
+  <string name="width">বহল</string>
   <!-- Text indicating the height of a media item in details window [CHAR LIMIT=14] -->
+  <string name="height">উচ্চতা</string>
   <!-- Text indicating the orientation of a media item in details window [CHAR LIMIT=14] -->
+  <string name="orientation">অৰিয়েণ্টেশ্যন</string>
   <!-- Text indicating the duration of a video item in details window [CHAR LIMIT=18] -->
+  <string name="duration">সময়সীমা</string>
   <!-- Text indicating the mime type of a media item in details window [CHAR LIMIT=14] -->
+  <string name="mimetype">MIME ধৰণ</string>
   <!-- Text indicating the file size of a media item in details window [CHAR LIMIT=14] -->
+  <string name="file_size">ফাইলৰ আকাৰ</string>
   <!-- Text indicating the maker of a media item in details window [CHAR LIMIT=14] -->
+  <string name="maker">কৰ্তা</string>
   <!-- Text indicating the model of a media item in details window [CHAR LIMIT=14] -->
+  <string name="model">মডেল</string>
   <!-- Text indicating flash info of a media item in details window [CHAR LIMIT=14] -->
+  <string name="flash">ফ্লাশ্ব</string>
   <!-- Text indicating aperture of a media item in details window [CHAR LIMIT=14] -->
+  <string name="aperture">এপাৰ্চাৰ</string>
   <!-- Text indicating the focal length of a media item in details window [CHAR LIMIT=14] -->
+  <string name="focal_length">ফোকেল দৈৰ্ঘ</string>
   <!-- Text indicating the white balance of a media item in details window [CHAR LIMIT=18] -->
+  <string name="white_balance">বগা সাম্যৱস্থা</string>
   <!-- Text indicating the exposure time of a media item in details window [CHAR LIMIT=14] -->
+  <string name="exposure_time">এক্সপ’জাৰ টাইম</string>
   <!-- Text indicating the ISO speed rating of a media item in details window [CHAR LIMIT=14] -->
+  <string name="iso">ISO</string>
   <!-- String indicating the time units in seconds. [CHAR LIMIT=8] -->
   <!-- String indicating the length units in milli-meters. [CHAR LIMIT=8] -->
+  <string name="unit_mm">mm</string>
   <!-- String indicating how camera shooting feature is used. [CHAR LIMIT=12] -->
+  <string name="manual">মেনুৱেল</string>
   <!-- String indicating how camera shooting feature is used. [CHAR LIMIT=12 -->
+  <string name="auto">স্বয়ং</string>
   <!-- String indicating camera flash is fired. [CHAR LIMIT=14] -->
+  <string name="flash_on">ফ্লাস্ব ফায়াৰ্ড</string>
   <!-- String indicating camera flash is not used. [CHAR LIMIT=14] -->
+  <string name="flash_off">ফ্লাশ্ব নাই</string>
   <!-- String indicating image width or height is unknown. [CHAR LIMIT=14] -->
+  <string name="unknown">অজ্ঞাত</string>
   <!-- Toast message shown after we try to make a local album available offline
          [CHAR LIMIT=150] -->
+  <string name="try_to_set_local_album_available_offline">এই আইটেমটো স্থানীয়ভাৱে ষ্টোৰ কৰা হৈছে আৰু এয়া অফলাইনযোগেও উপলব্ধ হয়৷</string>
   <!-- The content of a dialog showing trimming in progress. [CHAR LIMIT=30] -->
+  <string name="please_wait">অনুগ্ৰহ কৰি অপেক্ষা কৰক</string>
   <!-- Text to show with progress bar while stitching a photo sphere. 'Photo sphere' is a product name. [CHAR LIMIT=35]-->
+  <string name="rendering_photo_sphere">ফটো স্ফেয়াৰ ৰেণ্ডাৰিং কৰি আছে</string>
   <!-- title for the dialog showing the error of camera hardware -->
+  <string name="camera_error_title">কেমেৰা এৰৰ</string>
   <!-- message for the dialog showing the error of camera hardware -->
+  <string name="cannot_connect_camera">কেমেৰাৰ সৈতে সংযোগ কৰিব নোৱাৰি।</string>
   <!-- message for the dialog showing the camera is disabled because of security policies. Camera cannot be used. -->
+  <string name="camera_disabled">সুৰক্ষা নীতিসমূহৰ বাবে কেমেৰা অক্ষম কৰা হল।</string>
   <!-- alert to the user to wait for some operation to complete -->
+  <string name="wait">অনুগ্ৰহ কৰি অপেক্ষা কৰক\u2026</string>
   <!-- alert to the user that an SD card must be installed before using the camera -->
+  <string name="no_storage" product="default">কেমেৰা ব্যৱহাৰ কৰাৰ আগেয়ে SD কাৰ্ড ইনচাৰ্ট কৰক৷</string>
   <!-- alert to the user that the SD card is being disk-checked -->
+  <string name="preparing_sd" product="default">SD কাৰ্ড প্ৰস্তুত কৰি তোলা হৈছে\u2026</string>
   <!-- alert to the user that the camera fails to read or write the SD card. -->
+  <string name="access_sd_fail" product="default">SD কাৰ্ড আহৰণ কৰিব নোৱাৰে।</string>
   <!-- A label that overlays on top of the preview frame to indicate the camcorder is in time lapse mode [CHAR LIMIT=35] -->
+  <string name="time_lapse_title">সময় অতিবাহিত হোৱাটো ৰেকৰ্ডিং</string>
   <!-- Screen display message during image capture to indicate that the capture is in progress, like during HDR+. [CHAR LIMIT=20] -->
+  <string name="capturing">আটক কৰি থকা হৈছে</string>
   <!-- Settings screen, camera selection dialog title. Users can select a camera from the phone (front-facing or back-facing). [CHAR LIMIT=20] -->
+  <string name="pref_camera_id_title">কেমেৰা বাচনি কৰক</string>
   <!-- In select camera setting, back facing camera. [CHAR LIMIT=14] -->
+  <string name="pref_camera_id_entry_back">পিছ</string>
   <!-- In select camera setting, front-facing camera. [CHAR LIMIT=14] -->
+  <string name="pref_camera_id_entry_front">সন্মুখ</string>
   <!-- Settings screen, setting title text -->
+  <string name="pref_camera_recordlocation_title">ষ্টোৰৰ স্থান</string>
   <!--  Label for record location preference [CHAR LIMIT=50] -->
+  <string name="pref_camera_location_label">স্থান</string>
   <!-- Title for countdown timer on camera settings screen [CHAR LIMIT=30]-->
+  <string name="pref_camera_timer_title">কাউণ্টডাউন টাইমাৰ</string>
   <!-- Entry for countdown timer setting. e.g. 1 second, 10 seconds, etc. [CHAR LIMIT=30]-->
+  <plurals name="pref_camera_timer_entry">
+    <item quantity="one">1 চেকেণ্ড</item>
+    <item quantity="other">%d ছেকেণ্ড</item>
+  </plurals>
   <!-- Text followed by a checkbox to turn on/off sound effects during the countdown. [CHAR LIMIT = 24]-->
+  <string name="pref_camera_timer_sound_title">কাউণ্টডাউনৰ সময়ত বীপ কৰা</string>
   <!-- Entry of a on/off setting. The setting is turned off. [CHAR LIMIT=15] -->
+  <string name="setting_off">অফ</string>
   <!-- Entry of a on/off setting. The setting is turned on. [CHAR LIMIT=15] -->
+  <string name="setting_on">অন কৰক</string>
   <!-- The value of a camera preference indicating the setting is off. -->
   <!-- The value of a camera preference indicating the setting is on. -->
   <!-- The Video quality settings in preference [CHAR LIMIT=21] -->
+  <string name="pref_video_quality_title">ভিডিঅ’ গুণমান</string>
   <!-- The default quality value is NULL -->
   <!-- Video quality setting entry.
     Videos will be recorded in 4k DCI quality. [CHAR LIMIT=24] -->
@@ -102,170 +191,334 @@
   <!-- Video quality setting entry. Videos will be recorded in 480p quality. [CHAR LIMIT=24] -->
   <!-- Describes the preference dialog for choosing interval between frame capture for
     time lapse recording. Appears at top of the dialog. [CHAR LIMIT=30] -->
+  <string name="pref_video_time_lapse_frame_interval_title">সময় অতিবাহিত হৈছে</string>
   <!-- Settings screen, Camera setting category title -->
+  <string name="pref_camera_settings_category">কেমেৰা ছেটিংছসমূহ</string>
   <!-- Settings screen, Camcorder setting category title -->
+  <string name="pref_camcorder_settings_category">কেমকৰ্ডাৰ ছেটিংছ</string>
   <!-- Settings screen, Picture size title -->
+  <string name="pref_camera_picturesize_title">ছবি  আকাৰ</string>
   <!-- Settings screen, Focus mode title -->
+  <string name="pref_camera_focusmode_title">ফোকাচা মোড</string>
   <!-- Settings screen, Focus mode dialog radio button choices -->
+  <string name="pref_camera_focusmode_entry_auto">স্বয়ং</string>
   <!-- A setting that lets the camera focus into infinity. [CHAR LIMIT=20] -->
+  <string name="pref_camera_focusmode_entry_infinity">INFINITY</string>
   <!-- A setting that lets the camera operate in macro focus mode for nearby objects. [CHAR LIMIT=20] -->
+  <string name="pref_camera_focusmode_entry_macro">মেক্ৰ’</string>
   <!-- Menu, focus mode labels [CHAR LIMIT=50] -->
+  <string name="pref_camera_focusmode_label_auto">স্বয়ং</string>
+  <string name="pref_camera_focusmode_label_infinity">সীমাহীন</string>
+  <string name="pref_camera_focusmode_label_macro">মেক্ৰ’</string>
   <!-- Default flash mode setting.-->
   <!-- Value for flash off setting-->
   <!-- Settings screen, Flash mode title -->
+  <string name="pref_camera_flashmode_title">ফ্লেশ মোড</string>
   <!-- flash label [CHAR LIMIT=50] -->
+  <string name="pref_camera_flashmode_label">ফ্লেশ মোড</string>
   <!-- Settings screen, Flash mode 'auto'. [CHAR LIMIT=12] -->
+  <string name="pref_camera_flashmode_entry_auto">স্বয়ং</string>
   <!-- Settings screen, Flash mode 'alway on'. [CHAR LIMIT=12] -->
+  <string name="pref_camera_flashmode_entry_on">অন কৰক</string>
   <!-- Settings screen, Flash mode 'always off'. [CHAR LIMIT=12] -->
+  <string name="pref_camera_flashmode_entry_off">অফ</string>
   <!-- Menu, flash mode labels [CHAR LIMIT=50] -->
+  <string name="pref_camera_flashmode_label_auto">ফ্লেশ অটো</string>
+  <string name="pref_camera_flashmode_label_on">ফ্লেশ অন</string>
+  <string name="pref_camera_flashmode_label_off">ফ্লেশ অফ</string>
   <!-- Default videocamera flash mode setting.-->
   <!-- Default white balance setting. -->
   <!-- Settings screen, white balance title -->
+  <string name="pref_camera_whitebalance_title">বগা সাম্যৱস্থা</string>
   <!-- Menu, white balance label -->
+  <string name="pref_camera_whitebalance_label">বগা সাম্যৱস্থা</string>
   <!-- Settings screen, White balance dialog radio button choices -->
+  <string name="pref_camera_whitebalance_entry_auto">স্বয়ং</string>
+  <string name="pref_camera_whitebalance_entry_incandescent">তাপদিপ্ত</string>
+  <string name="pref_camera_whitebalance_entry_daylight">ডেলাইট</string>
+  <string name="pref_camera_whitebalance_entry_fluorescent">FLUORESCENT</string>
+  <string name="pref_camera_whitebalance_entry_cloudy">ক্লাউডী</string>
   <!-- Menu, White balance labels [CHAR LIMIT=50] -->
+  <string name="pref_camera_whitebalance_label_auto">স্বয়ং</string>
+  <string name="pref_camera_whitebalance_label_incandescent">তাপদিপ্ত</string>
+  <string name="pref_camera_whitebalance_label_daylight">ডেলাইট</string>
+  <string name="pref_camera_whitebalance_label_fluorescent">ফ্ল’ৰচেণ্ট</string>
+  <string name="pref_camera_whitebalance_label_cloudy">ক্লাউডী</string>
   <!-- Default scene mode setting. -->
   <!-- Settings screen, Select Scene mode -->
+  <string name="pref_camera_scenemode_title">ছিন মোড</string>
   <!-- Settings menu, scene mode choices [CHAR LIMIT=16] -->
+  <string name="pref_camera_scenemode_entry_auto">স্বয়ং</string>
   <!-- Scene mode that uses HDR plus (better HDR) [CHAR LIMIT=16] -->
+  <string name="pref_camera_scenemode_entry_hdr_plus">HDR+</string>
   <!-- Scene mode that uses HDR (high dynamic range) [CHAR LIMIT=16] -->
+  <string name="pref_camera_scenemode_entry_hdr">HDR</string>
   <!-- Scene mode to turn on HDR (better high dynamic range) [CHAR LIMIT=50] -->
+  <string name="pref_camera_scenemode_entry_turn_hdr_plus_on">HDR+ অন</string>
   <!-- Scene mode to turn off HDR (better high dynamic range) [CHAR LIMIT=50] -->
+  <string name="pref_camera_scenemode_entry_turn_hdr_plus_off">HDR+ বন্ধ</string>
   <!-- Scene mode to turn on HDR (high dynamic range) [CHAR LIMIT=50] -->
+  <string name="pref_camera_scenemode_entry_turn_hdr_on">HDR অন</string>
   <!-- Scene mode to turn off HDR (high dynamic range) [CHAR LIMIT=50] -->
+  <string name="pref_camera_scenemode_entry_turn_hdr_off">HDR বন্ধ</string>
   <!-- Scene mode that takes an image quickly with little motion blur. [CHAR LIMIT=16] -->
+  <string name="pref_camera_scenemode_entry_action">পদক্ষেপসমূহ</string>
   <!-- Scene mode that takes long exposures to capture night scenes without flash. [CHAR LIMIT=16] -->
+  <string name="pref_camera_scenemode_entry_night">নাইট</string>
   <!-- Scene mode optimized for taking images in the sunset. [CHAR LIMIT=16] -->
+  <string name="pref_camera_scenemode_entry_sunset">সূৰ্যাস্ত</string>
   <!-- Scene mode optimized for taking indoor low-lights pictures. [CHAR LIMIT=16] -->
+  <string name="pref_camera_scenemode_entry_party">পক্ষ</string>
   <!-- Settings menu, scene mode labels [CHAR LIMIT=50] -->
+  <string name="pref_camera_scenemode_label_auto">এটাও নহয়</string>
   <!-- Scene mode that takes an image quickly with little motion blur. [CHAR LIMIT=50] -->
+  <string name="pref_camera_scenemode_label_action">পদক্ষেপ</string>
   <!-- Scene mode that takes long exposures to capture night scenes without flash. [CHAR LIMIT=50] -->
+  <string name="pref_camera_scenemode_label_night">নাইট</string>
   <!-- Scene mode optimized for taking images in the sunset. [CHAR LIMIT=50] -->
+  <string name="pref_camera_scenemode_label_sunset">সূৰ্যাস্ত</string>
   <!-- Scene mode optimized for taking indoor low-lights pictures. [CHAR LIMIT=50] -->
+  <string name="pref_camera_scenemode_label_party">পক্ষ</string>
   <!-- Settings menu countdown timer off [CHAR LIMIT=50] -->
+  <string name="pref_camera_countdown_label_off">টাইমাৰ অফ</string>
   <!-- Settings menu countdown timer 1 second [CHAR LIMIT=50] -->
+  <string name="pref_camera_countdown_label_one">1 ছেকেণ্ড</string>
   <!-- Settings menu countdown timer 3 seconds [CHAR LIMIT=50] -->
+  <string name="pref_camera_countdown_label_three">3 চেকেণ্ড</string>
   <!-- Settings menu countdown timer 10 seconds [CHAR LIMIT=50] -->
+  <string name="pref_camera_countdown_label_ten">10 চেকেণ্ড</string>
   <!-- Settings menu countdown timer 15 seconds [CHAR LIMIT=50] -->
+  <string name="pref_camera_countdown_label_fifteen">15 চেকেণ্ড</string>
   <!-- Toast after trying to select a setting that is not allowed to change in scene mode [CHAR LIMIT=NONE] -->
+  <string name="not_selectable_in_scene_mode">চিত্ৰায়ন মোডত বাচনি কৰিব নোৱাৰি৷</string>
   <!-- Exposure settings in preference -->
+  <string name="pref_exposure_title">প্ৰকাশ</string>
   <!--  menu label exposure compensation [CHAR LIMIT=50] -->
+  <string name="pref_exposure_label">প্ৰকাশ</string>
   <!-- Default HDR entry value -->
   <!-- Default HDR+ entry value -->
   <!-- HDR label ON [CHAR LIMIT=60] -->
+  <string name="pref_camera_hdr_label">HDR</string>
   <!-- switch camera label back [CHAR LIMIT=60] -->
+  <string name="pref_camera_id_label_back">সন্মুখৰ কেমেৰা</string>
   <!-- switch camera label front [CHAR LIMIT=60] -->
+  <string name="pref_camera_id_label_front">পিছফালৰ কেমেৰা</string>
   <!-- Dialog "OK" button. Dismisses dialog. -->
+  <string name="dialog_ok">ঠিক</string>
   <!-- Low-memory dialog message [CHAR LIMIT=NONE] -->
+  <string name="spaceIsLow_content" product="default">আপোনাৰ SD কাৰ্ড স্থান ভৰি গৈছে। গুনাগুণ ছেটিংছ পৰিৱৰ্তন কৰক বা কিছুমান প্ৰতিচ্ছবি বা অন্য ফাইল বিলোপ কৰক</string>
   <!-- Camera format string for new image files. Passed to java.text.SimpleDateFormat. -->
   <!-- Video Camera format string for new video files. Passed to java.text.SimpleDateFormat. -->
   <!-- Filename prefix for panorama output. -->
   <!-- The message shown when video record reaches size limit. -->
+  <string name="video_reach_size_limit">আকাৰৰ সীমা চুইছেগৈ৷</string>
   <!-- The text shown when the panorama panning speed is to fast [CHAR LIMIT=16] -->
+  <string name="pano_too_fast_prompt">বৰ বেছি ক্ষীপ্ৰ</string>
   <!-- The text shown in the progress dialog when panorama preview is generating in the background [CHAR LIMIT=30] -->
+  <string name="pano_dialog_prepare_preview">পেনোৰামা প্ৰস্তুত কৰি থকা হৈছে</string>
   <!-- The text shown in the dialog when panorama saving failed [CHAR LIMIT=40] -->
+  <string name="pano_dialog_panorama_failed">পেনোৰামা ছেভ কৰিব পৰা নগ’ল।</string>
   <!-- The text shown on the dialog title in the dialogs for Panorama [CHAR LIMIT=12] -->
+  <string name="pano_dialog_title">পেন’ৰামা</string>
   <!-- The text shown on the top-left corner of the screen to indicate the capturing is on going [CHAR LIMIT=27] -->
+  <string name="pano_capture_indication">পেনোৰামা আটক কৰি থকা হৈছে</string>
   <!-- The text shown in the progress dialog when waiting for previous panorama finishing [CHAR LIMIT=40] -->
+  <string name="pano_dialog_waiting_previous">পূৰ্বৱৰ্তী পেন’ৰামাৰ বাবে অপেক্ষা</string>
   <!-- The text shown on the bottom-left corner of the screen to indicate that the saving is in process [CHAR LIMIT=13] -->
+  <string name="pano_review_saving_indication_str">\u2026 ছেভ কৰা হৈ আছে</string>
   <!-- The text shown on the screen to indicate that the panorama is rendering [CHAR LIMIT=27] -->
+  <string name="pano_review_rendering">পেনোৰামা সমৰ্পন কৰি থকা হৈছে</string>
   <!-- Toast telling users tapping on the viewfinder will trigger autofocus [CHAR LIMIT=28] -->
+  <string name="tap_to_focus">ফ’চাৰলৈ স্পৰ্শ কৰক</string>
   <!-- Default effect setting that clears the effect. -->
   <!-- Title of video effect setting popup window -->
+  <string name="pref_video_effect_title">প্ৰভাৱসমূহ</string>
   <!-- Effect setting item that clear the effect. [CHAR LIMIT=14] -->
+  <string name="effect_none">হাল্লা</string>
   <!-- Effect setting item that squeezes the face. [CHAR LIMIT=14] -->
+  <string name="effect_goofy_face_squeeze">চেপক</string>
   <!-- Effect setting item that makes eyes big. [CHAR LIMIT=14] -->
+  <string name="effect_goofy_face_big_eyes">ডাঙৰ চকু</string>
   <!-- Effect setting item that makes mouth big. [CHAR LIMIT=14] -->
+  <string name="effect_goofy_face_big_mouth">ডাঙৰ মূখ</string>
   <!-- Effect setting item that makes mouth small. [CHAR LIMIT=14] -->
+  <string name="effect_goofy_face_small_mouth">সৰু মুখ</string>
   <!-- Effect setting item that makes nose big. [CHAR LIMIT=14] -->
+  <string name="effect_goofy_face_big_nose">ডাঙৰ নাক</string>
   <!-- Effect setting item that makes eyes small. [CHAR LIMIT=14] -->
+  <string name="effect_goofy_face_small_eyes">সৰু চকু</string>
   <!-- Effect setting item that replaces background with Android in Space. [CHAR LIMIT=14] -->
+  <string name="effect_backdropper_space">স্পেচত</string>
   <!-- Effect setting item that replaces background with a sunset. [CHAR LIMIT=14] -->
+  <string name="effect_backdropper_sunset">সূৰ্যাস্ত</string>
   <!-- Effect setting item that replaces background with video from gallery. [CHAR LIMIT=14] -->
+  <string name="effect_backdropper_gallery">আপোনাৰ ভিডিঅ’</string>
   <!-- Toast telling users tapping on the viewfinder will take a picture [CHAR LIMIT=54] -->
+  <string name="video_snapshot_hint">ৰেকৰ্ডিং কৰি থকাৰ সময়ত ফটো লবৰ বাবে স্পৰ্শ কৰক।</string>
   <!-- Announcement telling users video recording has just started [CHAR LIMIT=NONE] -->
+  <string name="video_recording_started">ভিডিঅ’ ৰেকৰ্ডিং আৰম্ভ হৈছে</string>
   <!-- Announcement telling users video recording has just stopped [CHAR LIMIT=NONE] -->
+  <string name="video_recording_stopped">ভিডিঅ’ ৰেকৰ্ডিং সমাপ্ত হ’ল</string>
   <!-- A button in effect setting popup to clear the effect. [CHAR LIMIT=26] -->
+  <string name="clear_effects">প্ৰভাৱসমূহ মুকলি কৰক</string>
   <!-- Title of category for silly face effects. [CHAR LIMIT=26] -->
+  <string name="effect_silly_faces">ছিল্লী ফেচেছ</string>
   <!-- Title of category for background replacement effects. [CHAR LIMIT=26] -->
+  <string name="effect_background">বেকগ্ৰাউণ্ড</string>
   <!-- The shutter button. [CHAR LIMIT = NONE] -->
+  <string name="accessibility_shutter_button">ছাটাৰ</string>
   <!-- The menu button. [CHAR LIMIT = NONE] -->
+  <string name="accessibility_menu_button">মেন্যু বুটাম</string>
   <!-- The mode picker to switch between camera, video and panorama. [CHAR LIMIT = NONE] -->
+  <string name="accessibility_mode_picker">কেমেৰা, ভিডিঅ, বা পেনোৰামা নিৰ্বাচক</string>
   <!-- The check box in camera settings, such as store location. [CHAR LIMIT = NONE] -->
+  <string name="accessibility_check_box">%1$s চেক বাকচ</string>
   <!-- The button to switch to Camera mode. [CHAR LIMIT = NONE] -->
+  <string name="accessibility_switch_to_camera">ফটোলৈ স্থানান্তৰিত কৰক</string>
   <!-- The button to switch to Video mode. [CHAR LIMIT = NONE] -->
+  <string name="accessibility_switch_to_video">ভিডিঅ’লৈ স্থানান্তৰিত কৰক</string>
   <!-- The button to switch to Panorama mode. [CHAR LIMIT = NONE] -->
+  <string name="accessibility_switch_to_panorama">পেনোৰামালৈ স্থানান্তৰিত কৰক</string>
   <!-- The button to switch to the Photo Sphere mode. [CHAR LIMIT = NONE] -->
+  <string name="accessibility_switch_to_photo_sphere">গোলাকাৰ ফটোলৈ স্থানান্তৰিত কৰক</string>
   <!-- The button to switch to the high quality mode. [CHAR LIMIT = NONE] -->
+  <string name="accessibility_switch_to_gcam">উচ্চ মানদণ্ডলৈ স্থানান্তৰিত কৰক</string>
   <!-- The button in review mode indicating that the photo taking, video recording, and panorama saving session should be canceled [CHAR LIMIT = NONE] -->
+  <string name="accessibility_review_cancel">পুনৰীক্ষণ নাকচ</string>
   <!-- The button in review mode indicating that the taken photo/video is OK to be attached/uploaded [CHAR LIMIT = NONE] -->
+  <string name="accessibility_review_ok">পুনৰীক্ষণ কৰা হৈছে</string>
   <!-- button in review mode indicate the user want to retake another photo/video for attachment [
 CHAR LIMIT = NONE] -->
+  <string name="accessibility_review_retake">পুনৰীক্ষণ পুনৰ আৰম্ভ কৰা হৈছে</string>
   <!-- Default text for a button that can be toggled on and off. -->
+  <string name="capital_on">খোলা</string>
   <!-- Default text for a button that can be toggled on and off. -->
+  <string name="capital_off">অফ</string>
   <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
+  <string name="pref_video_time_lapse_frame_interval_off">অফ</string>
   <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
+  <string name="pref_video_time_lapse_frame_interval_500">0.5 চেকেণ্ড</string>
   <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
+  <string name="pref_video_time_lapse_frame_interval_1000">1 চেকেণ্ড</string>
   <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
+  <string name="pref_video_time_lapse_frame_interval_1500">1.5 চেকেণ্ড</string>
   <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
+  <string name="pref_video_time_lapse_frame_interval_2000">2 চেকেণ্ড</string>
   <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
+  <string name="pref_video_time_lapse_frame_interval_2500">2.5 চেকেণ্ড</string>
   <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
+  <string name="pref_video_time_lapse_frame_interval_3000">3 চেকেণ্ড</string>
   <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
+  <string name="pref_video_time_lapse_frame_interval_4000">4 চেকেণ্ড</string>
   <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
+  <string name="pref_video_time_lapse_frame_interval_5000">5 চেকেণ্ড</string>
   <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
+  <string name="pref_video_time_lapse_frame_interval_6000">6 চেকেণ্ড</string>
   <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
+  <string name="pref_video_time_lapse_frame_interval_10000">10 চেকেণ্ড</string>
   <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
+  <string name="pref_video_time_lapse_frame_interval_12000">12 চেকেণ্ড</string>
   <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
+  <string name="pref_video_time_lapse_frame_interval_15000">15 চেকেণ্ড</string>
   <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
+  <string name="pref_video_time_lapse_frame_interval_24000">24 চেকেণ্ড</string>
   <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
+  <string name="pref_video_time_lapse_frame_interval_30000">0.5 মিনিট</string>
   <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
+  <string name="pref_video_time_lapse_frame_interval_60000">1 মিনিট</string>
   <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
+  <string name="pref_video_time_lapse_frame_interval_90000">1.5 মিনিট</string>
   <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
+  <string name="pref_video_time_lapse_frame_interval_120000">2 মিনিট</string>
   <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
+  <string name="pref_video_time_lapse_frame_interval_150000">2.5 মিনিট</string>
   <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
+  <string name="pref_video_time_lapse_frame_interval_180000">3 মিনিট</string>
   <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
+  <string name="pref_video_time_lapse_frame_interval_240000">4 মিনিট</string>
   <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
+  <string name="pref_video_time_lapse_frame_interval_300000">5 মিনিট</string>
   <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
+  <string name="pref_video_time_lapse_frame_interval_360000">6 মিনিট</string>
   <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
+  <string name="pref_video_time_lapse_frame_interval_600000">10 মিনিট</string>
   <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
+  <string name="pref_video_time_lapse_frame_interval_720000">12 মিনিট</string>
   <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
+  <string name="pref_video_time_lapse_frame_interval_900000">15 মিনিট</string>
   <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
+  <string name="pref_video_time_lapse_frame_interval_1440000">24 মিনিট</string>
   <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
+  <string name="pref_video_time_lapse_frame_interval_1800000">0.5 ঘন্টা</string>
   <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
+  <string name="pref_video_time_lapse_frame_interval_3600000">1 ঘন্টা</string>
   <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
+  <string name="pref_video_time_lapse_frame_interval_5400000">1.5 ঘন্টা</string>
   <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
+  <string name="pref_video_time_lapse_frame_interval_7200000">2 ঘন্টা</string>
   <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
+  <string name="pref_video_time_lapse_frame_interval_9000000">2.5 ঘন্টা</string>
   <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
+  <string name="pref_video_time_lapse_frame_interval_10800000">3 ঘন্টা</string>
   <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
+  <string name="pref_video_time_lapse_frame_interval_14400000">4 ঘন্টা</string>
   <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
+  <string name="pref_video_time_lapse_frame_interval_18000000">5 ঘন্টা</string>
   <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
+  <string name="pref_video_time_lapse_frame_interval_21600000">6 ঘন্টা</string>
   <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
+  <string name="pref_video_time_lapse_frame_interval_36000000">10 ঘন্টা</string>
   <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
+  <string name="pref_video_time_lapse_frame_interval_43200000">12 ঘন্টা</string>
   <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
+  <string name="pref_video_time_lapse_frame_interval_54000000">15 ঘন্টা</string>
   <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
+  <string name="pref_video_time_lapse_frame_interval_86400000">24 ঘন্টা</string>
   <!-- Seconds: a unit of time for time lapse intervals. [CHAR LIMIT = 20] -->
+  <string name="time_lapse_seconds">ছেকেণ্ড</string>
   <!-- Minutes: a unit of time for time lapse intervals. [CHAR LIMIT = 20] -->
+  <string name="time_lapse_minutes">মিনিটসমূহ</string>
   <!-- Hours: a unit of time for time lapse intervals. [CHAR LIMIT = 20] -->
+  <string name="time_lapse_hours">ঘন্টাসমূহ</string>
   <!-- The button to confirm time-lapse setting changes. [CHAR LIMIT = 20] -->
+  <string name="time_lapse_interval_set">কৰা হল</string>
   <!-- Title in time interval picker for setting time interval. [CHAR LIMIT = 30]-->
+  <string name="set_time_interval">সময়ৰ বিৰতি ছেট কৰক</string>
   <!-- Help text that is shown when the time lapse feature is turned off. [CHAR LIMIT = 180]-->
+  <string name="set_time_interval_help">অতিবাহিত সময় বৈশিষ্ট্য অফ আছে। সময় ব্যৱধান ছেট কৰিবলৈ ইয়াক অন কৰক।</string>
   <!-- Title in timer setting for setting the duration for the countdown timer. [CHAR LIMIT = 50]-->
+  <string name="set_duration">ম্যাদ ছেকেণ্ডত ছেট কৰক</string>
   <!-- On-screen hint during timer countdown for taking a photo. [CHAR LIMIT = 60]-->
+  <string name="count_down_title_text">ফটো এখন লবলৈ তললৈ গণনা কৰা</string>
   <!-- Title for first run dialog asking if the user wants to remember photo locations [CHAR LIMIT = 50] -->
+  <string name="remember_location_title">ফটো লোকেশ্যনসমূহ মনত আছেনে?</string>
   <!-- Message for first run dialog asking if the user wants to remember photo locations [CHAR LIMIT = None] -->
+  <string name="remember_location_prompt">ফটো আৰু ভিডিঅ’সমূহ যিস্থানত লোৱা হৈছিল সেই স্থানসমূহ টেগ কৰি দিয়ক৷ \n\অইন কোনো এপ্পে এই তথ্যসমূহ আপোনাৰ সংৰক্ষিত ছবিসমূহৰ সৈতে আহৰণ কৰিব নোৱাৰে৷</string>
   <!-- Negative answer for first run dialog asking if the user wants to remember photo locations [CHAR LIMIT = 20] -->
+  <string name="remember_location_no">ন’ থেংকছ</string>
   <!-- Positive answer for first run dialog asking if the user wants to remember photo locations [CHAR LIMIT = 20] -->
+  <string name="remember_location_yes">হয়</string>
   <!-- Camera menu labels -->
   <!-- more options label [CHAR LIMIT=50] -->
+  <string name="camera_menu_more_label">অধিক বিকল্পসমূহ</string>
   <!-- settings label [CHAR LIMIT=50] -->
+  <string name="camera_menu_settings_label">ছেটিংছ</string>
   <!--  Tiny Planet -->
   <!-- Button to press for creating a tiny planet image. [CHAR LIMIT = 30] -->
+  <string name="create_tiny_planet">টিনি প্লানেট সৃষ্টি কৰক</string>
   <!-- Message shown while a tiny planet image is being saved. [CHAR LIMIT = 30] -->
+  <string name="saving_tiny_planet">ক্ষুদ্ৰ গ্ৰহ সংৰক্ষণ কৰি আছে &#8230;</string>
   <!-- Label above a slider that let's the user set the zoom of a tiny planet image. [CHAR LIMIT = 15] -->
+  <string name="tiny_planet_zoom">জুম</string>
   <!-- Label above a slider that let's the user set the rotation of a tiny planet image. [CHAR LIMIT = 15] -->
+  <string name="tiny_planet_rotate">ঘূৰোৱা</string>
   <!-- Crop -->
   <!-- Label for the save button in the crop activity action bar [CHAR LIMIT=20] -->
+  <string name="crop_save">ছেভ কৰা</string>
   <!--  String shown when we cannot load the image when starting the activity [CHAR LIMIT=NONE] -->
+  <string name="cannot_load_image">ইমেজ লোড কৰিব নোৱাৰি!</string>
   <!-- Label for album filmstrip button -->
+  <string name="switch_photo_filmstrip">ফিল্মষ্ট্ৰিপ/ভিউ</string>
   <!--  String shown when setting the homepage wallpaper in the background [CHAR LIMIT=NONE] -->
+  <string name="setting_wallpaper">ৱাল পেপাৰ চেটিং</string>
 </resources>

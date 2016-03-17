@@ -28,6 +28,9 @@
   <!-- Video quality setting entry. Videos will be recorded in QCIF quality. [CHAR LIMIT=24] -->
   <!-- Auto exposure -->
   <string name="pref_camera_autoexposure_title">חשיפה אוטומטית</string>
+  <string name="pref_camera_autoexposure_entry_centerweighted">בדגש על מרכז התמונה</string>
+  <string name="pref_camera_autoexposure_entry_frameaverage">לפי ממוצע כללי</string>
+  <string name="pref_camera_autoexposure_entry_spotmetering">מדידה נקודתית</string>
   <!-- Video codec -->
   <string name="pref_camera_videoencoder_title">קידוד וידאו</string>
   <!-- Audio codec -->
@@ -39,9 +42,13 @@
   <!-- Autofocus zone -->
   <string name="pref_camera_selectablezoneaf_title">איזור פוקוס אוטומטי</string>
   <string name="pref_camera_selectablezoneaf_entry_auto">אוטומטי</string>
+  <string name="pref_camera_selectablezoneaf_entry_centerweighted">בדגש על מרכז התמונה</string>
+  <string name="pref_camera_selectablezoneaf_entry_frameaverage">לפי ממוצע כללי</string>
+  <string name="pref_camera_selectablezoneaf_entry_spotmetering">מדידה נקודתית</string>
   <!-- Advanced features -->
   <string name="pref_camera_advanced_features_title">תכונות מתקדמות</string>
   <string name="pref_camera_advanced_feature_entry_none">ללא</string>
+  <string name="pref_camera_advanced_feature_entry_multi_touch_focus">מיקוד מרובה-מגע</string>
   <!-- Manual exposure -->
   <string name="pref_camera_manual_exp_title">חשיפה ידנית</string>
   <string name="pref_camera_manual_exp_entry_ISO_priority">עדיפות ISO</string>
@@ -76,6 +83,7 @@
   <!-- Red eye reduction -->
   <string name="pref_camera_redeyereduction_title">הפחתת עיניים אדומות</string>
   <!-- AE bracketing -->
+  <string name="pref_camera_ae_bracket_hdr_title">תיחום חשיפה אוטומטי</string>
   <!-- High-framerate recording -->
   <string name="pref_camera_hfr_title">הקלטה בקצב פריימים גבוה</string>
   <string name="pref_camera_hfr_entry_off">כבוי</string>
@@ -144,6 +152,7 @@
   <string name="pref_camera_coloreffect_entry_bluetint">גוון כחול</string>
   <string name="pref_camera_coloreffect_entry_greentint">גוון ירוק</string>
   <!-- Stabilization -->
+  <string name="pref_camera_dis_title">ייצוב תמונה דיגיטלי</string>
   <!-- Face recognition -->
   <string name="pref_camera_facerc_title">זיהוי פנים</string>
   <!-- Sharpness -->
@@ -221,9 +230,11 @@
   <string name="refocus_toast">למיקוד מחדש של התמונה האחרונה, לחץ כאן</string>
   <!-- Toast messages -->
   <!-- The message is shown in toast when the app encounters an unsupported selection for High-framerate recording mode -->
+  <string name="error_app_unsupported_hfr_selection">הקלטה במהירות פריימים גבוהה אינה נתמכת בעת שימוש בייצוב תמונה דיגיטלי/צילום מואץ/HDR.</string>
   <!-- The message is shown in dialog when the app encounters an unsupported resolution for Slow motion mode -->
   <string name="error_app_unsupported_hfr">סרטוני הילוך איטי אינם נתמכים ברזולוציה שנבחרה. בחר רזולוציה נמוכה יותר</string>
   <!-- The message is shown in toast when the app encounters an unsupported resolution for Stabilization mode -->
+  <string name="error_app_unsupported_dis">ייצוב תמונה דיגיטלי אינו נתמך עבור רזולוציית הוידאו שנבחרה. בחר רזולוציית וידאו קטנה יותר</string>
   <!-- The message is shown in dialog when the app encounters an unsupported resolution for High speed mode -->
   <string name="error_app_unsupported_hsr">סרטוני מהירות גבוהה אינם נתמכים ברזולוציה שנבחרה. בחר רזולוציה נמוכה יותר</string>
   <!-- The message is shown in dialog when the app encounters an unsupported video codec for HFR mode -->
@@ -234,6 +245,7 @@
   <string name="error_app_unsupported_raw">תמונה בפורמט Raw לא נתמך במצב צילום מיידי. בחר בפורמט JPEG</string>
   <string name="msg_cancel_longshot_for_limited_memory">הזיכרון הולך להיגמר, מבטל צילום מתמשך</string>
   <!-- Toast showing non-supported functionality for flash in AE bracket -->
+  <string name="flash_aebracket_message">הבזק אינו נתמך במצב תיחום חשיפה אוטומטי</string>
   <!-- toast message for storage location switch -->
   <string name="on_switch_save_path_to_sdcard">שטח האחסון הפנימי אינו מספיק, בוצעה החלפת מיקום האחסון לכרטיס הזיכרון</string>
   <!-- The message is shown in toast when click showOnMap Menu and there is no map app -->
@@ -247,6 +259,8 @@
   <!-- Toast after enable advanced capture function to inform continuous shot has disabled -->
   <string name="advanced_capture_disable_continuous_shot">הפעלת צילום מתקדם תבטל את הצילום המתמשך</string>
   <!-- Toast after enable 2k4k video quality to inform IS has disabled -->
+  <string name="video_quality_4k_disable_IS">הפעלת וידאו ברזולוציית 4k תבטל את ייצוב התמונה</string>
   <!-- Toast after 2k4k video is enabled to inform SeeMore has been disabled -->
+  <string name="video_quality_4k_disable_SeeMore">SeeMore לא יכול לפעול במהלך וידאו ברזולוציית 4k</string>
   <!-- TODO: Remove these? -->
 </resources>

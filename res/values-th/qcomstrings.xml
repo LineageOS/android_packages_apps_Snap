@@ -27,15 +27,42 @@
   <!-- Video quality setting entry. Videos will be recorded in QVGA quality. [CHAR LIMIT=24] -->
   <!-- Video quality setting entry. Videos will be recorded in QCIF quality. [CHAR LIMIT=24] -->
   <!-- Auto exposure -->
+  <string name="pref_camera_autoexposure_title">เปิดรับแสงอัตโนมัติ</string>
+  <string name="pref_camera_autoexposure_entry_centerweighted">ถ่วงน้ำหนักตรงกลาง</string>
+  <string name="pref_camera_autoexposure_entry_frameaverage">ค่าเฉลี่ยของเฟรม</string>
+  <string name="pref_camera_autoexposure_entry_spotmetering">จุดวัดแสง</string>
   <!-- Video codec -->
+  <string name="pref_camera_videoencoder_title">ตัวแปลงสัญญาณวิดีโอ</string>
   <!-- Audio codec -->
+  <string name="pref_camera_audioencoder_title">ตัวแปลงสัญญาณเสียง</string>
   <!-- Skin tone enhancement -->
+  <string name="pref_camera_skinToneEnhancement_title">ปรับโทนสีผิว</string>
   <!-- Zero shutter lag-->
   <!-- Autofocus zone -->
+  <string name="pref_camera_selectablezoneaf_title">บริเวณโฟกัสอัตโนมัติ</string>
+  <string name="pref_camera_selectablezoneaf_entry_auto">ออโต้</string>
+  <string name="pref_camera_selectablezoneaf_entry_centerweighted">ถ่วงน้ำหนักตรงกลาง</string>
+  <string name="pref_camera_selectablezoneaf_entry_frameaverage">ค่าเฉลี่ยของเฟรม</string>
+  <string name="pref_camera_selectablezoneaf_entry_spotmetering">จุดวัดแสง</string>
   <!-- Advanced features -->
+  <string name="pref_camera_advanced_features_title">คุณสมบัติขั้นสูง</string>
+  <string name="pref_camera_advanced_feature_entry_none">ไม่มี</string>
+  <string name="pref_camera_advanced_feature_entry_multi_touch_focus">โฟกัสแตะสัมผัสหลายจุด</string>
   <!-- Manual exposure -->
+  <string name="pref_camera_manual_exp_title">ปรับระดับแสงเอง</string>
+  <string name="pref_camera_manual_exp_entry_ISO_priority">ระดับความสำคัญของ ISO</string>
+  <string name="pref_camera_manual_exp_entry_exptime_priority">ระดับความสำคัญของระยะเวลารับแสง</string>
+  <string name="pref_camera_manual_exp_entry_user_setting">การตั้งค่าของผู้ใช้</string>
+  <string name="pref_camera_manual_exp_entry_off">ปิด</string>
   <!-- Manual white balance -->
+  <string name="pref_camera_manual_wb_title">ปรับสมดุลสีขาวด้วยตนเอง</string>
+  <string name="pref_camera_manual_wb_entry_color_temperature">อุณหภูมิสี</string>
+  <string name="pref_camera_manual_wb_entry_rbgb_gains">เพิ่ม RBGB</string>
+  <string name="pref_camera_manual_wb_entry_off">ปิด</string>
   <!-- Manual focus -->
+  <string name="pref_camera_manual_focus_title">โฟกัสด้วยตนเอง</string>
+  <string name="pref_camera_manual_focus_entry_scale_mode">รูปแบบสเกล</string>
+  <string name="pref_camera_manual_focus_entry_off">ปิด</string>
   <!-- Video HDR-->
   <!-- CDS mode-->
   <!-- Video CDS-->
@@ -49,9 +76,12 @@
   <!-- See More -->
   <!-- Denoise -->
   <!-- ISO -->
+  <string name="pref_camera_iso_entry_iso150">ISO150</string>
+  <string name="pref_camera_iso_entry_iso200">ISO200</string>
   <!-- Antibanding -->
   <!-- Color effect -->
   <!-- Color effect that overexposes and reverses some of the tones. -->
+  <string name="pref_camera_coloreffect_entry_pastel">พาสเทล</string>
   <!-- Stabilization -->
   <!-- Face recognition -->
   <!-- Sharpness -->

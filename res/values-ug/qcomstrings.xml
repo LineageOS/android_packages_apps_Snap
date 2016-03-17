@@ -27,64 +27,242 @@
   <!-- Video quality setting entry. Videos will be recorded in QVGA quality. [CHAR LIMIT=24] -->
   <!-- Video quality setting entry. Videos will be recorded in QCIF quality. [CHAR LIMIT=24] -->
   <!-- Auto exposure -->
+  <string name="pref_camera_autoexposure_title">ئاپتوماتىك نۇرلاندۇرۇش ھالىتى</string>
+  <string name="pref_camera_autoexposure_entry_centerweighted">ئوتتۇرا كەڭلىك</string>
+  <string name="pref_camera_autoexposure_entry_frameaverage">ئوتتۇرىچە كاندۇك</string>
+  <string name="pref_camera_autoexposure_entry_spotmetering">نۇقتا ئۆلچەش</string>
   <!-- Video codec -->
+  <string name="pref_camera_videoencoder_title">سىن كودلاش</string>
   <!-- Audio codec -->
+  <string name="pref_camera_audioencoder_title">ئۈن كودلاش</string>
   <!-- Skin tone enhancement -->
+  <string name="pref_camera_skinToneEnhancement_title">تېرە رەڭگىنى كۈچەيتىش</string>
   <!-- Zero shutter lag-->
+  <string name="pref_camera_zsl_title">توختاۋسىز</string>
   <!-- Autofocus zone -->
+  <string name="pref_camera_selectablezoneaf_title">ئاپتوماتىك فوكۇسلاش دائىرىسى</string>
+  <string name="pref_camera_selectablezoneaf_entry_auto">ئاپتوماتىك</string>
+  <string name="pref_camera_selectablezoneaf_entry_centerweighted">ئوتتۇرا كەڭلىك</string>
+  <string name="pref_camera_selectablezoneaf_entry_frameaverage">ئوتتۇرىچە كاندۇك</string>
+  <string name="pref_camera_selectablezoneaf_entry_spotmetering">نۇقتا ئۆلچەش</string>
   <!-- Advanced features -->
+  <string name="pref_camera_advanced_features_title">ئالى دەرىجىلىك ئىقتىدار</string>
+  <string name="pref_camera_advanced_feature_entry_none">يوق</string>
+  <string name="pref_camera_advanced_feature_entry_multi_touch_focus">كۆپ چىكىتلىك فوكىس</string>
   <!-- Manual exposure -->
+  <string name="pref_camera_manual_exp_title">قولدا ئېكسپوزىتسىيە قىلىش</string>
+  <string name="pref_camera_manual_exp_entry_ISO_priority">ISO ئالدىنقىلىقى</string>
+  <string name="pref_camera_manual_exp_entry_exptime_priority">ئاشكارلاش ۋاقتى ئالدىنقىلىقى</string>
+  <string name="pref_camera_manual_exp_entry_user_setting">ئىشلەتكۈچى تەڭشىكى</string>
+  <string name="pref_camera_manual_exp_entry_off">تاقاق</string>
   <!-- Manual white balance -->
+  <string name="pref_camera_manual_wb_title">قولدا ئارقا كۆرۈنۈشنى ئاقارتىش</string>
+  <string name="pref_camera_manual_wb_entry_color_temperature">رەڭ تېمپېراتۇرىسى</string>
+  <string name="pref_camera_manual_wb_entry_rbgb_gains">RBGB كۈچەيتىش</string>
+  <string name="pref_camera_manual_wb_entry_off">تاقاق</string>
   <!-- Manual focus -->
+  <string name="pref_camera_manual_focus_title">قولدا مەركەزلەشتۈرۈش</string>
+  <string name="pref_camera_manual_focus_entry_scale_mode">نىسپەت شەكلى</string>
+  <string name="pref_camera_manual_focus_entry_diopter_mode">نۇر سۇندۇرۇش شەكلى</string>
+  <string name="pref_camera_manual_focus_entry_off">تاقاق</string>
   <!-- Video HDR-->
+  <string name="pref_camera_video_hdr_title">سىن HDR</string>
   <!-- CDS mode-->
+  <string name="pref_camera_cds_title">CDS ئەندىزىسى</string>
+  <string name="pref_camera_cds_entry_auto">ئاپتوماتىك</string>
   <!-- Video CDS-->
+  <string name="pref_camera_video_cds_title">سىن CDS ئەندىزىرىسى</string>
+  <string name="pref_camera_video_cds_entry_auto">ئاپتوماتىك</string>
   <!-- TNR-->
+  <string name="pref_camera_tnr_title">TNR ئەندىزىسى</string>
   <!-- Video TNR -->
+  <string name="pref_camera_video_tnr_title">سىن TNR ئەندىزىرىسى</string>
   <!-- Face detection -->
+  <string name="pref_camera_facedetection_title">چىراي بايقاش</string>
   <!-- Selfie Flash -->
+  <string name="pref_selfie_flash_title">ئۆزتارتىم فىلەش</string>
   <!-- Red eye reduction -->
+  <string name="pref_camera_redeyereduction_title">قىزىل كۆز ئوڭشاش</string>
   <!-- AE bracketing -->
+  <string name="pref_camera_ae_bracket_hdr_title">ئاپتوماتىك چۆرىدەپ نۇرلاندۇرۇش</string>
   <!-- High-framerate recording -->
+  <string name="pref_camera_hfr_title">يوقىرى رەسىم چاستوتىسىدا سۈرئەتكە ئېلىش</string>
+  <string name="pref_camera_hfr_entry_off">تاقاق</string>
+  <string name="pref_camera_hfr_entry_2x">60 FPS ئاستا ھەرىكەت</string>
+  <string name="pref_camera_hfr_entry_3x">90 FPS ئاستا ھەرىكەت</string>
+  <string name="pref_camera_hfr_entry_4x">120 FPS ئاستا ھەرىكەت</string>
+  <string name="pref_camera_hfr_entry_8x">240 FPS ئاستا ھەرىكەت</string>
+  <string name="pref_camera_hfr_entry_hsr_60">60 FPS يوقىرى سۈرئەت</string>
+  <string name="pref_camera_hfr_entry_hsr_90">90 FPS يوقىرى سۈرئەت</string>
+  <string name="pref_camera_hfr_entry_hsr_120">120 FPS يوقىرى سۈرئەت</string>
   <!-- See More -->
   <!-- Denoise -->
+  <string name="pref_camera_denoise_title">شاۋقۇن پەسەيتىش</string>
   <!-- ISO -->
+  <string name="pref_camera_iso_title">ISO</string>
+  <string name="pref_camera_iso_entry_auto">ئاپتوماتىك</string>
+  <string name="pref_camera_iso_entry_isodeblur">ئاپتوماتىك (HJR)</string>
+  <string name="pref_camera_iso_entry_iso50">ISO50</string>
+  <string name="pref_camera_iso_entry_iso100">ISO100</string>
+  <string name="pref_camera_iso_entry_iso125">ISO125</string>
+  <string name="pref_camera_iso_entry_iso150">ISO150</string>
+  <string name="pref_camera_iso_entry_iso200">ISO200</string>
+  <string name="pref_camera_iso_entry_iso250">ISO250</string>
+  <string name="pref_camera_iso_entry_iso300">ISO300</string>
+  <string name="pref_camera_iso_entry_iso320">ISO320</string>
+  <string name="pref_camera_iso_entry_iso350">ISO350</string>
+  <string name="pref_camera_iso_entry_iso400">ISO400</string>
+  <string name="pref_camera_iso_entry_iso450">ISO450</string>
+  <string name="pref_camera_iso_entry_iso500">ISO500</string>
+  <string name="pref_camera_iso_entry_iso600">ISO600</string>
+  <string name="pref_camera_iso_entry_iso640">ISO640</string>
+  <string name="pref_camera_iso_entry_iso700">ISO700</string>
+  <string name="pref_camera_iso_entry_iso800">ISO800</string>
+  <string name="pref_camera_iso_entry_iso1000">ISO1000</string>
+  <string name="pref_camera_iso_entry_iso1200">ISO1200</string>
+  <string name="pref_camera_iso_entry_iso1250">ISO1250</string>
+  <string name="pref_camera_iso_entry_iso1500">ISO1500</string>
+  <string name="pref_camera_iso_entry_iso1600">ISO1600</string>
+  <string name="pref_camera_iso_entry_iso2000">ISO2000</string>
+  <string name="pref_camera_iso_entry_iso2500">ISO2500</string>
+  <string name="pref_camera_iso_entry_iso2700">ISO2700</string>
+  <string name="pref_camera_iso_entry_iso3200">ISO3200</string>
+  <string name="pref_camera_iso_entry_iso6400">ISO6400</string>
+  <string name="pref_camera_iso_entry_iso12800">ISO12800</string>
   <!-- Antibanding -->
+  <string name="pref_camera_antibanding_title">ئەكسى بەلباغ</string>
+  <string name="pref_camera_antibanding_entry_0">ئاپتوماتىك</string>
+  <string name="pref_camera_antibanding_entry_1">50 Hz (ياۋروپا)</string>
+  <string name="pref_camera_antibanding_entry_2">60 Hz (ئامىرىكا قوشما شىتاتلىرى)</string>
   <!-- Color effect -->
+  <string name="pref_camera_coloreffect_title">رەڭلىك ئۈنۈم</string>
+  <string name="pref_camera_coloreffect_entry_none">يوق</string>
+  <string name="pref_camera_coloreffect_entry_mono">رەڭسىز</string>
+  <string name="pref_camera_coloreffect_entry_sepia">قوڭۇر</string>
+  <string name="pref_camera_coloreffect_entry_negative">تەتۈر رەڭ</string>
   <!-- Color effect that overexposes and reverses some of the tones. -->
+  <string name="pref_camera_coloreffect_entry_solarize">نۇر ئۆتكۈزۈش</string>
+  <string name="pref_camera_coloreffect_entry_posterize">رەڭ ئايرىش</string>
+  <string name="pref_camera_coloreffect_entry_aqua">سۇس كۆك</string>
+  <string name="pref_camera_coloreffect_entry_emboss">قاپارتما</string>
+  <string name="pref_camera_coloreffect_entry_sketch">تېز سىزما</string>
+  <string name="pref_camera_coloreffect_entry_neon">نېئون</string>
+  <string name="pref_camera_coloreffect_entry_pastel">رەڭلىك فارفۇر</string>
+  <string name="pref_camera_coloreffect_entry_mosaic">نەققاشلىق</string>
+  <string name="pref_camera_coloreffect_entry_redtint">سۇس قىزىل</string>
+  <string name="pref_camera_coloreffect_entry_bluetint">سۇس كۆك</string>
+  <string name="pref_camera_coloreffect_entry_greentint">سۇس يېشىل</string>
   <!-- Stabilization -->
+  <string name="pref_camera_dis_title">سىننى مۇقىملاش</string>
   <!-- Face recognition -->
+  <string name="pref_camera_facerc_title">چىراي پەرقلەندۈرۈش</string>
   <!-- Sharpness -->
+  <string name="pref_camera_sharpness_title">ئېنىقلىقى</string>
+  <string name="pref_camera_sharpness_entry_level0">دەرىجە 0</string>
+  <string name="pref_camera_sharpness_entry_level1">دەرىجە 1</string>
+  <string name="pref_camera_sharpness_entry_level2">دەرىجە 2 (كۆڭۈلدىكى)</string>
+  <string name="pref_camera_sharpness_entry_level3">دەرىجە 3</string>
+  <string name="pref_camera_sharpness_entry_level4">دەرىجە 4</string>
+  <string name="pref_camera_sharpness_entry_level5">دەرىجە 5</string>
+  <string name="pref_camera_sharpness_entry_level6">دەرىجە 6</string>
   <!-- Contrast -->
+  <string name="pref_camera_contrast_title">ئاق-قارىلىقى</string>
+  <string name="pref_camera_contrast_entry_level0">دەرىجە 0</string>
+  <string name="pref_camera_contrast_entry_level1">دەرىجە 1</string>
+  <string name="pref_camera_contrast_entry_level2">دەرىجە 2</string>
+  <string name="pref_camera_contrast_entry_level3">دەرىجە 3</string>
+  <string name="pref_camera_contrast_entry_level4">دەرىجە 4</string>
+  <string name="pref_camera_contrast_entry_level5">دەرىجە 5 (كۆڭۈلدىكى)</string>
+  <string name="pref_camera_contrast_entry_level6">دەرىجە 6</string>
+  <string name="pref_camera_contrast_entry_level7">دەرىجە 7</string>
+  <string name="pref_camera_contrast_entry_level8">دەرىجە 8</string>
+  <string name="pref_camera_contrast_entry_level9">دەرىجە 9</string>
+  <string name="pref_camera_contrast_entry_level10">دەرىجە 10</string>
   <!-- Saturation -->
+  <string name="pref_camera_saturation_title">تويۇنۇش</string>
+  <string name="pref_camera_saturation_entry_level0">دەرىجە 0</string>
+  <string name="pref_camera_saturation_entry_level1">دەرىجە 1</string>
+  <string name="pref_camera_saturation_entry_level2">دەرىجە 2</string>
+  <string name="pref_camera_saturation_entry_level3">دەرىجە 3</string>
+  <string name="pref_camera_saturation_entry_level4">دەرىجە 4</string>
+  <string name="pref_camera_saturation_entry_level5">دەرىجە 5 (كۆڭۈلدىكى)</string>
+  <string name="pref_camera_saturation_entry_level6">دەرىجە 6</string>
+  <string name="pref_camera_saturation_entry_level7">دەرىجە 7</string>
+  <string name="pref_camera_saturation_entry_level8">دەرىجە 8</string>
+  <string name="pref_camera_saturation_entry_level9">دەرىجە 9</string>
+  <string name="pref_camera_saturation_entry_level10">دەرىجە 10</string>
   <!-- Picture format -->
+  <string name="pref_camera_picture_format_title">رەسىم پىچىمى</string>
   <!-- Picture quality -->
+  <string name="pref_camera_jpegquality_title">رەسىم سۈپىتى</string>
+  <string name="pref_camera_jpegquality_entry_0">55%</string>
+  <string name="pref_camera_jpegquality_entry_1">65% (ئادەتتىكى)</string>
+  <string name="pref_camera_jpegquality_entry_2">75% (ياخشى)</string>
+  <string name="pref_camera_jpegquality_entry_3">85% (ناھايىتى ياخشى)</string>
+  <string name="pref_camera_jpegquality_entry_4">95%</string>
+  <string name="pref_camera_jpegquality_entry_5">100%</string>
   <!-- Histogram -->
+  <string name="pref_camera_histogram_title">چاسا دىئاگرامما</string>
   <!-- Auto scene detection -->
+  <string name="pref_camera_scenedetect_title">مەنزىرىنى ئاپتوماتىك بايقاش</string>
   <!-- Continuous shot -->
+  <string name="pref_camera_longshot_title">ئارقىمۇ-ئارقا تارتىش</string>
   <!-- Auto HDR -->
+  <string name="pref_camera_auto_hdr_title">ئاپتۇماتېىك HDR</string>
   <!-- HDR mode -->
+  <string name="pref_camera_hdr_mode_title">HDR شەكلى</string>
+  <string name="pref_camera_hdr_mode_entry_sensor">سېنزور HDR</string>
+  <string name="pref_camera_hdr_mode_entry_multi_frame">كۆپ كاندۇك HDR</string>
   <!-- HDR needs 1x frame -->
+  <string name="pref_camera_hdr_need_1x_title">HDR 1x كاندۇكقا ئېھتىياجلىق</string>
   <!-- Video rotation -->
+  <string name="pref_camera_video_rotation_title">سىننى ئايلاندۇرۇش</string>
+  <string name="pref_camera_video_rotation_entry_0">0 گىرادۇس</string>
+  <string name="pref_camera_video_rotation_entry_90">90 گىرادۇس</string>
+  <string name="pref_camera_video_rotation_entry_180">180 گىرادۇس</string>
+  <string name="pref_camera_video_rotation_entry_270">270 گىرادۇس</string>
   <!-- Storage location -->
+  <string name="pref_camera_savepath_title">ساقلاش ئورنى</string>
+  <string name="pref_camera_savepath_entry_0">ئېچكى ساقلىغۇچ</string>
+  <string name="pref_camera_savepath_entry_1">SD كارتا</string>
   <!-- Misc -->
   <!-- The alias of CameraActivity for gesture operation -->
+  <string name="camera_gesture_title">كامېرانى قوزغىتىڭ</string>
+  <string name="all_in_focus">پۈتۈن فوكىس</string>
+  <string name="refocus_toast">ئالدىنقى رەسىمنى قايتا فوكىسلاش ئۈچۈن، بۇ يەرنى چىكىڭ</string>
   <!-- Toast messages -->
   <!-- The message is shown in toast when the app encounters an unsupported selection for High-framerate recording mode -->
+  <string name="error_app_unsupported_hfr_selection">مۇقىملاشتۇرۇش\ۋاقىت ئۇزارتىش\HDR يوقىرى كاندۇك سۈرەتكە ئېلىشنى قوللىمايدۇ.</string>
   <!-- The message is shown in dialog when the app encounters an unsupported resolution for Slow motion mode -->
+  <string name="error_app_unsupported_hfr">تاللىغان سىننىڭ چوڭلىقى ئاستا ھەرىكەتنى قوللىمايدۇ. ھەجىمى كىچىكرەك بولغان سىننى تاللاڭ</string>
   <!-- The message is shown in toast when the app encounters an unsupported resolution for Stabilization mode -->
+  <string name="error_app_unsupported_dis">تاللىغان سىننىڭ چوڭلىقى مۇقىملاشتۇرۇشنى قوللىمايدۇ. ھەجىمى كىچىكرەك بولغان سىننى تاللاڭ</string>
   <!-- The message is shown in dialog when the app encounters an unsupported resolution for High speed mode -->
+  <string name="error_app_unsupported_hsr">تاللىغان سىننىڭ چوڭلىقى يوقىرى سۈرئەتنى قوللىمايدۇ. ھەجىمى كىچىكرەك بولغان سىننى تاللاڭ</string>
   <!-- The message is shown in dialog when the app encounters an unsupported video codec for HFR mode -->
+  <string name="error_app_unsupported_hfr_codec">HFR ئوچۇق ھالەتتە H.264 سىننىلا قوللايدۇ</string>
   <!-- The message is shown in dialog when the app encounters an unsupported video resolution-->
+  <string name="error_app_unsupported">سىن كودلاش نىسبىتى بۇ خىل كودلاش تىپىنى قوللىمايدۇ</string>
   <!--The message is shown in dialog when the raw snapshot is selected in Zero shutter lag mode-->
+  <string name="error_app_unsupported_raw">ئەسلىدىكى رەسىم نۇسخىسى توختاۋسىز شەكىلنىڭ قوللىشىغا ئېرىشەلمىدى. jpegنى تاللاڭ</string>
+  <string name="msg_cancel_longshot_for_limited_memory">ساقلىغۇچ توشۇپ كەتتى، ئارقىمۇ-ئارقا تاقاش شەكلىنى بىكار قىلۋاتىدۇ</string>
   <!-- Toast showing non-supported functionality for flash in AE bracket -->
+  <string name="flash_aebracket_message">چاقماق لامپا AE نۇرلاندۇرۇش ھالىتىنىڭ قوللىشىغا ئېرىشەلمىدى</string>
   <!-- toast message for storage location switch -->
+  <string name="on_switch_save_path_to_sdcard">ئىچكى ساقلىغۇچنىڭ بوشلۇقى توشۇپ كەتتى، شۇڭا ساقلاش ئورنى SD كارتىغا ئالماشتۇرۇلدى</string>
   <!-- The message is shown in toast when click showOnMap Menu and there is no map app -->
+  <string name="map_activity_not_found_err">ئورنىنى كۆرسىتىشكە ئىشلىتىدىغان خەرىتە ئەپنى تاپالمىدى</string>
   <!-- Continous shot enable message -->
+  <string name="longshot_enable_message">ئارقىمۇ ئارقا تارتىش ھالىتىدە ئالى دەرىجىلىك ئىقتىدار ئىشلىمەيدۇ</string>
   <!-- Advance features enable message -->
+  <string name="advance_feature_enable_msg">ئالى دەرىجىلىك ئىقتىدار قوزغىتىلغاندا، ئارقىمۇ ئارقا تارتىش ئىشلىمەيدۇ</string>
   <!-- Toast after enable HDR function to inform continuous shot has disabled -->
+  <string name="HDR_disable_continuous_shot">HDR نى قوزغاتسىڭىز، ئارقىمۇ-ئارقا تارتىش ئىشلىمەيدۇ</string>
   <!-- Toast after enable advanced capture function to inform continuous shot has disabled -->
+  <string name="advanced_capture_disable_continuous_shot">ئالى دەرىجىلىك ئىقتىدارنى قوزغاتسىڭىز، ئارقىمۇ ئارقا تارتىش ئىشلىمەيدۇ</string>
   <!-- Toast after enable 2k4k video quality to inform IS has disabled -->
+  <string name="video_quality_4k_disable_IS">چوڭلىقى 4k سىن ئېلىشنى قوزغاتسىڭىز، مۇقىملاشتۇرۇش ئىشلىمەيدۇ</string>
   <!-- Toast after 2k4k video is enabled to inform SeeMore has been disabled -->
+  <string name="video_quality_4k_disable_SeeMore">ئىقتىدار SeeMore يوقىرى ئېنىقلىقتىكى 4k سىنغا ئېلۋاتقاندا ئىشلىمەيدۇ</string>
   <!-- TODO: Remove these? -->
 </resources>

@@ -27,64 +27,242 @@
   <!-- Video quality setting entry. Videos will be recorded in QVGA quality. [CHAR LIMIT=24] -->
   <!-- Video quality setting entry. Videos will be recorded in QCIF quality. [CHAR LIMIT=24] -->
   <!-- Auto exposure -->
+  <string name="pref_camera_autoexposure_title">தானியக்க வெளிப்படுதல்</string>
+  <string name="pref_camera_autoexposure_entry_centerweighted">மைய எடையுடைய</string>
+  <string name="pref_camera_autoexposure_entry_frameaverage">சட்ட சராசரி</string>
+  <string name="pref_camera_autoexposure_entry_spotmetering">இட மீட்டரிங்</string>
   <!-- Video codec -->
+  <string name="pref_camera_videoencoder_title">வீடியோ கோடெக்</string>
   <!-- Audio codec -->
+  <string name="pref_camera_audioencoder_title">ஆடியோ கோடெக்</string>
   <!-- Skin tone enhancement -->
+  <string name="pref_camera_skinToneEnhancement_title">சரும நிற மேம்படுத்தல்</string>
   <!-- Zero shutter lag-->
+  <string name="pref_camera_zsl_title">பூஜ்யம் மூடி தாமதம்</string>
   <!-- Autofocus zone -->
+  <string name="pref_camera_selectablezoneaf_title">தானியக்ககுவிய மண்டலம்</string>
+  <string name="pref_camera_selectablezoneaf_entry_auto">தானியங்கு</string>
+  <string name="pref_camera_selectablezoneaf_entry_centerweighted">மைய எடையுடைய</string>
+  <string name="pref_camera_selectablezoneaf_entry_frameaverage">சட்ட சராசரி</string>
+  <string name="pref_camera_selectablezoneaf_entry_spotmetering">இட மீட்டரிங்</string>
   <!-- Advanced features -->
+  <string name="pref_camera_advanced_features_title">மேம்பட்ட அம்சங்கள்</string>
+  <string name="pref_camera_advanced_feature_entry_none">ஏதுமில்லை</string>
+  <string name="pref_camera_advanced_feature_entry_multi_touch_focus">பல-தொடல் குவியம்</string>
   <!-- Manual exposure -->
+  <string name="pref_camera_manual_exp_title">கைமுறை வெளிப்பாடு</string>
+  <string name="pref_camera_manual_exp_entry_ISO_priority">ISO முக்கியத்துவம்</string>
+  <string name="pref_camera_manual_exp_entry_exptime_priority">வெளிப்பாடு நேர முக்கியத்துவம்</string>
+  <string name="pref_camera_manual_exp_entry_user_setting">பயனர் அமைப்பு</string>
+  <string name="pref_camera_manual_exp_entry_off">முடக்கத்தில்</string>
   <!-- Manual white balance -->
+  <string name="pref_camera_manual_wb_title">கைமுறை வெள்ளை சமன்பாடு</string>
+  <string name="pref_camera_manual_wb_entry_color_temperature">நிற தட்பவெப்பம்</string>
+  <string name="pref_camera_manual_wb_entry_rbgb_gains">RBGB கெயின்கள்</string>
+  <string name="pref_camera_manual_wb_entry_off">முடக்கத்தில்</string>
   <!-- Manual focus -->
+  <string name="pref_camera_manual_focus_title">கைமுறை குவியம்</string>
+  <string name="pref_camera_manual_focus_entry_scale_mode">அளவு பயன்முறை</string>
+  <string name="pref_camera_manual_focus_entry_diopter_mode">டையாப்டர் பயன்முறை</string>
+  <string name="pref_camera_manual_focus_entry_off">முடக்கத்தில்</string>
   <!-- Video HDR-->
+  <string name="pref_camera_video_hdr_title">வீடியோ HDR</string>
   <!-- CDS mode-->
+  <string name="pref_camera_cds_title">CDS பயன்முறை</string>
+  <string name="pref_camera_cds_entry_auto">தானியங்கு</string>
   <!-- Video CDS-->
+  <string name="pref_camera_video_cds_title">வீடியோ CDS பயன்முறை</string>
+  <string name="pref_camera_video_cds_entry_auto">தானியங்கு</string>
   <!-- TNR-->
+  <string name="pref_camera_tnr_title">TNR பயன்முறை</string>
   <!-- Video TNR -->
+  <string name="pref_camera_video_tnr_title">வீடியோ TNR பயன்முறை</string>
   <!-- Face detection -->
+  <string name="pref_camera_facedetection_title">முகம் கண்டறிதல்</string>
   <!-- Selfie Flash -->
+  <string name="pref_selfie_flash_title">செல்ஃபி ஃபிளாஷ்</string>
   <!-- Red eye reduction -->
+  <string name="pref_camera_redeyereduction_title">சிவப்பு கண் குறைப்பு</string>
   <!-- AE bracketing -->
+  <string name="pref_camera_ae_bracket_hdr_title">AE பிரேக்கெட்டிங்</string>
   <!-- High-framerate recording -->
+  <string name="pref_camera_hfr_title">உயர்-சட்டவிகித பதிவு</string>
+  <string name="pref_camera_hfr_entry_off">முடக்கத்தில்</string>
+  <string name="pref_camera_hfr_entry_2x">மெதுவான செயல் 60 FPS</string>
+  <string name="pref_camera_hfr_entry_3x">மெதுவான செயல் 90 FPS</string>
+  <string name="pref_camera_hfr_entry_4x">மெதுவான செயல் 120 FPS</string>
+  <string name="pref_camera_hfr_entry_8x">மெதுவான செயல் 240 FPS</string>
+  <string name="pref_camera_hfr_entry_hsr_60">உயர் வேகம்  60 FPS</string>
+  <string name="pref_camera_hfr_entry_hsr_90">உயர் வேகம்  90 FPS</string>
+  <string name="pref_camera_hfr_entry_hsr_120">உயர் வேகம்  120 FPS</string>
   <!-- See More -->
   <!-- Denoise -->
+  <string name="pref_camera_denoise_title">Denoise</string>
   <!-- ISO -->
+  <string name="pref_camera_iso_title">ISO</string>
+  <string name="pref_camera_iso_entry_auto">தானியங்கு</string>
+  <string name="pref_camera_iso_entry_isodeblur">தானியக்கம் (HJR)</string>
+  <string name="pref_camera_iso_entry_iso50">ISO50</string>
+  <string name="pref_camera_iso_entry_iso100">ISO100</string>
+  <string name="pref_camera_iso_entry_iso125">ISO125</string>
+  <string name="pref_camera_iso_entry_iso150">ISO150</string>
+  <string name="pref_camera_iso_entry_iso200">ISO200</string>
+  <string name="pref_camera_iso_entry_iso250">ISO250</string>
+  <string name="pref_camera_iso_entry_iso300">ISO300</string>
+  <string name="pref_camera_iso_entry_iso320">ISO320</string>
+  <string name="pref_camera_iso_entry_iso350">ISO350</string>
+  <string name="pref_camera_iso_entry_iso400">ISO400</string>
+  <string name="pref_camera_iso_entry_iso450">ISO450</string>
+  <string name="pref_camera_iso_entry_iso500">ISO500</string>
+  <string name="pref_camera_iso_entry_iso600">ISO600</string>
+  <string name="pref_camera_iso_entry_iso640">ISO640</string>
+  <string name="pref_camera_iso_entry_iso700">ISO700</string>
+  <string name="pref_camera_iso_entry_iso800">ISO800</string>
+  <string name="pref_camera_iso_entry_iso1000">ISO1000</string>
+  <string name="pref_camera_iso_entry_iso1200">ISO1200</string>
+  <string name="pref_camera_iso_entry_iso1250">ISO1250</string>
+  <string name="pref_camera_iso_entry_iso1500">ISO1500</string>
+  <string name="pref_camera_iso_entry_iso1600">ISO1600</string>
+  <string name="pref_camera_iso_entry_iso2000">ISO2000</string>
+  <string name="pref_camera_iso_entry_iso2500">ISO2500</string>
+  <string name="pref_camera_iso_entry_iso2700">ISO2700</string>
+  <string name="pref_camera_iso_entry_iso3200">ISO3200</string>
+  <string name="pref_camera_iso_entry_iso6400">ISO6400</string>
+  <string name="pref_camera_iso_entry_iso12800">ISO12800</string>
   <!-- Antibanding -->
+  <string name="pref_camera_antibanding_title">பேண்டிங் எதிர்ப்பு</string>
+  <string name="pref_camera_antibanding_entry_0">தானியங்கு</string>
+  <string name="pref_camera_antibanding_entry_1">50 Hz (ஐரோப்பா)</string>
+  <string name="pref_camera_antibanding_entry_2">60 Hz (USA)</string>
   <!-- Color effect -->
+  <string name="pref_camera_coloreffect_title">வண்ன விளைவு</string>
+  <string name="pref_camera_coloreffect_entry_none">ஏதுமில்லை</string>
+  <string name="pref_camera_coloreffect_entry_mono">மோனோ</string>
+  <string name="pref_camera_coloreffect_entry_sepia">சேஃபியா</string>
+  <string name="pref_camera_coloreffect_entry_negative">எதிர்மறை</string>
   <!-- Color effect that overexposes and reverses some of the tones. -->
+  <string name="pref_camera_coloreffect_entry_solarize">சோலாரைஸ்</string>
+  <string name="pref_camera_coloreffect_entry_posterize">போஸ்ச்சரைஸ்</string>
+  <string name="pref_camera_coloreffect_entry_aqua">ஆக்வா</string>
+  <string name="pref_camera_coloreffect_entry_emboss">எம்போஸ்</string>
+  <string name="pref_camera_coloreffect_entry_sketch">ஸ்கெட்ச்</string>
+  <string name="pref_camera_coloreffect_entry_neon">நியான்</string>
+  <string name="pref_camera_coloreffect_entry_pastel">பேஸ்டல்</string>
+  <string name="pref_camera_coloreffect_entry_mosaic">மொசைக்</string>
+  <string name="pref_camera_coloreffect_entry_redtint">சிவப்பு வெளிர்</string>
+  <string name="pref_camera_coloreffect_entry_bluetint">நீல வெளிர்</string>
+  <string name="pref_camera_coloreffect_entry_greentint">பச்சை வெளிர்</string>
   <!-- Stabilization -->
+  <string name="pref_camera_dis_title">நிலைப்படுத்தல்</string>
   <!-- Face recognition -->
+  <string name="pref_camera_facerc_title">முகம் உணர்தல்</string>
   <!-- Sharpness -->
+  <string name="pref_camera_sharpness_title">கூர்மை</string>
+  <string name="pref_camera_sharpness_entry_level0">நிலை 0</string>
+  <string name="pref_camera_sharpness_entry_level1">நிலை 1</string>
+  <string name="pref_camera_sharpness_entry_level2">நிலை 2 (இயல்புநிலை)</string>
+  <string name="pref_camera_sharpness_entry_level3">நிலை 3</string>
+  <string name="pref_camera_sharpness_entry_level4">நிலை 4</string>
+  <string name="pref_camera_sharpness_entry_level5">நிலை 5</string>
+  <string name="pref_camera_sharpness_entry_level6">நிலை 6</string>
   <!-- Contrast -->
+  <string name="pref_camera_contrast_title">மாறுபாடு</string>
+  <string name="pref_camera_contrast_entry_level0">நிலை 0</string>
+  <string name="pref_camera_contrast_entry_level1">நிலை 1</string>
+  <string name="pref_camera_contrast_entry_level2">நிலை 2</string>
+  <string name="pref_camera_contrast_entry_level3">நிலை 3</string>
+  <string name="pref_camera_contrast_entry_level4">நிலை 4</string>
+  <string name="pref_camera_contrast_entry_level5">நிலை 5 (இயல்புநிலை)</string>
+  <string name="pref_camera_contrast_entry_level6">நிலை 6</string>
+  <string name="pref_camera_contrast_entry_level7">நிலை 7</string>
+  <string name="pref_camera_contrast_entry_level8">நிலை 8</string>
+  <string name="pref_camera_contrast_entry_level9">நிலை 9</string>
+  <string name="pref_camera_contrast_entry_level10">நிலை 10</string>
   <!-- Saturation -->
+  <string name="pref_camera_saturation_title">சாச்சுரேசன்</string>
+  <string name="pref_camera_saturation_entry_level0">நிலை 0</string>
+  <string name="pref_camera_saturation_entry_level1">நிலை 1</string>
+  <string name="pref_camera_saturation_entry_level2">நிலை 2</string>
+  <string name="pref_camera_saturation_entry_level3">நிலை 3</string>
+  <string name="pref_camera_saturation_entry_level4">நிலை 4</string>
+  <string name="pref_camera_saturation_entry_level5">நிலை 5 (இயல்புநிலை)</string>
+  <string name="pref_camera_saturation_entry_level6">நிலை 6</string>
+  <string name="pref_camera_saturation_entry_level7">நிலை 7</string>
+  <string name="pref_camera_saturation_entry_level8">நிலை 8</string>
+  <string name="pref_camera_saturation_entry_level9">நிலை 9</string>
+  <string name="pref_camera_saturation_entry_level10">நிலை 10</string>
   <!-- Picture format -->
+  <string name="pref_camera_picture_format_title">பட வடிவம்</string>
   <!-- Picture quality -->
+  <string name="pref_camera_jpegquality_title">படத்தின் தரம்</string>
+  <string name="pref_camera_jpegquality_entry_0">55%</string>
+  <string name="pref_camera_jpegquality_entry_1">65% (இயல்பு)</string>
+  <string name="pref_camera_jpegquality_entry_2">75% (நேர்த்தி)</string>
+  <string name="pref_camera_jpegquality_entry_3">85% (மிக நேர்த்தி)</string>
+  <string name="pref_camera_jpegquality_entry_4">95%</string>
+  <string name="pref_camera_jpegquality_entry_5">100%</string>
   <!-- Histogram -->
+  <string name="pref_camera_histogram_title">ஹிஸ்டோகிராம்</string>
   <!-- Auto scene detection -->
+  <string name="pref_camera_scenedetect_title">தானியக்க காட்சி கண்டறிதல்</string>
   <!-- Continuous shot -->
+  <string name="pref_camera_longshot_title">தொடர்ச்சியான ஷாட்</string>
   <!-- Auto HDR -->
+  <string name="pref_camera_auto_hdr_title">தானியக்க HDR</string>
   <!-- HDR mode -->
+  <string name="pref_camera_hdr_mode_title">HDR பயன்முறை</string>
+  <string name="pref_camera_hdr_mode_entry_sensor">உணர்கருவி HDR</string>
+  <string name="pref_camera_hdr_mode_entry_multi_frame">பல சட்ட HDR</string>
   <!-- HDR needs 1x frame -->
+  <string name="pref_camera_hdr_need_1x_title">HDRக்கு 1x frame தேவை</string>
   <!-- Video rotation -->
+  <string name="pref_camera_video_rotation_title">வீடியோ சுழற்சி</string>
+  <string name="pref_camera_video_rotation_entry_0">0 டிகிரீ</string>
+  <string name="pref_camera_video_rotation_entry_90">90 டிகிரீ</string>
+  <string name="pref_camera_video_rotation_entry_180">180 டிகிரீ</string>
+  <string name="pref_camera_video_rotation_entry_270">270 டிகிரீ</string>
   <!-- Storage location -->
+  <string name="pref_camera_savepath_title">சேமிப்பு இடம்</string>
+  <string name="pref_camera_savepath_entry_0">அகச் சேமிப்பிடம்</string>
+  <string name="pref_camera_savepath_entry_1">SD கார்டு</string>
   <!-- Misc -->
   <!-- The alias of CameraActivity for gesture operation -->
+  <string name="camera_gesture_title">கேமராவை தொடங்கு</string>
+  <string name="all_in_focus">அனைத்தும் குவியத்தில்</string>
+  <string name="refocus_toast">கடந்தை புகைப்படத்தை மறு-குவியம் செய்ய, இங்கே தட்டு</string>
   <!-- Toast messages -->
   <!-- The message is shown in toast when the app encounters an unsupported selection for High-framerate recording mode -->
+  <string name="error_app_unsupported_hfr_selection">நிலைப்படுத்தல்/நேர தாமதம்/HDR பயன்படுத்தும்போது உயர்-சட்டவிகித பதிவுசெய்தல் ஆதரிக்கப்படுவதில்லை.</string>
   <!-- The message is shown in dialog when the app encounters an unsupported resolution for Slow motion mode -->
+  <string name="error_app_unsupported_hfr">தேர்வுசெய்யப்பட்ட வீடியோ அளவுக்கு மெதுவான செயல் பயன்முறை ஆதரிக்கப்படவில்லை. ஒரு குறைந்த வீடியோ அளவை தேர்வுசெய்</string>
   <!-- The message is shown in toast when the app encounters an unsupported resolution for Stabilization mode -->
+  <string name="error_app_unsupported_dis">தேர்வுசெய்யப்பட்ட வீடியோ அளவுக்கு நிலைப்படுத்தல் ஆதரிக்கப்படுவதில்லை ஒரு குறைந்த வீடியோ அளவை தேர்வுசெய்</string>
   <!-- The message is shown in dialog when the app encounters an unsupported resolution for High speed mode -->
+  <string name="error_app_unsupported_hsr">தேர்வுசெய்யப்பட்ட வீடியோ அளவுக்கு உயர் வேக பயன்முறை ஆதரிக்கப்படுவதில்லை ஒரு குறைந்த வீடியோ அளவை தேர்வுசெய்</string>
   <!-- The message is shown in dialog when the app encounters an unsupported video codec for HFR mode -->
+  <string name="error_app_unsupported_hfr_codec">H264 வீடியோ என்கோடிங் மட்டுமே HFR ON ஆக இருக்கும்போது ஆதரிக்கபடும்</string>
   <!-- The message is shown in dialog when the app encounters an unsupported video resolution-->
+  <string name="error_app_unsupported">இந்த என்கோடர் வகைக்கு ஆதரிக்கப்படாத வீடியோ ரெசல்யூசன்</string>
   <!--The message is shown in dialog when the raw snapshot is selected in Zero shutter lag mode-->
+  <string name="error_app_unsupported_raw">Raw பட வடிவம் பூஜ்ய மூடி தாமத பயன்முறையில் ஆதரிக்கப்படுவதில்லை. JPEG தேர்வுசெய்க</string>
+  <string name="msg_cancel_longshot_for_limited_memory">நினைவகம் குறைபாட்டுடன் தொடர்கிறது, தொடர்ச்சியான ஷாட் ரத்துசெய்யப்படுகிறது</string>
   <!-- Toast showing non-supported functionality for flash in AE bracket -->
+  <string name="flash_aebracket_message">AE பிரேக்கெட்டிங் பயன்முறையில் ஃப்ளாஷ் ஆதரிக்கப்படவில்லை</string>
   <!-- toast message for storage location switch -->
+  <string name="on_switch_save_path_to_sdcard">உட்புற சேமிப்பக இடம் போதுமானதாக இல்லை, சேமிப்பு இடத்தை SD கார்டுக்கு நிலைமாற்றியது</string>
   <!-- The message is shown in toast when click showOnMap Menu and there is no map app -->
+  <string name="map_activity_not_found_err">இருப்பிடத்தை காட்ட வரைபட பயன்பாடுகள் எதுவும் காட்டப்படவில்லை</string>
   <!-- Continous shot enable message -->
+  <string name="longshot_enable_message">தொடர்ச்சியான ஷாட் பயன்முறையில் மேம்பட்ட அம்சங்கள் ஆதரிக்கப்படவில்லை</string>
   <!-- Advance features enable message -->
+  <string name="advance_feature_enable_msg">மேம்பட்ட அம்சங்கள் செயல்படுத்தப்பட்டு இருக்கும்போது தொடர்ச்சியான ஷாட் ஆதரிக்கபப்டுவதில்லை.</string>
   <!-- Toast after enable HDR function to inform continuous shot has disabled -->
+  <string name="HDR_disable_continuous_shot">HDR ஐ செயல்படுத்துதல் தொடர்ச்சியான ஷாட்டை முடக்கும்</string>
   <!-- Toast after enable advanced capture function to inform continuous shot has disabled -->
+  <string name="advanced_capture_disable_continuous_shot">மேம்பட்ட பிடித்தலை செயல்படுத்துதல் தொடர்ச்சியான ஷாட்டை முட்க்கும்</string>
   <!-- Toast after enable 2k4k video quality to inform IS has disabled -->
+  <string name="video_quality_4k_disable_IS">4k வீடியோ அளவை செயல்படுத்துதல் நிலைப்படுத்தலை முடக்கும்</string>
   <!-- Toast after 2k4k video is enabled to inform SeeMore has been disabled -->
+  <string name="video_quality_4k_disable_SeeMore">4k வீடியோவின்போது SeeMore செயல்படுத்தப்பட முடியாது</string>
   <!-- TODO: Remove these? -->
 </resources>

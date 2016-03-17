@@ -80,11 +80,13 @@
   <!-- Face detection -->
   <string name="pref_camera_facedetection_title">Wykrywanie twarzy</string>
   <!-- Selfie Flash -->
+  <string name="pref_selfie_flash_title">Lampa Selfie</string>
   <!-- Red eye reduction -->
   <string name="pref_camera_redeyereduction_title">Redukcja czerwonych oczu</string>
   <!-- AE bracketing -->
   <string name="pref_camera_ae_bracket_hdr_title">Autobracketing ekspozycji</string>
   <!-- High-framerate recording -->
+  <string name="pref_camera_hfr_title">Nagrywanie z dużą liczbą klatek</string>
   <string name="pref_camera_hfr_entry_off">Wył.</string>
   <string name="pref_camera_hfr_entry_2x">Zwolnione tempo 60 FPS</string>
   <string name="pref_camera_hfr_entry_3x">Zwolnione tempo 90 FPS</string>

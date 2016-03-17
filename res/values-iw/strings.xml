@@ -165,6 +165,7 @@
   <!--  Label for record location preference [CHAR LIMIT=50] -->
   <string name="pref_camera_location_label">מיקום</string>
   <!-- Title for countdown timer on camera settings screen [CHAR LIMIT=30]-->
+  <string name="pref_camera_timer_title">שעון לספירה לאחור</string>
   <!-- Entry for countdown timer setting. e.g. 1 second, 10 seconds, etc. [CHAR LIMIT=30]-->
   <plurals name="pref_camera_timer_entry">
     <item quantity="one">שנייה אחת</item>
@@ -190,6 +191,7 @@
   <!-- Video quality setting entry. Videos will be recorded in 480p quality. [CHAR LIMIT=24] -->
   <!-- Describes the preference dialog for choosing interval between frame capture for
     time lapse recording. Appears at top of the dialog. [CHAR LIMIT=30] -->
+  <string name="pref_video_time_lapse_frame_interval_title">צילום מואץ</string>
   <!-- Settings screen, Camera setting category title -->
   <string name="pref_camera_settings_category">הגדרות מצלמה</string>
   <!-- Settings screen, Camcorder setting category title -->
@@ -483,6 +485,7 @@ CHAR LIMIT = NONE] -->
   <!-- Title in time interval picker for setting time interval. [CHAR LIMIT = 30]-->
   <string name="set_time_interval">הגדר מרווח זמן</string>
   <!-- Help text that is shown when the time lapse feature is turned off. [CHAR LIMIT = 180]-->
+  <string name="set_time_interval_help">תכונת צילום מואץ כבויה. הפעל אותה כדי להגדיר מרווח זמן.</string>
   <!-- Title in timer setting for setting the duration for the countdown timer. [CHAR LIMIT = 50]-->
   <string name="set_duration">הגדר משך זמן בשניות</string>
   <!-- On-screen hint during timer countdown for taking a photo. [CHAR LIMIT = 60]-->

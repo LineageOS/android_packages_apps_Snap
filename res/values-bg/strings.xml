@@ -311,7 +311,7 @@
   <!-- Video Camera format string for new video files. Passed to java.text.SimpleDateFormat. -->
   <!-- Filename prefix for panorama output. -->
   <!-- The message shown when video record reaches size limit. -->
-  <string name="video_reach_size_limit">Достигнато е ограничението за размер.</string>
+  <string name="video_reach_size_limit">Достигнат е максималният размер.</string>
   <!-- The text shown when the panorama panning speed is to fast [CHAR LIMIT=16] -->
   <string name="pano_too_fast_prompt">Твърде бързо</string>
   <!-- The text shown in the progress dialog when panorama preview is generating in the background [CHAR LIMIT=30] -->
