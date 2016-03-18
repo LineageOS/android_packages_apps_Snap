@@ -1936,9 +1936,9 @@ public class PhotoModule
             flashMode = Parameters.FLASH_MODE_OFF;
             focusMode = Parameters.FOCUS_MODE_INFINITY;
             redeyeReduction = mActivity.getString(R.string.
-                pref_camera_redeyereduction_entry_disable);
+                pref_camera_redeyereduction_default);
             aeBracketing = mActivity.getString(R.string.
-                pref_camera_ae_bracket_hdr_entry_off);
+                pref_camera_ae_bracket_hdr_default);
             colorEffect = mActivity.getString(R.string.
                 pref_camera_coloreffect_default);
             exposureCompensation = CameraSettings.EXPOSURE_DEFAULT_VALUE;
