@@ -88,7 +88,7 @@ public class ShutterButton extends ImageView {
      * Hook into the drawable state changing to get changes to isPressed -- the
      * onPressed listener doesn't always get called when the pressed state
      * changes.
-     *
+     */
     @Override
     protected void drawableStateChanged() {
         super.drawableStateChanged();
@@ -127,7 +127,7 @@ public class ShutterButton extends ImageView {
             }
             mOldPressed = pressed;
         }
-    }*/
+    }
 
     private void callShutterButtonFocus(boolean pressed) {
         if (mListener != null) {
