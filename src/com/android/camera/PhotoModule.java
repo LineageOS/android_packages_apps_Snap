@@ -1060,6 +1060,11 @@ public class PhotoModule
 
     private final class LongshotShutterCallback
             implements CameraShutterCallback {
+        private int mExpectedLongshotSnapNum;
+
+        public LongshotShutterCallback() {
+            mExpectedLongshotSnapNum = mLongshotSnapNum;
+        }
 
         @Override
         public void onShutter(CameraProxy camera) {
@@ -1067,6 +1072,9 @@ public class PhotoModule
             mShutterLag = mShutterCallbackTime - mCaptureStartTime;
             Log.e(TAG, "[KPI Perf] PROFILE_SHUTTER_LAG mShutterLag = " + mShutterLag + "ms");
             synchronized(mCameraDevice) {
+                if (mExpectedLongshotSnapNum != mLongshotSnapNum) {
+                    return;
+                }
 
                 if (++mLongshotSnapNum >= mLongShotMaxSnap &&
                     (mLongShotMaxSnap != -1)) {
