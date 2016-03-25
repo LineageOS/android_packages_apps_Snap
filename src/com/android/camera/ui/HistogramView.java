@@ -18,7 +18,7 @@
 package com.android.camera.ui;
 
 import android.content.Context;
-import android.graphics.Bitmap;
+import android.content.res.Resources;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -26,27 +26,33 @@ import android.util.AttributeSet;
 import android.view.View;
 
 import com.android.camera.CameraManager;
+import org.codeaurora.snapcam.R;
 
 public class HistogramView extends View {
     private static final int STATS_SIZE = 256;
+    private static final int GRID_LINES = 10;
 
-    private int[] mData = new int[STATS_SIZE + 1];
+    private float[] mData = new float[STATS_SIZE];
+    private int mMaxDataValue;
     private boolean mDataValid;
 
-    private Bitmap  mBitmap;
-    private Paint   mPaint = new Paint();
-    private Paint   mPaintRect = new Paint();
-    private Canvas  mCanvas = new Canvas();
-    private float   mWidth;
-    private float   mHeight;
+    private int mBgColor;
+    private int mBarColor;
+    private int mGridColor;
+
+    private Paint mPaint = new Paint();
     private CameraManager.CameraProxy mGraphCameraDevice;
 
     public HistogramView(Context context, AttributeSet attrs) {
         super(context,attrs);
 
-        mPaint.setFlags(Paint.ANTI_ALIAS_FLAG);
-        mPaintRect.setColor(0xFFFFFFFF);
-        mPaintRect.setStyle(Paint.Style.FILL);
+        Resources res = context.getResources();
+        mBgColor = res.getColor(R.color.camera_control_bg_transparent);
+        mBarColor = res.getColor(R.color.histogram_bars);
+        mGridColor = res.getColor(R.color.histogram_grid_lines);
+
+        mPaint.setAntiAlias(true);
+        mPaint.setStyle(Paint.Style.FILL);
     }
 
     public void setCamera(CameraManager.CameraProxy camera) {
@@ -57,73 +63,69 @@ public class HistogramView extends View {
     }
 
     public void updateData(int[] data) {
-        if (data.length == mData.length) {
-            System.arraycopy(data, 0, mData, 0, data.length);
-            drawGraph();
-            mDataValid = true;
-            invalidate();
+        if (data.length != STATS_SIZE + 1) {
+            return;
         }
-    }
 
-    @Override
-    protected void onSizeChanged(int w, int h, int oldw, int oldh) {
-        mBitmap = Bitmap.createBitmap(w, h, Bitmap.Config.RGB_565);
-        mCanvas.setBitmap(mBitmap);
-        mWidth = w;
-        mHeight = h;
-        if (mDataValid) {
-            drawGraph();
+        int maxValue;
+        //Assumption: The first element contains the maximum value.
+        if (data[0] == 0) {
+            maxValue = Integer.MIN_VALUE;
+            for (int i = 1; i <= STATS_SIZE ; i++) {
+                maxValue = Math.max(maxValue, data[i]);
+            }
+        } else {
+            maxValue = data[0];
         }
-        super.onSizeChanged(w, h, oldw, oldh);
+
+        // mData = data scaled by maxValue
+        for (int i = 0; i < STATS_SIZE; i++) {
+            mData[i] = Math.min((float) data[i + 1] / (float) maxValue, 1.0F);
+        }
+        mDataValid = true;
+        invalidate();
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
-        if (mDataValid && mBitmap != null) {
-            canvas.drawBitmap(mBitmap, 0, 0, null);
-            if (mGraphCameraDevice != null) {
-                mGraphCameraDevice.sendHistogramData();
-            }
-        }
-    }
-
-    private void drawGraph() {
-        final float border = 5;
-        float graphheight = mHeight - (2 * border);
-        float graphwidth = mWidth - (2 * border);
-        float bargap = 0.0f;
-        float barwidth = graphwidth/STATS_SIZE;
-
-        mCanvas.drawColor(0xFFAAAAAA);
-        mPaint.setColor(Color.BLACK);
-
-        for (int k = 0; k <= (graphheight /32) ; k++) {
-            float y = (float)(32 * k)+ border;
-            mCanvas.drawLine(border, y, graphwidth + border , y, mPaint);
-        }
-        for (int j = 0; j <= (graphwidth /32); j++) {
-            float x = (float)(32 * j)+ border;
-            mCanvas.drawLine(x, border, x, graphheight + border, mPaint);
+        if (!mDataValid) {
+            return;
         }
 
-        //Assumption: The first element contains the maximum value.
-        int maxValue = Integer.MIN_VALUE;
-        if (mData[0] == 0) {
-            for (int i = 1; i <= STATS_SIZE ; i++) {
-                maxValue = Math.max(maxValue, mData[i]);
-            }
-        } else {
-            maxValue = mData[0];
+        final int paddingLeft = getPaddingLeft();
+        final int paddingRight = getPaddingRight();
+        final int paddingTop = getPaddingTop();
+        final int paddingBottom = getPaddingBottom();
+
+        float graphWidth = getWidth() - paddingLeft - paddingRight;
+        float graphHeight = getHeight() - paddingTop - paddingBottom;
+        float barWidth = graphWidth / STATS_SIZE;
+
+        mPaint.setColor(mBgColor);
+        canvas.drawRect(0, 0, getWidth(), getHeight(), mPaint);
+
+        mPaint.setColor(mGridColor);
+        for (int row = 0; row <= GRID_LINES; row++) {
+            float y = (graphHeight * row / GRID_LINES) + paddingTop;
+            canvas.drawLine(paddingLeft, y, graphWidth + paddingLeft, y, mPaint);
+        }
+        for (int col = 0; col <= GRID_LINES; col++) {
+            float x = (graphWidth * col / GRID_LINES) + paddingLeft;
+            canvas.drawLine(x, paddingTop, x, graphHeight + paddingTop, mPaint);
         }
 
-        for (int i = 1; i <= STATS_SIZE; i++)  {
-            float scaled = Math.min(STATS_SIZE,
-                    (float) mData[i] * (float) STATS_SIZE / (float) maxValue);
-            float left = (bargap * (i+1)) + (barwidth * i) + border;
-            float top = graphheight + border;
-            float right = left + barwidth;
-            float bottom = top - scaled;
-            mCanvas.drawRect(left, top, right, bottom, mPaintRect);
+        mPaint.setColor(mBarColor);
+        for (int i = 0; i < STATS_SIZE; i++)  {
+            float barHeight = mData[i] * graphHeight;
+            float left = (barWidth * i) + paddingLeft;
+            float right = left + barWidth;
+            float bottom = graphHeight + paddingTop;
+            float top = bottom - barHeight;
+            canvas.drawRect(left, top, right, bottom, mPaint);
+        }
+
+        if (mGraphCameraDevice != null) {
+            mGraphCameraDevice.sendHistogramData();
         }
     }
 }

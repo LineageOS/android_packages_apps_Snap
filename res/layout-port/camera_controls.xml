@@ -103,6 +103,7 @@
         android:layout_width="200dip"
         android:layout_height="200dip"
         android:layout_marginTop="20dip"
+        android:padding="2dp"
         android:visibility="gone" />
 
     <TextView
