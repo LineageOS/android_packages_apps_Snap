@@ -17,7 +17,9 @@
 package com.android.camera;
 
 import android.annotation.TargetApi;
+import android.content.Context;
 import android.graphics.Matrix;
+import android.graphics.Point;
 import android.graphics.Rect;
 import android.graphics.RectF;
 import android.hardware.Camera.Area;
@@ -27,7 +29,9 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import android.util.Log;
+import org.codeaurora.snapcam.R;
 
+import com.android.camera.app.CameraApp;
 import com.android.camera.util.CameraUtil;
 import com.android.camera.util.UsageStatistics;
 
@@ -107,6 +111,9 @@ public class FocusOverlayManager {
     }
 
     private int mFocusTime; // time after touch-to-focus
+    private Point mDispSize;
+    private int mBottomMargin;
+    private int mTopMargin;
 
     public interface Listener {
         public void autoFocus();
@@ -136,7 +143,7 @@ public class FocusOverlayManager {
 
     public FocusOverlayManager(ComboPreferences preferences, String[] defaultFocusModes,
             Parameters parameters, Listener listener,
-            boolean mirror, Looper looper, FocusUI ui) {
+            boolean mirror, Looper looper, FocusUI ui, CameraActivity activity) {
         mHandler = new MainHandler(looper);
         mMatrix = new Matrix();
         mPreferences = preferences;
@@ -145,6 +152,13 @@ public class FocusOverlayManager {
         mListener = listener;
         setMirror(mirror);
         mUI = ui;
+        mDispSize = new Point();
+        activity.getWindowManager().getDefaultDisplay().getRealSize(mDispSize);
+        Context context = CameraApp.getContext();
+        mBottomMargin =
+            context.getResources().getDimensionPixelSize(R.dimen.preview_bottom_margin);
+        mTopMargin =
+            context.getResources().getDimensionPixelSize(R.dimen.preview_top_margin);
     }
 
     public void setPhotoUI(FocusUI ui) {
@@ -393,7 +407,10 @@ public class FocusOverlayManager {
                     mState == STATE_SUCCESS || mState == STATE_FAIL)) {
             cancelAutoFocus();
         }
-        if (mPreviewRect.width() == 0 || mPreviewRect.height() == 0) return;
+        if (mPreviewRect.width() == 0 || mPreviewRect.height() == 0 ||
+            (y > (mDispSize.y - mBottomMargin) || y < mTopMargin)) {
+            return;
+        }
         // Initialize variables.
         // Initialize mFocusArea.
         if (mFocusAreaSupported) {
