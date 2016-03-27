@@ -30,8 +30,8 @@
   <string name="delete">מחק</string>
   <!-- String Delete the selected media item(s) [CHAR LIMIT=50] -->
   <plurals name="delete_selection">
-    <item quantity="one">האם למחוק את הפריט שנבחר?</item>
-    <item quantity="other">האם למחוק את הפריטים שנבחרו?</item>
+    <item quantity="one">למחוק את הפריט שנבחר?</item>
+    <item quantity="other">למחוק את הפריטים שנבחרו?</item>
   </plurals>
   <string name="share">שתף</string>
   <string name="share_panorama">שתף פנורמה</string>
@@ -66,7 +66,7 @@
   <string name="rotate_right">סובב ימינה</string>
   <!-- String used as a menu label. The user can choose to edit the image
          [CHAR_LIMIT=20]-->
-  <string name="edit">עריכה</string>
+  <string name="edit">ערוך</string>
   <!-- The title of the menu item to let user crop the image. [CHAR LIMIT=15] -->
   <string name="crop_action">חיתוך</string>
   <!-- The title of the menu item to let user trim the video. [CHAR LIMIT=15] -->
@@ -74,7 +74,7 @@
   <!-- The title of the menu item to let user set the image as background etc. [CHAR LIMIT=15] -->
   <string name="set_as">הגדר בתור</string>
   <!-- String indicating an error when playing the video. [CHAR LIMIT=30] -->
-  <string name="video_err">לא ניתן להפעיל את הסרטון.</string>
+  <string name="video_err">לא ניתן להפעיל את הווידאו.</string>
   <!-- Toast message shown when the cropped image has been saved in the
          %s folder (string: folder_download) [CHAR LIMIT=50]-->
   <string name="crop_saved">התמונה שנחתכה נשמרה ב-<xliff:g id="folder_name">%s</xliff:g>.</string>
@@ -168,7 +168,7 @@
   <string name="pref_camera_timer_title">שעון לספירה לאחור</string>
   <!-- Entry for countdown timer setting. e.g. 1 second, 10 seconds, etc. [CHAR LIMIT=30]-->
   <plurals name="pref_camera_timer_entry">
-    <item quantity="one">שנייה אחת</item>
+    <item quantity="one">שנייה 1</item>
     <item quantity="other">‏%d שניות</item>
   </plurals>
   <!-- Text followed by a checkbox to turn on/off sound effects during the countdown. [CHAR LIMIT = 24]-->
@@ -176,7 +176,7 @@
   <!-- Entry of a on/off setting. The setting is turned off. [CHAR LIMIT=15] -->
   <string name="setting_off">כבוי</string>
   <!-- Entry of a on/off setting. The setting is turned on. [CHAR LIMIT=15] -->
-  <string name="setting_on">פועל</string>
+  <string name="setting_on">מופעל</string>
   <!-- The value of a camera preference indicating the setting is off. -->
   <!-- The value of a camera preference indicating the setting is on. -->
   <!-- The Video quality settings in preference [CHAR LIMIT=21] -->
@@ -219,12 +219,12 @@
   <!-- Settings screen, Flash mode 'auto'. [CHAR LIMIT=12] -->
   <string name="pref_camera_flashmode_entry_auto">אוטומטי</string>
   <!-- Settings screen, Flash mode 'alway on'. [CHAR LIMIT=12] -->
-  <string name="pref_camera_flashmode_entry_on">פועל</string>
+  <string name="pref_camera_flashmode_entry_on">מופעל</string>
   <!-- Settings screen, Flash mode 'always off'. [CHAR LIMIT=12] -->
   <string name="pref_camera_flashmode_entry_off">כבוי</string>
   <!-- Menu, flash mode labels [CHAR LIMIT=50] -->
   <string name="pref_camera_flashmode_label_auto">פלאש אוטומטי</string>
-  <string name="pref_camera_flashmode_label_on">פלאש פועל</string>
+  <string name="pref_camera_flashmode_label_on">פלאש מופעל</string>
   <string name="pref_camera_flashmode_label_off">פלאש כבוי</string>
   <!-- Default videocamera flash mode setting.-->
   <!-- Default white balance setting. -->
@@ -246,7 +246,7 @@
   <string name="pref_camera_whitebalance_label_cloudy">מעונן</string>
   <!-- Default scene mode setting. -->
   <!-- Settings screen, Select Scene mode -->
-  <string name="pref_camera_scenemode_title">מצב נוף</string>
+  <string name="pref_camera_scenemode_title">מצב נוף/רוחב</string>
   <!-- Settings menu, scene mode choices [CHAR LIMIT=16] -->
   <string name="pref_camera_scenemode_entry_auto">אוטומטי</string>
   <!-- Scene mode that uses HDR plus (better HDR) [CHAR LIMIT=16] -->
@@ -290,7 +290,7 @@
   <!-- Settings menu countdown timer 15 seconds [CHAR LIMIT=50] -->
   <string name="pref_camera_countdown_label_fifteen">15 שניות</string>
   <!-- Toast after trying to select a setting that is not allowed to change in scene mode [CHAR LIMIT=NONE] -->
-  <string name="not_selectable_in_scene_mode">לא ניתן לבחירה במצב נוף.</string>
+  <string name="not_selectable_in_scene_mode">לא ניתן לבחירה במצב נוף/רוחב.</string>
   <!-- Exposure settings in preference -->
   <string name="pref_exposure_title">חשיפה</string>
   <!--  menu label exposure compensation [CHAR LIMIT=50] -->
@@ -306,7 +306,7 @@
   <!-- Dialog "OK" button. Dismisses dialog. -->
   <string name="dialog_ok">אישור</string>
   <!-- Low-memory dialog message [CHAR LIMIT=NONE] -->
-  <string name="spaceIsLow_content" product="default">‏השטח בכרטיס הזיכרון הולך להיגמר. שנה את הגדרת האיכות, או מחק כמה תמונות או קבצים אחרים.</string>
+  <string name="spaceIsLow_content" product="default">‏השטח בכרטיס הזיכרון עומד להיגמר. שנה את הגדרת האיכות, או מחק כמה תמונות או קבצים אחרים.</string>
   <!-- Camera format string for new image files. Passed to java.text.SimpleDateFormat. -->
   <!-- Video Camera format string for new video files. Passed to java.text.SimpleDateFormat. -->
   <!-- Filename prefix for panorama output. -->
@@ -352,7 +352,7 @@
   <!-- Effect setting item that replaces background with a sunset. [CHAR LIMIT=14] -->
   <string name="effect_backdropper_sunset">שקיעה</string>
   <!-- Effect setting item that replaces background with video from gallery. [CHAR LIMIT=14] -->
-  <string name="effect_backdropper_gallery">הסרטון שלך</string>
+  <string name="effect_backdropper_gallery">הווידאו שלך</string>
   <!-- Toast telling users tapping on the viewfinder will take a picture [CHAR LIMIT=54] -->
   <string name="video_snapshot_hint">גע כדי לצלם תמונה במהלך ההקלטה.</string>
   <!-- Announcement telling users video recording has just started [CHAR LIMIT=NONE] -->
@@ -391,7 +391,7 @@
 CHAR LIMIT = NONE] -->
   <string name="accessibility_review_retake">הצג צילום חוזר</string>
   <!-- Default text for a button that can be toggled on and off. -->
-  <string name="capital_on">פועל</string>
+  <string name="capital_on">מופעל</string>
   <!-- Default text for a button that can be toggled on and off. -->
   <string name="capital_off">כבוי</string>
   <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
@@ -491,9 +491,9 @@ CHAR LIMIT = NONE] -->
   <!-- On-screen hint during timer countdown for taking a photo. [CHAR LIMIT = 60]-->
   <string name="count_down_title_text">סופר לאחור עד לצילום תמונה</string>
   <!-- Title for first run dialog asking if the user wants to remember photo locations [CHAR LIMIT = 50] -->
-  <string name="remember_location_title">האם לזכור מיקומי תמונות?</string>
+  <string name="remember_location_title">לזכור מיקומי תמונות?</string>
   <!-- Message for first run dialog asking if the user wants to remember photo locations [CHAR LIMIT = None] -->
-  <string name="remember_location_prompt">תייג את התמונות והסרטונים שלך לציון המקומות שבהם צולמו.\n\nיישומים אחרים יכולים לגשת למידע הזה בנוסף לתמונות שנשמרו.</string>
+  <string name="remember_location_prompt">תייג את התמונות והסרטונים שלך לציון המקומות שבהם צולמו.\n\nיישומים אחרים יכולים לגשת למידע זה בנוסף לתמונות שנשמרו.</string>
   <!-- Negative answer for first run dialog asking if the user wants to remember photo locations [CHAR LIMIT = 20] -->
   <string name="remember_location_no">לא תודה</string>
   <!-- Positive answer for first run dialog asking if the user wants to remember photo locations [CHAR LIMIT = 20] -->
@@ -505,7 +505,7 @@ CHAR LIMIT = NONE] -->
   <string name="camera_menu_settings_label">הגדרות</string>
   <!--  Tiny Planet -->
   <!-- Button to press for creating a tiny planet image. [CHAR LIMIT = 30] -->
-  <string name="create_tiny_planet">צור עולם קטן</string>
+  <string name="create_tiny_planet">צור עולם קטנטן</string>
   <!-- Message shown while a tiny planet image is being saved. [CHAR LIMIT = 30] -->
   <string name="saving_tiny_planet">שומר עולם קטן&#8230;</string>
   <!-- Label above a slider that let's the user set the zoom of a tiny planet image. [CHAR LIMIT = 15] -->

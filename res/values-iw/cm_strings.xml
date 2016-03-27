@@ -147,10 +147,10 @@
   <string name="pref_camera_scenemode_entry_fallcolor">צבעי סתיו</string>
   <string name="pref_camera_scenemode_entry_fireworks">זיקוקים</string>
   <string name="pref_camera_scenemode_entry_flowers">פרחים</string>
-  <string name="pref_camera_scenemode_entry_handheldtwilight">בין ערביים</string>
+  <string name="pref_camera_scenemode_entry_handheldtwilight">בין-ערביים</string>
   <string name="pref_camera_scenemode_entry_highsensitivity">רגישות גבוהה</string>
   <string name="pref_camera_scenemode_entry_indoor">בתוך מבנים</string>
-  <string name="pref_camera_scenemode_entry_landscape">נוף</string>
+  <string name="pref_camera_scenemode_entry_landscape">נוף/רוחב</string>
   <string name="pref_camera_scenemode_entry_mix_illuminant">תאורה מעורבת</string>
   <string name="pref_camera_scenemode_entry_mood">מצב רוח</string>
   <string name="pref_camera_scenemode_entry_nightportrait">דיוקן לילה</string>
@@ -180,12 +180,12 @@
   <string name="pref_camera_focusmode_entry_hyperfocal">מיקוד יתר</string>
   <!-- Color effects -->
   <string name="pref_camera_coloreffect_entry_washed">דהוי</string>
-  <string name="pref_camera_coloreffect_entry_vintage_warm">וינטאג\' חם</string>
-  <string name="pref_camera_coloreffect_entry_vintage_cold">וינטאג\' קר</string>
+  <string name="pref_camera_coloreffect_entry_vintage_warm">וינטג\' חם</string>
+  <string name="pref_camera_coloreffect_entry_vintage_cold">וינטג\' קר</string>
   <string name="pref_camera_coloreffect_entry_point_blue">הצבע הכחול</string>
   <string name="pref_camera_coloreffect_entry_point_green">הצבע הירוק</string>
   <string name="pref_camera_coloreffect_entry_point_red_yellow">הצבע האדום-צהוב</string>
-  <string name="pref_camera_coloreffect_entry_cartoonize">קומיקסי</string>
+  <string name="pref_camera_coloreffect_entry_cartoonize">אפקט קומיקס</string>
   <!-- Red eye flash mode title -->
   <string name="pref_camera_flashmode_entry_redeye">עיניים אדומות</string>
   <string name="pref_camera_flashmode_label_redeye">עיניים אדומות</string>

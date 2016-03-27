@@ -27,64 +27,242 @@
   <!-- Video quality setting entry. Videos will be recorded in QVGA quality. [CHAR LIMIT=24] -->
   <!-- Video quality setting entry. Videos will be recorded in QCIF quality. [CHAR LIMIT=24] -->
   <!-- Auto exposure -->
+  <string name="pref_camera_autoexposure_title">Otomatik pozlama</string>
+  <string name="pref_camera_autoexposure_entry_centerweighted">Orta ağırlıklı</string>
+  <string name="pref_camera_autoexposure_entry_frameaverage">Çerçeve ortalaması</string>
+  <string name="pref_camera_autoexposure_entry_spotmetering">Nokta ölçümü</string>
   <!-- Video codec -->
+  <string name="pref_camera_videoencoder_title">Video kodlayıcı</string>
   <!-- Audio codec -->
+  <string name="pref_camera_audioencoder_title">Ses kodlayıcı</string>
   <!-- Skin tone enhancement -->
+  <string name="pref_camera_skinToneEnhancement_title">Cilt rengi geliştirmesi</string>
   <!-- Zero shutter lag-->
+  <string name="pref_camera_zsl_title">Sıfır çekim gecikmesi</string>
   <!-- Autofocus zone -->
+  <string name="pref_camera_selectablezoneaf_title">Otomatik odaklama alanı</string>
+  <string name="pref_camera_selectablezoneaf_entry_auto">Oto</string>
+  <string name="pref_camera_selectablezoneaf_entry_centerweighted">Orta ağırlıklı</string>
+  <string name="pref_camera_selectablezoneaf_entry_frameaverage">Çerçeve ortalaması</string>
+  <string name="pref_camera_selectablezoneaf_entry_spotmetering">Nokta ölçümü</string>
   <!-- Advanced features -->
+  <string name="pref_camera_advanced_features_title">Gelişmiş özellikler</string>
+  <string name="pref_camera_advanced_feature_entry_none">Yok</string>
+  <string name="pref_camera_advanced_feature_entry_multi_touch_focus">Çoklu dokunmatik odak</string>
   <!-- Manual exposure -->
+  <string name="pref_camera_manual_exp_title">Elle pozlama</string>
+  <string name="pref_camera_manual_exp_entry_ISO_priority">ISO önceliği</string>
+  <string name="pref_camera_manual_exp_entry_exptime_priority">Pozlama süresi önceliği</string>
+  <string name="pref_camera_manual_exp_entry_user_setting">Kullanıcı ayarı</string>
+  <string name="pref_camera_manual_exp_entry_off">Kapalı</string>
   <!-- Manual white balance -->
+  <string name="pref_camera_manual_wb_title">Manuel beyaz dengesi</string>
+  <string name="pref_camera_manual_wb_entry_color_temperature">Renk sıcaklığı</string>
+  <string name="pref_camera_manual_wb_entry_rbgb_gains">RBGB kazancı</string>
+  <string name="pref_camera_manual_wb_entry_off">Kapalı</string>
   <!-- Manual focus -->
+  <string name="pref_camera_manual_focus_title">Elle odaklama</string>
+  <string name="pref_camera_manual_focus_entry_scale_mode">Ölçek modu</string>
+  <string name="pref_camera_manual_focus_entry_diopter_mode">Diopter modu</string>
+  <string name="pref_camera_manual_focus_entry_off">Kapalı</string>
   <!-- Video HDR-->
+  <string name="pref_camera_video_hdr_title">Video HDR</string>
   <!-- CDS mode-->
+  <string name="pref_camera_cds_title">CDS modu</string>
+  <string name="pref_camera_cds_entry_auto">Otomatik</string>
   <!-- Video CDS-->
+  <string name="pref_camera_video_cds_title">Video CDS Modu</string>
+  <string name="pref_camera_video_cds_entry_auto">Otomatik</string>
   <!-- TNR-->
+  <string name="pref_camera_tnr_title">TNR modu</string>
   <!-- Video TNR -->
+  <string name="pref_camera_video_tnr_title">Video TNR modu</string>
   <!-- Face detection -->
+  <string name="pref_camera_facedetection_title">Yüz tanıma</string>
   <!-- Selfie Flash -->
+  <string name="pref_selfie_flash_title">Özçekim flaşı</string>
   <!-- Red eye reduction -->
+  <string name="pref_camera_redeyereduction_title">Kırmızı göz giderme</string>
   <!-- AE bracketing -->
+  <string name="pref_camera_ae_bracket_hdr_title">AE braketleme</string>
   <!-- High-framerate recording -->
+  <string name="pref_camera_hfr_title">Ağır çekim</string>
+  <string name="pref_camera_hfr_entry_off">Kapalı</string>
+  <string name="pref_camera_hfr_entry_2x">Ağır çekim 60 FPS</string>
+  <string name="pref_camera_hfr_entry_3x">Ağır çekim 90 FPS</string>
+  <string name="pref_camera_hfr_entry_4x">Ağır çekim 120 FPS</string>
+  <string name="pref_camera_hfr_entry_8x">Ağır çekim 240 FPS</string>
+  <string name="pref_camera_hfr_entry_hsr_60">Hızlı çekim 60 FPS</string>
+  <string name="pref_camera_hfr_entry_hsr_90">Hızlı çekim 90 FPS</string>
+  <string name="pref_camera_hfr_entry_hsr_120">Hızlı çekim 120 FPS</string>
   <!-- See More -->
   <!-- Denoise -->
+  <string name="pref_camera_denoise_title">Wavelet Gürültü giderme modu</string>
   <!-- ISO -->
+  <string name="pref_camera_iso_title">ISO</string>
+  <string name="pref_camera_iso_entry_auto">Oto</string>
+  <string name="pref_camera_iso_entry_isodeblur">Otomatik (HJR)</string>
+  <string name="pref_camera_iso_entry_iso50">ISO50</string>
+  <string name="pref_camera_iso_entry_iso100">ISO100</string>
+  <string name="pref_camera_iso_entry_iso125">ISO125</string>
+  <string name="pref_camera_iso_entry_iso150">ISO150</string>
+  <string name="pref_camera_iso_entry_iso200">ISO200</string>
+  <string name="pref_camera_iso_entry_iso250">ISO250</string>
+  <string name="pref_camera_iso_entry_iso300">ISO300</string>
+  <string name="pref_camera_iso_entry_iso320">ISO320</string>
+  <string name="pref_camera_iso_entry_iso350">ISO350</string>
+  <string name="pref_camera_iso_entry_iso400">ISO400</string>
+  <string name="pref_camera_iso_entry_iso450">ISO450</string>
+  <string name="pref_camera_iso_entry_iso500">ISO500</string>
+  <string name="pref_camera_iso_entry_iso600">ISO600</string>
+  <string name="pref_camera_iso_entry_iso640">ISO640</string>
+  <string name="pref_camera_iso_entry_iso700">ISO700</string>
+  <string name="pref_camera_iso_entry_iso800">ISO800</string>
+  <string name="pref_camera_iso_entry_iso1000">ISO1000</string>
+  <string name="pref_camera_iso_entry_iso1200">ISO1200</string>
+  <string name="pref_camera_iso_entry_iso1250">ISO1250</string>
+  <string name="pref_camera_iso_entry_iso1500">ISO1500</string>
+  <string name="pref_camera_iso_entry_iso1600">ISO1600</string>
+  <string name="pref_camera_iso_entry_iso2000">ISO2000</string>
+  <string name="pref_camera_iso_entry_iso2500">ISO2500</string>
+  <string name="pref_camera_iso_entry_iso2700">ISO2700</string>
+  <string name="pref_camera_iso_entry_iso3200">ISO3200</string>
+  <string name="pref_camera_iso_entry_iso6400">ISO6400</string>
+  <string name="pref_camera_iso_entry_iso12800">ISO12800</string>
   <!-- Antibanding -->
+  <string name="pref_camera_antibanding_title">Antibanding</string>
+  <string name="pref_camera_antibanding_entry_0">Otomatik</string>
+  <string name="pref_camera_antibanding_entry_1">50 Hz (Avrupa)</string>
+  <string name="pref_camera_antibanding_entry_2">60 Hz (ABD)</string>
   <!-- Color effect -->
+  <string name="pref_camera_coloreffect_title">Renk efekti</string>
+  <string name="pref_camera_coloreffect_entry_none">Yok</string>
+  <string name="pref_camera_coloreffect_entry_mono">Mono</string>
+  <string name="pref_camera_coloreffect_entry_sepia">Sepya</string>
+  <string name="pref_camera_coloreffect_entry_negative">Negatif</string>
   <!-- Color effect that overexposes and reverses some of the tones. -->
+  <string name="pref_camera_coloreffect_entry_solarize">Eskit</string>
+  <string name="pref_camera_coloreffect_entry_posterize">Posterize</string>
+  <string name="pref_camera_coloreffect_entry_aqua">Su</string>
+  <string name="pref_camera_coloreffect_entry_emboss">Kabartma</string>
+  <string name="pref_camera_coloreffect_entry_sketch">Çizim</string>
+  <string name="pref_camera_coloreffect_entry_neon">Neon</string>
+  <string name="pref_camera_coloreffect_entry_pastel">Pastel</string>
+  <string name="pref_camera_coloreffect_entry_mosaic">Mozaik</string>
+  <string name="pref_camera_coloreffect_entry_redtint">Kırmızı tonlama</string>
+  <string name="pref_camera_coloreffect_entry_bluetint">Mavi tonlama</string>
+  <string name="pref_camera_coloreffect_entry_greentint">Yeşil tonlama</string>
   <!-- Stabilization -->
+  <string name="pref_camera_dis_title">Sayısal Görüntü Dengeleme</string>
   <!-- Face recognition -->
+  <string name="pref_camera_facerc_title">Yüz tanıma</string>
   <!-- Sharpness -->
+  <string name="pref_camera_sharpness_title">Keskinlik</string>
+  <string name="pref_camera_sharpness_entry_level0">Düzey 0</string>
+  <string name="pref_camera_sharpness_entry_level1">Düzey 1</string>
+  <string name="pref_camera_sharpness_entry_level2">Düzey 2 (varsayılan)</string>
+  <string name="pref_camera_sharpness_entry_level3">Düzey 3</string>
+  <string name="pref_camera_sharpness_entry_level4">Düzey 4</string>
+  <string name="pref_camera_sharpness_entry_level5">Düzey 5</string>
+  <string name="pref_camera_sharpness_entry_level6">Düzey 6</string>
   <!-- Contrast -->
+  <string name="pref_camera_contrast_title">Karşıtlık</string>
+  <string name="pref_camera_contrast_entry_level0">Düzey 0</string>
+  <string name="pref_camera_contrast_entry_level1">Düzey 1</string>
+  <string name="pref_camera_contrast_entry_level2">Düzey 2</string>
+  <string name="pref_camera_contrast_entry_level3">Düzey 3</string>
+  <string name="pref_camera_contrast_entry_level4">Düzey 4</string>
+  <string name="pref_camera_contrast_entry_level5">Düzey 5 (varsayılan)</string>
+  <string name="pref_camera_contrast_entry_level6">Düzey 6</string>
+  <string name="pref_camera_contrast_entry_level7">Düzey 7</string>
+  <string name="pref_camera_contrast_entry_level8">Düzey 8</string>
+  <string name="pref_camera_contrast_entry_level9">Düzey 9</string>
+  <string name="pref_camera_contrast_entry_level10">Düzey 10</string>
   <!-- Saturation -->
+  <string name="pref_camera_saturation_title">Doygunluk</string>
+  <string name="pref_camera_saturation_entry_level0">Düzey 0</string>
+  <string name="pref_camera_saturation_entry_level1">Düzey 1</string>
+  <string name="pref_camera_saturation_entry_level2">Düzey 2</string>
+  <string name="pref_camera_saturation_entry_level3">Düzey 3</string>
+  <string name="pref_camera_saturation_entry_level4">Düzey 4</string>
+  <string name="pref_camera_saturation_entry_level5">Düzey 5 (varsayılan)</string>
+  <string name="pref_camera_saturation_entry_level6">Düzey 6</string>
+  <string name="pref_camera_saturation_entry_level7">Düzey 7</string>
+  <string name="pref_camera_saturation_entry_level8">Düzey 8</string>
+  <string name="pref_camera_saturation_entry_level9">Düzey 9</string>
+  <string name="pref_camera_saturation_entry_level10">Düzey 10</string>
   <!-- Picture format -->
+  <string name="pref_camera_picture_format_title">Resim formatı</string>
   <!-- Picture quality -->
+  <string name="pref_camera_jpegquality_title">Resim kalitesi</string>
+  <string name="pref_camera_jpegquality_entry_0">%55</string>
+  <string name="pref_camera_jpegquality_entry_1">%65 (normal)</string>
+  <string name="pref_camera_jpegquality_entry_2">%75 (iyi)</string>
+  <string name="pref_camera_jpegquality_entry_3">%85 (çok iyi)</string>
+  <string name="pref_camera_jpegquality_entry_4">%95</string>
+  <string name="pref_camera_jpegquality_entry_5">%100</string>
   <!-- Histogram -->
+  <string name="pref_camera_histogram_title">Histogram</string>
   <!-- Auto scene detection -->
+  <string name="pref_camera_scenedetect_title">Otomatik sahne tespiti</string>
   <!-- Continuous shot -->
+  <string name="pref_camera_longshot_title">Sürekli çekim</string>
   <!-- Auto HDR -->
+  <string name="pref_camera_auto_hdr_title">Otomatik HDR</string>
   <!-- HDR mode -->
+  <string name="pref_camera_hdr_mode_title">HDR modu</string>
+  <string name="pref_camera_hdr_mode_entry_sensor">HDR Sensörü</string>
+  <string name="pref_camera_hdr_mode_entry_multi_frame">Çoklu kare HDR</string>
   <!-- HDR needs 1x frame -->
+  <string name="pref_camera_hdr_need_1x_title">HDR sensörünün 1x kareye ihtiyacı var</string>
   <!-- Video rotation -->
+  <string name="pref_camera_video_rotation_title">Video döndürme</string>
+  <string name="pref_camera_video_rotation_entry_0">0 derece</string>
+  <string name="pref_camera_video_rotation_entry_90">90 derece</string>
+  <string name="pref_camera_video_rotation_entry_180">180 derece</string>
+  <string name="pref_camera_video_rotation_entry_270">270 derece</string>
   <!-- Storage location -->
+  <string name="pref_camera_savepath_title">Bellek konumu</string>
+  <string name="pref_camera_savepath_entry_0">Dahili depolama</string>
+  <string name="pref_camera_savepath_entry_1">SD kart</string>
   <!-- Misc -->
   <!-- The alias of CameraActivity for gesture operation -->
+  <string name="camera_gesture_title">Kamerayı başlat</string>
+  <string name="all_in_focus">Hepsi odaklandı</string>
+  <string name="refocus_toast">Son fotoğrafı yeniden odaklamak için buraya dokunun</string>
   <!-- Toast messages -->
   <!-- The message is shown in toast when the app encounters an unsupported selection for High-framerate recording mode -->
+  <string name="error_app_unsupported_hfr_selection">Yüksek-framerate kayıt sabitleme, Sabitleştirme/Zaman atlama/HDR kullanılırken desteklenmiyor.</string>
   <!-- The message is shown in dialog when the app encounters an unsupported resolution for Slow motion mode -->
+  <string name="error_app_unsupported_hfr">Ağır çekim, seçili video boyutu için desteklenmiyor. Daha düşük bir video boyutu seçin</string>
   <!-- The message is shown in toast when the app encounters an unsupported resolution for Stabilization mode -->
+  <string name="error_app_unsupported_dis">Sabitleştirme seçili video boyutu için desteklenmiyor. Daha düşük bir video boyutu seçin</string>
   <!-- The message is shown in dialog when the app encounters an unsupported resolution for High speed mode -->
+  <string name="error_app_unsupported_hsr">Hızlı çekim modu, seçili video boyutunda desteklenmiyor. Daha düşük bir video boyutu seçin</string>
   <!-- The message is shown in dialog when the app encounters an unsupported video codec for HFR mode -->
+  <string name="error_app_unsupported_hfr_codec">Hızlı Çekim modu etkinken yalnızca H.264 video kodlaması desteklenir</string>
   <!-- The message is shown in dialog when the app encounters an unsupported video resolution-->
+  <string name="error_app_unsupported">Bu kodlayıcı için desteklenmeyen video çözünürlüğü</string>
   <!--The message is shown in dialog when the raw snapshot is selected in Zero shutter lag mode-->
+  <string name="error_app_unsupported_raw">İşlenmemiş görüntü biçimi Sıfır deklanşör gecikmesi modunda desteklenmiyor. JPEG biçimini seçiniz</string>
+  <string name="msg_cancel_longshot_for_limited_memory">Hafıza bitiyor, sürekli çekim iptal ediliyor</string>
   <!-- Toast showing non-supported functionality for flash in AE bracket -->
+  <string name="flash_aebracket_message">AE braketleme modunda flaş desteklenmez</string>
   <!-- toast message for storage location switch -->
+  <string name="on_switch_save_path_to_sdcard">Dahili depolama alanı yeterli değil, depolama yeri SD karta geçiş yaptı</string>
   <!-- The message is shown in toast when click showOnMap Menu and there is no map app -->
+  <string name="map_activity_not_found_err">Konumu göstermek için yüklü harita uygulaması yok</string>
   <!-- Continous shot enable message -->
+  <string name="longshot_enable_message">Gelişmiş özellikler sürekli çekim modunda desteklenmez</string>
   <!-- Advance features enable message -->
+  <string name="advance_feature_enable_msg">Gelişmiş özellikler etkin olduğunda sürekli çekim desteklenmez</string>
   <!-- Toast after enable HDR function to inform continuous shot has disabled -->
+  <string name="HDR_disable_continuous_shot">HDR modunu açtığınızda sürekli çekim devre dışı kalacak</string>
   <!-- Toast after enable advanced capture function to inform continuous shot has disabled -->
+  <string name="advanced_capture_disable_continuous_shot">Gelişmiş yakalama etkinleştirildiğinde sürekli çekim devre dışı kalacak</string>
   <!-- Toast after enable 2k4k video quality to inform IS has disabled -->
+  <string name="video_quality_4k_disable_IS">4k video boyutu etkinleştirildiğinde Sabitleme devre dışı kalacak</string>
   <!-- Toast after 2k4k video is enabled to inform SeeMore has been disabled -->
+  <string name="video_quality_4k_disable_SeeMore">SeeMore 4k video sırasında etkin olamaz</string>
   <!-- TODO: Remove these? -->
 </resources>

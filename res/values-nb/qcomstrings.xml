@@ -38,6 +38,7 @@
   <!-- Skin tone enhancement -->
   <string name="pref_camera_skinToneEnhancement_title">Hud farge forsterkning</string>
   <!-- Zero shutter lag-->
+  <string name="pref_camera_zsl_title">Ingen lukkerforsinkelse</string>
   <!-- Autofocus zone -->
   <string name="pref_camera_selectablezoneaf_title">Autofokus sone</string>
   <string name="pref_camera_selectablezoneaf_entry_auto">Automatisk</string>
@@ -49,10 +50,12 @@
   <string name="pref_camera_advanced_feature_entry_none">Ingen</string>
   <string name="pref_camera_advanced_feature_entry_multi_touch_focus">Multi-Touch fokus</string>
   <!-- Manual exposure -->
+  <string name="pref_camera_manual_exp_title">Manuell eksponering</string>
   <string name="pref_camera_manual_exp_entry_ISO_priority">ISO prioritet</string>
   <string name="pref_camera_manual_exp_entry_user_setting">Brukerinnstilling</string>
   <string name="pref_camera_manual_exp_entry_off">Av</string>
   <!-- Manual white balance -->
+  <string name="pref_camera_manual_wb_title">Manuell hvitbalanse</string>
   <string name="pref_camera_manual_wb_entry_color_temperature">Fargetemperatur</string>
   <string name="pref_camera_manual_wb_entry_off">Av</string>
   <!-- Manual focus -->
@@ -75,6 +78,7 @@
   <!-- Face detection -->
   <string name="pref_camera_facedetection_title">Ansiktsgjenkjenning</string>
   <!-- Selfie Flash -->
+  <string name="pref_selfie_flash_title">Selfie blits</string>
   <!-- Red eye reduction -->
   <string name="pref_camera_redeyereduction_title">Reduksjon av røde øyne</string>
   <!-- AE bracketing -->
@@ -211,6 +215,8 @@
   <string name="pref_camera_video_rotation_entry_180">180 grader</string>
   <string name="pref_camera_video_rotation_entry_270">270 grader</string>
   <!-- Storage location -->
+  <string name="pref_camera_savepath_title">Lagringsplass</string>
+  <string name="pref_camera_savepath_entry_0">Intern lagring</string>
   <string name="pref_camera_savepath_entry_1">SD-kort</string>
   <!-- Misc -->
   <!-- The alias of CameraActivity for gesture operation -->
