@@ -150,12 +150,14 @@
   <string name="pref_camera_scenemode_entry_handheldtwilight">Modo handheld twilight</string>
   <string name="pref_camera_scenemode_entry_highsensitivity">Alta sensibilidad</string>
   <string name="pref_camera_scenemode_entry_indoor">Interior</string>
+  <string name="pref_camera_scenemode_entry_landscape">Paisaje</string>
   <string name="pref_camera_scenemode_entry_mix_illuminant">Mezcla de luces</string>
   <string name="pref_camera_scenemode_entry_mood">Humor</string>
   <string name="pref_camera_scenemode_entry_nightportrait">Retrato nocturno</string>
   <string name="pref_camera_scenemode_entry_nightindoor">Interior nocturno</string>
   <string name="pref_camera_scenemode_entry_oldfilm">Película antigua</string>
   <string name="pref_camera_scenemode_entry_pet">Mascotas</string>
+  <string name="pref_camera_scenemode_entry_portrait">Retrato</string>
   <string name="pref_camera_scenemode_entry_snow">Nieve</string>
   <string name="pref_camera_scenemode_entry_softskin">Piel suave</string>
   <string name="pref_camera_scenemode_entry_sports">Deportes</string>

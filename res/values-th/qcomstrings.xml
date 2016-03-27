@@ -38,6 +38,7 @@
   <!-- Skin tone enhancement -->
   <string name="pref_camera_skinToneEnhancement_title">ปรับโทนสีผิว</string>
   <!-- Zero shutter lag-->
+  <string name="pref_camera_zsl_title">การหน่วงชัตเตอร์เป็นศูนย์</string>
   <!-- Autofocus zone -->
   <string name="pref_camera_selectablezoneaf_title">บริเวณโฟกัสอัตโนมัติ</string>
   <string name="pref_camera_selectablezoneaf_entry_auto">ออโต้</string>
@@ -62,59 +63,206 @@
   <!-- Manual focus -->
   <string name="pref_camera_manual_focus_title">โฟกัสด้วยตนเอง</string>
   <string name="pref_camera_manual_focus_entry_scale_mode">รูปแบบสเกล</string>
+  <string name="pref_camera_manual_focus_entry_diopter_mode">รูปแบบไดออปเตอร์</string>
   <string name="pref_camera_manual_focus_entry_off">ปิด</string>
   <!-- Video HDR-->
+  <string name="pref_camera_video_hdr_title">HDR วิดีโอ</string>
   <!-- CDS mode-->
+  <string name="pref_camera_cds_title">รูปแบบ CDS</string>
+  <string name="pref_camera_cds_entry_auto">อัตโนมัติ</string>
   <!-- Video CDS-->
+  <string name="pref_camera_video_cds_title">รูปแบบ CDS วิดีโอ</string>
+  <string name="pref_camera_video_cds_entry_auto">ออโต้</string>
   <!-- TNR-->
+  <string name="pref_camera_tnr_title">รูปแบบ TNR</string>
   <!-- Video TNR -->
+  <string name="pref_camera_video_tnr_title">รูปแบบ TNR วิดีโอ</string>
   <!-- Face detection -->
+  <string name="pref_camera_facedetection_title">ตรวจจับใบหน้า</string>
   <!-- Selfie Flash -->
+  <string name="pref_selfie_flash_title">แฟลชเซลฟี่</string>
   <!-- Red eye reduction -->
+  <string name="pref_camera_redeyereduction_title">ลดตาแดง</string>
   <!-- AE bracketing -->
+  <string name="pref_camera_ae_bracket_hdr_title">การถ่ายภาพคร่อม AE</string>
   <!-- High-framerate recording -->
+  <string name="pref_camera_hfr_title">การเคลื่อนไหวช้า</string>
+  <string name="pref_camera_hfr_entry_off">ปิด</string>
+  <string name="pref_camera_hfr_entry_2x">การเคลื่อนไหวช้า 60 FPS</string>
+  <string name="pref_camera_hfr_entry_3x">การเคลื่อนไหวช้า 90 FPS</string>
+  <string name="pref_camera_hfr_entry_4x">การเคลื่อนไหวช้า 120 FPS</string>
+  <string name="pref_camera_hfr_entry_8x">การเคลื่อนไหวช้า 240 FPS</string>
+  <string name="pref_camera_hfr_entry_hsr_60">ความเร็วสูง 60 FPS</string>
+  <string name="pref_camera_hfr_entry_hsr_90">ความเร็วสูง 90 FPS</string>
+  <string name="pref_camera_hfr_entry_hsr_120">ความเร็วสูง 120 FPS</string>
   <!-- See More -->
   <!-- Denoise -->
+  <string name="pref_camera_denoise_title">ลดการรบกวน</string>
   <!-- ISO -->
+  <string name="pref_camera_iso_title">ISO</string>
+  <string name="pref_camera_iso_entry_auto">อัตโนมัติ</string>
+  <string name="pref_camera_iso_entry_isodeblur">อัตโนมัติ (HJR)</string>
+  <string name="pref_camera_iso_entry_iso50">ISO50</string>
+  <string name="pref_camera_iso_entry_iso100">ISO100</string>
+  <string name="pref_camera_iso_entry_iso125">ISO125</string>
   <string name="pref_camera_iso_entry_iso150">ISO150</string>
   <string name="pref_camera_iso_entry_iso200">ISO200</string>
+  <string name="pref_camera_iso_entry_iso250">ISO250</string>
+  <string name="pref_camera_iso_entry_iso300">ISO300</string>
+  <string name="pref_camera_iso_entry_iso320">ISO320</string>
+  <string name="pref_camera_iso_entry_iso350">ISO350</string>
+  <string name="pref_camera_iso_entry_iso400">ISO400</string>
+  <string name="pref_camera_iso_entry_iso450">ISO450</string>
+  <string name="pref_camera_iso_entry_iso500">ISO500</string>
+  <string name="pref_camera_iso_entry_iso600">ISO600</string>
+  <string name="pref_camera_iso_entry_iso640">ISO640</string>
+  <string name="pref_camera_iso_entry_iso700">ISO700</string>
+  <string name="pref_camera_iso_entry_iso800">ISO800</string>
+  <string name="pref_camera_iso_entry_iso1000">ISO1000</string>
+  <string name="pref_camera_iso_entry_iso1200">ISO1200</string>
+  <string name="pref_camera_iso_entry_iso1250">ISO1250</string>
+  <string name="pref_camera_iso_entry_iso1500">ISO1500</string>
+  <string name="pref_camera_iso_entry_iso1600">ISO1600</string>
+  <string name="pref_camera_iso_entry_iso2000">ISO2000</string>
+  <string name="pref_camera_iso_entry_iso2500">ISO2500</string>
+  <string name="pref_camera_iso_entry_iso2700">ISO2700</string>
+  <string name="pref_camera_iso_entry_iso3200">ISO3200</string>
+  <string name="pref_camera_iso_entry_iso6400">ISO6400</string>
+  <string name="pref_camera_iso_entry_iso12800">ISO12800</string>
   <!-- Antibanding -->
+  <string name="pref_camera_antibanding_title">Antibanding</string>
+  <string name="pref_camera_antibanding_entry_0">ออโต้</string>
+  <string name="pref_camera_antibanding_entry_1">50 Hz (ยุโรป)</string>
+  <string name="pref_camera_antibanding_entry_2">60 Hz (สหรัฐอเมริกา)</string>
   <!-- Color effect -->
+  <string name="pref_camera_coloreffect_title">เอฟเฟกต์สี</string>
+  <string name="pref_camera_coloreffect_entry_none">ไม่มี</string>
+  <string name="pref_camera_coloreffect_entry_mono">โมโน</string>
+  <string name="pref_camera_coloreffect_entry_sepia">ซีเปีย</string>
+  <string name="pref_camera_coloreffect_entry_negative">สีตรงข้าม</string>
   <!-- Color effect that overexposes and reverses some of the tones. -->
+  <string name="pref_camera_coloreffect_entry_solarize">เอฟเฟกต์สว่างจ้า</string>
+  <string name="pref_camera_coloreffect_entry_posterize">โปสเตอร์​ไร​ซ์</string>
+  <string name="pref_camera_coloreffect_entry_aqua">น้ำ</string>
+  <string name="pref_camera_coloreffect_entry_emboss">นูนขึ้น</string>
+  <string name="pref_camera_coloreffect_entry_sketch">ร่าง</string>
+  <string name="pref_camera_coloreffect_entry_neon">นีออน</string>
   <string name="pref_camera_coloreffect_entry_pastel">พาสเทล</string>
+  <string name="pref_camera_coloreffect_entry_mosaic">โมเสค</string>
+  <string name="pref_camera_coloreffect_entry_redtint">เน้นสีแดง</string>
+  <string name="pref_camera_coloreffect_entry_bluetint">เน้นสีฟ้า</string>
+  <string name="pref_camera_coloreffect_entry_greentint">เน้นสีเขียว</string>
   <!-- Stabilization -->
+  <string name="pref_camera_dis_title">ป้องกันภาพสั่น</string>
   <!-- Face recognition -->
+  <string name="pref_camera_facerc_title">จดจำใบหน้า</string>
   <!-- Sharpness -->
+  <string name="pref_camera_sharpness_title">ความคมชัด</string>
+  <string name="pref_camera_sharpness_entry_level0">ระดับ 0</string>
+  <string name="pref_camera_sharpness_entry_level1">ระดับ 1</string>
+  <string name="pref_camera_sharpness_entry_level2">ระดับ 2 (เริ่มต้น)</string>
+  <string name="pref_camera_sharpness_entry_level3">ระดับ 3</string>
+  <string name="pref_camera_sharpness_entry_level4">ระดับ 4</string>
+  <string name="pref_camera_sharpness_entry_level5">ระดับ 5</string>
+  <string name="pref_camera_sharpness_entry_level6">ระดับ 6</string>
   <!-- Contrast -->
+  <string name="pref_camera_contrast_title">ความเข้มจาง</string>
+  <string name="pref_camera_contrast_entry_level0">ระดับ 0</string>
+  <string name="pref_camera_contrast_entry_level1">ระดับ 1</string>
+  <string name="pref_camera_contrast_entry_level2">ระดับ 2</string>
+  <string name="pref_camera_contrast_entry_level3">ระดับ 3</string>
+  <string name="pref_camera_contrast_entry_level4">ระดับ 4</string>
+  <string name="pref_camera_contrast_entry_level5">ระดับ 5 (เริ่มต้น)</string>
+  <string name="pref_camera_contrast_entry_level6">ระดับ 6</string>
+  <string name="pref_camera_contrast_entry_level7">ระดับ 7</string>
+  <string name="pref_camera_contrast_entry_level8">ระดับ 8</string>
+  <string name="pref_camera_contrast_entry_level9">ระดับ 9</string>
+  <string name="pref_camera_contrast_entry_level10">ระดับ 10</string>
   <!-- Saturation -->
+  <string name="pref_camera_saturation_title">ความอิ่มตัว</string>
+  <string name="pref_camera_saturation_entry_level0">ระดับ 0</string>
+  <string name="pref_camera_saturation_entry_level1">ระดับ 1</string>
+  <string name="pref_camera_saturation_entry_level2">ระดับ 2</string>
+  <string name="pref_camera_saturation_entry_level3">ระดับ 3</string>
+  <string name="pref_camera_saturation_entry_level4">ระดับ 4</string>
+  <string name="pref_camera_saturation_entry_level5">ระดับ 5 (เริ่มต้น)</string>
+  <string name="pref_camera_saturation_entry_level6">ระดับ 6</string>
+  <string name="pref_camera_saturation_entry_level7">ระดับ 7</string>
+  <string name="pref_camera_saturation_entry_level8">ระดับ 8</string>
+  <string name="pref_camera_saturation_entry_level9">ระดับ 9</string>
+  <string name="pref_camera_saturation_entry_level10">ระดับ 10</string>
   <!-- Picture format -->
+  <string name="pref_camera_picture_format_title">นามสกุลรูปภาพ</string>
   <!-- Picture quality -->
+  <string name="pref_camera_jpegquality_title">คุณภาพของภาพ</string>
+  <string name="pref_camera_jpegquality_entry_0">55%</string>
+  <string name="pref_camera_jpegquality_entry_1">65% (ปกติ)</string>
+  <string name="pref_camera_jpegquality_entry_2">75% (ดี)</string>
+  <string name="pref_camera_jpegquality_entry_3">85% (ดีเยี่ยม)</string>
+  <string name="pref_camera_jpegquality_entry_4">95%</string>
+  <string name="pref_camera_jpegquality_entry_5">100%</string>
   <!-- Histogram -->
+  <string name="pref_camera_histogram_title">ฮิสโตแกรม</string>
   <!-- Auto scene detection -->
+  <string name="pref_camera_scenedetect_title">ตรวจสอบซีนอัตโนมัติ</string>
   <!-- Continuous shot -->
+  <string name="pref_camera_longshot_title">ถ่ายแบบต่อเนื่อง</string>
   <!-- Auto HDR -->
+  <string name="pref_camera_auto_hdr_title">ออโต้ HDR</string>
   <!-- HDR mode -->
+  <string name="pref_camera_hdr_mode_title">รูปแบบ HDR</string>
+  <string name="pref_camera_hdr_mode_entry_sensor">HDR เซนเซอร์</string>
+  <string name="pref_camera_hdr_mode_entry_multi_frame">HDR แบบหลายเฟรม</string>
   <!-- HDR needs 1x frame -->
+  <string name="pref_camera_hdr_need_1x_title">HDR ต้องใช้ 1x เฟรม</string>
   <!-- Video rotation -->
+  <string name="pref_camera_video_rotation_title">การหมุนสลับวิดีโอ</string>
+  <string name="pref_camera_video_rotation_entry_0">0 องศา</string>
+  <string name="pref_camera_video_rotation_entry_90">90 องศา</string>
+  <string name="pref_camera_video_rotation_entry_180">180 องศา</string>
+  <string name="pref_camera_video_rotation_entry_270">270 องศา</string>
   <!-- Storage location -->
+  <string name="pref_camera_savepath_title">ตำแหน่งการจัดเก็บ</string>
+  <string name="pref_camera_savepath_entry_0">ที่เก็บข้อมูลภายใน</string>
+  <string name="pref_camera_savepath_entry_1">SD การ์ด</string>
   <!-- Misc -->
   <!-- The alias of CameraActivity for gesture operation -->
+  <string name="camera_gesture_title">เปิดกล้อง</string>
+  <string name="all_in_focus">โฟกัสทุกตำแหน่ง</string>
+  <string name="refocus_toast">ในการโฟกัสภาพล่าสุดใหม่ แตะที่นี่</string>
   <!-- Toast messages -->
   <!-- The message is shown in toast when the app encounters an unsupported selection for High-framerate recording mode -->
+  <string name="error_app_unsupported_hfr_selection">ไม่สามารถใช้งานการเคลื่อนไหวแบบความเร็วสูง/การเคลื่อนไหวแบบช้า สำหรับ DIS และ TimeLapse</string>
   <!-- The message is shown in dialog when the app encounters an unsupported resolution for Slow motion mode -->
+  <string name="error_app_unsupported_hfr">ไม่สามารถแสดงวิดีโอภาพเคลื่อนไหวช้าที่ความละเอียดที่เลือกได้</string>
   <!-- The message is shown in toast when the app encounters an unsupported resolution for Stabilization mode -->
+  <string name="error_app_unsupported_dis">ไม่รองรับการป้องกันภาพสั่นไหวสำหรับขนาดวิดีโอที่เลือก ให้เลือกขนาดวิดีโอที่ต่ำกว่า</string>
   <!-- The message is shown in dialog when the app encounters an unsupported resolution for High speed mode -->
+  <string name="error_app_unsupported_hsr">ไม่สามารถใช้งานวิดีโอความเร็วสูงได้สำหรับความละเอียดที่เลือก</string>
   <!-- The message is shown in dialog when the app encounters an unsupported video codec for HFR mode -->
+  <string name="error_app_unsupported_hfr_codec">ใช้ได้เฉพาะกับการเข้ารหัสวิดีโอ H.264 เท่านั้นเมื่อมีการเปิดใช้การเคลื่อนไหวช้า</string>
   <!-- The message is shown in dialog when the app encounters an unsupported video resolution-->
+  <string name="error_app_unsupported">ความละเอียดของวิดีโอที่ไม่รองรับสำหรับประเภทการเข้ารหัสนี้</string>
   <!--The message is shown in dialog when the raw snapshot is selected in Zero shutter lag mode-->
+  <string name="error_app_unsupported_raw">ไม่รองรับรูปแบบภาพถ่าย raw ในรูปแบบการหน่วงชัตเตอร์ที่ศูนย์ ให้เลือก JPEG</string>
+  <string name="msg_cancel_longshot_for_limited_memory">หน่วยความจำกำลังจะเต็ม ให้ยกเลิกการถ่ายแบบต่อเนื่อง</string>
   <!-- Toast showing non-supported functionality for flash in AE bracket -->
+  <string name="flash_aebracket_message">ไม่รองรับการใช้แฟลชในรูปแบบการถ่ายคร่อม AE</string>
   <!-- toast message for storage location switch -->
+  <string name="on_switch_save_path_to_sdcard">พื้นที่จัดเก็บภายในไม่พอ เปลี่ยนตำแหน่งการจัดเก็บไปที่ SD การ์ด</string>
   <!-- The message is shown in toast when click showOnMap Menu and there is no map app -->
+  <string name="map_activity_not_found_err">ไม่มีแอปแผนที่ติดตั้งอยู่เพื่อใช้แสดงตำแหน่งที่ตั้ง</string>
   <!-- Continous shot enable message -->
+  <string name="longshot_enable_message">ไม่รองรับคุณสมบัติขั้นสูงในรูปแบบการถ่ายภาพแบบต่อเนื่อง</string>
   <!-- Advance features enable message -->
+  <string name="advance_feature_enable_msg">ไม่รองรับการถ่ายภาพแบบต่อเนื่องเมื่อเปิดใช้งานคุณสมบัติขั้นสูง</string>
   <!-- Toast after enable HDR function to inform continuous shot has disabled -->
+  <string name="HDR_disable_continuous_shot">การเปิดใช้งาน HDR จะปิดใช้งานการถ่ายภาพแบบต่อเนื่อง</string>
   <!-- Toast after enable advanced capture function to inform continuous shot has disabled -->
+  <string name="advanced_capture_disable_continuous_shot">การเปิดใช้งานการจับภาพขั้นสูงจะปิดการใช้งานการถ่ายภาพแบบต่อเนื่อง</string>
   <!-- Toast after enable 2k4k video quality to inform IS has disabled -->
+  <string name="video_quality_4k_disable_IS">การเปิดใช้งานขนาดวิดีโอ 4k จะปิดการใช้งานการป้องกันภาพสั่นไหว</string>
   <!-- Toast after 2k4k video is enabled to inform SeeMore has been disabled -->
+  <string name="video_quality_4k_disable_SeeMore">ไม่สามารถเปิดใช้งาน SeeMore ระหว่างการใช้วิดีโอ 4k</string>
   <!-- TODO: Remove these? -->
 </resources>

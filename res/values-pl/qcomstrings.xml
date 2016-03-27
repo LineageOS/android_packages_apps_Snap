@@ -214,6 +214,7 @@
   <string name="pref_camera_hdr_mode_entry_sensor">Czujnik HDR</string>
   <string name="pref_camera_hdr_mode_entry_multi_frame">Wieloklatkowy HDR</string>
   <!-- HDR needs 1x frame -->
+  <string name="pref_camera_hdr_need_1x_title">HDR potrzebuje pełnej klatki</string>
   <!-- Video rotation -->
   <string name="pref_camera_video_rotation_title">Orientacja wideo</string>
   <string name="pref_camera_video_rotation_entry_0">0 stopni</string>
@@ -231,10 +232,13 @@
   <string name="refocus_toast">Dotknij tutaj, aby zmienić ostrość ostatniego zdjęcia</string>
   <!-- Toast messages -->
   <!-- The message is shown in toast when the app encounters an unsupported selection for High-framerate recording mode -->
+  <string name="error_app_unsupported_hfr_selection">Nagrywanie z dużą ilością klatek nie jest obsługiwane dla cyfrowej stabilizacji obrazu, TimeLapse i HDR.</string>
   <!-- The message is shown in dialog when the app encounters an unsupported resolution for Slow motion mode -->
+  <string name="error_app_unsupported_hfr">Tryb zwolnionego tempa nie jest obsługiwany dla wybranej rozdzielczości wideo. Wybierz niższą rozdzielczość nagrywania wideo</string>
   <!-- The message is shown in toast when the app encounters an unsupported resolution for Stabilization mode -->
   <string name="error_app_unsupported_dis">Stabilizacja nie jest obsługiwana dla wybranej rozdzielczości wideo. Wybierz niższą rozdzielczość nagrywania wideo</string>
   <!-- The message is shown in dialog when the app encounters an unsupported resolution for High speed mode -->
+  <string name="error_app_unsupported_hsr">Tryb wysokiej szybkości nie jest obsługiwany dla wybranej rozdzielczości wideo. Wybierz niższą rozdzielczość nagrywania wideo</string>
   <!-- The message is shown in dialog when the app encounters an unsupported video codec for HFR mode -->
   <string name="error_app_unsupported_hfr_codec">Tylko kodowanie wideo H.264 jest obsługiwane, kiedy funkcja Zwolnionego Tempa jest włączona</string>
   <!-- The message is shown in dialog when the app encounters an unsupported video resolution-->
@@ -247,6 +251,7 @@
   <!-- toast message for storage location switch -->
   <string name="on_switch_save_path_to_sdcard">Kończy się miejsce w pamięci urządzenia, domyślna pamięć zmieniona na kartę SD</string>
   <!-- The message is shown in toast when click showOnMap Menu and there is no map app -->
+  <string name="map_activity_not_found_err">Nie ma zainstalowanej aplikacji mapy, aby zobaczyć lokalizację</string>
   <!-- Continous shot enable message -->
   <string name="longshot_enable_message">Zaawansowane funkcje nie są dostępne w trybie ciągłym</string>
   <!-- Advance features enable message -->
@@ -254,6 +259,7 @@
   <!-- Toast after enable HDR function to inform continuous shot has disabled -->
   <string name="HDR_disable_continuous_shot">Włączenie HDR wyłączy tryb ciągły</string>
   <!-- Toast after enable advanced capture function to inform continuous shot has disabled -->
+  <string name="advanced_capture_disable_continuous_shot">Włączenie funkcji zaawansowanych wyłączy tryb ciągły</string>
   <!-- Toast after enable 2k4k video quality to inform IS has disabled -->
   <string name="video_quality_4k_disable_IS">Włączenie nagrywania 4K wyłączy stabilizację</string>
   <!-- Toast after 2k4k video is enabled to inform SeeMore has been disabled -->

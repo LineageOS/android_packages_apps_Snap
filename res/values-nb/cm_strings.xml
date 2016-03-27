@@ -41,9 +41,11 @@
   <!-- Settings screen, dialog choice for 12.6 megapixels picture size [CHAR LIMIT=15] -->
   <string name="pref_camera_picturesize_entry_12_6mp">12,6 MP</string>
   <!-- Settings screen, dialog choice for 12.2 megapixels picture size [CHAR LIMIT=15] -->
+  <string name="pref_camera_picturesize_entry_12_2mp">12,2 MP</string>
   <!-- Settings screen, dialog choice for 12 megapixels picture size [CHAR LIMIT=15] -->
   <string name="pref_camera_picturesize_entry_12mp">12 MP</string>
   <!-- Settings screen, dialog choice for 11.9 megapixels picture size [CHAR LIMIT=15] -->
+  <string name="pref_camera_picturesize_entry_11_9mp_wide">11,9 MP (16:9)</string>
   <!-- Settings screen, dialog choice for 11.9 megapixels picture size [CHAR LIMIT=15] -->
   <string name="pref_camera_picturesize_entry_11_9mp">11,9 MP</string>
   <!-- Settings screen, dialog choice for 11.5 megapixels picture size [CHAR LIMIT=15] -->
@@ -59,6 +61,7 @@
   <!-- Settings screen, dialog choice for 9 megapixels picture size [CHAR LIMIT=15] -->
   <string name="pref_camera_picturesize_entry_9mp">9 MP</string>
   <!-- Settings screen, dialog choice for 8.9 megapixels picture size [CHAR LIMIT=15] -->
+  <string name="pref_camera_picturesize_entry_8_9mp">8,9 MP</string>
   <!-- Settings screen, dialog choice for 8.2 megapixels picture size [CHAR LIMIT=15] -->
   <string name="pref_camera_picturesize_entry_8_2mp_wide">8.2 MP (16:9)</string>
   <!-- Settings screen, dialog choice for 8 megapixels picture size [CHAR LIMIT=15] -->
@@ -167,6 +170,7 @@
   <string name="pref_camera_scenemode_entry_whiteboard">Tavle</string>
   <!-- Settings screen, focus mode -->
   <string name="pref_camera_focusmode_entry_continuous">Kontinuerlig</string>
+  <string name="pref_camera_focusmode_entry_mw_continuous">Kontinuerlig (MW)</string>
   <string name="pref_camera_focusmode_entry_extended">Utvidet</string>
   <string name="pref_camera_focusmode_entry_facedetect">Ansiktsoppdagelse</string>
   <string name="pref_camera_focusmode_entry_facepriority">Ansiktsprioritet</string>
@@ -191,9 +195,12 @@
   <string name="pref_camera_max_brightness_title">Lys skjerm</string>
   <!-- Touch focus duration -->
   <string name="pref_camera_focustime_title">Touch fokus varighet</string>
+  <string name="pref_camera_focustime_entry_0">0s</string>
+  <string name="pref_camera_focustime_entry_3">3s</string>
   <string name="pref_camera_focustime_entry_5">5s</string>
   <string name="pref_camera_focustime_entry_10">10s</string>
   <string name="pref_camera_focustime_entry_infinite">Uendelig</string>
   <!-- Shutter speed -->
   <string name="pref_camera_shutter_speed_title">Lukkertid</string>
+  <string name="auto_hdr_enabled">Automatisk HDR aktivert</string>
 </resources>
