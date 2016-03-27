@@ -92,7 +92,8 @@ public class PhotoUI implements PieListener,
     private PhotoController mController;
     private PreviewGestures mGestures;
 
-    private View mRootView;
+    private CameraRootView mRootView;
+    private ViewGroup mMenuContainer;
     private SurfaceHolder mSurfaceHolder;
 
     private PopupWindow mPopup;
@@ -223,9 +224,10 @@ public class PhotoUI implements PieListener,
     public PhotoUI(CameraActivity activity, PhotoController controller, View parent) {
         mActivity = activity;
         mController = controller;
-        mRootView = parent;
-        mActivity.getLayoutInflater().inflate(R.layout.photo_module,
-                (ViewGroup) mRootView, true);
+        mRootView = (CameraRootView) parent;
+        mActivity.getLayoutInflater().inflate(R.layout.photo_module, mRootView, true);
+        mMenuContainer = (ViewGroup) mRootView.findViewById(R.id.menu_container);
+        mRootView.setMenuContainer(mMenuContainer);
         mPreviewCover = mRootView.findViewById(R.id.preview_cover);
         // display the view
         mSurfaceView = (SurfaceView) mRootView.findViewById(R.id.mdp_preview_content);
@@ -487,6 +489,10 @@ public class PhotoUI implements PieListener,
 
     public View getRootView() {
         return mRootView;
+    }
+
+    public ViewGroup getMenuContainer() {
+        return mMenuContainer;
     }
 
     public void onCameraOpened(PreferenceGroup prefGroup, ComboPreferences prefs,
@@ -818,7 +824,7 @@ public class PhotoUI implements PieListener,
                             Gravity.RIGHT | Gravity.TOP);
                 }
                 mMenuLayout.setLayoutParams(params);
-                ((ViewGroup) mRootView).addView(mMenuLayout);
+                mMenuContainer.addView(mMenuLayout);
             }
             mMenuLayout.setOrientation(mOrientation, true);
             mMenuLayout.addView(popup);
@@ -826,7 +832,7 @@ public class PhotoUI implements PieListener,
         if (level == 2) {
             if (mSubMenuLayout == null) {
                 mSubMenuLayout = new RotateLayout(mActivity, null);
-                ((ViewGroup) mRootView).addView(mSubMenuLayout);
+                mMenuContainer.addView(mSubMenuLayout);
             }
             if (mRootView.getLayoutDirection() != View.LAYOUT_DIRECTION_RTL) {
                 params = new FrameLayout.LayoutParams(
@@ -837,13 +843,17 @@ public class PhotoUI implements PieListener,
                         CameraActivity.SETTING_LIST_WIDTH_2, LayoutParams.WRAP_CONTENT,
                         Gravity.RIGHT | Gravity.TOP);
             }
-            int screenHeight = (mOrientation == 0 || mOrientation == 180)
-                ? mRootView.getHeight() : mRootView.getWidth();
+
+            final View mc = mMenuContainer;
+            final int containerHeight = mOrientation == 0 || mOrientation == 180
+                    ? mc.getHeight() - mc.getPaddingTop() - mc.getPaddingBottom()
+                    : mc.getWidth() - mc.getPaddingLeft() - mc.getPaddingRight();
             int height = ((ListSubMenu) popup).getPreCalculatedHeight();
-            int yBase = ((ListSubMenu) popup).getYBase();
-            int y = Math.max(0, yBase);
-            if (yBase + height > screenHeight)
-                y = Math.max(0, screenHeight - height);
+            int yBase = ((ListSubMenu) popup).getYBase(), y = yBase;
+            if (yBase + height > containerHeight) {
+                y = Math.max(0, containerHeight - height);
+            }
+
             if (mRootView.getLayoutDirection() != View.LAYOUT_DIRECTION_RTL) {
                 params.setMargins(CameraActivity.SETTING_LIST_WIDTH_1, y, 0, 0);
             } else {
@@ -920,14 +930,14 @@ public class PhotoUI implements PieListener,
 
     public void dismissLevel1() {
         if (mMenuLayout != null) {
-            ((ViewGroup) mRootView).removeView(mMenuLayout);
+            mMenuContainer.removeView(mMenuLayout);
             mMenuLayout = null;
         }
     }
 
     public void dismissLevel2() {
         if (mSubMenuLayout != null) {
-            ((ViewGroup) mRootView).removeView(mSubMenuLayout);
+            mMenuContainer.removeView(mSubMenuLayout);
             mSubMenuLayout = null;
         }
     }
@@ -946,14 +956,14 @@ public class PhotoUI implements PieListener,
 
     public void dismissSceneModeMenu() {
         if (mPreviewMenuLayout != null) {
-            ((ViewGroup) mRootView).removeView(mPreviewMenuLayout);
+            mMenuContainer.removeView(mPreviewMenuLayout);
             mPreviewMenuLayout = null;
         }
     }
 
     public void removeSceneModeMenu() {
         if (mPreviewMenuLayout != null) {
-            ((ViewGroup) mRootView).removeView(mPreviewMenuLayout);
+            mMenuContainer.removeView(mPreviewMenuLayout);
             mPreviewMenuLayout = null;
         }
         cleanupListview();
@@ -1095,9 +1105,8 @@ public class PhotoUI implements PieListener,
     // Countdown timer
 
     private void initializeCountDown() {
-        mActivity.getLayoutInflater().inflate(R.layout.count_down_to_capture,
-                (ViewGroup) mRootView, true);
-        mCountDownView = (CountDownView) (mRootView.findViewById(R.id.count_down_to_capture));
+        mActivity.getLayoutInflater().inflate(R.layout.count_down_to_capture, mRootView, true);
+        mCountDownView = (CountDownView) mRootView.findViewById(R.id.count_down_to_capture);
         mCountDownView.setCountDownFinishedListener((OnCountDownFinishedListener) mController);
         mCountDownView.bringToFront();
         mCountDownView.setOrientation(mOrientation);
@@ -1121,7 +1130,7 @@ public class PhotoUI implements PieListener,
 
     public void startSelfieFlash() {
         if(mSelfieView == null)
-            mSelfieView = (SelfieFlashView) (mRootView.findViewById(R.id.selfie_flash));
+            mSelfieView = (SelfieFlashView) mRootView.findViewById(R.id.selfie_flash);
         mSelfieView.bringToFront();
         mSelfieView.open();
         mScreenBrightness = setScreenBrightness(1F);
@@ -1129,7 +1138,7 @@ public class PhotoUI implements PieListener,
 
     public void stopSelfieFlash() {
         if(mSelfieView == null)
-            mSelfieView = (SelfieFlashView) (mRootView.findViewById(R.id.selfie_flash));
+            mSelfieView = (SelfieFlashView) mRootView.findViewById(R.id.selfie_flash);
         mSelfieView.close();
         if(mScreenBrightness != 0.0f)
             setScreenBrightness(mScreenBrightness);
@@ -1178,11 +1187,11 @@ public class PhotoUI implements PieListener,
     }
 
     public void initDisplayChangeListener() {
-        ((CameraRootView) mRootView).setDisplayChangeListener(this);
+        mRootView.setDisplayChangeListener(this);
     }
 
     public void removeDisplayChangeListener() {
-        ((CameraRootView) mRootView).removeDisplayChangeListener();
+        mRootView.removeDisplayChangeListener();
     }
 
     public FocusRing getFocusRing() {

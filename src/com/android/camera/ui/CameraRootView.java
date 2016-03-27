@@ -37,6 +37,7 @@ public class CameraRootView extends FrameLayout {
     private Object mDisplayListener;
     private MyDisplayListener mListener;
     private Rect mLastInsets = new Rect();
+    private View mMenuContainer;
 
     public interface MyDisplayListener {
         public void onDisplayChanged();
@@ -45,6 +46,11 @@ public class CameraRootView extends FrameLayout {
     public CameraRootView(Context context, AttributeSet attrs) {
         super(context, attrs);
         initDisplayListener();
+    }
+
+    public void setMenuContainer(View menuContainer) {
+        mMenuContainer = menuContainer;
+        applyInsetsToMenuContainer();
     }
 
     public void redoFitSystemWindows() {
@@ -58,6 +64,7 @@ public class CameraRootView extends FrameLayout {
     @Override
     protected boolean fitSystemWindows(Rect insets) {
         mLastInsets.set(insets);
+        applyInsetsToMenuContainer();
         return super.fitSystemWindows(insets);
     }
 
@@ -87,6 +94,14 @@ public class CameraRootView extends FrameLayout {
 
     public void setDisplayChangeListener(MyDisplayListener listener) {
         mListener = listener;
+    }
+
+    private void applyInsetsToMenuContainer() {
+        if (mMenuContainer == null) {
+            return;
+        }
+        mMenuContainer.setPadding(mLastInsets.left, mLastInsets.top,
+                mLastInsets.right, mLastInsets.bottom);
     }
 
     @Override

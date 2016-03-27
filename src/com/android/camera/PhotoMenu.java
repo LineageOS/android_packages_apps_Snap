@@ -837,11 +837,11 @@ public class PhotoMenu extends MenuController
         if (portrait) {
             params = new ViewGroup.LayoutParams(size, LayoutParams.MATCH_PARENT);
             previewMenuLayout.setLayoutParams(params);
-            ((ViewGroup) mUI.getRootView()).addView(previewMenuLayout);
+            mUI.getMenuContainer().addView(previewMenuLayout);
         } else {
             params = new ViewGroup.LayoutParams(LayoutParams.MATCH_PARENT, size);
             previewMenuLayout.setLayoutParams(params);
-            ((ViewGroup) mUI.getRootView()).addView(previewMenuLayout);
+            mUI.getMenuContainer().addView(previewMenuLayout);
             previewMenuLayout.setY(display.getHeight() - size);
         }
         basic.setLayoutParams(new FrameLayout.LayoutParams(LayoutParams.MATCH_PARENT,
@@ -974,11 +974,11 @@ public class PhotoMenu extends MenuController
         if (portrait) {
             params = new ViewGroup.LayoutParams(size, LayoutParams.MATCH_PARENT);
             previewMenuLayout.setLayoutParams(params);
-            ((ViewGroup) mUI.getRootView()).addView(previewMenuLayout);
+            mUI.getMenuContainer().addView(previewMenuLayout);
         } else {
             params = new ViewGroup.LayoutParams(LayoutParams.MATCH_PARENT, size);
             previewMenuLayout.setLayoutParams(params);
-            ((ViewGroup) mUI.getRootView()).addView(previewMenuLayout);
+            mUI.getMenuContainer().addView(previewMenuLayout);
             previewMenuLayout.setY(display.getHeight() - size);
         }
         basic.setLayoutParams(new FrameLayout.LayoutParams(LayoutParams.MATCH_PARENT,
