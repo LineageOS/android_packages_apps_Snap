@@ -37,6 +37,7 @@ public class CameraRootView extends FrameLayout {
     private Object mDisplayListener;
     private MyDisplayListener mListener;
     private Rect mLastInsets = new Rect();
+    private Rect mTmpRect = new Rect();
 
     public interface MyDisplayListener {
         public void onDisplayChanged();
@@ -79,6 +80,40 @@ public class CameraRootView extends FrameLayout {
                 public void onDisplayRemoved(int arg0) {}
             };
         }
+    }
+
+    public Rect getInsetsForOrientation(int orientation) {
+        switch (orientation) {
+            case 90:
+                mTmpRect.set(mLastInsets.top, mLastInsets.right,
+                        mLastInsets.bottom, mLastInsets.left);
+                break;
+            case 180:
+                mTmpRect.set(mLastInsets.right, mLastInsets.bottom,
+                        mLastInsets.left, mLastInsets.top);
+                break;
+            case 270:
+                mTmpRect.set(mLastInsets.bottom, mLastInsets.left,
+                        mLastInsets.top, mLastInsets.right);
+                break;
+            default:
+                mTmpRect.set(mLastInsets);
+                break;
+        }
+
+        return mTmpRect;
+    }
+
+    public Rect getClientRectForOrientation(int orientation) {
+        Rect result = getInsetsForOrientation(orientation);
+        if (orientation == 90 || orientation == 270) {
+            result.right = getHeight() - result.right;
+            result.bottom = getWidth() - result.bottom;
+        } else {
+            result.right = getWidth() - result.right;
+            result.bottom = getHeight() - result.bottom;
+        }
+        return result;
     }
 
     public void removeDisplayChangeListener() {

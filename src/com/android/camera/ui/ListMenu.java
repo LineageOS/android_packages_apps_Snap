@@ -22,6 +22,7 @@ package com.android.camera.ui;
 import java.util.ArrayList;
 
 import android.content.Context;
+import android.graphics.Rect;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -31,6 +32,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Space;
 
 import com.android.camera.ListPreference;
 import com.android.camera.PreferenceGroup;
@@ -38,13 +40,13 @@ import org.codeaurora.snapcam.R;
 
 /* A popup window that contains several camera settings. */
 public class ListMenu extends ListView
-        implements ListMenuItem.Listener,
-        AdapterView.OnItemClickListener {
+        implements ListMenuItem.Listener, AdapterView.OnItemClickListener, RotateLayout.Child {
     @SuppressWarnings("unused")
     private static final String TAG = "ListMenu";
     private int mHighlighted = -1;
     private Listener mListener;
     private ArrayList<ListPreference> mListItem = new ArrayList<ListPreference>();
+    private View mHeader, mFooter;
 
     // Keep track of which setting items are disabled
     // e.g. White balance will be disabled when scene mode is set to non-auto
@@ -107,6 +109,30 @@ public class ListMenu extends ListView
             }
             return true;
         }
+    }
+
+    @Override
+    public void onApplyWindowInsets(Rect insets) {
+        if (mHeader == null) {
+            mHeader = new Space(getContext());
+            addHeaderView(mHeader);
+            setHeaderDividersEnabled(false);
+            mFooter = new Space(getContext());
+            addFooterView(mFooter);
+            setFooterDividersEnabled(false);
+        }
+
+        adjustViewHeight(mHeader, insets.top);
+        adjustViewHeight(mFooter, insets.bottom);
+    }
+
+    private void adjustViewHeight(View view, int height) {
+        ViewGroup.LayoutParams lp = view.getLayoutParams();
+        if (lp == null) {
+            lp = generateDefaultLayoutParams();
+        }
+        lp.height = height;
+        view.setLayoutParams(lp);
     }
 
     public void setSettingChangedListener(Listener listener) {
@@ -204,7 +230,8 @@ public class ListMenu extends ListView
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position,
             long id) {
-        if (mListener != null) {
+        position -= getHeaderViewsCount();
+        if (mListener != null && position < mListItem.size()) {
             resetHighlight();
             ListPreference pref = mListItem.get(position);
             mHighlighted = position;

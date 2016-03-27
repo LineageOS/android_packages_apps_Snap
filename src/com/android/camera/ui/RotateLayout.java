@@ -18,6 +18,7 @@ package com.android.camera.ui;
 
 import android.content.Context;
 import android.graphics.Matrix;
+import android.graphics.Rect;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,6 +33,11 @@ public class RotateLayout extends ViewGroup implements Rotatable {
     private int mOrientation;
     private Matrix mMatrix = new Matrix();
     protected View mChild;
+    private CameraRootView mRootView;
+
+    public interface Child {
+        void onApplyWindowInsets(Rect insets);
+    }
 
     public RotateLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -40,6 +46,10 @@ public class RotateLayout extends ViewGroup implements Rotatable {
         // changed. The view looks fine in landscape. After rotation, the view
         // is invisible.
         setBackgroundResource(android.R.color.transparent);
+    }
+
+    public void setRootView(CameraRootView rootView) {
+        mRootView = rootView;
     }
 
     @Override
@@ -52,6 +62,7 @@ public class RotateLayout extends ViewGroup implements Rotatable {
             mChild = child;
             child.setPivotX(0);
             child.setPivotY(0);
+            applyInsetsToChild();
         }
     }
 
@@ -145,8 +156,17 @@ public class RotateLayout extends ViewGroup implements Rotatable {
             }
         }
         mOrientation = orientation;
+        applyInsetsToChild();
+
         if (mChild != null)
             requestLayout();
+    }
+
+    private void applyInsetsToChild() {
+        if (mRootView != null && mChild instanceof Child) {
+            Rect insets = mRootView.getInsetsForOrientation(mOrientation);
+            ((Child) mChild).onApplyWindowInsets(insets);
+        }
     }
 
     public int getOrientation() {
