@@ -698,7 +698,7 @@ public class CameraControls extends RotatableLayout {
 
     public void setHistogramEnabled(boolean enabled, CameraManager.CameraProxy camera) {
         mHistogramView.setVisibility(enabled ? View.VISIBLE : View.GONE);
-        mHistogramView.setCamera(camera);
+        mHistogramView.setCamera(enabled ? camera : null);
     }
 
     public void updateHistogramData(int[] data) {

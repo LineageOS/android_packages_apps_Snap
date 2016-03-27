@@ -59,6 +59,7 @@ public class HistogramView extends View {
         mGraphCameraDevice = camera;
         if (camera == null) {
             mDataValid = false;
+            invalidate();
         }
     }
 
