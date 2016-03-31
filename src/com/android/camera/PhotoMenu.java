@@ -17,6 +17,7 @@
 
 package com.android.camera;
 
+import java.util.HashSet;
 import java.util.Locale;
 
 import android.animation.Animator;
@@ -101,6 +102,7 @@ public class PhotoMenu extends MenuController
     private static final int ANIMATION_DURATION = 300;
     private int previewMenuSize;
     private Rect mTmpRect = new Rect();
+    private HashSet<View> mWasVisibleSet = new HashSet<View>();
 
     public PhotoMenu(CameraActivity activity, PhotoUI ui) {
         super(activity);
@@ -1169,7 +1171,17 @@ public class PhotoMenu extends MenuController
         mHdrSwitcher.setVisibility(status);
         mSceneModeSwitcher.setVisibility(status);
         mFilterModeSwitcher.setVisibility(status);
-        mCameraSwitcher.setVisibility(status);
+        if(status == View.INVISIBLE) {
+            if(mCameraSwitcher.getVisibility() == View.VISIBLE) {
+                mWasVisibleSet.add(mCameraSwitcher);
+            }
+            mCameraSwitcher.setVisibility(status);
+        } else {
+            if(mWasVisibleSet.contains(mCameraSwitcher)) {
+                mCameraSwitcher.setVisibility(status);
+                mWasVisibleSet.remove(mCameraSwitcher);
+            }
+        }
         mPreviewThumbnail.setVisibility(status);
     }
 }
