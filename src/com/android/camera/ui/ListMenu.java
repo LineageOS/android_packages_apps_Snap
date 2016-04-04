@@ -229,7 +229,7 @@ public class ListMenu extends ListView
                     mEnabled[j] = enable;
                     int offset = getFirstVisiblePosition();
                     if (offset >= 0) {
-                        int indexInView = j - offset;
+                        int indexInView = j + getHeaderViewsCount() - offset;
                         if (getChildCount() > indexInView && indexInView >= 0) {
                             getChildAt(indexInView).setEnabled(enable);
                         }
@@ -274,11 +274,9 @@ public class ListMenu extends ListView
     public void reloadPreference() {
         int count = getChildCount();
         for (int i = 0; i < count; i++) {
-            ListPreference pref = mListItem.get(i);
-            if (pref != null) {
-                ListMenuItem listMenuItem =
-                        (ListMenuItem) getChildAt(i);
-                listMenuItem.reloadPreference();
+            View view = getChildAt(i);
+            if (view instanceof ListMenuItem) {
+                ((ListMenuItem) view).reloadPreference();
             }
         }
     }
