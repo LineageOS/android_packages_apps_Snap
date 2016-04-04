@@ -22,7 +22,6 @@
     android:layout_height="wrap_content"
     android:layout_gravity="bottom"
     android:padding="10dp"
-    android:fitsSystemWindows="true"
     android:visibility="visible" >
 
     <ImageButton
