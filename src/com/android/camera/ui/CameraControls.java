@@ -23,8 +23,9 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.drawable.AnimationDrawable;
 import android.graphics.Paint;
-import android.graphics.Path;
 import android.graphics.Rect;
+import android.graphics.Paint;
+import android.graphics.Path;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.Gravity;
@@ -72,7 +73,6 @@ public class CameraControls extends RotatableLayout {
     private LinearLayout mRemainingPhotos;
     private TextView mRemainingPhotosText;
     private int mOrientation;
-    private final Rect mInsets = new Rect();
 
     private int mTopMargin = 0;
     private int mBottomMargin = 0;
@@ -217,12 +217,6 @@ public class CameraControls extends RotatableLayout {
     }
 
     @Override
-    protected boolean fitSystemWindows(Rect insets) {
-        mInsets.set(insets);
-        return false;
-    }
-
-    @Override
     public void onLayout(boolean changed, int l, int t, int r, int b) {
         int orientation = getResources().getConfiguration().orientation;
         int size = getResources().getDimensionPixelSize(R.dimen.camera_controls_size);
@@ -230,24 +224,18 @@ public class CameraControls extends RotatableLayout {
         adjustBackground();
         // As l,t,r,b are positions relative to parents, we need to convert them
         // to child's coordinates
-        r = r - l - mInsets.right;
-        b = b - t - mInsets.bottom;
+        r = r - l;
+        b = b - t;
         l = 0;
         t = 0;
         for (int i = 0; i < getChildCount(); i++) {
             View v = getChildAt(i);
-            if (v == mBackgroundView) {
-                v.layout(l, t, r + mInsets.right, b + mInsets.bottom);
-            } else {
-                v.layout(l, t, r, b);
-            }
+            v.layout(l, t, r, b);
         }
-
         Rect shutter = new Rect();
         center(mShutter, l, t, r, b, orientation, rotation, shutter);
         mSize = (int) (Math.max(shutter.right - shutter.left, shutter.bottom - shutter.top) * 1.2f);
-        center(mBackgroundView, l, t, r + mInsets.right, b + mInsets.bottom,
-                orientation, rotation, new Rect());
+        center(mBackgroundView, l, t, r, b, orientation, rotation, new Rect());
         mBackgroundView.setVisibility(View.GONE);
 
         int w = r - l;
