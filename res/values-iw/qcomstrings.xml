@@ -206,7 +206,7 @@
   <!-- Auto scene detection -->
   <string name="pref_camera_scenedetect_title">זיהוי סצינה אוטומטי</string>
   <!-- Continuous shot -->
-  <string name="pref_camera_longshot_title">רצף תמונות</string>
+  <string name="pref_camera_longshot_title">צילום מתמשך</string>
   <!-- Auto HDR -->
   <string name="pref_camera_auto_hdr_title">HDR אוטומטי</string>
   <!-- HDR mode -->
@@ -234,18 +234,18 @@
   <!-- The message is shown in toast when the app encounters an unsupported selection for High-framerate recording mode -->
   <string name="error_app_unsupported_hfr_selection">הקלטה במהירות פריימים גבוהה אינה נתמכת בעת שימוש בייצוב תמונה דיגיטלי/צילום מואץ/HDR.</string>
   <!-- The message is shown in dialog when the app encounters an unsupported resolution for Slow motion mode -->
-  <string name="error_app_unsupported_hfr">סרטוני הילוך איטי אינם נתמכים ברזולוציה שנבחרה. בחר ברזולוציה נמוכה יותר</string>
+  <string name="error_app_unsupported_hfr">סרטוני וידאו בהילוך איטי אינם נתמכים ברזולוציה שנבחרה. בחר ברזולוציה נמוכה יותר</string>
   <!-- The message is shown in toast when the app encounters an unsupported resolution for Stabilization mode -->
   <string name="error_app_unsupported_dis">ייצוב תמונה דיגיטלי אינו נתמך עבור רזולוציית הווידאו שנבחרה. בחר ברזולוציית וידאו קטנה יותר</string>
   <!-- The message is shown in dialog when the app encounters an unsupported resolution for High speed mode -->
-  <string name="error_app_unsupported_hsr">סרטוני מהירות גבוהה אינם נתמכים ברזולוציה שנבחרה. בחר ברזולוציה נמוכה יותר</string>
+  <string name="error_app_unsupported_hsr">סרטוני וידאו במהירות גבוהה אינם נתמכים ברזולוציה שנבחרה. בחר ברזולוציה נמוכה יותר</string>
   <!-- The message is shown in dialog when the app encounters an unsupported video codec for HFR mode -->
   <string name="error_app_unsupported_hfr_codec">רק קידוד וידאו H264 נתמך כאשר הילוך איטי מופעל</string>
   <!-- The message is shown in dialog when the app encounters an unsupported video resolution-->
-  <string name="error_app_unsupported">הרזולוציה אינהנתמכת עבור קידוד וידאו זה</string>
+  <string name="error_app_unsupported">הרזולוציה אינה נתמכת עבור קידוד וידאו זה</string>
   <!--The message is shown in dialog when the raw snapshot is selected in Zero shutter lag mode-->
   <string name="error_app_unsupported_raw">תמונה בפורמט Raw אינה נתמכת במצב צילום מיידי. בחר בפורמט JPEG</string>
-  <string name="msg_cancel_longshot_for_limited_memory">הזיכרון אוזל, מבטל רצף תמונות</string>
+  <string name="msg_cancel_longshot_for_limited_memory">הזיכרון עומד להיגמר, מבטל צילום מתמשך</string>
   <!-- Toast showing non-supported functionality for flash in AE bracket -->
   <string name="flash_aebracket_message">פלאש אינו נתמך במצב תיחום חשיפה אוטומטי</string>
   <!-- toast message for storage location switch -->
@@ -253,15 +253,15 @@
   <!-- The message is shown in toast when click showOnMap Menu and there is no map app -->
   <string name="map_activity_not_found_err">לא נמצא אף יישום מפות להצגת המיקום</string>
   <!-- Continous shot enable message -->
-  <string name="longshot_enable_message">תכונות מתקדמות אינן נתמכות במצב רצף תמונות</string>
+  <string name="longshot_enable_message">תכונות מתקדמות אינן נתמכות במצב צילום מתמשך</string>
   <!-- Advance features enable message -->
-  <string name="advance_feature_enable_msg">רצף תמונות אינו נתמך כאשר אפשרויות מתקדמות מופעלות</string>
+  <string name="advance_feature_enable_msg">צילום מתמשך אינו נתמך כאשר אפשרויות מתקדמות מופעלות</string>
   <!-- Toast after enable HDR function to inform continuous shot has disabled -->
-  <string name="HDR_disable_continuous_shot">הפעלת HDR תבטל את אפשרות רצף התמונות</string>
+  <string name="HDR_disable_continuous_shot">הפעלת HDR תשבית את אפשרות הצילום המתמשך</string>
   <!-- Toast after enable advanced capture function to inform continuous shot has disabled -->
-  <string name="advanced_capture_disable_continuous_shot">הפעלת צילום מתקדם תבטל את הצילום המתמשך</string>
+  <string name="advanced_capture_disable_continuous_shot">הפעלת צילום מתקדם תשבית את אפשרות הצילום המתמשך</string>
   <!-- Toast after enable 2k4k video quality to inform IS has disabled -->
-  <string name="video_quality_4k_disable_IS">הפעלת וידאו ברזולוציית 4k תבטל את ייצוב התמונה</string>
+  <string name="video_quality_4k_disable_IS">הפעלת וידאו ברזולוציית 4k תשבית את ייצוב התמונה</string>
   <!-- Toast after 2k4k video is enabled to inform SeeMore has been disabled -->
   <string name="video_quality_4k_disable_SeeMore">SeeMore אינו יכול לפעול במהלך הפעלת וידאו ברזולוציית 4k</string>
   <!-- TODO: Remove these? -->
