@@ -8,10 +8,10 @@ LOCAL_STATIC_JAVA_LIBRARIES := \
     android-support-v13 \
     xmp_toolkit
 
-
 LOCAL_SRC_FILES := $(call all-java-files-under, src)
 LOCAL_SRC_FILES += $(call all-java-files-under, src_pd)
 LOCAL_SRC_FILES += $(call all-java-files-under, src_pd_gcam)
+LOCAL_SRC_FILES += $(call all-renderscript-files-under, rs)
 
 LOCAL_RESOURCE_DIR += $(LOCAL_PATH)/res
 
@@ -26,6 +26,7 @@ LOCAL_PACKAGE_NAME := Snap
 LOCAL_AAPT_FLAGS += --rename-manifest-package org.cyanogenmod.snap
 
 #LOCAL_SDK_VERSION := current
+LOCAL_RENDERSCRIPT_TARGET_API := 23
 
 LOCAL_OVERRIDES_PACKAGES := Camera2
 
@@ -35,9 +36,9 @@ LOCAL_PROGUARD_FLAG_FILES := proguard.flags
 # the libraries in the APK, otherwise just put them in /system/lib and
 # leave them out of the APK
 ifneq (,$(TARGET_BUILD_APPS))
-  LOCAL_JNI_SHARED_LIBRARIES := libjni_snapmosaic libjni_snaptinyplanet
+  LOCAL_JNI_SHARED_LIBRARIES := libjni_snapmosaic libjni_snaptinyplanet libjni_imageutil
 else
-  LOCAL_REQUIRED_MODULES := libjni_snapmosaic libjni_snaptinyplanet
+  LOCAL_REQUIRED_MODULES := libjni_snapmosaic libjni_snaptinyplanet libjni_imageutil
 endif
 
 include $(BUILD_PACKAGE)
