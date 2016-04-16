@@ -239,13 +239,13 @@ Elementua gailuan gorde da eta konexiorik gabe erabili daiteke.</string>
   <string name="pref_camera_whitebalance_entry_incandescent">Goritasun lanpara</string>
   <string name="pref_camera_whitebalance_entry_daylight">Egun argia</string>
   <string name="pref_camera_whitebalance_entry_fluorescent">Fluoreszentea</string>
-  <string name="pref_camera_whitebalance_entry_cloudy">Lainotsua</string>
+  <string name="pref_camera_whitebalance_entry_cloudy">Hodeitsua</string>
   <!-- Menu, White balance labels [CHAR LIMIT=50] -->
   <string name="pref_camera_whitebalance_label_auto">AUTOMATIKOA</string>
   <string name="pref_camera_whitebalance_label_incandescent">GORITASUN LANPARA</string>
   <string name="pref_camera_whitebalance_label_daylight">EGUN ARGIA</string>
   <string name="pref_camera_whitebalance_label_fluorescent">FLUORESZENTEA</string>
-  <string name="pref_camera_whitebalance_label_cloudy">LAINOTSUA</string>
+  <string name="pref_camera_whitebalance_label_cloudy">HODEITSUA</string>
   <!-- Default scene mode setting. -->
   <!-- Settings screen, Select Scene mode -->
   <string name="pref_camera_scenemode_title">Eszena modua</string>
