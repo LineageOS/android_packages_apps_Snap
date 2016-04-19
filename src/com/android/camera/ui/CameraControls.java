@@ -252,8 +252,14 @@ public class CameraControls extends RotatableLayout {
 
         int w = r - l;
         int h = b - t;
-        asRow(true, w, h, rotation, mMenu,mFrontBackSwitcher,
-            mFilterModeSwitcher, mSceneModeSwitcher, mHdrSwitcher);
+
+        if (getLayoutDirection() == View.LAYOUT_DIRECTION_RTL) {
+            asRow(true, w, h, rotation, mHdrSwitcher, mSceneModeSwitcher,
+                mFilterModeSwitcher, mFrontBackSwitcher, mMenu);
+        } else {
+            asRow(true, w, h, rotation, mMenu, mFrontBackSwitcher,
+                mFilterModeSwitcher, mSceneModeSwitcher, mHdrSwitcher);
+        }
 
         center(mAutoHdrNotice, l, t + mSize, r,
                 t + mSize + mAutoHdrNotice.getMeasuredHeight(),

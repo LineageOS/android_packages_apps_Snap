@@ -697,13 +697,14 @@ public class VideoUI implements PieRenderer.PieListener,
     }
 
     public boolean sendTouchToPreviewMenu(MotionEvent ev) {
+        ev.offsetLocation(-mPreviewMenuLayout.getLeft(), -mPreviewMenuLayout.getTop());
         return mPreviewMenuLayout.dispatchTouchEvent(ev);
     }
 
     public boolean sendTouchToMenu(MotionEvent ev) {
         if (mMenuLayout != null) {
-            View v = mMenuLayout.getChildAt(0);
-            return v.dispatchTouchEvent(ev);
+            ev.offsetLocation(-mMenuLayout.getLeft(), -mMenuLayout.getTop());
+            return mMenuLayout.dispatchTouchEvent(ev);
         }
         return false;
     }
@@ -731,7 +732,6 @@ public class VideoUI implements PieRenderer.PieListener,
     }
 
     public void showPopup(ListView popup, int level, boolean animate) {
-        FrameLayout.LayoutParams layoutParams;
         hideUI();
 
         popup.setVisibility(View.VISIBLE);
@@ -739,16 +739,9 @@ public class VideoUI implements PieRenderer.PieListener,
             if (mMenuLayout == null) {
                 mMenuLayout = new RotateLayout(mActivity, null);
                 mMenuLayout.setRootView(mRootView);
-                if (mRootView.getLayoutDirection() != View.LAYOUT_DIRECTION_RTL) {
-                    layoutParams = new FrameLayout.LayoutParams(
-                            CameraActivity.SETTING_LIST_WIDTH_1, LayoutParams.WRAP_CONTENT,
-                            Gravity.LEFT | Gravity.TOP);
-                } else {
-                    layoutParams = new FrameLayout.LayoutParams(
-                            CameraActivity.SETTING_LIST_WIDTH_1, LayoutParams.WRAP_CONTENT,
-                            Gravity.RIGHT | Gravity.TOP);
-                }
-                mMenuLayout.setLayoutParams(layoutParams);
+                mMenuLayout.setLayoutParams(new FrameLayout.LayoutParams(
+                        CameraActivity.SETTING_LIST_WIDTH_1, LayoutParams.WRAP_CONTENT,
+                        Gravity.START | Gravity.TOP));
                 mRootView.addView(mMenuLayout);
             }
             mMenuLayout.addView(popup);
@@ -763,15 +756,6 @@ public class VideoUI implements PieRenderer.PieListener,
 
                 mRootView.addView(mSubMenuLayout);
             }
-            if (mRootView.getLayoutDirection() != View.LAYOUT_DIRECTION_RTL) {
-                layoutParams = new FrameLayout.LayoutParams(
-                        CameraActivity.SETTING_LIST_WIDTH_2, LayoutParams.WRAP_CONTENT,
-                        Gravity.LEFT | Gravity.TOP);
-            } else {
-                layoutParams = new FrameLayout.LayoutParams(
-                        CameraActivity.SETTING_LIST_WIDTH_2, LayoutParams.WRAP_CONTENT,
-                        Gravity.RIGHT | Gravity.TOP);
-            }
 
             final int containerHeight =
                     mRootView.getClientRectForOrientation(mOrientation).height();
@@ -781,10 +765,14 @@ public class VideoUI implements PieRenderer.PieListener,
                 y = Math.max(0, containerHeight - height);
             }
 
-            if (mRootView.getLayoutDirection() != View.LAYOUT_DIRECTION_RTL) {
-                layoutParams.setMargins(CameraActivity.SETTING_LIST_WIDTH_1, y, 0, 0);
-            } else {
+            final FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(
+                    CameraActivity.SETTING_LIST_WIDTH_2, LayoutParams.WRAP_CONTENT,
+                    Gravity.START | Gravity.TOP);
+
+            if (isRtl()) {
                 layoutParams.setMargins(0, y, CameraActivity.SETTING_LIST_WIDTH_1, 0);
+            } else {
+                layoutParams.setMargins(CameraActivity.SETTING_LIST_WIDTH_1, y, 0, 0);
             }
 
             mSubMenuLayout.setLayoutParams(layoutParams);
@@ -811,6 +799,10 @@ public class VideoUI implements PieRenderer.PieListener,
 
     public ViewGroup getPreviewMenuLayout() {
         return mPreviewMenuLayout;
+    }
+
+    public boolean isRtl() {
+        return mRootView.getLayoutDirection() == View.LAYOUT_DIRECTION_RTL;
     }
 
     public void showPopup(AbstractSettingPopup popup) {

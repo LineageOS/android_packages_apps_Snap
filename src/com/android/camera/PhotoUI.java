@@ -798,8 +798,11 @@ public class PhotoUI implements PieListener,
         return mPreviewMenuLayout;
     }
 
+    public boolean isRtl() {
+        return mRootView.getLayoutDirection() == View.LAYOUT_DIRECTION_RTL;
+    }
+
     public void showPopup(ListView popup, int level, boolean animate) {
-        FrameLayout.LayoutParams params;
         hideUI();
 
         popup.setVisibility(View.VISIBLE);
@@ -807,16 +810,9 @@ public class PhotoUI implements PieListener,
             if (mMenuLayout == null) {
                 mMenuLayout = new RotateLayout(mActivity, null);
                 mMenuLayout.setRootView(mRootView);
-                if (mRootView.getLayoutDirection() != View.LAYOUT_DIRECTION_RTL) {
-                    params = new FrameLayout.LayoutParams(
-                            CameraActivity.SETTING_LIST_WIDTH_1, LayoutParams.WRAP_CONTENT,
-                            Gravity.LEFT | Gravity.TOP);
-                } else {
-                    params = new FrameLayout.LayoutParams(
-                            CameraActivity.SETTING_LIST_WIDTH_1, LayoutParams.WRAP_CONTENT,
-                            Gravity.RIGHT | Gravity.TOP);
-                }
-                mMenuLayout.setLayoutParams(params);
+                mMenuLayout.setLayoutParams(new FrameLayout.LayoutParams(
+                        CameraActivity.SETTING_LIST_WIDTH_1, LayoutParams.WRAP_CONTENT,
+                        Gravity.START | Gravity.TOP));
                 mRootView.addView(mMenuLayout);
             }
             mMenuLayout.addView(popup);
@@ -827,15 +823,6 @@ public class PhotoUI implements PieListener,
                 mSubMenuLayout = new RotateLayout(mActivity, null);
                 mRootView.addView(mSubMenuLayout);
             }
-            if (mRootView.getLayoutDirection() != View.LAYOUT_DIRECTION_RTL) {
-                params = new FrameLayout.LayoutParams(
-                        CameraActivity.SETTING_LIST_WIDTH_2, LayoutParams.WRAP_CONTENT,
-                        Gravity.LEFT | Gravity.TOP);
-            } else {
-                params = new FrameLayout.LayoutParams(
-                        CameraActivity.SETTING_LIST_WIDTH_2, LayoutParams.WRAP_CONTENT,
-                        Gravity.RIGHT | Gravity.TOP);
-            }
 
             int containerHeight = mRootView.getClientRectForOrientation(mOrientation).height();
             int height = ((ListSubMenu) popup).getPreCalculatedHeight();
@@ -844,10 +831,13 @@ public class PhotoUI implements PieListener,
                 y = Math.max(0, containerHeight - height);
             }
 
-            if (mRootView.getLayoutDirection() != View.LAYOUT_DIRECTION_RTL) {
-                params.setMargins(CameraActivity.SETTING_LIST_WIDTH_1, y, 0, 0);
-            } else {
+            final FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(
+                    CameraActivity.SETTING_LIST_WIDTH_2, LayoutParams.WRAP_CONTENT,
+                    Gravity.START | Gravity.TOP);
+            if (isRtl()) {
                 params.setMargins(0, y, CameraActivity.SETTING_LIST_WIDTH_1, 0);
+            } else {
+                params.setMargins(CameraActivity.SETTING_LIST_WIDTH_1, y, 0, 0);
             }
 
             mSubMenuLayout.setLayoutParams(params);
@@ -933,13 +923,14 @@ public class PhotoUI implements PieListener,
     }
 
     public boolean sendTouchToPreviewMenu(MotionEvent ev) {
+        ev.offsetLocation(-mPreviewMenuLayout.getLeft(), -mPreviewMenuLayout.getTop());
         return mPreviewMenuLayout.dispatchTouchEvent(ev);
     }
 
     public boolean sendTouchToMenu(MotionEvent ev) {
         if (mMenuLayout != null) {
-            View v = mMenuLayout.getChildAt(0);
-            return v.dispatchTouchEvent(ev);
+            ev.offsetLocation(-mMenuLayout.getLeft(), -mMenuLayout.getTop());
+            return mMenuLayout.dispatchTouchEvent(ev);
         }
         return false;
     }
