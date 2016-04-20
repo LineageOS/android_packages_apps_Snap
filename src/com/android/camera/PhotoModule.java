@@ -3677,7 +3677,8 @@ public class PhotoModule
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     private void enableAutoFocusMoveCallback() {
         if (mContinuousFocusSupported && ApiHelper.HAS_AUTO_FOCUS_MOVE_CALLBACK) {
-            if (mParameters.getFocusMode().equals(CameraUtil.FOCUS_MODE_CONTINUOUS_PICTURE)) {
+            if (mParameters.getFocusMode().equals(CameraUtil.FOCUS_MODE_CONTINUOUS_PICTURE) ||
+                mParameters.getFocusMode().equals(CameraUtil.FOCUS_MODE_MW_CONTINUOUS_PICTURE)) {
                 mCameraDevice.setAutoFocusMoveCallback(mHandler,
                         (CameraAFMoveCallback) mAutoFocusMoveCallback);
             } else {
