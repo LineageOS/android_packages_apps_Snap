@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5faad753_58d06451",
+        "filename": "src/com/android/camera/PhotoModule.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 3664,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2016-04-20T17:32:13Z",
+      "side": 0,
+      "message": "This check shouldn\u0027t be removed, afaik it was added for g4 which can\u0027t use a wrapper.",
+      "range": {
+        "startLine": 3664,
+        "startChar": 12,
+        "endLine": 3664,
+        "endChar": 89
+      },
+      "revId": "a78d012468101b86c3937c5d4c6cb6ef48d04745",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
