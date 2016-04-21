@@ -167,6 +167,7 @@ public class PhotoModule
     private static final int ON_PREVIEW_STARTED = 13;
     private static final int INSTANT_CAPTURE = 14;
     private static final int UNLOCK_CAM_SHUTTER = 15;
+    private static final int SET_FOCUS_RATIO = 16;
 
     private static final int NO_DEPTH_EFFECT = 0;
     private static final int DEPTH_EFFECT_SUCCESS = 1;
@@ -175,7 +176,6 @@ public class PhotoModule
     private static final int LOW_LIGHT = 4;
     private static final int SUBJECT_NOT_FOUND = 5;
     private static final int TOUCH_TO_FOCUS = 6;
-
 
     // The subset of parameters we need to update in setCameraParameters().
     private static final int UPDATE_PARAM_INITIALIZE = 1;
@@ -572,6 +572,11 @@ public class PhotoModule
 
                 case UNLOCK_CAM_SHUTTER: {
                     mUI.enableShutter(true);
+                    break;
+                }
+
+                case SET_FOCUS_RATIO: {
+                    mUI.getFocusRing().setRadiusRatio((Float)msg.obj);
                     break;
                 }
             }
@@ -1059,6 +1064,14 @@ public class PhotoModule
             mCameraDevice.stopFaceDetection();
             mUI.onStopFaceDetection();
         }
+    }
+
+    @Override
+    public void setFocusRatio(float ratio) {
+        mHandler.removeMessages(SET_FOCUS_RATIO);
+        Message m = mHandler.obtainMessage(SET_FOCUS_RATIO);
+        m.obj = ratio;
+        mHandler.sendMessage(m);
     }
 
     // TODO: need to check cached background apps memory and longshot ION memory
@@ -1786,6 +1799,8 @@ public class PhotoModule
                     setCameraState(IDLE);
                     break;
             }
+            mCameraDevice.refreshParameters();
+            mFocusManager.setParameters(mCameraDevice.getParameters());
             mFocusManager.onAutoFocus(focused, mUI.isShutterPressed());
         }
     }
@@ -1796,6 +1811,8 @@ public class PhotoModule
         @Override
         public void onAutoFocusMoving(
                 boolean moving, CameraProxy camera) {
+            mCameraDevice.refreshParameters();
+            mFocusManager.setParameters(mCameraDevice.getParameters());
             mFocusManager.onAutoFocusMoving(moving);
         }
     }
@@ -4498,6 +4515,7 @@ public class PhotoModule
 
             CameraUtil.dumpParameters(mParameters);
             mCameraDevice.setParameters(mParameters);
+            mFocusManager.setParameters(mParameters);
 
             // Switch to gcam module if HDR+ was selected
             if (doModeSwitch && !mIsImageCaptureIntent) {
