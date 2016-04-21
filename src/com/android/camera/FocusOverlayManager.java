@@ -27,6 +27,7 @@ import android.util.Log;
 
 import com.android.camera.ui.focus.CameraCoordinateTransformer;
 import com.android.camera.ui.focus.FocusRing;
+import com.android.camera.ui.motion.LinearScale;
 import com.android.camera.util.CameraUtil;
 import com.android.camera.util.UsageStatistics;
 
@@ -106,6 +107,7 @@ public class FocusOverlayManager {
         public void startFaceDetection();
         public void stopFaceDetection();
         public void setFocusParameters();
+        public void setFocusRatio(float ratio);
     }
 
     private class MainHandler extends Handler {
@@ -262,6 +264,7 @@ public class FocusOverlayManager {
     }
 
     public void onAutoFocus(boolean focused, boolean shutterButtonPressed) {
+        updateFocusDistance();
         if (mState == STATE_FOCUSING_SNAP_ON_FINISH) {
             // Take the picture no matter focus succeeds or fails. No need
             // to play the AF sound if we're about to play the shutter
@@ -322,6 +325,7 @@ public class FocusOverlayManager {
             mFocusRing.stopFocusAnimations();
             mIsAFRunning = false;
         }
+        updateFocusDistance();
         mPreviousMoving = moving;
     }
 
@@ -593,4 +597,92 @@ public class FocusOverlayManager {
         return mTouchAFRunning;
     }
 
+    private static class FocusInfo {
+        public final float near;
+        public final float far;
+        public final float current;
+
+        public FocusInfo(float _near, float _far, float _current) {
+            near = _near;
+            far = _far;
+            current = _current;
+        }
+    }
+
+    private FocusInfo getFocusInfoFromParameters(
+            String currentParam, String minParam, String maxParam) {
+        try {
+            String current = mParameters.get(currentParam);
+            if (current != null) {
+                float min = Float.parseFloat(mParameters.get(minParam));
+                float max = Float.parseFloat(mParameters.get(maxParam));
+                if (!(min == 0.0f && max == 0.0f)) {
+                    return new FocusInfo(min, max, Float.parseFloat(current));
+                }
+            }
+        } catch (Exception e) {
+            // skip it
+        }
+        return null;
+            }
+
+    private FocusInfo getFocusInfo() {
+        // focus positon is horrifically buggy on some HALs. try to
+        // make the best of it and attempt a few different techniques
+        // to get an accurate measurement
+
+        // older QCOM (Bacon)
+        FocusInfo info = getFocusInfoFromParameters("current-focus-position",
+                "min-focus-pos-index", "max-focus-pos-index");
+        if (info != null) {
+            return info;
+        }
+
+        // newer QCOM (Crackling)
+        info = getFocusInfoFromParameters("cur-focus-scale",
+                "min-focus-pos-ratio", "max-focus-pos-ratio");
+        if (info != null) {
+            return info;
+        }
+
+        return null;
+    }
+
+    /**
+     * Compute the focus range from the camera characteristics and build
+     * a linear scale model that maps a focus distance to a ratio between
+     * the min and max range.
+     */
+    private LinearScale getDiopterToRatioCalculator(FocusInfo focusInfo) {
+        // From the android documentation:
+        //
+        // 0.0f represents farthest focus, and LENS_INFO_MINIMUM_FOCUS_DISTANCE
+        // represents the nearest focus the device can achieve.
+        //
+        // Example:
+        //
+        // Infinity    Hyperfocal                 Minimum   Camera
+        //  <----------|-----------------------------|         |
+        // [0.0]     [0.31]                       [14.29]
+        if (focusInfo.near == 0.0f && focusInfo.far == 0.0f) {
+            return new LinearScale(0, 0, 0, 0);
+        }
+
+        if (focusInfo.near > focusInfo.far) {
+            return new LinearScale(focusInfo.far, focusInfo.near, 0, 1);
+        }
+
+        return new LinearScale(focusInfo.near, focusInfo.far, 0, 1);
+    }
+
+    private void updateFocusDistance() {
+        final FocusInfo focusInfo = getFocusInfo();
+        if (focusInfo != null) {
+            LinearScale range = getDiopterToRatioCalculator(focusInfo);
+            if (range.isInDomain(focusInfo.current) && (mFocusRing.isPassiveFocusRunning() ||
+                        mFocusRing.isActiveFocusRunning())) {
+                mListener.setFocusRatio(range.scale(focusInfo.current));
+            }
+        }
+    }
 }
