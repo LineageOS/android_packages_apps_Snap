@@ -35,7 +35,7 @@
         android:id="@+id/image"
         android:layout_width="@dimen/setting_item_icon_width"
         android:layout_height="@dimen/setting_item_icon_width"
-        android:layout_marginRight="@dimen/setting_item_list_margin"
+        android:layout_marginEnd="@dimen/setting_item_list_margin"
         android:adjustViewBounds="true"
         android:scaleType="fitCenter" />
 

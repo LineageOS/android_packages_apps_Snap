@@ -78,7 +78,7 @@
                     android:text="@string/pref_camera_timer_sound_title" />
 
                 <CheckBox android:id="@+id/sound_check_box"
-                    android:layout_gravity="center_vertical|right"
+                    android:layout_gravity="center_vertical|end"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent" />
             </LinearLayout>

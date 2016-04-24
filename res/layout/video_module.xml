@@ -62,7 +62,7 @@
             <com.android.camera.PauseButton android:id="@+id/video_pause"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
-                android:layout_marginLeft="50dp"
+                android:layout_marginStart="50dp"
                 android:padding="23dp"
                 android:visibility="gone"
                 android:src="@drawable/btn_pause_recording"/>
@@ -88,6 +88,5 @@
         android:visibility="gone"
         android:onClick="onReviewPlayClicked"/>
     <include layout="@layout/camera_controls"
-        android:layout_gravity="center"
         style="@style/CameraControls"/>
 </merge>

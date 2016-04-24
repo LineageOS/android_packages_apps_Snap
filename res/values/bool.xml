@@ -14,6 +14,5 @@
      limitations under the License.
 -->
 <resources>
-    <bool name="show_action_bar_title">false</bool>
     <bool name="force_count_down_sound">false</bool>
 </resources>

@@ -14,54 +14,23 @@
      limitations under the License.
 -->
 <resources>
-    <color name="default_background">@color/black</color>
-
-    <!-- configuration for album set page -->
-    <color name="albumset_background">@color/black</color>
-    <color name="albumset_placeholder">@color/black</color>
-    <color name="albumset_label_background">@color/black</color>
-    <color name="albumset_label_title">@color/white</color>
-    <color name="albumset_label_count">@color/grey</color>
-
-    <!-- configuration for album page -->
-    <color name="album_background">@color/black</color>
-    <color name="album_placeholder">@color/black</color>
-
     <!-- configuration for photo page -->
-    <color name="photo_background">@color/black</color>
     <color name="photo_placeholder">@color/black</color>
 
-    <!-- configuration for manage cache page -->
-    <color name="cache_background">@color/black</color>
-    <color name="cache_placeholder">@color/black</color>
-
-    <color name="bitmap_screennail_placeholder">@color/black</color>
-
-    <color name="slideshow_background">@color/black</color>
-
     <color name="button_dark_transparent_background">@color/black</color>
-
-    <color name="ingest_highlight_semitransparent">@color/blue</color>
-    <color name="ingest_date_tile_text">@color/blue</color>
 
     <!-- Camera resources below -->
 
     <color name="recording_time_elapsed_text">@color/white</color>
     <color name="recording_time_remaining_text">@color/red</color>
     <color name="on_viewfinder_label_background_color">@color/black</color>
-    <color name="review_control_pressed_color">@color/blue</color>
-    <color name="review_control_pressed_fan_color">@color/blue</color>
     <color name="review_background">@color/black</color>
-    <color name="icon_disabled_color">@color/grey</color>
-    <color name="time_lapse_arc">@color/grey</color>
-    <color name="indicator_background">@color/black</color>
     <color name="popup_title_color">@color/blue</color>
     <color name="popup_background">#c0212121</color>
     <color name="pano_progress_empty">@color/black</color>
     <color name="pano_progress_done">#33525E</color>
     <color name="pano_progress_indication">@color/blue</color>
     <color name="pano_progress_indication_fast">@color/red</color>
-    <color name="mode_selection_border">@color/blue</color>
     <color name="holo_blue_light">@color/blue</color>
     <color name="bright_foreground_disabled_holo_dark">@color/black</color>
     <color name="bright_foreground_holo_dark">@color/white</color>
@@ -73,7 +42,6 @@
 
     <color name="setting_list_selected">#40fafafa</color>
     <color name="setting_list_pressed">#60fafafa</color>
-    <color name="list_divider_color">#e0212121</color>
     <color name="scene_item_selected">@color/setting_list_selected</color>
 
     <color name="camera_control_bg_opaque">@color/black</color>
