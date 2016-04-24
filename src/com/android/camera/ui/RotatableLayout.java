@@ -195,17 +195,17 @@ public class RotatableLayout extends FrameLayout {
         int gravity = lp.gravity;
         int ngravity = 0;
         // rotate gravity
-        if (contains(gravity, Gravity.LEFT)) {
+        if (contains(gravity, Gravity.START)) {
             ngravity |= Gravity.TOP;
         }
-        if (contains(gravity, Gravity.RIGHT)) {
+        if (contains(gravity, Gravity.END)) {
             ngravity |= Gravity.BOTTOM;
         }
         if (contains(gravity, Gravity.TOP)) {
-            ngravity |= Gravity.RIGHT;
+            ngravity |= Gravity.END;
         }
         if (contains(gravity, Gravity.BOTTOM)) {
-            ngravity |= Gravity.LEFT;
+            ngravity |= Gravity.START;
         }
         if (contains(gravity, Gravity.CENTER)) {
             ngravity |= Gravity.CENTER;
@@ -238,17 +238,17 @@ public class RotatableLayout extends FrameLayout {
         int gravity = lp.gravity;
         int ngravity = 0;
         // change gravity
-        if (contains(gravity, Gravity.RIGHT)) {
+        if (contains(gravity, Gravity.END)) {
             ngravity |= Gravity.TOP;
         }
-        if (contains(gravity, Gravity.LEFT)) {
+        if (contains(gravity, Gravity.START)) {
             ngravity |= Gravity.BOTTOM;
         }
         if (contains(gravity, Gravity.TOP)) {
-            ngravity |= Gravity.LEFT;
+            ngravity |= Gravity.START;
         }
         if (contains(gravity, Gravity.BOTTOM)) {
-            ngravity |= Gravity.RIGHT;
+            ngravity |= Gravity.END;
         }
         if (contains(gravity, Gravity.CENTER)) {
             ngravity |= Gravity.CENTER;

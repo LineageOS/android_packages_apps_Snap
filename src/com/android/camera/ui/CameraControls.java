@@ -253,6 +253,8 @@ public class CameraControls extends RotatableLayout {
         int w = r - l;
         int h = b - t;
 
+        Log.d("LAYOUT", "Layout: " + getLayoutDirection());
+
         if (getLayoutDirection() == View.LAYOUT_DIRECTION_RTL) {
             asRow(true, w, h, rotation, mHdrSwitcher, mSceneModeSwitcher,
                 mFilterModeSwitcher, mFrontBackSwitcher, mMenu);

@@ -630,7 +630,7 @@ public class WideAnglePanoramaUI implements
             case 90:
                 idx1 = 1;
                 idx2 = 2;
-                g = Gravity.TOP | Gravity.RIGHT;
+                g = Gravity.TOP | Gravity.END;
                 break;
             case 180:
                 idx1 = 3;
@@ -640,7 +640,7 @@ public class WideAnglePanoramaUI implements
             case 270:
                 idx1 = 2;
                 idx2 = 1;
-                g = Gravity.TOP | Gravity.RIGHT;
+                g = Gravity.TOP | Gravity.END;
                 break;
             default:
                 idx1 = 0;

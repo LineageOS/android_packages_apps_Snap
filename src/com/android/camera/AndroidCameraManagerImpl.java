@@ -219,7 +219,7 @@ class AndroidCameraManagerImpl implements CameraManager {
 
                             CameraInfo info = CameraHolder.instance().getCameraInfo()[cameraId];
 
-                            if ((info.facing == CameraInfo.CAMERA_FACING_BACK && backCameraOpenLegacy) || 
+                            if ((info.facing == CameraInfo.CAMERA_FACING_BACK && backCameraOpenLegacy) ||
                                 (info.facing == CameraInfo.CAMERA_FACING_FRONT && frontCameraOpenLegacy)) {
                                 mCamera = android.hardware.Camera.openLegacy(cameraId,
                                         android.hardware.Camera.CAMERA_HAL_API_VERSION_1_0);
@@ -632,7 +632,7 @@ class AndroidCameraManagerImpl implements CameraManager {
         @Override
         public void setLongshot(boolean enable) {
             mCameraHandler.obtainMessage(SET_LONGSHOT,
-                    new Boolean(enable)).sendToTarget();
+                    Boolean.valueOf(enable)).sendToTarget();
         }
 
         @Override

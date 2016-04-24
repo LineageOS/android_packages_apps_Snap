@@ -57,7 +57,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
-                android:layout_marginLeft="20dip"
+                android:layout_marginStart="20dip"
                 android:focusable="false" />
 
     </LinearLayout>

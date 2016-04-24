@@ -30,11 +30,6 @@
 
     <!-- Details dialog "OK" button. Dismisses dialog. -->
     <string name="delete">Delete</string>
-    <!-- String Delete the selected media item(s) [CHAR LIMIT=50] -->
-    <plurals name="delete_selection">
-        <item quantity="one">Delete selected item?</item>
-        <item quantity="other">Delete selected items?</item>
-    </plurals>
     <string name="share">Share</string>
     <string name="share_panorama">Share panorama</string>
     <string name="share_as_photo">Share as photo</string>
@@ -47,30 +42,6 @@
 
     <string name="details">Details</string>
     <string name="close">Close</string>
-
-    <!-- String indicating how many media item(s) is(are) selected
-            eg. 1 selected [CHAR LIMIT=30] -->
-    <plurals name="number_of_items_selected">
-        <item quantity="zero">%1$d selected</item>
-        <item quantity="one">%1$d selected</item>
-        <item quantity="other">%1$d selected</item>
-    </plurals>
-
-    <!-- String indicating how many media album(s) is(are) selected
-            eg. 1 selected [CHAR LIMIT=30] -->
-    <plurals name="number_of_albums_selected">
-        <item quantity="zero">%1$d selected</item>
-        <item quantity="one">%1$d selected</item>
-        <item quantity="other">%1$d selected</item>
-    </plurals>
-
-    <!-- String indicating how many media group(s) is(are) selected
-            eg. 1 selected [CHAR LIMIT=30] -->
-    <plurals name="number_of_groups_selected">
-        <item quantity="zero">%1$d selected</item>
-        <item quantity="one">%1$d selected</item>
-        <item quantity="other">%1$d selected</item>
-    </plurals>
 
     <!-- String indicating timestamp of photo or video -->
     <string name="show_on_map">Show on map</string>
@@ -90,11 +61,6 @@
 
     <!-- String indicating an error when playing the video. [CHAR LIMIT=30] -->
     <string name="video_err">Can\'t play video.</string>
-
-    <!-- Toast message shown when the cropped image has been saved in the
-         %s folder (string: folder_download) [CHAR LIMIT=50]-->
-    <string name="crop_saved">
-        Cropped image saved to <xliff:g id="folder_name">%s</xliff:g>.</string>
 
     <!-- Text indicating the title of a media item in details window [CHAR LIMIT=14] -->
     <string name="title">Title</string>
@@ -149,12 +115,6 @@
     <!-- String indicating image width or height is unknown. [CHAR LIMIT=14] -->
     <string name="unknown">Unknown</string>
 
-    <!-- Toast message shown after we try to make a local album available offline
-         [CHAR LIMIT=150] -->
-    <string name="try_to_set_local_album_available_offline">
-        This item is stored locally and available offline.</string>
-
-
     <!-- The content of a dialog showing trimming in progress. [CHAR LIMIT=30] -->
     <string name="please_wait">Please wait</string>
 
@@ -184,9 +144,6 @@
 
     <!-- A label that overlays on top of the preview frame to indicate the camcorder is in time lapse mode [CHAR LIMIT=35] -->
     <string name="time_lapse_title">Time lapse recording</string>
-
-    <!-- Screen display message during image capture to indicate that the capture is in progress, like during HDR+. [CHAR LIMIT=20] -->
-    <string name="capturing">Capturing</string>
 
     <!-- Settings screen, camera selection dialog title. Users can select a camera from the phone (front-facing or back-facing). [CHAR LIMIT=20] -->
     <string name="pref_camera_id_title">Choose camera</string>
@@ -285,8 +242,6 @@
 
     <!-- Settings screen, Flash mode title -->
     <string name="pref_camera_flashmode_title">Flash mode</string>
-        <!-- flash label [CHAR LIMIT=50] -->
-    <string name="pref_camera_flashmode_label">FLASH MODE</string>
 
     <!-- Settings screen, Flash mode 'auto'. [CHAR LIMIT=12] -->
     <string name="pref_camera_flashmode_entry_auto">Auto</string>
@@ -308,8 +263,6 @@
 
     <!-- Settings screen, white balance title -->
     <string name="pref_camera_whitebalance_title">White balance</string>
-    <!-- Menu, white balance label -->
-    <string name="pref_camera_whitebalance_label">WHITE BALANCE</string>
 
     <!-- Settings screen, White balance dialog radio button choices -->
     <string name="pref_camera_whitebalance_entry_auto">Auto</string>
@@ -391,9 +344,6 @@
     <!-- Default HDR+ entry value -->
     <string name="pref_camera_hdr_plus_default" translatable="false">@string/setting_off_value</string>
 
-    <!-- HDR label ON [CHAR LIMIT=60] -->
-    <string name="pref_camera_hdr_label">HDR</string>
-
     <!-- switch camera label back [CHAR LIMIT=60] -->
     <string name="pref_camera_id_label_back">FRONT CAMERA</string>
     <!-- switch camera label front [CHAR LIMIT=60] -->
@@ -434,9 +384,6 @@
 
     <!-- The text shown in the progress dialog when waiting for previous panorama finishing [CHAR LIMIT=40] -->
     <string name="pano_dialog_waiting_previous">Waiting for previous panorama</string>
-
-    <!-- The text shown on the bottom-left corner of the screen to indicate that the saving is in process [CHAR LIMIT=13] -->
-    <string name="pano_review_saving_indication_str">Saving\u2026</string>
 
     <!-- The text shown on the screen to indicate that the panorama is rendering [CHAR LIMIT=27] -->
     <string name="pano_review_rendering">Rendering panorama</string>
@@ -625,12 +572,6 @@ CHAR LIMIT = NONE] -->
     <string name="remember_location_no">No thanks</string>
     <!-- Positive answer for first run dialog asking if the user wants to remember photo locations [CHAR LIMIT = 20] -->
     <string name="remember_location_yes">Yes</string>
-
-    <!-- Camera menu labels -->
-    <!-- more options label [CHAR LIMIT=50] -->
-    <string name="camera_menu_more_label">MORE OPTIONS</string>
-    <!-- settings label [CHAR LIMIT=50] -->
-    <string name="camera_menu_settings_label">SETTINGS</string>
 
     <!--  Tiny Planet -->
     <!-- Button to press for creating a tiny planet image. [CHAR LIMIT = 30] -->

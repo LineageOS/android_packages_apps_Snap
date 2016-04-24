@@ -38,8 +38,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="0"
-                    android:layout_marginRight="8dp"
-                    android:layout_gravity="right|center_vertical" />
+                    android:layout_marginEnd="8dp"
+                    android:layout_gravity="end|center_vertical" />
         </LinearLayout>
 
         <View style="@style/PopupTitleSeparator" />

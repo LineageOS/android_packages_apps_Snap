@@ -28,7 +28,7 @@
     <com.android.camera.ui.ModuleSwitcher
         android:id="@+id/camera_switcher"
         style="@style/SwitcherButton"
-        android:layout_gravity="bottom|left"
+        android:layout_gravity="bottom|start"
         android:layout_marginBottom="2dip"
         android:contentDescription="@string/accessibility_mode_picker" />
 
@@ -50,7 +50,7 @@
         android:layout_width="@dimen/capture_size"
         android:layout_height="@dimen/capture_size"
         android:layout_margin="12dp"
-        android:layout_gravity="top|right"
+        android:layout_gravity="top|end"
         android:background="@android:color/transparent"
         android:contentDescription="@string/switch_photo_filmstrip"
         android:scaleType="fitCenter" />
