@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5faad753_a82fbdf4",
+        "filename": "src/com/android/camera/PhotoModule.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1216,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2016-04-25T14:56:22Z",
+      "side": 1,
+      "message": "I\u0027m not sure you want to set these unconditionally, as those devices which do set this correctly in the HAL will be overridden.",
+      "revId": "75565741804988c7e4a3b0989d1fa805c63b24cd",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
