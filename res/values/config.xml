@@ -59,4 +59,7 @@
 
     <!-- Enable support for LGE HDR -->
     <bool name="lge_hdr_mode">false</bool>
+
+    <!-- Set this to true to use device manufacturer and model for exif -->
+    <bool name="override_maker_and_model_tag">false</bool>
 </resources>
