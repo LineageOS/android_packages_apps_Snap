@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5faad753_0d7dc31b",
+        "filename": "res/layout/crop_activity.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2016-04-25T06:05:12Z",
+      "side": 1,
+      "message": "Didn\u0027t you rather intend to remove the useless LinearLayout? Before the CropView and the ProgressBar were children of a FrameLayout (thus placed independently), now they aren\u0027t placed independently anymore.",
+      "revId": "ab4eb6f876168c3a5ce664426cb646870c8d4fc9",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5faad753_2d7aff23",
+        "filename": "src/com/android/camera/ui/CameraControls.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2016-04-25T06:05:12Z",
+      "side": 1,
+      "message": "Kill this.",
+      "revId": "ab4eb6f876168c3a5ce664426cb646870c8d4fc9",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
