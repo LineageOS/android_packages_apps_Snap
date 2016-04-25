@@ -1211,6 +1211,21 @@ public class PhotoModule
                 mUI.setSwipingEnabled(true);
             }
 
+            ExifInterface exif = Exif.getExif(jpegData);
+            boolean overrideMakerAndModelTag = false;
+            if (mApplicationContext != null) {
+                overrideMakerAndModelTag =
+                    mApplicationContext.getResources()
+                       .getBoolean(R.bool.override_maker_and_model_tag);
+            }
+
+            if (overrideMakerAndModelTag) {
+                ExifTag maker = exif.buildTag(ExifInterface.TAG_MAKE, Build.MANUFACTURER);
+                exif.setTag(maker);
+                ExifTag model = exif.buildTag(ExifInterface.TAG_MODEL, Build.MODEL);
+                exif.setTag(model);
+            }
+
             mReceivedSnapNum = mReceivedSnapNum + 1;
             mJpegPictureCallbackTime = System.currentTimeMillis();
             if(mSnapshotMode == CameraInfo.CAMERA_SUPPORT_MODE_ZSL) {
@@ -1303,7 +1318,6 @@ public class PhotoModule
                 }
             }
             if (!mRefocus || (mRefocus && mReceivedSnapNum == 7)) {
-                ExifInterface exif = Exif.getExif(jpegData);
                 int orientation = Exif.getOrientation(exif);
                 if (!mIsImageCaptureIntent) {
                     // Burst snapshot. Generate new image name.
