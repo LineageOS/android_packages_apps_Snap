@@ -3476,8 +3476,13 @@ public class PhotoModule
         try {
             android.util.Size previewSize = android.util.Size.parseSize(previewSizeForPhoto);
 
-            optimalSize.width = previewSize.getWidth();
-            optimalSize.height = previewSize.getHeight();
+            for (Size s : sizes) {
+                if (s.width == previewSize.getWidth() && s.height == previewSize.getHeight()) {
+                    Log.i(TAG, "Requested size " + previewSizeForPhoto + " is available");
+                    optimalSize.width = previewSize.getWidth();
+                    optimalSize.height = previewSize.getHeight();
+                }
+            }
             Log.v(TAG, "Preview resolution hardcoded to " + optimalSize.width + "x" + optimalSize.height);
         } catch (NumberFormatException e) {
             Log.e(TAG, "Invalid preview resolution: " + previewSizeForPhoto);
