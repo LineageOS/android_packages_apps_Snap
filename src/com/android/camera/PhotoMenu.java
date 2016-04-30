@@ -158,7 +158,8 @@ public class PhotoMenu extends MenuController
                 CameraSettings.KEY_SHUTTER_SPEED,
                 CameraSettings.KEY_REDEYE_REDUCTION,
                 CameraSettings.KEY_POWER_SHUTTER,
-                CameraSettings.KEY_MAX_BRIGHTNESS
+                CameraSettings.KEY_MAX_BRIGHTNESS,
+                CameraSettings.KEY_DENOISE
         };
 
         mOtherKeys2 = new String[] {
