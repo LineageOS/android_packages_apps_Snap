@@ -62,6 +62,7 @@ import android.media.EncoderCapabilities.VideoEncoderCap;
 import com.android.camera.CameraManager.CameraAFCallback;
 import com.android.camera.CameraManager.CameraPictureCallback;
 import com.android.camera.CameraManager.CameraProxy;
+import com.android.camera.app.CameraApp;
 import com.android.camera.app.OrientationManager;
 import com.android.camera.exif.ExifInterface;
 import com.android.camera.ui.RotateTextToast;
@@ -214,6 +215,8 @@ public class VideoModule implements CameraModule,
 
     // The preview window is on focus
     private boolean mPreviewFocused = false;
+
+    private static Context mApplicationContext = null;
 
     private final MediaSaveService.OnMediaSavedListener mOnVideoSavedListener =
             new MediaSaveService.OnMediaSavedListener() {
@@ -452,6 +455,7 @@ public class VideoModule implements CameraModule,
         mPreferences = new ComboPreferences(mActivity);
         CameraSettings.upgradeGlobalPreferences(mPreferences.getGlobal(), activity);
         mCameraId = getPreferredCameraId(mPreferences);
+        mApplicationContext = CameraApp.getContext();
 
         mPreferences.setLocalId(mActivity, mCameraId);
         CameraSettings.upgradeLocalPreferences(mPreferences.getLocal());
@@ -834,7 +838,11 @@ public class VideoModule implements CameraModule,
         Log.v(TAG, "Audio Encoder selected = " +mAudioEncoder);
 
         // Set wavelet denoise mode
-        if (mParameters.getSupportedDenoiseModes() != null) {
+        boolean forceDisableDenoise = false;
+        if (mApplicationContext != null) {
+            forceDisableDenoise = mApplicationContext.getResources().getBoolean(R.bool.force_disable_denoise);
+        }
+        if (mParameters.getSupportedDenoiseModes() != null && !forceDisableDenoise) {
             String denoise = mPreferences.getString(CameraSettings.KEY_DENOISE,
                     mActivity.getString(R.string.pref_camera_denoise_default));
             mParameters.setDenoise(denoise);

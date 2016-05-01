@@ -61,4 +61,7 @@
 
     <!-- Enable support for LGE HDR -->
     <bool name="lge_hdr_mode">false</bool>
+    
+    <!-- Disable denoise support -->
+    <bool name="force_disable_denoise">false</bool>
 </resources>
