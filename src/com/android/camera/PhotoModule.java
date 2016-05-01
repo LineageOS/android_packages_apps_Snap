@@ -2968,7 +2968,11 @@ public class PhotoModule
         }
 
         // Set wavelet denoise mode
-        if (mParameters.getSupportedDenoiseModes() != null) {
+        boolean forceDisableDenoise = false;
+        if (mApplicationContext != null) {
+            forceDisableDenoise = mApplicationContext.getResources().getBoolean(R.bool.force_disable_denoise);
+        }
+        if (mParameters.getSupportedDenoiseModes() != null && !forceDisableDenoise) {
             String Denoise = mPreferences.getString( CameraSettings.KEY_DENOISE,
                              mActivity.getString(R.string.pref_camera_denoise_default));
             mParameters.setDenoise(Denoise);

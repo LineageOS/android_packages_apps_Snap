@@ -768,8 +768,12 @@ public class CameraSettings {
         }
 
         if (denoise != null) {
-            filterUnsupportedOptions(group,
-                    denoise, mParameters.getSupportedDenoiseModes());
+            boolean forceDisableDenoise = mContext.getResources().getBoolean(R.bool.force_disable_denoise);
+            if (forceDisableDenoise)
+                removePreference(group, denoise.getKey());
+            else
+                filterUnsupportedOptions(group,
+                        denoise, mParameters.getSupportedDenoiseModes());
         }
 
         if (videoHdr != null) {
