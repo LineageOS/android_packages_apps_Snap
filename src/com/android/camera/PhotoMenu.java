@@ -200,7 +200,13 @@ public class PhotoMenu extends MenuController
                 CameraSettings.KEY_SELFIE_MIRROR,
                 CameraSettings.KEY_SHUTTER_SOUND,
                 CameraSettings.KEY_POWER_SHUTTER,
-                CameraSettings.KEY_MAX_BRIGHTNESS
+                CameraSettings.KEY_MAX_BRIGHTNESS,
+                CameraSettings.KEY_SATURATION,
+                CameraSettings.KEY_CONTRAST,
+                CameraSettings.KEY_SHARPNESS,
+                CameraSettings.KEY_AUTOEXPOSURE,
+                CameraSettings.KEY_ANTIBANDING,
+                CameraSettings.KEY_DENOISE
         };
 
         mOtherKeys2 = new String[] {
@@ -223,6 +229,12 @@ public class PhotoMenu extends MenuController
                 CameraSettings.KEY_REDEYE_REDUCTION,
                 CameraSettings.KEY_POWER_SHUTTER,
                 CameraSettings.KEY_MAX_BRIGHTNESS,
+                CameraSettings.KEY_SATURATION,
+                CameraSettings.KEY_CONTRAST,
+                CameraSettings.KEY_SHARPNESS,
+                CameraSettings.KEY_AUTOEXPOSURE,
+                CameraSettings.KEY_ANTIBANDING,
+                CameraSettings.KEY_DENOISE,
                 CameraSettings.KEY_AUTO_HDR,
                 CameraSettings.KEY_HDR_MODE,
                 CameraSettings.KEY_HDR_NEED_1X,
@@ -234,12 +246,6 @@ public class PhotoMenu extends MenuController
                 CameraSettings.KEY_FACE_RECOGNITION,
                 CameraSettings.KEY_SELECTABLE_ZONE_AF,
                 CameraSettings.KEY_PICTURE_FORMAT,
-                CameraSettings.KEY_SATURATION,
-                CameraSettings.KEY_CONTRAST,
-                CameraSettings.KEY_SHARPNESS,
-                CameraSettings.KEY_AUTOEXPOSURE,
-                CameraSettings.KEY_ANTIBANDING,
-                CameraSettings.KEY_DENOISE,
                 CameraSettings.KEY_ADVANCED_FEATURES,
                 CameraSettings.KEY_AE_BRACKET_HDR,
                 CameraSettings.KEY_INSTANT_CAPTURE,
@@ -1297,20 +1303,26 @@ public class PhotoMenu extends MenuController
     }
 
     public void onPreferenceClicked(ListPreference pref, int y) {
-        if (!mActivity.isDeveloperMenuEnabled()) {
-            if (pref.getKey().equals(CameraSettings.KEY_REDEYE_REDUCTION)) {
-                privateCounter++;
-                if (privateCounter >= DEVELOPER_MENU_TOUCH_COUNT) {
+        // Developer menu
+        if (pref.getKey().equals(CameraSettings.KEY_REDEYE_REDUCTION)) {
+            privateCounter++;
+            if (privateCounter >= DEVELOPER_MENU_TOUCH_COUNT) {
+                SharedPreferences prefs = PreferenceManager
+                        .getDefaultSharedPreferences(mActivity);
+                if (!mActivity.isDeveloperMenuEnabled()) {
                     mActivity.enableDeveloperMenu();
-                    SharedPreferences prefs = PreferenceManager
-                            .getDefaultSharedPreferences(mActivity);
                     prefs.edit().putBoolean(CameraSettings.KEY_DEVELOPER_MENU, true).apply();
                     RotateTextToast.makeText(mActivity,
                             "Camera developer option is enabled now", Toast.LENGTH_SHORT).show();
+                } else {
+                    mActivity.disableDeveloperMenu();
+                    prefs.edit().putBoolean(CameraSettings.KEY_DEVELOPER_MENU, false).apply();
+                    RotateTextToast.makeText(mActivity,
+                            "Camera developer option is disabled now", Toast.LENGTH_SHORT).show();
                 }
-            } else {
-                privateCounter = 0;
             }
+        } else {
+            privateCounter = 0;
         }
         LayoutInflater inflater = (LayoutInflater) mActivity.getSystemService(
                 Context.LAYOUT_INFLATER_SERVICE);
