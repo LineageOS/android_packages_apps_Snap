@@ -401,6 +401,10 @@ public class CameraActivity extends Activity
         mDeveloperMenuEnabled = true;
     }
 
+    public void disableDeveloperMenu() {
+        mDeveloperMenuEnabled = false;
+    }
+
     private String fileNameFromDataID(int dataID) {
         final LocalData localData = mDataAdapter.getLocalData(dataID);
 
