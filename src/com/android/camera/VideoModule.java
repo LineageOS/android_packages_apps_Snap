@@ -785,6 +785,7 @@ public class VideoModule implements CameraModule,
 
     private void startPlayVideoActivity() {
         Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
         intent.setDataAndType(mCurrentVideoUri, convertOutputFormatToMimeType(mProfile.fileFormat));
         try {
             mActivity
