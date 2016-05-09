@@ -4103,6 +4103,11 @@ public class PhotoModule
                 }
                 if (mLgeHdrMode) {
                     mParameters.set(CameraSettings.KEY_SNAPCAM_HDR_MODE, CameraSettings.LGE_HDR_MODE_ON);
+                    // Force enable ZSL mode for LG HDR
+                    try {
+                        mUI.setPreference(CameraSettings.KEY_ZSL, Parameters.ZSL_ON);
+                    } catch (NullPointerException e) {
+                    }
                 }
             } else {
                 if (mLgeHdrMode) {
