@@ -256,6 +256,7 @@ public class CameraActivity extends Activity
     public static int SETTING_LIST_WIDTH_2 = 250;
 
     private ImageView mThumbnail;
+    private UpdateThumbnailTask mUpdateThumbnailTask;
     private CircularDrawable mThumbnailDrawable;
     // FilmStripView.setDataAdapter fires 2 onDataLoaded calls before any data is actually loaded
     // Keep track of data request here to avoid creating useless UpdateThumbnailTask.
@@ -767,7 +768,9 @@ public class CameraActivity extends Activity
     }
 
     public void updateThumbnail(final byte[] jpegData) {
-        (new UpdateThumbnailTask(jpegData, true)).execute();
+        if (mUpdateThumbnailTask != null) mUpdateThumbnailTask.cancel(true);
+        mUpdateThumbnailTask = new UpdateThumbnailTask(jpegData, true);
+        mUpdateThumbnailTask.execute();
     }
 
     public void updateThumbnail(final Bitmap bitmap) {
