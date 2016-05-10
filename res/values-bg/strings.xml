@@ -30,8 +30,8 @@
   <string name="delete">Изтриване</string>
   <!-- String Delete the selected media item(s) [CHAR LIMIT=50] -->
   <plurals name="delete_selection">
-    <item quantity="one">Да се изтрие ли избраният елемент?</item>
-    <item quantity="other">Да се изтрият ли избраните елементи?</item>
+    <item quantity="one">Да бъде ли изтрит избраният елемент?</item>
+    <item quantity="other">Да бъдат ли изтрити избраните елементи?</item>
   </plurals>
   <string name="share">Споделяне</string>
   <string name="share_panorama">Споделяне на панорамата</string>

@@ -27,30 +27,80 @@
   <!-- Video quality setting entry. Videos will be recorded in QVGA quality. [CHAR LIMIT=24] -->
   <!-- Video quality setting entry. Videos will be recorded in QCIF quality. [CHAR LIMIT=24] -->
   <!-- Auto exposure -->
+  <string name="pref_camera_autoexposure_title">Mou d\'Autoesposición</string>
+  <string name="pref_camera_autoexposure_entry_centerweighted">Ponderada al centru</string>
+  <string name="pref_camera_autoexposure_entry_frameaverage">Media de marcos</string>
+  <string name="pref_camera_autoexposure_entry_spotmetering">Midición puntual</string>
   <!-- Video codec -->
+  <string name="pref_camera_videoencoder_title">Códec de videu</string>
   <!-- Audio codec -->
+  <string name="pref_camera_audioencoder_title">Códec d\'audiu</string>
   <!-- Skin tone enhancement -->
+  <string name="pref_camera_skinToneEnhancement_title">Meyora del tonu la piel</string>
   <!-- Zero shutter lag-->
   <!-- Autofocus zone -->
+  <string name="pref_camera_selectablezoneaf_title">Zona d\'enfoque automáticu</string>
+  <string name="pref_camera_selectablezoneaf_entry_auto">Auto</string>
+  <string name="pref_camera_selectablezoneaf_entry_centerweighted">Ponderáu al centru</string>
+  <string name="pref_camera_selectablezoneaf_entry_frameaverage">Media de marcos</string>
+  <string name="pref_camera_selectablezoneaf_entry_spotmetering">Midición puntual</string>
   <!-- Advanced features -->
   <!-- Manual exposure -->
   <!-- Manual white balance -->
   <!-- Manual focus -->
   <!-- Video HDR-->
+  <string name="pref_camera_video_hdr_title">Videu HDR</string>
   <!-- CDS mode-->
   <!-- Video CDS-->
   <!-- TNR-->
   <!-- Video TNR -->
   <!-- Face detection -->
+  <string name="pref_camera_facedetection_title">Detección de cares</string>
   <!-- Selfie Flash -->
   <!-- Red eye reduction -->
+  <string name="pref_camera_redeyereduction_title">Amenorgamientu de güeyos bermeyos</string>
   <!-- AE bracketing -->
+  <string name="pref_camera_ae_bracket_hdr_title">Esposición HDR automática</string>
   <!-- High-framerate recording -->
+  <string name="pref_camera_hfr_entry_off">Desactiváu</string>
   <!-- See More -->
   <!-- Denoise -->
+  <string name="pref_camera_denoise_title">Mou reductor de ruiu</string>
   <!-- ISO -->
+  <string name="pref_camera_iso_title">ISO</string>
+  <string name="pref_camera_iso_entry_auto">Auto</string>
+  <string name="pref_camera_iso_entry_isodeblur">Auto (HJR)</string>
+  <string name="pref_camera_iso_entry_iso50">ISO50</string>
+  <string name="pref_camera_iso_entry_iso100">ISO100</string>
+  <string name="pref_camera_iso_entry_iso125">ISO125</string>
+  <string name="pref_camera_iso_entry_iso150">ISO150</string>
+  <string name="pref_camera_iso_entry_iso200">ISO200</string>
+  <string name="pref_camera_iso_entry_iso250">ISO250</string>
+  <string name="pref_camera_iso_entry_iso300">ISO300</string>
+  <string name="pref_camera_iso_entry_iso320">ISO320</string>
+  <string name="pref_camera_iso_entry_iso350">ISO350</string>
+  <string name="pref_camera_iso_entry_iso400">ISO400</string>
+  <string name="pref_camera_iso_entry_iso450">ISO450</string>
+  <string name="pref_camera_iso_entry_iso500">ISO500</string>
+  <string name="pref_camera_iso_entry_iso600">ISO600</string>
+  <string name="pref_camera_iso_entry_iso640">ISO640</string>
+  <string name="pref_camera_iso_entry_iso700">ISO700</string>
+  <string name="pref_camera_iso_entry_iso800">ISO800</string>
+  <string name="pref_camera_iso_entry_iso1000">ISO1000</string>
+  <string name="pref_camera_iso_entry_iso1200">ISO1200</string>
+  <string name="pref_camera_iso_entry_iso1250">ISO1250</string>
+  <string name="pref_camera_iso_entry_iso1500">ISO1500</string>
+  <string name="pref_camera_iso_entry_iso1600">ISO1600</string>
+  <string name="pref_camera_iso_entry_iso2000">ISO2000</string>
+  <string name="pref_camera_iso_entry_iso2500">ISO2500</string>
+  <string name="pref_camera_iso_entry_iso2700">ISO2700</string>
   <!-- Antibanding -->
+  <string name="pref_camera_antibanding_title">Anti-bandéu</string>
   <!-- Color effect -->
+  <string name="pref_camera_coloreffect_title">Efeutu de color</string>
+  <string name="pref_camera_coloreffect_entry_none">Nengún</string>
+  <string name="pref_camera_coloreffect_entry_mono">Mono</string>
+  <string name="pref_camera_coloreffect_entry_sepia">Sepia</string>
   <!-- Color effect that overexposes and reverses some of the tones. -->
   <!-- Stabilization -->
   <!-- Face recognition -->
