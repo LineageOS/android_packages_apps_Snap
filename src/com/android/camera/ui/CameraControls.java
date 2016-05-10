@@ -49,6 +49,7 @@ public class CameraControls extends RotatableLayout {
 
     private View mBackgroundView;
     private View mShutter;
+    private View mVideoShutter;
     private View mSwitcher;
     private View mMenu;
     private View mFrontBackSwitcher;
@@ -69,6 +70,9 @@ public class CameraControls extends RotatableLayout {
     private static final int ANIME_DURATION = 300;
     private boolean mFilterModeEnabled;
 
+    private float[][] mLocX = new float[4][11];
+    private float[][] mLocY = new float[4][11];
+    private boolean[] mTempEnabled = new boolean[11];
     private LinearLayout mRemainingPhotos;
     private TextView mRemainingPhotosText;
     private int mOrientation;
@@ -155,6 +159,7 @@ public class CameraControls extends RotatableLayout {
     public void enableTouch(boolean enable) {
         if (enable) {
             mShutter.setPressed(false);
+            mVideoShutter.setPressed(false);
             mSwitcher.setPressed(false);
             mMenu.setPressed(false);
             mFrontBackSwitcher.setPressed(false);
@@ -165,6 +170,7 @@ public class CameraControls extends RotatableLayout {
             mFilterModeEnabled = mFilterModeSwitcher.isEnabled();
         }
         ((ShutterButton) mShutter).enableTouch(enable);
+        mVideoShutter.setClickable(enable);
         ((ModuleSwitcher) mSwitcher).enableTouch(enable);
         mMenu.setEnabled(enable);
         mFrontBackSwitcher.setEnabled(enable);
@@ -189,6 +195,7 @@ public class CameraControls extends RotatableLayout {
         mBackgroundView = findViewById(R.id.blocker);
         mSwitcher = findViewById(R.id.camera_switcher);
         mShutter = findViewById(R.id.shutter_button);
+        mVideoShutter = findViewById(R.id.video_button);
         mFrontBackSwitcher = findViewById(R.id.front_back_switcher);
         mHdrSwitcher = findViewById(R.id.hdr_switcher);
         mMenu = findViewById(R.id.menu);
@@ -485,9 +492,6 @@ public class CameraControls extends RotatableLayout {
         mFrontBackSwitcher.animate().setListener(inlistener);
         boolean isYTranslation = rotation == 0 || rotation == 180;
         animateViews(0, isYTranslation);
-        /*if (mRemainingPhotos.getVisibility() == View.INVISIBLE) {
-            mRemainingPhotos.setVisibility(View.VISIBLE);
-        }*/
         mRefocusToast.setVisibility(View.GONE);
     }
 
