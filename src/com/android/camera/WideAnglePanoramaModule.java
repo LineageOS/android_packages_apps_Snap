@@ -1036,8 +1036,7 @@ public class WideAnglePanoramaModule
 
         mOrientationManager.resume();
         // Initialize location service.
-        boolean recordLocation = RecordLocationPreference.get(mPreferences,
-                mContentResolver);
+        boolean recordLocation = RecordLocationPreference.get(mPreferences);
         mLocationManager.recordLocation(recordLocation);
         mUI.initDisplayChangeListener();
         UsageStatistics.onContentViewChanged(
