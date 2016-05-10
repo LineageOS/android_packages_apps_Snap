@@ -892,8 +892,7 @@ public class PhotoModule
         }
 
         // Initialize location service.
-        boolean recordLocation = RecordLocationPreference.get(
-                mPreferences, mContentResolver);
+        boolean recordLocation = RecordLocationPreference.get(mPreferences);
         mLocationManager.recordLocation(recordLocation);
 
         mUI.initializeFirstTime();
@@ -916,8 +915,7 @@ public class PhotoModule
     // onResume.
     private void initializeSecondTime() {
         // Start location update if needed.
-        boolean recordLocation = RecordLocationPreference.get(
-                mPreferences, mContentResolver);
+        boolean recordLocation = RecordLocationPreference.get(mPreferences);
         mLocationManager.recordLocation(recordLocation);
         MediaSaveService s = mActivity.getMediaSaveService();
         if (s != null) {
@@ -4528,8 +4526,7 @@ public class PhotoModule
         // ignore the events after "onPause()"
         if (mPaused) return;
 
-        boolean recordLocation = RecordLocationPreference.get(
-                mPreferences, mContentResolver);
+        boolean recordLocation = RecordLocationPreference.get(mPreferences);
         mLocationManager.recordLocation(recordLocation);
         if(needRestart()){
             Log.v(TAG, "Restarting Preview... Camera Mode Changed");
