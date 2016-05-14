@@ -80,6 +80,7 @@
   <!-- Face detection -->
   <string name="pref_camera_facedetection_title">얼굴 인식</string>
   <!-- Selfie Flash -->
+  <string name="pref_selfie_flash_title">셀카 조명</string>
   <!-- Red eye reduction -->
   <string name="pref_camera_redeyereduction_title">적목현상 제거</string>
   <!-- AE bracketing -->

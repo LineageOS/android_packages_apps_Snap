@@ -71,8 +71,10 @@
   <string name="pref_camera_facedetection_title">Detectare față</string>
   <!-- Selfie Flash -->
   <!-- Red eye reduction -->
+  <string name="pref_camera_redeyereduction_title">Reducerea efectului de ochi roșii</string>
   <!-- AE bracketing -->
   <!-- High-framerate recording -->
+  <string name="pref_camera_hfr_entry_off">Oprit</string>
   <string name="pref_camera_hfr_entry_2x">Mișcare lentă 60 FPS</string>
   <string name="pref_camera_hfr_entry_3x">Mișcare lentă 90 FPS</string>
   <string name="pref_camera_hfr_entry_4x">Mișcare lentă 120 FPS</string>
@@ -224,6 +226,7 @@
   <!-- Toast after enable HDR function to inform continuous shot has disabled -->
   <!-- Toast after enable advanced capture function to inform continuous shot has disabled -->
   <!-- Toast after enable 2k4k video quality to inform IS has disabled -->
+  <string name="video_quality_4k_disable_IS">Activarea dimensiunii video 4k va dezactiva stabilizarea</string>
   <!-- Toast after 2k4k video is enabled to inform SeeMore has been disabled -->
   <!-- TODO: Remove these? -->
 </resources>

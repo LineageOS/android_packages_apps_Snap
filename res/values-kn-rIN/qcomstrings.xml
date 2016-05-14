@@ -27,64 +27,242 @@
   <!-- Video quality setting entry. Videos will be recorded in QVGA quality. [CHAR LIMIT=24] -->
   <!-- Video quality setting entry. Videos will be recorded in QCIF quality. [CHAR LIMIT=24] -->
   <!-- Auto exposure -->
+  <string name="pref_camera_autoexposure_title">ಸ್ವಯಂ ಎಕ್ಸ್‌ಪೋಶರ್</string>
+  <string name="pref_camera_autoexposure_entry_centerweighted">ಕೇಂದ್ರ ತೂಕದ</string>
+  <string name="pref_camera_autoexposure_entry_frameaverage">ಫ್ರೇಮ್ ಸರಾಸರಿ</string>
+  <string name="pref_camera_autoexposure_entry_spotmetering">ಸ್ಪಾಟ್ ಮೀಟರಿಂಗ್</string>
   <!-- Video codec -->
+  <string name="pref_camera_videoencoder_title">ವೀಡಿಯೋ ಕೊಡೆಕ್</string>
   <!-- Audio codec -->
+  <string name="pref_camera_audioencoder_title">ಆಡಿಯೋ ಕೊಡೆಕ್</string>
   <!-- Skin tone enhancement -->
+  <string name="pref_camera_skinToneEnhancement_title">ಚರ್ಮದ ಟೋನ್ ವರ್ಧನೆ</string>
   <!-- Zero shutter lag-->
+  <string name="pref_camera_zsl_title">ಶೂನ್ಯ ಶಟರ್ ಲ್ಯಾಗ್</string>
   <!-- Autofocus zone -->
+  <string name="pref_camera_selectablezoneaf_title">ಸ್ವಯಂಫೋಕಸ್ ವಲಯ</string>
+  <string name="pref_camera_selectablezoneaf_entry_auto">ಸ್ವಯಂ</string>
+  <string name="pref_camera_selectablezoneaf_entry_centerweighted">ಕೇಂದ್ರ ತೂಕದ</string>
+  <string name="pref_camera_selectablezoneaf_entry_frameaverage">ಫ್ರೇಮ್ ಸರಾಸರಿ</string>
+  <string name="pref_camera_selectablezoneaf_entry_spotmetering">ಸ್ಪಾಟ್ ಮೀಟರಿಂಗ್</string>
   <!-- Advanced features -->
+  <string name="pref_camera_advanced_features_title">ಸುಧಾರಿತ ವೈಶಿಷ್ಟ್ಯಗಳು</string>
+  <string name="pref_camera_advanced_feature_entry_none">ಯಾವುದೂ ಇಲ್ಲ</string>
+  <string name="pref_camera_advanced_feature_entry_multi_touch_focus">ಬಹು-ಸ್ಪರ್ಶ ಫೋಕಸ್‌</string>
   <!-- Manual exposure -->
+  <string name="pref_camera_manual_exp_title">ಹಸ್ತಚಾಲಿತ ಎಕ್ಸ್‌ಪೋಶರ್</string>
+  <string name="pref_camera_manual_exp_entry_ISO_priority">ISO ಆದ್ಯತೆ</string>
+  <string name="pref_camera_manual_exp_entry_exptime_priority">ಎಕ್ಸ್‌ಪೋಶರ್ ಅವಧಿ ಆದ್ಯತೆ</string>
+  <string name="pref_camera_manual_exp_entry_user_setting">ಬಳಕೆದಾರರ ಸೆಟ್ಟಿಂಗ್</string>
+  <string name="pref_camera_manual_exp_entry_off">ಆಫ್ ಆಗಿದೆ</string>
   <!-- Manual white balance -->
+  <string name="pref_camera_manual_wb_title">ಹಸ್ತಚಾಲಿತ‌ ವೈಟ್‌ ಸಮತೋಲನ</string>
+  <string name="pref_camera_manual_wb_entry_color_temperature">ಕಲರ್ ತಾಪಮಾನ</string>
+  <string name="pref_camera_manual_wb_entry_rbgb_gains">RBGB ಗೇನ್ಸ್‌</string>
+  <string name="pref_camera_manual_wb_entry_off">ಆಫ್ ಆಗಿದೆ</string>
   <!-- Manual focus -->
+  <string name="pref_camera_manual_focus_title">ಹಸ್ತಚಾಲಿತ ಫೋಕಸ್‌</string>
+  <string name="pref_camera_manual_focus_entry_scale_mode">ಸ್ಕೇಲ್‌ ಮೋಡ್‌</string>
+  <string name="pref_camera_manual_focus_entry_diopter_mode">ಡಯಾಪ್ಟರ್ ಮೋಡ್‌</string>
+  <string name="pref_camera_manual_focus_entry_off">ಆಫ್ ಆಗಿದೆ</string>
   <!-- Video HDR-->
+  <string name="pref_camera_video_hdr_title">ವೀಡಿಯೋ HDR</string>
   <!-- CDS mode-->
+  <string name="pref_camera_cds_title">CDS ಮೋಡ್‌</string>
+  <string name="pref_camera_cds_entry_auto">ಸ್ವಯಂ</string>
   <!-- Video CDS-->
+  <string name="pref_camera_video_cds_title">ವಿಡಿಯೋ CDS ಮೋಡ್‌</string>
+  <string name="pref_camera_video_cds_entry_auto">ಸ್ವಯಂ</string>
   <!-- TNR-->
+  <string name="pref_camera_tnr_title">TNR ಮೋಡ್‌</string>
   <!-- Video TNR -->
+  <string name="pref_camera_video_tnr_title">ವಿಡಿಯೋ TNR ಮೋಡ್‌</string>
   <!-- Face detection -->
+  <string name="pref_camera_facedetection_title">ಮುಖ ಪತ್ತೆ</string>
   <!-- Selfie Flash -->
+  <string name="pref_selfie_flash_title">ಸೆಲ್ಫಿ ಫ್ಲಾಶ್‌ಗಳು</string>
   <!-- Red eye reduction -->
+  <string name="pref_camera_redeyereduction_title">ಕೆಂಪು ಕಣ್ಣು ಕಡಿತ</string>
   <!-- AE bracketing -->
+  <string name="pref_camera_ae_bracket_hdr_title">AE ಬ್ರಾಕೆಟಿಂಗ್‌</string>
   <!-- High-framerate recording -->
+  <string name="pref_camera_hfr_title">ಅಧಿಕ-ಫ್ರೇಮ್‌ರೇಟ್‌ ರೆಕಾರ್ಡಿಂಗ್‌</string>
+  <string name="pref_camera_hfr_entry_off">ಆಫ್ ಆಗಿದೆ</string>
+  <string name="pref_camera_hfr_entry_2x">ಸ್ಲೋ ಮೋಶನ್‌ 60 FPS</string>
+  <string name="pref_camera_hfr_entry_3x">ಸ್ಲೋ ಮೋಶನ್‌ 90 FPS</string>
+  <string name="pref_camera_hfr_entry_4x">ಸ್ಲೋ ಮೋಶನ್‌ 120 FPS</string>
+  <string name="pref_camera_hfr_entry_8x">ಸ್ಲೋ ಮೋಶನ್‌ 240 FPS</string>
+  <string name="pref_camera_hfr_entry_hsr_60">ಅಧಿಕ ವೇಗ 60 FPS</string>
+  <string name="pref_camera_hfr_entry_hsr_90">ಅಧಿಕ ವೇಗ 90 FPS</string>
+  <string name="pref_camera_hfr_entry_hsr_120">ಅಧಿಕ ವೇಗ 120 FPS</string>
   <!-- See More -->
   <!-- Denoise -->
+  <string name="pref_camera_denoise_title">ಶಬ್ದ ತೆಗೆಯಿರಿ</string>
   <!-- ISO -->
+  <string name="pref_camera_iso_title">ISO</string>
+  <string name="pref_camera_iso_entry_auto">ಸ್ವಯಂ</string>
+  <string name="pref_camera_iso_entry_isodeblur">ಸ್ವಯಂ (HJR)</string>
+  <string name="pref_camera_iso_entry_iso50">ISO50</string>
+  <string name="pref_camera_iso_entry_iso100">ISO100</string>
+  <string name="pref_camera_iso_entry_iso125">ISO125</string>
+  <string name="pref_camera_iso_entry_iso150">ISO150</string>
+  <string name="pref_camera_iso_entry_iso200">ISO200</string>
+  <string name="pref_camera_iso_entry_iso250">ISO250</string>
+  <string name="pref_camera_iso_entry_iso300">ISO300</string>
+  <string name="pref_camera_iso_entry_iso320">ISO320</string>
+  <string name="pref_camera_iso_entry_iso350">ISO350</string>
+  <string name="pref_camera_iso_entry_iso400">ISO400</string>
+  <string name="pref_camera_iso_entry_iso450">ISO450</string>
+  <string name="pref_camera_iso_entry_iso500">ISO500</string>
+  <string name="pref_camera_iso_entry_iso600">ISO600</string>
+  <string name="pref_camera_iso_entry_iso640">ISO640</string>
+  <string name="pref_camera_iso_entry_iso700">ISO700</string>
+  <string name="pref_camera_iso_entry_iso800">ISO800</string>
+  <string name="pref_camera_iso_entry_iso1000">ISO1000</string>
+  <string name="pref_camera_iso_entry_iso1200">ISO1200</string>
+  <string name="pref_camera_iso_entry_iso1250">ISO1250</string>
+  <string name="pref_camera_iso_entry_iso1500">ISO1500</string>
+  <string name="pref_camera_iso_entry_iso1600">ISO1600</string>
+  <string name="pref_camera_iso_entry_iso2000">ISO2000</string>
+  <string name="pref_camera_iso_entry_iso2500">ISO2500</string>
+  <string name="pref_camera_iso_entry_iso2700">ISO2700</string>
+  <string name="pref_camera_iso_entry_iso3200">ISO3200</string>
+  <string name="pref_camera_iso_entry_iso6400">ISO6400</string>
+  <string name="pref_camera_iso_entry_iso12800">ISO12800</string>
   <!-- Antibanding -->
+  <string name="pref_camera_antibanding_title">ಆಂಟಿ ಬ್ಯಾಂಡಿಂಗ್</string>
+  <string name="pref_camera_antibanding_entry_0">ಸ್ವಯಂ</string>
+  <string name="pref_camera_antibanding_entry_1">50 ಹರ್ಟ್ಸ್ (ಯುರೋಪ್‌)</string>
+  <string name="pref_camera_antibanding_entry_2">60 ಹರ್ಟ್ಸ್‌ (ಯುಎಸ್‌ಎ)</string>
   <!-- Color effect -->
+  <string name="pref_camera_coloreffect_title">ಬಣ್ಣದ ಪರಿಣಾಮ</string>
+  <string name="pref_camera_coloreffect_entry_none">ಯಾವುದೂ ಇಲ್ಲ</string>
+  <string name="pref_camera_coloreffect_entry_mono">ಮೊನೊ</string>
+  <string name="pref_camera_coloreffect_entry_sepia">ಸೆಪಿಯಾ</string>
+  <string name="pref_camera_coloreffect_entry_negative">ಋಣಾತ್ಮಕ</string>
   <!-- Color effect that overexposes and reverses some of the tones. -->
+  <string name="pref_camera_coloreffect_entry_solarize">ಸೋಲರೈಝ್</string>
+  <string name="pref_camera_coloreffect_entry_posterize">ಪೋಸ್ಚರೈಸ್</string>
+  <string name="pref_camera_coloreffect_entry_aqua">ಅಕ್ವಾ</string>
+  <string name="pref_camera_coloreffect_entry_emboss">ಎಂಬಾಸ್‌</string>
+  <string name="pref_camera_coloreffect_entry_sketch">ಸ್ಕೆಚ್</string>
+  <string name="pref_camera_coloreffect_entry_neon">ನಿಯಾನ್</string>
+  <string name="pref_camera_coloreffect_entry_pastel">ಪೇಸ್ಟೆಲ್</string>
+  <string name="pref_camera_coloreffect_entry_mosaic">ಮೊಸಾಯಿಕ್</string>
+  <string name="pref_camera_coloreffect_entry_redtint">ಕೆಂಪು ಟಿಂಟ್</string>
+  <string name="pref_camera_coloreffect_entry_bluetint">ನೀಲಿ ಟಿಂಟ್</string>
+  <string name="pref_camera_coloreffect_entry_greentint">ಹಸಿರು ಟಿಂಟ್</string>
   <!-- Stabilization -->
+  <string name="pref_camera_dis_title">ಸ್ಥಿರೀಕರಣ</string>
   <!-- Face recognition -->
+  <string name="pref_camera_facerc_title">ಮುಖ ಗುರುತಿಸು</string>
   <!-- Sharpness -->
+  <string name="pref_camera_sharpness_title">ತೀಕ್ಷ್ಣತೆ</string>
+  <string name="pref_camera_sharpness_entry_level0">ಹಂತ 0</string>
+  <string name="pref_camera_sharpness_entry_level1">ಹಂತ 1</string>
+  <string name="pref_camera_sharpness_entry_level2">ಹಂತ 2 (ಡೀಫಾಲ್ಟ್‌)</string>
+  <string name="pref_camera_sharpness_entry_level3">ಹಂತ 3</string>
+  <string name="pref_camera_sharpness_entry_level4">ಹಂತ 4</string>
+  <string name="pref_camera_sharpness_entry_level5">ಹಂತ 5</string>
+  <string name="pref_camera_sharpness_entry_level6">ಹಂತ 6</string>
   <!-- Contrast -->
+  <string name="pref_camera_contrast_title">ಕಾಂಟ್ರಾಸ್ಟ್</string>
+  <string name="pref_camera_contrast_entry_level0">ಹಂತ 0</string>
+  <string name="pref_camera_contrast_entry_level1">ಹಂತ 1</string>
+  <string name="pref_camera_contrast_entry_level2">ಹಂತ 2</string>
+  <string name="pref_camera_contrast_entry_level3">ಹಂತ 3</string>
+  <string name="pref_camera_contrast_entry_level4">ಹಂತ 4</string>
+  <string name="pref_camera_contrast_entry_level5">ಹಂತ 5 (ಡೀಫಾಲ್ಟ್‌)</string>
+  <string name="pref_camera_contrast_entry_level6">ಹಂತ 6</string>
+  <string name="pref_camera_contrast_entry_level7">ಹಂತ 7</string>
+  <string name="pref_camera_contrast_entry_level8">ಹಂತ 8</string>
+  <string name="pref_camera_contrast_entry_level9">ಹಂತ 9</string>
+  <string name="pref_camera_contrast_entry_level10">ಹಂತ 10</string>
   <!-- Saturation -->
+  <string name="pref_camera_saturation_title">ಆರ್ದ್ರೀಕರಣ</string>
+  <string name="pref_camera_saturation_entry_level0">ಹಂತ 0</string>
+  <string name="pref_camera_saturation_entry_level1">ಹಂತ 1</string>
+  <string name="pref_camera_saturation_entry_level2">ಹಂತ 2</string>
+  <string name="pref_camera_saturation_entry_level3">ಹಂತ 3</string>
+  <string name="pref_camera_saturation_entry_level4">ಹಂತ 4</string>
+  <string name="pref_camera_saturation_entry_level5">ಹಂತ 5 (ಡೀಫಾಲ್ಟ್‌)</string>
+  <string name="pref_camera_saturation_entry_level6">ಹಂತ 6</string>
+  <string name="pref_camera_saturation_entry_level7">ಹಂತ 7</string>
+  <string name="pref_camera_saturation_entry_level8">ಹಂತ 8</string>
+  <string name="pref_camera_saturation_entry_level9">ಹಂತ 9</string>
+  <string name="pref_camera_saturation_entry_level10">ಹಂತ 10</string>
   <!-- Picture format -->
+  <string name="pref_camera_picture_format_title">ಪಿಕ್ಚರ್ ಸ್ವರೂಪ</string>
   <!-- Picture quality -->
+  <string name="pref_camera_jpegquality_title">ಚಿತ್ರ ಗುಣಮಟ್ಟ</string>
+  <string name="pref_camera_jpegquality_entry_0">55%</string>
+  <string name="pref_camera_jpegquality_entry_1">65% (ಸಾಮಾನ್ಯ)</string>
+  <string name="pref_camera_jpegquality_entry_2">75% (ಫೈನ್)</string>
+  <string name="pref_camera_jpegquality_entry_3">85% (ಸುಪರ್ ಫೈನ್)</string>
+  <string name="pref_camera_jpegquality_entry_4">95%</string>
+  <string name="pref_camera_jpegquality_entry_5">100%</string>
   <!-- Histogram -->
+  <string name="pref_camera_histogram_title">ಹಿಸ್ಟೋಗ್ರಾಮ್</string>
   <!-- Auto scene detection -->
+  <string name="pref_camera_scenedetect_title">ಸ್ವಯಂ ದೃಶ್ಯ ಗುರುತಿಸುವಿಕೆ</string>
   <!-- Continuous shot -->
+  <string name="pref_camera_longshot_title">ನಿರಂತರ ಶಾಟ್‌</string>
   <!-- Auto HDR -->
+  <string name="pref_camera_auto_hdr_title">ಸ್ವಯಂ HDR</string>
   <!-- HDR mode -->
+  <string name="pref_camera_hdr_mode_title">HDR ಮೋಡ್‌</string>
+  <string name="pref_camera_hdr_mode_entry_sensor">ಸೆನ್ಸರ್‌ HDR</string>
+  <string name="pref_camera_hdr_mode_entry_multi_frame">ಮಲ್ಟಿ-ಫ್ರೇಮ್‌ HDR</string>
   <!-- HDR needs 1x frame -->
+  <string name="pref_camera_hdr_need_1x_title">HDR ಗೆ 1x ಫ್ರೇಮ್‌ ಅಗತ್ಯವಿದೆ</string>
   <!-- Video rotation -->
+  <string name="pref_camera_video_rotation_title">ವಿಡಿಯೋ ಸುತ್ತುವಿಕೆ</string>
+  <string name="pref_camera_video_rotation_entry_0">0 ಡಿಗ್ರಿಗಳು</string>
+  <string name="pref_camera_video_rotation_entry_90">90 ಡಿಗ್ರಿಗಳು</string>
+  <string name="pref_camera_video_rotation_entry_180">180 ಡಿಗ್ರಿಗಳು</string>
+  <string name="pref_camera_video_rotation_entry_270">270 ಡಿಗ್ರಿಗಳು</string>
   <!-- Storage location -->
+  <string name="pref_camera_savepath_title">ಸಂಗ್ರಹಣೆ ಸ್ಥಳ</string>
+  <string name="pref_camera_savepath_entry_0">ಆಂತರಿಕ ಸಂಗ್ರಹಣೆ</string>
+  <string name="pref_camera_savepath_entry_1">SD ಕಾರ್ಡ್</string>
   <!-- Misc -->
   <!-- The alias of CameraActivity for gesture operation -->
+  <string name="camera_gesture_title">ಕ್ಯಾಮೆರಾ ಆರಂಭಿಸಿ</string>
+  <string name="all_in_focus">ಎಲ್ಲವೂ ಫೋಕಸ್‌ನಲ್ಲಿ</string>
+  <string name="refocus_toast">ಕೊನೆಯ ಫೊಟೋ ರಿ-ಫೋಕಸ್‌ ಮಾಡಲು, ಇಲ್ಲಿ ತಟ್ಟಿ</string>
   <!-- Toast messages -->
   <!-- The message is shown in toast when the app encounters an unsupported selection for High-framerate recording mode -->
+  <string name="error_app_unsupported_hfr_selection">ಸ್ಥಿರೀಕರಣ/ಮೀರಿದ ಸಮಯ/HDR ಬಳಸುವಾಗ ಅಧಿಕ-ಫ್ರೇಮ್‌ರೇಟ್‌ ರೆಕಾರ್ಡಿಂಗ್‌ ಬೆಂಬಲಿಸುವುದಿಲ್ಲ.</string>
   <!-- The message is shown in dialog when the app encounters an unsupported resolution for Slow motion mode -->
+  <string name="error_app_unsupported_hfr">ಆಯ್ದ ಗಾತ್ರದ ವಿಡಿಯೋಗೆ ನಿಧಾನಗತಿಯ ಮೋಡ್‌ ಬೆಂಬಲಿಸುವುದಿಲ್ಲ. ಕಡಿಮೆ ಗಾತ್ರದ ವಿಡಿಯೋ ಆಯ್ಕೆ ಮಾಡಿ</string>
   <!-- The message is shown in toast when the app encounters an unsupported resolution for Stabilization mode -->
+  <string name="error_app_unsupported_dis">ಆಯ್ದ ಗಾತ್ರದ ವಿಡಿಯೋಗೆ ಸ್ಥಿರೀಕರಣವು ಬೆಂಬಲಿಸುವುದಿಲ್ಲ. ಕಡಿಮೆ ಗಾತ್ರದ ವಿಡಿಯೋ ಆಯ್ಕೆ ಮಾಡಿ</string>
   <!-- The message is shown in dialog when the app encounters an unsupported resolution for High speed mode -->
+  <string name="error_app_unsupported_hsr">ಆಯ್ದ ಗಾತ್ರದ ವಿಡಿಯೋಗೆ ಹೈಸ್ಪೀಡ್‌ ಮೋಡ್‌ ಬೆಂಬಲಿಸುವುದಿಲ್ಲ. ಕಡಿಮೆ ಗಾತ್ರದ ವಿಡಿಯೋ ಆಯ್ಕೆ ಮಾಡಿ</string>
   <!-- The message is shown in dialog when the app encounters an unsupported video codec for HFR mode -->
+  <string name="error_app_unsupported_hfr_codec">HFR ಆನ್‌ ಆಗಿದ್ದಾಗ ಕೇವಲ H264 ವಿಡಿಯೋ ಎನ್‌ಕೋಡಿಂಗ್ ಬೆಂಬಲಿಸುತ್ತದೆ</string>
   <!-- The message is shown in dialog when the app encounters an unsupported video resolution-->
+  <string name="error_app_unsupported">ಈ ಎನ್‌ಕೋಡರ್ ವಿಧಕ್ಕೆ ಬೆಂಬಲಿಸದ ವಿಡಿಯೋ ರೆಸಲ್ಯೂಶನ್‌</string>
   <!--The message is shown in dialog when the raw snapshot is selected in Zero shutter lag mode-->
+  <string name="error_app_unsupported_raw">ಜೀರೋ ಶಟರ್‌ ಲ್ಯಾಗ್‌ ಮೋಡ್‌ನಲ್ಲಿ ರಾ ಚಿತ್ರ ಫಾರ್ಮ್ಯಾಟ್‌ ಬೆಂಬಲಿಸುತ್ತಿಲ್ಲ. JPEG ಆಯ್ಕೆ ಮಾಡಿ</string>
+  <string name="msg_cancel_longshot_for_limited_memory">ಮೆಮೊರಿ ಖಾಲಿಯಾಗಿದೆ, ನಿರಂತರ ಶಾಟ್‌ ಅನ್ನು ರದ್ದುಗೊಳಿಸಲಾಗುತ್ತಿದೆ</string>
   <!-- Toast showing non-supported functionality for flash in AE bracket -->
+  <string name="flash_aebracket_message">AE ಬ್ರಾಕೆಟಿಂಗ್‌ ವಿಧಾನದಲ್ಲಿ ಫ್ಲಾಶ್‌ ಬೆಂಬಲಿಸುತ್ತಿಲ್ಲ</string>
   <!-- toast message for storage location switch -->
+  <string name="on_switch_save_path_to_sdcard">ಆಂತರಿಕ ಸಂಗ್ರಹ ಸ್ಥಳಾವಕಾಶ ಸಾಲುತ್ತಿಲ್ಲ, ಸಂಗ್ರಹ ಸ್ಥಳವನ್ನು SD ಕಾರ್ಡ್‌ಗೆ ಬದಲಿಸಲಾಗಿದೆ</string>
   <!-- The message is shown in toast when click showOnMap Menu and there is no map app -->
+  <string name="map_activity_not_found_err">ಸ್ಥಳವನ್ನು ತೋರಿಸಲು ನಕ್ಷೆಗಳ ಅಪ್ಲಿಕೇಶನ್‌ ಅನುಸ್ಥಾಪನೆ ಮಾಡಿಲ್ಲ</string>
   <!-- Continous shot enable message -->
+  <string name="longshot_enable_message">ನಿರಂತರ ಶಾಟ್‌ ಮೋಡ್‌ನಲ್ಲಿ ಸುಧಾರಿತ ಫೀಚರುಗಳು ಬೆಂಬಲ ಹೊಂದಿಲ್ಲ</string>
   <!-- Advance features enable message -->
+  <string name="advance_feature_enable_msg">ಸುಧಾರಿತ ಫೀಚರುಗಳು ಸಕ್ರಿಯವಾಗಿದ್ದಾಗ ನಿರಂತರ ಶಾಟ್‌ ಬೆಂಬಲ ಹೊಂದಿಲ್ಲ</string>
   <!-- Toast after enable HDR function to inform continuous shot has disabled -->
+  <string name="HDR_disable_continuous_shot">HDR ಸಕ್ರಿಯಗೊಳಿಸಿದರೆ, ನಿರಂತರ ಶಾಟ್‌ ನಿಷ್ಕ್ರಿಯಗೊಳ್ಳುತ್ತದೆ</string>
   <!-- Toast after enable advanced capture function to inform continuous shot has disabled -->
+  <string name="advanced_capture_disable_continuous_shot">ಸುಧಾರಿತ ಕ್ಯಾಪ್ಚರ್‌ ಸಕ್ರಿಯಗೊಳಿಸಿದರೆ, ನಿರಂತರ ಶಾಟ್‌ ನಿಷ್ಕ್ರಿಯಗೊಳ್ಳುತ್ತದೆ</string>
   <!-- Toast after enable 2k4k video quality to inform IS has disabled -->
+  <string name="video_quality_4k_disable_IS">4K ವಿಡಿಯೋ ಗಾತ್ರವನ್ನು ಸಕ್ರಿಯಗೊಳಿಸಿದರೆ, ನಿರಂತರ ಶಾಟ್‌ ನಿಷ್ಕ್ರಿಯಗೊಳ್ಳುತ್ತದೆ</string>
   <!-- Toast after 2k4k video is enabled to inform SeeMore has been disabled -->
+  <string name="video_quality_4k_disable_SeeMore">4K ವಿಡಿಯೋ ವೇಳೆ ಇನ್ನೂ ಹೆಚ್ಚು ನೋಡುವ ಸೌಲಭ್ಯ ಸಕ್ರಿಯವಾಗಿಲ್ಲ</string>
   <!-- TODO: Remove these? -->
 </resources>

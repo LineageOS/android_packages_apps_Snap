@@ -27,64 +27,242 @@
   <!-- Video quality setting entry. Videos will be recorded in QVGA quality. [CHAR LIMIT=24] -->
   <!-- Video quality setting entry. Videos will be recorded in QCIF quality. [CHAR LIMIT=24] -->
   <!-- Auto exposure -->
+  <string name="pref_camera_autoexposure_title">স্বয়ং এক্সপোজাৰ</string>
+  <string name="pref_camera_autoexposure_entry_centerweighted">চেণ্টাৰ ওয়েটেড</string>
+  <string name="pref_camera_autoexposure_entry_frameaverage">ফ্ৰেম এভাৰেজ</string>
+  <string name="pref_camera_autoexposure_entry_spotmetering">স্পট মিটাৰিং</string>
   <!-- Video codec -->
+  <string name="pref_camera_videoencoder_title">ভিডিঅ\' ক\'ডেক</string>
   <!-- Audio codec -->
+  <string name="pref_camera_audioencoder_title">অডিঅ\' ক\'ডেক</string>
   <!-- Skin tone enhancement -->
+  <string name="pref_camera_skinToneEnhancement_title">স্কিনৰ টোন উন্নতিকৰণ</string>
   <!-- Zero shutter lag-->
+  <string name="pref_camera_zsl_title">জিৰো শ্বাটাৰ টেগ</string>
   <!-- Autofocus zone -->
+  <string name="pref_camera_selectablezoneaf_title">অটোফকাচ জোন</string>
+  <string name="pref_camera_selectablezoneaf_entry_auto">স্বয়ং</string>
+  <string name="pref_camera_selectablezoneaf_entry_centerweighted">চেণ্টাৰ ওয়েটেড</string>
+  <string name="pref_camera_selectablezoneaf_entry_frameaverage">ফ্ৰেম এভাৰেজ</string>
+  <string name="pref_camera_selectablezoneaf_entry_spotmetering">স্পট মিটাৰিং</string>
   <!-- Advanced features -->
+  <string name="pref_camera_advanced_features_title">উন্নত বৈশিষ্ট্যবোৰ</string>
+  <string name="pref_camera_advanced_feature_entry_none">হাল্লা</string>
+  <string name="pref_camera_advanced_feature_entry_multi_touch_focus">বহু-স্পৰ্শ ফোকাচ</string>
   <!-- Manual exposure -->
+  <string name="pref_camera_manual_exp_title">মেনুৱেল এক্সপ’জাৰ</string>
+  <string name="pref_camera_manual_exp_entry_ISO_priority">ISO অগ্ৰাধিকাৰ</string>
+  <string name="pref_camera_manual_exp_entry_exptime_priority">এক্সপোজাৰ সময় অগ্ৰাধিকাৰ</string>
+  <string name="pref_camera_manual_exp_entry_user_setting">ব্যৱহাৰকৰ্তা ছেটিং</string>
+  <string name="pref_camera_manual_exp_entry_off">অফ</string>
   <!-- Manual white balance -->
+  <string name="pref_camera_manual_wb_title">মেনুৱেল বগা সাম্যৱস্থা</string>
+  <string name="pref_camera_manual_wb_entry_color_temperature">ৰং তাপমাত্ৰা</string>
+  <string name="pref_camera_manual_wb_entry_rbgb_gains">RBGB গেইনচ</string>
+  <string name="pref_camera_manual_wb_entry_off">অফ</string>
   <!-- Manual focus -->
+  <string name="pref_camera_manual_focus_title">মেনুৱেল ফোকাচ</string>
+  <string name="pref_camera_manual_focus_entry_scale_mode">স্কেল মোড</string>
+  <string name="pref_camera_manual_focus_entry_diopter_mode">ডায়োপ্টাৰ মোড</string>
+  <string name="pref_camera_manual_focus_entry_off">অফ</string>
   <!-- Video HDR-->
+  <string name="pref_camera_video_hdr_title">ভিডিঅ\' HDR</string>
   <!-- CDS mode-->
+  <string name="pref_camera_cds_title">CDS মোড</string>
+  <string name="pref_camera_cds_entry_auto">স্বয়ং</string>
   <!-- Video CDS-->
+  <string name="pref_camera_video_cds_title">ভিডিঅ\' CDS মোড</string>
+  <string name="pref_camera_video_cds_entry_auto">স্বয়ং</string>
   <!-- TNR-->
+  <string name="pref_camera_tnr_title">TNR মোড</string>
   <!-- Video TNR -->
+  <string name="pref_camera_video_tnr_title">ভিডিঅ\' TNR মোড</string>
   <!-- Face detection -->
+  <string name="pref_camera_facedetection_title">ফেচ চিনাক্তকৰণ</string>
   <!-- Selfie Flash -->
+  <string name="pref_selfie_flash_title">চেল্‌ফি ফ্লেশ</string>
   <!-- Red eye reduction -->
+  <string name="pref_camera_redeyereduction_title">ৰেড আই হ্ৰাসকৰণ</string>
   <!-- AE bracketing -->
+  <string name="pref_camera_ae_bracket_hdr_title">AE ব্ৰেকেটিং</string>
   <!-- High-framerate recording -->
+  <string name="pref_camera_hfr_title">উচ্চ-ফ্ৰেমৰেট ৰেকৰ্ডিং</string>
+  <string name="pref_camera_hfr_entry_off">অফ</string>
+  <string name="pref_camera_hfr_entry_2x">মন্থৰ গতি 60 FPS</string>
+  <string name="pref_camera_hfr_entry_3x">মন্থৰ গতি 90 FPS</string>
+  <string name="pref_camera_hfr_entry_4x">মন্থৰ গতি 120 FPS</string>
+  <string name="pref_camera_hfr_entry_8x">মন্থৰ গতি 240 FPS</string>
+  <string name="pref_camera_hfr_entry_hsr_60">উচ্চ গতি 60 FPS</string>
+  <string name="pref_camera_hfr_entry_hsr_90">উচ্চ গতি 90 FPS</string>
+  <string name="pref_camera_hfr_entry_hsr_120">উচ্চ গতি 120 FPS</string>
   <!-- See More -->
   <!-- Denoise -->
+  <string name="pref_camera_denoise_title">ডিনয়েজ</string>
   <!-- ISO -->
+  <string name="pref_camera_iso_title">ISO</string>
+  <string name="pref_camera_iso_entry_auto">স্বয়ং</string>
+  <string name="pref_camera_iso_entry_isodeblur">স্বয়ং (HJR)</string>
+  <string name="pref_camera_iso_entry_iso50">ISO50</string>
+  <string name="pref_camera_iso_entry_iso100">ISO100</string>
+  <string name="pref_camera_iso_entry_iso125">ISO125</string>
+  <string name="pref_camera_iso_entry_iso150">ISO150</string>
+  <string name="pref_camera_iso_entry_iso200">ISO200</string>
+  <string name="pref_camera_iso_entry_iso250">ISO250</string>
+  <string name="pref_camera_iso_entry_iso300">ISO300</string>
+  <string name="pref_camera_iso_entry_iso320">ISO320</string>
+  <string name="pref_camera_iso_entry_iso350">ISO350</string>
+  <string name="pref_camera_iso_entry_iso400">ISO400</string>
+  <string name="pref_camera_iso_entry_iso450">ISO450</string>
+  <string name="pref_camera_iso_entry_iso500">ISO500</string>
+  <string name="pref_camera_iso_entry_iso600">ISO600</string>
+  <string name="pref_camera_iso_entry_iso640">ISO640</string>
+  <string name="pref_camera_iso_entry_iso700">ISO700</string>
+  <string name="pref_camera_iso_entry_iso800">ISO800</string>
+  <string name="pref_camera_iso_entry_iso1000">ISO1000</string>
+  <string name="pref_camera_iso_entry_iso1200">ISO1200</string>
+  <string name="pref_camera_iso_entry_iso1250">ISO1250</string>
+  <string name="pref_camera_iso_entry_iso1500">ISO1500</string>
+  <string name="pref_camera_iso_entry_iso1600">ISO1600</string>
+  <string name="pref_camera_iso_entry_iso2000">ISO2000</string>
+  <string name="pref_camera_iso_entry_iso2500">ISO2500</string>
+  <string name="pref_camera_iso_entry_iso2700">ISO2700</string>
+  <string name="pref_camera_iso_entry_iso3200">ISO3200</string>
+  <string name="pref_camera_iso_entry_iso6400">ISO6400</string>
+  <string name="pref_camera_iso_entry_iso12800">ISO12800</string>
   <!-- Antibanding -->
+  <string name="pref_camera_antibanding_title">এণ্টিবেণ্ডিং</string>
+  <string name="pref_camera_antibanding_entry_0">স্বয়ং</string>
+  <string name="pref_camera_antibanding_entry_1">50 Hz (ইউৰোপ)</string>
+  <string name="pref_camera_antibanding_entry_2">60 Hz (ইউএচএ)</string>
   <!-- Color effect -->
+  <string name="pref_camera_coloreffect_title">ৰং প্ৰভাৱ</string>
+  <string name="pref_camera_coloreffect_entry_none">হাল্লা</string>
+  <string name="pref_camera_coloreffect_entry_mono">ম’ন’</string>
+  <string name="pref_camera_coloreffect_entry_sepia">চেপিয়া</string>
+  <string name="pref_camera_coloreffect_entry_negative">ঋণাত্মক</string>
   <!-- Color effect that overexposes and reverses some of the tones. -->
+  <string name="pref_camera_coloreffect_entry_solarize">চোলাৰাইজ</string>
+  <string name="pref_camera_coloreffect_entry_posterize">পোষ্টাৰৰ আকাৰৰ</string>
+  <string name="pref_camera_coloreffect_entry_aqua">একুৱা</string>
+  <string name="pref_camera_coloreffect_entry_emboss">এমব\'চ</string>
+  <string name="pref_camera_coloreffect_entry_sketch">স্কেচ্চ</string>
+  <string name="pref_camera_coloreffect_entry_neon">নিয়ন</string>
+  <string name="pref_camera_coloreffect_entry_pastel">পেষ্টেল</string>
+  <string name="pref_camera_coloreffect_entry_mosaic">মোজাইক</string>
+  <string name="pref_camera_coloreffect_entry_redtint">ৰঙা টিণ্ট</string>
+  <string name="pref_camera_coloreffect_entry_bluetint">নীলা টিণ্ট</string>
+  <string name="pref_camera_coloreffect_entry_greentint">সেউজীয়া টিণ্ট</string>
   <!-- Stabilization -->
+  <string name="pref_camera_dis_title">সুস্থিৰকৰণ</string>
   <!-- Face recognition -->
+  <string name="pref_camera_facerc_title">ফেচ চিনাক্তকৰণ</string>
   <!-- Sharpness -->
+  <string name="pref_camera_sharpness_title">শ্বাৰ্পনেছ</string>
+  <string name="pref_camera_sharpness_entry_level0">স্তৰ 0</string>
+  <string name="pref_camera_sharpness_entry_level1">স্তৰ 1</string>
+  <string name="pref_camera_sharpness_entry_level2">মাত্ৰা 2 (ডিফ\'ল্ট)</string>
+  <string name="pref_camera_sharpness_entry_level3">স্তৰ 3</string>
+  <string name="pref_camera_sharpness_entry_level4">স্তৰ 4</string>
+  <string name="pref_camera_sharpness_entry_level5">স্তৰ 5</string>
+  <string name="pref_camera_sharpness_entry_level6">স্তৰ 6</string>
   <!-- Contrast -->
+  <string name="pref_camera_contrast_title">কনট্ৰাষ্ট</string>
+  <string name="pref_camera_contrast_entry_level0">স্তৰ 0</string>
+  <string name="pref_camera_contrast_entry_level1">স্তৰ 1</string>
+  <string name="pref_camera_contrast_entry_level2">স্তৰ 2</string>
+  <string name="pref_camera_contrast_entry_level3">স্তৰ 3</string>
+  <string name="pref_camera_contrast_entry_level4">স্তৰ 4</string>
+  <string name="pref_camera_contrast_entry_level5">মাত্ৰা 5 (ডিফ\'ল্ট)</string>
+  <string name="pref_camera_contrast_entry_level6">স্তৰ 6</string>
+  <string name="pref_camera_contrast_entry_level7">স্তৰ 7</string>
+  <string name="pref_camera_contrast_entry_level8">স্তৰ 8</string>
+  <string name="pref_camera_contrast_entry_level9">স্তৰ 9</string>
+  <string name="pref_camera_contrast_entry_level10">স্তৰ 10</string>
   <!-- Saturation -->
+  <string name="pref_camera_saturation_title">পৰিপূৰ্ণ কৰা</string>
+  <string name="pref_camera_saturation_entry_level0">স্তৰ 0</string>
+  <string name="pref_camera_saturation_entry_level1">স্তৰ 1</string>
+  <string name="pref_camera_saturation_entry_level2">স্তৰ 2</string>
+  <string name="pref_camera_saturation_entry_level3">স্তৰ 3</string>
+  <string name="pref_camera_saturation_entry_level4">স্তৰ 4</string>
+  <string name="pref_camera_saturation_entry_level5">মাত্ৰা 5 (ডিফ\'ল্ট)</string>
+  <string name="pref_camera_saturation_entry_level6">স্তৰ 6</string>
+  <string name="pref_camera_saturation_entry_level7">স্তৰ 7</string>
+  <string name="pref_camera_saturation_entry_level8">স্তৰ 8</string>
+  <string name="pref_camera_saturation_entry_level9">স্তৰ 9</string>
+  <string name="pref_camera_saturation_entry_level10">স্তৰ 10</string>
   <!-- Picture format -->
+  <string name="pref_camera_picture_format_title">ছবিৰ ফৰ্মেট</string>
   <!-- Picture quality -->
+  <string name="pref_camera_jpegquality_title">ছবিৰ গুণমান</string>
+  <string name="pref_camera_jpegquality_entry_0">55%</string>
+  <string name="pref_camera_jpegquality_entry_1">65% (স্বাভাৱিক)</string>
+  <string name="pref_camera_jpegquality_entry_2">75% (সূক্ষ্ম)</string>
+  <string name="pref_camera_jpegquality_entry_3">85% (অতি সূক্ষ্ম)</string>
+  <string name="pref_camera_jpegquality_entry_4">95%</string>
+  <string name="pref_camera_jpegquality_entry_5">100%</string>
   <!-- Histogram -->
+  <string name="pref_camera_histogram_title">হিষ্টোগ্ৰাম</string>
   <!-- Auto scene detection -->
+  <string name="pref_camera_scenedetect_title">স্বয়ং দৃশ্য চিনাক্তকৰণ</string>
   <!-- Continuous shot -->
+  <string name="pref_camera_longshot_title">ধাৰাবাহিক শ্বট</string>
   <!-- Auto HDR -->
+  <string name="pref_camera_auto_hdr_title">স্বয়ং HDR</string>
   <!-- HDR mode -->
+  <string name="pref_camera_hdr_mode_title">HDR মোড</string>
+  <string name="pref_camera_hdr_mode_entry_sensor">চেনচৰ HDR</string>
+  <string name="pref_camera_hdr_mode_entry_multi_frame">মাল্টিফ্ৰেম HDR</string>
   <!-- HDR needs 1x frame -->
+  <string name="pref_camera_hdr_need_1x_title">HDR ৰ বাবে 1x ফ্ৰেম আৱশ্যক</string>
   <!-- Video rotation -->
+  <string name="pref_camera_video_rotation_title">ভিডিঅ\' ৰোটেচন</string>
+  <string name="pref_camera_video_rotation_entry_0">0 ডিগ্ৰী</string>
+  <string name="pref_camera_video_rotation_entry_90">90 ডিগ্ৰী</string>
+  <string name="pref_camera_video_rotation_entry_180">180 ডিগ্ৰী</string>
+  <string name="pref_camera_video_rotation_entry_270">270 ডিগ্ৰী</string>
   <!-- Storage location -->
+  <string name="pref_camera_savepath_title">ষ্ট\'ৰেজ অৱস্থান</string>
+  <string name="pref_camera_savepath_entry_0">ইন্টাৰনেল ষ্টোৰেজ</string>
+  <string name="pref_camera_savepath_entry_1">SD কাৰ্ড</string>
   <!-- Misc -->
   <!-- The alias of CameraActivity for gesture operation -->
+  <string name="camera_gesture_title">কেমেৰা লান্চ্চ কৰক</string>
+  <string name="all_in_focus">অল ইন ফোকাচ</string>
+  <string name="refocus_toast">অন্তিমখন ফটো পুনঃ-ফোকাচ কৰিবলৈ ইয়াত টেপ কৰক</string>
   <!-- Toast messages -->
   <!-- The message is shown in toast when the app encounters an unsupported selection for High-framerate recording mode -->
+  <string name="error_app_unsupported_hfr_selection">উচ্চ-ফ্ৰেমৰেট ৰেকৰ্ডিং সমৰ্থিত নহয় যেতিয়া সুস্থিৰকৰণ/সময় লেপ্স/HDR ব্যৱহাৰ কৰা হয়।</string>
   <!-- The message is shown in dialog when the app encounters an unsupported resolution for Slow motion mode -->
+  <string name="error_app_unsupported_hfr">মন্থৰ গতি মোড নিৰ্বাচিত ভিডিঅ\'ৰ আকাৰৰ বাবে সমৰ্থিত নহয়। এটা নিম্নমানৰ ভিডিঅ\'ৰ আকাৰ নিৰ্বাচন কৰক</string>
   <!-- The message is shown in toast when the app encounters an unsupported resolution for Stabilization mode -->
+  <string name="error_app_unsupported_dis">নিৰ্বাচিত ভিডিঅ\'ৰ আকাৰৰ বাবে সুস্থিৰকৰণ সমৰ্থিত নহয়। এটা নিম্নমানৰ ভিডিঅ\'ৰ আকাৰ নিৰ্বাচন কৰক</string>
   <!-- The message is shown in dialog when the app encounters an unsupported resolution for High speed mode -->
+  <string name="error_app_unsupported_hsr">উচ্চ গতি মোড নিৰ্বাচিত ভিডিঅ\'ৰ আকাৰৰ বাবে সমৰ্থিত নহয়। এটা নিম্নমানৰ ভিডিঅ\'ৰ আকাৰ নিৰ্বাচন কৰক</string>
   <!-- The message is shown in dialog when the app encounters an unsupported video codec for HFR mode -->
+  <string name="error_app_unsupported_hfr_codec">যেতিয়া HFR অন থাকে তেতিয়া কেৱল H264 ভিডিঅ\' এনকোডিং সমৰ্থিত হয়</string>
   <!-- The message is shown in dialog when the app encounters an unsupported video resolution-->
+  <string name="error_app_unsupported">এই এনকোডাৰ প্ৰকাৰৰ বাবে অসমৰ্থিত ভিডিঅ\' ৰিজলুশ্বন</string>
   <!--The message is shown in dialog when the raw snapshot is selected in Zero shutter lag mode-->
+  <string name="error_app_unsupported_raw">জিৰো শ্বাটাৰ লেগ মোডত Raw ছবি ফৰ্মেট সমৰ্থিত নহয়। JPEG নিৰ্বাচন কৰক</string>
+  <string name="msg_cancel_longshot_for_limited_memory">মেম\'ৰী শেষ হৈ আহিছে, নিৰবিচ্ছিন্ন মোড বাতিল কৰি আছে</string>
   <!-- Toast showing non-supported functionality for flash in AE bracket -->
+  <string name="flash_aebracket_message">AE ব্ৰেকেটিং মোডত ফ্লাশ্ব সমৰ্থিত নহয়</string>
   <!-- toast message for storage location switch -->
+  <string name="on_switch_save_path_to_sdcard">আভ্যন্তৰীণ ষ্ট\'ৰেজ পৰ্যাপ্ত নহয়, ষ্ট\'ৰেজ অৱস্থান কাৰ্ডলৈ পৰিৱৰ্তন কৰক</string>
   <!-- The message is shown in toast when click showOnMap Menu and there is no map app -->
+  <string name="map_activity_not_found_err">অৱস্থান দেখুৱাবলৈ মেপ এপ্প্ ইনষ্টল কৰা নাই</string>
   <!-- Continous shot enable message -->
+  <string name="longshot_enable_message">নিৰবিচ্ছিন্ন শ্বট মোডত উন্নত বৈশিষ্ট্যবোৰ সমৰ্থিত নহয়</string>
   <!-- Advance features enable message -->
+  <string name="advance_feature_enable_msg">উন্নত বৈশিষ্ট্য সক্ষম কৰিলে নিৰবিচ্ছিন্ন শ্বট মোড সমৰ্থিত নহয়</string>
   <!-- Toast after enable HDR function to inform continuous shot has disabled -->
+  <string name="HDR_disable_continuous_shot">HDR সক্ষম কৰিলে নিৰবিচ্ছিন্ন শ্বট মোড অক্ষম কৰিব</string>
   <!-- Toast after enable advanced capture function to inform continuous shot has disabled -->
+  <string name="advanced_capture_disable_continuous_shot">উন্নত কেপচাৰ সক্ষম কৰিলে নিৰবিচ্ছিন্ন শ্বট অক্ষম কৰিব</string>
   <!-- Toast after enable 2k4k video quality to inform IS has disabled -->
+  <string name="video_quality_4k_disable_IS">4k ভিডিঅ\' আকাৰ সক্ষম কৰিলে সুস্থিৰকৰণ অক্ষম কৰিব</string>
   <!-- Toast after 2k4k video is enabled to inform SeeMore has been disabled -->
+  <string name="video_quality_4k_disable_SeeMore">4k ভিডিঅ\'ৰ সময়ত অধিকচাওক সক্ষম কৰিব নোৱাৰি</string>
   <!-- TODO: Remove these? -->
 </resources>

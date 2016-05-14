@@ -25,7 +25,7 @@
   <string name="details_hms">%1$d:%2$02d:%3$02d</string>
   <!-- Displayed in the title of the dialog for things to do with a picture
              that is to be "set as" (e.g. set as contact photo or set as wallpaper) -->
-  <string name="set_image">Defineix la foto com a</string>
+  <string name="set_image">Estableix la foto com a</string>
   <!-- Details dialog "OK" button. Dismisses dialog. -->
   <string name="delete">Esborra</string>
   <!-- String Delete the selected media item(s) [CHAR LIMIT=50] -->
@@ -72,7 +72,7 @@
   <!-- The title of the menu item to let user trim the video. [CHAR LIMIT=15] -->
   <string name="trim_action">Retalla</string>
   <!-- The title of the menu item to let user set the image as background etc. [CHAR LIMIT=15] -->
-  <string name="set_as">Defineix com a</string>
+  <string name="set_as">Estableix com a</string>
   <!-- String indicating an error when playing the video. [CHAR LIMIT=30] -->
   <string name="video_err">No es pot reproduir el vídeo.</string>
   <!-- Toast message shown when the cropped image has been saved in the
@@ -304,7 +304,7 @@
   <!-- switch camera label front [CHAR LIMIT=60] -->
   <string name="pref_camera_id_label_front">CÀMERA POSTERIOR</string>
   <!-- Dialog "OK" button. Dismisses dialog. -->
-  <string name="dialog_ok">D\'acord</string>
+  <string name="dialog_ok">D\'ACORD</string>
   <!-- Low-memory dialog message [CHAR LIMIT=NONE] -->
   <string name="spaceIsLow_content" product="default">La targeta SD s\'està quedant sense espai. Canvia la configuració de qualitat o suprimeix unes quantes imatges o altres fitxers.</string>
   <!-- Camera format string for new image files. Passed to java.text.SimpleDateFormat. -->
@@ -391,9 +391,9 @@
 CHAR LIMIT = NONE] -->
   <string name="accessibility_review_retake">Revisa la nova presa</string>
   <!-- Default text for a button that can be toggled on and off. -->
-  <string name="capital_on">ACTIVA</string>
+  <string name="capital_on">SÍ</string>
   <!-- Default text for a button that can be toggled on and off. -->
-  <string name="capital_off">DESACTIVA</string>
+  <string name="capital_off">NO</string>
   <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
   <string name="pref_video_time_lapse_frame_interval_off">Desactivat</string>
   <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->

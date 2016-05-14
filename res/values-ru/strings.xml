@@ -174,7 +174,7 @@
   <string name="pref_camera_timer_title">Автоспуск</string>
   <!-- Entry for countdown timer setting. e.g. 1 second, 10 seconds, etc. [CHAR LIMIT=30]-->
   <plurals name="pref_camera_timer_entry">
-    <item quantity="one">1 сек.</item>
+    <item quantity="one">1 секунда</item>
     <item quantity="few">%d секунды</item>
     <item quantity="other">%d секунд</item>
   </plurals>

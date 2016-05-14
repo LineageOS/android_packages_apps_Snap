@@ -27,64 +27,242 @@
   <!-- Video quality setting entry. Videos will be recorded in QVGA quality. [CHAR LIMIT=24] -->
   <!-- Video quality setting entry. Videos will be recorded in QCIF quality. [CHAR LIMIT=24] -->
   <!-- Auto exposure -->
+  <string name="pref_camera_autoexposure_title">التعرض التلقائي</string>
+  <string name="pref_camera_autoexposure_entry_centerweighted">مركزي مرجح</string>
+  <string name="pref_camera_autoexposure_entry_frameaverage">متوسط الإطار</string>
+  <string name="pref_camera_autoexposure_entry_spotmetering">مقياس اللقطة</string>
   <!-- Video codec -->
+  <string name="pref_camera_videoencoder_title">برنامج ترميز الفيديو</string>
   <!-- Audio codec -->
+  <string name="pref_camera_audioencoder_title">برنامج ترميز صوتي</string>
   <!-- Skin tone enhancement -->
+  <string name="pref_camera_skinToneEnhancement_title">تعزيز درجة لون البشرة</string>
   <!-- Zero shutter lag-->
+  <string name="pref_camera_zsl_title">المدة الانتقالية للمصراع صفر</string>
   <!-- Autofocus zone -->
+  <string name="pref_camera_selectablezoneaf_title">منطقة التركيز التلقائية</string>
+  <string name="pref_camera_selectablezoneaf_entry_auto">تلقائي</string>
+  <string name="pref_camera_selectablezoneaf_entry_centerweighted">مركزي مرجح</string>
+  <string name="pref_camera_selectablezoneaf_entry_frameaverage">متوسط الإطار</string>
+  <string name="pref_camera_selectablezoneaf_entry_spotmetering">مقياس اللقطة</string>
   <!-- Advanced features -->
+  <string name="pref_camera_advanced_features_title">الإعدادات المتقدمة</string>
+  <string name="pref_camera_advanced_feature_entry_none">لا شيء</string>
+  <string name="pref_camera_advanced_feature_entry_multi_touch_focus">تركيز اللمس المتعدد</string>
   <!-- Manual exposure -->
+  <string name="pref_camera_manual_exp_title">التعرض اليدوي</string>
+  <string name="pref_camera_manual_exp_entry_ISO_priority">أولوية ISO</string>
+  <string name="pref_camera_manual_exp_entry_exptime_priority">أولوية وقت التعرض</string>
+  <string name="pref_camera_manual_exp_entry_user_setting">إعداد المستخدم</string>
+  <string name="pref_camera_manual_exp_entry_off">إيقاف تشغيل</string>
   <!-- Manual white balance -->
+  <string name="pref_camera_manual_wb_title">توازن اللون الأبيض يدوياً</string>
+  <string name="pref_camera_manual_wb_entry_color_temperature">درجة حرارة اللون</string>
+  <string name="pref_camera_manual_wb_entry_rbgb_gains">أرباح RBGB</string>
+  <string name="pref_camera_manual_wb_entry_off">إيقاف تشغيل</string>
   <!-- Manual focus -->
+  <string name="pref_camera_manual_focus_title">التركيز اليدوي</string>
+  <string name="pref_camera_manual_focus_entry_scale_mode">وضع المقياس</string>
+  <string name="pref_camera_manual_focus_entry_diopter_mode">وضع الديوبتر</string>
+  <string name="pref_camera_manual_focus_entry_off">إيقاف تشغيل</string>
   <!-- Video HDR-->
+  <string name="pref_camera_video_hdr_title">فيديو HDR</string>
   <!-- CDS mode-->
+  <string name="pref_camera_cds_title">وضع CDS</string>
+  <string name="pref_camera_cds_entry_auto">تلقائي</string>
   <!-- Video CDS-->
+  <string name="pref_camera_video_cds_title">وضع فيديو CDS</string>
+  <string name="pref_camera_video_cds_entry_auto">تلقائي</string>
   <!-- TNR-->
+  <string name="pref_camera_tnr_title">وضع TNR</string>
   <!-- Video TNR -->
+  <string name="pref_camera_video_tnr_title">وضع فيديو TNR</string>
   <!-- Face detection -->
+  <string name="pref_camera_facedetection_title">اكتشاف الوجه</string>
   <!-- Selfie Flash -->
+  <string name="pref_selfie_flash_title">فلاش سيلفي</string>
   <!-- Red eye reduction -->
+  <string name="pref_camera_redeyereduction_title">تقليل العين الحمراء</string>
   <!-- AE bracketing -->
+  <string name="pref_camera_ae_bracket_hdr_title">أقواس AE</string>
   <!-- High-framerate recording -->
+  <string name="pref_camera_hfr_title">تسجيل معدل الإطارات العليا</string>
+  <string name="pref_camera_hfr_entry_off">إيقاف تشغيل</string>
+  <string name="pref_camera_hfr_entry_2x">حركة بطيئة 60 إطار في الثانية</string>
+  <string name="pref_camera_hfr_entry_3x">حركة بطيئة 90 إطار في الثانية</string>
+  <string name="pref_camera_hfr_entry_4x">حركة بطيئة 120 إطار في الثانية</string>
+  <string name="pref_camera_hfr_entry_8x">حركة بطيئة 240 إطار في الثانية</string>
+  <string name="pref_camera_hfr_entry_hsr_60">سرعة عالية 60 إطار في الثانية</string>
+  <string name="pref_camera_hfr_entry_hsr_90">سرعة عالية 90 إطار في الثانية</string>
+  <string name="pref_camera_hfr_entry_hsr_120">سرعة عالية 120 إطار في الثانية</string>
   <!-- See More -->
   <!-- Denoise -->
+  <string name="pref_camera_denoise_title">التشويش</string>
   <!-- ISO -->
+  <string name="pref_camera_iso_title">ISO</string>
+  <string name="pref_camera_iso_entry_auto">تلقائي</string>
+  <string name="pref_camera_iso_entry_isodeblur">تلقائي (HJR)</string>
+  <string name="pref_camera_iso_entry_iso50">ISO50</string>
+  <string name="pref_camera_iso_entry_iso100">ISO100</string>
+  <string name="pref_camera_iso_entry_iso125">ISO125</string>
+  <string name="pref_camera_iso_entry_iso150">ISO150</string>
+  <string name="pref_camera_iso_entry_iso200">ISO200</string>
+  <string name="pref_camera_iso_entry_iso250">ISO250</string>
+  <string name="pref_camera_iso_entry_iso300">ISO300</string>
+  <string name="pref_camera_iso_entry_iso320">ISO320</string>
+  <string name="pref_camera_iso_entry_iso350">ISO350</string>
+  <string name="pref_camera_iso_entry_iso400">ISO400</string>
+  <string name="pref_camera_iso_entry_iso450">ISO450</string>
+  <string name="pref_camera_iso_entry_iso500">ISO500</string>
+  <string name="pref_camera_iso_entry_iso600">ISO600</string>
+  <string name="pref_camera_iso_entry_iso640">ISO640</string>
+  <string name="pref_camera_iso_entry_iso700">ISO700</string>
+  <string name="pref_camera_iso_entry_iso800">ISO800</string>
+  <string name="pref_camera_iso_entry_iso1000">ISO1000</string>
+  <string name="pref_camera_iso_entry_iso1200">ISO1200</string>
+  <string name="pref_camera_iso_entry_iso1250">ISO1250</string>
+  <string name="pref_camera_iso_entry_iso1500">ISO1500</string>
+  <string name="pref_camera_iso_entry_iso1600">ISO1600</string>
+  <string name="pref_camera_iso_entry_iso2000">ISO2000</string>
+  <string name="pref_camera_iso_entry_iso2500">ISO2500</string>
+  <string name="pref_camera_iso_entry_iso2700">ISO2700</string>
+  <string name="pref_camera_iso_entry_iso3200">ISO3200</string>
+  <string name="pref_camera_iso_entry_iso6400">ISO6400</string>
+  <string name="pref_camera_iso_entry_iso12800">ISO12800</string>
   <!-- Antibanding -->
+  <string name="pref_camera_antibanding_title">فك ارتباط</string>
+  <string name="pref_camera_antibanding_entry_0">تلقائي</string>
+  <string name="pref_camera_antibanding_entry_1">50 هرتز (أوروبا)</string>
+  <string name="pref_camera_antibanding_entry_2">60 هرتز (الولايات المتحدة الأمريكية)</string>
   <!-- Color effect -->
+  <string name="pref_camera_coloreffect_title">تأثير الألوان</string>
+  <string name="pref_camera_coloreffect_entry_none">لا شيء</string>
+  <string name="pref_camera_coloreffect_entry_mono">أُحادي</string>
+  <string name="pref_camera_coloreffect_entry_sepia">بني داكن</string>
+  <string name="pref_camera_coloreffect_entry_negative">سلبي</string>
   <!-- Color effect that overexposes and reverses some of the tones. -->
+  <string name="pref_camera_coloreffect_entry_solarize">تشميس</string>
+  <string name="pref_camera_coloreffect_entry_posterize">تتالي</string>
+  <string name="pref_camera_coloreffect_entry_aqua">أكوا</string>
+  <string name="pref_camera_coloreffect_entry_emboss">مزخرف</string>
+  <string name="pref_camera_coloreffect_entry_sketch">رسم</string>
+  <string name="pref_camera_coloreffect_entry_neon">نيون</string>
+  <string name="pref_camera_coloreffect_entry_pastel">قلم تلوين</string>
+  <string name="pref_camera_coloreffect_entry_mosaic">فسيفساء</string>
+  <string name="pref_camera_coloreffect_entry_redtint">صبغة حمراء</string>
+  <string name="pref_camera_coloreffect_entry_bluetint">صبغة زرقاء</string>
+  <string name="pref_camera_coloreffect_entry_greentint">صبغة خضراء</string>
   <!-- Stabilization -->
+  <string name="pref_camera_dis_title">تثبيت</string>
   <!-- Face recognition -->
+  <string name="pref_camera_facerc_title">التعرف على الوجه</string>
   <!-- Sharpness -->
+  <string name="pref_camera_sharpness_title">الحدة</string>
+  <string name="pref_camera_sharpness_entry_level0">المستوى 0</string>
+  <string name="pref_camera_sharpness_entry_level1">المستوى 1</string>
+  <string name="pref_camera_sharpness_entry_level2">المستوى 2 (افتراضي)</string>
+  <string name="pref_camera_sharpness_entry_level3">المستوى 3</string>
+  <string name="pref_camera_sharpness_entry_level4">المستوى 4</string>
+  <string name="pref_camera_sharpness_entry_level5">المستوى 5</string>
+  <string name="pref_camera_sharpness_entry_level6">المستوى 6</string>
   <!-- Contrast -->
+  <string name="pref_camera_contrast_title">التباين</string>
+  <string name="pref_camera_contrast_entry_level0">المستوى 0</string>
+  <string name="pref_camera_contrast_entry_level1">المستوى 1</string>
+  <string name="pref_camera_contrast_entry_level2">المستوى 2</string>
+  <string name="pref_camera_contrast_entry_level3">المستوى 3</string>
+  <string name="pref_camera_contrast_entry_level4">المستوى 4</string>
+  <string name="pref_camera_contrast_entry_level5">المستوى 5 (الافتراضي)</string>
+  <string name="pref_camera_contrast_entry_level6">المستوى 6</string>
+  <string name="pref_camera_contrast_entry_level7">المستوى 7</string>
+  <string name="pref_camera_contrast_entry_level8">المستوى 8</string>
+  <string name="pref_camera_contrast_entry_level9">المستوى 9</string>
+  <string name="pref_camera_contrast_entry_level10">المستوى 10</string>
   <!-- Saturation -->
+  <string name="pref_camera_saturation_title">التشبع</string>
+  <string name="pref_camera_saturation_entry_level0">المستوى 0</string>
+  <string name="pref_camera_saturation_entry_level1">المستوى 1</string>
+  <string name="pref_camera_saturation_entry_level2">المستوى 2</string>
+  <string name="pref_camera_saturation_entry_level3">المستوى 3</string>
+  <string name="pref_camera_saturation_entry_level4">المستوى 4</string>
+  <string name="pref_camera_saturation_entry_level5">المستوى 5 (الافتراضي)</string>
+  <string name="pref_camera_saturation_entry_level6">المستوى 6</string>
+  <string name="pref_camera_saturation_entry_level7">المستوى 7</string>
+  <string name="pref_camera_saturation_entry_level8">المستوى 8</string>
+  <string name="pref_camera_saturation_entry_level9">المستوى 9</string>
+  <string name="pref_camera_saturation_entry_level10">المستوى 10</string>
   <!-- Picture format -->
+  <string name="pref_camera_picture_format_title">تنسيق الصورة</string>
   <!-- Picture quality -->
+  <string name="pref_camera_jpegquality_title">جودة الصورة</string>
+  <string name="pref_camera_jpegquality_entry_0">55%</string>
+  <string name="pref_camera_jpegquality_entry_1">65% (عادي)</string>
+  <string name="pref_camera_jpegquality_entry_2">75% (جيد)</string>
+  <string name="pref_camera_jpegquality_entry_3">85% (جيد جدا)</string>
+  <string name="pref_camera_jpegquality_entry_4">95%</string>
+  <string name="pref_camera_jpegquality_entry_5">100%</string>
   <!-- Histogram -->
+  <string name="pref_camera_histogram_title">مدرج تكراري</string>
   <!-- Auto scene detection -->
+  <string name="pref_camera_scenedetect_title">الكشف التلقائي للمشهد</string>
   <!-- Continuous shot -->
+  <string name="pref_camera_longshot_title">لقطة مستمرة</string>
   <!-- Auto HDR -->
+  <string name="pref_camera_auto_hdr_title">HDR تلقائي</string>
   <!-- HDR mode -->
+  <string name="pref_camera_hdr_mode_title">وضع HDR</string>
+  <string name="pref_camera_hdr_mode_entry_sensor">HDR للمستشعر</string>
+  <string name="pref_camera_hdr_mode_entry_multi_frame">HDR للإطارات المتعددة</string>
   <!-- HDR needs 1x frame -->
+  <string name="pref_camera_hdr_need_1x_title">HDR يحتاج 1x إطار</string>
   <!-- Video rotation -->
+  <string name="pref_camera_video_rotation_title">تدوير الفيديو</string>
+  <string name="pref_camera_video_rotation_entry_0">0 درجة</string>
+  <string name="pref_camera_video_rotation_entry_90">90 درجة</string>
+  <string name="pref_camera_video_rotation_entry_180">180 درجة</string>
+  <string name="pref_camera_video_rotation_entry_270">270 درجة</string>
   <!-- Storage location -->
+  <string name="pref_camera_savepath_title">موقع التخزين</string>
+  <string name="pref_camera_savepath_entry_0">التخزين الداخلي</string>
+  <string name="pref_camera_savepath_entry_1">بطاقة SD</string>
   <!-- Misc -->
   <!-- The alias of CameraActivity for gesture operation -->
+  <string name="camera_gesture_title">تشغيل الكاميرا</string>
+  <string name="all_in_focus">كل شيء في التركيز</string>
+  <string name="refocus_toast">لإعادة تركيز الصورة الأخيرة، اضغط هنا</string>
   <!-- Toast messages -->
   <!-- The message is shown in toast when the app encounters an unsupported selection for High-framerate recording mode -->
+  <string name="error_app_unsupported_hfr_selection">تسجيل معدل الإطارات العليا غير معتمد عند استخدام التثبيت/الوقت الفاصل/HDR.</string>
   <!-- The message is shown in dialog when the app encounters an unsupported resolution for Slow motion mode -->
+  <string name="error_app_unsupported_hfr">وضع الحركة البطيئة غير معتمد لحجم الفيديو المحدد. حدد حجم فيديو أقل</string>
   <!-- The message is shown in toast when the app encounters an unsupported resolution for Stabilization mode -->
+  <string name="error_app_unsupported_dis">وضع الحركة البطيئة غير مدعم لحجم الفيديو المحدد. حدد حجم فيديو أقل</string>
   <!-- The message is shown in dialog when the app encounters an unsupported resolution for High speed mode -->
+  <string name="error_app_unsupported_hsr">وضع السرعة العالية غير مدعم لحجم الفيديو المحدد. حدد حجم فيديو أقل</string>
   <!-- The message is shown in dialog when the app encounters an unsupported video codec for HFR mode -->
+  <string name="error_app_unsupported_hfr_codec">فقط ترميز فيديو H264 غير مدعم عند تشغيل HFR</string>
   <!-- The message is shown in dialog when the app encounters an unsupported video resolution-->
+  <string name="error_app_unsupported">دقة الفيديو غير مدعمة لهذا النوع من الترميز</string>
   <!--The message is shown in dialog when the raw snapshot is selected in Zero shutter lag mode-->
+  <string name="error_app_unsupported_raw">تنسيق الصورة الأصلي غير مدعم في وضع المصراع صفر. حدد JPEG</string>
+  <string name="msg_cancel_longshot_for_limited_memory">نفاد الذاكرة، إلغاء اللقطة المستمرة</string>
   <!-- Toast showing non-supported functionality for flash in AE bracket -->
+  <string name="flash_aebracket_message">فلاش غير مدعم في وضع الأقواس AE</string>
   <!-- toast message for storage location switch -->
+  <string name="on_switch_save_path_to_sdcard">مساحة التخزين الداخلية غير كاف، تم تبديل موقع التخزين إلى بطاقة SD</string>
   <!-- The message is shown in toast when click showOnMap Menu and there is no map app -->
+  <string name="map_activity_not_found_err">لا يوجد تطبيق خرائط مثبت لإظهار الموقع</string>
   <!-- Continous shot enable message -->
+  <string name="longshot_enable_message">الميزات المتقدمة غير مدعمة في وضع اللقطة المستمرة</string>
   <!-- Advance features enable message -->
+  <string name="advance_feature_enable_msg">اللقطة المستمرة غير مدعمة عند تمكين الميزات المتقدمة</string>
   <!-- Toast after enable HDR function to inform continuous shot has disabled -->
+  <string name="HDR_disable_continuous_shot">تمكين HDR سيقوم بتعطيل اللقطة المستمرة</string>
   <!-- Toast after enable advanced capture function to inform continuous shot has disabled -->
+  <string name="advanced_capture_disable_continuous_shot">تمكين اللقطة المتقدمة سيؤدي إلى تعطيل اللقطة المستمرة</string>
   <!-- Toast after enable 2k4k video quality to inform IS has disabled -->
+  <string name="video_quality_4k_disable_IS">تمكين حجم فيديو 4 ك سيؤدي إلى تعطيل تحقيق الثبات</string>
   <!-- Toast after 2k4k video is enabled to inform SeeMore has been disabled -->
+  <string name="video_quality_4k_disable_SeeMore">لا يمكن تمكين SeeMore أثناء الفيديو 4ك</string>
   <!-- TODO: Remove these? -->
 </resources>

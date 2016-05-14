@@ -27,64 +27,242 @@
   <!-- Video quality setting entry. Videos will be recorded in QVGA quality. [CHAR LIMIT=24] -->
   <!-- Video quality setting entry. Videos will be recorded in QCIF quality. [CHAR LIMIT=24] -->
   <!-- Auto exposure -->
+  <string name="pref_camera_autoexposure_title">Auto-eksponering</string>
+  <string name="pref_camera_autoexposure_entry_centerweighted">Centermålt</string>
+  <string name="pref_camera_autoexposure_entry_frameaverage">Frame-gennemsnit</string>
+  <string name="pref_camera_autoexposure_entry_spotmetering">Spotmåling</string>
   <!-- Video codec -->
+  <string name="pref_camera_videoencoder_title">Video-codec</string>
   <!-- Audio codec -->
+  <string name="pref_camera_audioencoder_title">Lyd-codec</string>
   <!-- Skin tone enhancement -->
+  <string name="pref_camera_skinToneEnhancement_title">Hudfarveforbedring</string>
   <!-- Zero shutter lag-->
+  <string name="pref_camera_zsl_title">Ingen udløserforsinkelse</string>
   <!-- Autofocus zone -->
+  <string name="pref_camera_selectablezoneaf_title">Autofokus-zone</string>
+  <string name="pref_camera_selectablezoneaf_entry_auto">Auto</string>
+  <string name="pref_camera_selectablezoneaf_entry_centerweighted">Centermålt</string>
+  <string name="pref_camera_selectablezoneaf_entry_frameaverage">Frame-gennemsnit</string>
+  <string name="pref_camera_selectablezoneaf_entry_spotmetering">Spotmåling</string>
   <!-- Advanced features -->
+  <string name="pref_camera_advanced_features_title">Avancerede funktioner</string>
+  <string name="pref_camera_advanced_feature_entry_none">Ingen</string>
+  <string name="pref_camera_advanced_feature_entry_multi_touch_focus">Flertryksfokus</string>
   <!-- Manual exposure -->
+  <string name="pref_camera_manual_exp_title">Manuel eksponering</string>
+  <string name="pref_camera_manual_exp_entry_ISO_priority">ISO prioritet</string>
+  <string name="pref_camera_manual_exp_entry_exptime_priority">Eksponeringstid prioritet</string>
+  <string name="pref_camera_manual_exp_entry_user_setting">Brugerindstilling</string>
+  <string name="pref_camera_manual_exp_entry_off">Fra</string>
   <!-- Manual white balance -->
+  <string name="pref_camera_manual_wb_title">Manuel hvidbalance</string>
+  <string name="pref_camera_manual_wb_entry_color_temperature">Farvetemperatur</string>
+  <string name="pref_camera_manual_wb_entry_rbgb_gains">RGBG-forstærkning</string>
+  <string name="pref_camera_manual_wb_entry_off">Fra</string>
   <!-- Manual focus -->
+  <string name="pref_camera_manual_focus_title">Manuel fokus</string>
+  <string name="pref_camera_manual_focus_entry_scale_mode">Skaleringstilstand</string>
+  <string name="pref_camera_manual_focus_entry_diopter_mode">Diopter tilstand</string>
+  <string name="pref_camera_manual_focus_entry_off">Fra</string>
   <!-- Video HDR-->
+  <string name="pref_camera_video_hdr_title">Video-HDR</string>
   <!-- CDS mode-->
+  <string name="pref_camera_cds_title">CDS tilstand</string>
+  <string name="pref_camera_cds_entry_auto">Automatisk</string>
   <!-- Video CDS-->
+  <string name="pref_camera_video_cds_title">CDS-videotilstand</string>
+  <string name="pref_camera_video_cds_entry_auto">Automatisk</string>
   <!-- TNR-->
+  <string name="pref_camera_tnr_title">TNR tilstand</string>
   <!-- Video TNR -->
+  <string name="pref_camera_video_tnr_title">TNR-videotilstand</string>
   <!-- Face detection -->
+  <string name="pref_camera_facedetection_title">Ansigtsgenkendelse</string>
   <!-- Selfie Flash -->
+  <string name="pref_selfie_flash_title">Selfie blitz</string>
   <!-- Red eye reduction -->
+  <string name="pref_camera_redeyereduction_title">Rødøjereduktion</string>
   <!-- AE bracketing -->
+  <string name="pref_camera_ae_bracket_hdr_title">Autoeksponeringsrammer</string>
   <!-- High-framerate recording -->
+  <string name="pref_camera_hfr_title">Langsom gengivelse</string>
+  <string name="pref_camera_hfr_entry_off">Fra</string>
+  <string name="pref_camera_hfr_entry_2x">Langsom gengivelse 60 FPS</string>
+  <string name="pref_camera_hfr_entry_3x">Langsom gengivelse 90 FPS</string>
+  <string name="pref_camera_hfr_entry_4x">Langsom gengivelse 120 FPS</string>
+  <string name="pref_camera_hfr_entry_8x">Langsom gengivelse 240 FPS</string>
+  <string name="pref_camera_hfr_entry_hsr_60">Hurtig gengivelse 60 FPS</string>
+  <string name="pref_camera_hfr_entry_hsr_90">Hurtig gengivelse 90 FPS</string>
+  <string name="pref_camera_hfr_entry_hsr_120">Hurtig gengivelse 120 FPS</string>
   <!-- See More -->
   <!-- Denoise -->
+  <string name="pref_camera_denoise_title">Fjern støj</string>
   <!-- ISO -->
+  <string name="pref_camera_iso_title">ISO</string>
+  <string name="pref_camera_iso_entry_auto">Auto</string>
+  <string name="pref_camera_iso_entry_isodeblur">Auto (HJR)</string>
+  <string name="pref_camera_iso_entry_iso50">ISO50</string>
+  <string name="pref_camera_iso_entry_iso100">ISO100</string>
+  <string name="pref_camera_iso_entry_iso125">ISO125</string>
+  <string name="pref_camera_iso_entry_iso150">ISO150</string>
+  <string name="pref_camera_iso_entry_iso200">ISO200</string>
+  <string name="pref_camera_iso_entry_iso250">ISO250</string>
+  <string name="pref_camera_iso_entry_iso300">ISO300</string>
+  <string name="pref_camera_iso_entry_iso320">ISO320</string>
+  <string name="pref_camera_iso_entry_iso350">ISO350</string>
+  <string name="pref_camera_iso_entry_iso400">ISO400</string>
+  <string name="pref_camera_iso_entry_iso450">ISO450</string>
+  <string name="pref_camera_iso_entry_iso500">ISO500</string>
+  <string name="pref_camera_iso_entry_iso600">ISO600</string>
+  <string name="pref_camera_iso_entry_iso640">ISO640</string>
+  <string name="pref_camera_iso_entry_iso700">ISO700</string>
+  <string name="pref_camera_iso_entry_iso800">ISO800</string>
+  <string name="pref_camera_iso_entry_iso1000">ISO1000</string>
+  <string name="pref_camera_iso_entry_iso1200">ISO1200</string>
+  <string name="pref_camera_iso_entry_iso1250">ISO1250</string>
+  <string name="pref_camera_iso_entry_iso1500">ISO1500</string>
+  <string name="pref_camera_iso_entry_iso1600">ISO1600</string>
+  <string name="pref_camera_iso_entry_iso2000">ISO2000</string>
+  <string name="pref_camera_iso_entry_iso2500">ISO2500</string>
+  <string name="pref_camera_iso_entry_iso2700">ISO2700</string>
+  <string name="pref_camera_iso_entry_iso3200">ISO3200</string>
+  <string name="pref_camera_iso_entry_iso6400">ISO6400</string>
+  <string name="pref_camera_iso_entry_iso12800">ISO12800</string>
   <!-- Antibanding -->
+  <string name="pref_camera_antibanding_title">Antibanding</string>
+  <string name="pref_camera_antibanding_entry_0">Auto</string>
+  <string name="pref_camera_antibanding_entry_1">50 Hz (Europa)</string>
+  <string name="pref_camera_antibanding_entry_2">60 Hz (USA)</string>
   <!-- Color effect -->
+  <string name="pref_camera_coloreffect_title">Farveeffekt</string>
+  <string name="pref_camera_coloreffect_entry_none">Ingen</string>
+  <string name="pref_camera_coloreffect_entry_mono">Mono</string>
+  <string name="pref_camera_coloreffect_entry_sepia">Sepia</string>
+  <string name="pref_camera_coloreffect_entry_negative">Negativ</string>
   <!-- Color effect that overexposes and reverses some of the tones. -->
+  <string name="pref_camera_coloreffect_entry_solarize">Solarisér</string>
+  <string name="pref_camera_coloreffect_entry_posterize">Posteriśer</string>
+  <string name="pref_camera_coloreffect_entry_aqua">Vand</string>
+  <string name="pref_camera_coloreffect_entry_emboss">Relief</string>
+  <string name="pref_camera_coloreffect_entry_sketch">Skitse</string>
+  <string name="pref_camera_coloreffect_entry_neon">Neon</string>
+  <string name="pref_camera_coloreffect_entry_pastel">Pastel</string>
+  <string name="pref_camera_coloreffect_entry_mosaic">Mosaik</string>
+  <string name="pref_camera_coloreffect_entry_redtint">Rød toning</string>
+  <string name="pref_camera_coloreffect_entry_bluetint">Blå toning</string>
+  <string name="pref_camera_coloreffect_entry_greentint">Grøn toning</string>
   <!-- Stabilization -->
+  <string name="pref_camera_dis_title">Stabilisering</string>
   <!-- Face recognition -->
+  <string name="pref_camera_facerc_title">Ansigtsgenkendelse</string>
   <!-- Sharpness -->
+  <string name="pref_camera_sharpness_title">Skarphed</string>
+  <string name="pref_camera_sharpness_entry_level0">Niveau 0</string>
+  <string name="pref_camera_sharpness_entry_level1">Niveau 1</string>
+  <string name="pref_camera_sharpness_entry_level2">Niveau 2 (standard)</string>
+  <string name="pref_camera_sharpness_entry_level3">Niveau 3</string>
+  <string name="pref_camera_sharpness_entry_level4">Niveau 4</string>
+  <string name="pref_camera_sharpness_entry_level5">Niveau 5</string>
+  <string name="pref_camera_sharpness_entry_level6">Niveau 6</string>
   <!-- Contrast -->
+  <string name="pref_camera_contrast_title">Kontrast</string>
+  <string name="pref_camera_contrast_entry_level0">Niveau 0</string>
+  <string name="pref_camera_contrast_entry_level1">Niveau 1</string>
+  <string name="pref_camera_contrast_entry_level2">Niveau 2</string>
+  <string name="pref_camera_contrast_entry_level3">Niveau 3</string>
+  <string name="pref_camera_contrast_entry_level4">Niveau 4</string>
+  <string name="pref_camera_contrast_entry_level5">Niveau 5 (standard)</string>
+  <string name="pref_camera_contrast_entry_level6">Niveau 6</string>
+  <string name="pref_camera_contrast_entry_level7">Niveau 7</string>
+  <string name="pref_camera_contrast_entry_level8">Niveau 8</string>
+  <string name="pref_camera_contrast_entry_level9">Niveau 9</string>
+  <string name="pref_camera_contrast_entry_level10">Niveau 10</string>
   <!-- Saturation -->
+  <string name="pref_camera_saturation_title">Farvemætning</string>
+  <string name="pref_camera_saturation_entry_level0">Niveau 0</string>
+  <string name="pref_camera_saturation_entry_level1">Niveau 1</string>
+  <string name="pref_camera_saturation_entry_level2">Niveau 2</string>
+  <string name="pref_camera_saturation_entry_level3">Niveau 3</string>
+  <string name="pref_camera_saturation_entry_level4">Niveau 4</string>
+  <string name="pref_camera_saturation_entry_level5">Niveau 5 (standard)</string>
+  <string name="pref_camera_saturation_entry_level6">Niveau 6</string>
+  <string name="pref_camera_saturation_entry_level7">Niveau 7</string>
+  <string name="pref_camera_saturation_entry_level8">Niveau 8</string>
+  <string name="pref_camera_saturation_entry_level9">Niveau 9</string>
+  <string name="pref_camera_saturation_entry_level10">Niveau 10</string>
   <!-- Picture format -->
+  <string name="pref_camera_picture_format_title">Billedformat</string>
   <!-- Picture quality -->
+  <string name="pref_camera_jpegquality_title">Billedkvalitet</string>
+  <string name="pref_camera_jpegquality_entry_0">55%</string>
+  <string name="pref_camera_jpegquality_entry_1">65% (normal)</string>
+  <string name="pref_camera_jpegquality_entry_2">75% (fin)</string>
+  <string name="pref_camera_jpegquality_entry_3">85% (super fin)</string>
+  <string name="pref_camera_jpegquality_entry_4">95%</string>
+  <string name="pref_camera_jpegquality_entry_5">100%</string>
   <!-- Histogram -->
+  <string name="pref_camera_histogram_title">Histogram</string>
   <!-- Auto scene detection -->
+  <string name="pref_camera_scenedetect_title">Automatisk scenegenkendelse</string>
   <!-- Continuous shot -->
+  <string name="pref_camera_longshot_title">Kontinuerlig optagelse</string>
   <!-- Auto HDR -->
+  <string name="pref_camera_auto_hdr_title">Auto HDR</string>
   <!-- HDR mode -->
+  <string name="pref_camera_hdr_mode_title">HDR tilstand</string>
+  <string name="pref_camera_hdr_mode_entry_sensor">HDR sensor</string>
+  <string name="pref_camera_hdr_mode_entry_multi_frame">Multi-billed HDR</string>
   <!-- HDR needs 1x frame -->
+  <string name="pref_camera_hdr_need_1x_title">HDR skal bruge 1xbillede</string>
   <!-- Video rotation -->
+  <string name="pref_camera_video_rotation_title">Video rotation</string>
+  <string name="pref_camera_video_rotation_entry_0">0 grader</string>
+  <string name="pref_camera_video_rotation_entry_90">90 grader</string>
+  <string name="pref_camera_video_rotation_entry_180">180 grader</string>
+  <string name="pref_camera_video_rotation_entry_270">270 grader</string>
   <!-- Storage location -->
+  <string name="pref_camera_savepath_title">Lagerplacering</string>
+  <string name="pref_camera_savepath_entry_0">Internt lager</string>
+  <string name="pref_camera_savepath_entry_1">SD-kort</string>
   <!-- Misc -->
   <!-- The alias of CameraActivity for gesture operation -->
+  <string name="camera_gesture_title">Start kamera</string>
+  <string name="all_in_focus">Alt i fokus</string>
+  <string name="refocus_toast">Tryk her, for at fokusere på sidste billede igen</string>
   <!-- Toast messages -->
   <!-- The message is shown in toast when the app encounters an unsupported selection for High-framerate recording mode -->
+  <string name="error_app_unsupported_hfr_selection">Optagelse med høj billedfrekvens er ikke understøttet under Stabilisering/Tidsforløb/HDR.</string>
   <!-- The message is shown in dialog when the app encounters an unsupported resolution for Slow motion mode -->
+  <string name="error_app_unsupported_hfr">Langsom gengivelse af video er ikke understøttet for den valgte opløsning. Vælg en lavere opløsning</string>
   <!-- The message is shown in toast when the app encounters an unsupported resolution for Stabilization mode -->
+  <string name="error_app_unsupported_dis">Stabilisering er ikke understøttet for den valgte opløsning. Vælg en lavere opløsning</string>
   <!-- The message is shown in dialog when the app encounters an unsupported resolution for High speed mode -->
+  <string name="error_app_unsupported_hsr">Hurtig gengivelse af video er ikke understøttet for den valgte opløsning. Vælg en lavere opløsning</string>
   <!-- The message is shown in dialog when the app encounters an unsupported video codec for HFR mode -->
+  <string name="error_app_unsupported_hfr_codec">Kun H264 videoindkodning er understøttet når HFR er slået til</string>
   <!-- The message is shown in dialog when the app encounters an unsupported video resolution-->
+  <string name="error_app_unsupported">Ikke understøttet videoopløsning for denne codectype</string>
   <!--The message is shown in dialog when the raw snapshot is selected in Zero shutter lag mode-->
+  <string name="error_app_unsupported_raw">RAW billedformatet er ikke understøttet i tilstanden Ingen lukkertid. Vælg JPEG</string>
+  <string name="msg_cancel_longshot_for_limited_memory">Hukommelsen er ved at løbe ud, afbryder kontinuerlig optagelse</string>
   <!-- Toast showing non-supported functionality for flash in AE bracket -->
+  <string name="flash_aebracket_message">Blitz er ikke understøttet i tilstanden Autoeksponeringsrammer</string>
   <!-- toast message for storage location switch -->
+  <string name="on_switch_save_path_to_sdcard">Der er ikke nok intern lagerplads, skiftede lagerplacering til SD-kort</string>
   <!-- The message is shown in toast when click showOnMap Menu and there is no map app -->
+  <string name="map_activity_not_found_err">Der er ikke installeret en kort-app til at vise placeringen</string>
   <!-- Continous shot enable message -->
+  <string name="longshot_enable_message">Avancerede funktioner understøttes ikke i tilstanden kontinuerlig optagelse</string>
   <!-- Advance features enable message -->
+  <string name="advance_feature_enable_msg">Kontinuerlig optagelse understøttes ikke når avancerede funktioner er aktiveret</string>
   <!-- Toast after enable HDR function to inform continuous shot has disabled -->
+  <string name="HDR_disable_continuous_shot">Aktivering af HDR vil deaktivere kontinuerlig optagelse</string>
   <!-- Toast after enable advanced capture function to inform continuous shot has disabled -->
+  <string name="advanced_capture_disable_continuous_shot">Aktivering af avanceret optagelse vil deaktivere kontinuerlig optagelse</string>
   <!-- Toast after enable 2k4k video quality to inform IS has disabled -->
+  <string name="video_quality_4k_disable_IS">Aktivering af 4k videostørrelse vil deaktivere stabilisering</string>
   <!-- Toast after 2k4k video is enabled to inform SeeMore has been disabled -->
+  <string name="video_quality_4k_disable_SeeMore">SeeMore kan ikke aktiveres under 4k video</string>
   <!-- TODO: Remove these? -->
 </resources>
