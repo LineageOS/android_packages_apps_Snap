@@ -141,7 +141,7 @@
   <!-- message for the dialog showing the error of camera hardware -->
   <string name="cannot_connect_camera">Não é possível conectar à câmera.</string>
   <!-- message for the dialog showing the camera is disabled because of security policies. Camera cannot be used. -->
-  <string name="camera_disabled">A câmera foi desativada devido às políticas de segurança.</string>
+  <string name="camera_disabled">Câmera desativada devido às políticas de segurança.</string>
   <!-- alert to the user to wait for some operation to complete -->
   <string name="wait">Aguarde\u2026</string>
   <!-- alert to the user that an SD card must be installed before using the camera -->
@@ -151,13 +151,13 @@
   <!-- alert to the user that the camera fails to read or write the SD card. -->
   <string name="access_sd_fail" product="default">Não foi possível acessar o cartão SD.</string>
   <!-- A label that overlays on top of the preview frame to indicate the camcorder is in time lapse mode [CHAR LIMIT=35] -->
-  <string name="time_lapse_title">Gravação de passagem de tempo</string>
+  <string name="time_lapse_title">Gravação de timelapse</string>
   <!-- Screen display message during image capture to indicate that the capture is in progress, like during HDR+. [CHAR LIMIT=20] -->
   <string name="capturing">Capturando</string>
   <!-- Settings screen, camera selection dialog title. Users can select a camera from the phone (front-facing or back-facing). [CHAR LIMIT=20] -->
   <string name="pref_camera_id_title">Escolher câmera</string>
   <!-- In select camera setting, back facing camera. [CHAR LIMIT=14] -->
-  <string name="pref_camera_id_entry_back">Trazeira</string>
+  <string name="pref_camera_id_entry_back">Traseira</string>
   <!-- In select camera setting, front-facing camera. [CHAR LIMIT=14] -->
   <string name="pref_camera_id_entry_front">Frontal</string>
   <!-- Settings screen, setting title text -->
@@ -280,7 +280,7 @@
   <!-- Scene mode optimized for taking indoor low-lights pictures. [CHAR LIMIT=50] -->
   <string name="pref_camera_scenemode_label_party">FESTA</string>
   <!-- Settings menu countdown timer off [CHAR LIMIT=50] -->
-  <string name="pref_camera_countdown_label_off">TEMPORIZADOR DESLIGADO</string>
+  <string name="pref_camera_countdown_label_off">TIMER DESLIGADO</string>
   <!-- Settings menu countdown timer 1 second [CHAR LIMIT=50] -->
   <string name="pref_camera_countdown_label_one">1 SEGUNDO</string>
   <!-- Settings menu countdown timer 3 seconds [CHAR LIMIT=50] -->
@@ -304,7 +304,7 @@
   <!-- switch camera label front [CHAR LIMIT=60] -->
   <string name="pref_camera_id_label_front">CÂMERA TRASEIRA</string>
   <!-- Dialog "OK" button. Dismisses dialog. -->
-  <string name="dialog_ok">Ok</string>
+  <string name="dialog_ok">OK</string>
   <!-- Low-memory dialog message [CHAR LIMIT=NONE] -->
   <string name="spaceIsLow_content" product="default">Seu cartão SD está sem espaço. Altere a configuração de qualidade ou exclua algumas imagens ou outros arquivos.</string>
   <!-- Camera format string for new image files. Passed to java.text.SimpleDateFormat. -->
@@ -507,7 +507,7 @@ CHAR LIMIT = NONE] -->
   <!-- Button to press for creating a tiny planet image. [CHAR LIMIT = 30] -->
   <string name="create_tiny_planet">Criar planetinha</string>
   <!-- Message shown while a tiny planet image is being saved. [CHAR LIMIT = 30] -->
-  <string name="saving_tiny_planet">Salvando planetinha\2026</string>
+  <string name="saving_tiny_planet">Salvando planetinha&#8230;</string>
   <!-- Label above a slider that let's the user set the zoom of a tiny planet image. [CHAR LIMIT = 15] -->
   <string name="tiny_planet_zoom">Zoom</string>
   <!-- Label above a slider that let's the user set the rotation of a tiny planet image. [CHAR LIMIT = 15] -->

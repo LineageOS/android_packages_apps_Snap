@@ -28,7 +28,7 @@
   <!-- Video quality setting entry. Videos will be recorded in QCIF quality. [CHAR LIMIT=24] -->
   <!-- Auto exposure -->
   <string name="pref_camera_autoexposure_title">Exposição automática</string>
-  <string name="pref_camera_autoexposure_entry_centerweighted">Ponderada central</string>
+  <string name="pref_camera_autoexposure_entry_centerweighted">Medição central</string>
   <string name="pref_camera_autoexposure_entry_frameaverage">Média de frames</string>
   <string name="pref_camera_autoexposure_entry_spotmetering">Medição pontual</string>
   <!-- Video codec -->
@@ -36,13 +36,13 @@
   <!-- Audio codec -->
   <string name="pref_camera_audioencoder_title">Codec de áudio</string>
   <!-- Skin tone enhancement -->
-  <string name="pref_camera_skinToneEnhancement_title">Melhoria do tom da pele</string>
+  <string name="pref_camera_skinToneEnhancement_title">Aprimorar tom da pele</string>
   <!-- Zero shutter lag-->
   <string name="pref_camera_zsl_title">Eliminar atraso do disparador</string>
   <!-- Autofocus zone -->
   <string name="pref_camera_selectablezoneaf_title">Zona de auto-foco</string>
   <string name="pref_camera_selectablezoneaf_entry_auto">Automático</string>
-  <string name="pref_camera_selectablezoneaf_entry_centerweighted">Ponderada central</string>
+  <string name="pref_camera_selectablezoneaf_entry_centerweighted">Medição central</string>
   <string name="pref_camera_selectablezoneaf_entry_frameaverage">Média de frames</string>
   <string name="pref_camera_selectablezoneaf_entry_spotmetering">Medição pontual</string>
   <!-- Advanced features -->
@@ -51,7 +51,7 @@
   <string name="pref_camera_advanced_feature_entry_multi_touch_focus">Foco multi-toque</string>
   <!-- Manual exposure -->
   <string name="pref_camera_manual_exp_title">Exposição manual</string>
-  <string name="pref_camera_manual_exp_entry_ISO_priority">Prioridade ISO</string>
+  <string name="pref_camera_manual_exp_entry_ISO_priority">Prioridade de ISO</string>
   <string name="pref_camera_manual_exp_entry_exptime_priority">Prioridade de tempo de exposição</string>
   <string name="pref_camera_manual_exp_entry_user_setting">Configuração do usuário</string>
   <string name="pref_camera_manual_exp_entry_off">Desl.</string>
@@ -135,14 +135,14 @@
   <string name="pref_camera_antibanding_entry_1">50 Hz (Europa)</string>
   <string name="pref_camera_antibanding_entry_2">60 Hz (EUA)</string>
   <!-- Color effect -->
-  <string name="pref_camera_coloreffect_title">Effeito de cor</string>
+  <string name="pref_camera_coloreffect_title">Efeito de cor</string>
   <string name="pref_camera_coloreffect_entry_none">Nenhum</string>
   <string name="pref_camera_coloreffect_entry_mono">Monocromático</string>
   <string name="pref_camera_coloreffect_entry_sepia">Sépia</string>
   <string name="pref_camera_coloreffect_entry_negative">Negativo</string>
   <!-- Color effect that overexposes and reverses some of the tones. -->
   <string name="pref_camera_coloreffect_entry_solarize">Solarizar</string>
-  <string name="pref_camera_coloreffect_entry_posterize">Posterizar</string>
+  <string name="pref_camera_coloreffect_entry_posterize">Pôster</string>
   <string name="pref_camera_coloreffect_entry_aqua">Água</string>
   <string name="pref_camera_coloreffect_entry_emboss">Alto-relevo</string>
   <string name="pref_camera_coloreffect_entry_sketch">Rascunho</string>
@@ -214,7 +214,7 @@
   <string name="pref_camera_hdr_mode_entry_sensor">Sensor de HDR</string>
   <string name="pref_camera_hdr_mode_entry_multi_frame">HDR multi-quadros</string>
   <!-- HDR needs 1x frame -->
-  <string name="pref_camera_hdr_need_1x_title">HDR precisa de 1x quadro</string>
+  <string name="pref_camera_hdr_need_1x_title">HDR precisa de quadro 1x</string>
   <!-- Video rotation -->
   <string name="pref_camera_video_rotation_title">Rotação de vídeo</string>
   <string name="pref_camera_video_rotation_entry_0">0 grau</string>
@@ -251,7 +251,7 @@
   <!-- toast message for storage location switch -->
   <string name="on_switch_save_path_to_sdcard">Não há espaço no armazenamento interno, mudando o local de armazenamento para cartão SD</string>
   <!-- The message is shown in toast when click showOnMap Menu and there is no map app -->
-  <string name="map_activity_not_found_err">Não há nenhum app de mapas instalado para visualizar a localização</string>
+  <string name="map_activity_not_found_err">Não há aplicativo de mapas instalado para mostrar o local</string>
   <!-- Continous shot enable message -->
   <string name="longshot_enable_message">Recursos avançados não são suportados no modo de disparo contínuo</string>
   <!-- Advance features enable message -->

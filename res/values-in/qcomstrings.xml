@@ -27,64 +27,242 @@
   <!-- Video quality setting entry. Videos will be recorded in QVGA quality. [CHAR LIMIT=24] -->
   <!-- Video quality setting entry. Videos will be recorded in QCIF quality. [CHAR LIMIT=24] -->
   <!-- Auto exposure -->
+  <string name="pref_camera_autoexposure_title">Pencahayaan secara otomatis</string>
+  <string name="pref_camera_autoexposure_entry_centerweighted">Pusat tertimbang</string>
+  <string name="pref_camera_autoexposure_entry_frameaverage">Rata-rata bingkai</string>
+  <string name="pref_camera_autoexposure_entry_spotmetering">Pengukuran spot</string>
   <!-- Video codec -->
+  <string name="pref_camera_videoencoder_title">Kodek video</string>
   <!-- Audio codec -->
+  <string name="pref_camera_audioencoder_title">Kodek audio</string>
   <!-- Skin tone enhancement -->
+  <string name="pref_camera_skinToneEnhancement_title">Perbaikan warna kulit</string>
   <!-- Zero shutter lag-->
+  <string name="pref_camera_zsl_title">Rana tanpa jeda</string>
   <!-- Autofocus zone -->
+  <string name="pref_camera_selectablezoneaf_title">Wilayah fokus-otomatis</string>
+  <string name="pref_camera_selectablezoneaf_entry_auto">Secara otomatis</string>
+  <string name="pref_camera_selectablezoneaf_entry_centerweighted">Pusat tertimbang</string>
+  <string name="pref_camera_selectablezoneaf_entry_frameaverage">Rata-rata bingkai</string>
+  <string name="pref_camera_selectablezoneaf_entry_spotmetering">Pengukuran titik</string>
   <!-- Advanced features -->
+  <string name="pref_camera_advanced_features_title">Tampilan yang canggih</string>
+  <string name="pref_camera_advanced_feature_entry_none">Tidak ada</string>
+  <string name="pref_camera_advanced_feature_entry_multi_touch_focus">Fokus Multi-touch</string>
   <!-- Manual exposure -->
+  <string name="pref_camera_manual_exp_title">Pencahayaan manual</string>
+  <string name="pref_camera_manual_exp_entry_ISO_priority">Prioritas ISO</string>
+  <string name="pref_camera_manual_exp_entry_exptime_priority">Prioritas waktu pencahayaan</string>
+  <string name="pref_camera_manual_exp_entry_user_setting">Pengaturan pada pengguna</string>
+  <string name="pref_camera_manual_exp_entry_off">Tidak aktif</string>
   <!-- Manual white balance -->
+  <string name="pref_camera_manual_wb_title">Keseimbangan putih manual</string>
+  <string name="pref_camera_manual_wb_entry_color_temperature">Suhu pada warna</string>
+  <string name="pref_camera_manual_wb_entry_rbgb_gains">Dapatkan RBGB</string>
+  <string name="pref_camera_manual_wb_entry_off">Tidak aktif</string>
   <!-- Manual focus -->
+  <string name="pref_camera_manual_focus_title">Fokus manual</string>
+  <string name="pref_camera_manual_focus_entry_scale_mode">Modus skala</string>
+  <string name="pref_camera_manual_focus_entry_diopter_mode">Modus Diopter</string>
+  <string name="pref_camera_manual_focus_entry_off">Tidak aktif</string>
   <!-- Video HDR-->
+  <string name="pref_camera_video_hdr_title">Video HDR</string>
   <!-- CDS mode-->
+  <string name="pref_camera_cds_title">Modus CDS</string>
+  <string name="pref_camera_cds_entry_auto">Secara otomatis</string>
   <!-- Video CDS-->
+  <string name="pref_camera_video_cds_title">Modus video CDS</string>
+  <string name="pref_camera_video_cds_entry_auto">Secara otomatis</string>
   <!-- TNR-->
+  <string name="pref_camera_tnr_title">Modus TNR</string>
   <!-- Video TNR -->
+  <string name="pref_camera_video_tnr_title">Modus Video TNR</string>
   <!-- Face detection -->
+  <string name="pref_camera_facedetection_title">Deteksi wajah</string>
   <!-- Selfie Flash -->
+  <string name="pref_selfie_flash_title">Lampu kilat swafoto</string>
   <!-- Red eye reduction -->
+  <string name="pref_camera_redeyereduction_title">Penurunan mata merah</string>
   <!-- AE bracketing -->
+  <string name="pref_camera_ae_bracket_hdr_title">Pendekapan Dedahan Automatik</string>
   <!-- High-framerate recording -->
+  <string name="pref_camera_hfr_title">Perekaman tinggi framerate</string>
+  <string name="pref_camera_hfr_entry_off">Tidak aktif</string>
+  <string name="pref_camera_hfr_entry_2x">Gerakan lambat 60 FPS</string>
+  <string name="pref_camera_hfr_entry_3x">Gerakan lambat 90 FPS</string>
+  <string name="pref_camera_hfr_entry_4x">Gerakan lambat 120 FPS</string>
+  <string name="pref_camera_hfr_entry_8x">Gerakan lambat 240 FPS</string>
+  <string name="pref_camera_hfr_entry_hsr_60">Kecepatan tinggi 60 FPS</string>
+  <string name="pref_camera_hfr_entry_hsr_90">Kecepatan tinggi 90 FPS</string>
+  <string name="pref_camera_hfr_entry_hsr_120">Kecepatan tinggi 120 FPS</string>
   <!-- See More -->
   <!-- Denoise -->
+  <string name="pref_camera_denoise_title">Pengurangan Kebisingan</string>
   <!-- ISO -->
+  <string name="pref_camera_iso_title">ISO</string>
+  <string name="pref_camera_iso_entry_auto">Secara otomatis</string>
+  <string name="pref_camera_iso_entry_isodeblur">Otomatis (HJR)</string>
+  <string name="pref_camera_iso_entry_iso50">ISO50</string>
+  <string name="pref_camera_iso_entry_iso100">ISO100</string>
+  <string name="pref_camera_iso_entry_iso125">ISO125</string>
+  <string name="pref_camera_iso_entry_iso150">ISO150</string>
+  <string name="pref_camera_iso_entry_iso200">ISO200</string>
+  <string name="pref_camera_iso_entry_iso250">ISO250</string>
+  <string name="pref_camera_iso_entry_iso300">ISO300</string>
+  <string name="pref_camera_iso_entry_iso320">ISO320</string>
+  <string name="pref_camera_iso_entry_iso350">ISO350</string>
+  <string name="pref_camera_iso_entry_iso400">ISO400</string>
+  <string name="pref_camera_iso_entry_iso450">ISO450</string>
+  <string name="pref_camera_iso_entry_iso500">ISO500</string>
+  <string name="pref_camera_iso_entry_iso600">ISO600</string>
+  <string name="pref_camera_iso_entry_iso640">ISO640</string>
+  <string name="pref_camera_iso_entry_iso700">ISO700</string>
+  <string name="pref_camera_iso_entry_iso800">ISO800</string>
+  <string name="pref_camera_iso_entry_iso1000">ISO1000</string>
+  <string name="pref_camera_iso_entry_iso1200">ISO1200</string>
+  <string name="pref_camera_iso_entry_iso1250">ISO1250</string>
+  <string name="pref_camera_iso_entry_iso1500">ISO1500</string>
+  <string name="pref_camera_iso_entry_iso1600">ISO1600</string>
+  <string name="pref_camera_iso_entry_iso2000">IS02000</string>
+  <string name="pref_camera_iso_entry_iso2500">ISO2500</string>
+  <string name="pref_camera_iso_entry_iso2700">ISO2700</string>
+  <string name="pref_camera_iso_entry_iso3200">ISO3200</string>
+  <string name="pref_camera_iso_entry_iso6400">ISO6400</string>
+  <string name="pref_camera_iso_entry_iso12800">ISO12800</string>
   <!-- Antibanding -->
+  <string name="pref_camera_antibanding_title">Antibanding</string>
+  <string name="pref_camera_antibanding_entry_0">Secara otomatis</string>
+  <string name="pref_camera_antibanding_entry_1">50 Hz (Eropa)</string>
+  <string name="pref_camera_antibanding_entry_2">60 HZ (Amerika Serikat)</string>
   <!-- Color effect -->
+  <string name="pref_camera_coloreffect_title">Pengaruh pada warna</string>
+  <string name="pref_camera_coloreffect_entry_none">Tidak ada satupun</string>
+  <string name="pref_camera_coloreffect_entry_mono">Satu</string>
+  <string name="pref_camera_coloreffect_entry_sepia">Sepia</string>
+  <string name="pref_camera_coloreffect_entry_negative">Negatif</string>
   <!-- Color effect that overexposes and reverses some of the tones. -->
+  <string name="pref_camera_coloreffect_entry_solarize">Matahari</string>
+  <string name="pref_camera_coloreffect_entry_posterize">Posterisasi</string>
+  <string name="pref_camera_coloreffect_entry_aqua">Aqua</string>
+  <string name="pref_camera_coloreffect_entry_emboss">Menatah</string>
+  <string name="pref_camera_coloreffect_entry_sketch">Sketsa</string>
+  <string name="pref_camera_coloreffect_entry_neon">Neon</string>
+  <string name="pref_camera_coloreffect_entry_pastel">Pastel</string>
+  <string name="pref_camera_coloreffect_entry_mosaic">Kepingan batu</string>
+  <string name="pref_camera_coloreffect_entry_redtint">Warna merah</string>
+  <string name="pref_camera_coloreffect_entry_bluetint">Warna biru</string>
+  <string name="pref_camera_coloreffect_entry_greentint">Warna hijau</string>
   <!-- Stabilization -->
+  <string name="pref_camera_dis_title">Proses penetapan</string>
   <!-- Face recognition -->
+  <string name="pref_camera_facerc_title">Pengenalan wajah</string>
   <!-- Sharpness -->
+  <string name="pref_camera_sharpness_title">Ketajaman</string>
+  <string name="pref_camera_sharpness_entry_level0">Tingkat 0</string>
+  <string name="pref_camera_sharpness_entry_level1">Tingkat 1</string>
+  <string name="pref_camera_sharpness_entry_level2">Tingkat 2 (baku)</string>
+  <string name="pref_camera_sharpness_entry_level3">Tingkat 3</string>
+  <string name="pref_camera_sharpness_entry_level4">Tingkat 4</string>
+  <string name="pref_camera_sharpness_entry_level5">Tingkat 5</string>
+  <string name="pref_camera_sharpness_entry_level6">Tingkat 6</string>
   <!-- Contrast -->
+  <string name="pref_camera_contrast_title">Perbedaan</string>
+  <string name="pref_camera_contrast_entry_level0">Tingkat 0</string>
+  <string name="pref_camera_contrast_entry_level1">Tingkat 1</string>
+  <string name="pref_camera_contrast_entry_level2">Tingkat 2</string>
+  <string name="pref_camera_contrast_entry_level3">Tingkat 3</string>
+  <string name="pref_camera_contrast_entry_level4">Tingkat 4</string>
+  <string name="pref_camera_contrast_entry_level5">Tingkat 5 (baku)</string>
+  <string name="pref_camera_contrast_entry_level6">Tingkat 6</string>
+  <string name="pref_camera_contrast_entry_level7">Tingkat 7</string>
+  <string name="pref_camera_contrast_entry_level8">Tingkat 8</string>
+  <string name="pref_camera_contrast_entry_level9">Tingkat 9</string>
+  <string name="pref_camera_contrast_entry_level10">Tingkat 10</string>
   <!-- Saturation -->
+  <string name="pref_camera_saturation_title">Kejenuhan</string>
+  <string name="pref_camera_saturation_entry_level0">Tingkat 0</string>
+  <string name="pref_camera_saturation_entry_level1">Tingkat 1</string>
+  <string name="pref_camera_saturation_entry_level2">Tingkat 2</string>
+  <string name="pref_camera_saturation_entry_level3">Tingkat 3</string>
+  <string name="pref_camera_saturation_entry_level4">Tingkat 4</string>
+  <string name="pref_camera_saturation_entry_level5">Tingkat 5 (Gagal)</string>
+  <string name="pref_camera_saturation_entry_level6">Tingkat 6</string>
+  <string name="pref_camera_saturation_entry_level7">Tingkat 7</string>
+  <string name="pref_camera_saturation_entry_level8">Tingkat 8</string>
+  <string name="pref_camera_saturation_entry_level9">Tingkat 9</string>
+  <string name="pref_camera_saturation_entry_level10">Tingkat 10</string>
   <!-- Picture format -->
+  <string name="pref_camera_picture_format_title">Bentuk gambar</string>
   <!-- Picture quality -->
+  <string name="pref_camera_jpegquality_title">Mutu gambar</string>
+  <string name="pref_camera_jpegquality_entry_0">55 persen</string>
+  <string name="pref_camera_jpegquality_entry_1">65 persen (normal)</string>
+  <string name="pref_camera_jpegquality_entry_2">75% (baik)</string>
+  <string name="pref_camera_jpegquality_entry_3">85% (sangat baik)</string>
+  <string name="pref_camera_jpegquality_entry_4">95%</string>
+  <string name="pref_camera_jpegquality_entry_5">100%</string>
   <!-- Histogram -->
+  <string name="pref_camera_histogram_title">Histogram</string>
   <!-- Auto scene detection -->
+  <string name="pref_camera_scenedetect_title">Deteksi Adegan secara Otomatis</string>
   <!-- Continuous shot -->
+  <string name="pref_camera_longshot_title">Tembakan terus menerus</string>
   <!-- Auto HDR -->
+  <string name="pref_camera_auto_hdr_title">HDR Otomatis</string>
   <!-- HDR mode -->
+  <string name="pref_camera_hdr_mode_title">Modus HDR</string>
+  <string name="pref_camera_hdr_mode_entry_sensor">Sensor HDR</string>
+  <string name="pref_camera_hdr_mode_entry_multi_frame">HDR Multi bingkai</string>
   <!-- HDR needs 1x frame -->
+  <string name="pref_camera_hdr_need_1x_title">HDR membutukan 1x bingkai</string>
   <!-- Video rotation -->
+  <string name="pref_camera_video_rotation_title">Rotasi video</string>
+  <string name="pref_camera_video_rotation_entry_0">0 derajat</string>
+  <string name="pref_camera_video_rotation_entry_90">90 derajat</string>
+  <string name="pref_camera_video_rotation_entry_180">180 derajat</string>
+  <string name="pref_camera_video_rotation_entry_270">270 derajat</string>
   <!-- Storage location -->
+  <string name="pref_camera_savepath_title">Lokasi penyimpanan</string>
+  <string name="pref_camera_savepath_entry_0">Penyimpanan internal</string>
+  <string name="pref_camera_savepath_entry_1">Kartu SD</string>
   <!-- Misc -->
   <!-- The alias of CameraActivity for gesture operation -->
+  <string name="camera_gesture_title">Luncurkan Kamera</string>
+  <string name="all_in_focus">Semua dalam fokus</string>
+  <string name="refocus_toast">Untuk fokus kembali pada foto yang terakhir, tekan di sini</string>
   <!-- Toast messages -->
   <!-- The message is shown in toast when the app encounters an unsupported selection for High-framerate recording mode -->
+  <string name="error_app_unsupported_hfr_selection">Perekaman framerate tinggi tidak didukung pada saat menggunakan stabilisasi waktu selang/ HDR.</string>
   <!-- The message is shown in dialog when the app encounters an unsupported resolution for Slow motion mode -->
+  <string name="error_app_unsupported_hfr">Modus gerakan lambat tidak didukung untuk ukuran video yang dipilih. Pilihlah ukuran video yang lebih rendah</string>
   <!-- The message is shown in toast when the app encounters an unsupported resolution for Stabilization mode -->
+  <string name="error_app_unsupported_dis">Proses stabilisasi tidak didukung pada ukuran video yang dipilih. Pilihlah ukuran video yang lebih rendah</string>
   <!-- The message is shown in dialog when the app encounters an unsupported resolution for High speed mode -->
+  <string name="error_app_unsupported_hsr">Modus kecepatan tinggi tidak didukung pada ukuran video yang dipilih. Pilihlah ukuran video yang lebih rendah</string>
   <!-- The message is shown in dialog when the app encounters an unsupported video codec for HFR mode -->
+  <string name="error_app_unsupported_hfr_codec">Hanya penyandian video H.264 yang didukung pada saat HFR aktif</string>
   <!-- The message is shown in dialog when the app encounters an unsupported video resolution-->
+  <string name="error_app_unsupported">Resolusi video tidak didukung untuk jenis kodek ini</string>
   <!--The message is shown in dialog when the raw snapshot is selected in Zero shutter lag mode-->
+  <string name="error_app_unsupported_raw">Format gambar mentah tidak didukung dalam modus Zero shutter lag. Pilih JPEG</string>
+  <string name="msg_cancel_longshot_for_limited_memory">Kehabisan memori, membatalkan bidikan bersambungan</string>
   <!-- Toast showing non-supported functionality for flash in AE bracket -->
+  <string name="flash_aebracket_message">Lampu kilat tidak didukung di modus pendekapan dedahan automatik (AE bracketing)</string>
   <!-- toast message for storage location switch -->
+  <string name="on_switch_save_path_to_sdcard">Ruang penyimpanan internal tidak cukup, mengganti lokasi penyimpanan ke kartu SD</string>
   <!-- The message is shown in toast when click showOnMap Menu and there is no map app -->
+  <string name="map_activity_not_found_err">Tidak ada aplikasi peta yang diinstal untuk memperlihatkan tempat</string>
   <!-- Continous shot enable message -->
+  <string name="longshot_enable_message">Tampilan canggih tidak didukung dalam modus tembakan yang terus menerus</string>
   <!-- Advance features enable message -->
+  <string name="advance_feature_enable_msg">Tembakan yang terus menerus tidak didukung pada saat tampilan canggih diaktifkan</string>
   <!-- Toast after enable HDR function to inform continuous shot has disabled -->
+  <string name="HDR_disable_continuous_shot">Mengaktifkan HDR akan menonaktifkan tembakan yang terus menerus</string>
   <!-- Toast after enable advanced capture function to inform continuous shot has disabled -->
+  <string name="advanced_capture_disable_continuous_shot">Mengaktifkan tangkapan yang canggih akan mengaktifkan tembakan yang terus menerus</string>
   <!-- Toast after enable 2k4k video quality to inform IS has disabled -->
+  <string name="video_quality_4k_disable_IS">Memperbolehkan ukuran video 4k akan menonaktifkan stabilisasi</string>
   <!-- Toast after 2k4k video is enabled to inform SeeMore has been disabled -->
+  <string name="video_quality_4k_disable_SeeMore">SeeMore tidak dapat diaktifkan selama 4k video</string>
   <!-- TODO: Remove these? -->
 </resources>
