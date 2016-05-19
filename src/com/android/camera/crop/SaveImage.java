@@ -142,14 +142,17 @@ public class SaveImage {
         return saveDirectory;
     }
 
-    public static File getNewFile(Context context, Uri sourceUri) {
+    public static File getNewFile(Context context, Uri sourceUri, long time) {
         File saveDirectory = getFinalSaveDirectory(context, sourceUri);
-        String filename = new SimpleDateFormat(TIME_STAMP_NAME).format(new Date(
-                System.currentTimeMillis()));
+        String filename = new SimpleDateFormat(TIME_STAMP_NAME).format(new Date(time));
         if (hasPanoPrefix(context, sourceUri)) {
             return new File(saveDirectory, PREFIX_PANO + filename + POSTFIX_JPG);
         }
         return new File(saveDirectory, PREFIX_IMG + filename + POSTFIX_JPG);
+    }
+
+    public static File getNewFile(Context context, Uri sourceUri) {
+        return getNewFile(context, sourceUri, System.currentTimeMillis());
     }
 
     /**
@@ -339,9 +342,7 @@ public class SaveImage {
 
     public static Uri makeAndInsertUri(Context context, Uri sourceUri) {
         long time = System.currentTimeMillis();
-        String filename = new SimpleDateFormat(TIME_STAMP_NAME).format(new Date(time));
-        File saveDirectory = getFinalSaveDirectory(context, sourceUri);
-        File file = new File(saveDirectory, filename  + ".JPG");
+        File file = getNewFile(context, sourceUri, time);
         return linkNewFileToUri(context, sourceUri, file, time, false);
     }
 
