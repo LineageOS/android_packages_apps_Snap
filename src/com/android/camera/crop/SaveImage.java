@@ -385,7 +385,7 @@ public class SaveImage {
      * @return The file object. Return null if srcUri is invalid or not a local
      * file.
      */
-    private static File getLocalFileFromUri(Context context, Uri srcUri) {
+    static File getLocalFileFromUri(Context context, Uri srcUri) {
         if (srcUri == null) {
             Log.e(LOGTAG, "srcUri is null.");
             return null;
