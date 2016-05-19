@@ -31,6 +31,7 @@ import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.RectF;
+import android.media.MediaScannerConnection;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -46,6 +47,7 @@ import org.codeaurora.snapcam.R;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
@@ -581,6 +583,16 @@ public class CropActivity extends Activity {
                     }
                 }
             }
+
+            File dest = SaveImage.getLocalFileFromUri(CropActivity.this, mOutUri);
+            if (dest != null) {
+                MediaScannerConnection.scanFile(
+                    CropActivity.this,
+                    new String[] { dest.toString() },
+                    null /* no mimetype, let scanner guess */,
+                    null /* no callback */);
+            }
+
             return !failure; // True if any of the operations failed
         }
 
@@ -590,7 +602,6 @@ public class CropActivity extends Activity {
             Utils.closeSilently(mInStream);
             doneBitmapIO(result.booleanValue(), mResultIntent);
         }
-
     }
 
     private void done() {
