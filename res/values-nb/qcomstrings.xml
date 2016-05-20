@@ -58,6 +58,7 @@
   <!-- Manual white balance -->
   <string name="pref_camera_manual_wb_title">Manuell hvitbalanse</string>
   <string name="pref_camera_manual_wb_entry_color_temperature">Fargetemperatur</string>
+  <string name="pref_camera_manual_wb_entry_rbgb_gains">RBGB forsterking</string>
   <string name="pref_camera_manual_wb_entry_off">Av</string>
   <!-- Manual focus -->
   <string name="pref_camera_manual_focus_title">Manuell fokus</string>
@@ -85,6 +86,7 @@
   <!-- AE bracketing -->
   <string name="pref_camera_ae_bracket_hdr_title">Auto Exposure Bracketing</string>
   <!-- High-framerate recording -->
+  <string name="pref_camera_hfr_title">Innspilling med høy bildehastighet</string>
   <string name="pref_camera_hfr_entry_off">Av</string>
   <string name="pref_camera_hfr_entry_2x">Sakte film 60 FPS</string>
   <string name="pref_camera_hfr_entry_3x">Sakte film 90 FPS</string>
@@ -204,11 +206,15 @@
   <!-- Auto scene detection -->
   <string name="pref_camera_scenedetect_title">Automatisk Scene deteksjon</string>
   <!-- Continuous shot -->
+  <string name="pref_camera_longshot_title">Kontinuerlig opptak</string>
   <!-- Auto HDR -->
   <string name="pref_camera_auto_hdr_title">Automatisk HDR</string>
   <!-- HDR mode -->
   <string name="pref_camera_hdr_mode_title">HDR modus</string>
+  <string name="pref_camera_hdr_mode_entry_sensor">Sensor HDR</string>
+  <string name="pref_camera_hdr_mode_entry_multi_frame">Multi-bilde HDR</string>
   <!-- HDR needs 1x frame -->
+  <string name="pref_camera_hdr_need_1x_title">HDR trenger 1x bilde</string>
   <!-- Video rotation -->
   <string name="pref_camera_video_rotation_title">Videorotering</string>
   <string name="pref_camera_video_rotation_entry_0">0 grader</string>
@@ -223,25 +229,37 @@
   <!-- The alias of CameraActivity for gesture operation -->
   <string name="camera_gesture_title">Start kamera</string>
   <string name="all_in_focus">I fokus</string>
+  <string name="refocus_toast">For å re-fokusere det siste bildet, trykk her</string>
   <!-- Toast messages -->
   <!-- The message is shown in toast when the app encounters an unsupported selection for High-framerate recording mode -->
   <string name="error_app_unsupported_hfr_selection">Høyhastighets/sakte film støttes ikke for DIS og TimeLapse</string>
   <!-- The message is shown in dialog when the app encounters an unsupported resolution for Slow motion mode -->
   <string name="error_app_unsupported_hfr">Sakte film støttes ikke med den valgte oppløsningen</string>
   <!-- The message is shown in toast when the app encounters an unsupported resolution for Stabilization mode -->
+  <string name="error_app_unsupported_dis">Stabilisering støttes ikke med den valgte oppløsningen. Velg en lavere video størrelse</string>
   <!-- The message is shown in dialog when the app encounters an unsupported resolution for High speed mode -->
   <string name="error_app_unsupported_hsr">Høyhastighets video støttes ikke med den valgte oppløsningen</string>
   <!-- The message is shown in dialog when the app encounters an unsupported video codec for HFR mode -->
+  <string name="error_app_unsupported_hfr_codec">Bare H264 video koding støttes ved bruk av HFR</string>
   <!-- The message is shown in dialog when the app encounters an unsupported video resolution-->
   <string name="error_app_unsupported">Ustøttet skjermoppløsning for denne kodeken</string>
   <!--The message is shown in dialog when the raw snapshot is selected in Zero shutter lag mode-->
+  <string name="error_app_unsupported_raw">Raw bildeformat er ikke støttet i Ingen lukkerforsinkelse modus. Velg JPEG</string>
+  <string name="msg_cancel_longshot_for_limited_memory">Går tom for minne, avbryter kontinuerlig opptak</string>
   <!-- Toast showing non-supported functionality for flash in AE bracket -->
+  <string name="flash_aebracket_message">Blits støttes ikke i Auto Exposure Bracketing modus</string>
   <!-- toast message for storage location switch -->
+  <string name="on_switch_save_path_to_sdcard">Intern lagringsplass er ikke stor nok, byttet lagringsplasseringen til SD-kort</string>
   <!-- The message is shown in toast when click showOnMap Menu and there is no map app -->
+  <string name="map_activity_not_found_err">Det er ingen kart app installert for å vise plasseringen</string>
   <!-- Continous shot enable message -->
+  <string name="longshot_enable_message">Avanserte funksjoner som ikke støttes i kontinuerlig opptaks modus</string>
   <!-- Advance features enable message -->
+  <string name="advance_feature_enable_msg">Kontinuerlig opptak støttes ikke når avanserte funksjoner er aktivert</string>
   <!-- Toast after enable HDR function to inform continuous shot has disabled -->
+  <string name="HDR_disable_continuous_shot">Å aktivere HDR vil deaktivere kontinuerlig opptak</string>
   <!-- Toast after enable advanced capture function to inform continuous shot has disabled -->
+  <string name="advanced_capture_disable_continuous_shot">Å aktivere avansert opptak vil deaktivere kontinuerlig opptak</string>
   <!-- Toast after enable 2k4k video quality to inform IS has disabled -->
   <string name="video_quality_4k_disable_IS">Å aktivere 4k bildestørrelse vil deaktivere stabilisering</string>
   <!-- Toast after 2k4k video is enabled to inform SeeMore has been disabled -->
