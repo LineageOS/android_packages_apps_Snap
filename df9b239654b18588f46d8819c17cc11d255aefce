@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5faad753_a9952c42",
+        "filename": "src/com/android/camera/CameraActivity.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1994,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2016-05-21T12:14:03Z",
+      "side": 1,
+      "message": "Not sure what to do with this. Danny?",
+      "revId": "df9b239654b18588f46d8819c17cc11d255aefce",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
