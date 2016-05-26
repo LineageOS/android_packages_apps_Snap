@@ -22,6 +22,30 @@
       "revId": "647530175fd34b8cbbd591389536db0b445ec85f",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5faad753_ded2925c",
+        "filename": "src/com/android/camera/VideoModule.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 1839,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2016-05-26T15:06:56Z",
+      "side": 1,
+      "message": "Oops didn\u0027t see this. Fixed in http://review.cyanogenmod.org/146858",
+      "parentUuid": "5faad753_d39cd25e",
+      "range": {
+        "startLine": 1839,
+        "startChar": 31,
+        "endLine": 1839,
+        "endChar": 36
+      },
+      "revId": "647530175fd34b8cbbd591389536db0b445ec85f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
