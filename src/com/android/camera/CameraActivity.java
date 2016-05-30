@@ -748,7 +748,7 @@ public class CameraActivity extends Activity
     }
 
     public void updateThumbnail(final byte[] jpegData) {
-        (new UpdateThumbnailTask(jpegData, false)).execute();
+        (new UpdateThumbnailTask(jpegData, true)).execute();
     }
 
     public void updateThumbnail(final Bitmap bitmap) {
