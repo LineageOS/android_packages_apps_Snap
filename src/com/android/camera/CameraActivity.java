@@ -1824,10 +1824,10 @@ public class CameraActivity extends Activity
         }
         if (mPowerShutter && mInCameraApp) {
             getWindow().addPrivateFlags(
-                    WindowManager.LayoutParams.PRIVATE_FLAG_PREVENT_SYSTEM_KEYS);
+                    WindowManager.LayoutParams.PRIVATE_FLAG_PREVENT_POWER_KEY);
         } else {
             getWindow().clearPrivateFlags(
-                    WindowManager.LayoutParams.PRIVATE_FLAG_PREVENT_SYSTEM_KEYS);
+                    WindowManager.LayoutParams.PRIVATE_FLAG_PREVENT_POWER_KEY);
         }
     }
 
