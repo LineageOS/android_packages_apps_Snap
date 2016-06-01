@@ -692,6 +692,7 @@ public class WideAnglePanoramaModule
     }
 
     public void reportProgress() {
+        mUI.showUI();
         mUI.resetSavingProgress();
         Thread t = new Thread() {
             @Override
@@ -1228,7 +1229,7 @@ public class WideAnglePanoramaModule
 
     @Override
     public void cancelHighResStitching() {
-        if (mPaused || mCameraTexture == null) return;
+        if (mPaused) return;
         cancelHighResComputation();
     }
 
