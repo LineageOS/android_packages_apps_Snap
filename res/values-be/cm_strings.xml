@@ -41,9 +41,11 @@
   <!-- Settings screen, dialog choice for 12.6 megapixels picture size [CHAR LIMIT=15] -->
   <string name="pref_camera_picturesize_entry_12_6mp">12,6 Мп</string>
   <!-- Settings screen, dialog choice for 12.2 megapixels picture size [CHAR LIMIT=15] -->
+  <string name="pref_camera_picturesize_entry_12_2mp">12.2 МП</string>
   <!-- Settings screen, dialog choice for 12 megapixels picture size [CHAR LIMIT=15] -->
   <string name="pref_camera_picturesize_entry_12mp">12 Мп</string>
   <!-- Settings screen, dialog choice for 11.9 megapixels picture size [CHAR LIMIT=15] -->
+  <string name="pref_camera_picturesize_entry_11_9mp_wide">11.9 МП (16:9)</string>
   <!-- Settings screen, dialog choice for 11.9 megapixels picture size [CHAR LIMIT=15] -->
   <string name="pref_camera_picturesize_entry_11_9mp">11,9 Мп</string>
   <!-- Settings screen, dialog choice for 11.5 megapixels picture size [CHAR LIMIT=15] -->
@@ -59,6 +61,7 @@
   <!-- Settings screen, dialog choice for 9 megapixels picture size [CHAR LIMIT=15] -->
   <string name="pref_camera_picturesize_entry_9mp">9 Мп</string>
   <!-- Settings screen, dialog choice for 8.9 megapixels picture size [CHAR LIMIT=15] -->
+  <string name="pref_camera_picturesize_entry_8_9mp">8.9 МП</string>
   <!-- Settings screen, dialog choice for 8.2 megapixels picture size [CHAR LIMIT=15] -->
   <string name="pref_camera_picturesize_entry_8_2mp_wide">8,2 Мп (16:9)</string>
   <!-- Settings screen, dialog choice for 8 megapixels picture size [CHAR LIMIT=15] -->
@@ -96,11 +99,13 @@
   <!-- Settings screen, dialog choice for 1.9 megapixels picture size [CHAR LIMIT=15] -->
   <string name="pref_camera_picturesize_entry_1_9mp">1,9 Мп</string>
   <!-- Settings screen, dialog choice for 1.6 megapixels picture size [CHAR LIMIT=15] -->
+  <string name="pref_camera_picturesize_entry_1_6mp">1.6 МП</string>
   <!-- Settings screen, dialog choice for 1.5 megapixels picture size [CHAR LIMIT=15] -->
   <string name="pref_camera_picturesize_entry_1_5mp">1,5 Мп</string>
   <!-- Settings screen, dialog choice for 1.3 megapixels picture size [CHAR LIMIT=15] -->
   <string name="pref_camera_picturesize_entry_1_3mp">1,3 Мп</string>
   <!-- Settings screen, dialog choice for 1.2 megapixels picture size [CHAR LIMIT=15] -->
+  <string name="pref_camera_picturesize_entry_1_2mp_wide">1.2 МП (16:9)</string>
   <!-- Settings screen, dialog choice for 1 megapixels picture size [CHAR LIMIT=15] -->
   <string name="pref_camera_picturesize_entry_1mp">1 Мп</string>
   <!-- Settings screen, dialog choice for WXGA picture size [CHAR LIMIT=15] -->
@@ -190,6 +195,8 @@
   <string name="pref_camera_max_brightness_title">Максімальная яскравасць экрану</string>
   <!-- Touch focus duration -->
   <string name="pref_camera_focustime_title">Фокус дотыкам</string>
+  <string name="pref_camera_focustime_entry_0">0 сек.</string>
+  <string name="pref_camera_focustime_entry_3">3 сек.</string>
   <string name="pref_camera_focustime_entry_5">5 секунд</string>
   <string name="pref_camera_focustime_entry_10">10 секунд</string>
   <string name="pref_camera_focustime_entry_infinite">Бясконца</string>

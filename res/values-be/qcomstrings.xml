@@ -80,6 +80,7 @@
   <!-- Face detection -->
   <string name="pref_camera_facedetection_title">Вызначэнне твару</string>
   <!-- Selfie Flash -->
+  <string name="pref_selfie_flash_title">Сэлфі-выбліск</string>
   <!-- Red eye reduction -->
   <string name="pref_camera_redeyereduction_title">Змяншэнне эфекту чырвоных вачэй</string>
   <!-- AE bracketing -->
