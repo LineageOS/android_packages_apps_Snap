@@ -685,6 +685,7 @@ public class WideAnglePanoramaModule extends BaseModule<WideAnglePanoramaUI> imp
     }
 
     public void reportProgress() {
+        mUI.showUI();
         mUI.resetSavingProgress();
         Thread t = new Thread() {
             @Override
@@ -1209,7 +1210,7 @@ public class WideAnglePanoramaModule extends BaseModule<WideAnglePanoramaUI> imp
 
     @Override
     public void cancelHighResStitching() {
-        if (mPaused || mCameraTexture == null) return;
+        if (mPaused) return;
         cancelHighResComputation();
     }
 
