@@ -1129,7 +1129,7 @@ public class CameraSettings {
         resetIfInvalid(pref);
     }
 
-    private void filterSimilarPictureSize(PreferenceGroup group,
+    public static void filterSimilarPictureSize(PreferenceGroup group,
             ListPreference pref) {
         pref.filterDuplicated();
         if (pref.getEntries().length <= 1) {
