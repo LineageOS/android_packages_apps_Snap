@@ -88,10 +88,9 @@ public class SettingsManager implements ListMenu.SettingsListener {
     public static final String KEY_TIMER = "pref_camera2_timer_key";
     public static final String KEY_LONGSHOT = "pref_camera2_longshot_key";
     private static final String TAG = "SnapCam_SettingsManager";
-    private static final List<CameraCharacteristics> mCharacteristics = new ArrayList<>();
 
     private static SettingsManager sInstance;
-
+    private ArrayList<CameraCharacteristics> mCharacteristics;
     private ArrayList<Listener> mListeners;
     private Map<String, Values> mValuesMap;
     private Context mContext;
@@ -103,6 +102,7 @@ public class SettingsManager implements ListMenu.SettingsListener {
 
     private SettingsManager(Context context) {
         mListeners = new ArrayList<>();
+        mCharacteristics = new ArrayList<>();
         mContext = context;
         mPreferences = new ComboPreferences(mContext);
         CameraSettings.upgradeGlobalPreferences(mPreferences.getGlobal(), mContext);
@@ -144,6 +144,12 @@ public class SettingsManager implements ListMenu.SettingsListener {
 
     public static SettingsManager getInstance() {
         return sInstance;
+    }
+
+    public void destroyInstance() {
+        if (sInstance != null) {
+            sInstance = null;
+        }
     }
 
     public List<String> getDisabledList() {
@@ -683,9 +689,19 @@ public class SettingsManager implements ListMenu.SettingsListener {
                 CameraCharacteristics.SCALER_STREAM_CONFIGURATION_MAP);
         Size[] sizes = map.getOutputSizes(ImageFormat.JPEG);
         List<String> res = new ArrayList<>();
-        for (int i = 0; i < sizes.length; i++) {
-            res.add(sizes[i].toString());
+        if (sizes != null) {
+            for (int i = 0; i < sizes.length; i++) {
+                res.add(sizes[i].toString());
+            }
         }
+
+        Size[] highResSizes = map.getHighResolutionOutputSizes(ImageFormat.JPEG);
+        if (highResSizes != null) {
+            for (int i = 0; i < highResSizes.length; i++) {
+                res.add(highResSizes[i].toString());
+            }
+        }
+
         return res;
     }
 
