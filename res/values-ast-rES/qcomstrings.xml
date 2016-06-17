@@ -38,6 +38,7 @@
   <!-- Skin tone enhancement -->
   <string name="pref_camera_skinToneEnhancement_title">Meyora del tonu la piel</string>
   <!-- Zero shutter lag-->
+  <string name="pref_camera_zsl_title">Desaniciar retrasu del disparador</string>
   <!-- Autofocus zone -->
   <string name="pref_camera_selectablezoneaf_title">Zona d\'enfoque automáticu</string>
   <string name="pref_camera_selectablezoneaf_entry_auto">Auto</string>
@@ -46,18 +47,24 @@
   <string name="pref_camera_selectablezoneaf_entry_spotmetering">Midición puntual</string>
   <!-- Advanced features -->
   <string name="pref_camera_advanced_features_title">Carauterístiques avanzaes</string>
+  <string name="pref_camera_advanced_feature_entry_none">Dengún</string>
   <string name="pref_camera_advanced_feature_entry_multi_touch_focus">Enfoque multi-toque</string>
   <!-- Manual exposure -->
   <string name="pref_camera_manual_exp_title">Esposición manual</string>
   <string name="pref_camera_manual_exp_entry_ISO_priority">Prioridá ISO</string>
   <string name="pref_camera_manual_exp_entry_exptime_priority">Prioridá de tiempu d\'esposición</string>
   <string name="pref_camera_manual_exp_entry_user_setting">Axuste d\'usuariu</string>
+  <string name="pref_camera_manual_exp_entry_off">Apagar</string>
   <!-- Manual white balance -->
   <string name="pref_camera_manual_wb_title">Balance manual de blancu</string>
   <string name="pref_camera_manual_wb_entry_color_temperature">Temperatura de color</string>
+  <string name="pref_camera_manual_wb_entry_rbgb_gains">Ganancies RBGB</string>
+  <string name="pref_camera_manual_wb_entry_off">Apagar</string>
   <!-- Manual focus -->
   <string name="pref_camera_manual_focus_title">Enfoque manual</string>
   <string name="pref_camera_manual_focus_entry_scale_mode">Mou d\'escala</string>
+  <string name="pref_camera_manual_focus_entry_diopter_mode">Mou dioptría</string>
+  <string name="pref_camera_manual_focus_entry_off">Apagar</string>
   <!-- Video HDR-->
   <string name="pref_camera_video_hdr_title">Videu HDR</string>
   <!-- CDS mode-->
@@ -73,12 +80,21 @@
   <!-- Face detection -->
   <string name="pref_camera_facedetection_title">Detección de cares</string>
   <!-- Selfie Flash -->
+  <string name="pref_selfie_flash_title">Flash pa selfie</string>
   <!-- Red eye reduction -->
   <string name="pref_camera_redeyereduction_title">Amenorgamientu de güeyos bermeyos</string>
   <!-- AE bracketing -->
   <string name="pref_camera_ae_bracket_hdr_title">Esposición HDR automática</string>
   <!-- High-framerate recording -->
+  <string name="pref_camera_hfr_title">Grabación d\'alta velocidá de fotogrames</string>
   <string name="pref_camera_hfr_entry_off">Desactiváu</string>
+  <string name="pref_camera_hfr_entry_2x">Cámara lenta a 60 FPS</string>
+  <string name="pref_camera_hfr_entry_3x">Cámara lenta a 90 FPS</string>
+  <string name="pref_camera_hfr_entry_4x">Cámara lenta a 120 FPS</string>
+  <string name="pref_camera_hfr_entry_8x">Cámara lenta a 240 FPS</string>
+  <string name="pref_camera_hfr_entry_hsr_60">Alta velocidá a 60 FPS</string>
+  <string name="pref_camera_hfr_entry_hsr_90">Alta velocidá a 90 FPS</string>
+  <string name="pref_camera_hfr_entry_hsr_120">Alta velocidá a 90 FPS</string>
   <!-- See More -->
   <!-- Denoise -->
   <string name="pref_camera_denoise_title">Mou reductor de ruiu</string>
@@ -195,7 +211,10 @@
   <string name="pref_camera_auto_hdr_title">HDR auto</string>
   <!-- HDR mode -->
   <string name="pref_camera_hdr_mode_title">Mou HDR</string>
+  <string name="pref_camera_hdr_mode_entry_sensor">Sensor HDR</string>
+  <string name="pref_camera_hdr_mode_entry_multi_frame">HDR de marcos múltiples</string>
   <!-- HDR needs 1x frame -->
+  <string name="pref_camera_hdr_need_1x_title">HDR necesita marcu de 1x</string>
   <!-- Video rotation -->
   <string name="pref_camera_video_rotation_title">Voltéu de videu</string>
   <string name="pref_camera_video_rotation_entry_0">0 graos</string>
@@ -209,10 +228,15 @@
   <!-- Misc -->
   <!-- The alias of CameraActivity for gesture operation -->
   <string name="camera_gesture_title">Llanzar cámara</string>
+  <string name="all_in_focus">Too nel focu</string>
+  <string name="refocus_toast">Pa volver a enfocar la postrer semeya, primi equí</string>
   <!-- Toast messages -->
   <!-- The message is shown in toast when the app encounters an unsupported selection for High-framerate recording mode -->
+  <string name="error_app_unsupported_hfr_selection">La grabación d\'alta velocidá de fotogrames nun ye compatible cuando s\'usa la estabilización/TimeLapse/HDR.</string>
   <!-- The message is shown in dialog when the app encounters an unsupported resolution for Slow motion mode -->
+  <string name="error_app_unsupported_hfr">El mou de cámara lenta nun ye compatible col tamañu del videu esbilláu. Esbilla un tamañu de videu inferior</string>
   <!-- The message is shown in toast when the app encounters an unsupported resolution for Stabilization mode -->
+  <string name="error_app_unsupported_dis">La estabilización nun ye compatible col tamañu del videu esbilláu. Esbilla un tamañu de videu inferior</string>
   <!-- The message is shown in dialog when the app encounters an unsupported resolution for High speed mode -->
   <string name="error_app_unsupported_hsr">Nun ta sofitáu\'l mou d\'alta velocidá pal tamañu de videu esbilláu. Esbilláu un tamañu de videu más baxu</string>
   <!-- The message is shown in dialog when the app encounters an unsupported video codec for HFR mode -->
@@ -220,10 +244,14 @@
   <!-- The message is shown in dialog when the app encounters an unsupported video resolution-->
   <string name="error_app_unsupported">Resolución de videu non sofitada nesti tipu de codificador</string>
   <!--The message is shown in dialog when the raw snapshot is selected in Zero shutter lag mode-->
+  <string name="error_app_unsupported_raw">El formatu d\'imaxe RAW nun ye compatible col retrasu de obturador en mou cero. Seleiciona JPEG</string>
+  <string name="msg_cancel_longshot_for_limited_memory">La memoria ta escosando, encaboxando\'l disparu continuu</string>
   <!-- Toast showing non-supported functionality for flash in AE bracket -->
+  <string name="flash_aebracket_message">El flash nun ye compatible col mou AE bracketing</string>
   <!-- toast message for storage location switch -->
   <string name="on_switch_save_path_to_sdcard">Nun ye abondu l\'espaciu nel almacenamientu internu, cambióse al allugamientu d\'almacenamientu na tarxeta SD</string>
   <!-- The message is shown in toast when click showOnMap Menu and there is no map app -->
+  <string name="map_activity_not_found_err">Nun hai aplicación de mapes instalada dala p\'amosar l\'allugamientu</string>
   <!-- Continous shot enable message -->
   <string name="longshot_enable_message">Carauterístiques avanzaes que nun tán sofitaes nel mou de disparu continuu</string>
   <!-- Advance features enable message -->
