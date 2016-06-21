@@ -447,7 +447,11 @@ public class VideoModule implements CameraModule,
     }
 
     public void reinit() {
-        mPreferences = new ComboPreferences(mActivity);
+        mPreferences = ComboPreferences.get(mActivity);
+        if (mPreferences == null) {
+            mPreferences = new ComboPreferences(mActivity);
+        }
+
         CameraSettings.upgradeGlobalPreferences(mPreferences.getGlobal(), mActivity);
         mCameraId = getPreferredCameraId(mPreferences);
         mPreferences.setLocalId(mActivity, mCameraId);
@@ -458,7 +462,11 @@ public class VideoModule implements CameraModule,
     public void init(CameraActivity activity, View root) {
         mActivity = activity;
         mUI = new VideoUI(activity, this, root);
-        mPreferences = new ComboPreferences(mActivity);
+        mPreferences = ComboPreferences.get(mActivity);
+        if (mPreferences == null) {
+            mPreferences = new ComboPreferences(mActivity);
+        }
+
         CameraSettings.upgradeGlobalPreferences(mPreferences.getGlobal(), activity);
         mCameraId = getPreferredCameraId(mPreferences);
 
