@@ -41,7 +41,11 @@
   <!-- Settings screen, dialog choice for 12.6 megapixels picture size [CHAR LIMIT=15] -->
   <string name="pref_camera_picturesize_entry_12_6mp">12,6 mio. sl. točk</string>
   <!-- Settings screen, dialog choice for 12.2 megapixels picture size [CHAR LIMIT=15] -->
+  <string name="pref_camera_picturesize_entry_12_2mp_square">(1:1) 12,2 mio. sl. točk</string>
+  <!-- Settings screen, dialog choice for 12.2 megapixels picture size [CHAR LIMIT=15] -->
   <string name="pref_camera_picturesize_entry_12_2mp">12,2 mio. sl. točk</string>
+  <!-- Settings screen, dialog choice for 12.1 megapixels picture size [CHAR LIMIT=15] -->
+  <string name="pref_camera_picturesize_entry_12_1mp">12,1 mio. sl. točk</string>
   <!-- Settings screen, dialog choice for 12 megapixels picture size [CHAR LIMIT=15] -->
   <string name="pref_camera_picturesize_entry_12mp">12 mio. sl. točk</string>
   <!-- Settings screen, dialog choice for 11.9 megapixels picture size [CHAR LIMIT=15] -->
@@ -72,6 +76,8 @@
   <string name="pref_camera_picturesize_entry_7_5mp_wide">(16:9) 7,5 mio. sl. točk</string>
   <!-- Settings screen, dialog choice for 6.4 megapixels picture size [CHAR LIMIT=15] -->
   <string name="pref_camera_picturesize_entry_6_4mp">6,4 mio. sl. točk</string>
+  <!-- Settings screen, dialog choice for 6 megapixels picture size [CHAR LIMIT=15] -->
+  <string name="pref_camera_picturesize_entry_6mp_square">(1:1) 6 mio. sl. točk</string>
   <!-- Settings screen, dialog choice for 6 megapixels picture size [CHAR LIMIT=15] -->
   <string name="pref_camera_picturesize_entry_6mp_wide">(16:9) 6 mio. sl. točk</string>
   <!-- Settings screen, dialog choice for 5 megapixels picture size [CHAR LIMIT=15] -->
@@ -105,6 +111,8 @@
   <!-- Settings screen, dialog choice for 1.3 megapixels picture size [CHAR LIMIT=15] -->
   <string name="pref_camera_picturesize_entry_1_3mp">1,3 mio. sl. točk</string>
   <!-- Settings screen, dialog choice for 1.2 megapixels picture size [CHAR LIMIT=15] -->
+  <string name="pref_camera_picturesize_entry_1_2mp_square">(1:1) 1,2 mio. sl. točk</string>
+  <!-- Settings screen, dialog choice for 1.2 megapixels picture size [CHAR LIMIT=15] -->
   <string name="pref_camera_picturesize_entry_1_2mp_wide">(16:9) 1,2 mio. sl. točk</string>
   <!-- Settings screen, dialog choice for 1 megapixels picture size [CHAR LIMIT=15] -->
   <string name="pref_camera_picturesize_entry_1mp">1 mio. sl. točk</string>
@@ -132,7 +140,7 @@
   <string name="pref_camera_scenemode_entry_asd">Najboljši posnetek</string>
   <string name="pref_camera_scenemode_entry_baby">Dojenček</string>
   <string name="pref_camera_scenemode_entry_backgroundblur">Zamegljenost ozadja</string>
-  <string name="pref_camera_scenemode_entry_backlight">Osvetlitev ozadja</string>
+  <string name="pref_camera_scenemode_entry_backlight">Osvetljeno ozadje</string>
   <string name="pref_camera_scenemode_entry_backlightportrait">Portret z osvetljenim ozadjem</string>
   <string name="pref_camera_scenemode_entry_barcode">Črtna koda</string>
   <string name="pref_camera_scenemode_entry_beach">Plaža</string>
