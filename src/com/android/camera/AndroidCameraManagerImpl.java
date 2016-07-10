@@ -211,25 +211,26 @@ class AndroidCameraManagerImpl implements CameraManager {
                 switch (msg.what) {
                     case OPEN_CAMERA:
                         int cameraId = msg.arg1;
-                        try {
-                            Context context = CameraApp.getContext();
+                        Context context = CameraApp.getContext();
 
-                            boolean backCameraOpenLegacy = context.getResources().getBoolean(R.bool.back_camera_open_legacy);
-                            boolean frontCameraOpenLegacy = context.getResources().getBoolean(R.bool.front_camera_open_legacy);
+                        boolean backCameraOpenLegacy = context.getResources().
+                                getBoolean(R.bool.back_camera_open_legacy);
+                        boolean frontCameraOpenLegacy = context.getResources().
+                                getBoolean(R.bool.front_camera_open_legacy);
 
-                            CameraInfo info = CameraHolder.instance().getCameraInfo()[cameraId];
-
-                            if ((info.facing == CameraInfo.CAMERA_FACING_BACK && backCameraOpenLegacy) || 
-                                (info.facing == CameraInfo.CAMERA_FACING_FRONT && frontCameraOpenLegacy)) {
+                        CameraInfo info = CameraHolder.instance().getCameraInfo()[cameraId];
+                        if (info.facing == CameraInfo.CAMERA_FACING_BACK && backCameraOpenLegacy ||
+                                info.facing == CameraInfo.CAMERA_FACING_FRONT && frontCameraOpenLegacy) {
+                            try {
                                 mCamera = android.hardware.Camera.openLegacy(cameraId,
                                         android.hardware.Camera.CAMERA_HAL_API_VERSION_1_0);
-                            } else {
+                            } catch (RuntimeException e) {
+                                /* Retry with open if openLegacy fails */
+                                Log.v(TAG, "openLegacy failed. Using open instead");
                                 mCamera = android.hardware.Camera.open(cameraId);
                             }
-                        } catch (RuntimeException e) {
-                            /* Retry with open if openLegacy fails */
-                            Log.v(TAG, "openLegacy failed. Using open instead");
-                            mCamera = android.hardware.Camera.open(cameraId);
+                        } else {
+                                mCamera = android.hardware.Camera.open(cameraId);
                         }
                         if (mCamera != null) {
                             mParametersIsDirty = true;
