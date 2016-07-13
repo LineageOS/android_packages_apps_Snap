@@ -26,7 +26,7 @@ LOCAL_PRIVILEGED_MODULE := true
 
 LOCAL_AAPT_FLAGS += --rename-manifest-package org.cyanogenmod.snap
 
-LOCAL_CERTIFICATE := platform
+LOCAL_PRIVILEGED_MODULE := true
 
 #LOCAL_SDK_VERSION := current
 LOCAL_RENDERSCRIPT_TARGET_API := 23
