@@ -22,6 +22,7 @@ LOCAL_AAPT_FLAGS := \
         --version-code $(version_code_package) \
 
 LOCAL_PACKAGE_NAME := Snap
+LOCAL_PRIVILEGED_MODULE := true
 
 LOCAL_AAPT_FLAGS += --rename-manifest-package org.cyanogenmod.snap
 
