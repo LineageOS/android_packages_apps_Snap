@@ -3312,26 +3312,20 @@ public class PhotoModule
         String jpegQuality = mPreferences.getString(
                 CameraSettings.KEY_JPEG_QUALITY,
                 mActivity.getString(R.string.pref_camera_jpegquality_default));
-        //mUnsupportedJpegQuality = false;
         Size pic_size = mParameters.getPictureSize();
         if (pic_size == null) {
             Log.e(TAG, "error getPictureSize: size is null");
-        }
-        else{
-            if("100".equals(jpegQuality) && (pic_size.width >= 3200)){
-                //mUnsupportedJpegQuality = true;
-            }else {
-                mParameters.setJpegQuality(JpegEncodingQualityMappings.getQualityNumber(jpegQuality));
-                int jpegFileSize = estimateJpegFileSize(pic_size, jpegQuality);
-                if (jpegFileSize != mJpegFileSizeEstimation) {
-                    mJpegFileSizeEstimation = jpegFileSize;
-                    mHandler.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            updateRemainingPhotos();
-                        }
-                    });
-                }
+        } else {
+            mParameters.setJpegQuality(JpegEncodingQualityMappings.getQualityNumber(jpegQuality));
+            int jpegFileSize = estimateJpegFileSize(pic_size, jpegQuality);
+            if (jpegFileSize != mJpegFileSizeEstimation) {
+                mJpegFileSizeEstimation = jpegFileSize;
+                mHandler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        updateRemainingPhotos();
+                    }
+                });
             }
         }
 
