@@ -20,49 +20,105 @@
   <!-- The label for the Video Camera activity. [CHAR LIMIT=16] -->
   <string name="video_camera_label">Videokamera</string>
   <!-- Used to format short video duration in Details dialog. minutes:seconds e.g. 00:30 -->
+  <string name="details_ms">%1$02d:%2$02d</string>
   <!-- Used to format video duration in Details dialog. hours:minutes:seconds e.g. 0:21:30 -->
+  <string name="details_hms">%1$d:%2$02d:%3$02d</string>
   <!-- Displayed in the title of the dialog for things to do with a picture
              that is to be "set as" (e.g. set as contact photo or set as wallpaper) -->
+  <string name="set_image">Bild setzen als</string>
   <!-- Details dialog "OK" button. Dismisses dialog. -->
+  <string name="delete">Läschen</string>
   <!-- String Delete the selected media item(s) [CHAR LIMIT=50] -->
+  <plurals name="delete_selection">
+    <item quantity="one">Ausgewielt Element läschen?</item>
+    <item quantity="other">Ausgewielt Elementer läschen?</item>
+  </plurals>
+  <string name="share">Deelen</string>
+  <string name="share_panorama">Panorama deelen</string>
+  <string name="share_as_photo">Als Foto deelen</string>
   <!-- The label shown after an image is deleted [CHAR LIMIT=16] -->
+  <string name="deleted">Geläscht</string>
   <!-- The label on the button which when clicked will undo a deletion of image [CHAR LIMIT=16]-->
+  <string name="undo">RÉCKGÄNGEG</string>
+  <string name="details">Detailer</string>
+  <string name="close">Zoumaachen</string>
   <!-- String indicating how many media item(s) is(are) selected
             eg. 1 selected [CHAR LIMIT=30] -->
+  <plurals name="number_of_items_selected">
+    <item quantity="one">%1$d ausgewielt</item>
+    <item quantity="other">%1$d ausgewielt</item>
+  </plurals>
   <!-- String indicating how many media album(s) is(are) selected
             eg. 1 selected [CHAR LIMIT=30] -->
+  <plurals name="number_of_albums_selected">
+    <item quantity="one">%1$d ausgewielt</item>
+    <item quantity="other">%1$d ausgewielt</item>
+  </plurals>
   <!-- String indicating how many media group(s) is(are) selected
             eg. 1 selected [CHAR LIMIT=30] -->
+  <plurals name="number_of_groups_selected">
+    <item quantity="one">%1$d ausgewielt</item>
+    <item quantity="other">%1$d ausgewielt</item>
+  </plurals>
   <!-- String indicating timestamp of photo or video -->
+  <string name="show_on_map">Op der Kaart uweisen</string>
+  <string name="rotate_left">Lénks rotéieren</string>
+  <string name="rotate_right">Riets rotéieren</string>
   <!-- String used as a menu label. The user can choose to edit the image
          [CHAR_LIMIT=20]-->
+  <string name="edit">Änneren</string>
   <!-- The title of the menu item to let user crop the image. [CHAR LIMIT=15] -->
+  <string name="crop_action">Schneiden</string>
   <!-- The title of the menu item to let user trim the video. [CHAR LIMIT=15] -->
+  <string name="trim_action">Trimmen</string>
   <!-- The title of the menu item to let user set the image as background etc. [CHAR LIMIT=15] -->
+  <string name="set_as">Setzen als</string>
   <!-- String indicating an error when playing the video. [CHAR LIMIT=30] -->
+  <string name="video_err">Video kann net ofgespillt ginn.</string>
   <!-- Toast message shown when the cropped image has been saved in the
          %s folder (string: folder_download) [CHAR LIMIT=50]-->
+  <string name="crop_saved">Geschniddent Bild gespäichert ënner <xliff:g id="folder_name">%s</xliff:g>.</string>
   <!-- Text indicating the title of a media item in details window [CHAR LIMIT=14] -->
+  <string name="title">Titel</string>
   <!-- Text indicating the description of a media item in details window [CHAR LIMIT=14] -->
+  <string name="description">Beschreiwung</string>
   <!-- Text indicating the creation time of a media item in details window [CHAR LIMIT=14] -->
+  <string name="time">Zäit</string>
   <!-- Text indicating the location of a media item in details window [CHAR LIMIT=14] -->
+  <string name="location">Standuert</string>
   <!-- Text indicating the path of a media item in details window [CHAR LIMIT=14] -->
+  <string name="path">Pad</string>
   <!-- Text indicating the width of a media item in details window [CHAR LIMIT=14] -->
+  <string name="width">Breet</string>
   <!-- Text indicating the height of a media item in details window [CHAR LIMIT=14] -->
+  <string name="height">Héicht</string>
   <!-- Text indicating the orientation of a media item in details window [CHAR LIMIT=14] -->
+  <string name="orientation">Orientéierung</string>
   <!-- Text indicating the duration of a video item in details window [CHAR LIMIT=18] -->
+  <string name="duration">Dauer</string>
   <!-- Text indicating the mime type of a media item in details window [CHAR LIMIT=14] -->
+  <string name="mimetype">MIME-Typ</string>
   <!-- Text indicating the file size of a media item in details window [CHAR LIMIT=14] -->
+  <string name="file_size">Fichiersgréisst</string>
   <!-- Text indicating the maker of a media item in details window [CHAR LIMIT=14] -->
+  <string name="maker">Hiersteller</string>
   <!-- Text indicating the model of a media item in details window [CHAR LIMIT=14] -->
+  <string name="model">Modell</string>
   <!-- Text indicating flash info of a media item in details window [CHAR LIMIT=14] -->
+  <string name="flash">Blëtz</string>
   <!-- Text indicating aperture of a media item in details window [CHAR LIMIT=14] -->
+  <string name="aperture">Blend</string>
   <!-- Text indicating the focal length of a media item in details window [CHAR LIMIT=14] -->
+  <string name="focal_length">Brennwäit</string>
   <!-- Text indicating the white balance of a media item in details window [CHAR LIMIT=18] -->
+  <string name="white_balance">Wäissofgläich</string>
   <!-- Text indicating the exposure time of a media item in details window [CHAR LIMIT=14] -->
+  <string name="exposure_time">Beliichtungszäit</string>
   <!-- Text indicating the ISO speed rating of a media item in details window [CHAR LIMIT=14] -->
+  <string name="iso">ISO</string>
   <!-- String indicating the time units in seconds. [CHAR LIMIT=8] -->
   <!-- String indicating the length units in milli-meters. [CHAR LIMIT=8] -->
+  <string name="unit_mm">mm</string>
   <!-- String indicating how camera shooting feature is used. [CHAR LIMIT=12] -->
   <string name="manual">Manuell</string>
   <!-- String indicating how camera shooting feature is used. [CHAR LIMIT=12 -->
@@ -72,10 +128,14 @@
   <!-- String indicating camera flash is not used. [CHAR LIMIT=14] -->
   <string name="flash_off">Kee Blëtz</string>
   <!-- String indicating image width or height is unknown. [CHAR LIMIT=14] -->
+  <string name="unknown">Onbekannt</string>
   <!-- Toast message shown after we try to make a local album available offline
          [CHAR LIMIT=150] -->
+  <string name="try_to_set_local_album_available_offline">Dëst Element ass lokal gespäichert an och offline disponibel.</string>
   <!-- The content of a dialog showing trimming in progress. [CHAR LIMIT=30] -->
+  <string name="please_wait">Waart w.e.g.</string>
   <!-- Text to show with progress bar while stitching a photo sphere. 'Photo sphere' is a product name. [CHAR LIMIT=35]-->
+  <string name="rendering_photo_sphere">Fotosphär gëtt gerendert</string>
   <!-- title for the dialog showing the error of camera hardware -->
   <string name="camera_error_title">Kamerafeeler</string>
   <!-- message for the dialog showing the error of camera hardware -->
@@ -83,13 +143,17 @@
   <!-- message for the dialog showing the camera is disabled because of security policies. Camera cannot be used. -->
   <string name="camera_disabled">D\'Kamera gouf wéinst Sécherheetsriichtlinnen desaktivéiert.</string>
   <!-- alert to the user to wait for some operation to complete -->
+  <string name="wait">Waart w.e.g.\u2026</string>
   <!-- alert to the user that an SD card must be installed before using the camera -->
   <string name="no_storage" product="default">Maach eng SD-Kaart dran ier s du d\'Kamera benotzt.</string>
   <!-- alert to the user that the SD card is being disk-checked -->
+  <string name="preparing_sd" product="default">SD-Kaart gëtt preparéiert\u2026</string>
   <!-- alert to the user that the camera fails to read or write the SD card. -->
   <string name="access_sd_fail" product="default">Keen Zougrëff op d\'SD-Kaart méiglech.</string>
   <!-- A label that overlays on top of the preview frame to indicate the camcorder is in time lapse mode [CHAR LIMIT=35] -->
+  <string name="time_lapse_title">Zäitrafferopnam</string>
   <!-- Screen display message during image capture to indicate that the capture is in progress, like during HDR+. [CHAR LIMIT=20] -->
+  <string name="capturing">Gëtt opgeholl</string>
   <!-- Settings screen, camera selection dialog title. Users can select a camera from the phone (front-facing or back-facing). [CHAR LIMIT=20] -->
   <string name="pref_camera_id_title">Kamera auswielen</string>
   <!-- In select camera setting, back facing camera. [CHAR LIMIT=14] -->
@@ -242,6 +306,7 @@
   <!-- Dialog "OK" button. Dismisses dialog. -->
   <string name="dialog_ok">OK</string>
   <!-- Low-memory dialog message [CHAR LIMIT=NONE] -->
+  <string name="spaceIsLow_content" product="default">Deng SD-Kaart huet geschwë keng Plaz méi. Änner d\'Qualitéitsastellungen oder läsch e puer Fotoen oder Fichieren.</string>
   <!-- Camera format string for new image files. Passed to java.text.SimpleDateFormat. -->
   <!-- Video Camera format string for new video files. Passed to java.text.SimpleDateFormat. -->
   <!-- Filename prefix for panorama output. -->
@@ -289,6 +354,7 @@
   <!-- Effect setting item that replaces background with video from gallery. [CHAR LIMIT=14] -->
   <string name="effect_backdropper_gallery">Däi Video</string>
   <!-- Toast telling users tapping on the viewfinder will take a picture [CHAR LIMIT=54] -->
+  <string name="video_snapshot_hint">Drécke fir Fotoen ze maache während s du films.</string>
   <!-- Announcement telling users video recording has just started [CHAR LIMIT=NONE] -->
   <string name="video_recording_started">Videoopnam gouf gestart.</string>
   <!-- Announcement telling users video recording has just stopped [CHAR LIMIT=NONE] -->
