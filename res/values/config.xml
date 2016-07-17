@@ -49,16 +49,6 @@
          Example: lge-camera=1;cam-mode=0 -->
     <string name="manufacturer_key_values"></string>
 
-    <!-- Use following iso parameter.
-         Example: lg-iso
-                  lg-iso-values -->
-    <string name="key_iso">iso</string>
-    <string name="key_iso_values">iso-values</string>
-
-    <!-- ISO values use numbers.
-         Example: 50 instead of ISO50 -->
-    <bool name="iso_values_use_numbers">false</bool>
-
     <!-- Enable support for LGE HDR -->
     <bool name="lge_hdr_mode">false</bool>
 
