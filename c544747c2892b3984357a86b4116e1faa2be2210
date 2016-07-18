@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3fa7e38b_5e3eee29",
+        "filename": "src/com/android/camera/CameraSettings.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 15582
+      },
+      "writtenOn": "2016-07-18T05:00:40Z",
+      "side": 1,
+      "message": "This looks like a typo. Shouldn\u0027t this be mKeyIsoValues?",
+      "range": {
+        "startLine": 279,
+        "startChar": 12,
+        "endLine": 279,
+        "endChar": 19
+      },
+      "revId": "c544747c2892b3984357a86b4116e1faa2be2210",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
