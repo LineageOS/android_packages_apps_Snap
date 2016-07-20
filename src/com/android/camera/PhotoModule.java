@@ -110,6 +110,7 @@ public class PhotoModule
         ShutterButton.OnShutterButtonListener,
         MediaSaveService.Listener,
         OnCountDownFinishedListener,
+        LocationManager.Listener,
         SensorEventListener {
 
     private static final String TAG = "CAM_PhotoModule";
@@ -571,7 +572,7 @@ public class PhotoModule
         mUI = new PhotoUI(activity, this, parent);
         initializeControlByIntent();
         mQuickCapture = mActivity.getIntent().getBooleanExtra(EXTRA_QUICK_CAPTURE, false);
-        mLocationManager = new LocationManager(mActivity, mUI);
+        mLocationManager = new LocationManager(mActivity, this);
         mSensorManager = (SensorManager)(mActivity.getSystemService(Context.SENSOR_SERVICE));
 
         Storage.setSaveSDCard(
@@ -620,13 +621,23 @@ public class PhotoModule
         }
 
         mLocationPromptTriggered = true;
-        mUI.showLocationDialog();
+
+        /* Enable the location at the begining, always.
+           If the user denies the permission, it will be disabled
+           right away due to exception */
+        enableRecordingLocation(true);
+    }
+
+    @Override
+    public void waitingLocationPermissionResult(boolean result) {
+        mLocationManager.waitingLocationPermissionResult(result);
     }
 
     @Override
     public void enableRecordingLocation(boolean enable) {
         setLocationPreference(enable ? RecordLocationPreference.VALUE_ON
                 : RecordLocationPreference.VALUE_OFF);
+        mLocationManager.recordLocation(enable);
     }
 
     @Override
@@ -672,7 +683,9 @@ public class PhotoModule
                 .apply();
         // TODO: Fix this to use the actual onSharedPreferencesChanged listener
         // instead of invoking manually
-        onSharedPreferenceChanged();
+        if (mUI.mMenuInitialized) {
+            onSharedPreferenceChanged();
+        }
     }
 
     private void onCameraOpened() {
@@ -4731,5 +4744,10 @@ public class PhotoModule
     public boolean isLongshotDone() {
         return ((mCameraState == LONGSHOT) && (mLongshotSnapNum == mReceivedSnapNum) &&
                 !mLongshotActive);
+    }
+
+    @Override
+    public void onErrorListener(int error) {
+        enableRecordingLocation(false);
     }
 }
