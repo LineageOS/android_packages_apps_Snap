@@ -104,6 +104,7 @@ public class CaptureUI implements
             SettingsManager.KEY_MONO_ONLY,
             SettingsManager.KEY_CLEARSIGHT,
             SettingsManager.KEY_MONO_PREVIEW,
+            SettingsManager.KEY_MPO,
             SettingsManager.KEY_NOISE_REDUCTION,
             SettingsManager.KEY_DIS,
             SettingsManager.KEY_VIDEO_ENCODER,
