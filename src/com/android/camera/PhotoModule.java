@@ -99,6 +99,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Vector;
 import java.util.HashMap;
@@ -3623,32 +3624,6 @@ public class PhotoModule
 
         String zsl = mPreferences.getString(CameraSettings.KEY_ZSL,
                                   mActivity.getString(R.string.pref_camera_zsl_default));
-        String auto_hdr = mPreferences.getString(CameraSettings.KEY_AUTO_HDR,
-                                       mActivity.getString(R.string.pref_camera_auto_hdr_default));
-        if (CameraUtil.isAutoHDRSupported(mParameters)) {
-            mParameters.set("auto-hdr-enable",auto_hdr);
-            if (auto_hdr.equals("enable")) {
-                mActivity.runOnUiThread(new Runnable() {
-                    public void run() {
-                        if (mDrawAutoHDR != null) {
-                            mDrawAutoHDR.setVisibility(View.VISIBLE);
-                        }
-                    }
-                });
-                mParameters.setSceneMode("asd");
-                mCameraDevice.setMetadataCb(mMetaDataCallback);
-            }
-            else {
-                mAutoHdrEnable = false;
-                mActivity.runOnUiThread( new Runnable() {
-                    public void run () {
-                        if (mDrawAutoHDR != null) {
-                            mDrawAutoHDR.setVisibility (View.INVISIBLE);
-                        }
-                    }
-                });
-            }
-        }
         mParameters.setZSLMode(zsl);
         if(zsl.equals("on")) {
             //Switch on ZSL Camera mode
@@ -3729,6 +3704,7 @@ public class PhotoModule
                 + mInstantCaptureSnapShot);
         mParameters.set(CameraSettings.KEY_QC_INSTANT_CAPTURE, instantCapture);
 
+        updateAutoHDR();
 
         //Set Histogram
         String histogram = mPreferences.getString(
@@ -3791,6 +3767,44 @@ public class PhotoModule
             return 0;
         } else {
             return size.width * size.height * 3 / ratio;
+        }
+    }
+
+    private void updateAutoHDR() {
+        String autoHdr = mPreferences.getString(CameraSettings.KEY_AUTO_HDR,
+                mActivity.getString(R.string.pref_camera_auto_hdr_default));
+        String advancedFeature = mPreferences.getString(
+                CameraSettings.KEY_ADVANCED_FEATURES,
+                mActivity.getString(R.string.pref_camera_advanced_feature_default));
+
+        if (CameraUtil.isAutoHDRSupported(mParameters)) {
+            if (autoHdr.equals("enable") &&
+                    ("asd".equals(mSceneMode) || "auto".equals(mSceneMode)) &&
+                    CameraUtil.isSupported("asd", mParameters.getSupportedSceneModes()) &&
+                    (advancedFeature == null || "none".equals(advancedFeature))) {
+                mActivity.runOnUiThread(new Runnable() {
+                    public void run() {
+                        if (mDrawAutoHDR != null) {
+                            mDrawAutoHDR.setVisibility(View.VISIBLE);
+                        }
+                    }
+                });
+                mParameters.setSceneMode("asd");
+                mCameraDevice.setMetadataCb(mMetaDataCallback);
+                mParameters.set("auto-hdr-enable", "enable");
+            }
+            else {
+                mAutoHdrEnable = false;
+                mActivity.runOnUiThread( new Runnable() {
+                    public void run () {
+                        if (mDrawAutoHDR != null) {
+                            mDrawAutoHDR.setVisibility (View.INVISIBLE);
+                        }
+                    }
+                });
+                mCameraDevice.setMetadataCb(null);
+                mParameters.set("auto-hdr-enable", "disable");
+            }
         }
     }
 
