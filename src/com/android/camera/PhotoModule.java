@@ -3210,6 +3210,12 @@ public class PhotoModule
         String optizoomOn = mActivity.getString(R.string
                 .pref_camera_advanced_feature_value_optizoom_on);
 
+        // Set Touch AF/AEC parameter.
+        if (CameraUtil.isSupported(mParameters.TOUCH_AF_AEC_ON,
+                mParameters.getSupportedTouchAfAec())) {
+            mParameters.setTouchAfAec(mParameters.TOUCH_AF_AEC_ON);
+        }
+
         // Set Picture Format
         // Picture Formats specified in UI should be consistent with
         // PIXEL_FORMAT_JPEG and PIXEL_FORMAT_RAW constants
