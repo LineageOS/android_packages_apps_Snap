@@ -1186,7 +1186,7 @@ public class CameraSettings {
         if (chromaFlash != null) {
             List<String> supportedAdvancedFeatures =
                     getSupportedAdvancedFeatures(mParameters);
-            if (!CameraUtil.isSupported(
+            if (hasChromaFlashScene(mContext) || !CameraUtil.isSupported(
                         mContext.getString(R.string
                             .pref_camera_advanced_feature_value_chromaflash_on),
                         supportedAdvancedFeatures)) {
@@ -1213,6 +1213,13 @@ public class CameraSettings {
                         supportedAdvancedFeatures)) {
                 supportedSceneModes.add(mContext.getString(R.string
                             .pref_camera_advanced_feature_value_optizoom_on));
+            }
+            if (hasChromaFlashScene(mContext) && CameraUtil.isSupported(
+                        mContext.getString(R.string
+                                .pref_camera_advanced_feature_value_chromaflash_on),
+                        supportedAdvancedFeatures)) {
+                supportedSceneModes.add(mContext.getString(R.string
+                            .pref_camera_advanced_feature_value_chromaflash_on));
             }
             filterUnsupportedOptions(group, sceneMode, supportedSceneModes);
         }
@@ -1872,5 +1879,17 @@ public class CameraSettings {
 
         pictureSize.setEntries(entries.toArray(new String[entries.size()]));
         pictureSize.setEntryValues(entryValues.toArray(new String[entryValues.size()]));
+    }
+
+    public static boolean hasChromaFlashScene(Context context) {
+        String[] sceneModes = context.getResources().getStringArray(
+                R.array.pref_camera_scenemode_entryvalues);
+        for (String mode : sceneModes) {
+            if (mode.equals(context.getResources().getString(R.string
+                            .pref_camera_advanced_feature_value_chromaflash_on))) {
+                return true;
+            }
+        }
+        return false;
     }
 }
