@@ -2127,8 +2127,10 @@ public class PhotoModule
                 (fssr != null && fssr.equals(fssrOn)) ||
                 (truePortrait != null && truePortrait.equals(truPortraitOn)) ||
                 (stillMore != null && stillMore.equals(stillMoreOn))) {
-            if ( (optiZoom != null && optiZoom.equals(optiZoomOn)) ||
-                 (reFocus != null && reFocus.equals(reFocusOn))       ) {
+            if ((optiZoom != null && optiZoom.equals(optiZoomOn)) ||
+                    (reFocus != null && reFocus.equals(reFocusOn)) ||
+                    (CameraSettings.hasChromaFlashScene(mActivity) &&
+                     chromaFlash != null && chromaFlash.equals(chromaFlashOn))) {
                 sceneMode = null;
             } else {
                 mSceneMode = sceneMode = Parameters.SCENE_MODE_AUTO;
@@ -2152,7 +2154,9 @@ public class PhotoModule
 
         // If scene mode is set, for  white balance and focus mode
         // read settings from preferences so we retain user preferences.
-        if (!Parameters.SCENE_MODE_AUTO.equals(mSceneMode)) {
+        if (!Parameters.SCENE_MODE_AUTO.equals(mSceneMode) &&
+                !"asd".equals(mSceneMode) &&
+                !"sports".equals(mSceneMode)) {
             flashMode = Parameters.FLASH_MODE_OFF;
             String whiteBalance = Parameters.WHITE_BALANCE_AUTO;
             focusMode = mFocusManager.getFocusMode(false);
@@ -2204,6 +2208,12 @@ public class PhotoModule
             flashMode = Parameters.FLASH_MODE_OFF;
             mParameters.setFlashMode(flashMode);
         }
+
+        if (chromaFlash != null && chromaFlash.equals(chromaFlashOn)) {
+            flashMode = Parameters.FLASH_MODE_ON;
+            mParameters.setFlashMode(flashMode);
+        }
+
         if (disableLongShot || mIsBokehMode) {
             mUI.overrideSettings(CameraSettings.KEY_LONGSHOT,
                     mActivity.getString(R.string.setting_off_value));
@@ -3358,6 +3368,8 @@ public class PhotoModule
         mParameters.set("long-shot", longshot_enable);
         String optizoomOn = mActivity.getString(R.string
                 .pref_camera_advanced_feature_value_optizoom_on);
+        String chromaFlashOn = mActivity.getString(R.string
+                .pref_camera_advanced_feature_value_chromaflash_on);
 
         // Set Touch AF/AEC parameter.
         if (CameraUtil.isSupported(mParameters.TOUCH_AF_AEC_ON,
@@ -4222,7 +4234,10 @@ public class PhotoModule
                 .pref_camera_advanced_feature_value_refocus_on);
         String optizoomOn = mActivity.getString(R.string
                 .pref_camera_advanced_feature_value_optizoom_on);
+        String chromaFlashOn = mActivity.getString(R.string
+                .pref_camera_advanced_feature_value_chromaflash_on);
         String scenModeStr = mSceneMode;
+
         if (refocusOn.equals(mSceneMode)) {
             try {
                 mSceneMode = Parameters.SCENE_MODE_AUTO;
@@ -4240,6 +4255,12 @@ public class PhotoModule
                 }
             } catch (NullPointerException e) {
             }
+		} else if (chromaFlashOn.equals(mSceneMode)) {
+			try {
+				mUI.setPreference(CameraSettings.KEY_ADVANCED_FEATURES, chromaFlashOn);
+				mParameters.setSceneMode(Parameters.SCENE_MODE_AUTO);
+			} catch (NullPointerException e) {
+			}
         } else if (mSceneMode == null) {
             mSceneMode = Parameters.SCENE_MODE_AUTO;
         }
@@ -4296,7 +4317,9 @@ public class PhotoModule
             Log.w(TAG, "invalid exposure range: " + value);
         }
 
-        if (Parameters.SCENE_MODE_AUTO.equals(mSceneMode)) {
+        if (Parameters.SCENE_MODE_AUTO.equals(mSceneMode) ||
+                "asd".equals(mSceneMode) ||
+                "sports".equals(mSceneMode)) {
             // Set flash mode.
             String flashMode;
             if (mSavedFlashMode == null) {
@@ -4350,9 +4373,11 @@ public class PhotoModule
                     mActivity.getString(R.string.pref_camera_focustime_default))));
         } else {
             mFocusManager.overrideFocusMode(mParameters.getFocusMode());
-            if (CameraUtil.isSupported(Parameters.FLASH_MODE_OFF,
+            String flashMode = chromaFlashOn.equals(mSceneMode) ?
+                    Parameters.FLASH_MODE_ON : Parameters.FLASH_MODE_OFF;
+            if (CameraUtil.isSupported(flashMode,
                     mParameters.getSupportedFlashModes())) {
-                mParameters.setFlashMode(Parameters.FLASH_MODE_OFF);
+                mParameters.setFlashMode(flashMode);
             }
             if (CameraUtil.isSupported(Parameters.WHITE_BALANCE_AUTO,
                     mParameters.getSupportedWhiteBalance())) {
@@ -4998,7 +5023,8 @@ public class PhotoModule
             updateRemainingPhotos();
         }
 
-        if (CameraSettings.KEY_QC_CHROMA_FLASH.equals(pref.getKey())) {
+        if (!CameraSettings.hasChromaFlashScene(mActivity) &&
+                CameraSettings.KEY_QC_CHROMA_FLASH.equals(pref.getKey())) {
             mUI.setPreference(CameraSettings.KEY_ADVANCED_FEATURES, pref.getValue());
         }
 
@@ -5011,35 +5037,6 @@ public class PhotoModule
             mUI.setPreference(CameraSettings.KEY_ADVANCED_FEATURES, pref.getValue());
         }
 
-        String ubiFocusOff = mActivity.getString(R.string.
-                pref_camera_advanced_feature_value_ubifocus_off);
-        String chromaFlashOff = mActivity.getString(R.string.
-                pref_camera_advanced_feature_value_chromaflash_off);
-        String optiZoomOff = mActivity.getString(R.string.
-                pref_camera_advanced_feature_value_optizoom_off);
-        String reFocusOff = mActivity.getString(R.string.
-                pref_camera_advanced_feature_value_refocus_off);
-        String fssrOff = mActivity.getString(R.string.
-                pref_camera_advanced_feature_value_FSSR_off);
-        String truePortraitOff = mActivity.getString(R.string.
-                pref_camera_advanced_feature_value_trueportrait_off);
-        String multiTouchFocusOff = mActivity.getString(R.string.
-                pref_camera_advanced_feature_value_multi_touch_focus_off);
-        String stillMoreOff = mActivity.getString(R.string.
-                pref_camera_advanced_feature_value_stillmore_off);
-        String advancedFeatureOff = mActivity.getString(R.string.
-                pref_camera_advanced_feature_value_none);
-        if (notSame(pref, CameraSettings.KEY_QC_OPTI_ZOOM, optiZoomOff) ||
-                notSame(pref, CameraSettings.KEY_QC_AF_BRACKETING, ubiFocusOff) ||
-                notSame(pref, CameraSettings.KEY_QC_FSSR, fssrOff) ||
-                notSame(pref, CameraSettings.KEY_QC_TP, truePortraitOff) ||
-                notSame(pref, CameraSettings.KEY_QC_MULTI_TOUCH_FOCUS, multiTouchFocusOff) ||
-                notSame(pref, CameraSettings.KEY_QC_STILL_MORE, stillMoreOff) ||
-                notSame(pref, CameraSettings.KEY_QC_RE_FOCUS, reFocusOff) ||
-                notSame(pref, CameraSettings.KEY_ADVANCED_FEATURES, advancedFeatureOff)) {
-            RotateTextToast.makeText(mActivity, R.string.advanced_capture_disable_continuous_shot,
-                    Toast.LENGTH_LONG).show();
-        }
         //call generic onSharedPreferenceChanged
         onSharedPreferenceChanged();
     }
