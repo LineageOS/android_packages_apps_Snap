@@ -1168,6 +1168,18 @@ public class PhotoMenu extends MenuController
                         mActivity.getString(R.string.pref_camera_advanced_feature_default));
             }
         }
+
+        String chromaFlashOn = mActivity.getString(R.string
+                .pref_camera_advanced_feature_value_chromaflash_on);
+        if (notSame(pref, CameraSettings.KEY_SCENE_MODE, chromaFlashOn)) {
+            ListPreference lp = mPreferenceGroup
+                    .findPreference(CameraSettings.KEY_ADVANCED_FEATURES);
+            if (lp != null && chromaFlashOn.equals(lp.getValue())) {
+                setPreference(CameraSettings.KEY_ADVANCED_FEATURES,
+                        mActivity.getString(R.string.pref_camera_advanced_feature_default));
+            }
+        }
+
         updateFilterModeIcon(pref, pref);
         super.onSettingChanged(pref);
     }
