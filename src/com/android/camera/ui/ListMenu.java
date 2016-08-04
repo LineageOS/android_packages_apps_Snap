@@ -44,7 +44,7 @@ import java.util.List;
 /* A popup window that contains several camera settings. */
 public class ListMenu extends ListView
         implements ListMenuItem.Listener,
-        RotateLayout.Child {
+        RotateLayout.Child,
         AdapterView.OnItemClickListener,
         ListSubMenu.Listener {
     @SuppressWarnings("unused")

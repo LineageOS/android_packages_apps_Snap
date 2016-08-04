@@ -55,6 +55,16 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <com.android.camera.ui.focus.FocusRingView
+            android:id="@+id/focus_ring"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
         <com.android.camera.ui.Camera2FaceView
             android:id="@+id/face_view"
             android:layout_width="match_parent"

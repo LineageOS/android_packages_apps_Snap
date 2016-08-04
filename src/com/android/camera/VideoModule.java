@@ -2346,7 +2346,6 @@ public class VideoModule implements CameraModule,
                         mActivity.getString(R.string.pref_camera_dis_value_disable));
                 RotateTextToast.makeText(mActivity, R.string.video_quality_4k_disable_IS,
                         Toast.LENGTH_LONG).show();
-                mIsDISEnabled = false;
             } else {
                 Log.e(TAG, "Not supported IS mode = " +
                         mActivity.getString(R.string.pref_camera_dis_value_disable));
@@ -2532,12 +2531,11 @@ public class VideoModule implements CameraModule,
             /* Disable CDS */
             if (noiseReductionMode.equals(
                     mActivity.getString(R.string.pref_camera_noise_reduction_value_high_quality)) &&
-                    video_cds.equals(mActivity.getString(R.string.
-                            pref_camera_video_cds_value_on))) {
+                    video_cds.equals(mActivity.getString(R.string.setting_on))) {
                 mParameters.set(CameraSettings.KEY_QC_VIDEO_CDS_MODE,
-                        mActivity.getString(R.string.pref_camera_video_cds_value_off));
+                        mActivity.getString(R.string.setting_off));
                 mUI.overrideSettings(CameraSettings.KEY_QC_VIDEO_CDS_MODE,
-                        mActivity.getString(R.string.pref_camera_video_cds_value_off));
+                        mActivity.getString(R.string.setting_off));
                 Toast.makeText(mActivity, R.string.disable_CDS_during_HighQualityNoiseReduction,
                         Toast.LENGTH_LONG).show();
             }
@@ -2545,12 +2543,11 @@ public class VideoModule implements CameraModule,
             /* Disable TNR */
             if (noiseReductionMode.equals(
                     mActivity.getString(R.string.pref_camera_noise_reduction_value_high_quality)) &&
-                    video_tnr.equals(mActivity.getString(R.string.
-                            pref_camera_video_tnr_value_on))) {
+                    video_tnr.equals(mActivity.getString(R.string.setting_on))) {
                 mParameters.set(CameraSettings.KEY_QC_VIDEO_TNR_MODE,
-                        mActivity.getString(R.string.pref_camera_video_tnr_value_off));
+                        mActivity.getString(R.string.setting_off));
                 mUI.overrideSettings(CameraSettings.KEY_QC_VIDEO_TNR_MODE,
-                        mActivity.getString(R.string.pref_camera_video_tnr_value_off));
+                        mActivity.getString(R.string.setting_off));
                 Toast.makeText(mActivity, R.string.disable_TNR_during_HighQualityNoiseReduction,
                         Toast.LENGTH_LONG).show();
             }

@@ -611,7 +611,7 @@ public class VideoMenu extends MenuController
             mListMenu.setPreferenceEnabled(
                     CameraSettings.KEY_SEE_MORE, false);
             mListMenu.overrideSettings(
-                    CameraSettings.KEY_SEE_MORE, mActivity.getString(R.string.pref_camera_see_more_value_off));
+                    CameraSettings.KEY_SEE_MORE, mActivity.getString(R.string.setting_off));
         }
     }
 

@@ -200,7 +200,7 @@ public class CameraActivity extends Activity
     private WideAnglePanoramaModule mPanoModule;
     private CaptureModule mCaptureModule;
     private FrameLayout mAboveFilmstripControlLayout;
-    private FrameLayout mCameraRootFrame;
+    private CameraRootFrame mCameraRootFrame;
     private View mCameraPhotoModuleRootView;
     private View mCameraVideoModuleRootView;
     private View mCameraPanoModuleRootView;
@@ -1497,7 +1497,7 @@ public class CameraActivity extends Activity
 
         LayoutInflater inflater = getLayoutInflater();
         View rootLayout = inflater.inflate(R.layout.camera, null, false);
-        mCameraRootFrame = (FrameLayout)rootLayout.findViewById(R.id.camera_root_frame);
+        mCameraRootFrame = (CameraRootFrame)rootLayout.findViewById(R.id.camera_root_frame);
         mCameraPhotoModuleRootView = rootLayout.findViewById(R.id.camera_photo_root);
         mCameraVideoModuleRootView = rootLayout.findViewById(R.id.camera_video_root);
         mCameraPanoModuleRootView = rootLayout.findViewById(R.id.camera_pano_root);
