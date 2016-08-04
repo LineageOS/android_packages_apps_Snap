@@ -92,7 +92,7 @@ public class PhotoMenu extends MenuController
     private static final int MODE_SCENE = 0;
     private static final int MODE_FILTER = 1;
     private static final int MODE_MAKEUP = 2;
-    private static final int DEVELOPER_MENU_TOUCH_COUNT = 10;
+    private static final int DEVELOPER_MENU_TOUCH_COUNT = 7;
     private int mSceneStatus;
     private View mHdrSwitcher;
     private View mTsMakeupSwitcher;
@@ -110,7 +110,7 @@ public class PhotoMenu extends MenuController
     private String mPrevSavedCDS;
     private boolean mIsTNREnabled = false;
     private boolean mIsCDSUpdated = false;
-    private int privateCounter = 0;
+    private int mPrivateCounter = 0;
     private static final int ANIMATION_DURATION = 300;
     private static final int CLICK_THRESHOLD = 200;
     private int previewMenuSize;
@@ -1293,27 +1293,6 @@ public class PhotoMenu extends MenuController
     }
 
     public void onPreferenceClicked(ListPreference pref, int y) {
-        // Developer menu
-        if (pref.getKey().equals(CameraSettings.KEY_REDEYE_REDUCTION)) {
-            privateCounter++;
-            if (privateCounter >= DEVELOPER_MENU_TOUCH_COUNT) {
-                SharedPreferences prefs = PreferenceManager
-                        .getDefaultSharedPreferences(mActivity);
-                if (!mActivity.isDeveloperMenuEnabled()) {
-                    mActivity.enableDeveloperMenu();
-                    prefs.edit().putBoolean(CameraSettings.KEY_DEVELOPER_MENU, true).apply();
-                    RotateTextToast.makeText(mActivity,
-                            "Camera developer option is enabled now", Toast.LENGTH_SHORT).show();
-                } else {
-                    mActivity.disableDeveloperMenu();
-                    prefs.edit().putBoolean(CameraSettings.KEY_DEVELOPER_MENU, false).apply();
-                    RotateTextToast.makeText(mActivity,
-                            "Camera developer option is disabled now", Toast.LENGTH_SHORT).show();
-                }
-            }
-        } else {
-            privateCounter = 0;
-        }
         LayoutInflater inflater = (LayoutInflater) mActivity.getSystemService(
                 Context.LAYOUT_INFLATER_SERVICE);
         ListSubMenu basic = (ListSubMenu) inflater.inflate(
@@ -1329,6 +1308,31 @@ public class PhotoMenu extends MenuController
             mUI.showPopup(mListSubMenu, 2, true);
         }
         mPopupStatus = POPUP_SECOND_LEVEL;
+
+        // Developer menu
+        if (pref.getKey().equals(CameraSettings.KEY_MAX_BRIGHTNESS)) {
+            mPrivateCounter++;
+            if (mPrivateCounter >= DEVELOPER_MENU_TOUCH_COUNT) {
+                SharedPreferences prefs = PreferenceManager
+                        .getDefaultSharedPreferences(mActivity);
+                if (!mActivity.isDeveloperMenuEnabled()) {
+                    mActivity.enableDeveloperMenu();
+                    prefs.edit().putBoolean(CameraSettings.KEY_DEVELOPER_MENU, true).apply();
+                    closeAllView();
+                    RotateTextToast.makeText(mActivity,
+                            R.string.developer_menu_enabled, Toast.LENGTH_SHORT).show();
+                } else {
+                    mActivity.disableDeveloperMenu();
+                    prefs.edit().putBoolean(CameraSettings.KEY_DEVELOPER_MENU, false).apply();
+                    closeAllView();
+                    RotateTextToast.makeText(mActivity,
+                            R.string.developer_menu_disabled, Toast.LENGTH_SHORT).show();
+                }
+                mPrivateCounter = 0;
+            }
+        } else {
+            mPrivateCounter = 0;
+        }
     }
 
     public void onListMenuTouched() {
