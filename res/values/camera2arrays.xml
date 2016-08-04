@@ -521,31 +521,6 @@
         <item>1600</item>
     </string-array>
 
-    <!-- Camera Preferences Auto Exposure dialog box entries -->
-    <string-array name="pref_camera2_autoexposure_entries">
-        <item>@string/pref_camera_autoexposure_entry_frameaverage</item>
-        <item>@string/pref_camera_autoexposure_entry_centerweighted</item>
-        <item>@string/pref_camera_autoexposure_entry_spotmetering</item>
-    </string-array>
-
-    <!-- Do not localize entryvalues -->
-    <string-array name="pref_camera2_autoexposure_entryvalues">
-        <item>@string/pref_camera_autoexposure_value_frameaverage</item>
-        <item>@string/pref_camera_autoexposure_value_centerweighted</item>
-        <item>@string/pref_camera_autoexposure_value_spotmetering</item>
-    </string-array>
-
-    <!-- Camera Preferences Redeye Reduction dialog box entries -->
-    <string-array name="pref_camera2_redeyereduction_entries" translatable="false">
-        <item>@string/pref_camera_redeyereduction_entry_disable</item>
-        <item>@string/pref_camera_redeyereduction_entry_enable</item>
-    </string-array>
-
-    <string-array name="pref_camera2_redeyereduction_entryvalues" translatable="false">
-        <item>disable</item>
-        <item>enable</item>
-    </string-array>
-
     <!-- Camera Preferences Long Shot dialog box entries -->
     <string-array name="pref_camera2_longshot_entries" translatable="false">
         <item>@string/setting_off</item>
@@ -555,77 +530,6 @@
     <string-array name="pref_camera2_longshot_entryvalues" translatable="false">
         <item>@string/setting_off_value</item>
         <item>@string/setting_on_value</item>
-    </string-array>
-
-    <string-array name="pref_camera2_filter_mode_entries" translatable="false">
-        <item>@string/pref_camera_filter_mode_entry_off</item>
-        <item>@string/pref_camera_filter_mode_entry_on</item>
-    </string-array>
-    <string-array name="pref_camera2_filter_mode_entryvalues" translatable="false">
-        <item>Off</item>
-        <item>On</item>
-    </string-array>
-
-    <string-array name="pref_camera2_filter_mode_icons" translatable="false">
-        <item>@drawable/ic_settings_filter</item>
-        <item>@drawable/ic_settings_filter_on</item>
-    </string-array>
-
-    <string-array name="pref_camera2_video_quality_entries" translatable="false">
-        <item>@string/pref_video_quality_entry_4kdci</item>
-        <item>@string/pref_video_quality_entry_2160p</item>
-        <item>@string/pref_video_quality_entry_qHD</item>
-        <item>@string/pref_video_quality_entry_2k</item>
-        <item>@string/pref_video_quality_entry_1080p</item>
-        <item>@string/pref_video_quality_entry_720p</item>
-        <item>@string/pref_video_quality_entry_480p</item>
-        <item>@string/pref_video_quality_entry_vga</item>
-        <item>@string/pref_video_quality_entry_cif</item>
-        <item>@string/pref_video_quality_entry_qvga</item>
-        <item>@string/pref_video_quality_entry_qcif</item>
-    </string-array>
-
-    <string-array name="pref_camera2_video_quality_entryvalues" translatable="false">
-        <item>4096x2160</item>
-        <item>3840x2160</item>
-        <item>2560x1440</item>
-        <item>2048x1080</item>
-        <item>1920x1080</item>
-        <item>1280x720</item>
-        <item>720x480</item>
-        <item>640x480</item>
-        <item>352x288</item>
-        <item>320x240</item>
-        <item>176x144</item>
-    </string-array>
-
-    <string-array name="pref_camera2_video_duration_entries" translatable="false">
-        <item>@string/pref_camera_video_duration_entry_mms</item>
-        <item>@string/pref_camera_video_duration_entry_10</item>
-        <item>@string/pref_camera_video_duration_entry_30</item>
-        <item>@string/pref_camera_video_duration_entry_nolimit</item>
-    </string-array>
-
-    <!-- The numbers are in minutes, except -1 means the duration suitable for mms. -->
-    <string-array name="pref_camera2_video_duration_entryvalues" translatable="false">
-        <item>-1</item>
-        <item>10</item>
-        <item>30</item>
-        <item>0</item>
-    </string-array>
-
-    <string-array name="pref_camera2_videoencoder_entries" translatable="false">
-        <item>@string/pref_camera_videoencoder_entry_0</item>
-        <item>@string/pref_camera_videoencoder_entry_1</item>
-        <item>@string/pref_camera_videoencoder_entry_2</item>
-        <item>@string/pref_camera_videoencoder_entry_3</item>
-    </string-array>
-
-    <string-array name="pref_camera2_videoencoder_entryvalues" translatable="false">
-        <item>mpeg-4-sp</item>
-        <item>h263</item>
-        <item>h264</item>
-        <item>h265</item>
     </string-array>
 
     <string-array name="pref_camera2_audioencoder_entries" translatable="false">
@@ -638,16 +542,6 @@
         <item>aac</item>
     </string-array>
 
-    <string-array name="pref_camera2_dis_entries" translatable="false">
-        <item>@string/pref_camera_dis_entry_off</item>
-        <item>@string/pref_camera_dis_entry_on</item>
-    </string-array>
-
-    <string-array name="pref_camera2_dis_entryvalues"  translatable="false">
-        <item>@string/pref_camera_dis_value_disable</item>
-        <item>@string/pref_camera_dis_value_enable</item>
-    </string-array>
-
     <string-array name="pref_camera2_noise_reduction_entries" translatable="false">
         <item>@string/pref_camera2_noise_reduction_entry_off</item>
         <item>@string/pref_camera2_noise_reduction_entry_fast</item>
@@ -658,42 +552,6 @@
         <item>@string/pref_camera2_noise_reduction_value_off</item>
         <item>@string/pref_camera2_noise_reduction_value_fast</item>
         <item>@string/pref_camera2_noise_reduction_value_high_quality</item>
-    </string-array>
-
-    <string-array name="pref_camera2_video_flashmode_entries" translatable="false">
-        <item>@string/pref_camera_flashmode_entry_off</item>
-        <item>@string/pref_camera_flashmode_entry_on</item>
-    </string-array>
-
-    <string-array name="pref_camera2_video_flashmode_labels" translatable="false">
-        <item>@string/pref_camera_flashmode_label_off</item>
-        <item>@string/pref_camera_flashmode_label_on</item>
-    </string-array>
-
-    <string-array name="pref_camera2_video_flashmode_entryvalues" translatable="false">
-        <item>off</item>
-        <item>torch</item>
-    </string-array>
-
-    <string-array name="pref_camera2_video_rotation_entries" translatable="false">
-        <item>@string/pref_camera_video_rotation_entry_0</item>
-        <item>@string/pref_camera_video_rotation_entry_90</item>
-        <item>@string/pref_camera_video_rotation_entry_180</item>
-        <item>@string/pref_camera_video_rotation_entry_270</item>
-    </string-array>
-
-    <string-array name="pref_camera2_video_rotation_labels" translatable="false">
-        <item>@string/pref_camera_video_rotation_label_0</item>
-        <item>@string/pref_camera_video_rotation_label_90</item>
-        <item>@string/pref_camera_video_rotation_label_180</item>
-        <item>@string/pref_camera_video_rotation_label_270</item>
-    </string-array>
-
-    <string-array name="pref_camera2_video_rotation_entryvalues" translatable="false">
-        <item>0</item>
-        <item>90</item>
-        <item>180</item>
-        <item>270</item>
     </string-array>
 
     <!-- These values correspond to the time interval between frame capture in millseconds
@@ -784,16 +642,6 @@ for time lapse recording -->
         <item>@string/pref_video_time_lapse_frame_interval_43200000</item>
         <item>@string/pref_video_time_lapse_frame_interval_54000000</item>
         <item>@string/pref_video_time_lapse_frame_interval_86400000</item>
-    </string-array>
-
-    <string-array name="pref_camera2_facedetection_entries" translatable="false">
-        <item>@string/pref_camera_facedetection_entry_off</item>
-        <item>@string/pref_camera_facedetection_entry_on</item>
-    </string-array>
-
-    <string-array name="pref_camera2_facedetection_entryvalues" translatable="false">
-        <item>off</item>
-        <item>on</item>
     </string-array>
 
     <string-array name="pref_camera2_videosnap_entries" translatable="true">
