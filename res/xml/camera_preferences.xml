@@ -365,4 +365,11 @@
             camera:entries="@array/pref_switch_entries"
             camera:singleIcon="@drawable/ic_settings_bright_screen"
             camera:entryValues="@array/pref_switch_entryvalues" />
+    <IconListPreference
+            camera:key="pref_developer_menu_key"
+            camera:defaultValue="@string/pref_developer_menu_default"
+            camera:title="@string/pref_developer_menu_title"
+            camera:entries="@array/pref_switch_entries"
+            camera:singleIcon="@drawable/ic_settings_powershutter"
+            camera:entryValues="@array/pref_switch_entryvalues" />
 </PreferenceGroup>

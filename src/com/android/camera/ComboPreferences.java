@@ -155,7 +155,8 @@ public class ComboPreferences implements
                 || key.equals(CameraSettings.KEY_PHOTOSPHERE_PICTURESIZE)
                 || key.equals(CameraSettings.KEY_CAMERA_SAVEPATH)
                 || key.equals(CameraSettings.KEY_POWER_SHUTTER)
-                || key.equals(CameraSettings.KEY_MAX_BRIGHTNESS);
+                || key.equals(CameraSettings.KEY_MAX_BRIGHTNESS)
+                || key.equals(CameraSettings.KEY_DEVELOPER_MENU);
     }
 
     @Override

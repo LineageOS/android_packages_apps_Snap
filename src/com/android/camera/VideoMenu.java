@@ -104,7 +104,7 @@ public class VideoMenu extends MenuController
         mPopupStatus = POPUP_NONE;
         mPreviewMenuStatus = POPUP_NONE;
         initFilterModeButton(mFilterModeSwitcher);
-        // settings popup
+
         mOtherKeys1 = new String[] {
                 CameraSettings.KEY_VIDEOCAMERA_FLASH_MODE,
                 CameraSettings.KEY_VIDEO_QUALITY,
@@ -116,8 +116,10 @@ public class VideoMenu extends MenuController
                 CameraSettings.KEY_WHITE_BALANCE,
                 CameraSettings.KEY_VIDEO_HIGH_FRAME_RATE,
                 CameraSettings.KEY_POWER_SHUTTER,
-                CameraSettings.KEY_MAX_BRIGHTNESS
+                CameraSettings.KEY_MAX_BRIGHTNESS,
+                CameraSettings.KEY_DEVELOPER_MENU
         };
+
         mOtherKeys2 = new String[] {
                 CameraSettings.KEY_VIDEOCAMERA_FLASH_MODE,
                 CameraSettings.KEY_VIDEO_QUALITY,
@@ -131,6 +133,7 @@ public class VideoMenu extends MenuController
                 CameraSettings.KEY_VIDEO_HIGH_FRAME_RATE,
                 CameraSettings.KEY_POWER_SHUTTER,
                 CameraSettings.KEY_MAX_BRIGHTNESS,
+                CameraSettings.KEY_DEVELOPER_MENU,
                 CameraSettings.KEY_SEE_MORE,
                 CameraSettings.KEY_DIS,
                 CameraSettings.KEY_VIDEO_EFFECT,
@@ -143,6 +146,7 @@ public class VideoMenu extends MenuController
                 CameraSettings.KEY_VIDEO_CDS_MODE,
                 CameraSettings.KEY_VIDEO_TNR_MODE
         };
+
         mFrontBackSwitcher.setVisibility(View.INVISIBLE);
         initSwitchItem(CameraSettings.KEY_CAMERA_ID, mFrontBackSwitcher);
     }
@@ -800,6 +804,20 @@ public class VideoMenu extends MenuController
             }
             setPreference(CameraSettings.KEY_VIDEO_TIME_LAPSE_FRAME_INTERVAL, defaultValue);
         }
+
+        if (pref.getKey().equals(CameraSettings.KEY_DEVELOPER_MENU)) {
+            ListPreference developerPref =
+                    mPreferenceGroup.findPreference(CameraSettings.KEY_DEVELOPER_MENU);
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(mActivity);
+            if (developerPref != null && "on".equals(developerPref.getValue())) {
+                mActivity.enableDeveloperMenu();
+                prefs.edit().putBoolean(CameraSettings.KEY_DEVELOPER_MENU, true).apply();
+            } else {
+                mActivity.disableDeveloperMenu();
+                prefs.edit().putBoolean(CameraSettings.KEY_DEVELOPER_MENU, false).apply();
+            }
+        }
+
         super.onSettingChanged(pref);
     }
 
