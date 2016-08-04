@@ -1884,6 +1884,25 @@ public class PhotoModule
         }
     }
 
+    private void updateLongshotScene() {
+        String[] longshotScenes = mActivity.getResources().getStringArray(
+                R.array.longshot_scenemodes);
+        if (longshotScenes.length == 0) {
+            mUI.overrideSettings(CameraSettings.KEY_LONGSHOT, null);
+            return;
+        }
+        boolean useLongshot = false;
+        for (String scene : longshotScenes) {
+            if (scene.equals(mSceneMode)) {
+                useLongshot = true;
+                break;
+            }
+        }
+        mUI.overrideSettings(CameraSettings.KEY_LONGSHOT,
+                useLongshot ? mActivity.getString(R.string.setting_on_value) :
+                              mActivity.getString(R.string.setting_off_value));
+    }
+
     private void updateCommonManual3ASettings() {
         mSceneMode = Parameters.SCENE_MODE_AUTO;
         String flashMode = Parameters.FLASH_MODE_OFF;
@@ -2088,7 +2107,7 @@ public class PhotoModule
             mUI.overrideSettings(CameraSettings.KEY_LONGSHOT,
                     mActivity.getString(R.string.setting_off_value));
         } else {
-            mUI.overrideSettings(CameraSettings.KEY_LONGSHOT, null);
+            updateLongshotScene();
         }
 
         if(TsMakeupManager.HAS_TS_MAKEUP) {
