@@ -2844,10 +2844,6 @@ public class PhotoModule
             mFocusManager.setAeAwbLock(false); // Unlock AE and AWB.
         }
 
-        if (!mSnapshotOnIdle) {
-            mFocusManager.setAeAwbLock(false); // Unlock AE and AWB.
-        }
-
         setCameraParameters(UPDATE_PARAM_ALL);
 
         mCameraDevice.startPreview();
