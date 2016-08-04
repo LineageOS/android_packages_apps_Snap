@@ -78,6 +78,7 @@ import com.android.camera.PhotoModule.NamedImages;
 import com.android.camera.PhotoModule.NamedImages.NamedEntity;
 import com.android.camera.imageprocessor.filter.SharpshooterFilter;
 import com.android.camera.ui.CountDownView;
+import com.android.camera.ui.focus.FocusRing;
 import com.android.camera.ui.ModuleSwitcher;
 import com.android.camera.ui.RotateTextToast;
 import com.android.camera.util.CameraUtil;
@@ -1572,7 +1573,6 @@ public class CaptureModule implements CameraModule, PhotoController,
         updateVideoSnapshotSize();
         updateTimeLapseSetting();
         estimateJpegFileSize();
-        updateMaxVideoDuration();
     }
 
     @Override
@@ -1766,10 +1766,10 @@ public class CaptureModule implements CameraModule, PhotoController,
         Log.d(TAG, "onSingleTapUp " + x + " " + y);
         int[] newXY = {x, y};
         if (!mUI.isOverSurfaceView(newXY)) return;
-        mUI.setFocusPosition(x, y);
+        mUI.getFocusRing().startActiveFocus();
+        mUI.getFocusRing().setFocusLocation(x, y);
         x = newXY[0];
         y = newXY[1];
-        mUI.onFocusStarted();
         if (isBackCamera()) {
             switch (getCameraMode()) {
                 case DUAL_MODE:
@@ -2016,18 +2016,6 @@ public class CaptureModule implements CameraModule, PhotoController,
         }
     }
 
-    private void updateMaxVideoDuration() {
-        String minutesStr = mSettingsManager.getValue(SettingsManager.KEY_VIDEO_DURATION);
-        int minutes = Integer.parseInt(minutesStr);
-        if (minutes == -1) {
-            // User wants lowest, set 30s */
-            mMaxVideoDurationInMs = 30000;
-        } else {
-            // 1 minute = 60000ms
-            mMaxVideoDurationInMs = 60000 * minutes;
-        }
-    }
-
     private void startRecordingVideo(int cameraId) {
         if (null == mCameraDevice[cameraId]) {
             return;
@@ -2036,7 +2024,7 @@ public class CaptureModule implements CameraModule, PhotoController,
         mIsRecordingVideo = true;
         mMediaRecorderPausing = false;
         mUI.hideUIwhileRecording();
-        mUI.clearFocus();
+        mUI.getFocusRing().stopFocusAnimations();
         mCameraHandler.removeMessages(CANCEL_TOUCH_FOCUS, cameraId);
         mState[cameraId] = STATE_PREVIEW;
         mControlAFMode = CaptureRequest.CONTROL_AF_MODE_CONTINUOUS_PICTURE;
@@ -2076,7 +2064,7 @@ public class CaptureModule implements CameraModule, PhotoController,
                         e.printStackTrace();
                     }
                     mMediaRecorder.start();
-                    mUI.clearFocus();
+                    mUI.getFocusRing().stopFocusAnimations();
                     mUI.resetPauseButton();
                     mRecordingTotalTime = 0L;
                     mRecordingStartTime = SystemClock.uptimeMillis();
@@ -2332,9 +2320,9 @@ public class CaptureModule implements CameraModule, PhotoController,
             size = CameraSettings.getTimeLapseQualityFor(size);
         mProfile = CamcorderProfile.get(cameraId, size);
 
-        int videoEncoder = SettingTranslation
+        mProfile.videoCodec = SettingTranslation
                 .getVideoEncoder(mSettingsManager.getValue(SettingsManager.KEY_VIDEO_ENCODER));
-        int audioEncoder = SettingTranslation
+        mProfile.audioCodec = SettingTranslation
                 .getAudioEncoder(mSettingsManager.getValue(SettingsManager.KEY_AUDIO_ENCODER));
 
         int outputFormat = MediaRecorder.OutputFormat.MPEG_4;
@@ -2351,12 +2339,12 @@ public class CaptureModule implements CameraModule, PhotoController,
         mMediaRecorder.setVideoEncodingBitRate(mProfile.videoBitRate);
         mMediaRecorder.setVideoFrameRate(mProfile.videoFrameRate);
         mMediaRecorder.setVideoSize(mProfile.videoFrameWidth, mProfile.videoFrameHeight);
-        mMediaRecorder.setVideoEncoder(videoEncoder);
+        mMediaRecorder.setVideoEncoder(mProfile.videoCodec);
         if (!mCaptureTimeLapse) {
             mMediaRecorder.setAudioEncodingBitRate(mProfile.audioBitRate);
             mMediaRecorder.setAudioChannels(mProfile.audioChannels);
             mMediaRecorder.setAudioSamplingRate(mProfile.audioSampleRate);
-            mMediaRecorder.setAudioEncoder(audioEncoder);
+            mMediaRecorder.setAudioEncoder(mProfile.audioCodec);
         }
         mMediaRecorder.setMaxDuration(mMaxVideoDurationInMs);
         if (mCaptureTimeLapse) {
@@ -2834,9 +2822,6 @@ public class CaptureModule implements CameraModule, PhotoController,
                     continue;
                 case SettingsManager.KEY_JPEG_QUALITY:
                     estimateJpegFileSize();
-                    continue;
-                case SettingsManager.KEY_VIDEO_DURATION:
-                    updateMaxVideoDuration();
                     continue;
                 case SettingsManager.KEY_VIDEO_QUALITY:
                     updateVideoSize();

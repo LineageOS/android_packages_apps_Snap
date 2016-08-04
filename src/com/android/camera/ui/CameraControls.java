@@ -212,7 +212,7 @@ public class CameraControls extends RotatableLayout {
             mSceneModeSwitcher, mHdrSwitcher, mAutoHdrNotice, mHistogramView
         };
         mBottomViews = new View[] {
-            mPreview, mShutter, mSwitcher
+            mPreview, mShutter, mVideoShutter, mSwitcher
         };
         mAllViews = new View[mTopViews.length + mBottomViews.length];
         for (int i = 0; i < mTopViews.length; i++) {
