@@ -132,8 +132,8 @@
 
     <!-- Still More -->
     <string name="pref_camera_advanced_feature_entry_stillmore">Still More</string>
-    <string name="pref_camera_advanced_feature_value_stillmore_on">still-more-on</string>
-    <string name="pref_camera_advanced_feature_value_stillmore_off">still-more-off</string>
+    <string name="pref_camera_advanced_feature_value_stillmore_on" translatable="false">still-more-on</string>
+    <string name="pref_camera_advanced_feature_value_stillmore_off" translatable="false">still-more-off</string>
 
     <!-- Video HDR-->
     <string name="pref_camera_video_hdr_title">Video HDR</string>
