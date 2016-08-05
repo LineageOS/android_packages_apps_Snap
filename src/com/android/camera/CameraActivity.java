@@ -1739,8 +1739,7 @@ public class CameraActivity extends Activity
             mHasCriticalPermissions = false;
         }
 
-        if ((checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) !=
-                    PackageManager.PERMISSION_GRANTED) || !mHasCriticalPermissions) {
+        if (!mHasCriticalPermissions) {
             final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
             boolean isRequestShown = prefs.getBoolean(CameraSettings.KEY_REQUEST_PERMISSION, false);
             if(!isRequestShown || !mHasCriticalPermissions) {
