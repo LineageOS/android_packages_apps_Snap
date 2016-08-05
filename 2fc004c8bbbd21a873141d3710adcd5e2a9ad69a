@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3fa7e38b_a82e9ef7",
+        "filename": "res/values/qcomstrings.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 2881
+      },
+      "writtenOn": "2016-08-05T17:27:32Z",
+      "side": 1,
+      "message": "translatable\u003d\"false\"",
+      "range": {
+        "startLine": 133,
+        "startChar": 18,
+        "endLine": 133,
+        "endChar": 65
+      },
+      "revId": "2fc004c8bbbd21a873141d3710adcd5e2a9ad69a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3fa7e38b_4835aa45",
+        "filename": "res/values/qcomstrings.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 2881
+      },
+      "writtenOn": "2016-08-05T17:27:32Z",
+      "side": 1,
+      "message": "translatable\u003d\"false\"",
+      "range": {
+        "startLine": 134,
+        "startChar": 18,
+        "endLine": 134,
+        "endChar": 66
+      },
+      "revId": "2fc004c8bbbd21a873141d3710adcd5e2a9ad69a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
