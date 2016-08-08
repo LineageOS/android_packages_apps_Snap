@@ -65,6 +65,8 @@
   <string name="pref_camera_manual_focus_entry_scale_mode">Modalità scala</string>
   <string name="pref_camera_manual_focus_entry_diopter_mode">Modalità regolazione diottrica</string>
   <string name="pref_camera_manual_focus_entry_off">Off</string>
+  <!-- Still More -->
+  <string name="pref_camera_advanced_feature_entry_stillmore">Di più</string>
   <!-- Video HDR-->
   <string name="pref_camera_video_hdr_title">Video HDR</string>
   <!-- CDS mode-->

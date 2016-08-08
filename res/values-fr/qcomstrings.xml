@@ -65,6 +65,7 @@
   <string name="pref_camera_manual_focus_entry_scale_mode">Mode de mise à l\'échelle</string>
   <string name="pref_camera_manual_focus_entry_diopter_mode">Mode de réglage dioptrique</string>
   <string name="pref_camera_manual_focus_entry_off">Désactivé</string>
+  <!-- Still More -->
   <!-- Video HDR-->
   <string name="pref_camera_video_hdr_title">Vidéo HDR</string>
   <!-- CDS mode-->

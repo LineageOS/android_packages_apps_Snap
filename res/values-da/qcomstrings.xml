@@ -65,6 +65,7 @@
   <string name="pref_camera_manual_focus_entry_scale_mode">Skaleringstilstand</string>
   <string name="pref_camera_manual_focus_entry_diopter_mode">Diopter tilstand</string>
   <string name="pref_camera_manual_focus_entry_off">Fra</string>
+  <!-- Still More -->
   <!-- Video HDR-->
   <string name="pref_camera_video_hdr_title">Video-HDR</string>
   <!-- CDS mode-->

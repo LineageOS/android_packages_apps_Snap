@@ -65,6 +65,7 @@
   <string name="pref_camera_manual_focus_entry_scale_mode">รูปแบบสเกล</string>
   <string name="pref_camera_manual_focus_entry_diopter_mode">รูปแบบไดออปเตอร์</string>
   <string name="pref_camera_manual_focus_entry_off">ปิด</string>
+  <!-- Still More -->
   <!-- Video HDR-->
   <string name="pref_camera_video_hdr_title">HDR วิดีโอ</string>
   <!-- CDS mode-->

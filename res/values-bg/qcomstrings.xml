@@ -65,6 +65,8 @@
   <string name="pref_camera_manual_focus_entry_scale_mode">Мащабен режим</string>
   <string name="pref_camera_manual_focus_entry_diopter_mode">Диоптър режим</string>
   <string name="pref_camera_manual_focus_entry_off">Изключено</string>
+  <!-- Still More -->
+  <string name="pref_camera_advanced_feature_entry_stillmore">Разширени функции</string>
   <!-- Video HDR-->
   <string name="pref_camera_video_hdr_title">Видео HDR</string>
   <!-- CDS mode-->

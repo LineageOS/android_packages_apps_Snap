@@ -65,6 +65,7 @@
   <string name="pref_camera_manual_focus_entry_scale_mode">スケールモード</string>
   <string name="pref_camera_manual_focus_entry_diopter_mode">視度モード</string>
   <string name="pref_camera_manual_focus_entry_off">OFF</string>
+  <!-- Still More -->
   <!-- Video HDR-->
   <string name="pref_camera_video_hdr_title">動画HDR</string>
   <!-- CDS mode-->

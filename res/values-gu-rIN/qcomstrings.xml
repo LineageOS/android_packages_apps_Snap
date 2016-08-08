@@ -65,6 +65,7 @@
   <string name="pref_camera_manual_focus_entry_scale_mode">સ્કેલ મોડ</string>
   <string name="pref_camera_manual_focus_entry_diopter_mode">ડાઇઓપ્ટર મોડ</string>
   <string name="pref_camera_manual_focus_entry_off">બંધ</string>
+  <!-- Still More -->
   <!-- Video HDR-->
   <string name="pref_camera_video_hdr_title">વિડિયો HDR</string>
   <!-- CDS mode-->

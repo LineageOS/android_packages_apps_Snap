@@ -148,6 +148,8 @@
   <!-- Settings menu countdown timer 10 seconds [CHAR LIMIT=50] -->
   <!-- Settings menu countdown timer 15 seconds [CHAR LIMIT=50] -->
   <!-- Toast after trying to select a setting that is not allowed to change in scene mode [CHAR LIMIT=NONE] -->
+  <!-- Toast after SeeMore has been enabled to show CDS is disabled -->
+  <!-- Toast after SeeMore has been enabled to show TNR is disabled -->
   <!-- Exposure settings in preference -->
   <!--  menu label exposure compensation [CHAR LIMIT=50] -->
   <!-- Default HDR entry value -->

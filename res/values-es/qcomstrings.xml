@@ -65,6 +65,7 @@
   <string name="pref_camera_manual_focus_entry_scale_mode">Modo de escalado</string>
   <string name="pref_camera_manual_focus_entry_diopter_mode">Modo dioptría</string>
   <string name="pref_camera_manual_focus_entry_off">Apagar</string>
+  <!-- Still More -->
   <!-- Video HDR-->
   <string name="pref_camera_video_hdr_title">Vídeo HDR</string>
   <!-- CDS mode-->

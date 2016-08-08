@@ -296,6 +296,8 @@
   <string name="pref_camera_countdown_label_fifteen">15 SEKUND</string>
   <!-- Toast after trying to select a setting that is not allowed to change in scene mode [CHAR LIMIT=NONE] -->
   <string name="not_selectable_in_scene_mode">Tuto možnost ve scénickém režimu vybrat nelze.</string>
+  <!-- Toast after SeeMore has been enabled to show CDS is disabled -->
+  <!-- Toast after SeeMore has been enabled to show TNR is disabled -->
   <!-- Exposure settings in preference -->
   <string name="pref_exposure_title">Expozice</string>
   <!--  menu label exposure compensation [CHAR LIMIT=50] -->

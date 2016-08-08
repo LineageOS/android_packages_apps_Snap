@@ -65,6 +65,8 @@
   <string name="pref_camera_manual_focus_entry_scale_mode">Eskala modua</string>
   <string name="pref_camera_manual_focus_entry_diopter_mode">Dioptria modua</string>
   <string name="pref_camera_manual_focus_entry_off">Ez</string>
+  <!-- Still More -->
+  <string name="pref_camera_advanced_feature_entry_stillmore">Are gehiago</string>
   <!-- Video HDR-->
   <string name="pref_camera_video_hdr_title">HDR bideoa</string>
   <!-- CDS mode-->

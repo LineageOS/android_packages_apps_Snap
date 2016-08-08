@@ -65,6 +65,7 @@
   <string name="pref_camera_manual_focus_entry_scale_mode">نىسپەت شەكلى</string>
   <string name="pref_camera_manual_focus_entry_diopter_mode">نۇر سۇندۇرۇش شەكلى</string>
   <string name="pref_camera_manual_focus_entry_off">تاقاق</string>
+  <!-- Still More -->
   <!-- Video HDR-->
   <string name="pref_camera_video_hdr_title">سىن HDR</string>
   <!-- CDS mode-->

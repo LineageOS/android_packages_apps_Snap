@@ -65,6 +65,7 @@
   <string name="pref_camera_manual_focus_entry_scale_mode">స్కేల్ మోడ్</string>
   <string name="pref_camera_manual_focus_entry_diopter_mode">డయాప్టర్ మోడ్</string>
   <string name="pref_camera_manual_focus_entry_off">ఆఫ్‌లో ఉంది</string>
+  <!-- Still More -->
   <!-- Video HDR-->
   <string name="pref_camera_video_hdr_title">వీడియో HDR</string>
   <!-- CDS mode-->
