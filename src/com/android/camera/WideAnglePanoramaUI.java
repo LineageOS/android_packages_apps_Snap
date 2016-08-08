@@ -327,9 +327,6 @@ public class WideAnglePanoramaUI extends BaseUI implements
         mTextureView.setLayoutParams(param);
         mTextureView.setX(xOffset);
         mTextureView.setY(yOffset);
-        mPreviewBorder.setLayoutParams(param);
-        mPreviewBorder.setX(xOffset);
-        mPreviewBorder.setY(yOffset);
         mPreviewYOffset = yOffset;
 
         mTextureView.layout(0, mPreviewYOffset, mTextureView.getRight(), mTextureView.getBottom());
@@ -636,6 +633,7 @@ public class WideAnglePanoramaUI extends BaseUI implements
         mPanoFailedDialog.setRotation(-orientation);
         mReview.setRotation(-orientation);
         mTooFastPrompt.setRotation(-orientation);
+        mPreviewBorder.setRotation(-orientation);
         mCameraControls.setOrientation(orientation, animation);
         RotateTextToast.setOrientation(orientation);
     }
