@@ -15,7 +15,6 @@
 -->
 <resources>
     <item name="ic_effects_holo_light" type="drawable">@drawable/ic_effects_holo_light_large</item>
-    <item name="ic_pan_border_fast" type="drawable">@drawable/ic_pan_border_fast_large</item>
     <item name="ic_pan_left_indicator_fast" type="drawable">@drawable/ic_pan_left_indicator_fast_large</item>
     <item name="ic_pan_left_indicator" type="drawable">@drawable/ic_pan_left_indicator_large</item>
     <item name="ic_pan_progression" type="drawable">@drawable/ic_pan_progression_large</item>
