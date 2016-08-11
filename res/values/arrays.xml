@@ -182,6 +182,7 @@
         <item>@string/pref_camera_picturesize_entry_10mp</item> <!-- 380 -->
         <item>@string/pref_camera_picturesize_entry_10mp</item> <!-- 370 -->
         <item>@string/pref_camera_picturesize_entry_9_7mp_wide</item> <!-- 360 -->
+        <item>@string/pref_camera_picturesize_entry_9_6mp_wide</item> <!-- 355 -->
         <item>@string/pref_camera_picturesize_entry_9_4mp_wide</item> <!-- 350 -->
         <item>@string/pref_camera_picturesize_entry_9mp</item> <!-- 340 -->
         <item>@string/pref_camera_picturesize_entry_8_9mp</item> <!-- 335 -->
@@ -254,6 +255,7 @@
         <item>4320x2432</item> <!-- 380 -->
         <item>3648x2736</item> <!-- 370 -->
         <item>4160x2340</item> <!-- 360 -->
+        <item>4128x2322</item> <!-- 355 -->
         <item>4096x2304</item> <!-- 350 -->
         <item>3920x2204</item> <!-- 340 -->
         <item>3456x2592</item> <!-- 335 -->
