@@ -131,7 +131,7 @@
     <string name="pref_camera_manual_focus_entry_off">Off</string>
 
     <!-- Still More -->
-    <string name="pref_camera_advanced_feature_entry_stillmore">Still More</string>
+    <string name="pref_camera_advanced_feature_entry_stillmore" translatable="false">Still More</string>
     <string name="pref_camera_advanced_feature_value_stillmore_on" translatable="false">still-more-on</string>
     <string name="pref_camera_advanced_feature_value_stillmore_off" translatable="false">still-more-off</string>
 
@@ -503,6 +503,14 @@
     <string name="video_quality_4k_disable_SeeMore">SeeMore cannot be enabled during 4k video</string>
 
     <string name="initial_recording_seconds" translatable="false">00:00</string>
+
+    <string name="pref_camera_scenemode_entry_optizoom" translatable="false">OptiZoom</string>
+
+    <!-- Toast after SeeMore has been enabled to show CDS is disabled -->
+    <string name="disable_CDS_during_SeeMore">Enabling SeeMore will disable CDS</string>
+
+    <!-- Toast after SeeMore has been enabled to show TNR is disabled -->
+    <string name="disable_TNR_during_SeeMore">Enabling SeeMore will disable TNR</string>
 
     <!-- TODO: Remove these? -->
     <string name="pref_camera_redeyereduction_entry_disable" translatable="false">disable</string>
