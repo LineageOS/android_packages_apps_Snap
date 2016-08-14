@@ -1,0 +1,123 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1fa4df85_0c6cfb06",
+        "filename": "src/com/android/camera/CameraActivity.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 1716,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2016-08-14T11:35:24Z",
+      "side": 1,
+      "message": "Line length",
+      "revId": "13157d0e7239c657d30fa1a5834d2e0fd6854310",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1fa4df85_2c71b7e1",
+        "filename": "src/com/android/camera/CameraActivity.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 1723,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2016-08-14T11:35:24Z",
+      "side": 1,
+      "message": "dito",
+      "revId": "13157d0e7239c657d30fa1a5834d2e0fd6854310",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1fa4df85_cc7583ce",
+        "filename": "src/com/android/camera/PermissionsActivity.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2016-08-14T11:35:24Z",
+      "side": 1,
+      "message": "Line length",
+      "revId": "13157d0e7239c657d30fa1a5834d2e0fd6854310",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1fa4df85_ec72bfe3",
+        "filename": "src/com/android/camera/PermissionsActivity.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2016-08-14T11:35:24Z",
+      "side": 1,
+      "message": "dito",
+      "revId": "13157d0e7239c657d30fa1a5834d2e0fd6854310",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1fa4df85_8c7f8baa",
+        "filename": "src/com/android/camera/PermissionsActivity.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2016-08-14T11:35:24Z",
+      "side": 1,
+      "message": "dito",
+      "revId": "13157d0e7239c657d30fa1a5834d2e0fd6854310",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1fa4df85_ac7cc7b5",
+        "filename": "src/com/android/camera/PermissionsActivity.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2016-08-14T11:35:24Z",
+      "side": 1,
+      "message": "one char too much",
+      "revId": "13157d0e7239c657d30fa1a5834d2e0fd6854310",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1fa4df85_4c4bd386",
+        "filename": "src/com/android/camera/PermissionsActivity.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2016-08-14T11:35:24Z",
+      "side": 1,
+      "message": "same",
+      "revId": "13157d0e7239c657d30fa1a5834d2e0fd6854310",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
