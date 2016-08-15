@@ -87,5 +87,7 @@
   <!-- Toast after enable advanced capture function to inform continuous shot has disabled -->
   <!-- Toast after enable 2k4k video quality to inform IS has disabled -->
   <!-- Toast after 2k4k video is enabled to inform SeeMore has been disabled -->
+  <!-- Toast after SeeMore has been enabled to show CDS is disabled -->
+  <!-- Toast after SeeMore has been enabled to show TNR is disabled -->
   <!-- TODO: Remove these? -->
 </resources>

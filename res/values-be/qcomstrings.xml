@@ -265,5 +265,7 @@
   <string name="video_quality_4k_disable_IS">Улучэнне відэаздымкі з дазволам 4K адключыць стабілізацыю</string>
   <!-- Toast after 2k4k video is enabled to inform SeeMore has been disabled -->
   <string name="video_quality_4k_disable_SeeMore">Функцыя Seemore не можа быць актываваная падчас запісу 4K</string>
+  <!-- Toast after SeeMore has been enabled to show CDS is disabled -->
+  <!-- Toast after SeeMore has been enabled to show TNR is disabled -->
   <!-- TODO: Remove these? -->
 </resources>

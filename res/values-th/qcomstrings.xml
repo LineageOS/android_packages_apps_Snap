@@ -265,5 +265,7 @@
   <string name="video_quality_4k_disable_IS">การเปิดใช้งานขนาดวิดีโอ 4k จะปิดการใช้งานการป้องกันภาพสั่นไหว</string>
   <!-- Toast after 2k4k video is enabled to inform SeeMore has been disabled -->
   <string name="video_quality_4k_disable_SeeMore">ไม่สามารถเปิดใช้งาน SeeMore ระหว่างการใช้วิดีโอ 4k</string>
+  <!-- Toast after SeeMore has been enabled to show CDS is disabled -->
+  <!-- Toast after SeeMore has been enabled to show TNR is disabled -->
   <!-- TODO: Remove these? -->
 </resources>

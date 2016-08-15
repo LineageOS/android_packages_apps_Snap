@@ -265,5 +265,7 @@
   <string name="video_quality_4k_disable_IS">4K വീഡിയോ വലുപ്പം പ്രാപ്തമാക്കുന്നതിലൂടെ സ്റ്റബിലൈസെഷന്‍ അപ്രാപ്തമാകുന്നതാണ്.</string>
   <!-- Toast after 2k4k video is enabled to inform SeeMore has been disabled -->
   <string name="video_quality_4k_disable_SeeMore">4K വീഡിയോ സമുയത്ത് കൂടുതല്‍കാണുക പ്രാപ്തമാക്കാന്‍ സാധിക്കില്ല.</string>
+  <!-- Toast after SeeMore has been enabled to show CDS is disabled -->
+  <!-- Toast after SeeMore has been enabled to show TNR is disabled -->
   <!-- TODO: Remove these? -->
 </resources>
