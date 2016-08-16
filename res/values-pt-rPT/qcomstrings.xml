@@ -266,6 +266,8 @@
   <!-- Toast after 2k4k video is enabled to inform SeeMore has been disabled -->
   <string name="video_quality_4k_disable_SeeMore">O modo SeeMore não pode estar ativado durante o modo de vídeo 4K</string>
   <!-- Toast after SeeMore has been enabled to show CDS is disabled -->
+  <string name="disable_CDS_during_SeeMore">Ativar o modo SeeMore irá desativar o CDS</string>
   <!-- Toast after SeeMore has been enabled to show TNR is disabled -->
+  <string name="disable_TNR_during_SeeMore">Ativar o modo SeeMore irá desativar o TNR</string>
   <!-- TODO: Remove these? -->
 </resources>
