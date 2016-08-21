@@ -563,14 +563,6 @@ public class VideoModule implements CameraModule,
     }
 
     @Override
-    public void startFaceDetection() {
-    }
-
-    @Override
-    public void stopFaceDetection() {
-    }
-
-    @Override
     public void setFocusParameters() {
         if (mFocusAreaSupported)
             mParameters.setFocusAreas(mFocusManager.getFocusAreas());
@@ -3107,7 +3099,6 @@ public class VideoModule implements CameraModule,
     public void onErrorListener(int error) {
         enableRecordingLocation(false);
     }
-
 
     public void startFaceDetection() {
         if (mCameraDevice == null) return;
