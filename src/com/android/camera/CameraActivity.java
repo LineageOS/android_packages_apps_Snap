@@ -1812,14 +1812,14 @@ public class CameraActivity extends Activity
             mWakeLock.release();
             Log.d(TAG, "wake lock release");
         }
-        if (mSecureCamera) {
-            unregisterReceiver(mScreenOffReceiver);
-        }
-        getContentResolver().unregisterContentObserver(mLocalImagesObserver);
-        getContentResolver().unregisterContentObserver(mLocalVideosObserver);
-        unregisterReceiver(mSDcardMountedReceiver);
-
         if (mCursor != null) {
+            if (mSecureCamera) {
+                unregisterReceiver(mScreenOffReceiver);
+            }
+            getContentResolver().unregisterContentObserver(mLocalImagesObserver);
+            getContentResolver().unregisterContentObserver(mLocalVideosObserver);
+            unregisterReceiver(mSDcardMountedReceiver);
+
             mCursor.close();
             mCursor=null;
         }
