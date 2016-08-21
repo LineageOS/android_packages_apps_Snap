@@ -1225,6 +1225,5 @@ public class VideoUI implements PieRenderer.PieListener,
             mFaceView.setBlockDraw(true);
             mFaceView.clear();
         }
->>>>>>> 7252fd0... SnapdragonCamera: Add face detection icon to video
     }
 }
