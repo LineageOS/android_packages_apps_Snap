@@ -43,7 +43,7 @@
   <string name="pref_camera_selectablezoneaf_title">Zona de focagem automática</string>
   <string name="pref_camera_selectablezoneaf_entry_auto">Automático</string>
   <string name="pref_camera_selectablezoneaf_entry_centerweighted">Ponderada ao centro</string>
-  <string name="pref_camera_selectablezoneaf_entry_frameaverage">Média de Frames</string>
+  <string name="pref_camera_selectablezoneaf_entry_frameaverage">Média de frames</string>
   <string name="pref_camera_selectablezoneaf_entry_spotmetering">Medição pontual</string>
   <!-- Advanced features -->
   <string name="pref_camera_advanced_features_title">Funcionalidades avançadas</string>
@@ -85,7 +85,7 @@
   <!-- Red eye reduction -->
   <string name="pref_camera_redeyereduction_title">Redução de olhos vermelhos</string>
   <!-- AE bracketing -->
-  <string name="pref_camera_ae_bracket_hdr_title">Escalonamento de Exposição Automática (AEB)</string>
+  <string name="pref_camera_ae_bracket_hdr_title">Exposição Automática por Intervalo (AEB)</string>
   <!-- High-framerate recording -->
   <string name="pref_camera_hfr_title">Câmara lenta</string>
   <string name="pref_camera_hfr_entry_off">Desligado</string>
