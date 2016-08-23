@@ -357,7 +357,6 @@ public class CaptureModule implements CameraModule, PhotoController,
                         if (uri != null) {
                             mActivity.notifyNewMedia(uri);
                         }
-                        if (mLastJpegData != null) mActivity.updateThumbnail(mLastJpegData);
                     }
                 }
             };
@@ -1353,7 +1352,6 @@ public class CaptureModule implements CameraModule, PhotoController,
                                     long date = (name == null) ? -1 : name.date;
 
                                     byte[] bytes = getJpegData(image);
-                                    mLastJpegData = bytes;
 
                                     ExifInterface exif = Exif.getExif(bytes);
                                     int orientation = Exif.getOrientation(exif);
@@ -1361,6 +1359,12 @@ public class CaptureModule implements CameraModule, PhotoController,
                                     mActivity.getMediaSaveService().addImage(bytes, title, date,
                                             null, image.getWidth(), image.getHeight(), orientation, null,
                                             mOnMediaSavedListener, mContentResolver, "jpeg");
+
+                                    if(mLongshotActive) {
+                                        mLastJpegData = bytes;
+                                    } else {
+                                        mActivity.updateThumbnail(bytes);
+                                    }
                                     image.close();
                                 }
                             }
@@ -1395,7 +1399,6 @@ public class CaptureModule implements CameraModule, PhotoController,
 
                         ByteBuffer buffer = image.getPlanes()[0].getBuffer();
                         byte[] bytes = new byte[buffer.remaining()];
-                        mLastJpegData = bytes;
                         buffer.get(bytes);
 
                         ExifInterface exif = Exif.getExif(bytes);
@@ -1404,6 +1407,8 @@ public class CaptureModule implements CameraModule, PhotoController,
                         mActivity.getMediaSaveService().addImage(bytes, title, date,
                                 null, image.getWidth(), image.getHeight(), orientation, null,
                                 mOnMediaSavedListener, mContentResolver, "jpeg");
+
+                        mActivity.updateThumbnail(bytes);
                         image.close();
                     }
                 }, mImageAvailableHandler);
@@ -1716,6 +1721,7 @@ public class CaptureModule implements CameraModule, PhotoController,
         mUI.hideSurfaceView();
         mFirstPreviewLoaded = false;
         stopBackgroundThread();
+        mLastJpegData = null;
     }
 
     @Override
@@ -3490,13 +3496,14 @@ public class CaptureModule implements CameraModule, PhotoController,
             byte[] bayerBytes = getJpegData(bayerImage);
             byte[] monoBytes = getJpegData(monoImage);
 
-            mLastJpegData = bayerBytes;
             ExifInterface exif = Exif.getExif(bayerBytes);
             int orientation = Exif.getOrientation(exif);
 
             mActivity.getMediaSaveService().addMpoImage(
                     null, bayerBytes, monoBytes, width, height, title,
                     date, null, orientation, mOnMediaSavedListener, mContentResolver, "jpeg");
+
+            mActivity.updateThumbnail(bayerBytes);
 
             bayerImage.close();
             bayerImage = null;

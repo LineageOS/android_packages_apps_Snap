@@ -758,8 +758,8 @@ public class CameraActivity extends Activity
     }
 
     private class UpdateThumbnailTask extends AsyncTask<Void, Void, Bitmap> {
-        private final byte[] mJpegData;
-        private final boolean mCheckOrientation;
+        private byte[] mJpegData;
+        private boolean mCheckOrientation;
 
         public UpdateThumbnailTask(final byte[] jpegData, boolean checkOrientation) {
             mJpegData = jpegData;
@@ -802,6 +802,17 @@ public class CameraActivity extends Activity
             } else {
                 updateThumbnail(bitmap);
             }
+
+            mJpegData = null;
+        }
+
+        @Override
+        protected void onCancelled(Bitmap bitmap) {
+            if(bitmap != null)
+                bitmap.recycle();
+
+            bitmap = null;
+            mJpegData = null;
         }
 
         private Bitmap decodeImageCenter(final String path) {
