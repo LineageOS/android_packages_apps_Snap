@@ -214,4 +214,5 @@
   <!-- Shutter speed -->
   <string name="pref_camera_shutter_speed_title">מהירות צמצם</string>
   <string name="auto_hdr_enabled">HDR אוטומטי מופעל</string>
+  <!-- Advanced options -->
 </resources>

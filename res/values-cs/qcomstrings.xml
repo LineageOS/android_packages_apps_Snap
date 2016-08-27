@@ -265,5 +265,9 @@
   <string name="video_quality_4k_disable_IS">Povolení videa velikosti 4k dojde k vypnutí stabilizace</string>
   <!-- Toast after 2k4k video is enabled to inform SeeMore has been disabled -->
   <string name="video_quality_4k_disable_SeeMore">Během 4k videa nelze povolit SeeMore</string>
+  <!-- Toast after SeeMore has been enabled to show CDS is disabled -->
+  <string name="disable_CDS_during_SeeMore">Povolením funkce SeeMore zakážete funkci CDS</string>
+  <!-- Toast after SeeMore has been enabled to show TNR is disabled -->
+  <string name="disable_TNR_during_SeeMore">Povolením funkce SeeMore zakážete funkci TNR</string>
   <!-- TODO: Remove these? -->
 </resources>

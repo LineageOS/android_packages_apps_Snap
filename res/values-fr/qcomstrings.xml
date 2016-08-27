@@ -265,5 +265,7 @@
   <string name="video_quality_4k_disable_IS">Activer la vidéo 4K va désactiver la stabilisation</string>
   <!-- Toast after 2k4k video is enabled to inform SeeMore has been disabled -->
   <string name="video_quality_4k_disable_SeeMore">SeeMore n\'est pas activable pendant la vidéo 4k</string>
+  <!-- Toast after SeeMore has been enabled to show CDS is disabled -->
+  <!-- Toast after SeeMore has been enabled to show TNR is disabled -->
   <!-- TODO: Remove these? -->
 </resources>

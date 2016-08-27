@@ -66,7 +66,6 @@
   <string name="pref_camera_manual_focus_entry_diopter_mode">Dioptrie modus</string>
   <string name="pref_camera_manual_focus_entry_off">Uit</string>
   <!-- Still More -->
-  <string name="pref_camera_advanced_feature_entry_stillmore">Still More</string>
   <!-- Video HDR-->
   <string name="pref_camera_video_hdr_title">Video (HDR)</string>
   <!-- CDS mode-->
@@ -266,5 +265,9 @@
   <string name="video_quality_4k_disable_IS">Inschakelen van 4k video zal stabilisatie uitschakelen</string>
   <!-- Toast after 2k4k video is enabled to inform SeeMore has been disabled -->
   <string name="video_quality_4k_disable_SeeMore">SeeMore kan niet worden ingeschakeld tijdens 4k-video</string>
+  <!-- Toast after SeeMore has been enabled to show CDS is disabled -->
+  <string name="disable_CDS_during_SeeMore">Inschakelen van SeeMore schakelt CDS uit</string>
+  <!-- Toast after SeeMore has been enabled to show TNR is disabled -->
+  <string name="disable_TNR_during_SeeMore">Inschakelen van SeeMore schakelt TNR uit</string>
   <!-- TODO: Remove these? -->
 </resources>

@@ -202,4 +202,5 @@
   <!-- Shutter speed -->
   <string name="pref_camera_shutter_speed_title">快門速度</string>
   <string name="auto_hdr_enabled">已啟用自動 HDR</string>
+  <!-- Advanced options -->
 </resources>

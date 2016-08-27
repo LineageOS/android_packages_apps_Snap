@@ -215,4 +215,7 @@
   <!-- Shutter speed -->
   <string name="pref_camera_shutter_speed_title">Hitrost zaslonke</string>
   <string name="auto_hdr_enabled">Samodejni HDR omogočen</string>
+  <!-- Advanced options -->
+  <string name="developer_menu_enabled">Omogočili ste napredne možnosti fotoaparata</string>
+  <string name="developer_menu_disabled">Onemogočili ste napredne možnosti fotoaparata</string>
 </resources>

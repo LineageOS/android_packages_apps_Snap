@@ -214,4 +214,5 @@
   <!-- Shutter speed -->
   <string name="pref_camera_shutter_speed_title">Lukkerhastighed</string>
   <string name="auto_hdr_enabled">Auto HDR aktiveret</string>
+  <!-- Advanced options -->
 </resources>

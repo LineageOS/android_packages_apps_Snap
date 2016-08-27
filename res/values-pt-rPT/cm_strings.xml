@@ -63,6 +63,7 @@
   <!-- Settings screen, dialog choice for 9.7 megapixels picture size [CHAR LIMIT=15] -->
   <string name="pref_camera_picturesize_entry_9_7mp_wide">9,7 MP (16:9)</string>
   <!-- Settings screen, dialog choice for 9.6 megapixels picture size [CHAR LIMIT=15] -->
+  <string name="pref_camera_picturesize_entry_9_6mp_wide">9,6 MP (16:9)</string>
   <!-- Settings screen, dialog choice for 9.4 megapixels picture size [CHAR LIMIT=15] -->
   <string name="pref_camera_picturesize_entry_9_4mp_wide">9,4 MP (16:9)</string>
   <!-- Settings screen, dialog choice for 9 megapixels picture size [CHAR LIMIT=15] -->
@@ -214,4 +215,7 @@
   <!-- Shutter speed -->
   <string name="pref_camera_shutter_speed_title">Velocidade do obturador</string>
   <string name="auto_hdr_enabled">HDR automático ativado</string>
+  <!-- Advanced options -->
+  <string name="developer_menu_enabled">Ativou as opções avançadas da câmara</string>
+  <string name="developer_menu_disabled">Desativou as opções avançadas da câmara</string>
 </resources>

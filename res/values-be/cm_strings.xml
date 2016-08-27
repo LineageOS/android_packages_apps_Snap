@@ -209,4 +209,5 @@
   <!-- Shutter speed -->
   <string name="pref_camera_shutter_speed_title">Вытрымка</string>
   <string name="auto_hdr_enabled">Аўта HDR улучаны</string>
+  <!-- Advanced options -->
 </resources>

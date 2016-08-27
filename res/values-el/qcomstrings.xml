@@ -265,5 +265,9 @@
   <string name="video_quality_4k_disable_IS">Η ενεργοποίηση 4K βίντεο θα απενεργοποιήσει τη λειτουργία σταθεροποίησης</string>
   <!-- Toast after 2k4k video is enabled to inform SeeMore has been disabled -->
   <string name="video_quality_4k_disable_SeeMore">Το SeeMore δεν μπορεί να ενεργοποιηθεί κατά τη διάρκεια 4Κ βίντεο</string>
+  <!-- Toast after SeeMore has been enabled to show CDS is disabled -->
+  <string name="disable_CDS_during_SeeMore">Η ενεργοποίηση του SeeMore θα απενεργοποιήσει το CDS</string>
+  <!-- Toast after SeeMore has been enabled to show TNR is disabled -->
+  <string name="disable_TNR_during_SeeMore">Η ενεργοποίηση του SeeMore θα απενεργοποιήσει το TNR</string>
   <!-- TODO: Remove these? -->
 </resources>

@@ -265,5 +265,7 @@
   <string name="video_quality_4k_disable_IS">4k వీడియో పరిమాణాన్ని అమలుపరచడం వలన స్థిరీకరణ నిలిపి వేయబడుతుంది</string>
   <!-- Toast after 2k4k video is enabled to inform SeeMore has been disabled -->
   <string name="video_quality_4k_disable_SeeMore">4k వీడియో సమయంలో సీమోర్ అమలుపరచడం సాధ్యం కాదు</string>
+  <!-- Toast after SeeMore has been enabled to show CDS is disabled -->
+  <!-- Toast after SeeMore has been enabled to show TNR is disabled -->
   <!-- TODO: Remove these? -->
 </resources>
