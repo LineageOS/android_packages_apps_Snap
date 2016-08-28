@@ -66,7 +66,6 @@
   <string name="pref_camera_manual_focus_entry_diopter_mode">Dioptria modua</string>
   <string name="pref_camera_manual_focus_entry_off">Ez</string>
   <!-- Still More -->
-  <string name="pref_camera_advanced_feature_entry_stillmore">Are gehiago</string>
   <!-- Video HDR-->
   <string name="pref_camera_video_hdr_title">HDR bideoa</string>
   <!-- CDS mode-->
@@ -266,5 +265,9 @@
   <string name="video_quality_4k_disable_IS">4k bideo tamaina gaitzeak egonkortzea desgaituko du</string>
   <!-- Toast after 2k4k video is enabled to inform SeeMore has been disabled -->
   <string name="video_quality_4k_disable_SeeMore">Ezin da SeeMore gaitu 4k bideoarekin batera</string>
+  <!-- Toast after SeeMore has been enabled to show CDS is disabled -->
+  <string name="disable_CDS_during_SeeMore">SeeMore gaitzean CDS desgaituko da</string>
+  <!-- Toast after SeeMore has been enabled to show TNR is disabled -->
+  <string name="disable_TNR_during_SeeMore">SeeMore gaitzean TNR desgaituko da</string>
   <!-- TODO: Remove these? -->
 </resources>

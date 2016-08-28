@@ -265,5 +265,7 @@
   <string name="video_quality_4k_disable_IS">4K ವಿಡಿಯೋ ಗಾತ್ರವನ್ನು ಸಕ್ರಿಯಗೊಳಿಸಿದರೆ, ನಿರಂತರ ಶಾಟ್‌ ನಿಷ್ಕ್ರಿಯಗೊಳ್ಳುತ್ತದೆ</string>
   <!-- Toast after 2k4k video is enabled to inform SeeMore has been disabled -->
   <string name="video_quality_4k_disable_SeeMore">4K ವಿಡಿಯೋ ವೇಳೆ ಇನ್ನೂ ಹೆಚ್ಚು ನೋಡುವ ಸೌಲಭ್ಯ ಸಕ್ರಿಯವಾಗಿಲ್ಲ</string>
+  <!-- Toast after SeeMore has been enabled to show CDS is disabled -->
+  <!-- Toast after SeeMore has been enabled to show TNR is disabled -->
   <!-- TODO: Remove these? -->
 </resources>

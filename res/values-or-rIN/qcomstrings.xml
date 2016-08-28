@@ -265,5 +265,7 @@
   <string name="video_quality_4k_disable_IS">4k ଭିଡିଓ ଆକାର ସଷମ କରିବା ଦ୍ୱାରା ଷ୍ଟାବିଲାଇଜେସନ୍‍ ଅଷମ ହୋଇଯିବ</string>
   <!-- Toast after 2k4k video is enabled to inform SeeMore has been disabled -->
   <string name="video_quality_4k_disable_SeeMore">4k ଭିଡିଓ ସମୟରେ ଅଧିକଦେଖନ୍ତୁ ସଷମ କରାଯାଇପାରିବ ନାହିଁ</string>
+  <!-- Toast after SeeMore has been enabled to show CDS is disabled -->
+  <!-- Toast after SeeMore has been enabled to show TNR is disabled -->
   <!-- TODO: Remove these? -->
 </resources>

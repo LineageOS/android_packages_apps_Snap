@@ -187,4 +187,5 @@
   <string name="pref_camera_focustime_entry_infinite">Infinito</string>
   <!-- Shutter speed -->
   <string name="pref_camera_shutter_speed_title">Velocidade de disparo</string>
+  <!-- Advanced options -->
 </resources>

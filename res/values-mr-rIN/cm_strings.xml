@@ -209,4 +209,5 @@
   <!-- Shutter speed -->
   <string name="pref_camera_shutter_speed_title">शटर गती</string>
   <string name="auto_hdr_enabled">ऑटो HDR सक्षम केले</string>
+  <!-- Advanced options -->
 </resources>

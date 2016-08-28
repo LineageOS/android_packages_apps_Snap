@@ -209,4 +209,5 @@
   <!-- Shutter speed -->
   <string name="pref_camera_shutter_speed_title">Tốc độ chụp màn trập</string>
   <string name="auto_hdr_enabled">HDR tự động được kích hoạt</string>
+  <!-- Advanced options -->
 </resources>
