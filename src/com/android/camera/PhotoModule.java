@@ -4850,6 +4850,10 @@ public class PhotoModule
 
     @Override
     public void onMakeupLevel(String key, String value) {
+        if (mCameraDevice == null) {
+            Log.d(TAG,"MakeupLevel failed CameraDevice not yet initialized");
+            return;
+        }
         synchronized (mCameraDevice) {
             onMakeupLevelSync(key, value);
         }
