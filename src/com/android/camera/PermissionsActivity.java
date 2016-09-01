@@ -165,14 +165,16 @@ public class PermissionsActivity extends Activity {
 
     private void handlePermissionsSuccess() {
         if (mIntent != null) {
-           mIsReturnResult = true;
-           mIntent.setClass(this, CameraActivity.class);
-           startActivityForResult(mIntent, 1);
+            mIsReturnResult = true;
+            mIntent.setClass(this, CameraActivity.class);
+            mIntent.addFlags(Intent.FLAG_ACTIVITY_FORWARD_RESULT);
+            startActivity(mIntent);
+            finish();
         } else {
-           mIsReturnResult = false;
-           Intent intent = new Intent(this, CameraActivity.class);
-           startActivity(intent);
-           finish();
+            mIsReturnResult = false;
+            Intent intent = new Intent(this, CameraActivity.class);
+            startActivity(intent);
+            finish();
         }
     }
 
@@ -197,12 +199,5 @@ public class PermissionsActivity extends Activity {
                     }
                 })
                 .show();
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        setResult(resultCode, data);
-        finish();
     }
 }
