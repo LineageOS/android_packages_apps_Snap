@@ -1825,7 +1825,10 @@ public class CameraActivity extends Activity
             mWakeLock.release();
             Log.d(TAG, "wake lock release");
         }
-        SettingsManager.getInstance().destroyInstance();
+        SettingsManager settingsMngr = SettingsManager.getInstance();
+        if (settingsMngr != null) {
+            settingsMngr.destroyInstance();
+        }
         if (mCursor != null) {
             if (mSecureCamera) {
                 unregisterReceiver(mScreenOffReceiver);
