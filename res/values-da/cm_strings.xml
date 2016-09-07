@@ -63,6 +63,7 @@
   <!-- Settings screen, dialog choice for 9.7 megapixels picture size [CHAR LIMIT=15] -->
   <string name="pref_camera_picturesize_entry_9_7mp_wide">9.7 MP (16:9)</string>
   <!-- Settings screen, dialog choice for 9.6 megapixels picture size [CHAR LIMIT=15] -->
+  <string name="pref_camera_picturesize_entry_9_6mp_wide">9.6 MP (16:9)</string>
   <!-- Settings screen, dialog choice for 9.4 megapixels picture size [CHAR LIMIT=15] -->
   <string name="pref_camera_picturesize_entry_9_4mp_wide">9.4 MP (16:9)</string>
   <!-- Settings screen, dialog choice for 9 megapixels picture size [CHAR LIMIT=15] -->
@@ -215,4 +216,6 @@
   <string name="pref_camera_shutter_speed_title">Lukkerhastighed</string>
   <string name="auto_hdr_enabled">Auto HDR aktiveret</string>
   <!-- Advanced options -->
+  <string name="developer_menu_enabled">Du har aktiveret avanceret kamera indstillinger</string>
+  <string name="developer_menu_disabled">Du har deaktiveret avanceret kamera indstillinger</string>
 </resources>

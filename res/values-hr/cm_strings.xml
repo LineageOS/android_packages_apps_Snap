@@ -216,4 +216,6 @@
   <string name="pref_camera_shutter_speed_title">Brzina okidača</string>
   <string name="auto_hdr_enabled">Auto HDR omogućen</string>
   <!-- Advanced options -->
+  <string name="developer_menu_enabled">Omogućili ste napredne opcije kamere</string>
+  <string name="developer_menu_disabled">Onemogućili ste napredne opcije kamere</string>
 </resources>

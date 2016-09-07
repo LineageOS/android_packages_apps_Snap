@@ -146,6 +146,7 @@
   <!-- message for the dialog showing that the app does not have sufficient permissions [CHAR LIMIT=NONE] -->
   <string name="error_permissions">De app heeft niet de essentiële machtigingen die nodig zijn om te starten. Controleer de machtigingsinstellingen.</string>
   <!-- Dialog "Dismiss" button. Closes the dialog [CHAR LIMIT=12]-->
+  <string name="dialog_dismiss">Sluiten</string>
   <!-- alert to the user to wait for some operation to complete -->
   <string name="wait">Even geduld\u2026</string>
   <!-- alert to the user that an SD card must be installed before using the camera -->
