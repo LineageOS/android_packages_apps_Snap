@@ -235,6 +235,7 @@ public class CameraActivity extends Activity
     private Intent mPanoramaShareIntent;
     private LocalMediaObserver mLocalImagesObserver;
     private LocalMediaObserver mLocalVideosObserver;
+    private SettingsManager mSettingsManager;
 
     private final int DEFAULT_SYSTEM_UI_VISIBILITY = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN;
 
@@ -1435,7 +1436,7 @@ public class CameraActivity extends Activity
 
         getWindow().requestFeature(Window.FEATURE_ACTION_BAR);
 
-        SettingsManager.createInstance(this);
+        mSettingsManager = new SettingsManager(this);
 
         LayoutInflater inflater = getLayoutInflater();
         View rootLayout = inflater.inflate(R.layout.camera, null, false);
@@ -1472,7 +1473,7 @@ public class CameraActivity extends Activity
             }
         }
 
-        boolean cam2on = SettingsManager.getInstance().isCamera2On();
+        boolean cam2on = mSettingsManager.isCamera2On();
         if (cam2on && moduleIndex == ModuleSwitcher.PHOTO_MODULE_INDEX)
             moduleIndex = ModuleSwitcher.CAPTURE_MODULE_INDEX;
 
@@ -1775,9 +1776,8 @@ public class CameraActivity extends Activity
             mWakeLock.release();
             Log.d(TAG, "wake lock release");
         }
-        SettingsManager settingsMngr = SettingsManager.getInstance();
-        if (settingsMngr != null) {
-            settingsMngr.destroyInstance();
+        if (mSettingsManager != null) {
+            mSettingsManager = null;
         }
         if (mCursor != null) {
             getContentResolver().unregisterContentObserver(mLocalImagesObserver);
@@ -1936,7 +1936,7 @@ public class CameraActivity extends Activity
 
     @Override
     public void onModuleSelected(int moduleIndex) {
-        boolean cam2on = SettingsManager.getInstance().isCamera2On();
+        boolean cam2on = mSettingsManager.isCamera2On();
         mForceReleaseCamera = cam2on && moduleIndex == ModuleSwitcher.PHOTO_MODULE_INDEX;
         if (mForceReleaseCamera) {
             moduleIndex = ModuleSwitcher.CAPTURE_MODULE_INDEX;
@@ -2246,4 +2246,6 @@ public class CameraActivity extends Activity
     public CameraModule getCurrentModule() {
         return mCurrentModule;
     }
+
+    public SettingsManager getSettingsManager() {return  mSettingsManager;}
 }
