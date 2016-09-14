@@ -136,21 +136,23 @@ public class SettingsManager implements ListMenu.SettingsListener {
                 String cameraId = cameraIdList[i];
                 CameraCharacteristics characteristics
                         = manager.getCameraCharacteristics(cameraId);
-                Byte monoOnly = 0;
-                try {
-                    monoOnly = characteristics.get(CaptureModule.MetaDataMonoOnlyKey);
-                }catch(Exception e) {
+                if (characteristics != null) {
+                    Byte monoOnly = 0;
+                    try {
+                        monoOnly = characteristics.get(CaptureModule.MetaDataMonoOnlyKey);
+                    }catch(Exception e) {
+                    }
+                    if (monoOnly == 1) {
+                        CaptureModule.MONO_ID = i;
+                        mIsMonoCameraPresent = true;
+                    }
+                    int facing = characteristics.get(CameraCharacteristics.LENS_FACING);
+                    if (facing == CameraCharacteristics.LENS_FACING_FRONT) {
+                        CaptureModule.FRONT_ID = i;
+                        mIsFrontCameraPresent = true;
+                    }
+                    mCharacteristics.add(i, characteristics);
                 }
-                if (monoOnly == 1) {
-                    CaptureModule.MONO_ID = i;
-                    mIsMonoCameraPresent = true;
-                }
-                int facing = characteristics.get(CameraCharacteristics.LENS_FACING);
-                if (facing == CameraCharacteristics.LENS_FACING_FRONT) {
-                    CaptureModule.FRONT_ID = i;
-                    mIsFrontCameraPresent = true;
-                }
-                mCharacteristics.add(i, characteristics);
             }
         } catch (CameraAccessException e) {
             e.printStackTrace();
