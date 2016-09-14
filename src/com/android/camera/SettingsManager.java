@@ -146,8 +146,9 @@ public class SettingsManager implements ListMenu.SettingsListener {
                         CaptureModule.MONO_ID = i;
                         mIsMonoCameraPresent = true;
                     }
-                    int facing = characteristics.get(CameraCharacteristics.LENS_FACING);
-                    if (facing == CameraCharacteristics.LENS_FACING_FRONT) {
+                    Integer facing = characteristics.get(CameraCharacteristics.LENS_FACING);
+                    if (facing != null &&
+                            facing.intValue() == CameraCharacteristics.LENS_FACING_FRONT) {
                         CaptureModule.FRONT_ID = i;
                         mIsFrontCameraPresent = true;
                     }
