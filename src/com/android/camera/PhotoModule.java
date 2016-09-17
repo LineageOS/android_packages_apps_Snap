@@ -1482,9 +1482,17 @@ public class PhotoModule
                             onCaptureDone();
                         }
                     }
-                    if(!mLongshotActive)
-                        mActivity.updateStorageSpaceAndHint();
-                    mUI.updateRemainingPhotos(--mRemainingPhotos);
+                    if(!mLongshotActive) {
+                        mActivity.updateStorageSpaceAndHint(
+                                new CameraActivity.OnStorageUpdateDoneListener() {
+                            @Override
+                            public void onStorageUpdateDone(long storageSpace) {
+                                mUI.updateRemainingPhotos(--mRemainingPhotos);
+                            }
+                        });
+                    } else {
+                        mUI.updateRemainingPhotos(--mRemainingPhotos);
+                    }
                     long now = System.currentTimeMillis();
                     mJpegCallbackFinishTime = now - mJpegPictureCallbackTime;
                     Log.v(TAG, "mJpegCallbackFinishTime = "
@@ -2650,6 +2658,12 @@ public class PhotoModule
         // we will update focus manager with proper UI.
         if (mFocusManager != null && mUI != null) {
             mFocusManager.setPhotoUI(mUI);
+
+            View root = mUI.getRootView();
+            // These depend on camera parameters.
+            int width = root.getWidth();
+            int height = root.getHeight();
+            mFocusManager.setPreviewSize(width, height);
         }
     }
 
@@ -4850,6 +4864,10 @@ public class PhotoModule
 
     @Override
     public void onMakeupLevel(String key, String value) {
+        if (mCameraDevice == null) {
+            Log.d(TAG,"MakeupLevel failed CameraDevice not yet initialized");
+            return;
+        }
         synchronized (mCameraDevice) {
             onMakeupLevelSync(key, value);
         }
