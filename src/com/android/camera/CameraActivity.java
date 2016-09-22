@@ -208,6 +208,7 @@ public class CameraActivity extends Activity
     private int mResultCodeForTesting;
     private Intent mResultDataForTesting;
     private OnScreenHint mStorageHint;
+    private final Object mStorageSpaceLock = new Object();
     private long mStorageSpaceBytes = Storage.LOW_STORAGE_THRESHOLD_BYTES;
     private boolean mSecureCamera;
     private int mLastRawOrientation;
@@ -1413,8 +1414,6 @@ public class CameraActivity extends Activity
             mSecureCamera = intent.getBooleanExtra(SECURE_CAMERA_EXTRA, false);
         }
 
-        mCursor = getContentResolver().query(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, null, null, null, null);
-
         if (mSecureCamera) {
             // Change the window flags so that secure camera can show when locked
             Window win = getWindow();
@@ -1477,9 +1476,9 @@ public class CameraActivity extends Activity
             moduleIndex = ModuleSwitcher.CAPTURE_MODULE_INDEX;
 
         mOrientationListener = new MyOrientationEventListener(this);
+        setModuleFromIndex(moduleIndex);
         setContentView(R.layout.camera_filmstrip);
         mFilmStripView = (FilmStripView) findViewById(R.id.filmstrip_view);
-        setModuleFromIndex(moduleIndex);
 
         mActionBar = getActionBar();
         mActionBar.addOnMenuVisibilityListener(this);
@@ -1560,6 +1559,8 @@ public class CameraActivity extends Activity
         mLocalImagesObserver = new LocalMediaObserver();
         mLocalVideosObserver = new LocalMediaObserver();
 
+        mCursor = getContentResolver().query(
+                MediaStore.Images.Media.EXTERNAL_CONTENT_URI, null, null, null, null);
         getContentResolver().registerContentObserver(
                 MediaStore.Images.Media.EXTERNAL_CONTENT_URI, true,
                 mLocalImagesObserver);
@@ -1674,26 +1675,29 @@ public class CameraActivity extends Activity
     private boolean checkPermissions() {
         boolean requestPermission = false;
 
-        if (checkSelfPermission(Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED &&
-                checkSelfPermission(Manifest.permission.RECORD_AUDIO) == PackageManager.PERMISSION_GRANTED &&
-                checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
+        if (checkSelfPermission(Manifest.permission.CAMERA) ==
+                        PackageManager.PERMISSION_GRANTED &&
+                checkSelfPermission(Manifest.permission.RECORD_AUDIO) ==
+                        PackageManager.PERMISSION_GRANTED &&
+                checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) ==
+                        PackageManager.PERMISSION_GRANTED &&
+                checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) ==
+                        PackageManager.PERMISSION_GRANTED) {
             mHasCriticalPermissions = true;
         } else {
             mHasCriticalPermissions = false;
         }
-        if (!mHasCriticalPermissions) {
-            final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-            boolean isRequestShown = prefs.getBoolean(CameraSettings.KEY_REQUEST_PERMISSION, false);
-            if(!isRequestShown || !mHasCriticalPermissions) {
-                Log.v(TAG, "Request permission");
-                Intent intent = new Intent(this, PermissionsActivity.class);
-                startActivity(intent);
-                SharedPreferences.Editor editor = prefs.edit();
-                editor.putBoolean(CameraSettings.KEY_REQUEST_PERMISSION, true);
-                editor.apply();
-                requestPermission = true;
-           }
-        }
+        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        boolean isRequestShown = prefs.getBoolean(CameraSettings.KEY_REQUEST_PERMISSION, false);
+        if(!isRequestShown || !mHasCriticalPermissions) {
+            Log.v(TAG, "Request permission");
+            Intent intent = new Intent(this, PermissionsActivity.class);
+            startActivity(intent);
+            SharedPreferences.Editor editor = prefs.edit();
+            editor.putBoolean(CameraSettings.KEY_REQUEST_PERMISSION, true);
+            editor.apply();
+            requestPermission = true;
+       }
         return requestPermission;
     }
 
@@ -1829,21 +1833,51 @@ public class CameraActivity extends Activity
         mFilmStripView.setPreviewGestures(previewGestures);
     }
 
-    protected void updateStorageSpace() {
-        mStorageSpaceBytes = Storage.getAvailableSpace();
-        if (Storage.switchSavePath()) {
+    protected long updateStorageSpace() {
+        synchronized (mStorageSpaceLock) {
             mStorageSpaceBytes = Storage.getAvailableSpace();
-            mCurrentModule.onSwitchSavePath();
+            if (Storage.switchSavePath()) {
+                mStorageSpaceBytes = Storage.getAvailableSpace();
+                mCurrentModule.onSwitchSavePath();
+            }
+            return mStorageSpaceBytes;
         }
     }
 
     protected long getStorageSpaceBytes() {
-        return mStorageSpaceBytes;
+        synchronized (mStorageSpaceLock) {
+            return mStorageSpaceBytes;
+        }
     }
 
     protected void updateStorageSpaceAndHint() {
         updateStorageSpace();
         updateStorageHint(mStorageSpaceBytes);
+    }
+
+    protected interface OnStorageUpdateDoneListener {
+        void onStorageUpdateDone(long storageSpace);
+    }
+
+    protected void updateStorageSpaceAndHint(final OnStorageUpdateDoneListener callback) {
+        (new AsyncTask<Void, Void, Long>() {
+            @Override
+            protected Long doInBackground(Void ... arg) {
+                return updateStorageSpace();
+            }
+
+            @Override
+            protected void onPostExecute(Long storageSpace) {
+                updateStorageHint(storageSpace);
+                // This callback returns after I/O to check disk, so we could be
+                // pausing and shutting down. If so, don't bother invoking.
+                if (callback != null && !mPaused) {
+                    callback.onStorageUpdateDone(storageSpace);
+                } else {
+                    Log.v(TAG, "ignoring storage callback after activity pause");
+                }
+            }
+        }).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
     }
 
     protected void updateStorageHint(long storageSpace) {
