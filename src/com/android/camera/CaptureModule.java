@@ -902,7 +902,7 @@ public class CaptureModule implements CameraModule, PhotoController,
     @Override
     public void init(CameraActivity activity, View parent) {
         mActivity = activity;
-        mSettingsManager = SettingsManager.getInstance();
+        mSettingsManager = activity.getSettingsManager();
         mSettingsManager.registerListener(this);
         mSettingsManager.init();
         mFirstPreviewLoaded = false;
