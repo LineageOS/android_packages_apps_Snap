@@ -17,6 +17,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Settings screen, dialog choice for 21 megapixels picture size [CHAR LIMIT=15] -->
+  <string name="pref_camera_picturesize_entry_21mp">21 MP</string>
   <!-- Settings screen, dialog choice for 20.7 megapixels picture size [CHAR LIMIT=15] -->
   <string name="pref_camera_picturesize_entry_20_7mp">20.7 MP</string>
   <!-- Settings screen, dialog choice for 20.1 megapixels picture size [CHAR LIMIT=15] -->
@@ -26,7 +27,9 @@
   <!-- Settings screen, dialog choice for 16.2 megapixels picture size [CHAR LIMIT=15] -->
   <string name="pref_camera_picturesize_entry_16_2mp_wide">16.2 MP (16:9)</string>
   <!-- Settings screen, dialog choice for 16.1 megapixels picture size [CHAR LIMIT=15] -->
+  <string name="pref_camera_picturesize_entry_16_1mp_wide">16.1 MP (16:9)</string>
   <!-- Settings screen, dialog choice for 16.1 megapixels picture size [CHAR LIMIT=15] -->
+  <string name="pref_camera_picturesize_entry_16_1mp">16.1 MP</string>
   <!-- Settings screen, dialog choice for 16 megapixels picture size [CHAR LIMIT=15] -->
   <string name="pref_camera_picturesize_entry_16mp">16 MP</string>
   <!-- Settings screen, dialog choice for 15.9 megapixels picture size [CHAR LIMIT=15] -->
@@ -40,11 +43,15 @@
   <!-- Settings screen, dialog choice for 12.6 megapixels picture size [CHAR LIMIT=15] -->
   <string name="pref_camera_picturesize_entry_12_6mp">12.6 MP</string>
   <!-- Settings screen, dialog choice for 12.2 megapixels picture size [CHAR LIMIT=15] -->
+  <string name="pref_camera_picturesize_entry_12_2mp_square">12.2 MP (1:1)</string>
   <!-- Settings screen, dialog choice for 12.2 megapixels picture size [CHAR LIMIT=15] -->
+  <string name="pref_camera_picturesize_entry_12_2mp">12.2 MP</string>
   <!-- Settings screen, dialog choice for 12.1 megapixels picture size [CHAR LIMIT=15] -->
+  <string name="pref_camera_picturesize_entry_12_1mp_wide">12.1 MP (16:9)</string>
   <!-- Settings screen, dialog choice for 12 megapixels picture size [CHAR LIMIT=15] -->
   <string name="pref_camera_picturesize_entry_12mp">12 MP</string>
   <!-- Settings screen, dialog choice for 11.9 megapixels picture size [CHAR LIMIT=15] -->
+  <string name="pref_camera_picturesize_entry_11_9mp_wide">11.9 MP (16:9)</string>
   <!-- Settings screen, dialog choice for 11.9 megapixels picture size [CHAR LIMIT=15] -->
   <string name="pref_camera_picturesize_entry_11_9mp">11.9 MP</string>
   <!-- Settings screen, dialog choice for 11.5 megapixels picture size [CHAR LIMIT=15] -->
@@ -56,11 +63,13 @@
   <!-- Settings screen, dialog choice for 9.7 megapixels picture size [CHAR LIMIT=15] -->
   <string name="pref_camera_picturesize_entry_9_7mp_wide">9.7 MP (16:9)</string>
   <!-- Settings screen, dialog choice for 9.6 megapixels picture size [CHAR LIMIT=15] -->
+  <string name="pref_camera_picturesize_entry_9_6mp_wide">9.6 MP (16:9)</string>
   <!-- Settings screen, dialog choice for 9.4 megapixels picture size [CHAR LIMIT=15] -->
   <string name="pref_camera_picturesize_entry_9_4mp_wide">9.4 MP (16:9)</string>
   <!-- Settings screen, dialog choice for 9 megapixels picture size [CHAR LIMIT=15] -->
   <string name="pref_camera_picturesize_entry_9mp">9 MP</string>
   <!-- Settings screen, dialog choice for 8.9 megapixels picture size [CHAR LIMIT=15] -->
+  <string name="pref_camera_picturesize_entry_8_9mp">8.9 MP</string>
   <!-- Settings screen, dialog choice for 8.2 megapixels picture size [CHAR LIMIT=15] -->
   <string name="pref_camera_picturesize_entry_8_2mp_wide">8.2 MP (16:9)</string>
   <!-- Settings screen, dialog choice for 8 megapixels picture size [CHAR LIMIT=15] -->
@@ -72,6 +81,7 @@
   <!-- Settings screen, dialog choice for 6.4 megapixels picture size [CHAR LIMIT=15] -->
   <string name="pref_camera_picturesize_entry_6_4mp">6.4 MP</string>
   <!-- Settings screen, dialog choice for 6 megapixels picture size [CHAR LIMIT=15] -->
+  <string name="pref_camera_picturesize_entry_6mp_square">6 MP (1:1)</string>
   <!-- Settings screen, dialog choice for 6 megapixels picture size [CHAR LIMIT=15] -->
   <string name="pref_camera_picturesize_entry_6mp_wide">6 MP (16:9)</string>
   <!-- Settings screen, dialog choice for 5 megapixels picture size [CHAR LIMIT=15] -->
@@ -99,12 +109,15 @@
   <!-- Settings screen, dialog choice for 1.9 megapixels picture size [CHAR LIMIT=15] -->
   <string name="pref_camera_picturesize_entry_1_9mp">1.9 MP</string>
   <!-- Settings screen, dialog choice for 1.6 megapixels picture size [CHAR LIMIT=15] -->
+  <string name="pref_camera_picturesize_entry_1_6mp">1.6 MP</string>
   <!-- Settings screen, dialog choice for 1.5 megapixels picture size [CHAR LIMIT=15] -->
   <string name="pref_camera_picturesize_entry_1_5mp">1.5 MP</string>
   <!-- Settings screen, dialog choice for 1.3 megapixels picture size [CHAR LIMIT=15] -->
   <string name="pref_camera_picturesize_entry_1_3mp">1.3 MP</string>
   <!-- Settings screen, dialog choice for 1.2 megapixels picture size [CHAR LIMIT=15] -->
+  <string name="pref_camera_picturesize_entry_1_2mp_square">1.2 MP (1:1)</string>
   <!-- Settings screen, dialog choice for 1.2 megapixels picture size [CHAR LIMIT=15] -->
+  <string name="pref_camera_picturesize_entry_1_2mp_wide">1.2 MP (16:9)</string>
   <!-- Settings screen, dialog choice for 1 megapixels picture size [CHAR LIMIT=15] -->
   <string name="pref_camera_picturesize_entry_1mp">1 MP</string>
   <!-- Settings screen, dialog choice for WXGA picture size [CHAR LIMIT=15] -->
@@ -159,7 +172,18 @@
   <string name="pref_camera_scenemode_entry_portrait">Retrato</string>
   <string name="pref_camera_scenemode_entry_snow">Neve</string>
   <string name="pref_camera_scenemode_entry_softskin">Pel suave</string>
+  <string name="pref_camera_scenemode_entry_sports">Deportes</string>
+  <string name="pref_camera_scenemode_entry_spotlight">Foco</string>
+  <string name="pref_camera_scenemode_entry_steadyphoto">Foto estábel</string>
+  <string name="pref_camera_scenemode_entry_supernight">Noite escura</string>
+  <string name="pref_camera_scenemode_entry_sweepstitch">Desprazar e unir</string>
+  <string name="pref_camera_scenemode_entry_text">Texto</string>
+  <string name="pref_camera_scenemode_entry_theatre">Teatro</string>
+  <string name="pref_camera_scenemode_entry_whiteboard">Taboleiro branco</string>
   <!-- Settings screen, focus mode -->
+  <string name="pref_camera_focusmode_entry_continuous">Continuo</string>
+  <string name="pref_camera_focusmode_entry_mw_continuous">Continuo (MW)</string>
+  <string name="pref_camera_focusmode_entry_extended">Estendido</string>
   <string name="pref_camera_focusmode_entry_facedetect">Detección de cara</string>
   <string name="pref_camera_focusmode_entry_facepriority">Priorizar cara</string>
   <string name="pref_camera_focusmode_entry_fixed">Fixo</string>
@@ -178,14 +202,20 @@
   <string name="pref_camera_flashmode_entry_redeye">Ollo vermello</string>
   <string name="pref_camera_flashmode_label_redeye">OLLO VERMELLO</string>
   <!-- Power shutter -->
+  <string name="pref_camera_power_shutter_title">Disparar co botón de acendido</string>
   <!-- Max brightness -->
   <string name="pref_camera_max_brightness_title">Brillo de pantalla</string>
   <!-- Touch focus duration -->
   <string name="pref_camera_focustime_title">Duración do toque de enfoque</string>
+  <string name="pref_camera_focustime_entry_0">0s</string>
+  <string name="pref_camera_focustime_entry_3">3s</string>
   <string name="pref_camera_focustime_entry_5">5s</string>
   <string name="pref_camera_focustime_entry_10">10s</string>
   <string name="pref_camera_focustime_entry_infinite">Infinito</string>
   <!-- Shutter speed -->
   <string name="pref_camera_shutter_speed_title">Velocidade de disparo</string>
+  <string name="auto_hdr_enabled">HDR Automático activado</string>
   <!-- Advanced options -->
+  <string name="developer_menu_enabled">Activaches as opcións avanzadas da cámara</string>
+  <string name="developer_menu_disabled">Desactivaches as opcións avanzadas da cámara</string>
 </resources>

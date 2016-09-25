@@ -52,22 +52,72 @@
   <!-- Manual exposure -->
   <string name="pref_camera_manual_exp_title">Exposición manual</string>
   <string name="pref_camera_manual_exp_entry_ISO_priority">Prioridade ISO</string>
+  <string name="pref_camera_manual_exp_entry_exptime_priority">Prioridade de tempo de exposición</string>
+  <string name="pref_camera_manual_exp_entry_user_setting">Axuste do usuario</string>
+  <string name="pref_camera_manual_exp_entry_off">Apagado</string>
   <!-- Manual white balance -->
+  <string name="pref_camera_manual_wb_title">Balance manual de brancos</string>
+  <string name="pref_camera_manual_wb_entry_color_temperature">Cor de temperatura</string>
+  <string name="pref_camera_manual_wb_entry_rbgb_gains">Ganancia RBGB</string>
+  <string name="pref_camera_manual_wb_entry_off">Apagada</string>
   <!-- Manual focus -->
+  <string name="pref_camera_manual_focus_title">Enfoque manual</string>
+  <string name="pref_camera_manual_focus_entry_scale_mode">Modo de escala</string>
+  <string name="pref_camera_manual_focus_entry_diopter_mode">Modo de dioptría</string>
+  <string name="pref_camera_manual_focus_entry_off">Apagado</string>
   <!-- Still More -->
   <!-- Video HDR-->
+  <string name="pref_camera_video_hdr_title">Vídeo HDR</string>
   <!-- CDS mode-->
+  <string name="pref_camera_cds_title">Modo CDS</string>
+  <string name="pref_camera_cds_entry_auto">Auto</string>
   <!-- Video CDS-->
+  <string name="pref_camera_video_cds_title">Modo de vídeo CDS</string>
+  <string name="pref_camera_video_cds_entry_auto">Auto</string>
   <!-- TNR-->
+  <string name="pref_camera_tnr_title">Modo TNR</string>
   <!-- Video TNR -->
+  <string name="pref_camera_video_tnr_title">Modo de vídeo TNR</string>
   <!-- Face detection -->
+  <string name="pref_camera_facedetection_title">Detección da cara</string>
   <!-- Selfie Flash -->
+  <string name="pref_selfie_flash_title">Flash de selfie</string>
   <!-- Red eye reduction -->
+  <string name="pref_camera_redeyereduction_title">Redución de ollos vermellos</string>
   <!-- AE bracketing -->
+  <string name="pref_camera_ae_bracket_hdr_title">Exposición automática para interpolación</string>
   <!-- High-framerate recording -->
+  <string name="pref_camera_hfr_title">A cámara lenta</string>
+  <string name="pref_camera_hfr_entry_off">Apagado</string>
+  <string name="pref_camera_hfr_entry_2x">A cámara lenta 60 FPS</string>
+  <string name="pref_camera_hfr_entry_3x">A cámara lenta 90 FPS</string>
+  <string name="pref_camera_hfr_entry_4x">A cámara lenta 120 FPS</string>
+  <string name="pref_camera_hfr_entry_8x">A cámara lenta 240 FPS</string>
+  <string name="pref_camera_hfr_entry_hsr_60">A gran velocidade 60 FPS</string>
+  <string name="pref_camera_hfr_entry_hsr_90">A gran velocidade 90 FPS</string>
+  <string name="pref_camera_hfr_entry_hsr_120">A gran velocidade 120 FPS</string>
   <!-- See More -->
   <!-- Denoise -->
+  <string name="pref_camera_denoise_title">Reducir ruído</string>
   <!-- ISO -->
+  <string name="pref_camera_iso_title">ISO</string>
+  <string name="pref_camera_iso_entry_auto">Auto</string>
+  <string name="pref_camera_iso_entry_isodeblur">Auto (HjR)</string>
+  <string name="pref_camera_iso_entry_iso50">ISO50</string>
+  <string name="pref_camera_iso_entry_iso100">ISO100</string>
+  <string name="pref_camera_iso_entry_iso125">ISO125</string>
+  <string name="pref_camera_iso_entry_iso150">ISO150</string>
+  <string name="pref_camera_iso_entry_iso200">ISO200</string>
+  <string name="pref_camera_iso_entry_iso250">ISO250</string>
+  <string name="pref_camera_iso_entry_iso300">ISO300</string>
+  <string name="pref_camera_iso_entry_iso320">ISO320</string>
+  <string name="pref_camera_iso_entry_iso350">ISO350</string>
+  <string name="pref_camera_iso_entry_iso400">ISO400</string>
+  <string name="pref_camera_iso_entry_iso450">ISO450</string>
+  <string name="pref_camera_iso_entry_iso500">ISO500</string>
+  <string name="pref_camera_iso_entry_iso600">ISO600</string>
+  <string name="pref_camera_iso_entry_iso640">ISO640</string>
+  <string name="pref_camera_iso_entry_iso700">ISO700</string>
   <string name="pref_camera_iso_entry_iso800">ISO800</string>
   <string name="pref_camera_iso_entry_iso1000">ISO1000</string>
   <string name="pref_camera_iso_entry_iso1200">ISO1200</string>
@@ -165,6 +215,7 @@
   <string name="pref_camera_hdr_mode_entry_sensor">Sensor HDR</string>
   <string name="pref_camera_hdr_mode_entry_multi_frame">Multicadro HDR</string>
   <!-- HDR needs 1x frame -->
+  <string name="pref_camera_hdr_need_1x_title">O HDR necesita 1x cadro</string>
   <!-- Video rotation -->
   <string name="pref_camera_video_rotation_title">Rotación de vídeo</string>
   <string name="pref_camera_video_rotation_entry_0">0 graos</string>
@@ -201,6 +252,7 @@
   <!-- toast message for storage location switch -->
   <string name="on_switch_save_path_to_sdcard">O espazo de almacenamento interno non chega, trocouse por almacenar na tarxeta SD</string>
   <!-- The message is shown in toast when click showOnMap Menu and there is no map app -->
+  <string name="map_activity_not_found_err">Non hai instalada unha aplicación de mapas para amosar a localización</string>
   <!-- Continous shot enable message -->
   <string name="longshot_enable_message">As funcionalidades avanzadas non son compatíbeis co modo de disparo continuo</string>
   <!-- Advance features enable message -->
@@ -214,6 +266,8 @@
   <!-- Toast after 2k4k video is enabled to inform SeeMore has been disabled -->
   <string name="video_quality_4k_disable_SeeMore">Non se pode activar o SeeMore con vídeos 4k</string>
   <!-- Toast after SeeMore has been enabled to show CDS is disabled -->
+  <string name="disable_CDS_during_SeeMore">Activar SeeMore desactivará CDS</string>
   <!-- Toast after SeeMore has been enabled to show TNR is disabled -->
+  <string name="disable_TNR_during_SeeMore">Activar SeeMore desactivará TNR</string>
   <!-- TODO: Remove these? -->
 </resources>
