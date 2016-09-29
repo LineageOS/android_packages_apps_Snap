@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ff2e2bb8_c20ca244",
+        "filename": "src/com/android/camera/VideoModule.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1674,
+      "author": {
+        "id": 8328
+      },
+      "writtenOn": "2016-09-29T14:23:19Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 1674,
+        "startChar": 20,
+        "endLine": 1674,
+        "endChar": 21
+      },
+      "revId": "959a200d5760279b3537a7cd5519b2515e166ef8",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
