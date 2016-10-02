@@ -141,7 +141,7 @@
   <string name="pref_camera_coloreffect_entry_sepia">セピア</string>
   <string name="pref_camera_coloreffect_entry_negative">ネガ</string>
   <!-- Color effect that overexposes and reverses some of the tones. -->
-  <string name="pref_camera_coloreffect_entry_solarize">ソラリゼーション</string>
+  <string name="pref_camera_coloreffect_entry_solarize">ｿﾗﾘｾﾞｰｼｮﾝ</string>
   <string name="pref_camera_coloreffect_entry_posterize">ポスタライズ</string>
   <string name="pref_camera_coloreffect_entry_aqua">アクア</string>
   <string name="pref_camera_coloreffect_entry_emboss">エンボス</string>
