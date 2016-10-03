@@ -71,6 +71,7 @@
   <!-- Settings screen, dialog choice for WQVGA picture size [CHAR LIMIT=15] -->
   <!-- Settings screen, dialog choice for QVGA picture size [CHAR LIMIT=15] -->
   <!-- Settings screen, scene mode -->
+  <string name="pref_camera_scenemode_entry_document">Dokumento</string>
   <!-- Settings screen, focus mode -->
   <!-- Color effects -->
   <!-- Red eye flash mode title -->

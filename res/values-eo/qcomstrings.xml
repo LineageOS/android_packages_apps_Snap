@@ -50,6 +50,7 @@
   <!-- Denoise -->
   <!-- ISO -->
   <!-- Antibanding -->
+  <string name="pref_camera_antibanding_entry_1">50 Hz (Eŭropo)</string>
   <!-- Color effect -->
   <!-- Color effect that overexposes and reverses some of the tones. -->
   <!-- Stabilization -->
