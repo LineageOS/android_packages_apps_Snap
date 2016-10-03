@@ -254,6 +254,8 @@ public class CaptureModule implements CameraModule, PhotoController,
     private Size mVideoPreviewSize;
     private Size mVideoSize;
     private Size mVideoSnapshotSize;
+    private Size mPictureThumbSize;
+    private Size mVideoSnapshotThumbSize;
 
     private MediaRecorder mMediaRecorder;
     private boolean mIsRecordingVideo;
@@ -1124,6 +1126,8 @@ public class CaptureModule implements CameraModule, PhotoController,
                 Log.d(TAG, "captureStillPicture no location - getRecordLocation: " + getRecordLocation());
             }
             captureBuilder.set(CaptureRequest.JPEG_ORIENTATION, CameraUtil.getJpegRotation(id, mOrientation));
+            captureBuilder.set(CaptureRequest.JPEG_THUMBNAIL_SIZE, mPictureThumbSize);
+            captureBuilder.set(CaptureRequest.JPEG_THUMBNAIL_QUALITY, (byte)80);
             captureBuilder.set(CaptureRequest.CONTROL_MODE, CaptureRequest.CONTROL_MODE_AUTO);
             addPreviewSurface(captureBuilder, null, id);
             captureBuilder.set(CaptureRequest.CONTROL_AF_MODE, mControlAFMode);
@@ -1243,6 +1247,8 @@ public class CaptureModule implements CameraModule, PhotoController,
                     mCameraDevice[id].createCaptureRequest(CameraDevice.TEMPLATE_VIDEO_SNAPSHOT);
 
             captureBuilder.set(CaptureRequest.JPEG_ORIENTATION, CameraUtil.getJpegRotation(id, mOrientation));
+            captureBuilder.set(CaptureRequest.JPEG_THUMBNAIL_SIZE, mVideoSnapshotThumbSize);
+            captureBuilder.set(CaptureRequest.JPEG_THUMBNAIL_QUALITY, (byte)80);
             applyVideoSnapshot(captureBuilder, id);
 
             captureBuilder.addTarget(mVideoSnapshotImageReader.getSurface());
@@ -2245,6 +2251,8 @@ public class CaptureModule implements CameraModule, PhotoController,
         Size[] prevSizes = mSettingsManager.getSupportedOutputSize(getMainCameraId(),
                 SurfaceHolder.class);
         mPreviewSize = getOptimalPreviewSize(mPictureSize, prevSizes, screenSize.x, screenSize.y);
+        Size[] thumbSizes = mSettingsManager.getSupportedThumbnailSizes(getMainCameraId());
+        mPictureThumbSize = getOptimalPreviewSize(mPictureSize, thumbSizes, 0, 0); // get largest thumb size
     }
 
     public boolean isRecordingVideo() {
@@ -2281,6 +2289,8 @@ public class CaptureModule implements CameraModule, PhotoController,
         } else {
             mVideoSnapshotSize = mPictureSize;
         }
+        Size[] thumbSizes = mSettingsManager.getSupportedThumbnailSizes(getMainCameraId());
+        mVideoSnapshotThumbSize = getOptimalPreviewSize(mVideoSnapshotSize, thumbSizes, 0, 0); // get largest thumb size
     }
 
     private void updateMaxVideoDuration() {
