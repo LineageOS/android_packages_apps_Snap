@@ -333,7 +333,7 @@ public class FrameProcessor {
     private native int nativeNV21toRgb(ByteBuffer yvuBuf, ByteBuffer rgbBuf, int width, int height);
 
     static {
-        System.loadLibrary("jni_imageutil");
+        System.loadLibrary("jni_snapimageutil");
     }
 }
 
