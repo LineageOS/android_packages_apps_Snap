@@ -693,7 +693,6 @@ public class PhotoModule
         } catch (InterruptedException ex) {
             // ignore
         }
-        mCameraDevice.setPreviewDisplay(null);
         stopPreview();
     }
 
