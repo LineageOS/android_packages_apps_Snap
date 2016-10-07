@@ -776,12 +776,14 @@ public class PhotoUI implements PieListener,
                         Gravity.START | Gravity.TOP));
                 mRootView.addView(mMenuLayout);
             }
-            mMenuLayout.addView(popup);
+            mMenuLayout.addView(popup, new RotateLayout.LayoutParams(
+                    LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
             mMenuLayout.setOrientation(mOrientation, true);
         }
         if (level == 2) {
             if (mSubMenuLayout == null) {
                 mSubMenuLayout = new RotateLayout(mActivity, null);
+                mSubMenuLayout.setRootView(mRootView);
                 mRootView.addView(mSubMenuLayout);
             }
 

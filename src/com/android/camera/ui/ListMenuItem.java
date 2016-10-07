@@ -22,7 +22,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.accessibility.AccessibilityEvent;
-import android.widget.RelativeLayout;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.ImageView;
 
@@ -40,7 +40,7 @@ import org.codeaurora.snapcam.R;
  * Other setting popup window includes several InLineSettingItem items with
  * different types if possible.
  */
-public class ListMenuItem extends RelativeLayout {
+public class ListMenuItem extends LinearLayout {
     private static final String TAG = "ListMenuItem";
     private Listener mListener;
     protected ListPreference mPreference;

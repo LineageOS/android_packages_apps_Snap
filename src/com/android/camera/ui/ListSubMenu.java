@@ -29,11 +29,13 @@ import android.graphics.Rect;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.Space;
 
 import com.android.camera.IconListPreference;
 import com.android.camera.ListPreference;
@@ -45,10 +47,11 @@ import org.codeaurora.snapcam.R;
 // the entries will contain both text and icons. Otherwise, entries will be
 // shown in text.
 public class ListSubMenu extends ListView implements
-        AdapterView.OnItemClickListener {
+        RotateLayout.Child, AdapterView.OnItemClickListener {
     private static final String TAG = "ListPrefSettingPopup";
     private ListPreference mPreference;
     private Listener mListener;
+    private View mHeader, mFooter;
     private int mY;
 
     static public interface Listener {
@@ -143,6 +146,32 @@ public class ListSubMenu extends ListView implements
     @Override
     protected void onFocusChanged(boolean gainFocus, int direction, Rect previouslyFocusedRect) {
         super.onFocusChanged(gainFocus, direction, previouslyFocusedRect);
+    }
+
+    @Override
+    public void onApplyWindowInsets(Rect insets, int rootWidth, int rootHeight) {
+        if (mHeader == null) {
+            mHeader = new Space(getContext());
+            addHeaderView(mHeader);
+            setHeaderDividersEnabled(false);
+            mFooter = new Space(getContext());
+            addFooterView(mFooter);
+            setFooterDividersEnabled(false);
+        }
+
+        boolean largerThanRoot =
+                getPreCalculatedHeight() - insets.top - insets.bottom > rootHeight;
+        adjustViewHeight(mHeader, largerThanRoot ? insets.top : 0);
+        adjustViewHeight(mFooter, largerThanRoot ? insets.bottom : 0);
+    }
+
+    private void adjustViewHeight(View view, int height) {
+        ViewGroup.LayoutParams lp = view.getLayoutParams();
+        if (lp == null) {
+            lp = generateDefaultLayoutParams();
+        }
+        lp.height = height;
+        view.setLayoutParams(lp);
     }
 
     public int getPreCalculatedHeight() {
