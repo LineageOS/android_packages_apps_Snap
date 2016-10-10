@@ -120,7 +120,6 @@ public class SettingsManager implements ListMenu.SettingsListener {
     public static final String KEY_SHUTTER_SOUND = "pref_camera2_shutter_sound_key";
     private static final String TAG = "SnapCam_SettingsManager";
 
-    private static SettingsManager sInstance;
     private ArrayList<CameraCharacteristics> mCharacteristics;
     private ArrayList<Listener> mListeners;
     private Map<String, Values> mValuesMap;
@@ -133,7 +132,7 @@ public class SettingsManager implements ListMenu.SettingsListener {
     private JSONObject mDependency;
     private int mCameraId;
 
-    private SettingsManager(Context context) {
+    public SettingsManager(Context context) {
         mListeners = new ArrayList<>();
         mCharacteristics = new ArrayList<>();
         mContext = context;
@@ -171,23 +170,6 @@ public class SettingsManager implements ListMenu.SettingsListener {
         }
 
         mDependency = parseJson("dependency.json");
-    }
-
-    public static SettingsManager createInstance(Context context) {
-        if (sInstance == null) {
-            sInstance = new SettingsManager(context);
-        }
-        return sInstance;
-    }
-
-    public static SettingsManager getInstance() {
-        return sInstance;
-    }
-
-    public void destroyInstance() {
-        if (sInstance != null) {
-            sInstance = null;
-        }
     }
 
     public List<String> getDisabledList() {
@@ -873,6 +855,11 @@ public class SettingsManager implements ListMenu.SettingsListener {
         }
 
         return res;
+    }
+
+    public Size[] getSupportedThumbnailSizes(int cameraId) {
+        return mCharacteristics.get(cameraId).get(
+                CameraCharacteristics.JPEG_AVAILABLE_THUMBNAIL_SIZES);
     }
 
     public Size[] getSupportedOutputSize(int cameraId, int format) {

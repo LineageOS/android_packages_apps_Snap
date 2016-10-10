@@ -261,7 +261,7 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
         mActivity = activity;
         mModule = module;
         mRootView = parent;
-        mSettingsManager = SettingsManager.getInstance();
+        mSettingsManager = activity.getSettingsManager();
         mSettingsManager.registerListener(this);
         mActivity.getLayoutInflater().inflate(R.layout.capture_module,
                 (ViewGroup) mRootView, true);
@@ -1492,6 +1492,8 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
 
     @Override
     public void onFocusFailed(boolean timeOut) {
+        FocusIndicator indicator = getFocusIndicator();
+        if (indicator != null) indicator.showFail(timeOut);
 
     }
 
