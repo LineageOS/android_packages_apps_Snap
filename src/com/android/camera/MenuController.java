@@ -104,6 +104,7 @@ public class MenuController {
                 return;
             }
         }
+        index = index % ((IconListPreference) pref).getLargeIconIds().length;
         ((ImageView) switcher).setImageResource(pref.getLargeIconIds()[index]);
 
     }
