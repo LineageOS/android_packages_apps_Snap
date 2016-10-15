@@ -825,6 +825,7 @@ public class PhotoMenu extends MenuController
         int index = pref.findIndexOfValue(pref.getValue());
         if (!pref.getUseSingleIcon() && iconIds != null) {
             // Each entry has a corresponding icon.
+            index = index % iconIds.length;
             resid = iconIds[index];
         } else {
             // The preference only has a single icon to represent it.
@@ -851,8 +852,9 @@ public class PhotoMenu extends MenuController
                 CharSequence[] values = pref.getEntryValues();
                 index = (index + 1) % values.length;
                 pref.setValueIndex(index);
+                int iconListLength = ((IconListPreference) pref).getLargeIconIds().length;
                 ((ImageView) v).setImageResource(
-                        ((IconListPreference) pref).getLargeIconIds()[index]);
+                        ((IconListPreference) pref).getLargeIconIds()[index % iconListLength]);
                 if (prefKey.equals(CameraSettings.KEY_CAMERA_ID))
                     mListener.onCameraPickerClicked(index);
                 reloadPreference(pref);
