@@ -735,8 +735,12 @@ public class CameraActivity extends Activity
         mThumbnailDrawable = new CircularDrawable(bitmap);
         if (mThumbnail != null) {
             mThumbnail.setImageDrawable(mThumbnailDrawable);
-            mThumbnail.setVisibility(View.VISIBLE);
-        }
+            if (!isSecureCamera()) {
+                mThumbnail.setVisibility(View.VISIBLE);
+            } else {
+                mThumbnail.setVisibility(View.GONE);
+            }
+       }
     }
 
     public void updateThumbnail(ImageView thumbnail) {
@@ -744,7 +748,11 @@ public class CameraActivity extends Activity
         if (mThumbnail == null) return;
         if (mThumbnailDrawable != null) {
             mThumbnail.setImageDrawable(mThumbnailDrawable);
-            mThumbnail.setVisibility(View.VISIBLE);
+            if (!isSecureCamera()) {
+                mThumbnail.setVisibility(View.VISIBLE);
+            } else {
+                mThumbnail.setVisibility(View.GONE);
+            }
         }
     }
 
