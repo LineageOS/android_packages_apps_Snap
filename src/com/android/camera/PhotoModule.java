@@ -5064,8 +5064,10 @@ public class PhotoModule
         mAeLockSupported = CameraUtil.isAutoExposureLockSupported(mInitialParams);
         mAwbLockSupported = CameraUtil.isAutoWhiteBalanceLockSupported(mInitialParams);
 
-        if (mInitialParams.getSupportedFocusModes().contains(CameraUtil.FOCUS_MODE_CONTINUOUS_PICTURE) ||
-            mInitialParams.getSupportedFocusModes().contains(CameraUtil.FOCUS_MODE_MW_CONTINUOUS_PICTURE)) {
+        List<String> focusModes = mInitialParams.getSupportedFocusModes();
+        if (focusModes != null &&
+                (focusModes.contains(CameraUtil.FOCUS_MODE_CONTINUOUS_PICTURE) ||
+                focusModes.contains(CameraUtil.FOCUS_MODE_MW_CONTINUOUS_PICTURE))) {
             mContinuousFocusSupported = true;
         } else {
             mContinuousFocusSupported = false;
