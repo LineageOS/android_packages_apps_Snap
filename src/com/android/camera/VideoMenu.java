@@ -430,7 +430,7 @@ public class VideoMenu extends MenuController
         int[] iconIds = pref.getLargeIconIds();
         int resid = -1;
         int index = pref.findIndexOfValue(pref.getValue());
-        if (!pref.getUseSingleIcon() && iconIds != null) {
+        if (!pref.getUseSingleIcon() && iconIds != null && index >= 0) {
             // Each entry has a corresponding icon.
             resid = iconIds[index];
         } else {
