@@ -138,6 +138,10 @@ public class ListSubMenu extends ListView implements
     @Override
     public void onItemClick(AdapterView<?> parent, View view,
             int index, long id) {
+        index -= getHeaderViewsCount();
+        if (index < 0 || index >= getAdapter().getCount()) {
+            return;
+        }
         mPreference.setValueIndex(index);
         if (mListener != null)
             mListener.onListPrefChanged(mPreference);
