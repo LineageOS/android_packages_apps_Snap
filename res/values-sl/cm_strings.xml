@@ -22,6 +22,8 @@
   <string name="pref_camera_picturesize_entry_20_7mp">20,7 mio. sl. točk</string>
   <!-- Settings screen, dialog choice for 20.1 megapixels picture size [CHAR LIMIT=15] -->
   <string name="pref_camera_picturesize_entry_20_1mp_wide">(16:9) 20,1 mio. sl. točk</string>
+  <!-- Settings screen, dialog choice for 20 megapixels picture size [CHAR LIMIT=15] -->
+  <string name="pref_camera_picturesize_entry_20mp_wide">(16:9) 20 mio. sl. točk</string>
   <!-- Settings screen, dialog choice for 18 megapixels picture size [CHAR LIMIT=15] -->
   <string name="pref_camera_picturesize_entry_18mp">18 mio. sl. točk</string>
   <!-- Settings screen, dialog choice for 16.2 megapixels picture size [CHAR LIMIT=15] -->
@@ -34,6 +36,8 @@
   <string name="pref_camera_picturesize_entry_16mp">16 mio. sl. točk</string>
   <!-- Settings screen, dialog choice for 15.9 megapixels picture size [CHAR LIMIT=15] -->
   <string name="pref_camera_picturesize_entry_15_9mp_wide">(16:9) 15,9 mio. sl. točk</string>
+  <!-- Settings screen, dialog choice for 15 megapixels picture size [CHAR LIMIT=15] -->
+  <string name="pref_camera_picturesize_entry_15mp">15 mio. sl. točk</string>
   <!-- Settings screen, dialog choice for 13 megapixels picture size [CHAR LIMIT=15] -->
   <string name="pref_camera_picturesize_entry_13mp">13 mio. sl. točk</string>
   <!-- Settings screen, dialog choice for 12.8 megapixels picture size [CHAR LIMIT=15] -->
@@ -67,6 +71,8 @@
   <!-- Settings screen, dialog choice for 9.4 megapixels picture size [CHAR LIMIT=15] -->
   <string name="pref_camera_picturesize_entry_9_4mp_wide">(16:9) 9,4 mio. sl. točk</string>
   <!-- Settings screen, dialog choice for 9 megapixels picture size [CHAR LIMIT=15] -->
+  <string name="pref_camera_picturesize_entry_9mp_square">(1:1) 9 mio. sl. točk </string>
+  <!-- Settings screen, dialog choice for 9 megapixels picture size [CHAR LIMIT=15] -->
   <string name="pref_camera_picturesize_entry_9mp">9 mio. sl. točk</string>
   <!-- Settings screen, dialog choice for 8.9 megapixels picture size [CHAR LIMIT=15] -->
   <string name="pref_camera_picturesize_entry_8_9mp">8,9 mio. sl. točk</string>
@@ -84,6 +90,8 @@
   <string name="pref_camera_picturesize_entry_6mp_square">(1:1) 6 mio. sl. točk</string>
   <!-- Settings screen, dialog choice for 6 megapixels picture size [CHAR LIMIT=15] -->
   <string name="pref_camera_picturesize_entry_6mp_wide">(16:9) 6 mio. sl. točk</string>
+  <!-- Settings screen, dialog choice for 5 megapixels picture size [CHAR LIMIT=15] -->
+  <string name="pref_camera_picturesize_entry_5mp_square">(1:1) 5 mio. sl. točk </string>
   <!-- Settings screen, dialog choice for 5 megapixels picture size [CHAR LIMIT=15] -->
   <string name="pref_camera_picturesize_entry_5mp">5 mio. sl. točk</string>
   <!-- Settings screen, dialog choice for 4.5 megapixels picture size [CHAR LIMIT=15] -->

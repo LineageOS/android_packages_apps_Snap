@@ -136,13 +136,13 @@
   <string name="pref_camera_antibanding_entry_1">50 Hz（ヨーロッパ）</string>
   <string name="pref_camera_antibanding_entry_2">60 Hz（アメリカ）</string>
   <!-- Color effect -->
-  <string name="pref_camera_coloreffect_title">色彩効果</string>
+  <string name="pref_camera_coloreffect_title">色彩エフェクト</string>
   <string name="pref_camera_coloreffect_entry_none">なし</string>
   <string name="pref_camera_coloreffect_entry_mono">モノクロ</string>
   <string name="pref_camera_coloreffect_entry_sepia">セピア</string>
   <string name="pref_camera_coloreffect_entry_negative">ネガ</string>
   <!-- Color effect that overexposes and reverses some of the tones. -->
-  <string name="pref_camera_coloreffect_entry_solarize">ソラリゼーション</string>
+  <string name="pref_camera_coloreffect_entry_solarize">ｿﾗﾘｾﾞｰｼｮﾝ</string>
   <string name="pref_camera_coloreffect_entry_posterize">ポスタライズ</string>
   <string name="pref_camera_coloreffect_entry_aqua">アクア</string>
   <string name="pref_camera_coloreffect_entry_emboss">エンボス</string>
@@ -215,7 +215,7 @@
   <string name="pref_camera_hdr_mode_entry_sensor">センサーHDR</string>
   <string name="pref_camera_hdr_mode_entry_multi_frame">マルチフレームHDR</string>
   <!-- HDR needs 1x frame -->
-  <string name="pref_camera_hdr_need_1x_title">HDRは1倍のフレームを必要とします</string>
+  <string name="pref_camera_hdr_need_1x_title">HDRは等倍速フレームを必要とします</string>
   <!-- Video rotation -->
   <string name="pref_camera_video_rotation_title">動画の回転</string>
   <string name="pref_camera_video_rotation_entry_0">0度</string>

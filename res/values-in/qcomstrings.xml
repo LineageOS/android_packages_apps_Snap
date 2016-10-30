@@ -161,7 +161,7 @@
   <string name="pref_camera_sharpness_title">Ketajaman</string>
   <string name="pref_camera_sharpness_entry_level0">Tingkat 0</string>
   <string name="pref_camera_sharpness_entry_level1">Tingkat 1</string>
-  <string name="pref_camera_sharpness_entry_level2">Tingkat 2 (baku)</string>
+  <string name="pref_camera_sharpness_entry_level2">Tingkat 2 (bawaan)</string>
   <string name="pref_camera_sharpness_entry_level3">Tingkat 3</string>
   <string name="pref_camera_sharpness_entry_level4">Tingkat 4</string>
   <string name="pref_camera_sharpness_entry_level5">Tingkat 5</string>
@@ -173,7 +173,7 @@
   <string name="pref_camera_contrast_entry_level2">Tingkat 2</string>
   <string name="pref_camera_contrast_entry_level3">Tingkat 3</string>
   <string name="pref_camera_contrast_entry_level4">Tingkat 4</string>
-  <string name="pref_camera_contrast_entry_level5">Tingkat 5 (baku)</string>
+  <string name="pref_camera_contrast_entry_level5">Tingkat 5 (bawaan)</string>
   <string name="pref_camera_contrast_entry_level6">Tingkat 6</string>
   <string name="pref_camera_contrast_entry_level7">Tingkat 7</string>
   <string name="pref_camera_contrast_entry_level8">Tingkat 8</string>
@@ -186,7 +186,7 @@
   <string name="pref_camera_saturation_entry_level2">Tingkat 2</string>
   <string name="pref_camera_saturation_entry_level3">Tingkat 3</string>
   <string name="pref_camera_saturation_entry_level4">Tingkat 4</string>
-  <string name="pref_camera_saturation_entry_level5">Tingkat 5 (Gagal)</string>
+  <string name="pref_camera_saturation_entry_level5">Tingkat 5 (bawaan)</string>
   <string name="pref_camera_saturation_entry_level6">Tingkat 6</string>
   <string name="pref_camera_saturation_entry_level7">Tingkat 7</string>
   <string name="pref_camera_saturation_entry_level8">Tingkat 8</string>
