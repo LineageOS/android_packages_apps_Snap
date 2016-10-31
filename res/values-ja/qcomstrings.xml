@@ -214,7 +214,7 @@
   <string name="pref_camera_hdr_mode_entry_sensor">センサーHDR</string>
   <string name="pref_camera_hdr_mode_entry_multi_frame">マルチフレームHDR</string>
   <!-- HDR needs 1x frame -->
-  <string name="pref_camera_hdr_need_1x_title">HDRは1倍のフレームを必要とします</string>
+  <string name="pref_camera_hdr_need_1x_title">HDRは等倍速フレームを必要とします</string>
   <!-- Video rotation -->
   <string name="pref_camera_video_rotation_title">動画の回転</string>
   <string name="pref_camera_video_rotation_entry_0">0度</string>
