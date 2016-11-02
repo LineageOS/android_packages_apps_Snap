@@ -124,7 +124,7 @@ public class ListSubMenu extends ListView implements
     public void reloadPreference() {
         int index = mPreference.findIndexOfValue(mPreference.getValue());
         if (index != -1) {
-            setItemChecked(index, true);
+            setItemChecked(index + getHeaderViewsCount(), true);
         } else {
             Log.e(TAG, "Invalid preference value.");
             mPreference.print();
@@ -161,6 +161,7 @@ public class ListSubMenu extends ListView implements
             mFooter = new Space(getContext());
             addFooterView(mFooter);
             setFooterDividersEnabled(false);
+            reloadPreference();
         }
 
         boolean largerThanRoot =
