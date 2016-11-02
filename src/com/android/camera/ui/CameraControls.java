@@ -375,18 +375,18 @@ public class CameraControls extends RotatableLayout {
         int rotation = getUnifiedRotation();
         toIndex(mSwitcher, w, h, rotation, 4, 6, SWITCHER_INDEX);
         toIndex(mVideoShutter, w, h, rotation, 3, 6, VIDEO_SHUTTER_INDEX);
-        toIndex(mMenu, w, h, rotation, 4, 0, MENU_INDEX);
-        toIndex(mMute, w, h, rotation, 3, 0, MUTE_INDEX);
+        toIndex(mSceneModeSwitcher, w, h, rotation, 4, 0, SCENE_MODE_INDEX);
+        toIndex(mMute, w, h, rotation, 4, 0, MUTE_INDEX);
+        toIndex(mFilterModeSwitcher, w, h, rotation, 3, 0, FILTER_MODE_INDEX);
         toIndex(mExitPanorama, w, h, rotation, 0, 0, EXIT_PANORAMA_INDEX);
-        toIndex(mFrontBackSwitcher, w, h, rotation, 2, 0, FRONT_BACK_INDEX);
+        toIndex(mFrontBackSwitcher, w, h, rotation, 1, 0, FRONT_BACK_INDEX);
         toIndex(mPreview, w, h, rotation, 0, 6, PREVIEW_INDEX);
         if(TsMakeupManager.HAS_TS_MAKEUP) {
-            toIndex(mTsMakeupSwitcher, w, h, rotation, 3, 0, TS_MAKEUP_INDEX);
+            toIndex(mTsMakeupSwitcher, w, h, rotation, 2, 0, TS_MAKEUP_INDEX);
         } else {
-            toIndex(mHdrSwitcher, w, h, rotation, 3, 0, HDR_INDEX);
+            toIndex(mHdrSwitcher, w, h, rotation, 2, 0, HDR_INDEX);
         }
-        toIndex(mFilterModeSwitcher, w, h, rotation, 1, 0, FILTER_MODE_INDEX);
-        toIndex(mSceneModeSwitcher, w, h, rotation, 0, 0, SCENE_MODE_INDEX);
+        toIndex(mMenu, w, h, rotation, 0, 0, MENU_INDEX);
         layoutToast(mRefocusToast, w, h, rotation);
     }
 
