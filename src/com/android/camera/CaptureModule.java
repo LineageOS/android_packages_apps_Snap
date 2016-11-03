@@ -540,6 +540,7 @@ public class CaptureModule extends BaseModule<CaptureUI> implements PhotoControl
                 Integer afState = result.get(CaptureResult.CONTROL_AF_STATE);
                 Integer aeState = result.get(CaptureResult.CONTROL_AE_STATE);
                 Log.d(TAG, "STATE_WAITING_AF_LOCK id: " + id + " afState:" + afState + " aeState:" + aeState);
+
                 // AF_PASSIVE is added for continous auto focus mode
                 if (CaptureResult.CONTROL_AF_STATE_FOCUSED_LOCKED == afState ||
                         CaptureResult.CONTROL_AF_STATE_NOT_FOCUSED_LOCKED == afState ||
@@ -555,15 +556,20 @@ public class CaptureModule extends BaseModule<CaptureUI> implements PhotoControl
                         else
                             mState[id] = STATE_WAITING_AE_LOCK;
                     } else {
-                        runPrecaptureSequence(id);
-                        // CONTROL_AE_STATE can be null on some devices
-                        if(aeState == null || (aeState == CaptureResult
-                                .CONTROL_AE_STATE_CONVERGED) && isFlashOff(id)) {
-                            lockExposure(id);
-                        } else {
-                            runPrecaptureSequence(id);
+                        if ((mLockRequestHashCode[id] == result.getRequest().hashCode()) || (mLockRequestHashCode[id] == 0)) {
+
+                            // CONTROL_AE_STATE can be null on some devices
+                            if(aeState == null || (aeState == CaptureResult
+                                    .CONTROL_AE_STATE_CONVERGED) && isFlashOff(id)) {
+                                lockExposure(id);
+                            } else {
+                                runPrecaptureSequence(id);
+                            }
                         }
                     }
+                } else if (mLockRequestHashCode[id] == result.getRequest().hashCode()){
+                    Log.i(TAG, "AF lock request result received, but not focused");
+                    mLockRequestHashCode[id] = 0;
                 }
                 break;
             }
@@ -576,8 +582,16 @@ public class CaptureModule extends BaseModule<CaptureUI> implements PhotoControl
                         aeState == CaptureResult.CONTROL_AE_STATE_PRECAPTURE ||
                         aeState == CaptureResult.CONTROL_AE_STATE_FLASH_REQUIRED ||
                         aeState == CaptureResult.CONTROL_AE_STATE_CONVERGED) {
-                    if (mPrecaptureRequestHashCode[id] == result.getRequest().hashCode())
-                        lockExposure(id);
+                    if ((mPrecaptureRequestHashCode[id] == result.getRequest().hashCode()) || (mPrecaptureRequestHashCode[id] == 0)) {
+                        if (mLongshotActive && isFlashOn(id)) {
+                            checkAfAeStatesAndCapture(id);
+                        } else {
+                            lockExposure(id);
+                        }
+                    }
+                } else if (mPrecaptureRequestHashCode[id] == result.getRequest().hashCode()) {
+                    Log.i(TAG, "AE trigger request result received, but not converged");
+                    mPrecaptureRequestHashCode[id] = 0;
                 }
                 break;
             }
@@ -1033,6 +1047,14 @@ public class CaptureModule extends BaseModule<CaptureUI> implements PhotoControl
             if(id == MONO_ID && !canStartMonoPreview()) {
                 mCaptureSession[id].setRepeatingRequest(mPreviewRequestBuilder[id]
                         .build(), mCaptureCallback, mCameraHandler);
+            } else {
+                // for longshot flash, need to re-configure the preview flash mode.
+                if (mLongshotActive && isFlashOn(id)) {
+                    mCaptureSession[id].stopRepeating();
+                    applyFlash(mPreviewRequestBuilder[id], id);
+                    mCaptureSession[id].setRepeatingRequest(mPreviewRequestBuilder[id]
+                                            .build(), mCaptureCallback, mCameraHandler);
+                }
             }
         } catch (CameraAccessException e) {
             e.printStackTrace();
@@ -1042,6 +1064,7 @@ public class CaptureModule extends BaseModule<CaptureUI> implements PhotoControl
         if (mState[id] == STATE_WAITING_TOUCH_FOCUS) {
             mCameraHandler.removeMessages(CANCEL_TOUCH_FOCUS, mCameraId[id]);
             mState[id] = STATE_WAITING_AF_LOCK;
+            mLockRequestHashCode[id] = 0;
             return;
         }
 
@@ -1296,6 +1319,7 @@ public class CaptureModule extends BaseModule<CaptureUI> implements PhotoControl
             applySettingsForPrecapture(builder, id);
             CaptureRequest request = builder.build();
             mPrecaptureRequestHashCode[id] = request.hashCode();
+
             mState[id] = STATE_WAITING_PRECAPTURE;
             mCaptureSession[id].capture(request, mCaptureCallback, mCameraHandler);
         } catch (CameraAccessException e) {
@@ -2846,6 +2870,11 @@ public class CaptureModule extends BaseModule<CaptureUI> implements PhotoControl
     private boolean isFlashOff(int id) {
         if (!mSettingsManager.isFlashSupported(id)) return true;
         return mSettingsManager.getValue(SettingsManager.KEY_FLASH_MODE).equals("1");
+    }
+
+    private boolean isFlashOn(int id) {
+        if (!mSettingsManager.isFlashSupported(id)) return false;
+        return mSettingsManager.getValue(SettingsManager.KEY_FLASH_MODE).equals("on");
     }
 
     private void initializePreviewConfiguration(int id) {
