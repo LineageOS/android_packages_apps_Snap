@@ -3184,21 +3184,6 @@ public class PhotoModule
         String optizoomOn = mActivity.getString(R.string
                 .pref_camera_advanced_feature_value_optizoom_on);
 
-        if (Parameters.SCENE_MODE_AUTO.equals(mSceneMode) ||
-            CameraUtil.SCENE_MODE_HDR.equals(mSceneMode) ||
-            optizoomOn.equals(mSceneMode)) {
-            // Set Touch AF/AEC parameter.
-            String touchAfAec = mPreferences.getString(
-                 CameraSettings.KEY_TOUCH_AF_AEC,
-                 mActivity.getString(R.string.pref_camera_touchafaec_default));
-            if (CameraUtil.isSupported(touchAfAec, mParameters.getSupportedTouchAfAec())) {
-                mCurrTouchAfAec = touchAfAec;
-                mParameters.setTouchAfAec(touchAfAec);
-            }
-        } else {
-            mParameters.setTouchAfAec(mParameters.TOUCH_AF_AEC_OFF);
-            mFocusManager.resetTouchFocus();
-        }
         try {
             if(mParameters.getTouchAfAec().equals(mParameters.TOUCH_AF_AEC_ON))
                 this.mTouchAfAecFlag = true;
@@ -4012,7 +3997,30 @@ public class PhotoModule
                 mCameraDevice.setParameters(mParameters);
                 mParameters = mCameraDevice.getParameters();
             }
-        }
+        } else {
+            if (refocusOn.equals(mSceneMode)) {
+                try {
+                    mUI.setPreference(CameraSettings.KEY_ADVANCED_FEATURES, refocusOn);
+                } catch (NullPointerException e) {
+                }
+            } else if (optizoomOn.equals(mSceneMode)) {
+                try {
+                    mUI.setPreference(CameraSettings.KEY_ADVANCED_FEATURES, optizoomOn);
+                } catch (NullPointerException e) {
+                }
+            } else if (chromaFlashOn.equals(mSceneMode)) {
+                try {
+                    mUI.setPreference(CameraSettings.KEY_ADVANCED_FEATURES, chromaFlashOn);
+                    mParameters.setSceneMode(Parameters.SCENE_MODE_AUTO);
+                } catch (NullPointerException e) {
+                }
+            } else {
+                mSceneMode = mParameters.getSceneMode();
+                if (mSceneMode == null) {
+                    mSceneMode = Parameters.SCENE_MODE_AUTO;
+                }
+            }
+		}
 
         // Set JPEG quality.
         int jpegQuality;
