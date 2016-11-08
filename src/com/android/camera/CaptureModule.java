@@ -3595,4 +3595,19 @@ public class CaptureModule implements CameraModule, PhotoController,
         buffer.get(bytes);
         return bytes;
     }
+
+    @Override
+    public void showPreviewCover() {
+        mUI.showPreviewCover();
+    }
+
+    @Override
+    public void hidePreviewCover() {
+        mUI.hidePreviewCover();
+    }
+
+    @Override
+    public void setPreviewCoverAlpha(float alpha) {
+        mUI.setPreviewCoverAlpha(alpha);
+    }
 }

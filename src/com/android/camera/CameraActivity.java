@@ -53,6 +53,7 @@ import android.graphics.RectF;
 import android.graphics.Shader;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
+import android.graphics.Point;
 import android.net.Uri;
 import android.media.ThumbnailUtils;
 import android.nfc.NfcAdapter;
@@ -228,8 +229,6 @@ public class CameraActivity extends Activity
     private ViewGroup mUndoDeletionBar;
     private boolean mIsUndoingDeletion = false;
     private boolean mIsEditActivityInProgress = false;
-    private View mPreviewCover;
-    private FrameLayout mPreviewContentLayout;
     private boolean mPaused = true;
     private boolean mHasCriticalPermissions;
     private boolean mForceReleaseCamera = false;
@@ -263,6 +262,7 @@ public class CameraActivity extends Activity
 
     private WakeLock mWakeLock;
     private static final int REFOCUS_ACTIVITY_CODE = 1;
+    private int mDisplayWidth;
 
     private class MyOrientationEventListener
             extends OrientationEventListener {
@@ -473,7 +473,6 @@ public class CameraActivity extends Activity
                     if(!arePreviewControlsVisible()) {
                         setPreviewControlsVisibility(true);
                         CameraActivity.this.setSystemBarsVisibility(false);
-                        mFilmStripView.getController().goToFullScreen();
                     }
                 }
 
@@ -577,6 +576,25 @@ public class CameraActivity extends Activity
                 public void setSystemDecorsVisibility(boolean visible) {
                     CameraActivity.this.setSystemBarsVisibility(visible);
                 }
+
+                private boolean stripHasScrolled = false;
+
+                @Override
+                public void onFilmStripScroll(int offset) {
+                    if (offset == 0) {
+                        if (stripHasScrolled) {
+                            mCurrentModule.hidePreviewCover();
+                            mCurrentModule.setPreviewCoverAlpha(1.0f);
+                        }
+                    } else {
+                        // preview cover becomes fully opaque when the film strip has
+                        // scrolled half the width of the screen
+                        float rangePx = mDisplayWidth / 2f;
+                        mCurrentModule.setPreviewCoverAlpha((float)Math.min(1.0, offset/rangePx));
+                        mCurrentModule.showPreviewCover();
+                        stripHasScrolled = true;
+                    }
+                }
             };
 
     public void gotoGallery() {
@@ -604,45 +622,7 @@ public class CameraActivity extends Activity
                 return;
             }
         }
-        try {
-            Intent intent = IntentHelper.getGalleryIntent(this);
-            intent.setAction(Intent.ACTION_VIEW);
-            intent.setData(uri);
-            intent.putExtra(KEY_FROM_SNAPCAM, true);
-            intent.putExtra(KEY_TOTAL_NUMBER, (adapter.getTotalNumber() -1));
-            startActivity(intent);
-        } catch (ActivityNotFoundException ex) {
-            gotoReviewPhoto(uri);
-        } catch (IllegalArgumentException ex) {
-            gotoReviewPhoto(uri);
-        }
-    }
-
-    private void gotoReviewPhoto(Uri uri) {
-        try {
-            Log.w(TAG, "Gallery not found");
-            Intent intent = new Intent(CameraUtil.REVIEW_ACTION, uri);
-            startActivity(intent);
-            intent.putExtra(KEY_FROM_SNAPCAM, true);
-            intent.putExtra(KEY_TOTAL_NUMBER, getDataAdapter().getTotalNumber() - 1);
-        } catch (ActivityNotFoundException e) {
-            gotoViewPhoto(uri);
-        } catch (IllegalArgumentException e) {
-            gotoViewPhoto(uri);
-        }
-    }
-
-    private void gotoViewPhoto(Uri uri) {
-        try {
-            Log.w(TAG, "Gallery not found");
-            Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-            startActivity(intent);
-            intent.putExtra(KEY_FROM_SNAPCAM, true);
-        } catch (ActivityNotFoundException e) {
-            Log.w(TAG, "No Activity could be found to open image or video");
-        } catch (IllegalArgumentException e) {
-            Log.w(TAG, "No Activity could be found to open image or video");
-        }
+        mFilmStripView.getController().goToNextItem();
     }
 
     /**
@@ -1496,6 +1476,8 @@ public class CameraActivity extends Activity
         mCameraPanoModuleRootView = rootLayout.findViewById(R.id.camera_pano_root);
         mCameraCaptureModuleRootView = rootLayout.findViewById(R.id.camera_capture_root);
 
+        calculateDisplayWidth();
+
         int moduleIndex = -1;
         if (MediaStore.INTENT_ACTION_VIDEO_CAMERA.equals(getIntent().getAction())
                 || MediaStore.ACTION_VIDEO_CAPTURE.equals(getIntent().getAction())) {
@@ -1844,6 +1826,7 @@ public class CameraActivity extends Activity
     public void onConfigurationChanged(Configuration config) {
         super.onConfigurationChanged(config);
         mCurrentModule.onConfigurationChanged(config);
+        calculateDisplayWidth();
     }
 
     @Override
@@ -2081,6 +2064,12 @@ public class CameraActivity extends Activity
         // starts up.
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         prefs.edit().putInt(CameraSettings.KEY_STARTUP_MODULE_INDEX, moduleIndex).apply();
+    }
+
+    private void calculateDisplayWidth() {
+        Point size = new Point();
+        getWindowManager().getDefaultDisplay().getSize(size);
+        mDisplayWidth = size.x;
     }
 
     /**

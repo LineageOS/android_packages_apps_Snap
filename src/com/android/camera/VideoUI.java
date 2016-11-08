@@ -64,7 +64,7 @@ import com.android.camera.ui.ZoomRenderer;
 import com.android.camera.ui.focus.FocusRing;
 import com.android.camera.util.CameraUtil;
 
-public class VideoUI implements PieRenderer.PieListener,
+public class VideoUI extends BaseUI implements PieRenderer.PieListener,
         PreviewGestures.SingleTapListener,
         CameraRootView.MyDisplayListener,
         SurfaceHolder.Callback,
@@ -111,7 +111,6 @@ public class VideoUI implements PieRenderer.PieListener,
     private RotateLayout mSubMenuLayout;
     private LinearLayout mPreviewMenuLayout;
 
-    private View mPreviewCover;
     private SurfaceView mSurfaceView = null;
     private int mMaxPreviewWidth = 0;
     private int mMaxPreviewHeight = 0;
@@ -136,16 +135,6 @@ public class VideoUI implements PieRenderer.PieListener,
     public enum SURFACE_STATUS {
         HIDE,
         SURFACE_VIEW;
-    }
-
-    public void showPreviewCover() {
-        mPreviewCover.setVisibility(View.VISIBLE);
-    }
-
-    public void hidePreviewCover() {
-        if (mPreviewCover != null && mPreviewCover.getVisibility() != View.GONE) {
-            mPreviewCover.setVisibility(View.GONE);
-        }
     }
 
     public boolean isPreviewCoverVisible() {
@@ -1158,6 +1147,9 @@ public class VideoUI implements PieRenderer.PieListener,
     @Override
     public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {
         Log.v(TAG, "surfaceChanged: width = " + width + ", height = " + height);
+
+        // Make sure preview cover is hidden if preview data is available.
+        hidePreviewCover();
     }
 
     @Override

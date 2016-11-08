@@ -87,6 +87,7 @@ public class FilmStripView extends ViewGroup implements BottomControlsListener {
     private MotionEvent mDown;
     private boolean mCheckToIntercept = true;
     private View mCameraView;
+    private ViewItem mCameraViewItem;
     private int mSlop;
     private TimeInterpolator mViewAnimInterpolator;
 
@@ -106,8 +107,6 @@ public class FilmStripView extends ViewGroup implements BottomControlsListener {
     private boolean mSendToPreviewMenu;
     private boolean mSendToMenu;
     private boolean mReset;
-    private boolean mIsLoaded = false;
-    private boolean initialClampX = false;
 
     /**
      * Common interface for all images in the filmstrip.
@@ -393,6 +392,12 @@ public class FilmStripView extends ViewGroup implements BottomControlsListener {
          * @param visible The visibility of the system decors
          */
         public void setSystemDecorsVisibility(boolean visible);
+
+        /**
+         * Called when film strip is scrolled
+          * @param offset positive distance scrolled from initial offset in pixels
+         */
+        public void onFilmStripScroll(int offset);
     }
 
     /**
@@ -435,6 +440,8 @@ public class FilmStripView extends ViewGroup implements BottomControlsListener {
 
         private ValueAnimator mTranslationXAnimator;
 
+        private boolean mIsPreview;
+
         /**
          * Constructor.
          *
@@ -442,7 +449,7 @@ public class FilmStripView extends ViewGroup implements BottomControlsListener {
          * @param v The {@code View} representing the data.
          */
         public ViewItem(
-                int id, View v, ValueAnimator.AnimatorUpdateListener listener) {
+                int id, View v, ValueAnimator.AnimatorUpdateListener listener, boolean isPreview) {
             v.setPivotX(0f);
             v.setPivotY(0f);
             mDataId = id;
@@ -451,6 +458,12 @@ public class FilmStripView extends ViewGroup implements BottomControlsListener {
             mViewArea = new RectF();
             mTranslationXAnimator = new ValueAnimator();
             mTranslationXAnimator.addUpdateListener(listener);
+            mIsPreview = isPreview;
+
+            // Ordering of the children in the filmstrip can get shuffled around so we
+            // set the Z order explicity to make sure the film strip images are drawn on
+            // top of the camera
+            mView.setZ(mIsPreview ? 0 : 100);
         }
 
         /** Returns the data id from {@link DataAdapter}. */
@@ -508,11 +521,13 @@ public class FilmStripView extends ViewGroup implements BottomControlsListener {
 
         /** Sets the translation of Y regarding the view scale. */
         public void setTranslationY(float transY, float scale) {
+            if(mIsPreview) return; // keep preview pinned in place
             mView.setTranslationY(transY * scale);
         }
 
         /** Sets the translation of X regarding the view scale. */
         public void setTranslationX(float transX, float scale) {
+            if(mIsPreview) return; // keep preview pinned in place
             mView.setTranslationX(transX * scale);
         }
 
@@ -583,20 +598,28 @@ public class FilmStripView extends ViewGroup implements BottomControlsListener {
          * @param scale The current scale of the filmstrip.
          */
         public void layoutIn(Rect drawArea, int refCenter, float scale) {
-            final float translationX = (mTranslationXAnimator.isRunning() ?
-                    (Float) mTranslationXAnimator.getAnimatedValue() : 0f);
-            int left = (int) (drawArea.centerX() + (mLeftPosition - refCenter + translationX) * scale);
-            int top = (int) (drawArea.centerY() - (mView.getMeasuredHeight() / 2) * scale);
+            final float adjustedScale = mIsPreview ? 1.0f : scale;
+            int left = 0;
+            int top = 0;
+
+            if (!mIsPreview) {
+                final float translationX = (mTranslationXAnimator.isRunning() ?
+                        (Float) mTranslationXAnimator.getAnimatedValue() : 0f);
+                left = (int) (drawArea.centerX() + (mLeftPosition - refCenter + translationX)
+                        * adjustedScale);
+                top = (int) (drawArea.centerY() - (mView.getMeasuredHeight() / 2) * scale);
+            }
+
             layoutAt(left, top);
-            mView.setScaleX(scale);
-            mView.setScaleY(scale);
+            mView.setScaleX(adjustedScale);
+            mView.setScaleY(adjustedScale);
 
             // update mViewArea for touch detection.
             int l = mView.getLeft();
             int t = mView.getTop();
             mViewArea.set(l, t,
-                    l + mView.getMeasuredWidth() * scale,
-                    t + mView.getMeasuredHeight() * scale);
+                    l + mView.getMeasuredWidth() * adjustedScale,
+                    t + mView.getMeasuredHeight() * adjustedScale);
         }
 
         /** Returns true if the point is in the view. */
@@ -904,10 +927,23 @@ public class FilmStripView extends ViewGroup implements BottomControlsListener {
         if (v == null) {
             return null;
         }
-        ViewItem item = new ViewItem(dataID, v, mViewItemUpdateListener);
+
+        boolean isCameraView = false;
+        if (data instanceof LocalData) {
+            isCameraView = ((LocalData)data).getLocalDataType()
+                    == LocalData.LOCAL_CAMERA_PREVIEW;
+        }
+        ViewItem item = new ViewItem(dataID, v, mViewItemUpdateListener, isCameraView);
+        if (isCameraView) {
+            mCameraViewItem = item;
+        }
+
         v = item.getView();
         if (v != mCameraView) {
             addView(item.getView());
+            if (data.getViewType() == ImageData.VIEW_TYPE_STICKY) {
+                mCameraView = v;
+            }
         } else {
             v.setVisibility(View.VISIBLE);
             v.setAlpha(1f);
@@ -999,7 +1035,7 @@ public class FilmStripView extends ViewGroup implements BottomControlsListener {
         }
 
         boolean stopScroll = false;
-        if (curr.getId() == 0 && (mCenterX < curr.getCenterX() || initialClampX)
+        if (curr.getId() == 0 && mCenterX < curr.getCenterX()
                 && mDataIdOnUserScrolling <= 1) {
             // Stop at the first ViewItem.
             stopScroll = true;
@@ -1048,6 +1084,7 @@ public class FilmStripView extends ViewGroup implements BottomControlsListener {
         }
         // ZoomView is a special case to always be in the front.
         bringChildToFront(mZoomView);
+        mZoomView.setElevation(Float.MAX_VALUE);
     }
 
     /**
@@ -1277,8 +1314,12 @@ public class FilmStripView extends ViewGroup implements BottomControlsListener {
             return;
         }
 
-        mViewItem[mCurrentItem].setLeftPosition(
-                mCenterX - mViewItem[mCurrentItem].getView().getMeasuredWidth() / 2);
+        // If the layout changed, we need to adjust the current position so
+        // that if an item is centered before the change, it's still centered.
+        if (layoutChanged) {
+            mViewItem[mCurrentItem].setLeftPosition(
+                    mCenterX - mViewItem[mCurrentItem].getView().getMeasuredWidth() / 2);
+        }
 
         if (mController.isZoomStarted()) {
             return;
@@ -1424,6 +1465,15 @@ public class FilmStripView extends ViewGroup implements BottomControlsListener {
         stepIfNeeded();
         updateBottomControls(false /* no forced update */);
         mLastItemId = getCurrentId();
+
+        if (mCameraViewItem != null && mListener != null) {
+            // mCenterX and the left position of each item are defined relative to each other.
+            // In order to figure out how much the user has scrolled, we need to subtract the
+            // two values and compare that to a fixed reference point.  Since we know that
+            // the camera preview always starts at (0,0) we can use it as a reference point.
+            int offset = -1 * (mDrawArea.centerX() + mCameraViewItem.getLeftPosition() - mCenterX);
+            mListener.onFilmStripScroll(offset);
+        }
     }
 
     @Override
@@ -1485,8 +1535,11 @@ public class FilmStripView extends ViewGroup implements BottomControlsListener {
             removeView(v);
             data.recycle();
         } else {
-            v.setVisibility(View.INVISIBLE);
             if (mCameraView != null && mCameraView != v) {
+                // Not sure if this code is complete... logging a warning in case
+                // we encounter strange behavior related to this - EM
+                Log.w(TAG, "Encountered new camera view, removing old one");
+                v.setVisibility(View.INVISIBLE);
                 removeView(mCameraView);
             }
             mCameraView = v;
@@ -1737,9 +1790,7 @@ public class FilmStripView extends ViewGroup implements BottomControlsListener {
             @Override
             public void onDataLoaded() {
                 mActivity.updateThumbnail(false);
-                if (!mIsLoaded)
-                    reload();
-                mIsLoaded = true;
+                reload();
             }
 
             @Override
@@ -1755,12 +1806,17 @@ public class FilmStripView extends ViewGroup implements BottomControlsListener {
                     return;
                 }
                 updateInsertion(dataID);
-                mActivity.updateThumbnail(true);
+                if (dataID == 1) {
+                    mActivity.updateThumbnail(true);
+                }
             }
 
             @Override
             public void onDataRemoved(int dataID, ImageData data) {
                 animateItemRemoval(dataID, data);
+                if (dataID == 1) {
+                    mActivity.updateThumbnail(false);
+                }
             }
         });
     }
@@ -1787,7 +1843,7 @@ public class FilmStripView extends ViewGroup implements BottomControlsListener {
         if (!inFullScreen() || mController.isScrolling()) {
             return true;
         }
-        initialClampX = false;
+
         if (ev.getActionMasked() == MotionEvent.ACTION_DOWN) {
             mCheckToIntercept = true;
             mDown = MotionEvent.obtain(ev);
@@ -1814,7 +1870,7 @@ public class FilmStripView extends ViewGroup implements BottomControlsListener {
                     && deltaX < mSlop * (-1)) {
                 // intercept left swipe
                 if (Math.abs(deltaX) >= Math.abs(deltaY) * 2) {
-                    return false;
+                    return true;
                 }
             }
         }
@@ -1823,6 +1879,7 @@ public class FilmStripView extends ViewGroup implements BottomControlsListener {
 
     @Override
     public boolean onTouchEvent(MotionEvent ev) {
+        mGestureRecognizer.onTouchEvent(ev);
         return true;
     }
 
@@ -2040,18 +2097,17 @@ public class FilmStripView extends ViewGroup implements BottomControlsListener {
         }
 
         // Remove all views from the mViewItem buffer, except the camera view.
-        for (final ViewItem item : mViewItem) {
-            if (item != null) {
-                ImageData imageData = mDataAdapter.getImageData(item.getId());
-                if (imageData != null) {
-                    imageData.recycle();
-                    View v = item.getView();
-                    if (imageData.getViewType() != ImageData.VIEW_TYPE_STICKY) {
-                        removeView(v);
-                    } else {
-                        mCameraView = v;
-                    }
-                }
+        for (int i = 0; i < mViewItem.length; i++) {
+            if (mViewItem[i] == null) {
+                continue;
+            }
+            View v = mViewItem[i].getView();
+            if (v != mCameraView) {
+                removeView(v);
+            }
+            ImageData imageData = mDataAdapter.getImageData(mViewItem[i].getId());
+            if (imageData != null) {
+                imageData.recycle();
             }
         }
 
@@ -2078,7 +2134,7 @@ public class FilmStripView extends ViewGroup implements BottomControlsListener {
         // center of the display upon a reload.
         mCenterX = -1;
         mScale = FULL_SCREEN_SCALE;
-        initialClampX = true;
+
         adjustChildZOrder();
         invalidate();
 
@@ -2490,7 +2546,7 @@ public class FilmStripView extends ViewGroup implements BottomControlsListener {
             // TODO: Need to find a better way to toggle the visibility of views around
             //       the current view.
             for (int i = 0; i < mCurrentItem; i++) {
-                if (i == mCurrentItem || mViewItem[i] == null) {
+                if (i == mCurrentItem || mViewItem[i] == null || mViewItem[i].mIsPreview) {
                     continue;
                 }
                 mViewItem[i].getView().setVisibility(visible ? VISIBLE : INVISIBLE);
@@ -2698,6 +2754,9 @@ public class FilmStripView extends ViewGroup implements BottomControlsListener {
         // Indicating the current trend of scaling is up (>1) or down (<1).
         private float mScaleTrend;
         private float mMaxScale;
+        private boolean mVerticalSwipe;
+        private boolean mHorizontalSwipe;
+        private int mVerticalViewId = -1;
 
         @Override
         public boolean onSingleTapUp(float x, float y) {
@@ -2750,6 +2809,9 @@ public class FilmStripView extends ViewGroup implements BottomControlsListener {
 
         @Override
         public boolean onUp(float x, float y) {
+            mHorizontalSwipe = false;
+            mVerticalSwipe = false;
+            mVerticalViewId = -1;
             final ViewItem currItem = mViewItem[mCurrentItem];
             if (currItem == null) {
                 return false;
@@ -2834,6 +2896,7 @@ public class FilmStripView extends ViewGroup implements BottomControlsListener {
             if (!mDataAdapter.canSwipeInFullScreen(currItem.getId())) {
                 return false;
             }
+
             hideZoomView();
             // When image is zoomed in to be bigger than the screen
             if (mController.isZoomStarted()) {
@@ -2852,25 +2915,31 @@ public class FilmStripView extends ViewGroup implements BottomControlsListener {
                 mDataIdOnUserScrolling = mViewItem[mCurrentItem].getId();
             }
             if (inFilmStrip()) {
-                if (Math.abs(dx) > Math.abs(dy)) {
+                if (Math.abs(dx) > Math.abs(dy) && !mVerticalSwipe) {
                     mController.scroll(deltaX);
-                } else {
+                    mHorizontalSwipe = true;
+                } else if (!mHorizontalSwipe) {
+                    mVerticalSwipe = true;
                     // Vertical part. Promote or demote.
                     int hit = 0;
-                    Rect hitRect = new Rect();
-                    for (; hit < BUFFER_SIZE; hit++) {
-                        if (mViewItem[hit] == null) {
-                            continue;
+                    if (mVerticalViewId == -1) {
+                        Rect hitRect = new Rect();
+                        for (; hit < BUFFER_SIZE; hit++) {
+                            if (mViewItem[hit] == null || mViewItem[hit].mIsPreview) {
+                                continue;
+                            }
+                            mViewItem[hit].getView().getHitRect(hitRect);
+                            if (hitRect.contains((int) x, (int) y)) {
+                                break;
+                            }
                         }
-                        mViewItem[hit].getView().getHitRect(hitRect);
-                        if (hitRect.contains((int) x, (int) y)) {
-                            break;
+                        if (hit == BUFFER_SIZE) {
+                            return false;
                         }
+                        mVerticalViewId = hit;
+                    } else {
+                        hit = mVerticalViewId;
                     }
-                    if (hit == BUFFER_SIZE) {
-                        return false;
-                    }
-
                     ImageData data = mDataAdapter.getImageData(mViewItem[hit].getId());
                     float transY = mViewItem[hit].getScaledTranslationY(mScale) - dy / mScale;
                     if (!data.isUIActionSupported(ImageData.ACTION_DEMOTE) && transY > 0f) {
