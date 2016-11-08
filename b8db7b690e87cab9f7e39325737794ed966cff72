@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ff2e2bb8_b944d7b8",
+        "filename": "src/com/android/camera/PhotoMenu.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 830,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2016-11-08T09:00:07Z",
+      "side": 1,
+      "message": "Tabs",
+      "range": {
+        "startLine": 830,
+        "startChar": 0,
+        "endLine": 830,
+        "endChar": 3
+      },
+      "revId": "b8db7b690e87cab9f7e39325737794ed966cff72",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
