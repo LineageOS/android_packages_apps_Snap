@@ -59,7 +59,7 @@ import org.codeaurora.snapcam.R;
 /**
  * The UI of {@link WideAnglePanoramaModule}.
  */
-public class WideAnglePanoramaUI implements
+public class WideAnglePanoramaUI extends BaseUI implements
         TextureView.SurfaceTextureListener,
         ShutterButton.OnShutterButtonListener,
         CameraRootView.MyDisplayListener,
@@ -101,7 +101,6 @@ public class WideAnglePanoramaUI implements
     private int mIndicatorColorFast;
     private int mReviewBackground;
     private SurfaceTexture mSurfaceTexture;
-    private View mPreviewCover;
 
     private int mOrientation;
     private int mPreviewYOffset;
@@ -271,11 +270,11 @@ public class WideAnglePanoramaUI implements
         mSurfaceTexture = surfaceTexture;
         mController.onPreviewUIReady();
         mActivity.updateThumbnail(mThumbnail);
+        hidePreviewCover();
     }
 
     @Override
     public void onSurfaceTextureSizeChanged(SurfaceTexture surfaceTexture, int i, int i2) {
-
     }
 
     @Override
@@ -287,12 +286,7 @@ public class WideAnglePanoramaUI implements
     }
 
     @Override
-    public void onSurfaceTextureUpdated(SurfaceTexture surfaceTexture) {
-        // Make sure preview cover is hidden if preview data is available.
-        if (mPreviewCover.getVisibility() != View.GONE) {
-            mPreviewCover.setVisibility(View.GONE);
-        }
-    }
+    public void onSurfaceTextureUpdated(SurfaceTexture surfaceTexture) {}
 
     private void hideDirectionIndicators() {
         mLeftIndicator.setVisibility(View.INVISIBLE);
@@ -552,10 +546,6 @@ public class WideAnglePanoramaUI implements
 
     public void removeDisplayChangeListener() {
         ((CameraRootView) mRootView).removeDisplayChangeListener();
-    }
-
-    public void showPreviewCover() {
-        mPreviewCover.setVisibility(View.VISIBLE);
     }
 
     private class DialogHelper {

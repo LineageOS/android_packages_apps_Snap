@@ -4152,11 +4152,21 @@ public class PhotoModule
 
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     private void updateAutoFocusMoveCallback() {
+        if (mCameraDevice == null) {
+            return;
+        }
         if (mParameters.getFocusMode().equals(CameraUtil.FOCUS_MODE_CONTINUOUS_PICTURE) ||
             mParameters.getFocusMode().equals(CameraUtil.FOCUS_MODE_MW_CONTINUOUS_PICTURE)) {
             mCameraDevice.setAutoFocusMoveCallback(mHandler,
                     (CameraAFMoveCallback) mAutoFocusMoveCallback);
         } else {
+            mCameraDevice.setAutoFocusMoveCallback(null, null);
+        }
+    }
+
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
+    private void  disableAutoFocusMoveCallback() {
+        if (mCameraDevice != null) {
             mCameraDevice.setAutoFocusMoveCallback(null, null);
         }
     }
@@ -5006,6 +5016,26 @@ public class PhotoModule
         synchronized (mCameraDevice) {
             onMakeupLevelSync(key, value);
         }
+    }
+
+    @Override
+    public void showPreviewCover() {
+        disableAutoFocusMoveCallback();
+        stopFaceDetection();
+        mUI.getFocusRing().stopFocusAnimations();
+        mUI.showPreviewCover();
+    }
+
+    @Override
+    public void hidePreviewCover() {
+        mUI.hidePreviewCover();
+        startFaceDetection();
+        updateAutoFocusMoveCallback();
+    }
+
+    @Override
+    public void setPreviewCoverAlpha(float alpha) {
+        mUI.setPreviewCoverAlpha(alpha);
     }
 
     public void onMakeupLevelSync(String key, String value) {

@@ -80,7 +80,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Set;
 
-public class CaptureUI implements PreviewGestures.SingleTapListener,
+public class CaptureUI extends BaseUI implements PreviewGestures.SingleTapListener,
         CameraManager.CameraFaceDetectionCallback,
         SettingsManager.Listener,
         ListMenu.Listener,
@@ -138,7 +138,6 @@ public class CaptureUI implements PreviewGestures.SingleTapListener,
     private final FocusRing mFocusRing;
     private CameraActivity mActivity;
     private View mRootView;
-    private View mPreviewCover;
     private CaptureModule mModule;
     private AutoFitSurfaceView mSurfaceView;
     private AutoFitSurfaceView mSurfaceViewMono;
@@ -1373,17 +1372,6 @@ public class CaptureUI implements PreviewGestures.SingleTapListener,
             mIsMonoDummyAllocationEverUsed = false;
         }
         return mMonoDummyAllocation.getSurface();
-    }
-
-    public void showPreviewCover() {
-        mPreviewCover.setVisibility(View.VISIBLE);
-    }
-
-    public void hidePreviewCover() {
-        // Hide the preview cover if need.
-        if (mPreviewCover.getVisibility() != View.GONE) {
-            mPreviewCover.setVisibility(View.GONE);
-        }
     }
 
     private void initializeCountDown() {

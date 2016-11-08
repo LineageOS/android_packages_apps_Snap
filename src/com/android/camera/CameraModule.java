@@ -74,4 +74,10 @@ public interface CameraModule {
     public void waitingLocationPermissionResult(boolean waiting);
 
     public void enableRecordingLocation(boolean enable);
+
+    public void showPreviewCover();
+
+    public void hidePreviewCover();
+
+    public void setPreviewCoverAlpha(float alpha);
 }

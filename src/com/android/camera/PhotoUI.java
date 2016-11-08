@@ -79,7 +79,7 @@ import com.android.camera.ui.ZoomRenderer;
 import com.android.camera.ui.focus.FocusRing;
 import com.android.camera.util.CameraUtil;
 
-public class PhotoUI implements PieListener,
+public class PhotoUI extends BaseUI implements PieListener,
         PreviewGestures.SingleTapListener,
         SurfaceHolder.Callback,
         CameraRootView.MyDisplayListener,
@@ -143,7 +143,6 @@ public class PhotoUI implements PieListener,
 
     private boolean mOrientationResize;
     private boolean mPrevOrientationResize;
-    private View mPreviewCover;
     private RotateLayout mMenuLayout;
     private RotateLayout mSubMenuLayout;
     private LinearLayout mPreviewMenuLayout;
@@ -479,6 +478,8 @@ public class PhotoUI implements PieListener,
         RectF r = new RectF(mSurfaceView.getLeft(), mSurfaceView.getTop(),
                 mSurfaceView.getRight(), mSurfaceView.getBottom());
         mController.onPreviewRectChanged(CameraUtil.rectFToRect(r));
+        // Make sure preview cover is hidden if preview data is available.
+        hidePreviewCover();
     }
 
     @Override
@@ -816,7 +817,7 @@ public class PhotoUI implements PieListener,
         if (mPieRenderer != null) {
             mPieRenderer.setBlockFocus(!previewFocused);
         }
-        setShowMenu(previewFocused);
+        //setShowMenu(previewFocused);
         if (!previewFocused && mCountDownView != null) mCountDownView.cancelCountDown();
     }
 
@@ -1214,17 +1215,6 @@ public class PhotoUI implements PieListener,
             mNotSelectableToast = RotateTextToast.makeText(mActivity, str, Toast.LENGTH_SHORT);
         }
         mNotSelectableToast.show();
-    }
-
-    public void showPreviewCover() {
-        mPreviewCover.setVisibility(View.VISIBLE);
-    }
-
-    public void hidePreviewCover() {
-        // Hide the preview cover if need.
-        if (mPreviewCover.getVisibility() != View.GONE) {
-            mPreviewCover.setVisibility(View.GONE);
-        }
     }
 
     public boolean isPreviewCoverVisible() {
