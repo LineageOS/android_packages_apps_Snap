@@ -19,7 +19,11 @@ package com.android.camera;
 import android.animation.Animator;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
+import android.animation.ValueAnimator;
+import android.graphics.Color;
+import android.graphics.Paint;
 import android.view.View;
+import android.view.animation.LinearInterpolator;
 
 /**
  * Class to handle animations.
@@ -27,16 +31,56 @@ import android.view.View;
 
 public class AnimationManager {
 
-    public static final float FLASH_ALPHA_START = 0.3f;
-    public static final float FLASH_ALPHA_END = 0f;
-    public static final int FLASH_DURATION = 300;
+    private static final float FLASH_MAX_ALPHA = 0.85f;
+    private static final long FLASH_FULL_DURATION_MS = 65;
+    private static final long FLASH_DECREASE_DURATION_MS = 150;
+    private static final float SHORT_FLASH_MAX_ALPHA = 0.75f;
+    private static final long SHORT_FLASH_FULL_DURATION_MS = 34;
+    private static final long SHORT_FLASH_DECREASE_DURATION_MS = 100;
 
     public static final int SHRINK_DURATION = 400;
     public static final int HOLD_DURATION = 2500;
     public static final int SLIDE_DURATION = 1100;
 
-    private ObjectAnimator mFlashAnim;
     private AnimatorSet mCaptureAnimator;
+
+    private final Paint mPaint = new Paint();
+    private AnimatorSet mFlashAnimation;
+    private final LinearInterpolator mFlashAnimInterpolator;
+    private final Animator.AnimatorListener mFlashAnimListener;
+
+    private final View mFlashView;
+
+    public AnimationManager(View flashView) {
+        mFlashView = flashView;
+
+        mPaint.setColor(Color.WHITE);
+        mFlashAnimInterpolator = new LinearInterpolator();
+        mFlashAnimListener = new Animator.AnimatorListener() {
+            @Override
+            public void onAnimationStart(Animator animation) {
+                mFlashView.setVisibility(View.VISIBLE);
+            }
+
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                mFlashView.setAlpha(0f);
+                mFlashView.setVisibility(View.GONE);
+                mFlashAnimation.removeAllListeners();
+                mFlashAnimation = null;
+            }
+
+            @Override
+            public void onAnimationCancel(Animator animation) {
+                // End is always called after cancel.
+            }
+
+            @Override
+            public void onAnimationRepeat(Animator animation) {
+
+            }
+        };
+    }
 
     /**
      * Starts capture animation.
@@ -131,40 +175,37 @@ public class AnimationManager {
     * Starts flash animation.
     * @params flashOverlay the overlay that will animate on alpha to make the flash impression
     */
-    public void startFlashAnimation(final View flashOverlay) {
-        // End the previous animation if the previous one is still running
-        if (mFlashAnim != null && mFlashAnim.isRunning()) {
-            mFlashAnim.cancel();
+    public void startFlashAnimation(boolean shortFlash) {
+        if (mFlashAnimation != null && mFlashAnimation.isRunning()) {
+            mFlashAnimation.cancel();
         }
-        // Start new flash animation.
-        mFlashAnim = ObjectAnimator.ofFloat(flashOverlay, "alpha",
-                AnimationManager.FLASH_ALPHA_START, AnimationManager.FLASH_ALPHA_END);
-        mFlashAnim.setDuration(AnimationManager.FLASH_DURATION);
-        mFlashAnim.addListener(new Animator.AnimatorListener() {
-            @Override
-            public void onAnimationStart(Animator animator) {
-                flashOverlay.setVisibility(View.VISIBLE);
-            }
 
-            @Override
-            public void onAnimationEnd(Animator animator) {
-                flashOverlay.setAlpha(0f);
-                flashOverlay.setVisibility(View.GONE);
-                mFlashAnim.removeAllListeners();
-                mFlashAnim = null;
-            }
+        float maxAlpha;
 
-            @Override
-            public void onAnimationCancel(Animator animator) {
-                // Do nothing.
-            }
+        if (shortFlash) {
+            maxAlpha = SHORT_FLASH_MAX_ALPHA;
+        } else {
+            maxAlpha = FLASH_MAX_ALPHA;
+        }
 
-            @Override
-            public void onAnimationRepeat(Animator animator) {
-                // Do nothing.
-            }
-        });
-        mFlashAnim.start();
+        ValueAnimator flashAnim1 = ObjectAnimator.ofFloat(mFlashView, "alpha", maxAlpha, maxAlpha);
+        ValueAnimator flashAnim2 = ObjectAnimator.ofFloat(mFlashView, "alpha", maxAlpha, .0f);
+
+        if (shortFlash) {
+            flashAnim1.setDuration(SHORT_FLASH_FULL_DURATION_MS);
+            flashAnim2.setDuration(SHORT_FLASH_DECREASE_DURATION_MS);
+        } else {
+            flashAnim1.setDuration(FLASH_FULL_DURATION_MS);
+            flashAnim2.setDuration(FLASH_DECREASE_DURATION_MS);
+        }
+
+        flashAnim1.setInterpolator(mFlashAnimInterpolator);
+        flashAnim2.setInterpolator(mFlashAnimInterpolator);
+
+        mFlashAnimation = new AnimatorSet();
+        mFlashAnimation.play(flashAnim1).before(flashAnim2);
+        mFlashAnimation.addListener(mFlashAnimListener);
+        mFlashAnimation.start();
     }
 
     /**
@@ -172,8 +213,8 @@ public class AnimationManager {
      */
     public void cancelAnimations() {
         // End the previous animation if the previous one is still running
-        if (mFlashAnim != null && mFlashAnim.isRunning()) {
-            mFlashAnim.cancel();
+        if (mFlashAnimation != null && mFlashAnimation.isRunning()) {
+            mFlashAnimation.cancel();
         }
         if (mCaptureAnimator != null && mCaptureAnimator.isStarted()) {
             mCaptureAnimator.cancel();

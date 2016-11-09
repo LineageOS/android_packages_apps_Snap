@@ -296,7 +296,7 @@ public class PhotoUI extends BaseUI implements PieListener,
         }
         mFocusRing = (FocusRing) mRootView.findViewById(R.id.focus_ring);
         initIndicators();
-        mAnimationManager = new AnimationManager();
+        mAnimationManager = new AnimationManager(mFlashOverlay);
         mOrientationResize = false;
         mPrevOrientationResize = false;
 
@@ -756,8 +756,8 @@ public class PhotoUI extends BaseUI implements PieListener,
     public void setCameraState(int state) {
     }
 
-    public void animateFlash() {
-        mAnimationManager.startFlashAnimation(mFlashOverlay);
+    public void animateFlash(boolean shortFlash) {
+        mAnimationManager.startFlashAnimation(shortFlash);
     }
 
     public void enableGestures(boolean enable) {
