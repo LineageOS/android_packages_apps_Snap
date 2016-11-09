@@ -1656,7 +1656,7 @@ public class PhotoModule
         // i.e. If monkey/a user swipes to the gallery during picture taking,
         // don't show animation
         if (!mIsImageCaptureIntent) {
-            mUI.animateFlash();
+            mUI.animateFlash(mFocusManager.isZslEnabled());
         }
     }
 
@@ -1674,7 +1674,9 @@ public class PhotoModule
         mPostViewPictureCallbackTime = 0;
         mJpegImageData = null;
 
-        final boolean animateBefore = (mSceneMode == CameraUtil.SCENE_MODE_HDR);
+        final boolean animateBefore = (mSceneMode == CameraUtil.SCENE_MODE_HDR) ||
+                (mSnapshotMode == CameraInfo.CAMERA_SUPPORT_MODE_ZSL);
+
         if(mHistogramEnabled) {
             if (mSnapshotMode != CameraInfo.CAMERA_SUPPORT_MODE_ZSL) {
                 mHistogramEnabled = false;
@@ -1689,7 +1691,12 @@ public class PhotoModule
         }
 
         if (animateBefore) {
-            animateAfterShutter();
+            mActivity.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    animateAfterShutter();
+                }
+            });
         }
 
         if (mCameraState == LONGSHOT) {

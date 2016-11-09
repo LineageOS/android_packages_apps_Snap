@@ -25,6 +25,7 @@ import android.content.res.Resources;
 import android.graphics.ImageFormat;
 import android.graphics.Point;
 import android.graphics.Rect;
+import android.graphics.RectF;
 import android.graphics.drawable.AnimationDrawable;
 import android.hardware.Camera.Face;
 import android.media.ImageReader;
@@ -182,6 +183,9 @@ public class CaptureUI extends BaseUI implements PreviewGestures.SingleTapListen
         // SurfaceHolder callbacks
         @Override
         public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {
+            RectF r = new RectF(mSurfaceView.getLeft(), mSurfaceView.getTop(),
+                    mSurfaceView.getRight(), mSurfaceView.getBottom());
+            CaptureUI.this.onPreviewRectChanged(r);
             Log.v(TAG, "surfaceChanged: width =" + width + ", height = " + height);
         }
 

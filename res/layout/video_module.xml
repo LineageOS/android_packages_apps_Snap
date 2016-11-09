@@ -43,13 +43,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@android:color/black" />
-    <View
-        android:id="@+id/flash_overlay"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@android:color/white"
-        android:visibility="gone"
-        android:alpha="0" />
     <FrameLayout android:id="@+id/preview_border"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -81,6 +74,11 @@
         android:id="@+id/focus_ring"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+    <com.android.camera.ui.CaptureAnimationOverlay
+        android:id="@+id/capture_overlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone" />
     <ImageView android:id="@+id/review_image"
         android:layout_height="match_parent"
         android:layout_width="match_parent"
