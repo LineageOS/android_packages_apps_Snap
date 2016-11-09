@@ -24,6 +24,7 @@ import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.Point;
+import android.graphics.RectF;
 import android.graphics.drawable.ColorDrawable;
 import android.hardware.Camera.Parameters;
 import android.hardware.Camera.Face;
@@ -99,7 +100,6 @@ public class VideoUI extends BaseUI implements PieRenderer.PieListener,
     private int mZoomMax;
     private List<Integer> mZoomRatios;
     private ImageView mThumbnail;
-    private View mFlashOverlay;
     private boolean mOrientationResize;
     private boolean mPrevOrientationResize;
     private boolean mIsTimeLapse = false;
@@ -112,7 +112,6 @@ public class VideoUI extends BaseUI implements PieRenderer.PieListener,
     private int mMaxPreviewHeight = 0;
     private float mAspectRatio = 4f / 3f;
     private boolean mAspectRatioResize;
-    private final AnimationManager mAnimationManager;
     private int mPreviewOrientation = -1;
     private int mOrientation;
 
@@ -215,7 +214,6 @@ public class VideoUI extends BaseUI implements PieRenderer.PieListener,
         });
 
         mFocusRing = (FocusRing) mRootView.findViewById(R.id.focus_ring);
-        mFlashOverlay = mRootView.findViewById(R.id.flash_overlay);
         mShutterButton = (ShutterButton) mRootView.findViewById(R.id.shutter_button);
 
         mMuteButton = (RotateImageView)mRootView.findViewById(R.id.mute_button);
@@ -249,7 +247,6 @@ public class VideoUI extends BaseUI implements PieRenderer.PieListener,
             mFaceView = (FaceView) mRootView.findViewById(R.id.face_view);
             setSurfaceTextureSizeChangedListener(mFaceView);
         }
-        mAnimationManager = new AnimationManager();
         mOrientationResize = false;
         mPrevOrientationResize = false;
 
@@ -454,41 +451,6 @@ public class VideoUI extends BaseUI implements PieRenderer.PieListener,
             mController.onScreenSizeChanged((int) scaledTextureWidth,
                     (int) scaledTextureHeight);
         }
-    }
-
-    /**
-     * Starts a flash animation
-     */
-    public void animateFlash() {
-        mAnimationManager.startFlashAnimation(mFlashOverlay);
-    }
-
-    /**
-     * Starts a capture animation
-     */
-    public void animateCapture() {
-        Bitmap bitmap = null;
-        animateCapture(bitmap);
-    }
-
-    /**
-     * Starts a capture animation
-     * @param bitmap the captured image that we shrink and slide in the animation
-     */
-    public void animateCapture(Bitmap bitmap) {
-        if (bitmap == null) {
-            Log.e(TAG, "No valid bitmap for capture animation.");
-            return;
-        }
-        mActivity.updateThumbnail(bitmap);
-        mAnimationManager.startCaptureAnimation(mThumbnail);
-    }
-
-    /**
-     * Cancels on-going animations
-     */
-    public void cancelAnimations() {
-        mAnimationManager.cancelAnimations();
     }
 
     public boolean collapseCameraControls() {
@@ -1066,6 +1028,10 @@ public class VideoUI extends BaseUI implements PieRenderer.PieListener,
     @Override
     public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {
         Log.v(TAG, "surfaceChanged: width = " + width + ", height = " + height);
+
+        RectF r = new RectF(mSurfaceView.getLeft(), mSurfaceView.getTop(),
+                mSurfaceView.getRight(), mSurfaceView.getBottom());
+        onPreviewRectChanged(r);
     }
 
     @Override

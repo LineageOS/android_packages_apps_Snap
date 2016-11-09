@@ -64,7 +64,14 @@
 			android:id="@+id/focus_ring"
 			android:layout_width="match_parent"
 			android:layout_height="match_parent" />
-    </FrameLayout>
+
+		<com.android.camera.ui.CaptureAnimationOverlay
+			android:id="@+id/capture_overlay"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:visibility="gone" />
+
+	</FrameLayout>
 
     <com.android.camera.ui.RenderOverlay
         android:id="@+id/render_overlay"

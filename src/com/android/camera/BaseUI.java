@@ -1,10 +1,12 @@
 package com.android.camera;
 
 import android.graphics.Point;
+import android.graphics.RectF;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.android.camera.ui.CameraControls;
+import com.android.camera.ui.CaptureAnimationOverlay;
 import com.android.camera.ui.ModuleSwitcher;
 import com.android.camera.util.CameraUtil;
 
@@ -15,6 +17,7 @@ import org.codeaurora.snapcam.R;
 public abstract class BaseUI {
 
     protected final CameraControls mCameraControls;
+    protected final CaptureAnimationOverlay mCaptureOverlay;
     protected final View mPreviewCover;
 
     protected final CameraActivity mActivity;
@@ -31,6 +34,7 @@ public abstract class BaseUI {
         mActivity.getLayoutInflater().inflate(layout, mRootView, true);
 
         mCameraControls = (CameraControls) mRootView.findViewById(R.id.camera_controls);
+        mCaptureOverlay = (CaptureAnimationOverlay) mRootView.findViewById(R.id.capture_overlay);
         mPreviewCover = mRootView.findViewById(R.id.preview_cover);
 
         Point size = new Point();
@@ -118,5 +122,15 @@ public abstract class BaseUI {
             module = ModuleSwitcher.CAPTURE_MODULE_INDEX;
         }
         mCameraControls.setModuleIndex(module);
+    }
+
+    public void animateFlash(boolean shortFlash) {
+        if (mCaptureOverlay != null) {
+            mCaptureOverlay.startFlashAnimation(shortFlash);
+        }
+    }
+
+    protected void onPreviewRectChanged(RectF rect) {
+        mCaptureOverlay.setPreviewRect(rect);
     }
 }
