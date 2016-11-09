@@ -1500,11 +1500,8 @@ public class VideoModule implements CameraModule,
         if (mMediaRecorderRecording) {
             onStopVideoRecording();
             return true;
-        } else if (mUI.hideSwitcherPopup()) {
-            return true;
-        } else {
-            return mUI.onBackPressed();
         }
+        return mUI.onBackPressed();
     }
 
     @Override
@@ -2179,9 +2176,6 @@ public class VideoModule implements CameraModule,
         Log.v(TAG, "stopVideoRecording");
         mStopRecPending = true;
         mUI.setSwipingEnabled(true);
-        if (!isVideoCaptureIntent()) {
-            mUI.showSwitcher();
-        }
 
         boolean fail = false;
         if (mMediaRecorderRecording) {

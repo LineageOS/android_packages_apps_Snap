@@ -21,37 +21,33 @@ import android.animation.Animator;
 import android.animation.Animator.AnimatorListener;
 import android.content.Context;
 import android.content.res.Resources;
-import android.content.SharedPreferences;
 import android.graphics.Rect;
-import android.preference.PreferenceManager;
-import android.util.Log;
+import android.text.TextUtils;
+import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 import android.view.ViewPropertyAnimator;
-import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.GridView;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
+import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.FrameLayout.LayoutParams;
-
-import com.android.camera.ui.ListSubMenu;
-import com.android.camera.ui.ListMenu;
-import com.android.camera.ui.TimeIntervalPopup;
-import com.android.camera.ui.RotateImageView;
-import com.android.camera.ui.RotateTextToast;
-import org.codeaurora.snapcam.R;
-import android.widget.HorizontalScrollView;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
-import android.view.ViewGroup;
-import android.view.WindowManager;
-import android.view.Display;
+
+import com.android.camera.ui.ListMenu;
+import com.android.camera.ui.ListSubMenu;
 import com.android.camera.ui.RotateLayout;
+import com.android.camera.ui.RotateTextToast;
+import com.android.camera.ui.TimeIntervalPopup;
 import com.android.camera.util.CameraUtil;
-import android.text.TextUtils;
+
+import org.codeaurora.snapcam.R;
+
 import java.util.Locale;
 
 public class VideoMenu extends MenuController
@@ -151,7 +147,6 @@ public class VideoMenu extends MenuController
                 CameraSettings.KEY_VIDEO_TNR_MODE,
                 CameraSettings.KEY_VIDEO_SNAPSHOT_SIZE
         };
-        mFrontBackSwitcher.setVisibility(View.INVISIBLE);
         initSwitchItem(CameraSettings.KEY_CAMERA_ID, mFrontBackSwitcher);
     }
 
@@ -474,8 +469,10 @@ public class VideoMenu extends MenuController
     public void initSwitchItem(final String prefKey, View switcher) {
         final IconListPreference pref =
                 (IconListPreference) mPreferenceGroup.findPreference(prefKey);
-        if (pref == null)
+        if (pref == null) {
+            mUI.removeControlView(switcher);
             return;
+        }
 
         int[] iconIds = pref.getLargeIconIds();
         int resid = -1;
@@ -488,7 +485,6 @@ public class VideoMenu extends MenuController
             resid = pref.getSingleIcon();
         }
         ((ImageView) switcher).setImageResource(resid);
-        switcher.setVisibility(View.VISIBLE);
         mPreferences.add(pref);
         mPreferenceMap.put(pref, switcher);
         switcher.setOnClickListener(new OnClickListener() {
@@ -513,14 +509,14 @@ public class VideoMenu extends MenuController
     }
 
     public void initFilterModeButton(View button) {
-        button.setVisibility(View.INVISIBLE);
         final IconListPreference pref = (IconListPreference) mPreferenceGroup
                 .findPreference(CameraSettings.KEY_VIDEOCAMERA_COLOR_EFFECT);
-        if (pref == null || pref.getValue() == null)
+        if (pref == null || pref.getValue() == null) {
+            mUI.removeControlView(button);
             return;
+        }
 
         changeFilterModeControlIcon(pref.getValue());
-        button.setVisibility(View.VISIBLE);
         button.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -813,19 +809,6 @@ public class VideoMenu extends MenuController
         }
     }
 
-    public void hideUI() {
-        mFrontBackSwitcher.setVisibility(View.INVISIBLE);
-        mFilterModeSwitcher.setVisibility(View.INVISIBLE);
-    }
-
-    public void showUI() {
-        mFrontBackSwitcher.setVisibility(View.VISIBLE);
-        final IconListPreference pref = (IconListPreference) mPreferenceGroup
-                .findPreference(CameraSettings.KEY_FILTER_MODE);
-        if (pref != null) {
-            mFilterModeSwitcher.setVisibility(View.VISIBLE);
-        }
-    }
 
     @Override
     // Hit when an item in the first-level popup gets selected, then bring up

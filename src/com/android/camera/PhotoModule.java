@@ -1099,8 +1099,6 @@ public class PhotoModule
                     return;
                 }
 
-                mUI.doShutterAnimation();
-
                 Location loc = getLocationAccordPictureFormat(mParameters.get(KEY_PICTURE_FORMAT));
 
                 mLongShotCaptureCount++;
@@ -1667,7 +1665,7 @@ public class PhotoModule
         // i.e. If monkey/a user swipes to the gallery during picture taking,
         // don't show animation
         if (!mIsImageCaptureIntent) {
-            mUI.animateFlash(mFocusManager.isZslEnabled());
+            //mUI.animateFlash(mFocusManager.isZslEnabled());
         }
     }
 
@@ -2365,7 +2363,6 @@ public class PhotoModule
         Log.v(TAG, "onShutterButtonClick: mCameraState=" + mCameraState);
 
         if (mSceneMode == CameraUtil.SCENE_MODE_HDR) {
-            mUI.hideSwitcher();
             mUI.setSwipingEnabled(false);
         }
 

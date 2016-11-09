@@ -17,6 +17,7 @@
 package com.android.camera;
 
 import android.content.Context;
+import android.util.ArraySet;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
@@ -31,10 +32,14 @@ import android.widget.ImageView;
  */
 public class ShutterButton extends ImageView {
 
+    private final ArraySet<OnShutterButtonListener> mListeners = new ArraySet<>();
+
     private class LongClickListener implements View.OnLongClickListener {
          public boolean onLongClick(View v) {
-             if ( null != mListener ) {
-                 mListener.onShutterButtonLongClick();
+             if (mListeners.size() > 0) {
+                 for (OnShutterButtonListener l : mListeners) {
+                     l.onShutterButtonLongClick();
+                 }
                  return true;
              }
              return false;
@@ -58,16 +63,25 @@ public class ShutterButton extends ImageView {
         void onShutterButtonLongClick();
     }
 
-    private OnShutterButtonListener mListener;
     private boolean mOldPressed;
 
     public ShutterButton(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public void setOnShutterButtonListener(OnShutterButtonListener listener) {
-        mListener = listener;
-        setOnLongClickListener(mLongClick);
+    public void addOnShutterButtonListener(OnShutterButtonListener listener) {
+        mListeners.add(listener);
+        if (mListeners.size() == 1) {
+            setOnLongClickListener(mLongClick);
+        }
+    }
+
+    public void removeOnShutterButtonListener(OnShutterButtonListener listener) {
+        boolean hadListeners = mListeners.size() == 1;
+        mListeners.remove(listener);
+        if (hadListeners && mListeners.size() == 0) {
+            setOnLongClickListener(null);
+        }
     }
 
     @Override
@@ -130,16 +144,20 @@ public class ShutterButton extends ImageView {
     }
 
     private void callShutterButtonFocus(boolean pressed) {
-        if (mListener != null) {
-            mListener.onShutterButtonFocus(pressed);
+        if (mListeners.size() > 0) {
+            for (OnShutterButtonListener l : mListeners) {
+                l.onShutterButtonFocus(pressed);
+            }
         }
     }
 
     @Override
     public boolean performClick() {
         boolean result = super.performClick();
-        if (mListener != null && getVisibility() == View.VISIBLE) {
-            mListener.onShutterButtonClick();
+        if (mListeners.size() > 0 && getVisibility() == View.VISIBLE) {
+            for (OnShutterButtonListener l : mListeners) {
+                l.onShutterButtonClick();
+            }
         }
         return result;
     }

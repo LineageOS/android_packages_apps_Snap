@@ -172,7 +172,7 @@
     <dimen name="filter_mode_width">100dp</dimen>
     <dimen name="filter_mode_padding">10dp</dimen>
 
-    <dimen name="remaining_photos_margin">67dp</dimen>
+    <dimen name="remaining_photos_margin">70dp</dimen>
     <dimen name="tsmakeup_mode_paddingBottom">96dp</dimen>
     <dimen name="tsmakeup_mode_level_size">96dp</dimen>
 
@@ -185,4 +185,6 @@
     <dimen name="refocus_circle_diameter_3">95dp</dimen>
     <dimen name="refocus_cross_length">19dp</dimen>
     <dimen name="refocus_stroke_width">2dp</dimen>
+
+    <dimen name="bottom_bar_ripple_radius">30dp</dimen>
 </resources>

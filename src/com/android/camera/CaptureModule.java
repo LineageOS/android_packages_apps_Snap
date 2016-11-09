@@ -1172,14 +1172,6 @@ public class CaptureModule implements CameraModule, PhotoController,
                                                                CaptureRequest request,
                                                                TotalCaptureResult result) {
                                     Log.d(TAG, "captureStillPicture Longshot onCaptureCompleted: " + id);
-                                    if (mLongshotActive) {
-                                        mActivity.runOnUiThread(new Runnable() {
-                                            @Override
-                                            public void run() {
-                                                mUI.doShutterAnimation();
-                                            }
-                                        });
-                                    }
                                 }
 
                                 @Override
@@ -1187,14 +1179,6 @@ public class CaptureModule implements CameraModule, PhotoController,
                                                             CaptureRequest request,
                                                             CaptureFailure result) {
                                     Log.d(TAG, "captureStillPicture Longshot onCaptureFailed: " + id);
-                                    if (mLongshotActive) {
-                                        mActivity.runOnUiThread(new Runnable() {
-                                            @Override
-                                            public void run() {
-                                                mUI.doShutterAnimation();
-                                            }
-                                        });
-                                    }
                                 }
 
                                 @Override
