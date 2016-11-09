@@ -119,6 +119,7 @@ import org.codeaurora.snapcam.R;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.GlideBuilder;
 import com.bumptech.glide.MemoryCategory;
+import com.bumptech.glide.load.DecodeFormat;
 import com.bumptech.glide.load.engine.executor.FifoPriorityThreadPoolExecutor;
 
 import java.io.File;
@@ -1620,10 +1621,18 @@ public class CameraActivity extends Activity
         registerSDcardMountedReceiver();
 
         if (!Glide.isSetup()) {
-            Glide.setup(new GlideBuilder(getApplicationContext())
+            Context context = getApplicationContext();
+            Glide.setup(new GlideBuilder(context)
+                    .setDecodeFormat(DecodeFormat.ALWAYS_ARGB_8888)
                     .setResizeService(new FifoPriorityThreadPoolExecutor(2)));
-            Glide.get(getApplicationContext()).setMemoryCategory(MemoryCategory.HIGH);
+
+            Glide glide = Glide.get(context);
+
+            // As a camera we will use a large amount of memory
+            // for displaying images.
+            glide.setMemoryCategory(MemoryCategory.HIGH);
         }
+
     }
 
     private void setRotationAnimation() {
