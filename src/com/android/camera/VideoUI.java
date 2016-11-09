@@ -73,8 +73,6 @@ public class VideoUI extends BaseUI implements PieRenderer.PieListener,
     private static final String TAG = "CAM_VideoUI";
     // module fields
     private final FocusRing mFocusRing;
-    private CameraActivity mActivity;
-    private View mRootView;
     private SurfaceHolder mSurfaceHolder;
     // An review image having same size as preview. It is displayed when
     // recording is stopped in capture intent.
@@ -84,14 +82,12 @@ public class VideoUI extends BaseUI implements PieRenderer.PieListener,
     private View mReviewPlayButton;
     private ShutterButton mShutterButton;
     private PauseButton mPauseButton;
-    private ModuleSwitcher mSwitcher;
     private TextView mRecordingTimeView;
     private LinearLayout mLabelsLinearLayout;
     private View mTimeLapseLabel;
     private RenderOverlay mRenderOverlay;
     private PieRenderer mPieRenderer;
     private VideoMenu mVideoMenu;
-    private CameraControls mCameraControls;
     private SettingsPopup mPopup;
     private ZoomRenderer mZoomRenderer;
     private PreviewGestures mGestures;
@@ -117,13 +113,9 @@ public class VideoUI extends BaseUI implements PieRenderer.PieListener,
     private float mAspectRatio = 4f / 3f;
     private boolean mAspectRatioResize;
     private final AnimationManager mAnimationManager;
-    private boolean mUIhidden = false;
     private int mPreviewOrientation = -1;
     private int mOrientation;
 
-    private int mScreenRatio = CameraUtil.RATIO_UNKNOWN;
-    private int mTopMargin = 0;
-    private int mBottomMargin = 0;
     private RotateImageView mMuteButton;
 
     //Face detection
@@ -135,15 +127,6 @@ public class VideoUI extends BaseUI implements PieRenderer.PieListener,
     public enum SURFACE_STATUS {
         HIDE,
         SURFACE_VIEW;
-    }
-
-    public boolean isPreviewCoverVisible() {
-        if ((mPreviewCover != null) &&
-            (mPreviewCover.getVisibility() == View.VISIBLE)) {
-            return true;
-        } else {
-            return false;
-        }
     }
 
     private class SettingsPopup extends PopupWindow {
@@ -183,13 +166,9 @@ public class VideoUI extends BaseUI implements PieRenderer.PieListener,
         mSurfaceView.setVisibility(View.VISIBLE);
     }
 
-    public VideoUI(CameraActivity activity, VideoController controller, View parent) {
-        mActivity = activity;
+    public VideoUI(CameraActivity activity, VideoController controller, ViewGroup parent) {
+        super(activity, parent, R.layout.video_module);
         mController = controller;
-        mRootView = parent;
-        mActivity.getLayoutInflater().inflate(R.layout.video_module,
-                (ViewGroup) mRootView, true);
-        mPreviewCover = mRootView.findViewById(R.id.preview_cover);
         // display the view
         mSurfaceView = (SurfaceView) mRootView.findViewById(R.id.mdp_preview_content);
         mSurfaceView.setVisibility(View.VISIBLE);
@@ -238,16 +217,6 @@ public class VideoUI extends BaseUI implements PieRenderer.PieListener,
         mFocusRing = (FocusRing) mRootView.findViewById(R.id.focus_ring);
         mFlashOverlay = mRootView.findViewById(R.id.flash_overlay);
         mShutterButton = (ShutterButton) mRootView.findViewById(R.id.shutter_button);
-        mSwitcher = (ModuleSwitcher) mRootView.findViewById(R.id.camera_switcher);
-        mSwitcher.setCurrentIndex(ModuleSwitcher.VIDEO_MODULE_INDEX);
-        mSwitcher.setSwitchListener(mActivity);
-        mSwitcher.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mSwitcher.showPopup();
-                mSwitcher.setOrientation(mOrientation, false);
-            }
-        });
 
         mMuteButton = (RotateImageView)mRootView.findViewById(R.id.mute_button);
         mMuteButton.setVisibility(View.VISIBLE);
@@ -273,7 +242,6 @@ public class VideoUI extends BaseUI implements PieRenderer.PieListener,
         initializeControlByIntent();
         initializePauseButton();
 
-        mCameraControls = (CameraControls) mRootView.findViewById(R.id.camera_controls);
         ViewStub faceViewStub = (ViewStub) mRootView
                 .findViewById(R.id.face_view_stub);
         if (faceViewStub != null) {
@@ -285,20 +253,9 @@ public class VideoUI extends BaseUI implements PieRenderer.PieListener,
         mOrientationResize = false;
         mPrevOrientationResize = false;
 
-        Point size = new Point();
-        mActivity.getWindowManager().getDefaultDisplay().getRealSize(size);
-        mScreenRatio = CameraUtil.determineRatio(size.x, size.y);
-        calculateMargins(size);
-        mCameraControls.setMargins(mTopMargin, mBottomMargin);
-        ((ViewGroup)mRootView).removeView(mRecordingTimeRect);
-    }
+        mCameraControls.disableSceneModes();
 
-    private void calculateMargins(Point size) {
-        int l = size.x > size.y ? size.x : size.y;
-        int tm = mActivity.getResources().getDimensionPixelSize(R.dimen.preview_top_margin);
-        int bm = mActivity.getResources().getDimensionPixelSize(R.dimen.preview_bottom_margin);
-        mTopMargin = l / 4 * tm / (tm + bm);
-        mBottomMargin = l / 4 - mTopMargin;
+        ((ViewGroup)mRootView).removeView(mRecordingTimeRect);
     }
 
     public void cameraOrientationPreviewResize(boolean orientation){
@@ -328,12 +285,11 @@ public class VideoUI extends BaseUI implements PieRenderer.PieListener,
             }
         });
 
-        mCameraControls = (CameraControls) mRootView.findViewById(R.id.camera_controls);
         mOnScreenIndicators = new OnScreenIndicators(mActivity,
                 mRootView.findViewById(R.id.on_screen_indicators));
         mOnScreenIndicators.resetToDefault();
         if (mController.isVideoCaptureIntent()) {
-            hideSwitcher();
+            mCameraControls.hideSwitcher();
             mActivity.getLayoutInflater().inflate(R.layout.review_module_control,
                     (ViewGroup) mCameraControls);
             // Cannot use RotateImageView for "done" and "cancel" button because
@@ -535,41 +491,9 @@ public class VideoUI extends BaseUI implements PieRenderer.PieListener,
         mAnimationManager.cancelAnimations();
     }
 
-    public void hideUI() {
-        mSwitcher.closePopup();
-        if (mUIhidden)
-            return;
-        mUIhidden = true;
-        mCameraControls.hideUI();
-    }
-
-    public void showUI() {
-        if (!mUIhidden || (mVideoMenu != null && mVideoMenu.isMenuBeingShown()))
-            return;
-        mUIhidden = false;
-        mCameraControls.showUI();
-    }
-
-    public boolean arePreviewControlsVisible() {
-        return !mUIhidden;
-    }
-
-    public void hideSwitcher() {
-        mSwitcher.closePopup();
-        mSwitcher.setVisibility(View.INVISIBLE);
-    }
-
-    public void showSwitcher() {
-        mSwitcher.setVisibility(View.VISIBLE);
-    }
-
-    public void setSwitcherIndex() {
-        mSwitcher.setCurrentIndex(ModuleSwitcher.VIDEO_MODULE_INDEX);
-    }
-
     public boolean collapseCameraControls() {
         boolean ret = false;
-        mSwitcher.closePopup();
+        mCameraControls.collapse();
         if (mVideoMenu != null) {
             mVideoMenu.closeAllView();
         }
@@ -701,8 +625,7 @@ public class VideoUI extends BaseUI implements PieRenderer.PieListener,
     private void initializeMiscControls() {
         mReviewImage = (ImageView) mRootView.findViewById(R.id.review_image);
         mShutterButton.setImageResource(R.drawable.btn_new_shutter_video);
-        mShutterButton.setOnShutterButtonListener(mController);
-        mShutterButton.setVisibility(View.VISIBLE);
+        mShutterButton.addOnShutterButtonListener(mController);
         mShutterButton.requestFocus();
         mShutterButton.enableTouch(true);
         mRecordingTimeView = (TextView) mRootView.findViewById(R.id.recording_time);
@@ -955,7 +878,7 @@ public class VideoUI extends BaseUI implements PieRenderer.PieListener,
     public void onPieOpened(int centerX, int centerY) {
         setSwipingEnabled(false);
         // Close module selection menu when pie menu is opened.
-        mSwitcher.closePopup();
+        mCameraControls.collapse();
     }
 
     @Override
@@ -984,28 +907,24 @@ public class VideoUI extends BaseUI implements PieRenderer.PieListener,
         mOnScreenIndicators.setVisibility(recording ? View.GONE : View.VISIBLE);
         if (recording) {
             mShutterButton.setImageResource(R.drawable.shutter_button_video_stop);
-            hideSwitcher();
+            mCameraControls.hideSwitcher();
             mRecordingTimeView.setText("");
             ((ViewGroup)mRootView).addView(mRecordingTimeRect);
         } else {
             mShutterButton.setImageResource(R.drawable.btn_new_shutter_video);
             if (!mController.isVideoCaptureIntent()) {
-                showSwitcher();
+                mCameraControls.showSwitcher();
             }
             ((ViewGroup)mRootView).removeView(mRecordingTimeRect);
         }
     }
 
     public void hideUIwhileRecording() {
-        mCameraControls.setWillNotDraw(true);
-        mVideoMenu.hideUI();
+        mCameraControls.hideCameraSettings();
     }
 
     public void showUIafterRecording() {
-        mCameraControls.setWillNotDraw(false);
-        if (!mController.isVideoCaptureIntent()) {
-            mVideoMenu.showUI();
-        }
+        mCameraControls.showCameraSettings();
     }
 
     public void showReviewImage(Bitmap bitmap) {
@@ -1044,7 +963,7 @@ public class VideoUI extends BaseUI implements PieRenderer.PieListener,
         if (previewFocused) {
             showUI();
         } else {
-            hideUI();
+            hideUI(true);
         }
         if (mGestures != null) {
             mGestures.setEnabled(previewFocused);
@@ -1147,9 +1066,6 @@ public class VideoUI extends BaseUI implements PieRenderer.PieListener,
     @Override
     public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {
         Log.v(TAG, "surfaceChanged: width = " + width + ", height = " + height);
-
-        // Make sure preview cover is hidden if preview data is available.
-        hidePreviewCover();
     }
 
     @Override
@@ -1193,14 +1109,6 @@ public class VideoUI extends BaseUI implements PieRenderer.PieListener,
 
     public void setPreference(String key, String value) {
         mVideoMenu.setPreference(key, value);
-    }
-
-    public boolean hideSwitcherPopup() {
-        if (mSwitcher != null && mSwitcher.showsPopup()) {
-            mSwitcher.closePopup();
-            return true;
-        }
-        return false;
     }
 
     public void setOrientation(int orientation, boolean animation) {
