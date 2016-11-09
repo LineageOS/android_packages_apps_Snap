@@ -833,8 +833,7 @@ public class VideoModule implements CameraModule,
                 // the preview. This will cause the preview flicker since the preview
                 // will not be continuous for a short period of time.
 
-                mUI.animateFlash();
-                mUI.animateCapture();
+                mUI.animateFlash(false);
             }
         }
         mUI.showUIafterRecording();
@@ -2006,7 +2005,6 @@ public class VideoModule implements CameraModule,
     private boolean startVideoRecording() {
         Log.v(TAG, "startVideoRecording");
         mStartRecPending = true;
-        mUI.cancelAnimations();
         mUI.setSwipingEnabled(false);
         mUI.hideUIwhileRecording();
         // When recording request is sent before starting preview, onPreviewFrame()
@@ -3107,8 +3105,7 @@ public class VideoModule implements CameraModule,
         if (mParameters == null) return;
         if (CameraUtil.isVideoSnapshotSupported(mParameters) && !mIsVideoCaptureIntent) {
             if (enabled) {
-                mUI.animateFlash();
-                mUI.animateCapture();
+                mUI.animateFlash(true);
             } else {
                 mUI.showPreviewBorder(enabled);
             }

@@ -83,7 +83,6 @@ public class PhotoUI extends BaseUI implements PieListener,
 
     private static final String TAG = "CAM_UI";
     private int mDownSampleFactor = 4;
-    private final AnimationManager mAnimationManager;
     private final FocusRing mFocusRing;
     private PhotoController mController;
     private PreviewGestures mGestures;
@@ -126,7 +125,6 @@ public class PhotoUI extends BaseUI implements PieListener,
     private float mSurfaceTextureUncroppedHeight;
 
     private ImageView mThumbnail;
-    private View mFlashOverlay;
 
     private SurfaceTextureSizeChangedListener mSurfaceTextureSizeListener;
     private SurfaceView mSurfaceView = null;
@@ -251,7 +249,6 @@ public class PhotoUI extends BaseUI implements PieListener,
         });
 
         mRenderOverlay = (RenderOverlay) mRootView.findViewById(R.id.render_overlay);
-        mFlashOverlay = mRootView.findViewById(R.id.flash_overlay);
         mShutterButton = (ShutterButton) mRootView.findViewById(R.id.shutter_button);
         mMenuButton = mRootView.findViewById(R.id.menu);
 
@@ -266,7 +263,6 @@ public class PhotoUI extends BaseUI implements PieListener,
         }
         mFocusRing = (FocusRing) mRootView.findViewById(R.id.focus_ring);
         initIndicators();
-        mAnimationManager = new AnimationManager();
         mOrientationResize = false;
         mPrevOrientationResize = false;
 
@@ -435,6 +431,8 @@ public class PhotoUI extends BaseUI implements PieListener,
         RectF r = new RectF(mSurfaceView.getLeft(), mSurfaceView.getTop(),
                 mSurfaceView.getRight(), mSurfaceView.getBottom());
         mController.onPreviewRectChanged(CameraUtil.rectFToRect(r));
+
+        onPreviewRectChanged(r);
     }
 
     @Override
@@ -670,10 +668,6 @@ public class PhotoUI extends BaseUI implements PieListener,
     }
 
     public void setCameraState(int state) {
-    }
-
-    public void animateFlash() {
-        mAnimationManager.startFlashAnimation(mFlashOverlay);
     }
 
     public void enableGestures(boolean enable) {
