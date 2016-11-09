@@ -71,6 +71,7 @@ import android.view.OrientationEventListener;
 import android.view.Surface;
 import android.view.SurfaceHolder;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.android.camera.exif.ExifInterface;
@@ -955,7 +956,7 @@ public class CaptureModule implements CameraModule, PhotoController,
 
         setCurrentMode();
         mContentResolver = mActivity.getContentResolver();
-        mUI = new CaptureUI(activity, this, parent);
+        mUI = new CaptureUI(activity, this, (ViewGroup) parent);
         mUI.initializeControlByIntent();
 
         mFocusStateListener = new FocusStateListener(mUI);
@@ -1171,14 +1172,6 @@ public class CaptureModule implements CameraModule, PhotoController,
                                                                CaptureRequest request,
                                                                TotalCaptureResult result) {
                                     Log.d(TAG, "captureStillPicture Longshot onCaptureCompleted: " + id);
-                                    if (mLongshotActive) {
-                                        mActivity.runOnUiThread(new Runnable() {
-                                            @Override
-                                            public void run() {
-                                                mUI.doShutterAnimation();
-                                            }
-                                        });
-                                    }
                                 }
 
                                 @Override
@@ -1186,14 +1179,6 @@ public class CaptureModule implements CameraModule, PhotoController,
                                                             CaptureRequest request,
                                                             CaptureFailure result) {
                                     Log.d(TAG, "captureStillPicture Longshot onCaptureFailed: " + id);
-                                    if (mLongshotActive) {
-                                        mActivity.runOnUiThread(new Runnable() {
-                                            @Override
-                                            public void run() {
-                                                mUI.doShutterAnimation();
-                                            }
-                                        });
-                                    }
                                 }
 
                                 @Override
@@ -1848,7 +1833,6 @@ public class CaptureModule implements CameraModule, PhotoController,
         initializeValues();
         updatePreviewSize();
         mUI.showSurfaceView();
-        mUI.setSwitcherIndex();
         mCameraIdList = new ArrayList<>();
 
         if (mSound == null) {

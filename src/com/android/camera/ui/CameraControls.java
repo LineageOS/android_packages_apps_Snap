@@ -18,81 +18,68 @@ package com.android.camera.ui;
 
 import android.animation.Animator;
 import android.animation.Animator.AnimatorListener;
+import android.animation.AnimatorListenerAdapter;
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.drawable.AnimationDrawable;
-import android.graphics.Paint;
-import android.graphics.Rect;
 import android.graphics.Paint;
 import android.graphics.Path;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.RippleDrawable;
 import android.util.AttributeSet;
 import android.util.Log;
-import android.view.Gravity;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewPropertyAnimator;
-import android.widget.FrameLayout;
+import android.view.animation.AccelerateInterpolator;
+import android.view.animation.DecelerateInterpolator;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import java.util.ArrayList;
 
-import org.codeaurora.snapcam.R;
+import com.android.camera.CameraActivity;
 import com.android.camera.CameraManager;
-import com.android.camera.ui.ModuleSwitcher;
-import com.android.camera.ui.RotateImageView;
 import com.android.camera.ShutterButton;
 import com.android.camera.Storage;
-import com.android.camera.util.CameraUtil;
 import com.android.camera.TsMakeupManager;
+import com.android.camera.util.CameraUtil;
+
+import org.codeaurora.snapcam.R;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class CameraControls extends RotatableLayout {
 
     private static final String TAG = "CAM_Controls";
 
-    private View mBackgroundView;
-    private View mShutter;
+    private LinearLayout mTopBar;
+    private LinearLayout mBottomBar;
+
+    private ShutterButton mShutter;
     private View mVideoShutter;
-    private View mSwitcher;
-    private View mMenu;
-    private View mMute;
-    private View mFrontBackSwitcher;
-    private View mHdrSwitcher;
+    private ModuleSwitcher mSwitcher;
     private View mTsMakeupSwitcher;
-    private View mIndicators;
     private View mPreview;
-    private View mSceneModeSwitcher;
-    private View mFilterModeSwitcher;
-    private View mReviewDoneButton;
-    private View mReviewCancelButton;
-    private View mReviewRetakeButton;
     private View mAutoHdrNotice;
     private HistogramView mHistogramView;
     private ArrowTextView mRefocusToast;
 
-    private int mSize;
+    private View mReviewDoneButton;
+    private View mReviewCancelButton;
+    private View mReviewRetakeButton;
+
+    private final List<View> mViews = new ArrayList<>();
+    private final List<View> mFreeList = new ArrayList<>();
+
     private static final int WIDTH_GRID = 5;
     private static final int HEIGHT_GRID = 7;
-    private boolean mAnimating = false;
-    private ArrayList<View> mViewList;
-    private static final int FRONT_BACK_INDEX = 0;
-    private static final int HDR_INDEX = 1;
-    private static final int TS_MAKEUP_INDEX = 1;
-    private static final int SCENE_MODE_INDEX = 2;
-    private static final int FILTER_MODE_INDEX = 3;
-    private static final int MENU_INDEX = 4;
-    private static final int SWITCHER_INDEX = 5;
-    private static final int SHUTTER_INDEX = 6;
-    private static final int PREVIEW_INDEX = 7;
-    private static final int INDICATOR_INDEX = 8;
-    private static final int MUTE_INDEX = 9;
-    private static final int VIDEO_SHUTTER_INDEX = 10;
-    private static final int HISTOGRAM_INDEX = 11;
-    private static final int AUTO_HDR_INDEX = 12;
+    private boolean mHidden = false;
+    private AnimatorSet mAnimator = null;
+    private boolean mFullyHidden = false;
+
     private static final int ANIME_DURATION = 300;
-    private float[][] mLocX = new float[4][13];
-    private float[][] mLocY = new float[4][13];
-    private boolean mLocSet = false;
+
     private boolean mHideRemainingPhoto = false;
     private LinearLayout mRemainingPhotos;
     private TextView mRemainingPhotosText;
@@ -100,103 +87,43 @@ public class CameraControls extends RotatableLayout {
     private int mOrientation;
 
     private int mPreviewRatio;
-    private static int mTopMargin = 0;
-    private static int mBottomMargin = 0;
-
-    private Paint mPaint;
+    private int mTopMargin = 0;
+    private int mBottomMargin = 0;
 
     private static final int LOW_REMAINING_PHOTOS = 20;
     private static final int HIGH_REMAINING_PHOTOS = 1000000;
 
-    AnimatorListener outlistener = new AnimatorListener() {
+    private int mModuleIndex = -1;
+
+    AnimatorListener outlistener = new AnimatorListenerAdapter() {
         @Override
         public void onAnimationStart(Animator animation) {
+            enableTouch(false);
         }
-
-        @Override
-        public void onAnimationRepeat(Animator animation) {
-
-        }
-
         @Override
         public void onAnimationEnd(Animator animation) {
-            resetLocation(0, 0);
-
-            mFrontBackSwitcher.setVisibility(View.INVISIBLE);
-            if(TsMakeupManager.HAS_TS_MAKEUP) {
-                mTsMakeupSwitcher.setVisibility(View.INVISIBLE);
-            } else {
-                mHdrSwitcher.setVisibility(View.INVISIBLE);
+            if (mFullyHidden) {
+                setVisibility(View.INVISIBLE);
             }
-            mSceneModeSwitcher.setVisibility(View.INVISIBLE);
-            mFilterModeSwitcher.setVisibility(View.INVISIBLE);
-
-            mSwitcher.setVisibility(View.INVISIBLE);
-            mShutter.setVisibility(View.INVISIBLE);
-            mVideoShutter.setVisibility(View.INVISIBLE);
-            mMenu.setVisibility(View.INVISIBLE);
-            mMute.setVisibility(View.INVISIBLE);
-            mIndicators.setVisibility(View.INVISIBLE);
-            mPreview.setVisibility(View.INVISIBLE);
-            mAnimating = false;
-            enableTouch(true);
-        }
-
-        @Override
-        public void onAnimationCancel(Animator animation) {
-            resetLocation(0, 0);
-
-            mFrontBackSwitcher.setVisibility(View.INVISIBLE);
-            if(TsMakeupManager.HAS_TS_MAKEUP) {
-                mTsMakeupSwitcher.setVisibility(View.INVISIBLE);
-            } else {
-                mHdrSwitcher.setVisibility(View.INVISIBLE);
-            }
-            mSceneModeSwitcher.setVisibility(View.INVISIBLE);
-            mFilterModeSwitcher.setVisibility(View.INVISIBLE);
-
-            mSwitcher.setVisibility(View.INVISIBLE);
-            mShutter.setVisibility(View.INVISIBLE);
-            mVideoShutter.setVisibility(View.INVISIBLE);
-            mMenu.setVisibility(View.INVISIBLE);
-            mMute.setVisibility(View.INVISIBLE);
-            mIndicators.setVisibility(View.INVISIBLE);
-            mPreview.setVisibility(View.INVISIBLE);
-            mAnimating = false;
-            enableTouch(true);
         }
     };
 
-    AnimatorListener inlistener = new AnimatorListener() {
+    AnimatorListener inlistener = new AnimatorListenerAdapter() {
         @Override
         public void onAnimationStart(Animator animation) {
+            if (mFullyHidden) {
+                setVisibility(View.VISIBLE);
+                mFullyHidden = false;
+            }
         }
-
-        @Override
-        public void onAnimationRepeat(Animator animation) {
-
-        }
-
         @Override
         public void onAnimationEnd(Animator animation) {
-            mAnimating = false;
-            resetLocation(0, 0);
-            enableTouch(true);
-        }
-
-        @Override
-        public void onAnimationCancel(Animator animation) {
-            mAnimating = false;
-            resetLocation(0, 0);
             enableTouch(true);
         }
     };
 
     public CameraControls(Context context, AttributeSet attrs) {
         super(context, attrs);
-
-        mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        setWillNotDraw(false);
 
         mRefocusToast = new ArrowTextView(context);
         addView(mRefocusToast);
@@ -210,108 +137,150 @@ public class CameraControls extends RotatableLayout {
     }
 
     public boolean isAnimating() {
-        return mAnimating;
+        return mAnimator != null && mAnimator.isRunning();
     }
 
     public void enableTouch(boolean enable) {
-        if (enable) {
-            ((ShutterButton) mShutter).setPressed(false);
-            mVideoShutter.setPressed(false);
-            mSwitcher.setPressed(false);
-            mMenu.setPressed(false);
-            mMute.setPressed(false);
-            mFrontBackSwitcher.setPressed(false);
-            if(TsMakeupManager.HAS_TS_MAKEUP) {
-                mTsMakeupSwitcher.setPressed(false);
-            } else {
-                mHdrSwitcher.setPressed(false);
+        Log.d(TAG, "ENABLE TOUCH " + enable + " mViews.size=" + mViews.size());
+        for (View v : mViews) {
+            if (v.getVisibility() != View.GONE) {
+                if (enable) {
+                    v.setPressed(false);
+                }
+                v.setEnabled(enable);
             }
-            mSceneModeSwitcher.setPressed(false);
         }
-
 
         ((ShutterButton) mShutter).enableTouch(enable);
         mVideoShutter.setClickable(enable);
-        ((ModuleSwitcher) mSwitcher).enableTouch(enable);
-        mMenu.setEnabled(enable);
-        mMute.setEnabled(enable);
-        mFrontBackSwitcher.setEnabled(enable);
-        if(TsMakeupManager.HAS_TS_MAKEUP) {
-            mTsMakeupSwitcher.setEnabled(enable);
-        } else {
-            mHdrSwitcher.setEnabled(enable);
-        }
-        mSceneModeSwitcher.setEnabled(enable);
-        mPreview.setEnabled(enable);
-
-    }
-
-    private void markVisibility() {
-        mViewList = new ArrayList<View>();
-        if (mFrontBackSwitcher.getVisibility() == View.VISIBLE)
-            mViewList.add(mFrontBackSwitcher);
-        if(TsMakeupManager.HAS_TS_MAKEUP) {
-            if (mTsMakeupSwitcher.getVisibility() == View.VISIBLE)
-                mViewList.add(mTsMakeupSwitcher);
-        } else {
-            if (mHdrSwitcher.getVisibility() == View.VISIBLE)
-                mViewList.add(mHdrSwitcher);
-        }
-        if (mSceneModeSwitcher.getVisibility() == View.VISIBLE)
-            mViewList.add(mSceneModeSwitcher);
-        if (mFilterModeSwitcher.getVisibility() == View.VISIBLE)
-            mViewList.add(mFilterModeSwitcher);
-        if (mShutter.getVisibility() == View.VISIBLE)
-            mViewList.add(mShutter);
-        if (mVideoShutter.getVisibility() == View.VISIBLE)
-            mViewList.add(mVideoShutter);
-        if (mMenu.getVisibility() == View.VISIBLE)
-            mViewList.add(mMenu);
-        if (mMute.getVisibility() == View.VISIBLE)
-            mViewList.add(mMute);
-        if (mIndicators.getVisibility() == View.VISIBLE)
-            mViewList.add(mIndicators);
-        if (mMute.getVisibility() == View.VISIBLE)
-            mViewList.add(mMute);
+        mTopBar.setEnabled(enable);
+        mBottomBar.setEnabled(enable);
     }
 
     public void removeFromViewList(View view) {
-        if(mViewList != null) {
-            mViewList.remove(view);
+        synchronized (mFreeList) {
+            if (view == null || !mViews.contains(view)) {
+                return;
+            }
+            mFreeList.add(view);
+            requestLayout();
         }
     }
 
     @Override
     public void onFinishInflate() {
         super.onFinishInflate();
-        mBackgroundView = findViewById(R.id.blocker);
-        mSwitcher = findViewById(R.id.camera_switcher);
-        mShutter = findViewById(R.id.shutter_button);
+        mTopBar = (LinearLayout) findViewById(R.id.top_bar);
+        mBottomBar = (LinearLayout) findViewById(R.id.bottom_bar);
+        mSwitcher = (ModuleSwitcher) findViewById(R.id.camera_switcher);
+        mShutter = (ShutterButton) findViewById(R.id.shutter_button);
         mVideoShutter = findViewById(R.id.video_button);
-        mFrontBackSwitcher = findViewById(R.id.front_back_switcher);
-        if(TsMakeupManager.HAS_TS_MAKEUP) {
-            mTsMakeupSwitcher = findViewById(R.id.ts_makeup_switcher);
-        } else {
-            mHdrSwitcher = findViewById(R.id.hdr_switcher);
-        }
-        mMenu = findViewById(R.id.menu);
-        mMute = findViewById(R.id.mute_button);
-        mIndicators = findViewById(R.id.on_screen_indicators);
+        mTsMakeupSwitcher = findViewById(R.id.ts_makeup_switcher);
         mPreview = findViewById(R.id.preview_thumb);
-        mSceneModeSwitcher = findViewById(R.id.scene_mode_switcher);
-        mFilterModeSwitcher = findViewById(R.id.filter_mode_switcher);
         mRemainingPhotos = (LinearLayout) findViewById(R.id.remaining_photos);
         mRemainingPhotosText = (TextView) findViewById(R.id.remaining_photos_text);
         mAutoHdrNotice = (TextView) findViewById(R.id.auto_hdr_notice);
         mHistogramView = (HistogramView) findViewById(R.id.histogram);
+
+        if (!TsMakeupManager.HAS_TS_MAKEUP) {
+            mTopBar.removeView(mTsMakeupSwitcher);
+        }
+
+        for (int i = 0; i < mTopBar.getChildCount(); i++) {
+            mViews.add(mTopBar.getChildAt(i));
+        }
+
+        for (int i = 0; i < mBottomBar.getChildCount(); i++) {
+            mViews.add(mBottomBar.getChildAt(i));
+        }
+
+        mViews.add(mAutoHdrNotice);
+        mViews.add(mHistogramView);
+
+        mShutter.addOnShutterButtonListener(mShutterListener);
+
+        mSwitcher.setSwitchListener((CameraActivity)getContext());
+        mSwitcher.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mSwitcher.showPopup();
+                mSwitcher.setOrientation(mOrientation, false);
+            }
+        });
+        if (mModuleIndex >= 0) {
+            mSwitcher.setCurrentIndex(mModuleIndex);
+        }
+    }
+
+    public void setModuleIndex(int index) {
+        mModuleIndex = index;
+        if (mSwitcher != null) {
+            mSwitcher.setCurrentIndex(index);
+        }
+    }
+
+    public void hideSwitcher() {
+        if (mSwitcher != null) {
+            mSwitcher.closePopup();
+            mSwitcher.setVisibility(View.INVISIBLE);
+        }
+    }
+
+    public void showSwitcher() {
+        if (mSwitcher != null) {
+            mSwitcher.setVisibility(View.VISIBLE);
+        }
+    }
+
+    public void collapse() {
+        if (mSwitcher != null) {
+            mSwitcher.closePopup();
+        }
+    }
+
+    private ShutterButton.OnShutterButtonListener mShutterListener = new ShutterButton.OnShutterButtonListener() {
+        @Override
+        public void onShutterButtonFocus(boolean pressed) {
+            if (pressed) {
+                showRipples(mBottomBar, true);
+            } else {
+                showRipples(mBottomBar, false);
+            }
+        }
+
+        @Override
+        public void onShutterButtonClick() {
+            showRipples(mBottomBar, true);
+            showRipples(mBottomBar, false);
+        }
+
+        @Override
+        public void onShutterButtonLongClick() {
+
+        }
+    };
+
+    public void disableMuteButton() {
+        removeFromViewList(findViewById(R.id.mute_button));
+    }
+
+    public void disableSceneModes() {
+        removeFromViewList(findViewById(R.id.scene_mode_switcher));
+        removeFromViewList(findViewById(R.id.hdr_switcher));
     }
 
     @Override
     public void onLayout(boolean changed, int l, int t, int r, int b) {
-        int orientation = getResources().getConfiguration().orientation;
-        int size = getResources().getDimensionPixelSize(R.dimen.camera_controls_size);
-        int rotation = getUnifiedRotation();
-        adjustBackground();
+        synchronized (mFreeList) {
+            if (mFreeList.size() > 0) {
+                for (View v : mFreeList) {
+                    v.setVisibility(View.GONE);
+                    removeView(v);
+                    mViews.remove(v);
+                }
+            }
+        }
+
         // As l,t,r,b are positions relative to parents, we need to convert them
         // to child's coordinates
         r = r - l;
@@ -322,19 +291,24 @@ public class CameraControls extends RotatableLayout {
             View v = getChildAt(i);
             v.layout(l, t, r, b);
         }
-        Rect shutter = new Rect();
-        center(mShutter, l, t, r, b, orientation, rotation, shutter, SHUTTER_INDEX);
-        mSize = (int) (Math.max(shutter.right - shutter.left, shutter.bottom - shutter.top) * 1.2f);
-        center(mBackgroundView, l, t, r, b, orientation, rotation, new Rect(), -1);
-        mBackgroundView.setVisibility(View.GONE);
+
+        ViewGroup.LayoutParams lpTop = mTopBar.getLayoutParams();
+        lpTop.height = mTopMargin;
+        mTopBar.setLayoutParams(lpTop);
+        mTopBar.layout(l, t, r, mTopMargin);
+
+        ViewGroup.LayoutParams lpBottom = mBottomBar.getLayoutParams();
+        lpBottom.height = mBottomMargin;
+        mBottomBar.setLayoutParams(lpBottom);
+        mBottomBar.layout(l, b - mBottomMargin, r, b);
+
         setLocation(r - l, b - t);
 
-        center(mAutoHdrNotice, l, t + mSize, r,
-                t + mSize + mAutoHdrNotice.getMeasuredHeight(),
-                orientation, rotation, new Rect(), AUTO_HDR_INDEX);
-        center(mHistogramView, l, t + mSize,
-                r, t + mSize + mHistogramView.getMeasuredHeight(),
-                orientation, rotation, new Rect(), HISTOGRAM_INDEX);
+        mAutoHdrNotice.layout(l, t + mTopMargin,
+                r, t + mTopMargin + mAutoHdrNotice.getMeasuredHeight());
+
+        mHistogramView.layout(l, b - mBottomMargin - mHistogramView.getMeasuredHeight(),
+                r, b - mBottomMargin);
 
         View retake = findViewById(R.id.btn_retake);
         if (retake != null) {
@@ -342,9 +316,11 @@ public class CameraControls extends RotatableLayout {
             mReviewCancelButton = findViewById(R.id.btn_cancel);
             mReviewDoneButton = findViewById(R.id.btn_done);
 
+            /*
             center(mReviewRetakeButton, shutter, rotation);
             toLeft(mReviewCancelButton, shutter, rotation);
             toRight(mReviewDoneButton, shutter, rotation);
+            */
         } else {
             mReviewRetakeButton = null;
             mReviewCancelButton = null;
@@ -353,48 +329,25 @@ public class CameraControls extends RotatableLayout {
         layoutRemaingPhotos();
     }
 
-    @Override
-    protected void onDraw(Canvas canvas) {
-        if (mTopMargin != 0) {
-            int rotation = getUnifiedRotation();
-            int w = canvas.getWidth(), h = canvas.getHeight();
-            switch (rotation) {
-                case 90:
-                    canvas.drawRect(0, 0, mTopMargin, h, mPaint);
-                    canvas.drawRect(w - mBottomMargin, 0, w, h, mPaint);
-                    break;
-                case 180:
-                    canvas.drawRect(0, 0, w, mBottomMargin, mPaint);
-                    canvas.drawRect(0, h - mTopMargin, w, h, mPaint);
-                    break;
-                case 270:
-                    canvas.drawRect(0, 0, mBottomMargin, h, mPaint);
-                    canvas.drawRect(w - mTopMargin, 0, w, h, mPaint);
-                    break;
-                default:
-                    canvas.drawRect(0, 0, w, mTopMargin, mPaint);
-                    canvas.drawRect(0, h - mBottomMargin, w, h, mPaint);
-                    break;
+    private void showRipples(final View v, final boolean enable) {
+        v.post(new Runnable() {
+            @Override
+            public void run() {
+                Drawable background = v.getBackground();
+                if (background instanceof RippleDrawable) {
+                    RippleDrawable ripple = (RippleDrawable) background;
+                    if (enable) {
+                        ripple.setState(new int[]{android.R.attr.state_pressed, android.R.attr.state_enabled});
+                    } else {
+                        ripple.setState(new int[]{});
+                    }
+                }
             }
-        }
+        });
     }
 
     private void setLocation(int w, int h) {
         int rotation = getUnifiedRotation();
-        toIndex(mSwitcher, w, h, rotation, 4, 6, SWITCHER_INDEX);
-        toIndex(mVideoShutter, w, h, rotation, 3, 6, VIDEO_SHUTTER_INDEX);
-        toIndex(mSceneModeSwitcher, w, h, rotation, 4, 0, SCENE_MODE_INDEX);
-        toIndex(mMute, w, h, rotation, 3, 0, MUTE_INDEX);
-        toIndex(mIndicators, w, h, rotation, 0, 6, INDICATOR_INDEX);
-        toIndex(mFrontBackSwitcher, w, h, rotation, 2, 0, FRONT_BACK_INDEX);
-        toIndex(mPreview, w, h, rotation, 0, 6, PREVIEW_INDEX);
-        if(TsMakeupManager.HAS_TS_MAKEUP) {
-            toIndex(mTsMakeupSwitcher, w, h, rotation, 3, 0, TS_MAKEUP_INDEX);
-        } else {
-            toIndex(mHdrSwitcher, w, h, rotation, 3, 0, HDR_INDEX);
-        }
-        toIndex(mFilterModeSwitcher, w, h, rotation, 1, 0, FILTER_MODE_INDEX);
-        toIndex(mMenu, w, h, rotation, 0, 0, MENU_INDEX);
         layoutToast(mRefocusToast, w, h, rotation);
     }
 
@@ -416,7 +369,7 @@ public class CameraControls extends RotatableLayout {
                 b = t + th;
                 r = (int) (w / WIDTH_GRID * (WIDTH_GRID - 0.25));
                 l = r - tw;
-                mRefocusToast.setArrow(tw - th / 2, 0, tw, 0, tw, - th / 2);
+                mRefocusToast.setArrow(tw - th / 2, 0, tw, 0, tw, -th / 2);
                 break;
             case 270:
                 c = (int) (h / WIDTH_GRID * 0.5);
@@ -424,7 +377,7 @@ public class CameraControls extends RotatableLayout {
                 b = c + th / 2;
                 l = (int) (w / HEIGHT_GRID * 1.25);
                 r = l + tw;
-                mRefocusToast.setArrow(0, 0, 0, th / 2, - th / 2, 0);
+                mRefocusToast.setArrow(0, 0, 0, th / 2, -th / 2, 0);
                 break;
             default:
                 l = w / WIDTH_GRID / 4;
@@ -437,512 +390,106 @@ public class CameraControls extends RotatableLayout {
         mRefocusToast.layout(l, t, r, b);
     }
 
-    private void center(View v, int l, int t, int r, int b, int orientation, int rotation,
-            Rect result, int idx) {
-        FrameLayout.LayoutParams lp = (FrameLayout.LayoutParams) v.getLayoutParams();
-        int tw = lp.leftMargin + v.getMeasuredWidth() + lp.rightMargin;
-        int th = lp.topMargin + v.getMeasuredHeight() + lp.bottomMargin;
-        switch (rotation) {
-            case 0:
-                // phone portrait; controls bottom
-                result.left = (r + l) / 2 - tw / 2 + lp.leftMargin;
-                result.right = (r + l) / 2 + tw / 2 - lp.rightMargin;
-                result.bottom = b - lp.bottomMargin;
-                result.top = b - th + lp.topMargin;
-                break;
-            case 90:
-                // phone landscape: controls right
-                result.right = r - lp.rightMargin;
-                result.left = r - tw + lp.leftMargin;
-                result.top = (b + t) / 2 - th / 2 + lp.topMargin;
-                result.bottom = (b + t) / 2 + th / 2 - lp.bottomMargin;
-                break;
-            case 180:
-                // phone upside down: controls top
-                result.left = (r + l) / 2 - tw / 2 + lp.leftMargin;
-                result.right = (r + l) / 2 + tw / 2 - lp.rightMargin;
-                result.top = t + lp.topMargin;
-                result.bottom = t + th - lp.bottomMargin;
-                break;
-            case 270:
-                // reverse landscape: controls left
-                result.left = l + lp.leftMargin;
-                result.right = l + tw - lp.rightMargin;
-                result.top = (b + t) / 2 - th / 2 + lp.topMargin;
-                result.bottom = (b + t) / 2 + th / 2 - lp.bottomMargin;
-                break;
-        }
-        v.layout(result.left, result.top, result.right, result.bottom);
-        if (idx != -1) {
-            int idx1 = rotation / 90;
-            int idx2 = idx;
-            mLocX[idx1][idx2] = result.left;
-            mLocY[idx1][idx2] = result.top;
-        }
-    }
-
-    private void resetLocation(float x, float y) {
-        int rotation = getUnifiedRotation();
-        int idx1 = rotation / 90;
-
-        mFrontBackSwitcher.setX(mLocX[idx1][FRONT_BACK_INDEX] + x);
-        if(TsMakeupManager.HAS_TS_MAKEUP) {
-            mTsMakeupSwitcher.setX(mLocX[idx1][TS_MAKEUP_INDEX] + x);
-        } else {
-            mHdrSwitcher.setX(mLocX[idx1][HDR_INDEX] + x);
-        }
-        mSceneModeSwitcher.setX(mLocX[idx1][SCENE_MODE_INDEX] + x);
-        mFilterModeSwitcher.setX(mLocX[idx1][FILTER_MODE_INDEX] + x);
-        mMenu.setX(mLocX[idx1][MENU_INDEX] + x);
-        mMute.setX(mLocX[idx1][MUTE_INDEX] + x);
-        mSwitcher.setX(mLocX[idx1][SWITCHER_INDEX] - x);
-        mShutter.setX(mLocX[idx1][SHUTTER_INDEX] - x);
-        mVideoShutter.setX(mLocX[idx1][VIDEO_SHUTTER_INDEX] - x);
-        mIndicators.setX(mLocX[idx1][INDICATOR_INDEX] - x);
-        mPreview.setX(mLocX[idx1][PREVIEW_INDEX] - x);
-
-        mFrontBackSwitcher.setY(mLocY[idx1][FRONT_BACK_INDEX] + y);
-        if(TsMakeupManager.HAS_TS_MAKEUP) {
-            mTsMakeupSwitcher.setY(mLocY[idx1][TS_MAKEUP_INDEX] + y);
-        } else {
-            mHdrSwitcher.setY(mLocY[idx1][HDR_INDEX] + y);
-        }
-        mSceneModeSwitcher.setY(mLocY[idx1][SCENE_MODE_INDEX] + y);
-        mFilterModeSwitcher.setY(mLocY[idx1][FILTER_MODE_INDEX] + y);
-        mMenu.setY(mLocY[idx1][MENU_INDEX] + y);
-        mMute.setY(mLocY[idx1][MUTE_INDEX] + y);
-        mSwitcher.setY(mLocY[idx1][SWITCHER_INDEX] - y);
-        mShutter.setY(mLocY[idx1][SHUTTER_INDEX] - y);
-        mVideoShutter.setY(mLocY[idx1][VIDEO_SHUTTER_INDEX] - y);
-        mIndicators.setY(mLocY[idx1][INDICATOR_INDEX] - y);
-        mPreview.setY(mLocY[idx1][PREVIEW_INDEX] - y);
-    }
-
-    public void setTitleBarVisibility(int status){
-        mFrontBackSwitcher.setVisibility(status);
-        mMenu.setVisibility(status);
-        mSceneModeSwitcher.setVisibility(status);
-        mFilterModeSwitcher.setVisibility(status);
-        if(TsMakeupManager.HAS_TS_MAKEUP) {
-            mTsMakeupSwitcher.setVisibility(status);
-        } else {
-            mHdrSwitcher.setVisibility(status);
-        }
+    public void setTitleBarVisibility(int status) {
+        mTopBar.setVisibility(status);
     }
 
     public void setAutoHdrEnabled(boolean enabled) {
         mAutoHdrNotice.setVisibility(enabled ? View.VISIBLE : View.GONE);
     }
 
-    public void hideUI() {
-        if (!mAnimating)
-            enableTouch(false);
-        mAnimating = true;
+    private ObjectAnimator getViewAnimation(View v, float distance, boolean vertical) {
+        final ObjectAnimator anim = ObjectAnimator.ofFloat(v,
+                (vertical ? "translationY" : "translationX"), distance);
+        anim.setDuration(ANIME_DURATION);
+        return anim;
+    }
+
+    private void animateViews(boolean enabled, boolean full, AnimatorListener listener) {
         int rotation = getUnifiedRotation();
-        mFrontBackSwitcher.animate().cancel();
-        if(TsMakeupManager.HAS_TS_MAKEUP) {
-            mTsMakeupSwitcher.animate().cancel();
-        } else {
-            mHdrSwitcher.animate().cancel();
-        }
-        mSceneModeSwitcher.animate().cancel();
-        mFilterModeSwitcher.animate().cancel();
-        mSwitcher.animate().cancel();
-        mShutter.animate().cancel();
-        mVideoShutter.animate().cancel();
-        mMenu.animate().cancel();
-        mMute.animate().cancel();
-        mIndicators.animate().cancel();
-        mPreview.animate().cancel();
-        mFrontBackSwitcher.animate().setListener(outlistener);
-        ((ModuleSwitcher) mSwitcher).removePopup();
-        resetLocation(0, 0);
-        markVisibility();
+        int topSize = enabled ? 0 : -mTopMargin;
+        int bottomSize = enabled ? 0 : mBottomMargin;
+        boolean vertical = true;
         switch (rotation) {
             case 0:
-                mFrontBackSwitcher.animate().translationYBy(-mSize).setDuration(ANIME_DURATION);
-                if(TsMakeupManager.HAS_TS_MAKEUP) {
-                    mTsMakeupSwitcher.animate().translationYBy(-mSize).setDuration(ANIME_DURATION);
-                } else {
-                    mHdrSwitcher.animate().translationYBy(-mSize).setDuration(ANIME_DURATION);
-                }
-                mSceneModeSwitcher.animate().translationYBy(-mSize).setDuration(ANIME_DURATION);
-                mFilterModeSwitcher.animate().translationYBy(-mSize).setDuration(ANIME_DURATION);
-                mMenu.animate().translationYBy(-mSize).setDuration(ANIME_DURATION);
-                mMute.animate().translationYBy(-mSize).setDuration(ANIME_DURATION);
-
-                mSwitcher.animate().translationYBy(mSize).setDuration(ANIME_DURATION);
-                mShutter.animate().translationYBy(mSize).setDuration(ANIME_DURATION);
-                mVideoShutter.animate().translationYBy(mSize).setDuration(ANIME_DURATION);
-                mIndicators.animate().translationYBy(mSize).setDuration(ANIME_DURATION);
-                mPreview.animate().translationYBy(mSize).setDuration(ANIME_DURATION);
                 break;
             case 90:
-                mFrontBackSwitcher.animate().translationXBy(-mSize).setDuration(ANIME_DURATION);
-                if(TsMakeupManager.HAS_TS_MAKEUP) {
-                    mTsMakeupSwitcher.animate().translationXBy(-mSize).setDuration(ANIME_DURATION);
-                } else {
-                    mHdrSwitcher.animate().translationXBy(-mSize).setDuration(ANIME_DURATION);
-                }
-                mSceneModeSwitcher.animate().translationXBy(-mSize).setDuration(ANIME_DURATION);
-                mFilterModeSwitcher.animate().translationXBy(-mSize).setDuration(ANIME_DURATION);
-                mMenu.animate().translationXBy(-mSize).setDuration(ANIME_DURATION);
-                mMute.animate().translationXBy(-mSize).setDuration(ANIME_DURATION);
-
-                mSwitcher.animate().translationXBy(mSize).setDuration(ANIME_DURATION);
-                mShutter.animate().translationXBy(mSize).setDuration(ANIME_DURATION);
-                mVideoShutter.animate().translationXBy(mSize).setDuration(ANIME_DURATION);
-                mIndicators.animate().translationXBy(mSize).setDuration(ANIME_DURATION);
-                mPreview.animate().translationXBy(mSize).setDuration(ANIME_DURATION);
+                vertical = false;
                 break;
             case 180:
-                mFrontBackSwitcher.animate().translationYBy(mSize).setDuration(ANIME_DURATION);
-                if(TsMakeupManager.HAS_TS_MAKEUP) {
-                    mTsMakeupSwitcher.animate().translationYBy(mSize).setDuration(ANIME_DURATION);
-                } else {
-                    mHdrSwitcher.animate().translationYBy(mSize).setDuration(ANIME_DURATION);
-                }
-                mSceneModeSwitcher.animate().translationYBy(mSize).setDuration(ANIME_DURATION);
-                mFilterModeSwitcher.animate().translationYBy(mSize).setDuration(ANIME_DURATION);
-                mMenu.animate().translationYBy(mSize).setDuration(ANIME_DURATION);
-                mMute.animate().translationYBy(mSize).setDuration(ANIME_DURATION);
-
-                mSwitcher.animate().translationYBy(-mSize).setDuration(ANIME_DURATION);
-                mShutter.animate().translationYBy(-mSize).setDuration(ANIME_DURATION);
-                mVideoShutter.animate().translationYBy(-mSize).setDuration(ANIME_DURATION);
-                mIndicators.animate().translationYBy(-mSize).setDuration(ANIME_DURATION);
-                mPreview.animate().translationYBy(-mSize).setDuration(ANIME_DURATION);
+                topSize = -topSize;
+                bottomSize = -bottomSize;
                 break;
             case 270:
-                mFrontBackSwitcher.animate().translationXBy(mSize).setDuration(ANIME_DURATION);
-                if(TsMakeupManager.HAS_TS_MAKEUP) {
-                    mTsMakeupSwitcher.animate().translationXBy(mSize).setDuration(ANIME_DURATION);
-                } else {
-                    mHdrSwitcher.animate().translationXBy(mSize).setDuration(ANIME_DURATION);
-                }
-                mSceneModeSwitcher.animate().translationXBy(mSize).setDuration(ANIME_DURATION);
-                mFilterModeSwitcher.animate().translationXBy(mSize).setDuration(ANIME_DURATION);
-                mMenu.animate().translationXBy(mSize).setDuration(ANIME_DURATION);
-                mMute.animate().translationXBy(mSize).setDuration(ANIME_DURATION);
-
-                mSwitcher.animate().translationXBy(-mSize).setDuration(ANIME_DURATION);
-                mShutter.animate().translationXBy(-mSize).setDuration(ANIME_DURATION);
-                mVideoShutter.animate().translationXBy(-mSize).setDuration(ANIME_DURATION);
-                mIndicators.animate().translationXBy(-mSize).setDuration(ANIME_DURATION);
-                mPreview.animate().translationXBy(-mSize).setDuration(ANIME_DURATION);
+                topSize = -topSize;
+                bottomSize = -bottomSize;
+                vertical = false;
                 break;
         }
-        //mRemainingPhotos.setVisibility(View.INVISIBLE);
+
+        mAnimator = new AnimatorSet();
+        mAnimator.addListener(listener);
+        mAnimator.setDuration(ANIME_DURATION);
+        mAnimator.setInterpolator(enabled ?
+                new DecelerateInterpolator() :
+                new AccelerateInterpolator());
+
+        if (full) {
+            mAnimator.playTogether(getViewAnimation(mTopBar, topSize, vertical),
+                                   getViewAnimation(mBottomBar, bottomSize, vertical));
+        } else {
+            final ArrayList<ObjectAnimator> anims = new ArrayList<>();
+            for (int i = 0; i < mBottomBar.getChildCount(); i++) {
+                View v = mBottomBar.getChildAt(i);
+                if (v.getVisibility() != View.GONE) {
+                    anims.add(getViewAnimation(v, bottomSize, vertical));
+                }
+            }
+            if (anims.size() > 0) {
+                mAnimator.playTogether(anims.toArray(new ObjectAnimator[anims.size()]));
+            }
+        }
+        mAnimator.start();
+    }
+
+    public void hideUI(boolean toBlack) {
+        if (mHidden) {
+            return;
+        }
+
+        mHidden = true;
+        mFullyHidden = toBlack;
+
+        if (isAnimating()) {
+            mAnimator.cancel();
+        }
+
+        collapse();
+
+        animateViews(false, toBlack, outlistener);
+
+        mRemainingPhotos.setVisibility(View.INVISIBLE);
         mRefocusToast.setVisibility(View.GONE);
     }
 
     public void showUI() {
-        if (!mAnimating)
-            enableTouch(false);
-        mAnimating = true;
-        int rotation = getUnifiedRotation();
-        mFrontBackSwitcher.animate().cancel();
-        if(TsMakeupManager.HAS_TS_MAKEUP) {
-            mTsMakeupSwitcher.animate().cancel();
-        } else {
-            mHdrSwitcher.animate().cancel();
+        if (!mHidden) {
+            return;
         }
-        mSceneModeSwitcher.animate().cancel();
-        mFilterModeSwitcher.animate().cancel();
-        mSwitcher.animate().cancel();
-        mShutter.animate().cancel();
-        mVideoShutter.animate().cancel();
-        mMenu.animate().cancel();
-        mMute.animate().cancel();
-        mIndicators.animate().cancel();
-        mPreview.animate().cancel();
-        if (mViewList != null)
-            for (View v : mViewList) {
-                v.setVisibility(View.VISIBLE);
-            }
-        ((ModuleSwitcher) mSwitcher).removePopup();
-        AnimationDrawable shutterAnim = (AnimationDrawable) mShutter.getBackground();
-        if (shutterAnim != null)
-            shutterAnim.stop();
 
-        mMenu.setVisibility(View.VISIBLE);
-        mIndicators.setVisibility(View.VISIBLE);
-        mPreview.setVisibility(View.VISIBLE);
+        mHidden = false;
 
-        mFrontBackSwitcher.animate().setListener(inlistener);
-        switch (rotation) {
-            case 0:
-                resetLocation(0, -mSize);
-
-                mFrontBackSwitcher.animate().translationYBy(mSize).setDuration(ANIME_DURATION);
-                if(TsMakeupManager.HAS_TS_MAKEUP) {
-                    mTsMakeupSwitcher.animate().translationYBy(mSize).setDuration(ANIME_DURATION);
-                } else {
-                    mHdrSwitcher.animate().translationYBy(mSize).setDuration(ANIME_DURATION);
-                }
-                mSceneModeSwitcher.animate().translationYBy(mSize).setDuration(ANIME_DURATION);
-                mFilterModeSwitcher.animate().translationYBy(mSize).setDuration(ANIME_DURATION);
-                mMenu.animate().translationYBy(mSize).setDuration(ANIME_DURATION);
-                mMute.animate().translationYBy(mSize).setDuration(ANIME_DURATION);
-
-                mSwitcher.animate().translationYBy(-mSize).setDuration(ANIME_DURATION);
-                mShutter.animate().translationYBy(-mSize).setDuration(ANIME_DURATION);
-                mVideoShutter.animate().translationYBy(-mSize).setDuration(ANIME_DURATION);
-                mIndicators.animate().translationYBy(-mSize).setDuration(ANIME_DURATION);
-                mPreview.animate().translationYBy(-mSize).setDuration(ANIME_DURATION);
-                break;
-            case 90:
-                resetLocation(-mSize, 0);
-
-                mFrontBackSwitcher.animate().translationXBy(mSize).setDuration(ANIME_DURATION);
-                if(TsMakeupManager.HAS_TS_MAKEUP) {
-                    mTsMakeupSwitcher.animate().translationXBy(mSize).setDuration(ANIME_DURATION);
-                } else {
-                    mHdrSwitcher.animate().translationXBy(mSize).setDuration(ANIME_DURATION);
-                }
-                mSceneModeSwitcher.animate().translationXBy(mSize).setDuration(ANIME_DURATION);
-                mFilterModeSwitcher.animate().translationXBy(mSize).setDuration(ANIME_DURATION);
-                mMenu.animate().translationXBy(mSize).setDuration(ANIME_DURATION);
-                mMute.animate().translationXBy(mSize).setDuration(ANIME_DURATION);
-
-                mSwitcher.animate().translationXBy(-mSize).setDuration(ANIME_DURATION);
-                mShutter.animate().translationXBy(-mSize).setDuration(ANIME_DURATION);
-                mVideoShutter.animate().translationXBy(-mSize).setDuration(ANIME_DURATION);
-                mIndicators.animate().translationXBy(-mSize).setDuration(ANIME_DURATION);
-                mPreview.animate().translationXBy(-mSize).setDuration(ANIME_DURATION);
-                break;
-            case 180:
-                resetLocation(0, mSize);
-
-                mFrontBackSwitcher.animate().translationYBy(-mSize).setDuration(ANIME_DURATION);
-                if(TsMakeupManager.HAS_TS_MAKEUP) {
-                    mTsMakeupSwitcher.animate().translationYBy(-mSize).setDuration(ANIME_DURATION);
-                } else {
-                    mHdrSwitcher.animate().translationYBy(-mSize).setDuration(ANIME_DURATION);
-                }
-                mSceneModeSwitcher.animate().translationYBy(-mSize).setDuration(ANIME_DURATION);
-                mFilterModeSwitcher.animate().translationYBy(-mSize).setDuration(ANIME_DURATION);
-                mMenu.animate().translationYBy(-mSize).setDuration(ANIME_DURATION);
-                mMute.animate().translationYBy(-mSize).setDuration(ANIME_DURATION);
-
-                mSwitcher.animate().translationYBy(mSize).setDuration(ANIME_DURATION);
-                mShutter.animate().translationYBy(mSize).setDuration(ANIME_DURATION);
-                mVideoShutter.animate().translationYBy(mSize).setDuration(ANIME_DURATION);
-                mIndicators.animate().translationYBy(mSize).setDuration(ANIME_DURATION);
-                mPreview.animate().translationYBy(mSize).setDuration(ANIME_DURATION);
-                break;
-            case 270:
-                resetLocation(mSize, 0);
-
-                mFrontBackSwitcher.animate().translationXBy(-mSize).setDuration(ANIME_DURATION);
-                if(TsMakeupManager.HAS_TS_MAKEUP) {
-                    mTsMakeupSwitcher.animate().translationXBy(-mSize).setDuration(ANIME_DURATION);
-                } else {
-                    mHdrSwitcher.animate().translationXBy(-mSize).setDuration(ANIME_DURATION);
-                }
-                mSceneModeSwitcher.animate().translationXBy(-mSize).setDuration(ANIME_DURATION);
-                mFilterModeSwitcher.animate().translationXBy(-mSize).setDuration(ANIME_DURATION);
-                mMenu.animate().translationXBy(-mSize).setDuration(ANIME_DURATION);
-                mMute.animate().translationXBy(-mSize).setDuration(ANIME_DURATION);
-
-                mSwitcher.animate().translationXBy(mSize).setDuration(ANIME_DURATION);
-                mShutter.animate().translationXBy(mSize).setDuration(ANIME_DURATION);
-                mVideoShutter.animate().translationXBy(mSize).setDuration(ANIME_DURATION);
-                mIndicators.animate().translationXBy(mSize).setDuration(ANIME_DURATION);
-                mPreview.animate().translationXBy(mSize).setDuration(ANIME_DURATION);
-                break;
+        if (isAnimating()) {
+            mAnimator.cancel();
         }
+
+        animateViews(true, mFullyHidden, inlistener);
+
         if ((mRemainingPhotos.getVisibility() == View.INVISIBLE) &&
-                !mHideRemainingPhoto){
+                !mHideRemainingPhoto) {
             mRemainingPhotos.setVisibility(View.VISIBLE);
         }
         mRefocusToast.setVisibility(View.GONE);
-    }
-
-    private void center(View v, Rect other, int rotation) {
-        FrameLayout.LayoutParams lp = (FrameLayout.LayoutParams) v.getLayoutParams();
-        int tw = lp.leftMargin + v.getMeasuredWidth() + lp.rightMargin;
-        int th = lp.topMargin + v.getMeasuredHeight() + lp.bottomMargin;
-        int cx = (other.left + other.right) / 2;
-        int cy = (other.top + other.bottom) / 2;
-        v.layout(cx - tw / 2 + lp.leftMargin,
-                cy - th / 2 + lp.topMargin,
-                cx + tw / 2 - lp.rightMargin,
-                cy + th / 2 - lp.bottomMargin);
-    }
-
-    private void toIndex(View v, int w, int h, int rotation, int index, int index2, int index3) {
-        FrameLayout.LayoutParams lp = (FrameLayout.LayoutParams) v.getLayoutParams();
-        int tw = v.getMeasuredWidth();
-        int th = v.getMeasuredHeight();
-        int l = 0, r = 0, t = 0, b = 0;
-
-        int wnumber = WIDTH_GRID;
-        int hnumber = HEIGHT_GRID;
-        int windex = 0;
-        int hindex = 0;
-        switch (rotation) {
-            case 0:
-                // portrait, to left of anchor at bottom
-                wnumber = WIDTH_GRID;
-                hnumber = HEIGHT_GRID;
-                windex = index;
-                hindex = index2;
-                break;
-            case 90:
-                // phone landscape: below anchor on right
-                wnumber = HEIGHT_GRID;
-                hnumber = WIDTH_GRID;
-                windex = index2;
-                hindex = hnumber - index - 1;
-                break;
-            case 180:
-                // phone upside down: right of anchor at top
-                wnumber = WIDTH_GRID;
-                hnumber = HEIGHT_GRID;
-                windex = wnumber - index - 1;
-                hindex = hnumber - index2 - 1;
-                break;
-            case 270:
-                // reverse landscape: above anchor on left
-                wnumber = HEIGHT_GRID;
-                hnumber = WIDTH_GRID;
-                windex = wnumber - index2 - 1;
-                hindex = index;
-                break;
-        }
-        int boxh = h / hnumber;
-        int boxw = w / wnumber;
-        int cx = (2 * windex + 1) * boxw / 2;
-        int cy = (2 * hindex + 1) * boxh / 2;
-
-        if (index2 == 0 && mTopMargin != 0) {
-            switch (rotation) {
-                case 90:
-                    cx = mTopMargin / 2;
-                    break;
-                case 180:
-                    cy = h - mTopMargin / 2;
-                    break;
-                case 270:
-                    cx = w - mTopMargin / 2;
-                    break;
-                default:
-                    cy = mTopMargin / 2;
-                    break;
-            }
-        }
-
-        l = cx - tw / 2;
-        r = cx + tw / 2;
-        t = cy - th / 2;
-        b = cy + th / 2;
-
-        if (index3 != -1) {
-            int idx1 = rotation / 90;
-            int idx2 = index3;
-            mLocX[idx1][idx2] = l;
-            mLocY[idx1][idx2] = t;
-        }
-        v.layout(l, t, r, b);
-    }
-
-    private void toLeft(View v, Rect other, int rotation) {
-        FrameLayout.LayoutParams lp = (FrameLayout.LayoutParams) v.getLayoutParams();
-        int tw = lp.leftMargin + v.getMeasuredWidth() + lp.rightMargin;
-        int th = lp.topMargin + v.getMeasuredHeight() + lp.bottomMargin;
-        int cx = (other.left + other.right) / 2;
-        int cy = (other.top + other.bottom) / 2;
-        int l = 0, r = 0, t = 0, b = 0;
-        switch (rotation) {
-            case 0:
-                // portrait, to left of anchor at bottom
-                l = other.left - tw + lp.leftMargin;
-                r = other.left - lp.rightMargin;
-                t = cy - th / 2 + lp.topMargin;
-                b = cy + th / 2 - lp.bottomMargin;
-                break;
-            case 90:
-                // phone landscape: below anchor on right
-                l = cx - tw / 2 + lp.leftMargin;
-                r = cx + tw / 2 - lp.rightMargin;
-                t = other.bottom + lp.topMargin;
-                b = other.bottom + th - lp.bottomMargin;
-                break;
-            case 180:
-                // phone upside down: right of anchor at top
-                l = other.right + lp.leftMargin;
-                r = other.right + tw - lp.rightMargin;
-                t = cy - th / 2 + lp.topMargin;
-                b = cy + th / 2 - lp.bottomMargin;
-                break;
-            case 270:
-                // reverse landscape: above anchor on left
-                l = cx - tw / 2 + lp.leftMargin;
-                r = cx + tw / 2 - lp.rightMargin;
-                t = other.top - th + lp.topMargin;
-                b = other.top - lp.bottomMargin;
-                break;
-        }
-        v.layout(l, t, r, b);
-    }
-
-    private void toRight(View v, Rect other, int rotation) {
-        FrameLayout.LayoutParams lp = (FrameLayout.LayoutParams) v.getLayoutParams();
-        int tw = lp.leftMargin + v.getMeasuredWidth() + lp.rightMargin;
-        int th = lp.topMargin + v.getMeasuredHeight() + lp.bottomMargin;
-        int cx = (other.left + other.right) / 2;
-        int cy = (other.top + other.bottom) / 2;
-        int l = 0, r = 0, t = 0, b = 0;
-        switch (rotation) {
-            case 0:
-                l = other.right + lp.leftMargin;
-                r = other.right + tw - lp.rightMargin;
-                t = cy - th / 2 + lp.topMargin;
-                b = cy + th / 2 - lp.bottomMargin;
-                break;
-            case 90:
-                l = cx - tw / 2 + lp.leftMargin;
-                r = cx + tw / 2 - lp.rightMargin;
-                t = other.top - th + lp.topMargin;
-                b = other.top - lp.bottomMargin;
-                break;
-            case 180:
-                l = other.left - tw + lp.leftMargin;
-                r = other.left - lp.rightMargin;
-                t = cy - th / 2 + lp.topMargin;
-                b = cy + th / 2 - lp.bottomMargin;
-                break;
-            case 270:
-                l = cx - tw / 2 + lp.leftMargin;
-                r = cx + tw / 2 - lp.rightMargin;
-                t = other.bottom + lp.topMargin;
-                b = other.bottom + th - lp.bottomMargin;
-                break;
-        }
-        v.layout(l, t, r, b);
-    }
-
-    private void adjustBackground() {
-        int rotation = getUnifiedRotation();
-        // remove current drawable and reset rotation
-        mBackgroundView.setBackgroundDrawable(null);
-        mBackgroundView.setRotationX(0);
-        mBackgroundView.setRotationY(0);
-        // if the switcher background is top aligned we need to flip the
-        // background
-        // drawable vertically; if left aligned, flip horizontally
-        switch (rotation) {
-            case 180:
-                mBackgroundView.setRotationX(180);
-                break;
-            case 270:
-                mBackgroundView.setRotationY(180);
-                break;
-            default:
-                break;
-        }
-        mBackgroundView.setBackgroundResource(R.drawable.switcher_bg);
     }
 
     private void layoutRemaingPhotos() {
@@ -959,7 +506,7 @@ public class CameraControls extends RotatableLayout {
         if (mOrientation == 90 || mOrientation == 270) {
             vc -= w / 2;
         }
-        if(hc < w/2) {
+        if (hc < w / 2) {
             mRemainingPhotos.layout(0, vc - h / 2, w, vc + h / 2);
         } else {
             mRemainingPhotos.layout(hc - w / 2, vc - h / 2, hc + w / 2, vc + h / 2);
@@ -986,29 +533,34 @@ public class CameraControls extends RotatableLayout {
         mCurrentRemaining = remaining;
     }
 
+    public boolean arePreviewControlsVisible() {
+        return !mHidden;
+    }
+
     public void setMargins(int top, int bottom) {
         mTopMargin = top;
         mBottomMargin = bottom;
     }
 
+    private void setBarsBackground(int resId) {
+        mTopBar.setBackgroundResource(resId);
+        mBottomBar.setBackgroundResource(resId);
+    }
+
     public void setPreviewRatio(float ratio, boolean panorama) {
-        if (panorama) {
-            mPaint.setColor(Color.TRANSPARENT);
+        int r = CameraUtil.determineRatio(ratio);
+        mPreviewRatio = r;
+        if (mPreviewRatio == CameraUtil.RATIO_4_3 && mTopMargin != 0) {
+            setBarsBackground(R.drawable.camera_controls_bg_opaque);
         } else {
-            int r = CameraUtil.determineRatio(ratio);
-            mPreviewRatio = r;
-            if (mPreviewRatio == CameraUtil.RATIO_4_3 && mTopMargin != 0) {
-                mPaint.setColor(getResources().getColor(R.color.camera_control_bg_opaque));
-            } else {
-                mPaint.setColor(getResources().getColor(R.color.camera_control_bg_transparent));
-            }
+            setBarsBackground(R.drawable.camera_controls_bg_translucent);
         }
-        invalidate();
+        requestLayout();
     }
 
     public void showRefocusToast(boolean show) {
         mRefocusToast.setVisibility(show ? View.VISIBLE : View.GONE);
-        if ((mCurrentRemaining > 0 ) && !mHideRemainingPhoto) {
+        if ((mCurrentRemaining > 0) && !mHideRemainingPhoto) {
             mRemainingPhotos.setVisibility(show ? View.GONE : View.VISIBLE);
         }
     }
@@ -1024,47 +576,33 @@ public class CameraControls extends RotatableLayout {
 
     public void setOrientation(int orientation, boolean animation) {
         mOrientation = orientation;
-        View[] views = {
-            mSceneModeSwitcher, mFilterModeSwitcher, mFrontBackSwitcher,
-            TsMakeupManager.HAS_TS_MAKEUP ? mTsMakeupSwitcher : mHdrSwitcher,
-            mMenu, mShutter, mPreview, mSwitcher, mMute, mReviewRetakeButton,
-            mReviewCancelButton, mReviewDoneButton, mAutoHdrNotice, mHistogramView
-        };
-        for (View v : views) {
-            if (v != null) {
-                if (v instanceof RotateImageView) {
-                    ((RotateImageView) v).setOrientation(orientation,
-                                                         animation);
-                } else if (v instanceof HistogramView) {
-                    ((HistogramView) v).setRotation(-orientation);
-                }
+
+        for (View v : mViews) {
+            if (v instanceof RotateImageView) {
+                ((RotateImageView) v).setOrientation(orientation, animation);
+            } else if (v instanceof HistogramView) {
+                ((HistogramView) v).setRotation(-orientation);
             }
         }
         layoutRemaingPhotos();
     }
 
     public void hideCameraSettings() {
-        mFrontBackSwitcher.setVisibility(View.INVISIBLE);
-        if(TsMakeupManager.HAS_TS_MAKEUP) {
-            mTsMakeupSwitcher.setVisibility(View.INVISIBLE);
-        } else {
-            mHdrSwitcher.setVisibility(View.INVISIBLE);
+        for (int i = 0; i < mTopBar.getChildCount(); i++) {
+            View v = mTopBar.getChildAt(i);
+            if (v.getVisibility() == View.VISIBLE) {
+                mTopBar.getChildAt(i).setVisibility(View.INVISIBLE);
+            }
         }
-        mSceneModeSwitcher.setVisibility(View.INVISIBLE);
-        mFilterModeSwitcher.setVisibility(View.INVISIBLE);
-        mMenu.setVisibility(View.INVISIBLE);
     }
 
     public void showCameraSettings() {
-        mFrontBackSwitcher.setVisibility(View.VISIBLE);
-        if(TsMakeupManager.HAS_TS_MAKEUP) {
-            mTsMakeupSwitcher.setVisibility(View.VISIBLE);
-        } else {
-            mHdrSwitcher.setVisibility(View.VISIBLE);
+        for (int i = 0; i < mTopBar.getChildCount(); i++) {
+            View v = mTopBar.getChildAt(i);
+            if (v.getVisibility() == View.INVISIBLE) {
+                mTopBar.getChildAt(i).setVisibility(View.VISIBLE);
+            }
         }
-        mSceneModeSwitcher.setVisibility(View.VISIBLE);
-        mFilterModeSwitcher.setVisibility(View.VISIBLE);
-        mMenu.setVisibility(View.VISIBLE);
     }
 
     public void hideRemainingPhotoCnt() {
@@ -1088,8 +626,8 @@ public class CameraControls extends RotatableLayout {
             setBackgroundColor(BACKGROUND);
             setVisibility(View.GONE);
             setLayoutParams(new ViewGroup.LayoutParams(
-                        ViewGroup.LayoutParams.WRAP_CONTENT,
-                        ViewGroup.LayoutParams.WRAP_CONTENT));
+                    ViewGroup.LayoutParams.WRAP_CONTENT,
+                    ViewGroup.LayoutParams.WRAP_CONTENT));
             setTextSize(TEXT_SIZE);
             setPadding(PADDING_SIZE, PADDING_SIZE, PADDING_SIZE, PADDING_SIZE);
 

@@ -16,33 +16,28 @@
 
 package com.android.camera.ui;
 
-import android.animation.Animator;
-import android.animation.Animator.AnimatorListener;
-import android.animation.AnimatorListenerAdapter;
 import android.app.Activity;
 import android.content.Context;
 import android.content.res.Configuration;
-import android.graphics.Canvas;
-import android.graphics.drawable.Drawable;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.util.AttributeSet;
+import android.view.Gravity;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
-import android.view.View.OnClickListener;
-import android.view.View.OnTouchListener;
 import android.view.ViewGroup;
-import android.widget.FrameLayout.LayoutParams;
-import android.widget.LinearLayout;
+import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.PopupWindow;
 
 import com.android.camera.util.CameraUtil;
-import com.android.camera.util.GcamHelper;
 import com.android.camera.util.PhotoSphereHelper;
 import com.android.camera.util.UsageStatistics;
+
 import org.codeaurora.snapcam.R;
 
-public class ModuleSwitcher extends RotateImageView
-        implements OnTouchListener {
+public class ModuleSwitcher extends RotateImageView {
 
     @SuppressWarnings("unused")
     private static final String TAG = "CAM_Switcher";
@@ -54,9 +49,6 @@ public class ModuleSwitcher extends RotateImageView
     public static final int LIGHTCYCLE_MODULE_INDEX = 3;
     public static final int GCAM_MODULE_INDEX = 4;
     public static final int CAPTURE_MODULE_INDEX = 5;
-
-    private boolean mTouchEnabled = true;
-    private boolean mIsVisible = true;
 
     private static final int[] DRAW_IDS = {
             R.drawable.ic_switch_camera,
@@ -77,17 +69,11 @@ public class ModuleSwitcher extends RotateImageView
     private int[] mModuleIds;
     private int[] mDrawIds;
     private int mItemSize;
-    private View mPopup;
-    private View mParent;
-    private boolean mShowingPopup;
-    private boolean mNeedsAnimationSetup;
-    private Drawable mIndicator;
+    private PopupWindow mPopup;
+    private LinearLayout mContent;
 
-    private float mTranslationX = 0;
-    private float mTranslationY = 0;
-
-    private AnimatorListener mHideAnimationListener;
-    private AnimatorListener mShowAnimationListener;
+    private float mTranslationX;
+    private float mTranslationY;
 
     public ModuleSwitcher(Context context) {
         super(context);
@@ -101,8 +87,8 @@ public class ModuleSwitcher extends RotateImageView
 
     private void init(Context context) {
         mItemSize = context.getResources().getDimensionPixelSize(R.dimen.switcher_size);
-        mIndicator = context.getResources().getDrawable(R.color.transparent);
         initializeDrawables(context);
+        initPopup();
     }
 
     public void initializeDrawables(Context context) {
@@ -149,27 +135,13 @@ public class ModuleSwitcher extends RotateImageView
         mListener = l;
     }
 
-    @Override
-    public boolean dispatchTouchEvent(MotionEvent m) {
-        if (mTouchEnabled) {
-            return super.dispatchTouchEvent(m);
-        } else {
-            setBackground(null);
-            return false;
-        }
-    }
-
-    public void enableTouch(boolean enable) {
-        mTouchEnabled = enable;
-    }
-
     public void showPopup() {
         showSwitcher();
         mListener.onShowSwitcherPopup();
     }
 
     private void onModuleSelected(int ix) {
-        hidePopup();
+        closePopup();
         if ((ix != mCurrentIndex) && (mListener != null)) {
             UsageStatistics.onEvent("CameraModeSwitch", null, null);
             UsageStatistics.setPendingTransitionCause(
@@ -179,28 +151,23 @@ public class ModuleSwitcher extends RotateImageView
         }
     }
 
-    @Override
-    protected void onDraw(Canvas canvas) {
-        super.onDraw(canvas);
-        mIndicator.setBounds(getDrawable().getBounds());
-        mIndicator.draw(canvas);
+    private PopupWindow getPopup() {
+        PopupWindow popup = new PopupWindow(mContent);
+        popup.setHeight(WindowManager.LayoutParams.WRAP_CONTENT);
+        popup.setWidth(WindowManager.LayoutParams.WRAP_CONTENT);
+        // Closes the popup window when touch outside of it - when looses focus
+        popup.setOutsideTouchable(true);
+        popup.setFocusable(true);
+        popup.setBackgroundDrawable(new ColorDrawable(Color.WHITE));
+        popup.setAnimationStyle(android.R.style.Animation_Dialog);
+        return popup;
     }
 
     private void initPopup() {
-        mParent = LayoutInflater.from(getContext()).inflate(R.layout.switcher_popup,
-                (ViewGroup) getParent());
-        LinearLayout content = (LinearLayout) mParent.findViewById(R.id.content);
-        mPopup = content;
-        // Set the gravity of the popup, so that it shows up at the right
-        // position
-        // on screen
-        LayoutParams lp = ((LayoutParams) mPopup.getLayoutParams());
-        lp.gravity = ((LayoutParams) mParent.findViewById(R.id.camera_switcher)
-                .getLayoutParams()).gravity;
-        mPopup.setLayoutParams(lp);
+        mContent = (LinearLayout) LayoutInflater.from(getContext()).inflate(
+                R.layout.switcher_popup, null);
+        mContent.setElevation(6);
 
-        mPopup.setVisibility(View.INVISIBLE);
-        mNeedsAnimationSetup = true;
         for (int i = mDrawIds.length - 1; i >= 0; i--) {
             RotateImageView item = new RotateImageView(getContext());
             item.setImageResource(mDrawIds[i]);
@@ -210,7 +177,7 @@ public class ModuleSwitcher extends RotateImageView
             item.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (showsPopup()) {
+                    if (mPopup != null) {
                         onModuleSelected(index);
                     }
                 }
@@ -239,94 +206,37 @@ public class ModuleSwitcher extends RotateImageView
                 default:
                     break;
             }
-            content.addView(item, new LinearLayout.LayoutParams(mItemSize, mItemSize));
+            mContent.addView(item, new LinearLayout.LayoutParams(mItemSize, mItemSize));
         }
-        mPopup.measure(MeasureSpec.makeMeasureSpec(mParent.getWidth(), MeasureSpec.AT_MOST),
-                MeasureSpec.makeMeasureSpec(mParent.getHeight(), MeasureSpec.AT_MOST));
-    }
-
-    public boolean showsPopup() {
-        return mShowingPopup;
-    }
-
-    public boolean isInsidePopup(MotionEvent evt) {
-        if (!showsPopup()) {
-            return false;
-        }
-        int topLeft[] = new int[2];
-        mPopup.getLocationOnScreen(topLeft);
-        int left = topLeft[0];
-        int top = topLeft[1];
-        int bottom = top + mPopup.getHeight();
-        int right = left + mPopup.getWidth();
-        return evt.getX() >= left && evt.getX() < right
-                && evt.getY() >= top && evt.getY() < bottom;
-    }
-
-    private void hidePopup() {
-        mShowingPopup = false;
-        setVisibility(View.VISIBLE);
-        if (mPopup != null && !animateHidePopup()) {
-            mPopup.setVisibility(View.INVISIBLE);
-        }
-        mParent.setOnTouchListener(null);
-    }
-
-    public void setSwitcherVisibility(boolean isVisible) {
-        mIsVisible = isVisible;
-    }
-
-    public void removePopup() {
-        mShowingPopup = false;
-        if (mIsVisible) {
-            setVisibility(View.VISIBLE);
-        }
-        if (mPopup != null) {
-            ((ViewGroup) mParent).removeView(mPopup);
-            mPopup = null;
-        }
-        setAlpha(1f);
+        mContent.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED);
     }
 
     @Override
     public void onConfigurationChanged(Configuration config) {
-        if (showsPopup()) {
-            ((ViewGroup) mParent).removeView(mPopup);
-            mPopup = null;
-            initPopup();
-            mPopup.setVisibility(View.VISIBLE);
-        }
+        closePopup();
     }
 
     private void showSwitcher() {
-        mShowingPopup = true;
-        if (mPopup == null) {
-            initPopup();
-        }
-        layoutPopup();
-        mPopup.setVisibility(View.VISIBLE);
-        if (!animateShowPopup()) {
-            setVisibility(View.INVISIBLE);
-        }
-        mParent.setOnTouchListener(this);
-    }
-
-    @Override
-    public boolean onTouch(View v, MotionEvent event) {
-        closePopup();
-        return true;
+        mPopup = getPopup();
+        mPopup.showAsDropDown(this, ((getWidth() / 2) - (mContent.getMeasuredWidth() / 2)),
+                -(mContent.getMeasuredHeight() + Math.round(0.75f * getHeight())),
+                Gravity.TOP);
     }
 
     public void closePopup() {
-        if (showsPopup()) {
-            hidePopup();
+        if (mPopup != null) {
+            mPopup.dismiss();
+            mPopup = null;
         }
     }
 
     @Override
     public void setOrientation(int degree, boolean animate) {
         super.setOrientation(degree, animate);
-        ViewGroup content = (ViewGroup) mPopup;
+        if (mPopup == null) {
+            return;
+        }
+        ViewGroup content = (ViewGroup) mPopup.getContentView();
         if (content == null) {
             return;
         }
@@ -337,98 +247,36 @@ public class ModuleSwitcher extends RotateImageView
     }
 
     private void layoutPopup() {
+        if (mContent == null) {
+            return;
+        }
+
         int orientation = CameraUtil.getDisplayRotation((Activity) getContext());
-        int w = mPopup.getMeasuredWidth();
-        int h = mPopup.getMeasuredHeight();
+        int w = mContent.getMeasuredWidth();
+        int h = mContent.getMeasuredHeight();
+
         if (orientation == 0) {
-            mPopup.layout(getRight() - w, getBottom() - h, getRight(), getBottom());
+            mContent.layout(getRight() - w, getBottom() - h, getRight(), getBottom());
             mTranslationX = 0;
             mTranslationY = h / 3;
         } else if (orientation == 90) {
             mTranslationX = w / 3;
             mTranslationY = -h / 3;
-            mPopup.layout(getRight() - w, getTop(), getRight(), getTop() + h);
+            mContent.layout(getRight() - w, getTop(), getRight(), getTop() + h);
         } else if (orientation == 180) {
             mTranslationX = -w / 3;
             mTranslationY = -h / 3;
-            mPopup.layout(getLeft(), getTop(), getLeft() + w, getTop() + h);
+            mContent.layout(getLeft(), getTop(), getLeft() + w, getTop() + h);
         } else {
             mTranslationX = -w / 3;
             mTranslationY = h - getHeight();
-            mPopup.layout(getLeft(), getBottom() - h, getLeft() + w, getBottom());
+            mContent.layout(getLeft(), getBottom() - h, getLeft() + w, getBottom());
         }
     }
 
     @Override
     public void onLayout(boolean changed, int left, int top, int right, int bottom) {
         super.onLayout(changed, left, top, right, bottom);
-        if (mPopup != null) {
-            layoutPopup();
-        }
-    }
-
-    private void popupAnimationSetup() {
         layoutPopup();
-        mPopup.setScaleX(0.3f);
-        mPopup.setScaleY(0.3f);
-        mPopup.setTranslationX(mTranslationX);
-        mPopup.setTranslationY(mTranslationY);
-        mNeedsAnimationSetup = false;
-    }
-
-    private boolean animateHidePopup() {
-        if (mHideAnimationListener == null) {
-            mHideAnimationListener = new AnimatorListenerAdapter() {
-                @Override
-                public void onAnimationEnd(Animator animation) {
-                    // Verify that we weren't canceled
-                    if (!showsPopup() && mPopup != null) {
-                        mPopup.setVisibility(View.INVISIBLE);
-                        ((ViewGroup) mParent).removeView(mPopup);
-                        mPopup = null;
-                    }
-                }
-            };
-        }
-        mPopup.animate()
-                .alpha(0f)
-                .scaleX(0.3f).scaleY(0.3f)
-                .translationX(mTranslationX)
-                .translationY(mTranslationY)
-                .setDuration(SWITCHER_POPUP_ANIM_DURATION)
-                .setListener(mHideAnimationListener);
-        animate().alpha(1f).setDuration(SWITCHER_POPUP_ANIM_DURATION)
-                .setListener(null);
-        return true;
-    }
-
-    private boolean animateShowPopup() {
-        if (mNeedsAnimationSetup) {
-            popupAnimationSetup();
-        }
-        if (mShowAnimationListener == null) {
-            mShowAnimationListener = new AnimatorListenerAdapter() {
-                @Override
-                public void onAnimationEnd(Animator animation) {
-                    // Verify that we weren't canceled
-                    if (showsPopup()) {
-                        setVisibility(View.INVISIBLE);
-                        // request layout to make sure popup is laid out
-                        // correctly on ICS
-                        mPopup.requestLayout();
-                    }
-                }
-            };
-        }
-        mPopup.animate()
-                .alpha(1f)
-                .scaleX(1f).scaleY(1f)
-                .translationX(0)
-                .translationY(0)
-                .setDuration(SWITCHER_POPUP_ANIM_DURATION)
-                .setListener(null);
-        animate().alpha(0f).setDuration(SWITCHER_POPUP_ANIM_DURATION)
-                .setListener(mShowAnimationListener);
-        return true;
     }
 }

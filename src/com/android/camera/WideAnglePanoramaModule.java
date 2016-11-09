@@ -45,7 +45,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.Toast;
-import com.android.camera.PhotoModule;
+
 import com.android.camera.CameraManager.CameraProxy;
 import com.android.camera.app.OrientationManager;
 import com.android.camera.data.LocalData;
@@ -53,6 +53,7 @@ import com.android.camera.exif.ExifInterface;
 import com.android.camera.ui.RotateTextToast;
 import com.android.camera.util.CameraUtil;
 import com.android.camera.util.UsageStatistics;
+
 import org.codeaurora.snapcam.R;
 
 import java.io.ByteArrayOutputStream;
@@ -70,7 +71,7 @@ public class WideAnglePanoramaModule
 
     public static final int DEFAULT_SWEEP_ANGLE = 160;
     public static final int DEFAULT_BLEND_MODE = Mosaic.BLENDTYPE_HORIZONTAL;
-    public static final int DEFAULT_CAPTURE_PIXELS = 960 * 720;
+    public static final int DEFAULT_CAPTURE_PIXELS = 1440 * 1080;
 
     private static final int MSG_LOW_RES_FINAL_MOSAIC_READY = 1;
     private static final int MSG_GENERATE_FINAL_MOSAIC_ERROR = 2;
@@ -430,7 +431,7 @@ public class WideAnglePanoramaModule
             int w = size.width;
             // we only want 4:3 format.
             int d = DEFAULT_CAPTURE_PIXELS - h * w;
-            if (needSmaller && d < 0) { // no bigger preview than 960x720.
+            if (needSmaller && d < 0) {
                 continue;
             }
             if (need4To3 && (h * 4 != w * 3)) {
@@ -459,6 +460,7 @@ public class WideAnglePanoramaModule
         Log.d(TAG, "camera preview h = "
                     + mCameraPreviewHeight + " , w = " + mCameraPreviewWidth);
         parameters.setPreviewSize(mCameraPreviewWidth, mCameraPreviewHeight);
+        mUI.setPreviewSize(mCameraPreviewWidth, mCameraPreviewHeight);
 
         List<int[]> frameRates = parameters.getSupportedPreviewFpsRange();
         int last = frameRates.size() - 1;
@@ -1161,10 +1163,6 @@ public class WideAnglePanoramaModule
         // If panorama is generating low res or high res mosaic, ignore back
         // key. So the activity will not be destroyed.
         if (mThreadRunning) return true;
-
-        if (mUI.hideSwitcherPopup())
-            return true;
-
         return false;
     }
 
