@@ -246,11 +246,13 @@
         <item name="android:layout_width">@dimen/switcher_size</item>
         <item name="android:layout_height">@dimen/switcher_size</item>
         <item name="android:background">@drawable/bg_pressed_exit_fading</item>
+        <item name="android:elevation">1dp</item>
     </style>
     <style name="MenuButton">
         <item name="android:layout_width">@dimen/menu_outer_size</item>
         <item name="android:layout_height">@dimen/menu_outer_size</item>
         <item name="android:scaleType">center</item>
+        <item name="android:elevation">1dp</item>
     </style>
     <style name="MuteButton">
         <item name="android:layout_width">@dimen/mute_outer_size</item>

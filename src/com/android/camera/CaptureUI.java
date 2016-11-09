@@ -136,8 +136,6 @@ public class CaptureUI extends BaseUI implements PreviewGestures.SingleTapListen
             SettingsManager.KEY_AUTO_VIDEOSNAP_SIZE
     };
     private final FocusRing mFocusRing;
-    private CameraActivity mActivity;
-    private View mRootView;
     private CaptureModule mModule;
     private AutoFitSurfaceView mSurfaceView;
     private AutoFitSurfaceView mSurfaceViewMono;
@@ -209,18 +207,13 @@ public class CaptureUI extends BaseUI implements PreviewGestures.SingleTapListen
     private ImageView mVideoButton;
     private RenderOverlay mRenderOverlay;
     private View mMenuButton;
-    private ModuleSwitcher mSwitcher;
     private CountDownView mCountDownView;
-    private CameraControls mCameraControls;
     private PieRenderer mPieRenderer;
     private ZoomRenderer mZoomRenderer;
     private Allocation mMonoDummyAllocation;
     private Allocation mMonoDummyOutputAllocation;
     private boolean mIsMonoDummyAllocationEverUsed = false;
 
-    private int mScreenRatio = CameraUtil.RATIO_UNKNOWN;
-    private int mTopMargin = 0;
-    private int mBottomMargin = 0;
     private LinearLayout mSceneAndFilterLayout;
     private int mSceneAndFilterMenuSize;
 
@@ -256,15 +249,12 @@ public class CaptureUI extends BaseUI implements PreviewGestures.SingleTapListen
         return mDisplaySize;
     }
 
-    public CaptureUI(CameraActivity activity, CaptureModule module, View parent) {
-        mActivity = activity;
+    public CaptureUI(CameraActivity activity, CaptureModule module, ViewGroup parent) {
+        super(activity, parent, R.layout.capture_module);
         mModule = module;
-        mRootView = parent;
         mSettingsManager = activity.getSettingsManager();
         mSettingsManager.registerListener(this);
-        mActivity.getLayoutInflater().inflate(R.layout.capture_module,
-                (ViewGroup) mRootView, true);
-        mPreviewCover = mRootView.findViewById(R.id.preview_cover);
+
         // display the view
         mSurfaceView = (AutoFitSurfaceView) mRootView.findViewById(R.id.mdp_preview_content);
         mSurfaceHolder = mSurfaceView.getHolder();
@@ -308,19 +298,6 @@ public class CaptureUI extends BaseUI implements PreviewGestures.SingleTapListen
             mTrackingFocusRenderer.setVisible(false);
         }
 
-        mSwitcher = (ModuleSwitcher) mRootView.findViewById(R.id.camera_switcher);
-        mSwitcher.setCurrentIndex(ModuleSwitcher.PHOTO_MODULE_INDEX);
-        mSwitcher.setSwitchListener(mActivity);
-        mSwitcher.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (mModule.getCameraState() == PhotoController.LONGSHOT) {
-                    return;
-                }
-                mSwitcher.showPopup();
-                mSwitcher.setOrientation(mOrientation, false);
-            }
-        });
         mMenuButton = mRootView.findViewById(R.id.menu);
 
         mRecordingTimeView = (TextView) mRootView.findViewById(R.id.recording_time);
@@ -352,19 +329,7 @@ public class CaptureUI extends BaseUI implements PreviewGestures.SingleTapListen
         RotateImageView muteButton = (RotateImageView) mRootView.findViewById(R.id.mute_button);
         muteButton.setVisibility(View.GONE);
 
-        mCameraControls = (CameraControls) mRootView.findViewById(R.id.camera_controls);
         mFaceView = (Camera2FaceView) mRootView.findViewById(R.id.face_view);
-
-        mActivity.getWindowManager().getDefaultDisplay().getSize(mDisplaySize);
-        mScreenRatio = CameraUtil.determineRatio(mDisplaySize.x, mDisplaySize.y);
-        if (mScreenRatio == CameraUtil.RATIO_16_9) {
-            int l = mDisplaySize.x > mDisplaySize.y ? mDisplaySize.x : mDisplaySize.y;
-            int tm = mActivity.getResources().getDimensionPixelSize(R.dimen.preview_top_margin);
-            int bm = mActivity.getResources().getDimensionPixelSize(R.dimen.preview_bottom_margin);
-            mTopMargin = l / 4 * tm / (tm + bm);
-            mBottomMargin = l / 4 - mTopMargin;
-        }
-        mCameraControls.setMargins(mTopMargin, mBottomMargin);
 
         if (mPieRenderer == null) {
             mPieRenderer = new PieRenderer(mActivity);
@@ -420,15 +385,8 @@ public class CaptureUI extends BaseUI implements PreviewGestures.SingleTapListen
     // called from onResume but only the first time
     public void initializeFirstTime() {
         // Initialize shutter button.
-        mShutterButton.setImageResource(R.drawable.shutter_button_anim);
-        mShutterButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (!isCameraControlsAnimating())
-                    doShutterAnimation();
-            }
-        });
-        mShutterButton.setOnShutterButtonListener(mModule);
+        mShutterButton.setImageResource(R.drawable.btn_new_shutter);
+        mShutterButton.addOnShutterButtonListener(mModule);
         mShutterButton.setVisibility(View.VISIBLE);
         mVideoButton.setVisibility(View.VISIBLE);
         mVideoButton.setOnClickListener(new View.OnClickListener() {
@@ -579,19 +537,6 @@ public class CaptureUI extends BaseUI implements PreviewGestures.SingleTapListen
         mFrontBackSwitcher.setVisibility(View.VISIBLE);
         mFilterModeSwitcher.setVisibility(View.VISIBLE);
         mSceneModeSwitcher.setVisibility(View.VISIBLE);
-    }
-
-    public void hideSwitcher() {
-        mSwitcher.closePopup();
-        mSwitcher.setVisibility(View.INVISIBLE);
-    }
-
-    public void showSwitcher() {
-        mSwitcher.setVisibility(View.VISIBLE);
-    }
-
-    public void setSwitcherIndex() {
-        mSwitcher.setCurrentIndex(ModuleSwitcher.PHOTO_MODULE_INDEX);
     }
 
     public void addSceneMode() {
@@ -1167,7 +1112,11 @@ public class CaptureUI extends BaseUI implements PreviewGestures.SingleTapListen
         if (mFrontBackSwitcher != null) mFrontBackSwitcher.setVisibility(status);
         if (mSceneModeSwitcher != null) mSceneModeSwitcher.setVisibility(status);
         if (mFilterModeSwitcher != null) mFilterModeSwitcher.setVisibility(status);
-        if (mSwitcher != null) mSwitcher.setVisibility(status);
+        if (hide) {
+            mCameraControls.hideSwitcher();
+        } else {
+            mCameraControls.showSwitcher();
+        }
     }
 
     public boolean isCameraControlsAnimating() {
@@ -1191,27 +1140,6 @@ public class CaptureUI extends BaseUI implements PreviewGestures.SingleTapListen
                 showSettingMenu();
             }
         });
-    }
-
-    public void doShutterAnimation() {
-        AnimationDrawable frameAnimation = (AnimationDrawable) mShutterButton.getDrawable();
-        frameAnimation.stop();
-        frameAnimation.start();
-    }
-
-    public void showUI() {
-        if (!mUIhidden || isMenuBeingShown())
-            return;
-        mUIhidden = false;
-        mCameraControls.showUI();
-    }
-
-    public void hideUI() {
-        mSwitcher.closePopup();
-        if (mUIhidden)
-            return;
-        mUIhidden = true;
-        mCameraControls.hideUI();
     }
 
     public void cleanUpMenus() {
@@ -1307,12 +1235,8 @@ public class CaptureUI extends BaseUI implements PreviewGestures.SingleTapListen
             // ignore backs while we're taking a picture
             return true;
         }
-        if (mSwitcher != null && mSwitcher.showsPopup()) {
-            mSwitcher.closePopup();
-            return true;
-        } else {
-            return false;
-        }
+        mCameraControls.collapse();
+        return false;
     }
 
     public SurfaceHolder getSurfaceHolder() {
@@ -1420,7 +1344,7 @@ public class CaptureUI extends BaseUI implements PreviewGestures.SingleTapListen
     }
 
     public boolean collapseCameraControls() {
-        mSwitcher.closePopup();
+        mCameraControls.collapse();
         // Remove all the popups/dialog boxes
         boolean ret = false;
         removeAllMenu();
@@ -1535,7 +1459,7 @@ public class CaptureUI extends BaseUI implements PreviewGestures.SingleTapListen
         if (previewFocused) {
             showUI();
         } else {
-            hideUI();
+            hideUI(true);
         }
         if (mFaceView != null) {
             mFaceView.setBlockDraw(!previewFocused);

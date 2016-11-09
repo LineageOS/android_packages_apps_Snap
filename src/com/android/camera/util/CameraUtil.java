@@ -525,7 +525,7 @@ public class CameraUtil {
         return orientationHistory;
     }
 
-    private static Point getDefaultDisplaySize(Activity activity, Point size) {
+    public static Point getDefaultDisplaySize(Activity activity, Point size) {
         activity.getWindowManager().getDefaultDisplay().getSize(size);
         //cap the display resolution given to getOptimalPreviewSize if the below properties
         //are set. For example if the properties are set as below :

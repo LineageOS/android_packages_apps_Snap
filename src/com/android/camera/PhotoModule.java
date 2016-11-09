@@ -578,7 +578,7 @@ public class PhotoModule
         mPreferences.setLocalId(mActivity, mCameraId);
         CameraSettings.upgradeLocalPreferences(mPreferences.getLocal());
 
-        mUI = new PhotoUI(activity, this, parent);
+        mUI = new PhotoUI(activity, this, (ViewGroup) parent);
 
         // Power shutter
         mActivity.initPowerShutter(mPreferences);
@@ -1094,8 +1094,6 @@ public class PhotoModule
                     mLongshotActive = false;
                     return;
                 }
-
-                mUI.doShutterAnimation();
 
                 Location loc = getLocationAccordPictureFormat(mParameters.get(KEY_PICTURE_FORMAT));
 
@@ -2356,7 +2354,6 @@ public class PhotoModule
         Log.v(TAG, "onShutterButtonClick: mCameraState=" + mCameraState);
 
         if (mSceneMode == CameraUtil.SCENE_MODE_HDR) {
-            mUI.hideSwitcher();
             mUI.setSwipingEnabled(false);
         }
 

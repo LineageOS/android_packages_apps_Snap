@@ -56,6 +56,7 @@ import android.view.KeyEvent;
 import android.view.OrientationEventListener;
 import android.view.SurfaceHolder;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.Toast;
 import android.media.EncoderCapabilities;
@@ -509,7 +510,7 @@ public class VideoModule implements CameraModule,
     @Override
     public void init(CameraActivity activity, View root) {
         mActivity = activity;
-        mUI = new VideoUI(activity, this, root);
+        mUI = new VideoUI(activity, this, (ViewGroup) root);
         mPreferences = ComboPreferences.get(mActivity);
         if (mPreferences == null) {
             mPreferences = new ComboPreferences(mActivity);
@@ -1500,11 +1501,8 @@ public class VideoModule implements CameraModule,
         if (mMediaRecorderRecording) {
             onStopVideoRecording();
             return true;
-        } else if (mUI.hideSwitcherPopup()) {
-            return true;
-        } else {
-            return mUI.onBackPressed();
         }
+        return mUI.onBackPressed();
     }
 
     @Override
@@ -2179,9 +2177,6 @@ public class VideoModule implements CameraModule,
         Log.v(TAG, "stopVideoRecording");
         mStopRecPending = true;
         mUI.setSwipingEnabled(true);
-        if (!isVideoCaptureIntent()) {
-            mUI.showSwitcher();
-        }
 
         boolean fail = false;
         if (mMediaRecorderRecording) {
