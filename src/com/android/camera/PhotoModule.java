@@ -1667,7 +1667,7 @@ public class PhotoModule
         // i.e. If monkey/a user swipes to the gallery during picture taking,
         // don't show animation
         if (!mIsImageCaptureIntent) {
-            mUI.animateFlash();
+            mUI.animateFlash(mFocusManager.isZslEnabled());
         }
     }
 

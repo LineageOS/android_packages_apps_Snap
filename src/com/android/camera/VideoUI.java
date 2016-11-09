@@ -281,7 +281,7 @@ public class VideoUI extends BaseUI implements PieRenderer.PieListener,
             mFaceView = (FaceView) mRootView.findViewById(R.id.face_view);
             setSurfaceTextureSizeChangedListener(mFaceView);
         }
-        mAnimationManager = new AnimationManager();
+        mAnimationManager = new AnimationManager(mFlashOverlay);
         mOrientationResize = false;
         mPrevOrientationResize = false;
 
@@ -504,7 +504,7 @@ public class VideoUI extends BaseUI implements PieRenderer.PieListener,
      * Starts a flash animation
      */
     public void animateFlash() {
-        mAnimationManager.startFlashAnimation(mFlashOverlay);
+        mAnimationManager.startFlashAnimation(true);
     }
 
     /**
