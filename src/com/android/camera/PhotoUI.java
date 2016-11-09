@@ -627,18 +627,26 @@ public class PhotoUI extends BaseUI implements PieListener,
     }
 
     public void hideUI() {
+        hideUI(false);
+    }
+
+    private void hideUI(boolean toBlack) {
         mSwitcher.closePopup();
         if (mUIhidden)
             return;
         mUIhidden = true;
-        mCameraControls.hideUI();
+        mCameraControls.hideUI(toBlack);
     }
 
     public void showUI() {
+        showUI(false);
+    }
+
+    private void showUI(boolean fromBlack) {
         if (!mUIhidden || (mMenu != null && mMenu.isMenuBeingShown()))
             return;
         mUIhidden = false;
-        mCameraControls.showUI();
+        mCameraControls.showUI(fromBlack);
     }
 
     public boolean arePreviewControlsVisible() {
@@ -800,9 +808,9 @@ public class PhotoUI extends BaseUI implements PieListener,
 
     public void onPreviewFocusChanged(boolean previewFocused) {
         if (previewFocused) {
-            showUI();
+            showUI(true);
         } else {
-            hideUI();
+            hideUI(true);
         }
         if (mFaceView != null) {
             mFaceView.setBlockDraw(!previewFocused);

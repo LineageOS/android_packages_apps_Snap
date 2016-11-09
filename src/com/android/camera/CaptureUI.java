@@ -1200,18 +1200,26 @@ public class CaptureUI extends BaseUI implements PreviewGestures.SingleTapListen
     }
 
     public void showUI() {
+        showUI(false);
+    }
+
+    private void showUI(boolean fromBlack) {
         if (!mUIhidden || isMenuBeingShown())
             return;
         mUIhidden = false;
-        mCameraControls.showUI();
+        mCameraControls.showUI(fromBlack);
     }
 
     public void hideUI() {
+        hideUI(false);
+    }
+
+    private void hideUI(boolean toBlack) {
         mSwitcher.closePopup();
         if (mUIhidden)
             return;
         mUIhidden = true;
-        mCameraControls.hideUI();
+        mCameraControls.hideUI(toBlack);
     }
 
     public void cleanUpMenus() {
@@ -1533,9 +1541,9 @@ public class CaptureUI extends BaseUI implements PreviewGestures.SingleTapListen
 
     public void onPreviewFocusChanged(boolean previewFocused) {
         if (previewFocused) {
-            showUI();
+            showUI(true);
         } else {
-            hideUI();
+            hideUI(true);
         }
         if (mFaceView != null) {
             mFaceView.setBlockDraw(!previewFocused);

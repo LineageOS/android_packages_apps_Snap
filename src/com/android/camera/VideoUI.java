@@ -536,18 +536,26 @@ public class VideoUI extends BaseUI implements PieRenderer.PieListener,
     }
 
     public void hideUI() {
+        hideUI(false);
+    }
+
+    private void hideUI(boolean toBlack) {
         mSwitcher.closePopup();
         if (mUIhidden)
             return;
         mUIhidden = true;
-        mCameraControls.hideUI();
+        mCameraControls.hideUI(toBlack);
     }
 
     public void showUI() {
+        showUI(false);
+    }
+
+    private void showUI(boolean fromBlack) {
         if (!mUIhidden || (mVideoMenu != null && mVideoMenu.isMenuBeingShown()))
             return;
         mUIhidden = false;
-        mCameraControls.showUI();
+        mCameraControls.showUI(fromBlack);
     }
 
     public boolean arePreviewControlsVisible() {
@@ -1042,9 +1050,9 @@ public class VideoUI extends BaseUI implements PieRenderer.PieListener,
 
     public void onPreviewFocusChanged(boolean previewFocused) {
         if (previewFocused) {
-            showUI();
+            showUI(true);
         } else {
-            hideUI();
+            hideUI(true);
         }
         if (mGestures != null) {
             mGestures.setEnabled(previewFocused);

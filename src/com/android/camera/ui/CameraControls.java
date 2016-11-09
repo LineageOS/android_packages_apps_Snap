@@ -18,6 +18,7 @@ package com.android.camera.ui;
 
 import android.animation.Animator;
 import android.animation.Animator.AnimatorListener;
+import android.animation.ValueAnimator;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -28,10 +29,13 @@ import android.graphics.Paint;
 import android.graphics.Path;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.util.MathUtils;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewPropertyAnimator;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -103,6 +107,8 @@ public class CameraControls extends RotatableLayout {
     private static int mTopMargin = 0;
     private static int mBottomMargin = 0;
 
+    private ValueAnimator mBackgroundAnim;
+    private Paint mBackgroundPaint;
     private Paint mPaint;
 
     private static final int LOW_REMAINING_PHOTOS = 20;
@@ -355,26 +361,28 @@ public class CameraControls extends RotatableLayout {
 
     @Override
     protected void onDraw(Canvas canvas) {
-        if (mTopMargin != 0) {
-            int rotation = getUnifiedRotation();
-            int w = canvas.getWidth(), h = canvas.getHeight();
-            switch (rotation) {
-                case 90:
-                    canvas.drawRect(0, 0, mTopMargin, h, mPaint);
-                    canvas.drawRect(w - mBottomMargin, 0, w, h, mPaint);
-                    break;
-                case 180:
-                    canvas.drawRect(0, 0, w, mBottomMargin, mPaint);
-                    canvas.drawRect(0, h - mTopMargin, w, h, mPaint);
-                    break;
-                case 270:
-                    canvas.drawRect(0, 0, mBottomMargin, h, mPaint);
-                    canvas.drawRect(w - mTopMargin, 0, w, h, mPaint);
-                    break;
-                default:
-                    canvas.drawRect(0, 0, w, mTopMargin, mPaint);
-                    canvas.drawRect(0, h - mBottomMargin, w, h, mPaint);
-                    break;
+        synchronized (mPaint) {
+            if (mTopMargin != 0) {
+                int rotation = getUnifiedRotation();
+                int w = canvas.getWidth(), h = canvas.getHeight();
+                switch (rotation) {
+                    case 90:
+                        canvas.drawRect(0, 0, mTopMargin, h, mPaint);
+                        canvas.drawRect(w - mBottomMargin, 0, w, h, mPaint);
+                        break;
+                    case 180:
+                        canvas.drawRect(0, 0, w, mBottomMargin, mPaint);
+                        canvas.drawRect(0, h - mTopMargin, w, h, mPaint);
+                        break;
+                    case 270:
+                        canvas.drawRect(0, 0, mBottomMargin, h, mPaint);
+                        canvas.drawRect(w - mTopMargin, 0, w, h, mPaint);
+                        break;
+                    default:
+                        canvas.drawRect(0, 0, w, mTopMargin, mPaint);
+                        canvas.drawRect(0, h - mBottomMargin, w, h, mPaint);
+                        break;
+                }
             }
         }
     }
@@ -534,7 +542,7 @@ public class CameraControls extends RotatableLayout {
         mAutoHdrNotice.setVisibility(enabled ? View.VISIBLE : View.GONE);
     }
 
-    public void hideUI() {
+    public void hideUI(boolean toBlack) {
         if (!mAnimating)
             enableTouch(false);
         mAnimating = true;
@@ -632,11 +640,14 @@ public class CameraControls extends RotatableLayout {
                 mPreview.animate().translationXBy(-mSize).setDuration(ANIME_DURATION);
                 break;
         }
-        //mRemainingPhotos.setVisibility(View.INVISIBLE);
+        mRemainingPhotos.setVisibility(View.INVISIBLE);
         mRefocusToast.setVisibility(View.GONE);
+        if (toBlack) {
+            animateBackgroundRects(false);
+        }
     }
 
-    public void showUI() {
+    public void showUI(boolean fromBlack) {
         if (!mAnimating)
             enableTouch(false);
         mAnimating = true;
@@ -757,6 +768,9 @@ public class CameraControls extends RotatableLayout {
             mRemainingPhotos.setVisibility(View.VISIBLE);
         }
         mRefocusToast.setVisibility(View.GONE);
+        if (fromBlack) {
+            animateBackgroundRects(true);
+        }
     }
 
     private void center(View v, Rect other, int rotation) {
@@ -991,6 +1005,33 @@ public class CameraControls extends RotatableLayout {
         mBottomMargin = bottom;
     }
 
+    private void animateBackgroundRects(boolean fadeIn) {
+        synchronized (mPaint) {
+            if (mBackgroundAnim != null && mBackgroundAnim.isRunning()) {
+                mBackgroundAnim.cancel();
+            }
+            if (fadeIn) {
+                mBackgroundAnim = ValueAnimator.ofFloat(0.0f, 1.0f);
+            } else {
+                mBackgroundAnim = ValueAnimator.ofFloat(1.0f, 0.0f);
+            }
+            mBackgroundAnim.setCurrentFraction(mPaint.getAlpha() / 255.0f);
+            mBackgroundAnim.setDuration(ANIME_DURATION);
+            mBackgroundAnim.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+                @Override
+                public void onAnimationUpdate(ValueAnimator valueAnimator) {
+                    synchronized (mPaint) {
+                        float step = (Float) valueAnimator.getAnimatedValue();
+                        int alpha = Math.round(MathUtils.lerp(0, mBackgroundPaint.getAlpha(), step));
+                        mPaint.setAlpha(alpha);
+                        invalidate();
+                    }
+                }
+            });
+            mBackgroundAnim.start();
+        }
+    }
+
     public void setPreviewRatio(float ratio, boolean panorama) {
         if (panorama) {
             mPaint.setColor(Color.TRANSPARENT);
@@ -1003,6 +1044,7 @@ public class CameraControls extends RotatableLayout {
                 mPaint.setColor(getResources().getColor(R.color.camera_control_bg_transparent));
             }
         }
+        mBackgroundPaint = new Paint(mPaint);
         invalidate();
     }
 
