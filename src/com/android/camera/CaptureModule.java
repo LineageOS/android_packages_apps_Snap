@@ -3386,9 +3386,9 @@ public class CaptureModule implements CameraModule, PhotoController,
 
     private void switchCameraMode(String value) {
         if (value.equals("enable")) {
-            mActivity.onModuleSelected(ModuleSwitcher.CAPTURE_MODULE_INDEX);
+            mActivity.onModuleSelected(ModuleSwitcher.CAPTURE_MODULE_INDEX, null);
         } else {
-            mActivity.onModuleSelected(ModuleSwitcher.PHOTO_MODULE_INDEX);
+            mActivity.onModuleSelected(ModuleSwitcher.PHOTO_MODULE_INDEX, null);
         }
     }
 

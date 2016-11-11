@@ -1513,9 +1513,9 @@ public class PhotoMenu extends MenuController
 
         super.onSettingChanged(pref);
         if (same(pref, SettingsManager.KEY_CAMERA2, "enable")) {
-            mActivity.onModuleSelected(ModuleSwitcher.CAPTURE_MODULE_INDEX);
+            mActivity.onModuleSelected(ModuleSwitcher.CAPTURE_MODULE_INDEX, null);
         } else if (notSame(pref, SettingsManager.KEY_CAMERA2, "enable")) {
-            mActivity.onModuleSelected(ModuleSwitcher.PHOTO_MODULE_INDEX);
+            mActivity.onModuleSelected(ModuleSwitcher.PHOTO_MODULE_INDEX, null);
         }
     }
 

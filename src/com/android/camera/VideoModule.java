@@ -945,7 +945,9 @@ public class VideoModule implements CameraModule,
         public void onAutoFocus(
                 boolean focused, CameraProxy camera) {
             Log.v(TAG, "AutoFocusCallback, mPaused=" + mPaused);
-            if (mPaused) return;
+            if (mPaused || mUI.isPreviewCoverVisible()) {
+                return;
+            }
 
             //setCameraState(IDLE);
             mCameraDevice.refreshParameters();
