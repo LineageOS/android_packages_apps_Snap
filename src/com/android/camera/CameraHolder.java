@@ -193,10 +193,9 @@ public class CameraHolder {
     }
 
     public synchronized CameraProxy open(
+            Context context,
             Handler handler, int cameraId,
             CameraManager.CameraOpenErrorCallback cb) {
-
-        Context context = CameraApp.getContext();
 
         if (DEBUG_OPEN_RELEASE) {
             collectState(cameraId, mCameraDevice);
@@ -263,8 +262,9 @@ public class CameraHolder {
      * unavailable then return {@code null}.
      */
     public synchronized CameraProxy tryOpen(
+            Context context,
             Handler handler, int cameraId, CameraManager.CameraOpenErrorCallback cb) {
-            return (!mCameraOpened ? open(handler, cameraId, cb) : null);
+            return (!mCameraOpened ? open(context, handler, cameraId, cb) : null);
     }
 
     public synchronized void release() {

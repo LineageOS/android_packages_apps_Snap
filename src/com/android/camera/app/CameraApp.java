@@ -19,7 +19,6 @@ package com.android.camera.app;
 
 import android.app.ActivityManager;
 import android.app.Application;
-import android.content.Context;
 
 import com.android.camera.SDCard;
 import com.android.camera.util.CameraUtil;
@@ -29,7 +28,6 @@ public class CameraApp extends Application {
     private static long mMaxSystemMemory;
     public static boolean mIsLowMemoryDevice = false;
     private static final long LOW_MEMORY_DEVICE_THRESHOLD = 2L*1024*1024*1024;
-    private static Application mApp = null;
 
     @Override
     public void onCreate() {
@@ -42,15 +40,8 @@ public class CameraApp extends Application {
             mIsLowMemoryDevice = true;
         }
 
-        mApp = this;
-
         UsageStatistics.initialize(this);
         CameraUtil.initialize(this);
         SDCard.initialize(this);
-    }
-
-    public static Context getContext()
-    {
-        return mApp.getApplicationContext();
     }
 }
