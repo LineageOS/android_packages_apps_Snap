@@ -17,12 +17,9 @@
 
 package com.android.camera;
 
-import android.os.Parcel;
-import android.os.Parcelable;
-import android.view.Display;
-import android.graphics.Point;
 import android.Manifest;
 import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
 import android.app.ActionBar;
 import android.app.Activity;
@@ -35,7 +32,6 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.ServiceConnection;
 import android.content.SharedPreferences;
-import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.database.Cursor;
@@ -44,18 +40,18 @@ import android.graphics.BitmapFactory;
 import android.graphics.BitmapRegionDecoder;
 import android.graphics.BitmapShader;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.ColorFilter;
 import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.PixelFormat;
+import android.graphics.Point;
 import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.Shader;
-import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
-import android.graphics.Point;
-import android.net.Uri;
 import android.media.ThumbnailUtils;
+import android.net.Uri;
 import android.nfc.NfcAdapter;
 import android.nfc.NfcAdapter.CreateBeamUrisCallback;
 import android.nfc.NfcEvent;
@@ -72,6 +68,7 @@ import android.os.SystemProperties;
 import android.preference.PreferenceManager;
 import android.provider.MediaStore;
 import android.util.Log;
+import android.view.Display;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -80,6 +77,7 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.OrientationEventListener;
 import android.view.View;
+import android.view.ViewAnimationUtils;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
@@ -89,8 +87,8 @@ import android.widget.ProgressBar;
 import android.widget.ShareActionProvider;
 
 import com.android.camera.app.AppManagerFactory;
-import com.android.camera.app.PlaceholderManager;
 import com.android.camera.app.PanoramaStitchingManager;
+import com.android.camera.app.PlaceholderManager;
 import com.android.camera.crop.CropActivity;
 import com.android.camera.data.CameraDataAdapter;
 import com.android.camera.data.CameraPreviewData;
@@ -104,23 +102,23 @@ import com.android.camera.data.MediaDetails;
 import com.android.camera.data.SimpleViewData;
 import com.android.camera.exif.ExifInterface;
 import com.android.camera.tinyplanet.TinyPlanetFragment;
-import com.android.camera.ui.ModuleSwitcher;
 import com.android.camera.ui.DetailsDialog;
 import com.android.camera.ui.FilmStripView;
 import com.android.camera.ui.FilmStripView.ImageData;
+import com.android.camera.ui.ModuleSwitcher;
 import com.android.camera.util.ApiHelper;
 import com.android.camera.util.CameraUtil;
 import com.android.camera.util.GcamHelper;
 import com.android.camera.util.IntentHelper;
-import com.android.camera.util.PhotoSphereHelper;
 import com.android.camera.util.PhotoSphereHelper.PanoramaViewHelper;
 import com.android.camera.util.UsageStatistics;
-import org.codeaurora.snapcam.R;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.GlideBuilder;
 import com.bumptech.glide.MemoryCategory;
 import com.bumptech.glide.load.DecodeFormat;
 import com.bumptech.glide.load.engine.executor.FifoPriorityThreadPoolExecutor;
+
+import org.codeaurora.snapcam.R;
 
 import java.io.File;
 import java.io.IOException;
@@ -197,7 +195,7 @@ public class CameraActivity extends Activity
 
     private PanoramaStitchingManager mPanoramaManager;
     private PlaceholderManager mPlaceholderManager;
-    private int mCurrentModuleIndex;
+    private int mCurrentModuleIndex = -1;
     private CameraModule mCurrentModule;
     private PhotoModule mPhotoModule;
     private VideoModule mVideoModule;
@@ -2053,7 +2051,7 @@ public class CameraActivity extends Activity
     }
 
     @Override
-    public void onModuleSelected(int moduleIndex) {
+    public void onModuleSelected(int moduleIndex, final Point hotspot) {
         boolean cam2on = mSettingsManager.isCamera2On();
         mForceReleaseCamera = moduleIndex == ModuleSwitcher.CAPTURE_MODULE_INDEX ||
                 (cam2on && moduleIndex == ModuleSwitcher.PHOTO_MODULE_INDEX);
@@ -2065,21 +2063,65 @@ public class CameraActivity extends Activity
                 return;
             }
         }
-        CameraHolder.instance().keep();
-        closeModule(mCurrentModule);
-        setModuleFromIndex(moduleIndex);
 
-        openModule(mCurrentModule);
-        mForceReleaseCamera = false;
-        mCurrentModule.onOrientationChanged(mLastRawOrientation);
-        if (mMediaSaveService != null) {
-            mCurrentModule.onMediaSaveServiceConnected(mMediaSaveService);
+        final int index = moduleIndex;
+        final View currentView = getModuleRootView(mCurrentModuleIndex);
+
+        final int cx;
+        final int cy;
+        final int radius;
+
+        if (hotspot == null) {
+            cx = currentView.getMeasuredWidth() / 2;
+            cy = currentView.getMeasuredHeight() / 2;
+            radius = Math.max(currentView.getWidth(), currentView.getHeight());
+        } else {
+            cx = hotspot.x;
+            cy = hotspot.y;
+            radius = Math.max(cx, cy);
         }
 
-        // Store the module index so we can use it the next time the Camera
-        // starts up.
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        prefs.edit().putInt(CameraSettings.KEY_STARTUP_MODULE_INDEX, moduleIndex).apply();
+        Animator anim = ViewAnimationUtils.createCircularReveal(currentView, cx, cy, radius, 0);
+        anim.addListener(new AnimatorListenerAdapter() {
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                closeModule(mCurrentModule);
+                currentView.setVisibility(View.GONE);
+                selectModuleWithReveal(index, hotspot);
+            }
+        });
+
+        CameraHolder.instance().keep();
+        getWindow().getDecorView().setBackgroundColor(getResources().getColor(R.color.camera_controls_bg_opaque));
+
+        anim.start();
+    }
+
+    private void selectModuleWithReveal(final int moduleIndex, Point hotspot) {
+        final View selectedView = selectModule(moduleIndex);
+
+        openModule(mCurrentModule);
+
+        final int cx;
+        final int cy;
+        final int radius;
+        if (hotspot == null) {
+            cx = selectedView.getMeasuredWidth() / 2;
+            cy = selectedView.getMeasuredHeight() / 2;
+            radius = Math.max(selectedView.getWidth(), selectedView.getHeight()) / 2;
+        } else {
+            cx = hotspot.x;
+            cy = hotspot.y;
+            radius = Math.max(cx, cy);
+        }
+        Animator anim = ViewAnimationUtils.createCircularReveal(selectedView, cx, cy, 0, radius);
+        anim.addListener(new AnimatorListenerAdapter() {
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                getWindow().getDecorView().setBackgroundColor(Color.BLACK);
+            }
+        });
+        anim.start();
     }
 
     private void calculateDisplayWidth() {
@@ -2092,15 +2134,31 @@ public class CameraActivity extends Activity
      * Sets the mCurrentModuleIndex, creates a new module instance for the given
      * index an sets it as mCurrentModule.
      */
-    private void setModuleFromIndex(int moduleIndex) {
-        mCameraPhotoModuleRootView.setVisibility(View.GONE);
-        mCameraVideoModuleRootView.setVisibility(View.GONE);
-        mCameraPanoModuleRootView.setVisibility(View.GONE);
-        mCameraCaptureModuleRootView.setVisibility(View.GONE);
+    private void setModuleFromIndex(final int moduleIndex) {
+        selectModule(moduleIndex);
+    }
+
+    private View getModuleRootView(int moduleIndex) {
+        final View v;
+        if (mCurrentModuleIndex == ModuleSwitcher.PHOTO_MODULE_INDEX) {
+            v = mCameraPhotoModuleRootView;
+        } else if (mCurrentModuleIndex == ModuleSwitcher.VIDEO_MODULE_INDEX) {
+            v = mCameraVideoModuleRootView;
+        } else if (mCurrentModuleIndex == ModuleSwitcher.WIDE_ANGLE_PANO_MODULE_INDEX) {
+            v = mCameraPanoModuleRootView;
+        } else if (mCurrentModuleIndex == ModuleSwitcher.CAPTURE_MODULE_INDEX) {
+            v = mCameraCaptureModuleRootView;
+        } else {
+            v = mCameraPhotoModuleRootView;
+        }
+        return v;
+    }
+
+    private View selectModule(int moduleIndex) {
         mCurrentModuleIndex = moduleIndex;
         switch (moduleIndex) {
             case ModuleSwitcher.VIDEO_MODULE_INDEX:
-                if(mVideoModule == null) {
+                if (mVideoModule == null) {
                     mVideoModule = new VideoModule();
                     mVideoModule.init(this, mCameraVideoModuleRootView);
                 } else {
@@ -2108,10 +2166,10 @@ public class CameraActivity extends Activity
                 }
                 mCurrentModule = mVideoModule;
                 mCameraVideoModuleRootView.setVisibility(View.VISIBLE);
-                break;
+                return mCameraVideoModuleRootView;
 
             case ModuleSwitcher.PHOTO_MODULE_INDEX:
-                if(mPhotoModule == null) {
+                if (mPhotoModule == null) {
                     mPhotoModule = new PhotoModule();
                     mPhotoModule.init(this, mCameraPhotoModuleRootView);
                 } else {
@@ -2119,19 +2177,19 @@ public class CameraActivity extends Activity
                 }
                 mCurrentModule = mPhotoModule;
                 mCameraPhotoModuleRootView.setVisibility(View.VISIBLE);
-                break;
+                return mCameraPhotoModuleRootView;
 
             case ModuleSwitcher.WIDE_ANGLE_PANO_MODULE_INDEX:
-                if(mPanoModule == null) {
+                if (mPanoModule == null) {
                     mPanoModule = new WideAnglePanoramaModule();
                     mPanoModule.init(this, mCameraPanoModuleRootView);
                 }
                 mCurrentModule = mPanoModule;
                 mCameraPanoModuleRootView.setVisibility(View.VISIBLE);
-                break;
+                return mCameraPanoModuleRootView;
 
             case ModuleSwitcher.CAPTURE_MODULE_INDEX:
-                if(mCaptureModule == null) {
+                if (mCaptureModule == null) {
                     mCaptureModule = new CaptureModule();
                     mCaptureModule.init(this, mCameraCaptureModuleRootView);
                 } else {
@@ -2139,12 +2197,13 @@ public class CameraActivity extends Activity
                 }
                 mCurrentModule = mCaptureModule;
                 mCameraCaptureModuleRootView.setVisibility(View.VISIBLE);
-                break;
+                return mCameraCaptureModuleRootView;
+
             case ModuleSwitcher.LIGHTCYCLE_MODULE_INDEX: //Unused module for now
             case ModuleSwitcher.GCAM_MODULE_INDEX:  //Unused module for now
             default:
                 // Fall back to photo mode.
-                if(mPhotoModule == null) {
+                if (mPhotoModule == null) {
                     mPhotoModule = new PhotoModule();
                     mPhotoModule.init(this, mCameraPhotoModuleRootView);
                 } else {
@@ -2152,7 +2211,7 @@ public class CameraActivity extends Activity
                 }
                 mCurrentModule = mPhotoModule;
                 mCameraPhotoModuleRootView.setVisibility(View.VISIBLE);
-                break;
+                return mCameraPhotoModuleRootView;
         }
     }
 

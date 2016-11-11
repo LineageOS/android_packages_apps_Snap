@@ -20,6 +20,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.graphics.Color;
+import android.graphics.Point;
 import android.graphics.drawable.ColorDrawable;
 import android.util.AttributeSet;
 import android.view.Gravity;
@@ -59,7 +60,7 @@ public class ModuleSwitcher extends RotateImageView {
     };
 
     public interface ModuleSwitchListener {
-        public void onModuleSelected(int i);
+        public void onModuleSelected(int i, Point hotspot);
 
         public void onShowSwitcherPopup();
     }
@@ -140,14 +141,14 @@ public class ModuleSwitcher extends RotateImageView {
         mListener.onShowSwitcherPopup();
     }
 
-    private void onModuleSelected(int ix) {
+    private void onModuleSelected(int ix, Point hotspot) {
         closePopup();
         if ((ix != mCurrentIndex) && (mListener != null)) {
             UsageStatistics.onEvent("CameraModeSwitch", null, null);
             UsageStatistics.setPendingTransitionCause(
                     UsageStatistics.TRANSITION_MENU_TAP);
             setCurrentIndex(ix);
-            mListener.onModuleSelected(mModuleIds[ix]);
+            mListener.onModuleSelected(mModuleIds[ix], hotspot);
         }
     }
 
@@ -178,7 +179,9 @@ public class ModuleSwitcher extends RotateImageView {
                 @Override
                 public void onClick(View v) {
                     if (mPopup != null) {
-                        onModuleSelected(index);
+                        int[] loc = new int[2];
+                        v.getLocationOnScreen(loc);
+                        onModuleSelected(index, new Point(loc[0], loc[1]));
                     }
                 }
             });

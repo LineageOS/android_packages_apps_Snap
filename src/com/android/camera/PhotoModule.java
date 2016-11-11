@@ -530,7 +530,7 @@ public class PhotoModule
                }
 
                 case SWITCH_TO_GCAM_MODULE: {
-                    mActivity.onModuleSelected(ModuleSwitcher.GCAM_MODULE_INDEX);
+                    mActivity.onModuleSelected(ModuleSwitcher.GCAM_MODULE_INDEX, null);
                     break;
                 }
 
@@ -1565,7 +1565,9 @@ public class PhotoModule
         @Override
         public void onAutoFocus(
                 boolean focused, CameraProxy camera) {
-            if (mPaused) return;
+            if (mPaused || mUI.isPreviewCoverVisible()) {
+                return;
+            }
 
             mAutoFocusTime = System.currentTimeMillis() - mFocusStartTime;
             Log.v(TAG, "mAutoFocusTime = " + mAutoFocusTime + "ms");
@@ -1591,6 +1593,9 @@ public class PhotoModule
         @Override
         public void onAutoFocusMoving(
                 boolean moving, CameraProxy camera) {
+            if (mPaused || mUI.isPreviewCoverVisible()) {
+                return;
+            }
             mCameraDevice.refreshParameters();
             mFocusManager.setParameters(mCameraDevice.getParameters());
             mFocusManager.onAutoFocusMoving(moving);
