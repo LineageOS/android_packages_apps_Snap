@@ -57,6 +57,7 @@ import android.view.KeyEvent;
 import android.view.OrientationEventListener;
 import android.view.SurfaceHolder;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.Toast;
 import android.widget.SeekBar;
@@ -252,8 +253,6 @@ public class PhotoModule
 
     private byte[] mLastJpegData;
     private int mLastJpegOrientation = 0;
-
-    private static Context mApplicationContext = null;
 
     private Runnable mDoSnapRunnable = new Runnable() {
         @Override
@@ -571,7 +570,6 @@ public class PhotoModule
         CameraSettings.upgradeGlobalPreferences(mPreferences.getGlobal(), activity);
         mCameraId = getPreferredCameraId(mPreferences);
         mContentResolver = mActivity.getContentResolver();
-        mApplicationContext = CameraApp.getContext();
 
         // Surface texture is from camera screen nail and startPreview needs it.
         // This must be done before startPreview.
@@ -601,9 +599,7 @@ public class PhotoModule
             mPreferences.getString(CameraSettings.KEY_CAMERA_SAVEPATH, "0").equals("1"));
 
         // LGE HDR mode
-        if (mApplicationContext != null) {
-            mLgeHdrMode = mApplicationContext.getResources().getBoolean(R.bool.lge_hdr_mode);
-        }
+        mLgeHdrMode = mActivity.getResources().getBoolean(R.bool.lge_hdr_mode);
     }
 
     private void initializeControlByIntent() {
@@ -1322,11 +1318,8 @@ public class PhotoModule
 
             ExifInterface exif = Exif.getExif(jpegData);
             boolean overrideMakerAndModelTag = false;
-            if (mApplicationContext != null) {
-                overrideMakerAndModelTag =
-                    mApplicationContext.getResources()
-                       .getBoolean(R.bool.override_maker_and_model_tag);
-            }
+            overrideMakerAndModelTag = mActivity.getResources()
+                    .getBoolean(R.bool.override_maker_and_model_tag);
 
             if (overrideMakerAndModelTag) {
                 ExifTag maker = exif.buildTag(ExifInterface.TAG_MAKE, Build.MANUFACTURER);
@@ -1376,12 +1369,10 @@ public class PhotoModule
 
             boolean backCameraRestartPreviewOnPictureTaken = false;
             boolean frontCameraRestartPreviewOnPictureTaken = false;
-            if (mApplicationContext != null) {
-                backCameraRestartPreviewOnPictureTaken =
-                    mApplicationContext.getResources().getBoolean(R.bool.back_camera_restart_preview_onPictureTaken);
-                frontCameraRestartPreviewOnPictureTaken =
-                    mApplicationContext.getResources().getBoolean(R.bool.front_camera_restart_preview_onPictureTaken);
-            }
+            backCameraRestartPreviewOnPictureTaken =
+                    mActivity.getResources().getBoolean(R.bool.back_camera_restart_preview_onPictureTaken);
+            frontCameraRestartPreviewOnPictureTaken =
+                    mActivity.getResources().getBoolean(R.bool.front_camera_restart_preview_onPictureTaken);
 
             CameraInfo info = CameraHolder.instance().getCameraInfo()[mCameraId];
             if ((info.facing == CameraInfo.CAMERA_FACING_BACK
@@ -3861,7 +3852,7 @@ public class PhotoModule
 
         // Get default preview resolution from overlay
         String previewSizeForPhoto =
-                mApplicationContext.getResources().getString(R.string.preview_size_for_photo);
+                mActivity.getResources().getString(R.string.preview_size_for_photo);
         try {
             android.util.Size previewSize = android.util.Size.parseSize(previewSizeForPhoto);
 
