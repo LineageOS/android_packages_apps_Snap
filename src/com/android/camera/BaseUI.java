@@ -4,6 +4,7 @@ import android.graphics.Point;
 import android.graphics.RectF;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewStub;
 
 import com.android.camera.ui.CameraControls;
 import com.android.camera.ui.CaptureAnimationOverlay;
@@ -11,6 +12,9 @@ import com.android.camera.ui.ModuleSwitcher;
 import com.android.camera.util.CameraUtil;
 
 import org.codeaurora.snapcam.R;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /** we can start accumulating common code between UI classes here
  *  toward an eventual unification - WF */
@@ -26,6 +30,9 @@ public abstract class BaseUI {
     protected int mTopMargin = 0;
     protected int mBottomMargin = 0;
     protected int mScreenRatio = CameraUtil.RATIO_UNKNOWN;
+
+    private boolean mOverlaysDisabled;
+    private final List<View> mDisabledViews = new ArrayList<>();
 
     public BaseUI(CameraActivity activity, ViewGroup rootView, int layout) {
         mActivity = activity;
@@ -55,12 +62,14 @@ public abstract class BaseUI {
     public void showPreviewCover() {
         if (mPreviewCover != null && mPreviewCover.getVisibility() != View.VISIBLE) {
             mPreviewCover.setVisibility(View.VISIBLE);
+            disableOverlays();
         }
     }
 
     public void hidePreviewCover() {
         if (mPreviewCover != null && mPreviewCover.getVisibility() != View.GONE) {
             mPreviewCover.setVisibility(View.GONE);
+            enableOverlays();
         }
     }
 
@@ -132,5 +141,42 @@ public abstract class BaseUI {
 
     protected void onPreviewRectChanged(RectF rect) {
         mCaptureOverlay.setPreviewRect(rect);
+    }
+
+    private void enableOverlays() {
+        synchronized (mDisabledViews) {
+            if (!mOverlaysDisabled) {
+                return;
+            }
+
+            for (View v : mDisabledViews) {
+                v.setVisibility(View.VISIBLE);
+            }
+
+            mDisabledViews.clear();
+            mOverlaysDisabled = false;
+        }
+    }
+
+    private void disableOverlays() {
+        synchronized (mDisabledViews) {
+            if (mOverlaysDisabled) {
+                return;
+            }
+
+            mOverlaysDisabled = true;
+
+            View focusRingView = mRootView.findViewById(R.id.focus_ring);
+            if (focusRingView != null && focusRingView.getVisibility() == View.VISIBLE) {
+                focusRingView.setVisibility(View.GONE);
+                mDisabledViews.add(focusRingView);
+            }
+
+            View faceView = mRootView.findViewById(R.id.face_view);
+            if (faceView != null && faceView.getVisibility() == View.VISIBLE) {
+                faceView.setVisibility(View.GONE);
+                mDisabledViews.add(faceView);
+            }
+        }
     }
 }
