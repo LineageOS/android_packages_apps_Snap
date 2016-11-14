@@ -26,7 +26,6 @@ import android.graphics.Point;
 import android.graphics.RectF;
 import android.graphics.drawable.ColorDrawable;
 import android.hardware.Camera;
-import android.hardware.Camera.Face;
 import android.os.AsyncTask;
 import android.preference.PreferenceManager;
 import android.util.Log;
@@ -703,11 +702,8 @@ public class PhotoUI extends BaseUI implements PieListener,
     }
 
     public void onPreviewFocusChanged(boolean previewFocused) {
-        if (previewFocused) {
-            showUI();
-        } else {
-            hideUI(true);
-        }
+        super.onPreviewFocusChanged(previewFocused);
+
         if (mFaceView != null) {
             mFaceView.setBlockDraw(!previewFocused);
         }
@@ -1165,7 +1161,7 @@ public class PhotoUI extends BaseUI implements PieListener,
     }
 
     @Override
-    public void onFaceDetection(Face[] faces, CameraManager.CameraProxy camera) {
+    public void onFaceDetection(Camera.Face[] faces, CameraManager.CameraProxy camera) {
         mFaceView.setFaces(faces);
     }
 

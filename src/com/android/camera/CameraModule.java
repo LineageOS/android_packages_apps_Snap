@@ -21,7 +21,7 @@ import android.content.res.Configuration;
 import android.view.KeyEvent;
 import android.view.View;
 
-public interface CameraModule {
+public interface CameraModule<T extends BaseUI> {
 
     public void init(CameraActivity activity, View frame);
 
@@ -79,5 +79,5 @@ public interface CameraModule {
 
     public void hidePreviewCover();
 
-    public void setPreviewCoverAlpha(float alpha);
+    public void animateControls(float offset);
 }

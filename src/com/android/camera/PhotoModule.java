@@ -110,8 +110,7 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.os.SystemProperties;
 
-public class PhotoModule
-        implements CameraModule,
+public class PhotoModule extends BaseModule<PhotoUI> implements
         PhotoController,
         FocusOverlayManager.Listener,
         CameraPreference.OnPreferenceChangedListener,
@@ -170,8 +169,6 @@ public class PhotoModule
     private Parameters mParameters;
     private boolean mPaused;
     private View mRootView;
-
-    private PhotoUI mUI;
 
     // The activity is going to switch to the specified camera id. This is
     // needed because texture copy is done in GL thread. -1 means camera is not
@@ -4970,22 +4967,10 @@ public class PhotoModule
             mHeading += 360;
         }
     }
-    @Override
-    public void onPreviewFocusChanged(boolean previewFocused) {
-        mUI.onPreviewFocusChanged(previewFocused);
-    }
+
     // TODO: Delete this function after old camera code is removed
     @Override
     public void onRestorePreferencesClicked() {}
-
-/*
- * Provide a mapping for Jpeg encoding quality levels
- * from String representation to numeric representation.
- */
-    @Override
-    public boolean arePreviewControlsVisible() {
-        return mUI.arePreviewControlsVisible();
-    }
 
     // For debugging only.
     public void setDebugUri(Uri uri) {
@@ -5025,22 +5010,17 @@ public class PhotoModule
 
     @Override
     public void showPreviewCover() {
+        super.showPreviewCover();
         disableAutoFocusMoveCallback();
         stopFaceDetection();
         mUI.getFocusRing().stopFocusAnimations();
-        mUI.showPreviewCover();
     }
 
     @Override
     public void hidePreviewCover() {
-        mUI.hidePreviewCover();
+        super.showPreviewCover();
         startFaceDetection();
         updateAutoFocusMoveCallback();
-    }
-
-    @Override
-    public void setPreviewCoverAlpha(float alpha) {
-        mUI.setPreviewCoverAlpha(alpha);
     }
 
     public void onMakeupLevelSync(String key, String value) {
