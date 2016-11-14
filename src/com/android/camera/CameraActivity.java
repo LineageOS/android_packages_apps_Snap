@@ -580,23 +580,25 @@ public class CameraActivity extends Activity
                     CameraActivity.this.setSystemBarsVisibility(visible);
                 }
 
-                private boolean stripHasScrolled = false;
+                private float previewCoverAlpha = 1.0f;
+
+                private void setPreviewCoverAlpha(float alpha) {
+                    if (alpha == previewCoverAlpha || alpha < 0.0f || alpha > 1.0f) {
+                        return;
+                    }
+                    mCurrentModule.setPreviewCoverAlpha(alpha);
+                    if (alpha == 0.0f) {
+                        mCurrentModule.hidePreviewCover();
+                    } else if (previewCoverAlpha == 0.0f) {
+                        mCurrentModule.showPreviewCover();
+                    }
+                    previewCoverAlpha = alpha;
+                }
 
                 @Override
                 public void onFilmStripScroll(int offset) {
-                    if (offset == 0) {
-                        if (stripHasScrolled) {
-                            mCurrentModule.hidePreviewCover();
-                            mCurrentModule.setPreviewCoverAlpha(1.0f);
-                        }
-                    } else {
-                        // preview cover becomes fully opaque when the film strip has
-                        // scrolled half the width of the screen
-                        float rangePx = mDisplayWidth / 2f;
-                        mCurrentModule.setPreviewCoverAlpha((float)Math.min(1.0, offset/rangePx));
-                        mCurrentModule.showPreviewCover();
-                        stripHasScrolled = true;
-                    }
+                    float rangePx = mDisplayWidth / 2f;
+                    setPreviewCoverAlpha((float)Math.min(1.0, offset/rangePx));
                 }
             };
 

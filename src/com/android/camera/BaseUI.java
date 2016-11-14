@@ -1,7 +1,10 @@
 package com.android.camera;
 
+import android.graphics.Bitmap;
 import android.graphics.Point;
 import android.graphics.RectF;
+import android.util.Log;
+import android.util.Pair;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewStub;
@@ -20,12 +23,13 @@ import java.util.List;
  *  toward an eventual unification - WF */
 public abstract class BaseUI {
 
-    protected final CameraControls mCameraControls;
     protected final CaptureAnimationOverlay mCaptureOverlay;
     protected final View mPreviewCover;
 
     protected final CameraActivity mActivity;
     protected final ViewGroup mRootView;
+
+    protected CameraControls mCameraControls;
 
     protected int mTopMargin = 0;
     protected int mBottomMargin = 0;
@@ -47,8 +51,10 @@ public abstract class BaseUI {
         Point size = new Point();
         mActivity.getWindowManager().getDefaultDisplay().getRealSize(size);
         mScreenRatio = CameraUtil.determineRatio(size.x, size.y);
-        calculateMargins(size);
-        mCameraControls.setMargins(mTopMargin, mBottomMargin);
+
+        Pair<Integer, Integer> margins = CameraUtil.calculateMargins(mActivity);
+        mTopMargin = margins.first;
+        mBottomMargin = margins.second;
     }
 
     private void calculateMargins(Point size) {
@@ -137,10 +143,25 @@ public abstract class BaseUI {
         if (mCaptureOverlay != null) {
             mCaptureOverlay.startFlashAnimation(shortFlash);
         }
+        mActivity.updateThumbnail(true);
+    }
+
+    public void animateFlash(Bitmap bitmap) {
+        if (mCaptureOverlay != null) {
+            mCaptureOverlay.startFlashAnimation(false);
+        }
+        mActivity.updateThumbnail(bitmap);
     }
 
     protected void onPreviewRectChanged(RectF rect) {
-        mCaptureOverlay.setPreviewRect(rect);
+        CameraUtil.dumpRect(rect, "onPreviewRectChanged");
+
+        if (mCaptureOverlay != null) {
+            mCaptureOverlay.setPreviewRect(rect);
+        }
+        if (mCameraControls != null) {
+            mCameraControls.setPreviewRect(rect);
+        }
     }
 
     private void enableOverlays() {

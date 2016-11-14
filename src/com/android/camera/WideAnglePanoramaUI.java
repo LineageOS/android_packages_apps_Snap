@@ -24,6 +24,7 @@ import android.graphics.Canvas;
 import android.graphics.Matrix;
 import android.graphics.Point;
 import android.graphics.Rect;
+import android.graphics.RectF;
 import android.graphics.SurfaceTexture;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
@@ -654,6 +655,9 @@ public class WideAnglePanoramaUI extends BaseUI implements
         }
 
         layoutPreview();
-        mCameraControls.setPreviewRatio(mAspectRatio, false);
+
+        RectF r = new RectF(mTextureView.getLeft(), mTextureView.getTop(),
+                mTextureView.getRight(), mTextureView.getBottom());
+        onPreviewRectChanged(r);
     }
 }
