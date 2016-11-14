@@ -2408,7 +2408,9 @@ public class VideoModule implements CameraModule,
                 if (isSupported(hfrRate, mParameters.getSupportedVideoHighFrameRateModes())) {
                     int index = mParameters.getSupportedVideoHighFrameRateModes().indexOf(
                             hfrRate);
-                    size = mParameters.getSupportedHfrSizes().get(index);
+                    if (index >= 0 && mParameters.getSupportedHfrSizes().size() > index) {
+                        size = mParameters.getSupportedHfrSizes().get(index);
+                    }
                 }
                 if (size != null) {
                     if (videoWidth <= size.width && videoHeight <= size.height) {
