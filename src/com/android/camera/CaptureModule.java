@@ -62,7 +62,6 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Looper;
 import android.os.Message;
-import android.os.SystemClock;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.util.Range;
@@ -75,17 +74,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import com.android.camera.exif.ExifInterface;
-import com.android.camera.Exif;
-import com.android.camera.imageprocessor.filter.ImageFilter;
-import com.android.camera.imageprocessor.PostProcessor;
-import com.android.camera.imageprocessor.FrameProcessor;
 import com.android.camera.PhotoModule.NamedImages;
 import com.android.camera.PhotoModule.NamedImages.NamedEntity;
+import com.android.camera.exif.ExifInterface;
+import com.android.camera.imageprocessor.FrameProcessor;
+import com.android.camera.imageprocessor.PostProcessor;
+import com.android.camera.imageprocessor.filter.ImageFilter;
 import com.android.camera.imageprocessor.filter.SharpshooterFilter;
-import com.android.camera.imageprocessor.filter.StillmoreFilter;
 import com.android.camera.ui.CountDownView;
-import com.android.camera.ui.focus.FocusRing;
 import com.android.camera.ui.ModuleSwitcher;
 import com.android.camera.ui.RotateTextToast;
 import com.android.camera.ui.TrackingFocusRenderer;
@@ -102,7 +98,6 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
@@ -112,7 +107,8 @@ import java.util.concurrent.TimeUnit;
 public class CaptureModule implements CameraModule, PhotoController,
         MediaSaveService.Listener, ClearSightImageProcessor.Callback,
         SettingsManager.Listener, LocationManager.Listener,
-        CountDownView.OnCountDownFinishedListener {
+        CountDownView.OnCountDownFinishedListener,
+        PauseButton.OnPauseButtonListener {
     public static final int DUAL_MODE = 0;
     public static final int BAYER_MODE = 1;
     public static final int MONO_MODE = 2;
@@ -274,13 +270,9 @@ public class CaptureModule implements CameraModule, PhotoController,
     private int mTimeBetweenTimeLapseFrameCaptureMs = 0;
     private boolean mCaptureTimeLapse = false;
     private CamcorderProfile mProfile;
-    private static final int UPDATE_RECORD_TIME = 5;
     private ContentValues mCurrentVideoValues;
     private String mVideoFilename;
     private boolean mMediaRecorderPausing = false;
-    private long mRecordingStartTime;
-    private long mRecordingTotalTime;
-    private boolean mRecordingTimeCountsDown = false;
     private ImageReader mVideoSnapshotImageReader;
     private Range mHighSpeedFPSRange;
     private boolean mHighSpeedCapture = false;
@@ -2386,16 +2378,15 @@ public class CaptureModule implements CameraModule, PhotoController,
                         }
                         mMediaRecorder.start();
                         mUI.getFocusRing().stopFocusAnimations();
-                        mUI.resetPauseButton();
-                        mRecordingTotalTime = 0L;
-                        mRecordingStartTime = SystemClock.uptimeMillis();
                         mUI.showRecordingUI(true);
-                        updateRecordingTime();
+                        mUI.startRecordingTimer(mProfile.videoFrameRate,
+                                mTimeBetweenTimeLapseFrameCaptureMs, mMaxVideoDurationInMs);
                     }
 
                     @Override
                     public void onConfigureFailed(CameraCaptureSession cameraCaptureSession) {
                         Toast.makeText(mActivity, "Video Failed", Toast.LENGTH_SHORT).show();
+                        mUI.stopRecordingTimer();
                     }
                 }, null);
             } else {
@@ -2426,11 +2417,9 @@ public class CaptureModule implements CameraModule, PhotoController,
                                 }
                                 mMediaRecorder.start();
                                 mUI.getFocusRing().stopFocusAnimations();
-                                mUI.resetPauseButton();
-                                mRecordingTotalTime = 0L;
-                                mRecordingStartTime = SystemClock.uptimeMillis();
                                 mUI.showRecordingUI(true);
-                                updateRecordingTime();
+                                mUI.startRecordingTimer(mProfile.videoFrameRate,
+                                        mTimeBetweenTimeLapseFrameCaptureMs, mMaxVideoDurationInMs);
                             }
 
                             @Override
@@ -2511,87 +2500,18 @@ public class CaptureModule implements CameraModule, PhotoController,
         }
     }
 
-    private long getTimeLapseVideoLength(long deltaMs) {
-        // For better approximation calculate fractional number of frames captured.
-        // This will update the video time at a higher resolution.
-        double numberOfFrames = (double) deltaMs / mTimeBetweenTimeLapseFrameCaptureMs;
-        return (long) (numberOfFrames / mProfile.videoFrameRate * 1000);
-    }
-
-    private void updateRecordingTime() {
-        if (!mIsRecordingVideo) {
-            return;
-        }
-        if (mMediaRecorderPausing) {
-            return;
-        }
-
-        long now = SystemClock.uptimeMillis();
-        long delta = now - mRecordingStartTime + mRecordingTotalTime;
-
-        // Starting a minute before reaching the max duration
-        // limit, we'll countdown the remaining time instead.
-        boolean countdownRemainingTime = (mMaxVideoDurationInMs != 0
-                && delta >= mMaxVideoDurationInMs - 60000);
-
-        long deltaAdjusted = delta;
-        if (countdownRemainingTime) {
-            deltaAdjusted = Math.max(0, mMaxVideoDurationInMs - deltaAdjusted) + 999;
-        }
-        String text;
-
-        long targetNextUpdateDelay;
-        if (!mCaptureTimeLapse) {
-            text = CameraUtil.millisecondToTimeString(deltaAdjusted, false);
-            targetNextUpdateDelay = 1000;
-        } else {
-            // The length of time lapse video is different from the length
-            // of the actual wall clock time elapsed. Display the video length
-            // only in format hh:mm:ss.dd, where dd are the centi seconds.
-            text = CameraUtil.millisecondToTimeString(getTimeLapseVideoLength(delta), true);
-            targetNextUpdateDelay = mTimeBetweenTimeLapseFrameCaptureMs;
-        }
-
-        mUI.setRecordingTime(text);
-
-        if (mRecordingTimeCountsDown != countdownRemainingTime) {
-            // Avoid setting the color on every update, do it only
-            // when it needs changing.
-            mRecordingTimeCountsDown = countdownRemainingTime;
-
-            int color = mActivity.getResources().getColor(countdownRemainingTime
-                    ? R.color.recording_time_remaining_text
-                    : R.color.recording_time_elapsed_text);
-
-            mUI.setRecordingTimeTextColor(color);
-        }
-
-        long actualNextUpdateDelay = targetNextUpdateDelay - (delta % targetNextUpdateDelay);
-        mHandler.sendEmptyMessageDelayed(
-                UPDATE_RECORD_TIME, actualNextUpdateDelay);
-    }
-
-    private void pauseVideoRecording() {
+    @Override
+    public void onButtonPause() {
         Log.v(TAG, "pauseVideoRecording");
         mMediaRecorderPausing = true;
-        mRecordingTotalTime += SystemClock.uptimeMillis() - mRecordingStartTime;
         mMediaRecorder.pause();
     }
 
-    private void resumeVideoRecording() {
+    @Override
+    public void onButtonContinue() {
         Log.v(TAG, "resumeVideoRecording");
         mMediaRecorderPausing = false;
-        mRecordingStartTime = SystemClock.uptimeMillis();
-        updateRecordingTime();
         mMediaRecorder.start();
-    }
-
-    public void onButtonPause() {
-        pauseVideoRecording();
-    }
-
-    public void onButtonContinue() {
-        resumeVideoRecording();
     }
 
     private void stopRecordingVideo(int cameraId) {
@@ -2606,6 +2526,7 @@ public class CaptureModule implements CameraModule, PhotoController,
 
         saveVideo();
         mUI.showRecordingUI(false);
+        mUI.stopRecordingTimer();
         mIsRecordingVideo = false;
         boolean changed = mUI.setPreviewSize(mPreviewSize.getWidth(), mPreviewSize.getHeight());
         if (changed) {
@@ -3580,12 +3501,7 @@ public class CaptureModule implements CameraModule, PhotoController,
         }
         @Override
         public void handleMessage(Message msg) {
-            switch (msg.what) {
-                case UPDATE_RECORD_TIME: {
-                    updateRecordingTime();
-                    break;
-                }
-            }
+
         }
     }
 

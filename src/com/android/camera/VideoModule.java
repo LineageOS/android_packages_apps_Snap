@@ -585,7 +585,6 @@ public class VideoModule implements CameraModule,
         mQuickCapture = mActivity.getIntent().getBooleanExtra(EXTRA_QUICK_CAPTURE, false);
         mLocationManager = new LocationManager(mActivity, this);
 
-        mUI.setOrientationIndicator(0, false);
         setDisplayOrientation();
 
         mUI.showTimeLapseUI(mCaptureTimeLapse);
@@ -1271,9 +1270,6 @@ public class VideoModule implements CameraModule,
         keepScreenOnAwhile();
         mUI.updateOnScreenIndicators(mParameters, mPreferences);
         mUI.setSwitcherIndex();
-
-        // From onResume
-        mUI.setOrientationIndicator(0, false);
 
         UsageStatistics.onContentViewChanged(
                 UsageStatistics.COMPONENT_CAMERA, "VideoModule");
@@ -2266,9 +2262,7 @@ public class VideoModule implements CameraModule,
             if (!mIsVideoCaptureIntent) {
                 mUI.enableCameraControls(true);
             }
-            // The orientation was fixed during video recording. Now make it
-            // reflect the device orientation as video recording is stopped.
-            mUI.setOrientationIndicator(0, true);
+
             keepScreenOnAwhile();
             if (shouldAddToMediaStoreNow && !fail) {
                 if (mVideoFileDescriptor == null) {

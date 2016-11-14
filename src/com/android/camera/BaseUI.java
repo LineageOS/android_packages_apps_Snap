@@ -12,6 +12,7 @@ import android.view.ViewStub;
 import com.android.camera.ui.CameraControls;
 import com.android.camera.ui.CaptureAnimationOverlay;
 import com.android.camera.ui.ModuleSwitcher;
+import com.android.camera.ui.RecordingTime;
 import com.android.camera.util.CameraUtil;
 
 import org.codeaurora.snapcam.R;
@@ -29,11 +30,13 @@ public abstract class BaseUI {
     protected final CameraActivity mActivity;
     protected final ViewGroup mRootView;
 
-    protected CameraControls mCameraControls;
+    protected final CameraControls mCameraControls;
+    protected final RecordingTime mRecordingTime;
 
     protected int mTopMargin = 0;
     protected int mBottomMargin = 0;
     protected int mScreenRatio = CameraUtil.RATIO_UNKNOWN;
+    protected int mOrientation = 0;
 
     private boolean mOverlaysDisabled;
     private final List<View> mDisabledViews = new ArrayList<>();
@@ -47,6 +50,7 @@ public abstract class BaseUI {
         mCameraControls = (CameraControls) mRootView.findViewById(R.id.camera_controls);
         mCaptureOverlay = (CaptureAnimationOverlay) mRootView.findViewById(R.id.capture_overlay);
         mPreviewCover = mRootView.findViewById(R.id.preview_cover);
+        mRecordingTime = (RecordingTime) mRootView.findViewById(R.id.recording_time);
 
         Point size = new Point();
         mActivity.getWindowManager().getDefaultDisplay().getRealSize(size);
@@ -198,6 +202,42 @@ public abstract class BaseUI {
                 faceView.setVisibility(View.GONE);
                 mDisabledViews.add(faceView);
             }
+        }
+    }
+
+    public void setOrientation(int orientation, boolean animation) {
+        mOrientation = orientation;
+
+        if (mCameraControls != null) {
+            mCameraControls.setOrientation(orientation, animation);
+        }
+        if (mRecordingTime != null) {
+            mRecordingTime.setOrientation(orientation);
+        }
+    }
+
+    public void startRecordingTimer(int frameRate, long frameInterval, long durationMs) {
+        if (mRecordingTime != null) {
+            mRecordingTime.start(frameRate, frameInterval, durationMs);
+        }
+    }
+
+    public void stopRecordingTimer() {
+        if (mRecordingTime != null) {
+            mRecordingTime.stop();
+        }
+    }
+
+    public long getRecordingTime() {
+        if (mRecordingTime != null) {
+            return mRecordingTime.getTime();
+        }
+        return -1;
+    }
+
+    public void showTimeLapseUI(boolean enable) {
+        if (mRecordingTime != null) {
+            mRecordingTime.showTimeLapse(enable);
         }
     }
 }

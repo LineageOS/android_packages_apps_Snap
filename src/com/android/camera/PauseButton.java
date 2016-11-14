@@ -43,8 +43,8 @@ import android.util.Log;
 public class PauseButton extends ImageView {
 
     public interface OnPauseButtonListener {
-        void onButtonPause();
-        void onButtonContinue();
+        public void onButtonPause();
+        public void onButtonContinue();
     }
 
     public PauseButton(Context context, AttributeSet attrs) {
