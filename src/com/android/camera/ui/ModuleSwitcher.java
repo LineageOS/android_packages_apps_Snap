@@ -159,7 +159,7 @@ public class ModuleSwitcher extends RotateImageView {
         // Closes the popup window when touch outside of it - when looses focus
         popup.setOutsideTouchable(true);
         popup.setFocusable(true);
-        popup.setBackgroundDrawable(new ColorDrawable(Color.WHITE));
+        popup.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         popup.setAnimationStyle(android.R.style.Animation_Dialog);
         return popup;
     }

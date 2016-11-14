@@ -44,6 +44,7 @@ import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.util.Log;
+import android.util.Pair;
 import android.util.TypedValue;
 import android.view.Display;
 import android.view.OrientationEventListener;
@@ -83,7 +84,7 @@ import java.util.TreeSet;
  * Collection of utility functions used in this package.
  */
 public class CameraUtil {
-    private static final String TAG = "Util";
+    private static final String TAG = "CAM_Util";
 
     // For calculate the best fps range for still image capture.
     private final static int MAX_PREVIEW_FPS_TIMES_1000 = 400000;
@@ -1283,6 +1284,17 @@ public class CameraUtil {
             return ".mp4";
         }
         return ".3gp";
+    }
+
+    public static Pair<Integer, Integer> calculateMargins(Activity activity) {
+        Point size = new Point();
+        activity.getWindowManager().getDefaultDisplay().getRealSize(size);
+        int l = size.x > size.y ? size.x : size.y;
+        int tm = activity.getResources().getDimensionPixelSize(R.dimen.preview_top_margin);
+        int bm = activity.getResources().getDimensionPixelSize(R.dimen.preview_bottom_margin);
+        int top = l / 4 * tm / (tm + bm);
+        int bottom = l / 4 - top;
+        return Pair.create(top, bottom);
     }
 
     /**

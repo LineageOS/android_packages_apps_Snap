@@ -48,7 +48,7 @@
 
     <color name="recording_time_elapsed_text">@color/white</color>
     <color name="recording_time_remaining_text">@color/red</color>
-    <color name="on_viewfinder_label_background_color">@color/black</color>
+    <color name="on_viewfinder_label_background_color">#401b1b1b</color>
     <color name="review_control_pressed_color">@color/blue</color>
     <color name="review_control_pressed_fan_color">@color/blue</color>
     <color name="review_background">@color/black</color>

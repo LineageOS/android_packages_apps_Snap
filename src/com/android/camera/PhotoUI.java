@@ -252,8 +252,6 @@ public class PhotoUI extends BaseUI implements PieListener,
         mShutterButton = (ShutterButton) mRootView.findViewById(R.id.shutter_button);
         mMenuButton = mRootView.findViewById(R.id.menu);
 
-        mCameraControls.disableMuteButton();
-
         ViewStub faceViewStub = (ViewStub) mRootView
                 .findViewById(R.id.face_view_stub);
         if (faceViewStub != null) {
@@ -262,11 +260,8 @@ public class PhotoUI extends BaseUI implements PieListener,
             setSurfaceTextureSizeChangedListener(mFaceView);
         }
         mFocusRing = (FocusRing) mRootView.findViewById(R.id.focus_ring);
-        initIndicators();
         mOrientationResize = false;
         mPrevOrientationResize = false;
-
-        showFirstTimeHelp();
     }
 
     public void setDownFactor(int factor) {
@@ -305,7 +300,6 @@ public class PhotoUI extends BaseUI implements PieListener,
             mAspectRatioResize = true;
             mAspectRatio = ratio;
         }
-        mCameraControls.setPreviewRatio(mAspectRatio, false);
         layoutPreview(ratio);
     }
 
@@ -580,8 +574,9 @@ public class PhotoUI extends BaseUI implements PieListener,
 
     // called from onResume but only the first time
     public void initializeFirstTime() {
+        initIndicators();
+
         // Initialize shutter button.
-        mShutterButton.setImageResource(R.drawable.shutter_button_anim);
         mShutterButton.setImageResource(R.drawable.btn_new_shutter);
         mShutterButton.setOnClickListener(new OnClickListener() {
             @Override
@@ -596,6 +591,8 @@ public class PhotoUI extends BaseUI implements PieListener,
 
         mShutterButton.addOnShutterButtonListener(mController);
         mShutterButton.setVisibility(View.VISIBLE);
+
+        mCameraControls.disableMuteButton();
     }
 
     // called from onResume every other time
@@ -634,7 +631,7 @@ public class PhotoUI extends BaseUI implements PieListener,
 
     public void updateOnScreenIndicators(Camera.Parameters params,
             PreferenceGroup group, ComboPreferences prefs) {
-        if (params == null || group == null) return;
+        if (params == null || group == null || mOnScreenIndicators == null) return;
         mOnScreenIndicators.updateSceneOnScreenIndicator(params.getSceneMode());
         mOnScreenIndicators.updateExposureOnScreenIndicator(params,
                 CameraSettings.readExposure(prefs));

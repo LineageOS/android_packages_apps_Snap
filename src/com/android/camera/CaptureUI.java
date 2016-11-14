@@ -355,7 +355,6 @@ public class CaptureUI extends BaseUI implements PreviewGestures.SingleTapListen
         mRenderOverlay.requestLayout();
 
         ((ViewGroup)mRootView).removeView(mRecordingTimeRect);
-        mCameraControls.setPreviewRatio(0, true);
     }
 
     public void onCameraOpened(List<Integer> cameraIds) {
@@ -399,7 +398,8 @@ public class CaptureUI extends BaseUI implements PreviewGestures.SingleTapListen
                 mModule.onVideoButtonClick();
             }
         });
-        mCameraControls.setPreviewRatio(0, true);
+
+        mCameraControls.disableMuteButton();
     }
 
     public void initializeZoom(List<Integer> ids) {

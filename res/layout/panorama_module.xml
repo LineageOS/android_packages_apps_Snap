@@ -129,6 +129,7 @@
     </com.android.camera.ui.RotateLayout>
 
     <include layout="@layout/camera_controls"
-             android:layout_gravity="center"
-             style="@style/CameraControls"/>
+        android:layout_gravity="center"
+        style="@style/CameraControls"/>
+
 </merge>

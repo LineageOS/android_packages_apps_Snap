@@ -230,6 +230,7 @@ public class PhotoModule
     private int SCE_FACTOR_STEP = 10;
 
     private boolean mPreviewRestartSupport = false;
+    private boolean mPreviewStarting = false;
 
     // mCropValue and mSaveUri are used only if isImageCaptureIntent() is true.
     private String mCropValue;
@@ -2957,11 +2958,12 @@ public class PhotoModule
     /** This can run on a background thread, so don't do UI updates here. Post any
              view updates to MainHandler or do it on onPreviewStarted() .  */
     private void startPreview() {
-        if (mPaused || mCameraDevice == null || mParameters == null) {
+        if (mPaused || mCameraDevice == null || mParameters == null || mPreviewStarting) {
             return;
         }
 
         synchronized (mCameraDevice) {
+            mPreviewStarting = true;
             SurfaceHolder sh = null;
             Log.v(TAG, "startPreview: SurfaceHolder (MDP path)");
             if (mUI != null) {
@@ -3021,6 +3023,7 @@ public class PhotoModule
             Log.v(TAG, "Trigger snapshot from start preview.");
             mHandler.post(mDoSnapRunnable);
         }
+        mPreviewStarting = false;
     }
 
     @Override

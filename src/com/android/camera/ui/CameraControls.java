@@ -21,15 +21,17 @@ import android.animation.Animator.AnimatorListener;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
+import android.app.Activity;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Path;
+import android.graphics.RectF;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.RippleDrawable;
 import android.util.AttributeSet;
 import android.util.Log;
-import android.view.MotionEvent;
+import android.util.Pair;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AccelerateInterpolator;
@@ -60,17 +62,18 @@ public class CameraControls extends RotatableLayout {
     private View mVideoShutter;
     private ModuleSwitcher mSwitcher;
     private View mTsMakeupSwitcher;
-    private View mPreview;
+    private View mThumbnail;
     private View mAutoHdrNotice;
     private HistogramView mHistogramView;
     private ArrowTextView mRefocusToast;
+    private View mFrontBackSwitcher;
+    private View mMenu;
 
     private View mReviewDoneButton;
     private View mReviewCancelButton;
     private View mReviewRetakeButton;
 
     private final List<View> mViews = new ArrayList<>();
-    private final List<View> mFreeList = new ArrayList<>();
 
     private static final int WIDTH_GRID = 5;
     private static final int HEIGHT_GRID = 7;
@@ -102,7 +105,9 @@ public class CameraControls extends RotatableLayout {
         }
         @Override
         public void onAnimationEnd(Animator animation) {
+            setChildrenVisibility(mBottomBar, false);
             if (mFullyHidden) {
+                setChildrenVisibility(mTopBar, false);
                 setVisibility(View.INVISIBLE);
             }
         }
@@ -111,7 +116,9 @@ public class CameraControls extends RotatableLayout {
     AnimatorListener inlistener = new AnimatorListenerAdapter() {
         @Override
         public void onAnimationStart(Animator animation) {
+            setChildrenVisibility(mBottomBar, true);
             if (mFullyHidden) {
+                setChildrenVisibility(mTopBar, true);
                 setVisibility(View.VISIBLE);
                 mFullyHidden = false;
             }
@@ -122,14 +129,26 @@ public class CameraControls extends RotatableLayout {
         }
     };
 
+    private void setChildrenVisibility(ViewGroup parent, boolean visible) {
+        for (int i = 0; i < parent.getChildCount(); i++) {
+            View v = parent.getChildAt(i);
+            if (v.getVisibility() != View.GONE) {
+                v.setVisibility(visible ? View.VISIBLE : View.INVISIBLE);
+            }
+        }
+    }
+
     public CameraControls(Context context, AttributeSet attrs) {
         super(context, attrs);
-
         mRefocusToast = new ArrowTextView(context);
         addView(mRefocusToast);
         setClipChildren(false);
 
         setMeasureAllChildren(true);
+
+        Pair<Integer, Integer> margins = CameraUtil.calculateMargins((Activity)context);
+        mTopMargin = margins.first;
+        mBottomMargin = margins.second;
     }
 
     public CameraControls(Context context) {
@@ -142,12 +161,15 @@ public class CameraControls extends RotatableLayout {
 
     public void enableTouch(boolean enable) {
         Log.d(TAG, "ENABLE TOUCH " + enable + " mViews.size=" + mViews.size());
-        for (View v : mViews) {
-            if (v.getVisibility() != View.GONE) {
-                if (enable) {
-                    v.setPressed(false);
+
+        synchronized (mViews) {
+            for (View v : mViews) {
+                if (v.getVisibility() != View.GONE) {
+                    if (enable) {
+                        v.setPressed(false);
+                    }
+                    v.setEnabled(enable);
                 }
-                v.setEnabled(enable);
             }
         }
 
@@ -158,11 +180,13 @@ public class CameraControls extends RotatableLayout {
     }
 
     public void removeFromViewList(View view) {
-        synchronized (mFreeList) {
+        synchronized (mViews) {
             if (view == null || !mViews.contains(view)) {
                 return;
             }
-            mFreeList.add(view);
+            view.setVisibility(View.GONE);
+            removeView(view);
+            mViews.remove(view);
             requestLayout();
         }
     }
@@ -176,26 +200,30 @@ public class CameraControls extends RotatableLayout {
         mShutter = (ShutterButton) findViewById(R.id.shutter_button);
         mVideoShutter = findViewById(R.id.video_button);
         mTsMakeupSwitcher = findViewById(R.id.ts_makeup_switcher);
-        mPreview = findViewById(R.id.preview_thumb);
+        mThumbnail = findViewById(R.id.preview_thumb);
         mRemainingPhotos = (LinearLayout) findViewById(R.id.remaining_photos);
         mRemainingPhotosText = (TextView) findViewById(R.id.remaining_photos_text);
         mAutoHdrNotice = (TextView) findViewById(R.id.auto_hdr_notice);
         mHistogramView = (HistogramView) findViewById(R.id.histogram);
+        mFrontBackSwitcher = findViewById(R.id.front_back_switcher);
+        mMenu = findViewById(R.id.menu);
 
         if (!TsMakeupManager.HAS_TS_MAKEUP) {
             mTopBar.removeView(mTsMakeupSwitcher);
         }
 
-        for (int i = 0; i < mTopBar.getChildCount(); i++) {
-            mViews.add(mTopBar.getChildAt(i));
-        }
+        synchronized (mViews) {
+            for (int i = 0; i < mTopBar.getChildCount(); i++) {
+                mViews.add(mTopBar.getChildAt(i));
+            }
 
-        for (int i = 0; i < mBottomBar.getChildCount(); i++) {
-            mViews.add(mBottomBar.getChildAt(i));
-        }
+            for (int i = 0; i < mBottomBar.getChildCount(); i++) {
+                mViews.add(mBottomBar.getChildAt(i));
+            }
 
-        mViews.add(mAutoHdrNotice);
-        mViews.add(mHistogramView);
+            mViews.add(mAutoHdrNotice);
+            mViews.add(mHistogramView);
+        }
 
         mShutter.addOnShutterButtonListener(mShutterListener);
 
@@ -222,13 +250,13 @@ public class CameraControls extends RotatableLayout {
     public void hideSwitcher() {
         if (mSwitcher != null) {
             mSwitcher.closePopup();
-            mSwitcher.setVisibility(View.INVISIBLE);
+            mSwitcher.setEnabled(false);
         }
     }
 
     public void showSwitcher() {
         if (mSwitcher != null) {
-            mSwitcher.setVisibility(View.VISIBLE);
+            mSwitcher.setEnabled(true);
         }
     }
 
@@ -271,26 +299,9 @@ public class CameraControls extends RotatableLayout {
 
     @Override
     public void onLayout(boolean changed, int l, int t, int r, int b) {
-        synchronized (mFreeList) {
-            if (mFreeList.size() > 0) {
-                for (View v : mFreeList) {
-                    v.setVisibility(View.GONE);
-                    removeView(v);
-                    mViews.remove(v);
-                }
-            }
-        }
+        Log.d(TAG, String.format("onLayout changed=%b l=%d t=%d r=%d b=%d", changed, l, t, r, b));
 
-        // As l,t,r,b are positions relative to parents, we need to convert them
-        // to child's coordinates
-        r = r - l;
-        b = b - t;
-        l = 0;
-        t = 0;
-        for (int i = 0; i < getChildCount(); i++) {
-            View v = getChildAt(i);
-            v.layout(l, t, r, b);
-        }
+        super.onLayout(changed, l, t, r, b);
 
         ViewGroup.LayoutParams lpTop = mTopBar.getLayoutParams();
         lpTop.height = mTopMargin;
@@ -344,6 +355,19 @@ public class CameraControls extends RotatableLayout {
                 }
             }
         });
+    }
+
+    @Override
+    public void onAttachedToWindow() {
+        super.onAttachedToWindow();
+        mTopBar.setTranslationX(0);
+        mTopBar.setTranslationY(0);
+        mBottomBar.setTranslationX(0);
+        mBottomBar.setTranslationY(0);
+        mHidden = false;
+        mFullyHidden = false;
+        setChildrenVisibility(mTopBar, true);
+        setChildrenVisibility(mBottomBar, true);
     }
 
     private void setLocation(int w, int h) {
@@ -452,6 +476,11 @@ public class CameraControls extends RotatableLayout {
         mAnimator.start();
     }
 
+    public void setMenuAndSwitcherEnabled(boolean enable) {
+        mMenu.setEnabled(enable);
+        mFrontBackSwitcher.setEnabled(enable);
+    }
+
     public void hideUI(boolean toBlack) {
         if (mHidden) {
             return;
@@ -493,10 +522,10 @@ public class CameraControls extends RotatableLayout {
     }
 
     private void layoutRemaingPhotos() {
-        int rl = mPreview.getLeft();
-        int rt = mPreview.getTop();
-        int rr = mPreview.getRight();
-        int rb = mPreview.getBottom();
+        int rl = mThumbnail.getLeft();
+        int rt = mThumbnail.getTop();
+        int rr = mThumbnail.getRight();
+        int rb = mThumbnail.getBottom();
         int w = mRemainingPhotos.getMeasuredWidth();
         int h = mRemainingPhotos.getMeasuredHeight();
         int m = getResources().getDimensionPixelSize(R.dimen.remaining_photos_margin);
@@ -537,25 +566,14 @@ public class CameraControls extends RotatableLayout {
         return !mHidden;
     }
 
-    public void setMargins(int top, int bottom) {
-        mTopMargin = top;
-        mBottomMargin = bottom;
-    }
-
-    private void setBarsBackground(int resId) {
-        mTopBar.setBackgroundResource(resId);
-        mBottomBar.setBackgroundResource(resId);
-    }
-
-    public void setPreviewRatio(float ratio, boolean panorama) {
-        int r = CameraUtil.determineRatio(ratio);
+    public void setPreviewRect(RectF rectL) {
+        int r = CameraUtil.determineRatio(Math.round(rectL.width()), Math.round(rectL.height()));
         mPreviewRatio = r;
         if (mPreviewRatio == CameraUtil.RATIO_4_3 && mTopMargin != 0) {
-            setBarsBackground(R.drawable.camera_controls_bg_opaque);
+            mBottomBar.setBackgroundResource(R.drawable.camera_controls_bg_opaque);
         } else {
-            setBarsBackground(R.drawable.camera_controls_bg_translucent);
+            mBottomBar.setBackgroundResource(R.drawable.camera_controls_bg_translucent);
         }
-        requestLayout();
     }
 
     public void showRefocusToast(boolean show) {
@@ -577,11 +595,13 @@ public class CameraControls extends RotatableLayout {
     public void setOrientation(int orientation, boolean animation) {
         mOrientation = orientation;
 
-        for (View v : mViews) {
-            if (v instanceof RotateImageView) {
-                ((RotateImageView) v).setOrientation(orientation, animation);
-            } else if (v instanceof HistogramView) {
-                ((HistogramView) v).setRotation(-orientation);
+        synchronized (mViews) {
+            for (View v : mViews) {
+                if (v instanceof RotateImageView) {
+                    ((RotateImageView) v).setOrientation(orientation, animation);
+                } else if (v instanceof HistogramView) {
+                    ((HistogramView) v).setRotation(-orientation);
+                }
             }
         }
         layoutRemaingPhotos();

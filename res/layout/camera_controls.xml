@@ -20,8 +20,9 @@
 
     <LinearLayout
         android:id="@+id/top_bar"
+        android:background="@drawable/camera_controls_bg_translucent"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="@dimen/preview_top_margin"
         android:gravity="center_vertical"
         android:orientation="horizontal">
 
@@ -66,26 +67,18 @@
 
     </LinearLayout>
 
-    <include
-        android:layout_width="64dip"
-        android:layout_height="64dip"
-        android:layout_gravity="bottom|right"
-        android:layout_marginBottom="8dip"
-        android:layout_marginRight="-8dip"
-        layout="@layout/menu_indicators" />
-
     <LinearLayout
         android:id="@+id/bottom_bar"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="@dimen/preview_bottom_margin"
         android:gravity="center_vertical"
-        android:weightSum="3"
+        android:background="@drawable/camera_controls_bg_translucent"
         android:orientation="horizontal">
 
 		<com.android.camera.ui.RotateImageView
 			android:id="@+id/preview_thumb"
-			android:layout_width="0dp"
-			android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/thumbnail_size"
 			android:layout_weight="1"
             android:layout_gravity="center"
 			android:background="@android:color/transparent"
@@ -93,32 +86,32 @@
             android:elevation="1dp"
 			android:scaleType="fitCenter" />
 
-		<com.android.camera.ShutterButton
-			android:id="@+id/shutter_button"
-			android:layout_width="0dp"
-			android:layout_height="wrap_content"
+        <com.android.camera.ShutterButton
+            android:id="@+id/shutter_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
-			android:clickable="true"
-			android:contentDescription="@string/accessibility_shutter_button"
-			android:focusable="true"
-			android:scaleType="fitCenter"
-			android:layout_weight="1"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:contentDescription="@string/accessibility_shutter_button"
+            android:focusable="true"
+            android:scaleType="fitCenter"
             android:elevation="1dp"
-			android:src="@drawable/btn_new_shutter" />
+            android:src="@drawable/btn_new_shutter" />
 
-		<ImageView
-			android:id="@+id/video_button"
-			android:visibility="gone"
-			android:layout_width="0dp"
-			android:layout_height="wrap_content"
-			android:clickable="true"
-			android:contentDescription="@string/accessibility_shutter_button"
-			android:focusable="true"
-			android:scaleType="fitCenter"
-			android:layout_weight="1"
+        <ImageView
+            android:id="@+id/video_button"
+            android:visibility="gone"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:contentDescription="@string/accessibility_shutter_button"
+            android:focusable="true"
+            android:scaleType="fitCenter"
             android:elevation="1dp"
-			android:src="@drawable/btn_new_shutter_video" />
+            android:src="@drawable/btn_new_shutter_video" />
 
         <com.android.camera.ui.ModuleSwitcher
             android:id="@+id/camera_switcher"
@@ -131,6 +124,14 @@
             android:elevation="1dp"
             android:contentDescription="@string/accessibility_mode_picker" />
 	</LinearLayout>
+
+    <include
+        android:layout_width="64dip"
+        android:layout_height="64dip"
+        android:layout_gravity="bottom|right"
+        android:layout_marginBottom="8dip"
+        android:layout_marginRight="-8dip"
+        layout="@layout/menu_indicators" />
 
     <LinearLayout
         android:id="@+id/remaining_photos"

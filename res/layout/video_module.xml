@@ -15,6 +15,7 @@
 -->
 <!-- This layout is shared by phone and tablet in landscape orientation. -->
 <merge xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@android:color/black"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center" >
@@ -23,11 +24,18 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center_vertical|center_horizontal" >
-        <SurfaceView
+        <com.android.camera.ui.AutoFitSurfaceView
             android:id="@+id/mdp_preview_content"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
     </FrameLayout>
+
+    <View
+        android:id="@+id/preview_cover"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/black" />
+
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -37,53 +45,32 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:visibility="gone"/>
+        <com.android.camera.ui.focus.FocusRingView
+            android:id="@+id/focus_ring"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+        <com.android.camera.ui.CaptureAnimationOverlay
+            android:id="@+id/capture_overlay"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone" />
     </FrameLayout>
-    <View
-        android:id="@+id/preview_cover"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@android:color/black" />
-    <FrameLayout android:id="@+id/preview_border"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:visibility="gone"
-        android:background="@drawable/ic_snapshot_border" />
+
     <com.android.camera.ui.RenderOverlay
         android:id="@+id/render_overlay"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
-    <com.android.camera.ui.RotateLayout
-        android:id="@+id/recording_time_rect"
-        android:layout_height="match_parent"
-        android:layout_width="match_parent">
-        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            android:orientation="horizontal"
-            android:layout_height="match_parent"
-            android:layout_width="match_parent">
-            <com.android.camera.PauseButton android:id="@+id/video_pause"
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:layout_marginLeft="50dp"
-                android:padding="38dp"
-                android:src="@drawable/btn_pause_recording"/>
-            <include layout="@layout/viewfinder_labels_video"
-                android:id="@+id/labels" />
-        </LinearLayout>
-    </com.android.camera.ui.RotateLayout>
-    <com.android.camera.ui.focus.FocusRingView
-        android:id="@+id/focus_ring"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-    <com.android.camera.ui.CaptureAnimationOverlay
-        android:id="@+id/capture_overlay"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:visibility="gone" />
+
+
+    <include layout="@layout/recording_time"
+        android:id="@+id/recording_time" />
+
     <ImageView android:id="@+id/review_image"
         android:layout_height="match_parent"
         android:layout_width="match_parent"
         android:visibility="gone"
         android:background="@android:color/black"/>
+
     <ImageView
         android:id="@+id/btn_play"
         style="@style/ReviewControlIcon"
@@ -92,7 +79,9 @@
         android:scaleType="center"
         android:visibility="gone"
         android:onClick="onReviewPlayClicked"/>
+
     <include layout="@layout/camera_controls"
         android:layout_gravity="center"
         style="@style/CameraControls"/>
+
 </merge>
