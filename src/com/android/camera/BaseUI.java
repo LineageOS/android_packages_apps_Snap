@@ -1,3 +1,18 @@
+/*
+ * Copyright (C) 2016 The CyanogenMod Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package com.android.camera;
 
 import android.graphics.Bitmap;
@@ -7,7 +22,6 @@ import android.util.Log;
 import android.util.Pair;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewStub;
 
 import com.android.camera.ui.CameraControls;
 import com.android.camera.ui.CaptureAnimationOverlay;
@@ -20,9 +34,13 @@ import org.codeaurora.snapcam.R;
 import java.util.ArrayList;
 import java.util.List;
 
-/** we can start accumulating common code between UI classes here
- *  toward an eventual unification - WF */
+/**
+ * we can start accumulating common code between UI classes here
+ * toward an eventual unification - WF
+ */
 public abstract class BaseUI {
+
+    private static final String TAG = "CAM_" + BaseUI.class.getSimpleName();
 
     protected final CaptureAnimationOverlay mCaptureOverlay;
     protected final View mPreviewCover;
@@ -39,6 +57,8 @@ public abstract class BaseUI {
     protected int mOrientation = 0;
 
     private boolean mOverlaysDisabled;
+    private float mPreviewCoverAlpha;
+
     private final List<View> mDisabledViews = new ArrayList<>();
 
     public BaseUI(CameraActivity activity, ViewGroup rootView, int layout) {
@@ -61,36 +81,56 @@ public abstract class BaseUI {
         mBottomMargin = margins.second;
     }
 
-    private void calculateMargins(Point size) {
-        int l = size.x > size.y ? size.x : size.y;
-        int tm = mActivity.getResources().getDimensionPixelSize(R.dimen.preview_top_margin);
-        int bm = mActivity.getResources().getDimensionPixelSize(R.dimen.preview_bottom_margin);
-        mTopMargin = l / 4 * tm / (tm + bm);
-        mBottomMargin = l / 4 - mTopMargin;
+    public void onPreviewFocusChanged(boolean previewFocused) {
+        if (previewFocused) {
+            showUI();
+        } else {
+            hideUI(true);
+        }
     }
 
     public void showPreviewCover() {
-        if (mPreviewCover != null && mPreviewCover.getVisibility() != View.VISIBLE) {
-            mPreviewCover.setVisibility(View.VISIBLE);
-            disableOverlays();
+        if (mPreviewCover != null) {
+            synchronized (mPreviewCover) {
+                if (mPreviewCover.getVisibility() != View.VISIBLE) {
+                    mPreviewCover.setAlpha(0.0f);
+                    mPreviewCover.setVisibility(View.VISIBLE);
+                    disableOverlays();
+                }
+            }
         }
     }
 
     public void hidePreviewCover() {
-        if (mPreviewCover != null && mPreviewCover.getVisibility() != View.GONE) {
-            mPreviewCover.setVisibility(View.GONE);
-            enableOverlays();
+        if (mPreviewCover != null) {
+            synchronized (mPreviewCover) {
+                if (mPreviewCover.getVisibility() != View.GONE) {
+                    mPreviewCover.setAlpha(1.0f);
+                    mPreviewCover.setVisibility(View.GONE);
+                    enableOverlays();
+                }
+            }
         }
     }
 
-    public void setPreviewCoverAlpha(float alpha) {
+    public void animateControls(float offset) {
         if (mPreviewCover != null) {
-            mPreviewCover.setAlpha(alpha);
+            synchronized (mPreviewCover) {
+                setPreviewCoverAlpha(offset, false);
+                if (mCameraControls != null) {
+                    mCameraControls.setUIOffset(offset, true);
+                }
+            }
         }
     }
 
     public boolean isPreviewCoverVisible() {
-        return mPreviewCover != null && mPreviewCover.getVisibility() == View.VISIBLE;
+        if (mPreviewCover == null) {
+            return false;
+        }
+        synchronized (mPreviewCover) {
+            return mPreviewCover.getVisibility() == View.VISIBLE;
+        }
     }
 
     public void hideUI() {
@@ -98,14 +138,28 @@ public abstract class BaseUI {
     }
 
     protected void hideUI(boolean toBlack) {
-        if (mCameraControls != null) {
-            mCameraControls.hideUI(toBlack);
+        if (mPreviewCover != null) {
+            synchronized (mPreviewCover) {
+                if (toBlack) {
+                    setPreviewCoverAlpha(1.0f, true);
+                } else {
+                    setPreviewCoverAlpha(0.4f, true);
+                }
+                if (mCameraControls != null) {
+                    mCameraControls.hideUI(toBlack);
+                }
+            }
         }
     }
 
     protected void showUI() {
-        if (mCameraControls != null) {
-            mCameraControls.showUI();
+        if (mPreviewCover != null) {
+            synchronized (mPreviewCover) {
+                setPreviewCoverAlpha(0.0f, true);
+                if (mCameraControls != null) {
+                    mCameraControls.showUI();
+                }
+            }
         }
     }
 
@@ -238,6 +292,32 @@ public abstract class BaseUI {
     public void showTimeLapseUI(boolean enable) {
         if (mRecordingTime != null) {
             mRecordingTime.showTimeLapse(enable);
+        }
+    }
+
+    private void setPreviewCoverAlpha(float alpha, boolean animate) {
+        if (mPreviewCover == null) {
+            return;
+        }
+        synchronized (mPreviewCover) {
+            if (alpha == mPreviewCoverAlpha || alpha < 0.0f || alpha > 1.0f) {
+                return;
+            }
+
+            if (alpha == 0.0f) {
+                hidePreviewCover();
+            } else {
+                showPreviewCover();
+            }
+
+            if (animate) {
+                mPreviewCover.animate().cancel();
+                mPreviewCover.animate().alpha(alpha).start();
+            } else {
+                mPreviewCover.setAlpha(alpha);
+            }
+
+            mPreviewCoverAlpha = alpha;
         }
     }
 }

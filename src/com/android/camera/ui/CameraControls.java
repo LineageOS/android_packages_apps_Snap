@@ -21,6 +21,7 @@ import android.animation.Animator.AnimatorListener;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
+import android.animation.ValueAnimator;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Canvas;
@@ -31,6 +32,7 @@ import android.graphics.drawable.Drawable;
 import android.graphics.drawable.RippleDrawable;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.util.MathUtils;
 import android.util.Pair;
 import android.view.View;
 import android.view.ViewGroup;
@@ -49,14 +51,13 @@ import com.android.camera.util.CameraUtil;
 import org.codeaurora.snapcam.R;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 public class CameraControls extends RotatableLayout {
 
     private static final String TAG = "CAM_Controls";
-
-    private LinearLayout mTopBar;
-    private LinearLayout mBottomBar;
 
     private ShutterButton mShutter;
     private View mVideoShutter;
@@ -69,6 +70,9 @@ public class CameraControls extends RotatableLayout {
     private View mFrontBackSwitcher;
     private View mMenu;
 
+    private ViewGroup mTopBar;
+    private ViewGroup mBottomBar;
+
     private View mReviewDoneButton;
     private View mReviewCancelButton;
     private View mReviewRetakeButton;
@@ -77,11 +81,6 @@ public class CameraControls extends RotatableLayout {
 
     private static final int WIDTH_GRID = 5;
     private static final int HEIGHT_GRID = 7;
-    private boolean mHidden = false;
-    private AnimatorSet mAnimator = null;
-    private boolean mFullyHidden = false;
-
-    private static final int ANIME_DURATION = 300;
 
     private boolean mHideRemainingPhoto = false;
     private LinearLayout mRemainingPhotos;
@@ -98,36 +97,32 @@ public class CameraControls extends RotatableLayout {
 
     private int mModuleIndex = -1;
 
-    AnimatorListener outlistener = new AnimatorListenerAdapter() {
-        @Override
-        public void onAnimationStart(Animator animation) {
-            enableTouch(false);
-        }
-        @Override
-        public void onAnimationEnd(Animator animation) {
-            setChildrenVisibility(mBottomBar, false);
-            if (mFullyHidden) {
-                setChildrenVisibility(mTopBar, false);
-                setVisibility(View.INVISIBLE);
-            }
-        }
-    };
+    private final AnimationHelper mAnimationHelper;
 
-    AnimatorListener inlistener = new AnimatorListenerAdapter() {
-        @Override
-        public void onAnimationStart(Animator animation) {
-            setChildrenVisibility(mBottomBar, true);
-            if (mFullyHidden) {
-                setChildrenVisibility(mTopBar, true);
-                setVisibility(View.VISIBLE);
-                mFullyHidden = false;
-            }
-        }
-        @Override
-        public void onAnimationEnd(Animator animation) {
-            enableTouch(true);
-        }
-    };
+    public CameraControls(Context context, AttributeSet attrs) {
+        super(context, attrs);
+        mRefocusToast = new ArrowTextView(context);
+        addView(mRefocusToast);
+        setClipChildren(false);
+
+        setMeasureAllChildren(true);
+
+        Pair<Integer, Integer> margins = CameraUtil.calculateMargins((Activity) context);
+        mTopMargin = margins.first;
+        mBottomMargin = margins.second;
+
+        mAnimationHelper = new AnimationHelper();
+    }
+
+    public CameraControls(Context context) {
+        this(context, null);
+    }
+
+    public boolean isAnimating() {
+        return mAnimationHelper.isAnimating();
+    }
+
+    public void reset() { mAnimationHelper.reset(); }
 
     private void setChildrenVisibility(ViewGroup parent, boolean visible) {
         for (int i = 0; i < parent.getChildCount(); i++) {
@@ -138,30 +133,7 @@ public class CameraControls extends RotatableLayout {
         }
     }
 
-    public CameraControls(Context context, AttributeSet attrs) {
-        super(context, attrs);
-        mRefocusToast = new ArrowTextView(context);
-        addView(mRefocusToast);
-        setClipChildren(false);
-
-        setMeasureAllChildren(true);
-
-        Pair<Integer, Integer> margins = CameraUtil.calculateMargins((Activity)context);
-        mTopMargin = margins.first;
-        mBottomMargin = margins.second;
-    }
-
-    public CameraControls(Context context) {
-        this(context, null);
-    }
-
-    public boolean isAnimating() {
-        return mAnimator != null && mAnimator.isRunning();
-    }
-
     public void enableTouch(boolean enable) {
-        Log.d(TAG, "ENABLE TOUCH " + enable + " mViews.size=" + mViews.size());
-
         synchronized (mViews) {
             for (View v : mViews) {
                 if (v.getVisibility() != View.GONE) {
@@ -227,7 +199,7 @@ public class CameraControls extends RotatableLayout {
 
         mShutter.addOnShutterButtonListener(mShutterListener);
 
-        mSwitcher.setSwitchListener((CameraActivity)getContext());
+        mSwitcher.setSwitchListener((CameraActivity) getContext());
         mSwitcher.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -357,19 +329,6 @@ public class CameraControls extends RotatableLayout {
         });
     }
 
-    @Override
-    public void onAttachedToWindow() {
-        super.onAttachedToWindow();
-        mTopBar.setTranslationX(0);
-        mTopBar.setTranslationY(0);
-        mBottomBar.setTranslationX(0);
-        mBottomBar.setTranslationY(0);
-        mHidden = false;
-        mFullyHidden = false;
-        setChildrenVisibility(mTopBar, true);
-        setChildrenVisibility(mBottomBar, true);
-    }
-
     private void setLocation(int w, int h) {
         int rotation = getUnifiedRotation();
         layoutToast(mRefocusToast, w, h, rotation);
@@ -422,103 +381,21 @@ public class CameraControls extends RotatableLayout {
         mAutoHdrNotice.setVisibility(enabled ? View.VISIBLE : View.GONE);
     }
 
-    private ObjectAnimator getViewAnimation(View v, float distance, boolean vertical) {
-        final ObjectAnimator anim = ObjectAnimator.ofFloat(v,
-                (vertical ? "translationY" : "translationX"), distance);
-        anim.setDuration(ANIME_DURATION);
-        return anim;
-    }
-
-    private void animateViews(boolean enabled, boolean full, AnimatorListener listener) {
-        int rotation = getUnifiedRotation();
-        int topSize = enabled ? 0 : -mTopMargin;
-        int bottomSize = enabled ? 0 : mBottomMargin;
-        boolean vertical = true;
-        switch (rotation) {
-            case 0:
-                break;
-            case 90:
-                vertical = false;
-                break;
-            case 180:
-                topSize = -topSize;
-                bottomSize = -bottomSize;
-                break;
-            case 270:
-                topSize = -topSize;
-                bottomSize = -bottomSize;
-                vertical = false;
-                break;
-        }
-
-        mAnimator = new AnimatorSet();
-        mAnimator.addListener(listener);
-        mAnimator.setDuration(ANIME_DURATION);
-        mAnimator.setInterpolator(enabled ?
-                new DecelerateInterpolator() :
-                new AccelerateInterpolator());
-
-        if (full) {
-            mAnimator.playTogether(getViewAnimation(mTopBar, topSize, vertical),
-                                   getViewAnimation(mBottomBar, bottomSize, vertical));
-        } else {
-            final ArrayList<ObjectAnimator> anims = new ArrayList<>();
-            for (int i = 0; i < mBottomBar.getChildCount(); i++) {
-                View v = mBottomBar.getChildAt(i);
-                if (v.getVisibility() != View.GONE) {
-                    anims.add(getViewAnimation(v, bottomSize, vertical));
-                }
-            }
-            if (anims.size() > 0) {
-                mAnimator.playTogether(anims.toArray(new ObjectAnimator[anims.size()]));
-            }
-        }
-        mAnimator.start();
-    }
-
     public void setMenuAndSwitcherEnabled(boolean enable) {
         mMenu.setEnabled(enable);
         mFrontBackSwitcher.setEnabled(enable);
     }
 
+    public void setUIOffset(float offset, boolean toBlack) {
+        mAnimationHelper.slideTo(offset, toBlack);
+    }
+
     public void hideUI(boolean toBlack) {
-        if (mHidden) {
-            return;
-        }
-
-        mHidden = true;
-        mFullyHidden = toBlack;
-
-        if (isAnimating()) {
-            mAnimator.cancel();
-        }
-
-        collapse();
-
-        animateViews(false, toBlack, outlistener);
-
-        mRemainingPhotos.setVisibility(View.INVISIBLE);
-        mRefocusToast.setVisibility(View.GONE);
+        mAnimationHelper.slideOut(toBlack);
     }
 
     public void showUI() {
-        if (!mHidden) {
-            return;
-        }
-
-        mHidden = false;
-
-        if (isAnimating()) {
-            mAnimator.cancel();
-        }
-
-        animateViews(true, mFullyHidden, inlistener);
-
-        if ((mRemainingPhotos.getVisibility() == View.INVISIBLE) &&
-                !mHideRemainingPhoto) {
-            mRemainingPhotos.setVisibility(View.VISIBLE);
-        }
-        mRefocusToast.setVisibility(View.GONE);
+        mAnimationHelper.slideIn();
     }
 
     private void layoutRemaingPhotos() {
@@ -563,7 +440,7 @@ public class CameraControls extends RotatableLayout {
     }
 
     public boolean arePreviewControlsVisible() {
-        return !mHidden;
+        return mAnimationHelper.areControlsVisible();
     }
 
     public void setPreviewRect(RectF rectL) {
@@ -574,6 +451,7 @@ public class CameraControls extends RotatableLayout {
         } else {
             mBottomBar.setBackgroundResource(R.drawable.camera_controls_bg_translucent);
         }
+        mAnimationHelper.reset();
     }
 
     public void showRefocusToast(boolean show) {
@@ -631,7 +509,272 @@ public class CameraControls extends RotatableLayout {
         mRemainingPhotosText.setVisibility(View.GONE);
     }
 
-    private class ArrowTextView extends TextView {
+
+    private class AnimationHelper {
+
+        private float mCurrentOffset = 0.0f;
+        private float mTargetOffset = 0.0f;
+
+        private boolean mEntering = false;
+        private boolean mFullyHidden = false;
+
+        private AnimatorSet mAnimator = null;
+
+        private static final boolean DEBUG = false;
+
+        public void slideOut(boolean hideFully) {
+            mTargetOffset = 1.0f;
+            mEntering = false;
+            mFullyHidden = hideFully;
+            dump("slideOut");
+            animate();
+        }
+
+        public void slideIn() {
+            mTargetOffset = 0.0f;
+            mEntering = true;
+            dump("slideIn");
+            animate();
+        }
+
+        public void slideTo(float offset, boolean hideFully) {
+            if (offset > 1.0f || offset < 0.0f || offset == mCurrentOffset) {
+                return;
+            }
+
+            if (mAnimator != null && mAnimator.isRunning()) {
+                return;
+            }
+
+            mTargetOffset = offset;
+            mEntering = mTargetOffset < mCurrentOffset;
+
+            if (mEntering) {
+                preEnter();
+            } else {
+                mFullyHidden = hideFully;
+                preExit();
+            }
+
+            dump("slideTo");
+
+            if (mFullyHidden) {
+
+                mTopBar.setAlpha(1.0f - offset);
+                mBottomBar.setAlpha(1.0f - offset);
+
+                if (isVertical()) {
+                    mTopBar.setTranslationY(getTopTranslation());
+                    mBottomBar.setTranslationY(getBottomTranslation());
+                } else {
+                    mTopBar.setTranslationX(getTopTranslation());
+                    mBottomBar.setTranslationX(getBottomTranslation());
+                }
+            } else {
+                for (int i = 0; i < mBottomBar.getChildCount(); i++) {
+                    View v = mBottomBar.getChildAt(i);
+                    if (v.getVisibility() != View.GONE) {
+                        if (isVertical()) {
+                            v.setTranslationY(getBottomTranslation());
+                        } else {
+                            v.setTranslationX(getBottomTranslation());
+                        }
+                    }
+                }
+            }
+
+            if (mEntering) {
+                postEnter();
+            } else {
+                postExit();
+            }
+        }
+
+        private void reset(View v) {
+            v.setVisibility(View.VISIBLE);
+            v.setTranslationX(0.0f);
+            v.setTranslationY(0.0f);
+            v.setAlpha(1.0f);
+        }
+
+        public void reset() {
+            if (mAnimator != null) {
+                mAnimator.cancel();
+            }
+            for (int i = 0; i < mBottomBar.getChildCount(); i++) {
+                View v = mBottomBar.getChildAt(i);
+                if (v.getVisibility() != View.GONE) {
+                    reset(v);
+                }
+            }
+            reset(mTopBar);
+            reset(mBottomBar);
+
+            mCurrentOffset = 0.0f;
+            mTargetOffset = 0.0f;
+            mFullyHidden = false;
+        }
+
+        private void animate() {
+            if (mAnimator != null) {
+                mAnimator.cancel();
+            }
+
+            mAnimator = new AnimatorSet();
+
+            if (mFullyHidden) {
+                mAnimator.playTogether(
+                        getViewAnimation(mTopBar, getTopTranslation()),
+                        getViewAnimation(mBottomBar, getBottomTranslation()));
+            } else {
+                final ArrayList<ObjectAnimator> anims = new ArrayList<>();
+                for (int i = 0; i < mBottomBar.getChildCount(); i++) {
+                    View v = mBottomBar.getChildAt(i);
+                    if (v.getVisibility() != View.GONE) {
+                        anims.add(getViewAnimation(v, getBottomTranslation()));
+                    }
+                }
+                if (anims.size() > 0) {
+                    mAnimator.playTogether(anims.toArray(new ObjectAnimator[anims.size()]));
+                }
+            }
+
+            mAnimator.start();
+        }
+
+        public boolean isAnimating() {
+            return (mAnimator != null && mAnimator.isRunning()) || !areControlsVisible();
+        }
+
+        public boolean areControlsVisible() {
+            dump("hasOffset");
+            return mCurrentOffset == 0.0f;
+        }
+
+        private float getBottomTranslation() {
+            return MathUtils.lerp(0.0f, mBottomMargin, mTargetOffset);
+        }
+
+        private float getTopTranslation() {
+            return MathUtils.lerp(0.0f, -mTopMargin, mTargetOffset);
+        }
+
+        private boolean isVertical() {
+            return true;
+            //(getUnifiedRotation() / 90) < 2;
+        }
+
+        private int getDuration() {
+            return (mCurrentOffset == 0.0f && mTargetOffset == 1.0f) ? 200 : 20;
+        }
+
+        private AnimatorListener getListener() {
+            return mEntering ? mEnterListener : mExitListener;
+        }
+
+        private ObjectAnimator getViewAnimation(View v, float target) {
+            final ObjectAnimator anim = ObjectAnimator.ofFloat(v,
+                    (isVertical() ? "translationY" : "translationX"), target);
+            anim.setDuration(getDuration());
+            anim.addListener(getListener());
+            return anim;
+        }
+
+        private void preEnter() {
+            if (mCurrentOffset == 1.0f) {
+                if (mFullyHidden) {
+                    mTopBar.setVisibility(View.VISIBLE);
+                    mBottomBar.setVisibility(View.VISIBLE);
+                } else {
+                    setChildrenVisibility(mBottomBar, true);
+                }
+            }
+            dump("preEnter");
+        }
+
+        private void postEnter() {
+            if (mTargetOffset == 0.0f) {
+                enableTouch(true);
+                if ((mRemainingPhotos.getVisibility() == View.INVISIBLE) &&
+                        !mHideRemainingPhoto) {
+                    mRemainingPhotos.setVisibility(View.VISIBLE);
+                }
+                mRefocusToast.setVisibility(View.GONE);
+            }
+            mCurrentOffset = mTargetOffset;
+            dump("postEnter");
+        }
+
+        private void preExit() {
+            if (mCurrentOffset == 0.0f) {
+                collapse();
+                enableTouch(false);
+            }
+            dump("preExit");
+        }
+
+        private void postExit() {
+            if (mTargetOffset == 1.0f) {
+                if (mFullyHidden) {
+                    mTopBar.setVisibility(View.INVISIBLE);
+                    mBottomBar.setVisibility(View.INVISIBLE);
+                } else {
+                    setChildrenVisibility(mBottomBar, false);
+                }
+                mRemainingPhotos.setVisibility(View.INVISIBLE);
+                mRefocusToast.setVisibility(View.GONE);
+            }
+            mCurrentOffset = mTargetOffset;
+            dump("postExit");
+        }
+
+        private void dump(String info) {
+            if (!DEBUG) {
+                return;
+            }
+            float[] tx = new float[mBottomBar.getChildCount()];
+            float[] ty = new float[mBottomBar.getChildCount()];
+            for (int i = 0; i < mBottomBar.getChildCount(); i++) {
+                tx[i] = mBottomBar.getChildAt(i).getTranslationX();
+                ty[i] = mBottomBar.getChildAt(i).getTranslationY();
+            }
+            Log.d(TAG, String.format(
+                    "animate: (%s) currentOffset=%f targetOffset=%f top=%f bottom=%f vertical=%b " +
+                            " topX=%f topY=%f bottomX=%f bottomY=%f " +
+                            " viewsX=%s viewsY=%s fullyHidden=%b entering=%b",
+                    info, mCurrentOffset, mTargetOffset,
+                    getTopTranslation(), getBottomTranslation(), isVertical(),
+                    mTopBar.getTranslationX(), mTopBar.getTranslationY(),
+                    mBottomBar.getTranslationX(), mBottomBar.getTranslationY(),
+                    Arrays.toString(tx), Arrays.toString(ty), mFullyHidden, mEntering));
+        }
+
+        private final AnimatorListener mEnterListener = new AnimatorListenerAdapter() {
+            @Override
+            public void onAnimationStart(Animator animation) {
+                preEnter();
+            }
+
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                postEnter();
+            }
+        };
+
+        private final AnimatorListener mExitListener = new AnimatorListenerAdapter() {
+            @Override
+            public void onAnimationStart(Animator animation) {
+                preExit();
+            }
+
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                postExit();
+            }
+        };
+    }
+
+    private static class ArrowTextView extends TextView {
         private static final int TEXT_SIZE = 14;
         private static final int PADDING_SIZE = 18;
         private static final int BACKGROUND = 0x80000000;

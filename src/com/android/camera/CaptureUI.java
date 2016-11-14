@@ -1428,11 +1428,8 @@ public class CaptureUI extends BaseUI implements PreviewGestures.SingleTapListen
     }
 
     public void onPreviewFocusChanged(boolean previewFocused) {
-        if (previewFocused) {
-            showUI();
-        } else {
-            hideUI(true);
-        }
+        super.onPreviewFocusChanged(previewFocused);
+
         if (mFaceView != null) {
             mFaceView.setBlockDraw(!previewFocused);
         }

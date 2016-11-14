@@ -22,7 +22,8 @@ import android.view.View;
 import com.android.camera.ShutterButton.OnShutterButtonListener;
 
 
-public interface PhotoController extends OnShutterButtonListener {
+public interface PhotoController extends CameraModule, ShutterButton.OnShutterButtonListener {
+
     public static final int INIT = -1;
     public static final int PREVIEW_STOPPED = 0;
     public static final int IDLE = 1;  // preview is active

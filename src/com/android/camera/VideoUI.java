@@ -885,11 +885,8 @@ public class VideoUI extends BaseUI implements PieRenderer.PieListener,
     }
 
     public void onPreviewFocusChanged(boolean previewFocused) {
-        if (previewFocused) {
-            showUI();
-        } else {
-            hideUI(true);
-        }
+        super.onPreviewFocusChanged(previewFocused);
+
         if (mGestures != null) {
             mGestures.setEnabled(previewFocused);
         }
