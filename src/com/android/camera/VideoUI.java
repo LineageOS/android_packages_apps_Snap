@@ -16,19 +16,14 @@
 
 package com.android.camera;
 
-import java.util.List;
-
-import org.codeaurora.snapcam.R;
-
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.Color;
-import android.graphics.Point;
 import android.graphics.RectF;
 import android.graphics.drawable.ColorDrawable;
 import android.hardware.Camera;
-import android.hardware.Camera.Parameters;
 import android.hardware.Camera.Face;
+import android.hardware.Camera.Parameters;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.MotionEvent;
@@ -45,28 +40,26 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.PopupWindow;
-import android.widget.TextView;
-import android.view.View.OnLayoutChangeListener;
 
 import com.android.camera.CameraManager.CameraProxy;
 import com.android.camera.CameraPreference.OnPreferenceChangedListener;
 import com.android.camera.PhotoUI.SurfaceTextureSizeChangedListener;
 import com.android.camera.ui.AbstractSettingPopup;
-import com.android.camera.ui.CameraControls;
 import com.android.camera.ui.CameraRootView;
 import com.android.camera.ui.FaceView;
 import com.android.camera.ui.ListSubMenu;
-import com.android.camera.ui.ModuleSwitcher;
 import com.android.camera.ui.PieRenderer;
-import com.android.camera.ui.RecordingTime;
 import com.android.camera.ui.RenderOverlay;
-import com.android.camera.ui.ReversibleLinearLayout;
-import com.android.camera.ui.RotateLayout;
 import com.android.camera.ui.RotateImageView;
+import com.android.camera.ui.RotateLayout;
 import com.android.camera.ui.RotateTextToast;
 import com.android.camera.ui.ZoomRenderer;
 import com.android.camera.ui.focus.FocusRing;
 import com.android.camera.util.CameraUtil;
+
+import org.codeaurora.snapcam.R;
+
+import java.util.List;
 
 public class VideoUI extends BaseUI implements PieRenderer.PieListener,
         PreviewGestures.SingleTapListener,
@@ -85,8 +78,6 @@ public class VideoUI extends BaseUI implements PieRenderer.PieListener,
     private View mReviewDoneButton;
     private View mReviewPlayButton;
     private ShutterButton mShutterButton;
-    private RecordingTime mRecordingTime;
-    private LinearLayout mLabelsLinearLayout;
     private RenderOverlay mRenderOverlay;
     private PieRenderer mPieRenderer;
     private VideoMenu mVideoMenu;
@@ -237,7 +228,8 @@ public class VideoUI extends BaseUI implements PieRenderer.PieListener,
 
         initializeMiscControls();
         initializeControlByIntent();
-        initializeRecordingTime();
+
+        mRecordingTime.setPauseListener(this);
 
         ViewStub faceViewStub = (ViewStub) mRootView
                 .findViewById(R.id.face_view_stub);
@@ -269,7 +261,7 @@ public class VideoUI extends BaseUI implements PieRenderer.PieListener,
         });
 
         if (mController.isVideoCaptureIntent()) {
-            mCameraControls.hideSwitcher();
+            hideSwitcher();
             mActivity.getLayoutInflater().inflate(R.layout.review_module_control,
                     (ViewGroup) mCameraControls);
             // Cannot use RotateImageView for "done" and "cancel" button because
@@ -493,18 +485,6 @@ public class VideoUI extends BaseUI implements PieRenderer.PieListener,
         }
     }
 
-    public void setOrientationIndicator(int orientation, boolean animation) {
-        // We change the orientation of the linearlayout only for phone UI
-        // because when in portrait the width is not enough.
-        if (mLabelsLinearLayout != null) {
-            if (((orientation / 90) & 1) == 0) {
-                mLabelsLinearLayout.setOrientation(LinearLayout.VERTICAL);
-            } else {
-                mLabelsLinearLayout.setOrientation(LinearLayout.HORIZONTAL);
-            }
-        }
-    }
-
     public SurfaceHolder getSurfaceHolder() {
         return mSurfaceHolder;
     }
@@ -592,15 +572,6 @@ public class VideoUI extends BaseUI implements PieRenderer.PieListener,
         mReviewImage = (ImageView) mRootView.findViewById(R.id.review_image);
         mShutterButton.requestFocus();
         mShutterButton.enableTouch(true);
-
-        // The R.id.labels can only be found in phone layout.
-        // That is, mLabelsLinearLayout should be null in tablet layout.
-        mLabelsLinearLayout = (LinearLayout) mRootView.findViewById(R.id.labels);
-    }
-
-    private void initializeRecordingTime() {
-        mRecordingTime = (RecordingTime) mRootView.findViewById(R.id.recording_time);
-        mRecordingTime.setPauseListener(this);
     }
 
     public void updateOnScreenIndicators(Parameters param, ComboPreferences prefs) {
@@ -626,10 +597,6 @@ public class VideoUI extends BaseUI implements PieRenderer.PieListener,
         }
 
         layoutPreview((float)ratio);
-    }
-
-    public void showTimeLapseUI(boolean enable) {
-        mRecordingTime.showTimeLapse(enable);
     }
 
     public void dismissPopup(boolean topLevelOnly) {
@@ -867,26 +834,14 @@ public class VideoUI extends BaseUI implements PieRenderer.PieListener,
         mOnScreenIndicators.setVisibility(recording ? View.GONE : View.VISIBLE);
         if (recording) {
             mShutterButton.setImageResource(R.drawable.shutter_button_video_stop);
-            mCameraControls.hideSwitcher();
+            hideSwitcher();
         } else {
             mShutterButton.setImageResource(R.drawable.btn_new_shutter_video);
             if (!mController.isVideoCaptureIntent()) {
-                mCameraControls.showSwitcher();
+                showSwitcher();
             }
             stopRecordingTimer();
         }
-    }
-
-    public void startRecordingTimer(int frameRate, long frameInterval, long durationMs) {
-        mRecordingTime.start(frameRate, frameInterval, durationMs);
-    }
-
-    public void stopRecordingTimer() {
-        mRecordingTime.stop();
-    }
-
-    public long getRecordingTime() {
-        return mRecordingTime.getTime();
     }
 
     public void hideUIwhileRecording() {
@@ -1064,16 +1019,16 @@ public class VideoUI extends BaseUI implements PieRenderer.PieListener,
         mVideoMenu.setPreference(key, value);
     }
 
+    @Override
     public void setOrientation(int orientation, boolean animation) {
-        mCameraControls.setOrientation(orientation, animation);
-        if (mMenuLayout != null)
+        super.setOrientation(orientation, animation);
+        if (mMenuLayout != null) {
             mMenuLayout.setOrientation(orientation, animation);
-        if (mSubMenuLayout != null)
-            mSubMenuLayout.setOrientation(orientation, animation);
-
-        if (mRecordingTime != null) {
-            mRecordingTime.setOrientation(orientation);
         }
+        if (mSubMenuLayout != null) {
+            mSubMenuLayout.setOrientation(orientation, animation);
+        }
+
         if (mPreviewMenuLayout != null) {
             ViewGroup vg = (ViewGroup) mPreviewMenuLayout.getChildAt(0);
             if (vg != null)

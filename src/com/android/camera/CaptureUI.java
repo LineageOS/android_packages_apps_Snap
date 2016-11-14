@@ -63,7 +63,6 @@ import com.android.camera.ui.CountDownView;
 import com.android.camera.ui.focus.FocusRing;
 import com.android.camera.ui.ListMenu;
 import com.android.camera.ui.ListSubMenu;
-import com.android.camera.ui.ModuleSwitcher;
 import com.android.camera.ui.PieRenderer;
 import com.android.camera.ui.RenderOverlay;
 import com.android.camera.ui.RotateImageView;
@@ -224,11 +223,6 @@ public class CaptureUI extends BaseUI implements PreviewGestures.SingleTapListen
     private View mFilterModeSwitcher;
     private View mSceneModeSwitcher;
     private View mFrontBackSwitcher;
-    private TextView mRecordingTimeView;
-    private LinearLayout mLabelsLinearLayout;
-    private View mTimeLapseLabel;
-    private RotateLayout mRecordingTimeRect;
-    private PauseButton mPauseButton;
     private RotateImageView mMuteButton;
 
     int mPreviewWidth;
@@ -304,12 +298,7 @@ public class CaptureUI extends BaseUI implements PreviewGestures.SingleTapListen
 
         mMenuButton = mRootView.findViewById(R.id.menu);
 
-        mRecordingTimeView = (TextView) mRootView.findViewById(R.id.recording_time);
-        mRecordingTimeRect = (RotateLayout) mRootView.findViewById(R.id.recording_time_rect);
-        mTimeLapseLabel = mRootView.findViewById(R.id.time_lapse_label);
-        mLabelsLinearLayout = (LinearLayout) mRootView.findViewById(R.id.labels);
-        mPauseButton = (PauseButton) mRootView.findViewById(R.id.video_pause);
-        mPauseButton.setOnPauseButtonListener(this);
+        mRecordingTime.setPauseListener(this);
 
         mMuteButton = (RotateImageView)mRootView.findViewById(R.id.mute_button);
         mMuteButton.setVisibility(View.VISIBLE);
@@ -353,8 +342,6 @@ public class CaptureUI extends BaseUI implements PreviewGestures.SingleTapListen
 
         mGestures.setRenderOverlay(mRenderOverlay);
         mRenderOverlay.requestLayout();
-
-        ((ViewGroup)mRootView).removeView(mRecordingTimeRect);
     }
 
     public void onCameraOpened(List<Integer> cameraIds) {
@@ -507,24 +494,14 @@ public class CaptureUI extends BaseUI implements PreviewGestures.SingleTapListen
         });
     }
 
-    public void showTimeLapseUI(boolean enable) {
-        if (mTimeLapseLabel != null) {
-            mTimeLapseLabel.setVisibility(enable ? View.VISIBLE : View.GONE);
-        }
-    }
-
     public void showRecordingUI(boolean recording) {
         mMenuButton.setVisibility(recording ? View.GONE : View.VISIBLE);
         if (recording) {
             mVideoButton.setImageResource(R.drawable.shutter_button_video_stop);
-            hideSwitcher();
-            mRecordingTimeView.setText("");
-            ((ViewGroup)mRootView).addView(mRecordingTimeRect);
             mMuteButton.setVisibility(View.VISIBLE);
         } else {
             mVideoButton.setImageResource(R.drawable.btn_new_shutter_video);
-            showSwitcher();
-            ((ViewGroup)mRootView).removeView(mRecordingTimeRect);
+            stopRecordingTimer();
             mMuteButton.setVisibility(View.INVISIBLE);
         }
     }
@@ -1116,11 +1093,6 @@ public class CaptureUI extends BaseUI implements PreviewGestures.SingleTapListen
         if (mFrontBackSwitcher != null) mFrontBackSwitcher.setVisibility(status);
         if (mSceneModeSwitcher != null) mSceneModeSwitcher.setVisibility(status);
         if (mFilterModeSwitcher != null) mFilterModeSwitcher.setVisibility(status);
-        if (hide) {
-            mCameraControls.hideSwitcher();
-        } else {
-            mCameraControls.showSwitcher();
-        }
     }
 
     public boolean isCameraControlsAnimating() {
@@ -1399,9 +1371,9 @@ public class CaptureUI extends BaseUI implements PreviewGestures.SingleTapListen
         setOrientation(mOrientation, true);
     }
 
+    @Override
     public void setOrientation(int orientation, boolean animation) {
-        mOrientation = orientation;
-        mCameraControls.setOrientation(orientation, animation);
+        super.setOrientation(orientation, animation);
         if (mMenuLayout != null)
             mMenuLayout.setOrientation(orientation, animation);
         if (mSubMenuLayout != null)
@@ -1417,15 +1389,7 @@ public class CaptureUI extends BaseUI implements PreviewGestures.SingleTapListen
                 }
             }
         }
-        if (mRecordingTimeRect != null) {
-            if (orientation == 180) {
-                mRecordingTimeRect.setOrientation(0, false);
-                mRecordingTimeView.setRotation(180);
-            } else {
-                mRecordingTimeView.setRotation(0);
-                mRecordingTimeRect.setOrientation(orientation, false);
-            }
-        }
+
         if (mFaceView != null) {
             mFaceView.setDisplayRotation(orientation);
         }
@@ -1498,31 +1462,13 @@ public class CaptureUI extends BaseUI implements PreviewGestures.SingleTapListen
         mShutterButton.setPressed(true);
     }
 
-    public void setRecordingTime(String text) {
-        mRecordingTimeView.setText(text);
-    }
-
-    public void setRecordingTimeTextColor(int color) {
-        mRecordingTimeView.setTextColor(color);
-    }
-
-    public void resetPauseButton() {
-        mRecordingTimeView.setCompoundDrawablesWithIntrinsicBounds(
-                R.drawable.ic_recording_indicator, 0, 0, 0);
-        mPauseButton.setPaused(false);
-    }
-
     @Override
     public void onButtonPause() {
-        mRecordingTimeView.setCompoundDrawablesWithIntrinsicBounds(
-                R.drawable.ic_pausing_indicator, 0, 0, 0);
         mModule.onButtonPause();
     }
 
     @Override
     public void onButtonContinue() {
-        mRecordingTimeView.setCompoundDrawablesWithIntrinsicBounds(
-                R.drawable.ic_recording_indicator, 0, 0, 0);
         mModule.onButtonContinue();
     }
 

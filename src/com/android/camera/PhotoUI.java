@@ -1191,9 +1191,9 @@ public class PhotoUI extends BaseUI implements PieListener,
         mCameraControls.updateRemainingPhotos(remaining);
     }
 
+    @Override
     public void setOrientation(int orientation, boolean animation) {
-        mOrientation = orientation;
-        mCameraControls.setOrientation(orientation, animation);
+        super.setOrientation(orientation, animation);
         if (mMenuHelp != null)
             mMenuHelp.setOrientation(orientation, animation);
         if (mMenuLayout != null)
