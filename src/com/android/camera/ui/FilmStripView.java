@@ -100,6 +100,7 @@ public class FilmStripView extends ViewGroup implements BottomControlsListener {
     private int mDataIdOnUserScrolling;
     private ValueAnimator.AnimatorUpdateListener mViewItemUpdateListener;
     private float mOverScaleFactor = 1f;
+    private int mCurrentOffset = 0;
 
     private int mLastTotalNumber = 0;
     private RenderOverlay mRenderOverlay;
@@ -1473,7 +1474,10 @@ public class FilmStripView extends ViewGroup implements BottomControlsListener {
             // two values and compare that to a fixed reference point.  Since we know that
             // the camera preview always starts at (0,0) we can use it as a reference point.
             int offset = -1 * (mDrawArea.centerX() + mCameraViewItem.getLeftPosition() - mCenterX);
-            mListener.onFilmStripScroll(offset);
+            if (offset != mCurrentOffset) {
+                mCurrentOffset = offset;
+                mListener.onFilmStripScroll(offset);
+            }
         }
     }
 

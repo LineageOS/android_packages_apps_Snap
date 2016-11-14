@@ -65,8 +65,8 @@ import java.util.TimeZone;
 /**
  * Activity to handle panorama capturing.
  */
-public class WideAnglePanoramaModule
-        implements CameraModule, WideAnglePanoramaController,
+public class WideAnglePanoramaModule extends BaseModule<WideAnglePanoramaUI> implements
+        WideAnglePanoramaController,
         SurfaceTexture.OnFrameAvailableListener {
 
     public static final int DEFAULT_SWEEP_ANGLE = 160;
@@ -93,7 +93,6 @@ public class WideAnglePanoramaModule
     private static final boolean DEBUG = false;
 
     private ContentResolver mContentResolver;
-    private WideAnglePanoramaUI mUI;
 
     private MosaicPreviewRenderer mMosaicPreviewRenderer;
     private Object mRendererLock = new Object();
@@ -358,13 +357,8 @@ public class WideAnglePanoramaModule
 
     @Override
     public void onPreviewFocusChanged(boolean previewFocused) {
+        super.onPreviewFocusChanged(previewFocused);
         mPreviewFocused = previewFocused;
-        mUI.onPreviewFocusChanged(previewFocused);
-    }
-
-    @Override
-    public boolean arePreviewControlsVisible() {
-        return mUI.arePreviewControlsVisible();
     }
 
     /**
@@ -1303,20 +1297,5 @@ public class WideAnglePanoramaModule
     @Override
     public void onMediaSaveServiceConnected(MediaSaveService s) {
         // do nothing.
-    }
-
-    @Override
-    public void showPreviewCover() {
-        mUI.showPreviewCover();
-    }
-
-    @Override
-    public void hidePreviewCover() {
-        mUI.hidePreviewCover();
-    }
-
-    @Override
-    public void setPreviewCoverAlpha(float alpha) {
-        mUI.setPreviewCoverAlpha(alpha);
     }
 }

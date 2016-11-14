@@ -216,7 +216,6 @@ public class CameraActivity extends Activity
     private final Object mStorageSpaceLock = new Object();
     private long mStorageSpaceBytes = Storage.LOW_STORAGE_THRESHOLD_BYTES;
     private boolean mSecureCamera;
-    private boolean mInCameraApp = true;
     // Keep track of powershutter state
     public static boolean mPowerShutter = false;
     // Keep track of max brightness state
@@ -266,6 +265,8 @@ public class CameraActivity extends Activity
     private WakeLock mWakeLock;
     private static final int REFOCUS_ACTIVITY_CODE = 1;
     private int mDisplayWidth;
+
+    private boolean mShowingFilmstrip = false;
 
     private class MyOrientationEventListener
             extends OrientationEventListener {
@@ -473,8 +474,7 @@ public class CameraActivity extends Activity
                         return;
                     }
 
-                    if(!arePreviewControlsVisible()) {
-                        setPreviewControlsVisibility(true);
+                    if (!arePreviewControlsVisible()) {
                         CameraActivity.this.setSystemBarsVisibility(false);
                     }
                 }
@@ -484,10 +484,6 @@ public class CameraActivity extends Activity
                     if (dataID != 0 && !mFilmStripView.isCameraPreview()) {
                         // For now, We ignore all items that are not the camera preview.
                         return;
-                    }
-
-                    if (arePreviewControlsVisible()) {
-                        setPreviewControlsVisibility(false);
                     }
                 }
 
@@ -525,7 +521,7 @@ public class CameraActivity extends Activity
                                     LocalData.LOCAL_CAMERA_PREVIEW;
                             if (!focused) {
                                 if (isCameraID) {
-                                    mCurrentModule.onPreviewFocusChanged(false);
+                                    //mCurrentModule.onPreviewFocusChanged(false);
                                     CameraActivity.this.setSystemBarsVisibility(true);
                                 }
                                 hidePanoStitchingProgress();
@@ -580,25 +576,18 @@ public class CameraActivity extends Activity
                     CameraActivity.this.setSystemBarsVisibility(visible);
                 }
 
-                private float previewCoverAlpha = 1.0f;
-
-                private void setPreviewCoverAlpha(float alpha) {
-                    if (alpha == previewCoverAlpha || alpha < 0.0f || alpha > 1.0f) {
-                        return;
-                    }
-                    mCurrentModule.setPreviewCoverAlpha(alpha);
-                    if (alpha == 0.0f) {
-                        mCurrentModule.hidePreviewCover();
-                    } else if (previewCoverAlpha == 0.0f) {
-                        mCurrentModule.showPreviewCover();
-                    }
-                    previewCoverAlpha = alpha;
-                }
-
                 @Override
                 public void onFilmStripScroll(int offset) {
                     float rangePx = mDisplayWidth / 2f;
-                    setPreviewCoverAlpha((float)Math.min(1.0, offset/rangePx));
+                    if (offset >= rangePx && !mShowingFilmstrip) {
+                        mShowingFilmstrip = true;
+                        setPreviewControlsVisibility(false);
+                    } else if (offset == 0 && mShowingFilmstrip) {
+                        mShowingFilmstrip = false;
+                        setPreviewControlsVisibility(true);
+                    } else {
+                        mCurrentModule.animateControls((float) Math.min(1.0, offset / rangePx));
+                    }
                 }
             };
 
@@ -1771,6 +1760,7 @@ public class CameraActivity extends Activity
         super.onResume();
         mPaused = false;
         mCurrentModule.onResumeAfterSuper();
+        mCurrentModule.animateControls(0);
 
         setSwipingEnabled(true);
 
@@ -1963,7 +1953,7 @@ public class CameraActivity extends Activity
         if (!CameraUtil.hasCameraKey()) {
             mPowerShutter = val.equals(CameraSettings.VALUE_ON);
         }
-        if (mPowerShutter && mInCameraApp) {
+        if (mPowerShutter && arePreviewControlsVisible()) {
             getWindow().addPrivateFlags(
                     WindowManager.LayoutParams.PRIVATE_FLAG_PREVENT_POWER_KEY);
         } else {
@@ -1981,7 +1971,7 @@ public class CameraActivity extends Activity
 
         mMaxBrightness = val.equals(CameraSettings.VALUE_ON);
 
-        if (mMaxBrightness && mInCameraApp) {
+        if (mMaxBrightness && arePreviewControlsVisible()) {
             params.screenBrightness = WindowManager.LayoutParams.BRIGHTNESS_OVERRIDE_FULL;
         } else {
             params.screenBrightness = WindowManager.LayoutParams.BRIGHTNESS_OVERRIDE_NONE;
@@ -2049,7 +2039,7 @@ public class CameraActivity extends Activity
     }
 
     public boolean isInCameraApp() {
-        return mInCameraApp;
+        return arePreviewControlsVisible();
     }
 
     @Override
@@ -2382,14 +2372,10 @@ public class CameraActivity extends Activity
      * Show or hide the {@link CameraControls} using the current module's
      * implementation of {@link #onPreviewFocusChanged}.
      *
-     * @param showControls whether to show camera controls.
+     * @param visible whether to show camera controls.
      */
-    private void setPreviewControlsVisibility(boolean showControls) {
-        mCurrentModule.onPreviewFocusChanged(showControls);
-
-        // controls are only shown when the camera app is active
-        // so we can assume to fetch this information from here
-        mInCameraApp = showControls;
+    private void setPreviewControlsVisibility(boolean visible) {
+        mCurrentModule.onPreviewFocusChanged(visible);
     }
 
     // Accessor methods for getting latency times used in performance testing

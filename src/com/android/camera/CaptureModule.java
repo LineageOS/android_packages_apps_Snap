@@ -104,11 +104,12 @@ import java.util.List;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
 
-public class CaptureModule implements CameraModule, PhotoController,
+public class CaptureModule extends BaseModule<CaptureUI> implements PhotoController,
         MediaSaveService.Listener, ClearSightImageProcessor.Callback,
         SettingsManager.Listener, LocationManager.Listener,
         CountDownView.OnCountDownFinishedListener,
         PauseButton.OnPauseButtonListener {
+
     public static final int DUAL_MODE = 0;
     public static final int BAYER_MODE = 1;
     public static final int MONO_MODE = 2;
@@ -200,7 +201,6 @@ public class CaptureModule implements CameraModule, PhotoController,
     private boolean[] mCameraOpened = new boolean[MAX_NUM_CAM];
     private CameraDevice[] mCameraDevice = new CameraDevice[MAX_NUM_CAM];
     private String[] mCameraId = new String[MAX_NUM_CAM];
-    private CaptureUI mUI;
     private CameraActivity mActivity;
     private List<Integer> mCameraIdList;
     private float mZoomValue = 1f;
@@ -1691,11 +1691,6 @@ public class CaptureModule implements CameraModule, PhotoController,
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-    }
-
-    @Override
-    public void onPreviewFocusChanged(boolean previewFocused) {
-        mUI.onPreviewFocusChanged(previewFocused);
     }
 
     @Override
@@ -3515,20 +3510,5 @@ public class CaptureModule implements CameraModule, PhotoController,
         byte[] bytes = new byte[buffer.remaining()];
         buffer.get(bytes);
         return bytes;
-    }
-
-    @Override
-    public void showPreviewCover() {
-        mUI.showPreviewCover();
-    }
-
-    @Override
-    public void hidePreviewCover() {
-        mUI.hidePreviewCover();
-    }
-
-    @Override
-    public void setPreviewCoverAlpha(float alpha) {
-        mUI.setPreviewCoverAlpha(alpha);
     }
 }
