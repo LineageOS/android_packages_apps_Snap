@@ -4155,15 +4155,17 @@ public class PhotoModule
 
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     private void updateAutoFocusMoveCallback() {
-        if (mCameraDevice == null) {
+        if (mCameraDevice == null || mParameters == null) {
             return;
         }
-        if (mParameters.getFocusMode().equals(CameraUtil.FOCUS_MODE_CONTINUOUS_PICTURE) ||
-            mParameters.getFocusMode().equals(CameraUtil.FOCUS_MODE_MW_CONTINUOUS_PICTURE)) {
-            mCameraDevice.setAutoFocusMoveCallback(mHandler,
-                    (CameraAFMoveCallback) mAutoFocusMoveCallback);
-        } else {
-            mCameraDevice.setAutoFocusMoveCallback(null, null);
+        synchronized (mCameraDevice) {
+            if (mParameters.getFocusMode().equals(CameraUtil.FOCUS_MODE_CONTINUOUS_PICTURE) ||
+                    mParameters.getFocusMode().equals(CameraUtil.FOCUS_MODE_MW_CONTINUOUS_PICTURE)) {
+                mCameraDevice.setAutoFocusMoveCallback(mHandler,
+                        (CameraAFMoveCallback) mAutoFocusMoveCallback);
+            } else {
+                mCameraDevice.setAutoFocusMoveCallback(null, null);
+            }
         }
     }
 
