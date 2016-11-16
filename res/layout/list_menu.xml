@@ -31,6 +31,7 @@
     android:layout_height="wrap_content"
     android:background="@color/popup_background"
     android:elevation="10dp"
-    android:scrollbars="none" >
+    android:scrollbars="none"
+    android:divider="@null">
 
 </com.android.camera.ui.ListMenu>
