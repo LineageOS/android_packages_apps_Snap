@@ -1017,6 +1017,10 @@ public class CameraSettings {
             return;
         }
 
+        if (numOfCameras > 2 ) {
+            numOfCameras = 2;
+        }
+
         CharSequence[] entryValues = new CharSequence[numOfCameras];
         for (int i = 0; i < numOfCameras; ++i) {
             entryValues[i] = "" + i;
