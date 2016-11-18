@@ -150,7 +150,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:background="@color/camera_controls_bg_translucent"
+        android:background="@color/transparent"
         android:visibility="gone" />
 
     <TextView

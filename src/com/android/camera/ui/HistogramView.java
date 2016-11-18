@@ -22,31 +22,38 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.PorterDuff;
 import android.util.AttributeSet;
+import android.util.MathUtils;
 import android.view.View;
 
 import com.android.camera.CameraManager;
 
+import org.codeaurora.snapcam.R;
+
 public class HistogramView extends View {
+    private static final String TAG = "CAM_" + HistogramView.class.getSimpleName();
+
     private static final int STATS_SIZE = 256;
+    private static final int CELL_COUNT = 64;
 
     private int[] mData = new int[STATS_SIZE + 1];
     private boolean mDataValid;
 
-    private Bitmap  mBitmap;
-    private Paint   mPaint = new Paint();
-    private Paint   mPaintRect = new Paint();
-    private Canvas  mCanvas = new Canvas();
-    private float   mWidth;
-    private float   mHeight;
+    private Bitmap mBitmap;
+    private Paint mPaint = new Paint();
+    private Paint mPaintRect = new Paint();
+    private Canvas mCanvas = new Canvas();
+    private float mWidth;
+    private float mHeight;
     private CameraManager.CameraProxy mGraphCameraDevice;
 
     public HistogramView(Context context, AttributeSet attrs) {
-        super(context,attrs);
+        super(context, attrs);
 
         mPaint.setFlags(Paint.ANTI_ALIAS_FLAG);
-        mPaintRect.setColor(0xFFFFFFFF);
-        mPaintRect.setStyle(Paint.Style.FILL);
+
+        setWillNotDraw(false);
     }
 
     public void setCamera(CameraManager.CameraProxy camera) {
@@ -67,7 +74,7 @@ public class HistogramView extends View {
 
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
-        mBitmap = Bitmap.createBitmap(w, h, Bitmap.Config.RGB_565);
+        mBitmap = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_4444);
         mCanvas.setBitmap(mBitmap);
         mWidth = w;
         mHeight = h;
@@ -87,43 +94,58 @@ public class HistogramView extends View {
         }
     }
 
+    public void setOrientation(int orientation) {
+        setRotation(-orientation);
+        int top = getContext().getResources().getDimensionPixelSize(R.dimen.preview_top_margin);
+
+        if (orientation == 0 || orientation == 180) {
+            setTranslationX(0);
+            setTranslationY(0);
+        } else {
+            setTranslationX(mHeight / 2);
+            setTranslationY(-(top / 2));
+        }
+    }
+
     private void drawGraph() {
-        final float border = 5;
-        float graphheight = mHeight - (2 * border);
-        float graphwidth = mWidth - (2 * border);
-        float bargap = 0.0f;
-        float barwidth = graphwidth/STATS_SIZE;
+        float padding = 10;
+        float height = mHeight - (padding * 2);
+        float width = mWidth - (padding * 2);
+        int cellWidth = Math.round(width / CELL_COUNT);
 
-        mCanvas.drawColor(0xFFAAAAAA);
-        mPaint.setColor(Color.BLACK);
 
-        for (int k = 0; k <= (graphheight /32) ; k++) {
-            float y = (float)(32 * k)+ border;
-            mCanvas.drawLine(border, y, graphwidth + border , y, mPaint);
-        }
-        for (int j = 0; j <= (graphwidth /32); j++) {
-            float x = (float)(32 * j)+ border;
-            mCanvas.drawLine(x, border, x, graphheight + border, mPaint);
-        }
+        mCanvas.drawColor(0, PorterDuff.Mode.CLEAR);
+
+        mPaintRect.setColor(Color.WHITE);
 
         //Assumption: The first element contains the maximum value.
         int maxValue = Integer.MIN_VALUE;
         if (mData[0] == 0) {
-            for (int i = 1; i <= STATS_SIZE ; i++) {
+            for (int i = 1; i <= STATS_SIZE; i++) {
                 maxValue = Math.max(maxValue, mData[i]);
             }
         } else {
             maxValue = mData[0];
         }
 
-        for (int i = 1; i <= STATS_SIZE; i++)  {
-            float scaled = Math.min(STATS_SIZE,
-                    (float) mData[i] * (float) STATS_SIZE / (float) maxValue);
-            float left = (bargap * (i+1)) + (barwidth * i) + border;
-            float top = graphheight + border;
-            float right = left + barwidth;
-            float bottom = top - scaled;
-            mCanvas.drawRect(left, top, right, bottom, mPaintRect);
+        int[] values = new int[CELL_COUNT];
+        int cell = 0;
+        float sum = 0.0f;
+        for (int i = 1; i < STATS_SIZE; i++) {
+            sum += (float) mData[i] / (float) maxValue;
+            if ((i % cellWidth) == 0) {
+                float mean = sum / cellWidth;
+                int value = Math.round(MathUtils.lerp(0, height, mean));
+                values[cell] = value;
+
+                float left = padding + (cell * cellWidth);
+                float right = left + cellWidth - 2;
+                float bottom = mHeight - (padding / 2);
+                float top = bottom - value;
+                mCanvas.drawRect(left, top, right, bottom, mPaintRect);
+                sum = 0.0f;
+                cell++;
+            }
         }
     }
 }
