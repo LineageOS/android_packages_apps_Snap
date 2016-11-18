@@ -187,4 +187,7 @@
     <dimen name="refocus_stroke_width">2dp</dimen>
 
     <dimen name="bottom_bar_ripple_radius">30dp</dimen>
+
+    <dimen name="histogram_height">50dp</dimen>
+    <dimen name="histogram_width">120dp</dimen>
 </resources>

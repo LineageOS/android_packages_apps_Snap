@@ -145,6 +145,10 @@ public class CameraControls extends RotatableLayout {
             }
         }
 
+        if (mHistogramView.getVisibility() != View.GONE) {
+            mHistogramView.setVisibility(enable ? View.VISIBLE : View.INVISIBLE);
+        }
+
         ((ShutterButton) mShutter).enableTouch(enable);
         mVideoShutter.setClickable(enable);
         mTopBar.setEnabled(enable);
@@ -290,8 +294,11 @@ public class CameraControls extends RotatableLayout {
         mAutoHdrNotice.layout(l, t + mTopMargin,
                 r, t + mTopMargin + mAutoHdrNotice.getMeasuredHeight());
 
-        mHistogramView.layout(l, b - mBottomMargin - mHistogramView.getMeasuredHeight(),
-                r, b - mBottomMargin);
+        int hw = getResources().getDimensionPixelSize(R.dimen.histogram_width);
+        int hh = getResources().getDimensionPixelSize(R.dimen.histogram_height);
+
+        mHistogramView.layout(r - hw, b - mBottomMargin - hh - 4,
+                r, b - mBottomMargin - 4);
 
         View retake = findViewById(R.id.btn_retake);
         if (retake != null) {
@@ -478,7 +485,7 @@ public class CameraControls extends RotatableLayout {
                 if (v instanceof RotateImageView) {
                     ((RotateImageView) v).setOrientation(orientation, animation);
                 } else if (v instanceof HistogramView) {
-                    ((HistogramView) v).setRotation(-orientation);
+                    ((HistogramView) v).setOrientation(orientation);
                 }
             }
         }

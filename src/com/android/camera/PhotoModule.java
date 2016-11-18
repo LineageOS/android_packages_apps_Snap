@@ -3683,6 +3683,7 @@ public class PhotoModule extends BaseModule<PhotoUI> implements
                 }
             });
             mCameraDevice.setHistogramMode(mHistogramEnabled ? mStatsCallback : null);
+            mParameters.set("histogram", histogram);
         }
 
         setFlipValue();
