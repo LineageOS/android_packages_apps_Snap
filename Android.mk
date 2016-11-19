@@ -50,8 +50,4 @@ endif
 
 include $(BUILD_PACKAGE)
 
-include $(call all-makefiles-under,$(LOCAL_PATH)/jni)
-
-ifeq (,$(ONE_SHOT_MAKEFILE))
-include $(call all-makefiles-under,$(LOCAL_PATH)/tests)
-endif
+include $(call all-makefiles-under, $(LOCAL_PATH))

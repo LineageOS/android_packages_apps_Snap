@@ -1,3 +1,5 @@
+ifeq (,$(ONE_SHOT_MAKEFILE))
+
 LOCAL_PATH:= $(call my-dir)
 include $(CLEAR_VARS)
 
@@ -16,3 +18,5 @@ LOCAL_PACKAGE_NAME := SnapTests
 LOCAL_INSTRUMENTATION_FOR := Snap
 
 include $(BUILD_PACKAGE)
+
+endif
