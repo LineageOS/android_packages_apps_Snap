@@ -50,28 +50,22 @@
         android:layout_height="match_parent"
         android:background="@android:color/black" />
 
-    <FrameLayout
+    <com.android.camera.ui.focus.FocusRingView
+        android:id="@+id/focus_ring"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent" />
 
-        <com.android.camera.ui.Camera2FaceView
-            android:id="@+id/face_view"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:visibility="gone"/>
+    <com.android.camera.ui.CaptureAnimationOverlay
+        android:id="@+id/capture_overlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone" />
 
-		<com.android.camera.ui.focus.FocusRingView
-			android:id="@+id/focus_ring"
-			android:layout_width="match_parent"
-			android:layout_height="match_parent" />
-
-		<com.android.camera.ui.CaptureAnimationOverlay
-			android:id="@+id/capture_overlay"
-			android:layout_width="match_parent"
-			android:layout_height="match_parent"
-			android:visibility="gone" />
-
-	</FrameLayout>
+    <com.android.camera.ui.Camera2FaceView
+        android:id="@+id/face_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"/>
 
     <com.android.camera.ui.RenderOverlay
         android:id="@+id/render_overlay"
