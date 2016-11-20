@@ -109,6 +109,9 @@ public abstract class BaseUI {
                     mPreviewCover.setVisibility(View.GONE);
                     enableOverlays();
                 }
+                if (mCameraControls != null) {
+                    mCameraControls.reset();
+                }
             }
         }
     }
