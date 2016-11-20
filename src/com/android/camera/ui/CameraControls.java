@@ -122,7 +122,15 @@ public class CameraControls extends RotatableLayout {
         return mAnimationHelper.isAnimating();
     }
 
-    public void reset() { mAnimationHelper.reset(); }
+    public void reset() {
+        post(new Runnable() {
+            @Override
+            public void run() {
+                mAnimationHelper.reset();
+                enableTouch(true);
+            }
+        });
+    }
 
     private void setChildrenVisibility(ViewGroup parent, boolean visible) {
         for (int i = 0; i < parent.getChildCount(); i++) {
