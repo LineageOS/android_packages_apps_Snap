@@ -321,8 +321,8 @@
 
      <string name="pref_camera_shuttersound_default" translatable="false">enable</string>
      <string name="pref_camera_shuttersound_title" translatable="true">Shutter Sound</string>
-     <string name="pref_camera_shuttersound_entry_enable">Enable</string>
-     <string name="pref_camera_shuttersound_entry_disable">Disable</string>
+     <string name="pref_camera_shuttersound_entry_enable">Enabled</string>
+     <string name="pref_camera_shuttersound_entry_disable">Disabled</string>
 
      <!-- Default mce setting. Do not translate. -->
      <string name="pref_camera_mce_default">enable</string>
@@ -457,7 +457,7 @@
 
      <!-- Settings screen, ISO dialog radio button choices -->
      <string name="pref_camera_iso_entry_auto">Auto</string>
-     <string name="pref_camera_iso_entry_isodeblur">ISO Auto(HJR)</string>
+     <string name="pref_camera_iso_entry_isodeblur">ISO Auto (HJR)</string>
      <string name="pref_camera_iso_entry_iso100">ISO100</string>
      <string name="pref_camera_iso_entry_iso200">ISO200</string>
      <string name="pref_camera_iso_entry_iso400">ISO400</string>
@@ -545,7 +545,7 @@
     <!-- Settings screen, Multiple levels entries -->
     <string name="pref_camera_sharpness_entry_level0">Level 0</string>
     <string name="pref_camera_sharpness_entry_level1">Level 1</string>
-    <string name="pref_camera_sharpness_entry_level2">Level 2(Default)</string>
+    <string name="pref_camera_sharpness_entry_level2">Level 2 (Default)</string>
     <string name="pref_camera_sharpness_entry_level3">Level 3</string>
     <string name="pref_camera_sharpness_entry_level4">Level 4</string>
     <string name="pref_camera_sharpness_entry_level5">Level 5</string>
@@ -557,7 +557,7 @@
     <string name="pref_camera_contrast_entry_level2">Level 2</string>
     <string name="pref_camera_contrast_entry_level3">Level 3</string>
     <string name="pref_camera_contrast_entry_level4">Level 4</string>
-    <string name="pref_camera_contrast_entry_level5">Level 5(Default)</string>
+    <string name="pref_camera_contrast_entry_level5">Level 5 (Default)</string>
     <string name="pref_camera_contrast_entry_level6">Level 6</string>
     <string name="pref_camera_contrast_entry_level7">Level 7</string>
     <string name="pref_camera_contrast_entry_level8">Level 8</string>
@@ -570,7 +570,7 @@
     <string name="pref_camera_saturation_entry_level2">Level 2</string>
     <string name="pref_camera_saturation_entry_level3">Level 3</string>
     <string name="pref_camera_saturation_entry_level4">Level 4</string>
-    <string name="pref_camera_saturation_entry_level5">Level 5(Default)</string>
+    <string name="pref_camera_saturation_entry_level5">Level 5 (Default)</string>
     <string name="pref_camera_saturation_entry_level6">Level 6</string>
     <string name="pref_camera_saturation_entry_level7">Level 7</string>
     <string name="pref_camera_saturation_entry_level8">Level 8</string>
