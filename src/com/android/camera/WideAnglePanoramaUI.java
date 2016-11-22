@@ -92,7 +92,6 @@ public class WideAnglePanoramaUI extends BaseUI implements
     // Color definitions.
     private int mIndicatorColor;
     private int mIndicatorColorFast;
-    private int mReviewBackground;
     private SurfaceTexture mSurfaceTexture;
 
     private int mOrientation;
@@ -137,6 +136,7 @@ public class WideAnglePanoramaUI extends BaseUI implements
     }
 
     public void showPreviewUI() {
+        Log.d(TAG, "showPreviewUI");
         mCaptureLayout.setVisibility(View.VISIBLE);
         showUI();
     }
@@ -145,14 +145,6 @@ public class WideAnglePanoramaUI extends BaseUI implements
         mCaptureIndicator.setVisibility(View.INVISIBLE);
         hideTooFastIndication();
         hideDirectionIndicators();
-    }
-
-    public void onPreviewFocusChanged(boolean previewFocused) {
-        if (previewFocused) {
-            showUI();
-        } else {
-            hideUI();
-        }
     }
 
     public void setCaptureProgressOnDirectionChangeListener(
@@ -228,7 +220,6 @@ public class WideAnglePanoramaUI extends BaseUI implements
         mSurfaceTexture = surfaceTexture;
         mController.onPreviewUIReady();
         mActivity.updateThumbnail(mThumbnail);
-        hidePreviewCover();
     }
 
     @Override
@@ -257,12 +248,15 @@ public class WideAnglePanoramaUI extends BaseUI implements
     }
 
     public void reset() {
+        Log.d(TAG, "reset");
         mShutterButton.setImageResource(R.drawable.btn_new_shutter_panorama);
         mReviewLayout.setVisibility(View.GONE);
         mCaptureProgressBar.setVisibility(View.INVISIBLE);
     }
 
     public void saveFinalMosaic(Bitmap bitmap, int orientation) {
+        Log.d(TAG, "saveFinalMosaic");
+
         if (bitmap != null && orientation != 0) {
             Matrix rotateMatrix = new Matrix();
             rotateMatrix.setRotate(orientation);
@@ -386,7 +380,6 @@ public class WideAnglePanoramaUI extends BaseUI implements
     private void createContentView() {
         Resources appRes = mActivity.getResources();
         mIndicatorColor = appRes.getColor(R.color.pano_progress_indication);
-        mReviewBackground = appRes.getColor(R.color.review_background);
         mIndicatorColorFast = appRes.getColor(R.color.pano_progress_indication_fast);
 
         mPreviewLayout = mRootView.findViewById(R.id.pano_preview_layout);
@@ -414,7 +407,6 @@ public class WideAnglePanoramaUI extends BaseUI implements
         mShutterButton.addOnShutterButtonListener(this);
         // Hide menu
         mRootView.findViewById(R.id.menu).setVisibility(View.GONE);
-        mReview.setBackgroundColor(mReviewBackground);
 
         // TODO: set display change listener properly.
         ((CameraRootView) mRootView).setDisplayChangeListener(null);

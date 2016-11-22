@@ -461,7 +461,11 @@ public class CameraControls extends RotatableLayout {
     public void setPreviewRect(RectF rectL) {
         int r = CameraUtil.determineRatio(Math.round(rectL.width()), Math.round(rectL.height()));
         mPreviewRatio = r;
-        if (mPreviewRatio == CameraUtil.RATIO_4_3 && mTopMargin != 0) {
+
+        boolean pano = ((CameraActivity) getContext()).getCurrentModuleIndex() ==
+                ModuleSwitcher.WIDE_ANGLE_PANO_MODULE_INDEX;
+
+        if (pano || (mPreviewRatio == CameraUtil.RATIO_4_3 && mTopMargin != 0)) {
             mBottomBar.setBackgroundResource(R.drawable.camera_controls_bg_opaque);
         } else {
             mBottomBar.setBackgroundResource(R.drawable.camera_controls_bg_translucent);

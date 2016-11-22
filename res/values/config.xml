@@ -27,7 +27,7 @@
 
     <!-- This value may be changed to true to enable the warped pano preview overlayed on top
          of the fullscreen pano preview. -->
-    <bool name="enable_warped_pano_preview">true</bool>
+    <bool name="enable_warped_pano_preview">false</bool>
 
     <!-- Set's parameter "lge-camera" for LGE devices. -->
     <bool name="lge_camera">false</bool>

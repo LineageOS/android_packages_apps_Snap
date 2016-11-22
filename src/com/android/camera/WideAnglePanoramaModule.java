@@ -653,7 +653,7 @@ public class WideAnglePanoramaModule extends BaseModule<WideAnglePanoramaUI> imp
             mUI.showWaitingDialog(mPreparePreviewString);
             // Hide shutter button, shutter icon, etc when waiting for
             // panorama to stitch
-            mUI.hideUI();
+            mUI.hideUI(true);
             runBackgroundThread(new Thread() {
                 @Override
                 public void run() {
@@ -704,7 +704,6 @@ public class WideAnglePanoramaModule extends BaseModule<WideAnglePanoramaUI> imp
     }
 
     public void reportProgress() {
-        mUI.showUI();
         mUI.resetSavingProgress();
         Thread t = new Thread() {
             @Override
@@ -1164,6 +1163,13 @@ public class WideAnglePanoramaModule extends BaseModule<WideAnglePanoramaUI> imp
             mCameraTexture.setOnFrameAvailableListener(this);
             mCameraDevice.setPreviewTexture(mCameraTexture);
         }
+        mCameraDevice.setOneShotPreviewCallback(mMainHandler,
+                new CameraManager.CameraPreviewDataCallback() {
+                    @Override
+                    public void onPreviewFrame(byte[] data, CameraProxy camera) {
+                        mUI.hidePreviewCover();
+                    }
+                });
         mCameraDevice.startPreview();
         mCameraState = PREVIEW_ACTIVE;
     }
