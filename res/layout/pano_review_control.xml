@@ -29,5 +29,5 @@
         style="@style/ReviewControlIcon"
         android:contentDescription="@string/accessibility_review_cancel"
         android:layout_gravity="center_horizontal|bottom"
-        android:src="@drawable/ic_menu_cancel_holo_light" />
+        android:src="@drawable/exit_panorama" />
 </merge>
