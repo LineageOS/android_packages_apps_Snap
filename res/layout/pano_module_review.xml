@@ -18,6 +18,7 @@
     android:id="@+id/pano_review_layout"
     android:orientation="vertical"
     android:visibility="invisible"
+    android:background="@android:color/black"
     android:layout_height="match_parent"
     android:layout_width="match_parent">
 
