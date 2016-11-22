@@ -73,7 +73,7 @@
         android:layout_height="@dimen/preview_bottom_margin"
         android:gravity="center"
         android:weightSum="100"
-        android:background="@drawable/camera_controls_bg_translucent"
+        android:background="@drawable/camera_controls_bg_opaque"
         android:orientation="horizontal">
 
 		<com.android.camera.ui.RotateImageView

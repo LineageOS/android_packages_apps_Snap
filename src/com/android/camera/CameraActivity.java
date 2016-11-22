@@ -2424,4 +2424,8 @@ public class CameraActivity extends Activity
     }
 
     public SettingsManager getSettingsManager() {return  mSettingsManager;}
+
+    public int getCurrentModuleIndex() {
+        return mCurrentModuleIndex;
+    }
 }
