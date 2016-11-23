@@ -1065,7 +1065,8 @@ public class WideAnglePanoramaModule extends BaseModule<WideAnglePanoramaUI> imp
 
         mOrientationManager.resume();
         // Initialize location service.
-        boolean recordLocation = RecordLocationPreference.get(mPreferences);
+        boolean recordLocation = RecordLocationPreference.get(mPreferences,
+                CameraSettings.KEY_RECORD_LOCATION);
         mLocationManager.recordLocation(recordLocation);
         mUI.initDisplayChangeListener();
         UsageStatistics.onContentViewChanged(

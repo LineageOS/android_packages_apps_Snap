@@ -619,7 +619,7 @@ public class PhotoModule extends BaseModule<PhotoUI> implements
     private void locationFirstRun() {
         /* Do not prompt if the preference is already set, this is a secure
          * camera session, or the prompt has already been triggered. */
-        if (RecordLocationPreference.isSet(mPreferences) ||
+        if (RecordLocationPreference.isSet(mPreferences, CameraSettings.KEY_RECORD_LOCATION) ||
                 mActivity.isSecureCamera() || mLocationPromptTriggered) {
             return;
         }
@@ -902,7 +902,8 @@ public class PhotoModule extends BaseModule<PhotoUI> implements
         }
 
         // Initialize location service.
-        boolean recordLocation = RecordLocationPreference.get(mPreferences);
+        boolean recordLocation = RecordLocationPreference.get(mPreferences,
+                CameraSettings.KEY_RECORD_LOCATION);
         mLocationManager.recordLocation(recordLocation);
 
         mUI.initializeFirstTime();
@@ -925,7 +926,8 @@ public class PhotoModule extends BaseModule<PhotoUI> implements
     // onResume.
     private void initializeSecondTime() {
         // Start location update if needed.
-        boolean recordLocation = RecordLocationPreference.get(mPreferences);
+        boolean recordLocation = RecordLocationPreference.get(mPreferences,
+                CameraSettings.KEY_RECORD_LOCATION);
         mLocationManager.recordLocation(recordLocation);
         MediaSaveService s = mActivity.getMediaSaveService();
         if (s != null) {
@@ -4750,7 +4752,8 @@ public class PhotoModule extends BaseModule<PhotoUI> implements
         // ignore the events after "onPause()"
         if (mPaused) return;
 
-        boolean recordLocation = RecordLocationPreference.get(mPreferences);
+        boolean recordLocation = RecordLocationPreference.get(mPreferences,
+                CameraSettings.KEY_RECORD_LOCATION);
         mLocationManager.recordLocation(recordLocation);
         if(needRestart()){
             Log.v(TAG, "Restarting Preview... Camera Mode Changed");
