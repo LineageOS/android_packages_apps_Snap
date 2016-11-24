@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5f681702_af6505e4",
+        "filename": "res/values/qcomstrings.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 460,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2016-11-24T10:31:08Z",
+      "side": 1,
+      "message": "I am still unsure if this couldn\u0027t be improved. Who knows what \"HJR\" is without being a photographer or looking it up?",
+      "range": {
+        "startLine": 460,
+        "startChar": 52,
+        "endLine": 460,
+        "endChar": 66
+      },
+      "revId": "fd0c7d2b0f936835e8c50d9d2dc45117ee560080",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
