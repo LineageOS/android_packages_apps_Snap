@@ -22,6 +22,7 @@
   <string name="pref_camera_picturesize_entry_20_7mp">2070 萬像素</string>
   <!-- Settings screen, dialog choice for 20.1 megapixels picture size [CHAR LIMIT=15] -->
   <string name="pref_camera_picturesize_entry_20_1mp_wide">2010 萬像素 (16:9)</string>
+  <!-- Settings screen, dialog choice for 20 megapixels picture size [CHAR LIMIT=15] -->
   <!-- Settings screen, dialog choice for 18 megapixels picture size [CHAR LIMIT=15] -->
   <string name="pref_camera_picturesize_entry_18mp">1800 萬像素</string>
   <!-- Settings screen, dialog choice for 16.2 megapixels picture size [CHAR LIMIT=15] -->
@@ -33,6 +34,7 @@
   <string name="pref_camera_picturesize_entry_16mp">1600 萬像素</string>
   <!-- Settings screen, dialog choice for 15.9 megapixels picture size [CHAR LIMIT=15] -->
   <string name="pref_camera_picturesize_entry_15_9mp_wide">1590 萬像素 (16:9)</string>
+  <!-- Settings screen, dialog choice for 15 megapixels picture size [CHAR LIMIT=15] -->
   <!-- Settings screen, dialog choice for 13 megapixels picture size [CHAR LIMIT=15] -->
   <string name="pref_camera_picturesize_entry_13mp">1300 萬像素</string>
   <!-- Settings screen, dialog choice for 12.8 megapixels picture size [CHAR LIMIT=15] -->
@@ -61,6 +63,7 @@
   <!-- Settings screen, dialog choice for 9.4 megapixels picture size [CHAR LIMIT=15] -->
   <string name="pref_camera_picturesize_entry_9_4mp_wide">940 萬像素 (16:9)</string>
   <!-- Settings screen, dialog choice for 9 megapixels picture size [CHAR LIMIT=15] -->
+  <!-- Settings screen, dialog choice for 9 megapixels picture size [CHAR LIMIT=15] -->
   <string name="pref_camera_picturesize_entry_9mp">900 萬像素</string>
   <!-- Settings screen, dialog choice for 8.9 megapixels picture size [CHAR LIMIT=15] -->
   <!-- Settings screen, dialog choice for 8.2 megapixels picture size [CHAR LIMIT=15] -->
@@ -76,6 +79,7 @@
   <!-- Settings screen, dialog choice for 6 megapixels picture size [CHAR LIMIT=15] -->
   <!-- Settings screen, dialog choice for 6 megapixels picture size [CHAR LIMIT=15] -->
   <string name="pref_camera_picturesize_entry_6mp_wide">600 萬像素 (16:9)</string>
+  <!-- Settings screen, dialog choice for 5 megapixels picture size [CHAR LIMIT=15] -->
   <!-- Settings screen, dialog choice for 5 megapixels picture size [CHAR LIMIT=15] -->
   <string name="pref_camera_picturesize_entry_5mp">500 萬像素</string>
   <!-- Settings screen, dialog choice for 4.5 megapixels picture size [CHAR LIMIT=15] -->
