@@ -105,6 +105,7 @@ import com.android.camera.data.SimpleViewData;
 import com.android.camera.exif.ExifInterface;
 import com.android.camera.tinyplanet.TinyPlanetFragment;
 import com.android.camera.ui.ModuleSwitcher;
+import com.android.camera.ui.CameraRootView;
 import com.android.camera.ui.DetailsDialog;
 import com.android.camera.ui.FilmStripView;
 import com.android.camera.ui.FilmStripView.ImageData;
@@ -214,10 +215,10 @@ public class CameraActivity extends Activity
     private PanoCaptureModule mPano2Module;
     private FrameLayout mAboveFilmstripControlLayout;
     private FrameLayout mCameraRootFrame;
-    private View mCameraPhotoModuleRootView;
-    private View mCameraVideoModuleRootView;
-    private View mCameraPanoModuleRootView;
-    private View mCameraCaptureModuleRootView;
+    private CameraRootView mCameraPhotoModuleRootView;
+    private CameraRootView mCameraVideoModuleRootView;
+    private CameraRootView mCameraPanoModuleRootView;
+    private CameraRootView mCameraCaptureModuleRootView;
     private FilmStripView mFilmStripView;
     private ProgressBar mBottomProgress;
     private View mPanoStitchingPanel;
@@ -257,7 +258,8 @@ public class CameraActivity extends Activity
     private LocalMediaObserver mLocalImagesObserver;
     private LocalMediaObserver mLocalVideosObserver;
 
-    private final int DEFAULT_SYSTEM_UI_VISIBILITY = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN;
+    private final int DEFAULT_SYSTEM_UI_VISIBILITY = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                                                   | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION;
 
     private boolean mPendingDeletion = false;
 
@@ -678,7 +680,9 @@ public class CameraActivity extends Activity
         View decorView = getWindow().getDecorView();
         int currentSystemUIVisibility = decorView.getSystemUiVisibility();
         int systemUIVisibility = DEFAULT_SYSTEM_UI_VISIBILITY;
-        int systemUINotVisible = View.SYSTEM_UI_FLAG_LOW_PROFILE | View.SYSTEM_UI_FLAG_FULLSCREEN;
+        int systemUINotVisible = View.SYSTEM_UI_FLAG_LOW_PROFILE
+                | View.SYSTEM_UI_FLAG_FULLSCREEN
+                | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
 
         int newSystemUIVisibility = systemUIVisibility
                 | (visible ? View.SYSTEM_UI_FLAG_VISIBLE : systemUINotVisible);
@@ -1537,10 +1541,14 @@ public class CameraActivity extends Activity
         LayoutInflater inflater = getLayoutInflater();
         View rootLayout = inflater.inflate(R.layout.camera, null, false);
         mCameraRootFrame = (FrameLayout)rootLayout.findViewById(R.id.camera_root_frame);
-        mCameraPhotoModuleRootView = rootLayout.findViewById(R.id.camera_photo_root);
-        mCameraVideoModuleRootView = rootLayout.findViewById(R.id.camera_video_root);
-        mCameraPanoModuleRootView = rootLayout.findViewById(R.id.camera_pano_root);
-        mCameraCaptureModuleRootView = rootLayout.findViewById(R.id.camera_capture_root);
+        mCameraPhotoModuleRootView =
+                (CameraRootView) rootLayout.findViewById(R.id.camera_photo_root);
+        mCameraVideoModuleRootView =
+                (CameraRootView) rootLayout.findViewById(R.id.camera_video_root);
+        mCameraPanoModuleRootView =
+                (CameraRootView) rootLayout.findViewById(R.id.camera_pano_root);
+        mCameraCaptureModuleRootView =
+                (CameraRootView) rootLayout.findViewById(R.id.camera_capture_root);
 
         int moduleIndex = -1;
         if (MediaStore.INTENT_ACTION_VIDEO_CAMERA.equals(getIntent().getAction())
@@ -2180,7 +2188,25 @@ public class CameraActivity extends Activity
      * Sets the mCurrentModuleIndex, creates a new module instance for the given
      * index an sets it as mCurrentModule.
      */
-    private void setModuleFromIndex(int moduleIndex) {
+    private void setModuleFromIndex(final int moduleIndex) {
+        selectModule(moduleIndex);
+    }
+
+    private CameraRootView getModuleRootView(int moduleIndex) {
+        if (mCurrentModuleIndex == ModuleSwitcher.PHOTO_MODULE_INDEX) {
+            return mCameraPhotoModuleRootView;
+        } else if (mCurrentModuleIndex == ModuleSwitcher.VIDEO_MODULE_INDEX) {
+            return mCameraVideoModuleRootView;
+        } else if (mCurrentModuleIndex == ModuleSwitcher.WIDE_ANGLE_PANO_MODULE_INDEX) {
+            return mCameraPanoModuleRootView;
+        } else if (mCurrentModuleIndex == ModuleSwitcher.CAPTURE_MODULE_INDEX) {
+            return mCameraCaptureModuleRootView;
+        } else {
+            return mCameraPhotoModuleRootView;
+        }
+    }
+
+    private void selectModule(int moduleIndex) {
         mCameraPhotoModuleRootView.setVisibility(View.GONE);
         mCameraVideoModuleRootView.setVisibility(View.GONE);
         mCameraPanoModuleRootView.setVisibility(View.GONE);
@@ -2299,6 +2325,10 @@ public class CameraActivity extends Activity
     }
 
     private void openModule(CameraModule module) {
+        // Re-apply the last fitSystemWindows() run. Our views rely on this, but
+        // the framework's ActionBarOverlayLayout effectively prevents this if the
+        // actual insets haven't changed.
+        getModuleRootView(mCurrentModuleIndex).redoFitSystemWindows();
         module.onResumeBeforeSuper();
         module.onResumeAfterSuper();
     }

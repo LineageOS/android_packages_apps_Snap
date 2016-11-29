@@ -26,6 +26,10 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.Paint;
 import android.graphics.Path;
+import android.graphics.Rect;
+import android.graphics.RectF;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.RippleDrawable;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.Gravity;
@@ -97,6 +101,7 @@ public class CameraControls extends RotatableLayout {
     private TextView mRemainingPhotosText;
     private int mCurrentRemaining = -1;
     private int mOrientation;
+    private final Rect mInsets = new Rect();
 
     private int mPreviewRatio;
     private static int mTopMargin = 0;
@@ -326,7 +331,20 @@ public class CameraControls extends RotatableLayout {
     }
 
     @Override
+    protected boolean fitSystemWindows(Rect insets) {
+        mInsets.set(insets);
+        return false;
+    }
+
+    @Override
     public void onLayout(boolean changed, int l, int t, int r, int b) {
+        Log.d(TAG, String.format("onLayout changed=%b l=%d t=%d r=%d b=%d", changed, l, t, r, b));
+
+        super.onLayout(changed, l, t, r, b);
+
+        r -= mInsets.right;
+        b -= mInsets.bottom;
+
         int orientation = getResources().getConfiguration().orientation;
         int size = getResources().getDimensionPixelSize(R.dimen.camera_controls_size);
         int rotation = getUnifiedRotation();
