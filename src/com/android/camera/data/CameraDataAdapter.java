@@ -52,6 +52,7 @@ public class CameraDataAdapter implements LocalDataAdapter {
     private int mSuggestedHeight = DEFAULT_DECODE_SIZE;
 
     private LocalData mLocalDataToDelete;
+    private QueryTask mQueryTask;
 
     public CameraDataAdapter(Drawable placeHolder) {
         mImages = new LocalDataList();
@@ -60,8 +61,15 @@ public class CameraDataAdapter implements LocalDataAdapter {
 
     @Override
     public void requestLoad(ContentResolver resolver) {
-        QueryTask qtask = new QueryTask();
-        qtask.execute(resolver);
+        mQueryTask = new QueryTask();
+        mQueryTask.execute(resolver);
+    }
+
+    @Override
+    public void stopLoading() {
+        if (mQueryTask != null) {
+            mQueryTask.cancel(true);
+        }
     }
 
     @Override
@@ -329,7 +337,7 @@ public class CameraDataAdapter implements LocalDataAdapter {
             if (c != null && c.moveToFirst()) {
                 // build up the list.
                 c.moveToFirst();
-                while (true) {
+                while (!isCancelled()) {
                     LocalData data = LocalMediaData.VideoData.buildFromCursor(c);
                     if (data != null) {
                         l.add(data);
@@ -357,7 +365,12 @@ public class CameraDataAdapter implements LocalDataAdapter {
 
         @Override
         protected void onPostExecute(LocalDataList l) {
-            replaceData(l);
+            if (!isCancelled()) {
+                replaceData(l);
+            }
+            if (mQueryTask == this) {
+                mQueryTask = null;
+            }
         }
     }
 
