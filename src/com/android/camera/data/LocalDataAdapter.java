@@ -115,4 +115,7 @@ public interface LocalDataAdapter extends DataAdapter {
 
     /** Insert a data. */
     public void insertData(LocalData data);
+
+    /** Stop data loading */
+    public void stopLoading();
 }
