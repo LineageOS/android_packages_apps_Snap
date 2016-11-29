@@ -98,7 +98,7 @@ public class PreviewGestures
             else if (mCaptureUI != null)
                 orientation = mCaptureUI.getOrientation();
 
-            if (isLeftSwipe(orientation, deltaX, deltaY)) {
+            if (isSwipeForMenu(orientation, deltaX, deltaY)) {
                 waitUntilNextDown = true;
                 if (mPhotoMenu != null && !mPhotoMenu.isMenuBeingShown())
                     mPhotoMenu.openFirstLevel();
@@ -112,7 +112,15 @@ public class PreviewGestures
             }
         }
 
-        private boolean isLeftSwipe(int orientation, int deltaX, int deltaY) {
+        private boolean isSwipeForMenu(int orientation, int deltaX, int deltaY) {
+            if (mOverlay.getLayoutDirection() == View.LAYOUT_DIRECTION_RTL) {
+                // in RTL we want to track swipes from right, else swipes from left
+                if (orientation == 90 || orientation == 270) {
+                    deltaY = -deltaY;
+                } else {
+                    deltaX = -deltaX;
+                }
+            }
             switch (orientation) {
                 case 90:
                     return deltaY > 0 && Math.abs(deltaY) > 2 * Math.abs(deltaX);
