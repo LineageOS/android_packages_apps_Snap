@@ -98,4 +98,9 @@ public abstract class AbstractLocalDataAdapterWrapper implements LocalDataAdapte
     public void refresh(ContentResolver resolver, Uri uri) {
         mAdapter.refresh(resolver, uri);
     }
+
+    @Override
+    public void stopLoading() {
+        mAdapter.stopLoading();
+    }
 }
