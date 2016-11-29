@@ -94,7 +94,7 @@ public class VideoUI extends BaseUI implements PieRenderer.PieListener,
     private boolean mPrevOrientationResize;
     private RotateLayout mMenuLayout;
     private RotateLayout mSubMenuLayout;
-    private LinearLayout mPreviewMenuLayout;
+    private ViewGroup mPreviewMenuLayout;
 
     private SurfaceView mSurfaceView = null;
     private int mMaxPreviewWidth = 0;
@@ -457,7 +457,7 @@ public class VideoUI extends BaseUI implements PieRenderer.PieListener,
     }
 
     public void initDisplayChangeListener() {
-        ((CameraRootView) mRootView).setDisplayChangeListener(this);
+        mRootView.setDisplayChangeListener(this);
     }
 
     public void setDisplayOrientation(int orientation) {
@@ -474,7 +474,7 @@ public class VideoUI extends BaseUI implements PieRenderer.PieListener,
     }
 
     public void removeDisplayChangeListener() {
-        ((CameraRootView) mRootView).removeDisplayChangeListener();
+        mRootView.removeDisplayChangeListener();
     }
 
 // no customvideo?
@@ -616,14 +616,14 @@ public class VideoUI extends BaseUI implements PieRenderer.PieListener,
 
     public void dismissLevel1() {
         if (mMenuLayout != null) {
-            ((ViewGroup) mRootView).removeView(mMenuLayout);
+            mRootView.removeView(mMenuLayout);
             mMenuLayout = null;
         }
     }
 
     public void dismissLevel2() {
         if (mSubMenuLayout != null) {
-            ((ViewGroup) mRootView).removeView(mSubMenuLayout);
+            mRootView.removeView(mSubMenuLayout);
             mSubMenuLayout = null;
         }
     }
@@ -642,14 +642,14 @@ public class VideoUI extends BaseUI implements PieRenderer.PieListener,
 
     public void dismissSceneModeMenu() {
         if (mPreviewMenuLayout != null) {
-            ((ViewGroup) mRootView).removeView(mPreviewMenuLayout);
+            mRootView.removeView(mPreviewMenuLayout);
             mPreviewMenuLayout = null;
         }
     }
 
     public void removeSceneModeMenu() {
         if (mPreviewMenuLayout != null) {
-            ((ViewGroup) mRootView).removeView(mPreviewMenuLayout);
+            mRootView.removeView(mPreviewMenuLayout);
             mPreviewMenuLayout = null;
         }
         cleanupListview();
@@ -670,6 +670,7 @@ public class VideoUI extends BaseUI implements PieRenderer.PieListener,
         if (level == 1) {
             if (mMenuLayout == null) {
                 mMenuLayout = new RotateLayout(mActivity, null);
+                mMenuLayout.setRootView(mRootView);
                 if (mRootView.getLayoutDirection() != View.LAYOUT_DIRECTION_RTL) {
                     layoutParams = new FrameLayout.LayoutParams(
                             CameraActivity.SETTING_LIST_WIDTH_1, LayoutParams.WRAP_CONTENT,
@@ -680,19 +681,21 @@ public class VideoUI extends BaseUI implements PieRenderer.PieListener,
                             Gravity.RIGHT | Gravity.TOP);
                 }
                 mMenuLayout.setLayoutParams(layoutParams);
-                ((ViewGroup) mRootView).addView(mMenuLayout);
+                mRootView.addView(mMenuLayout);
             }
+            mMenuLayout.addView(popup, new RotateLayout.LayoutParams(
+                    LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
             mMenuLayout.setOrientation(mOrientation, true);
-            mMenuLayout.addView(popup);
         }
         if (level == 2) {
             if (mSubMenuLayout == null) {
                 mSubMenuLayout = new RotateLayout(mActivity, null);
+                mSubMenuLayout.setRootView(mRootView);
                 ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(
                         CameraActivity.SETTING_LIST_WIDTH_2, LayoutParams.WRAP_CONTENT);
                 mSubMenuLayout.setLayoutParams(params);
 
-                ((ViewGroup) mRootView).addView(mSubMenuLayout);
+                mRootView.addView(mSubMenuLayout);
             }
             if (mRootView.getLayoutDirection() != View.LAYOUT_DIRECTION_RTL) {
                 layoutParams = new FrameLayout.LayoutParams(
@@ -704,13 +707,14 @@ public class VideoUI extends BaseUI implements PieRenderer.PieListener,
                         Gravity.RIGHT | Gravity.TOP);
             }
 
-            int screenHeight = (mOrientation == 0 || mOrientation == 180)
-                    ? mRootView.getHeight() : mRootView.getWidth();
+            final int containerHeight =
+                    mRootView.getClientRectForOrientation(mOrientation).height();
             int height = ((ListSubMenu) popup).getPreCalculatedHeight();
-            int yBase = ((ListSubMenu) popup).getYBase();
-            int y = Math.max(0, yBase);
-            if (yBase + height > screenHeight)
-                y = Math.max(0, screenHeight - height);
+            int yBase = ((ListSubMenu) popup).getYBase(), y = yBase;
+            if (yBase + height > containerHeight) {
+                y = Math.max(0, containerHeight - height);
+            }
+
             if (mRootView.getLayoutDirection() != View.LAYOUT_DIRECTION_RTL) {
                 layoutParams.setMargins(CameraActivity.SETTING_LIST_WIDTH_1, y, 0, 0);
             } else {
@@ -735,7 +739,7 @@ public class VideoUI extends BaseUI implements PieRenderer.PieListener,
         return mMenuLayout;
     }
 
-    public void setPreviewMenuLayout(LinearLayout layout) {
+    public void setPreviewMenuLayout(ViewGroup layout) {
         mPreviewMenuLayout = layout;
     }
 
@@ -966,7 +970,7 @@ public class VideoUI extends BaseUI implements PieRenderer.PieListener,
         mController.onPreviewUIDestroyed();
     }
 
-    public View getRootView() {
+    public CameraRootView getRootView() {
         return mRootView;
     }
 
@@ -996,8 +1000,6 @@ public class VideoUI extends BaseUI implements PieRenderer.PieListener,
 
         if (mPreviewMenuLayout != null) {
             ViewGroup vg = (ViewGroup) mPreviewMenuLayout.getChildAt(0);
-            if (vg != null)
-                vg = (ViewGroup) vg.getChildAt(0);
             if (vg != null) {
                 for (int i = vg.getChildCount() - 1; i >= 0; --i) {
                     RotateLayout l = (RotateLayout) vg.getChildAt(i);

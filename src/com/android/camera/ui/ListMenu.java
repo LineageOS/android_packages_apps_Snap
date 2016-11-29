@@ -20,6 +20,7 @@
 package com.android.camera.ui;
 
 import android.content.Context;
+import android.graphics.Rect;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -29,6 +30,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Space;
 
 import com.android.camera.ListPreference;
 import com.android.camera.PreferenceGroup;
@@ -40,16 +42,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 /* A popup window that contains several camera settings. */
-public class ListMenu extends ListView
-        implements ListMenuItem.Listener,
-        AdapterView.OnItemClickListener,
-        ListSubMenu.Listener {
+public class ListMenu extends ListView implements
+        ListMenuItem.Listener, ListSubMenu.Listener,
+        AdapterView.OnItemClickListener, RotateLayout.Child {
+
     @SuppressWarnings("unused")
     private static final String TAG = "ListMenu";
     private int mHighlighted = -1;
     private Listener mListener;
     private SettingsManager mSettingsManager;
     private ArrayList<ListPreference> mListItem = new ArrayList<ListPreference>();
+    private View mHeader, mFooter;
 
     // Keep track of which setting items are disabled
     // e.g. White balance will be disabled when scene mode is set to non-auto
@@ -95,18 +98,13 @@ public class ListMenu extends ListView
             mOffString = context.getString(R.string.setting_off);
         }
 
-        private int getSettingLayoutId(ListPreference pref) {
-            return R.layout.list_menu_item;
-        }
-
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
             ListPreference pref = mListItem.get(position);
-            int viewLayoutId = getSettingLayoutId(pref);
             ListMenuItem view = (ListMenuItem) convertView;
 
             view = (ListMenuItem)
-                    mInflater.inflate(viewLayoutId, parent, false);
+                    mInflater.inflate(R.layout.list_menu_item, parent, false);
 
             view.initialize(pref); // no init for restore one
             view.setSettingChangedListener(ListMenu.this);
@@ -139,6 +137,32 @@ public class ListMenu extends ListView
 
     public void setSettingChangedListener(Listener listener) {
         mListener = listener;
+    }
+
+    @Override
+    public void onApplyWindowInsets(Rect insets, int rootWidth, int rootHeight) {
+        if (mHeader == null) {
+            mHeader = new Space(getContext());
+            addHeaderView(mHeader);
+            setHeaderDividersEnabled(false);
+            mFooter = new Space(getContext());
+            addFooterView(mFooter);
+            setFooterDividersEnabled(false);
+        }
+
+        boolean largerThanRoot =
+                getPreCalculatedHeight() - insets.top - insets.bottom > rootHeight;
+        adjustViewHeight(mHeader, largerThanRoot ? insets.top : 0);
+        adjustViewHeight(mFooter, largerThanRoot ? insets.bottom : 0);
+    }
+
+    private void adjustViewHeight(View view, int height) {
+        ViewGroup.LayoutParams lp = view.getLayoutParams();
+        if (lp == null) {
+            lp = generateDefaultLayoutParams();
+        }
+        lp.height = height;
+        view.setLayoutParams(lp);
     }
 
     public ListMenu(Context context, AttributeSet attrs) {
@@ -258,7 +282,8 @@ public class ListMenu extends ListView
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position,
             long id) {
-        if (mListener != null) {
+        position -= getHeaderViewsCount();
+        if (mListener != null && position < mListItem.size()) {
             resetHighlight();
             ListPreference pref = mListItem.get(position);
             mHighlighted = position;
@@ -266,6 +291,12 @@ public class ListMenu extends ListView
             mListener.onPreferenceClicked(pref, (int) view.getY());
         }
 
+    }
+
+    private int getPreCalculatedHeight() {
+        int count = getAdapter().getCount();
+        return count * (int) getContext().getResources().getDimension(R.dimen.setting_row_height)
+                + (count - 1) * getDividerHeight();
     }
 
     public void reloadPreference() {

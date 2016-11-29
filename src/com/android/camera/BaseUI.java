@@ -24,6 +24,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.android.camera.ui.CameraControls;
+import com.android.camera.ui.CameraRootView;
 import com.android.camera.ui.CaptureAnimationOverlay;
 import com.android.camera.ui.ModuleSwitcher;
 import com.android.camera.ui.RecordingTime;
@@ -46,7 +47,7 @@ public abstract class BaseUI {
     protected final View mPreviewCover;
 
     protected final CameraActivity mActivity;
-    protected final ViewGroup mRootView;
+    protected final CameraRootView mRootView;
 
     protected final CameraControls mCameraControls;
     protected final RecordingTime mRecordingTime;
@@ -63,7 +64,7 @@ public abstract class BaseUI {
 
     public BaseUI(CameraActivity activity, ViewGroup rootView, int layout) {
         mActivity = activity;
-        mRootView = rootView;
+        mRootView = (CameraRootView) rootView;
 
         mActivity.getLayoutInflater().inflate(layout, mRootView, true);
 
