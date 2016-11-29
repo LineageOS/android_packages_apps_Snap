@@ -18,6 +18,7 @@ package com.android.camera.ui;
 
 import android.content.Context;
 import android.graphics.Matrix;
+import android.graphics.Rect;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,6 +33,11 @@ public class RotateLayout extends ViewGroup implements Rotatable {
     private int mOrientation;
     private Matrix mMatrix = new Matrix();
     protected View mChild;
+    private CameraRootView mRootView;
+
+    public interface Child {
+        void onApplyWindowInsets(Rect insets, int rootWidth, int rootHeight);
+    }
 
     public RotateLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -40,6 +46,10 @@ public class RotateLayout extends ViewGroup implements Rotatable {
         // changed. The view looks fine in landscape. After rotation, the view
         // is invisible.
         setBackgroundResource(android.R.color.transparent);
+    }
+
+    public void setRootView(CameraRootView rootView) {
+        mRootView = rootView;
     }
 
     @Override
@@ -52,11 +62,19 @@ public class RotateLayout extends ViewGroup implements Rotatable {
             mChild = child;
             child.setPivotX(0);
             child.setPivotY(0);
+            applyInsetsToChild();
         }
     }
 
+    @Override
     public void addView(View child) {
         super.addView(child);
+        setupChild(child);
+    }
+
+    @Override
+    public void addView(View child, LayoutParams params) {
+        super.addView(child, params);
         setupChild(child);
     }
 
@@ -145,11 +163,20 @@ public class RotateLayout extends ViewGroup implements Rotatable {
             }
         }
         mOrientation = orientation;
+        applyInsetsToChild();
         if (mChild != null)
             requestLayout();
     }
 
     public int getOrientation() {
         return mOrientation;
+    }
+
+    private void applyInsetsToChild() {
+        if (mRootView != null && mChild instanceof Child) {
+            Rect insets = mRootView.getInsetsForOrientation(mOrientation);
+            final Child child = (Child) mChild;
+            child.onApplyWindowInsets(insets, mRootView.getWidth(), mRootView.getHeight());
+        }
     }
 }
