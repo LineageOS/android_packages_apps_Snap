@@ -76,15 +76,15 @@
         android:background="@drawable/camera_controls_bg_opaque"
         android:orientation="horizontal">
 
-		<com.android.camera.ui.RotateImageView
-			android:id="@+id/preview_thumb"
+        <com.android.camera.ui.RotateImageView
+            android:id="@+id/preview_thumb"
             android:layout_width="0dp"
             android:layout_height="@dimen/thumbnail_size"
-			android:layout_weight="25"
+            android:layout_weight="25"
             android:layout_gravity="center_horizontal|center_vertical"
-			android:background="@android:color/transparent"
-			android:contentDescription="@string/switch_photo_filmstrip"
-			android:scaleType="fitCenter" />
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/switch_photo_filmstrip"
+            android:scaleType="fitCenter" />
 
         <LinearLayout
             android:layout_width="0dp"
@@ -118,15 +118,19 @@
 
         </LinearLayout>
 
-        <com.android.camera.ui.ModuleSwitcher
-            android:id="@+id/camera_switcher"
-            style="@style/SwitcherButton"
+        <FrameLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:scaleType="center"
-            android:layout_weight="25"
-            android:layout_gravity="center_horizontal|center_vertical"
-            android:contentDescription="@string/accessibility_mode_picker" />
+            android:layout_weight="25">
+
+            <com.android.camera.ui.ModuleSwitcher
+                android:id="@+id/camera_switcher"
+                style="@style/SwitcherButton"
+                android:layout_gravity="center"
+                android:scaleType="center"
+                android:contentDescription="@string/accessibility_mode_picker" />
+        </FrameLayout>
+
 	</LinearLayout>
 
     <LinearLayout
