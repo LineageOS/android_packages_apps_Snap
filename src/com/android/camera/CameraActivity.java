@@ -744,7 +744,7 @@ public class CameraActivity extends Activity
             if (!isSecureCamera()) {
                 mThumbnail.setVisibility(View.VISIBLE);
             } else {
-                mThumbnail.setVisibility(View.GONE);
+                mThumbnail.setVisibility(View.INVISIBLE);
             }
        }
     }
@@ -757,7 +757,7 @@ public class CameraActivity extends Activity
             if (!isSecureCamera()) {
                 mThumbnail.setVisibility(View.VISIBLE);
             } else {
-                mThumbnail.setVisibility(View.GONE);
+                mThumbnail.setVisibility(View.INVISIBLE);
             }
         }
     }
@@ -811,7 +811,7 @@ public class CameraActivity extends Activity
                 if (mThumbnail != null) {
                     // Clear the image resource when the bitmap is invalid.
                     mThumbnail.setImageDrawable(null);
-                    mThumbnail.setVisibility(View.GONE);
+                    mThumbnail.setVisibility(View.INVISIBLE);
                 }
             } else {
                 updateThumbnail(bitmap);

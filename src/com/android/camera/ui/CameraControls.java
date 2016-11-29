@@ -414,10 +414,10 @@ public class CameraControls extends RotatableLayout {
     }
 
     private void layoutRemaingPhotos() {
-        int rl = mThumbnail.getLeft();
-        int rt = mThumbnail.getTop();
-        int rr = mThumbnail.getRight();
-        int rb = mThumbnail.getBottom();
+        int rl = mThumbnail.getLeft() + mBottomBar.getLeft();
+        int rt = mBottomBar.getTop();
+        int rr = rl + mThumbnail.getWidth();
+        int rb = rt + mThumbnail.getHeight();
         int w = mRemainingPhotos.getMeasuredWidth();
         int h = mRemainingPhotos.getMeasuredHeight();
         int m = getResources().getDimensionPixelSize(R.dimen.remaining_photos_margin);
@@ -450,6 +450,7 @@ public class CameraControls extends RotatableLayout {
             } else {
                 mRemainingPhotosText.setText(remaining + " ");
             }
+            mRemainingPhotos.setVisibility(View.VISIBLE);
         }
         mCurrentRemaining = remaining;
     }
