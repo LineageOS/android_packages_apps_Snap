@@ -27,6 +27,7 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Path;
+import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.RippleDrawable;
@@ -87,6 +88,7 @@ public class CameraControls extends RotatableLayout {
     private TextView mRemainingPhotosText;
     private int mCurrentRemaining = -1;
     private int mOrientation;
+    private final Rect mInsets = new Rect();
 
     private int mPreviewRatio;
     private int mTopMargin = 0;
@@ -282,10 +284,19 @@ public class CameraControls extends RotatableLayout {
     }
 
     @Override
+    protected boolean fitSystemWindows(Rect insets) {
+        mInsets.set(insets);
+        return false;
+    }
+
+    @Override
     public void onLayout(boolean changed, int l, int t, int r, int b) {
         Log.d(TAG, String.format("onLayout changed=%b l=%d t=%d r=%d b=%d", changed, l, t, r, b));
 
         super.onLayout(changed, l, t, r, b);
+
+        r -= mInsets.right;
+        b -= mInsets.bottom;
 
         ViewGroup.LayoutParams lpTop = mTopBar.getLayoutParams();
         lpTop.height = mTopMargin;
@@ -293,9 +304,11 @@ public class CameraControls extends RotatableLayout {
         mTopBar.layout(l, t, r, mTopMargin);
 
         ViewGroup.LayoutParams lpBottom = mBottomBar.getLayoutParams();
-        lpBottom.height = mBottomMargin;
+        lpBottom.width = r - l + mInsets.right;
+        lpBottom.height = mBottomMargin + mInsets.bottom;
         mBottomBar.setLayoutParams(lpBottom);
-        mBottomBar.layout(l, b - mBottomMargin, r, b);
+        mBottomBar.setPadding(0, 0, mInsets.right, mInsets.bottom);
+        mBottomBar.layout(l, b - mBottomMargin, r + mInsets.right, b + mInsets.bottom);
 
         setLocation(r - l, b - t);
 
