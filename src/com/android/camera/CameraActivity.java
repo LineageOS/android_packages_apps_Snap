@@ -1904,6 +1904,9 @@ public class CameraActivity extends Activity
             mCursor.close();
             mCursor=null;
         }
+        if (mDataAdapter != null) {
+            mDataAdapter.stopLoading();
+        }
         if (mAutoTestEnabled) {
             unregisterReceiver(mAutoTestReceiver);
         }
