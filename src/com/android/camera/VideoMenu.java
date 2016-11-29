@@ -25,6 +25,7 @@ import android.content.SharedPreferences;
 import android.graphics.Rect;
 import android.preference.PreferenceManager;
 import android.util.Log;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -40,6 +41,7 @@ import android.widget.FrameLayout.LayoutParams;
 
 import com.android.camera.ui.CameraControls;
 import com.android.camera.ui.ListSubMenu;
+import com.android.camera.ui.CameraRootView;
 import com.android.camera.ui.ListMenu;
 import com.android.camera.ui.TimeIntervalPopup;
 import com.android.camera.ui.RotateImageView;
@@ -560,8 +562,6 @@ public class VideoMenu extends MenuController
         if (!mIsDefaultToPortrait) {
             rotation = (rotation + 90) % 360;
         }
-        WindowManager wm = (WindowManager) mActivity.getSystemService(Context.WINDOW_SERVICE);
-        Display display = wm.getDefaultDisplay();
         CharSequence[] entries = pref.getEntries();
 
         Resources r = mActivity.getResources();
@@ -592,22 +592,23 @@ public class VideoMenu extends MenuController
                 gridRes, null, false);
 
         mUI.dismissSceneModeMenu();
-        LinearLayout previewMenuLayout = new LinearLayout(mActivity);
-        mUI.setPreviewMenuLayout(previewMenuLayout);
+        mUI.setPreviewMenuLayout(basic);
         ViewGroup.LayoutParams params = null;
+        CameraRootView rootView = mUI.getRootView();
         if (portrait) {
             params = new ViewGroup.LayoutParams(size, LayoutParams.MATCH_PARENT);
-            previewMenuLayout.setLayoutParams(params);
-            ((ViewGroup) mUI.getRootView()).addView(previewMenuLayout);
         } else {
             params = new ViewGroup.LayoutParams(LayoutParams.MATCH_PARENT, size);
-            previewMenuLayout.setLayoutParams(params);
-            ((ViewGroup) mUI.getRootView()).addView(previewMenuLayout);
-            previewMenuLayout.setY(display.getHeight() - size);
+
+            int rootViewBottom = rootView.getClientRectForOrientation(rotation).bottom;
+            basic.setY(rootViewBottom - size);
         }
-        basic.setLayoutParams(new FrameLayout.LayoutParams(LayoutParams.MATCH_PARENT,
-                LayoutParams.MATCH_PARENT));
+        basic.setLayoutParams(params);
+        rootView.addView(basic);
+
         LinearLayout layout = (LinearLayout) basic.findViewById(R.id.layout);
+        Rect insets = rootView.getInsetsForOrientation(rotation);
+        layout.setPadding(insets.left, insets.top, insets.right, insets.bottom);
 
         final View[] views = new View[entries.length];
         int init = pref.getCurrentIndex();
@@ -647,7 +648,6 @@ public class VideoMenu extends MenuController
             label.setText(entries[i]);
             layout.addView(layout2);
         }
-        previewMenuLayout.addView(basic);
         mPreviewMenu = basic;
     }
 
