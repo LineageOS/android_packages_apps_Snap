@@ -1202,6 +1202,7 @@ public class VideoModule implements CameraModule,
     @Override
     public void onResumeBeforeSuper() {
         mPaused = false;
+        if (mFocusManager == null) initializeFocusManager();
     }
 
     @Override
