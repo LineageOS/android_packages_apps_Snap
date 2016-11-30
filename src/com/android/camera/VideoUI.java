@@ -261,8 +261,10 @@ public class VideoUI extends BaseUI implements PieRenderer.PieListener,
 
         if (mController.isVideoCaptureIntent()) {
             hideSwitcher();
-            mActivity.getLayoutInflater().inflate(R.layout.review_module_control,
-                    (ViewGroup) mCameraControls);
+
+            ViewStub reviewStub = (ViewStub) mRootView.findViewById(R.id.review_control_stub);
+            reviewStub.inflate();
+
             // Cannot use RotateImageView for "done" and "cancel" button because
             // the tablet layout uses RotateLayout, which cannot be cast to
             // RotateImageView.

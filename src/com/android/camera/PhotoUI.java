@@ -528,8 +528,9 @@ public class PhotoUI extends BaseUI implements PieListener,
         if (mController.isImageCaptureIntent()) {
             mCameraControls.hideRemainingPhotoCnt();
             mCameraControls.hideSwitcher();
-            ViewGroup cameraControls = (ViewGroup) mRootView.findViewById(R.id.camera_controls);
-            mActivity.getLayoutInflater().inflate(R.layout.review_module_control, cameraControls);
+
+            ViewStub reviewStub = (ViewStub) mRootView.findViewById(R.id.review_control_stub);
+            reviewStub.inflate();
 
             mReviewDoneButton = mRootView.findViewById(R.id.btn_done);
             mReviewCancelButton = mRootView.findViewById(R.id.btn_cancel);
