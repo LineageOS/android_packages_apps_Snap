@@ -2484,6 +2484,7 @@ public class PhotoModule extends BaseModule<PhotoUI> implements
     @Override
     public void onResumeBeforeSuper() {
         mPaused = false;
+        if (mFocusManager == null) initializeFocusManager();
     }
 
     private void openCamera() {
