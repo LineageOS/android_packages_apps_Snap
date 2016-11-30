@@ -1239,6 +1239,7 @@ public class VideoModule extends BaseModule<VideoUI> implements
     @Override
     public void onResumeBeforeSuper() {
         mPaused = false;
+        if (mFocusManager == null) initializeFocusManager();
     }
 
     @Override
