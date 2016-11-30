@@ -2550,6 +2550,7 @@ public class PhotoModule
     @Override
     public void onResumeBeforeSuper() {
         mPaused = false;
+        if (mFocusManager == null) initializeFocusManager();
     }
 
     private void openCamera() {
