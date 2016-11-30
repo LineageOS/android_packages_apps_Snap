@@ -28,7 +28,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 
@@ -51,12 +50,12 @@ public class ModuleSwitcher extends RotateImageView {
     public static final int GCAM_MODULE_INDEX = 4;
     public static final int CAPTURE_MODULE_INDEX = 5;
 
-    private static final int[] DRAW_IDS = {
-            R.drawable.ic_switch_camera,
-            R.drawable.ic_switch_video,
-            R.drawable.ic_switch_pan,
-            R.drawable.ic_switch_photosphere,
-            R.drawable.ic_switch_gcam,
+    private static final int[][] DRAW_AND_DESC_IDS = {
+        { R.drawable.ic_switch_camera, R.string.accessibility_switch_to_camera },
+        { R.drawable.ic_switch_video, R.string.accessibility_switch_to_video },
+        { R.drawable.ic_switch_pan, R.string.accessibility_switch_to_panorama },
+        { R.drawable.ic_switch_photosphere, R.string.accessibility_switch_to_photo_sphere },
+        { R.drawable.ic_switch_gcam, R.string.accessibility_switch_to_gcam }
     };
 
     public interface ModuleSwitchListener {
@@ -68,8 +67,7 @@ public class ModuleSwitcher extends RotateImageView {
     private ModuleSwitchListener mListener;
     private int mCurrentIndex;
     private int[] mModuleIds;
-    private int[] mDrawIds;
-    private int mItemSize;
+    private int[][] mDrawAndDescIds;
     private PopupWindow mPopup;
     private LinearLayout mContent;
 
@@ -87,13 +85,12 @@ public class ModuleSwitcher extends RotateImageView {
     }
 
     private void init(Context context) {
-        mItemSize = context.getResources().getDimensionPixelSize(R.dimen.switcher_size);
         initializeDrawables(context);
         initPopup();
     }
 
     public void initializeDrawables(Context context) {
-        int numDrawIds = DRAW_IDS.length;
+        int numDrawIds = DRAW_AND_DESC_IDS.length;
 
         if (!PhotoSphereHelper.hasLightCycleCapture(context)) {
             --numDrawIds;
@@ -102,25 +99,19 @@ public class ModuleSwitcher extends RotateImageView {
         // Always decrement one because of GCam.
         --numDrawIds;
 
-        int[] drawids = new int[numDrawIds];
-        int[] moduleids = new int[numDrawIds];
-        int ix = 0;
-        for (int i = 0; i < DRAW_IDS.length; i++) {
+        mDrawAndDescIds = new int[numDrawIds][2];
+        mModuleIds = new int[numDrawIds];
+        int index = 0;
+        for (int i = 0; i < DRAW_AND_DESC_IDS.length; i++) {
             if (i == LIGHTCYCLE_MODULE_INDEX && !PhotoSphereHelper.hasLightCycleCapture(context)) {
                 continue; // not enabled, so don't add to UI
             }
             if (i == GCAM_MODULE_INDEX) {
                 continue; // don't add to UI
             }
-            moduleids[ix] = i;
-            drawids[ix++] = DRAW_IDS[i];
+            mModuleIds[index] = i;
+            mDrawAndDescIds[index++] = DRAW_AND_DESC_IDS[i];
         }
-        setIds(moduleids, drawids);
-    }
-
-    public void setIds(int[] moduleids, int[] drawids) {
-        mDrawIds = drawids;
-        mModuleIds = moduleids;
     }
 
     public void setCurrentIndex(int i) {
@@ -128,7 +119,7 @@ public class ModuleSwitcher extends RotateImageView {
         if (i == GCAM_MODULE_INDEX) {
           setImageResource(R.drawable.ic_switch_camera);
         } else {
-          setImageResource(mDrawIds[i]);
+          setImageResource(mDrawAndDescIds[i][0]);
         }
     }
 
@@ -165,15 +156,14 @@ public class ModuleSwitcher extends RotateImageView {
     }
 
     private void initPopup() {
-        mContent = (LinearLayout) LayoutInflater.from(getContext()).inflate(
-                R.layout.switcher_popup, null);
-        mContent.setElevation(6);
+        final LayoutInflater inflater = LayoutInflater.from(getContext());
+        mContent = (LinearLayout) inflater.inflate(R.layout.switcher_popup, null);
 
-        for (int i = mDrawIds.length - 1; i >= 0; i--) {
-            RotateImageView item = new RotateImageView(getContext());
-            item.setImageResource(mDrawIds[i]);
-            item.setScaleType(ImageView.ScaleType.CENTER);
-            item.setBackgroundResource(R.drawable.bg_pressed);
+        for (int i = mDrawAndDescIds.length - 1; i >= 0; i--) {
+            RotateImageView item = (RotateImageView)
+                    inflater.inflate(R.layout.switcher_popup_item, mContent, false);
+            item.setImageResource(mDrawAndDescIds[i][0]);
+            item.setContentDescription(getContext().getString(mDrawAndDescIds[i][1]));
             final int index = i;
             item.setOnClickListener(new OnClickListener() {
                 @Override
@@ -185,31 +175,7 @@ public class ModuleSwitcher extends RotateImageView {
                     }
                 }
             });
-            switch (mDrawIds[i]) {
-                case R.drawable.ic_switch_camera:
-                    item.setContentDescription(getContext().getResources().getString(
-                            R.string.accessibility_switch_to_camera));
-                    break;
-                case R.drawable.ic_switch_video:
-                    item.setContentDescription(getContext().getResources().getString(
-                            R.string.accessibility_switch_to_video));
-                    break;
-                case R.drawable.ic_switch_pan:
-                    item.setContentDescription(getContext().getResources().getString(
-                            R.string.accessibility_switch_to_panorama));
-                    break;
-                case R.drawable.ic_switch_photosphere:
-                    item.setContentDescription(getContext().getResources().getString(
-                            R.string.accessibility_switch_to_photo_sphere));
-                    break;
-                case R.drawable.ic_switch_gcam:
-                    item.setContentDescription(getContext().getResources().getString(
-                            R.string.accessibility_switch_to_gcam));
-                    break;
-                default:
-                    break;
-            }
-            mContent.addView(item, new LinearLayout.LayoutParams(mItemSize, mItemSize));
+            mContent.addView(item);
         }
         mContent.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED);
     }
