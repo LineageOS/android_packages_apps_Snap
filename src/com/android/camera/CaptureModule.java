@@ -920,7 +920,7 @@ public class CaptureModule implements CameraModule, PhotoController,
 
     public void reinit() {
         setCurrentMode();
-        mSettingsManager.reinit(getMainCameraId());
+        mSettingsManager.init();
     }
 
     public boolean isRefocus() {
