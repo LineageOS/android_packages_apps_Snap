@@ -46,7 +46,7 @@
   <string name="pref_camera_selectablezoneaf_entry_frameaverage">フレームアベレージ</string>
   <string name="pref_camera_selectablezoneaf_entry_spotmetering">スポット測光</string>
   <!-- Advanced features -->
-  <string name="pref_camera_advanced_features_title">高度な機能</string>
+  <string name="pref_camera_advanced_features_title">上級者向けの機能</string>
   <string name="pref_camera_advanced_feature_entry_none">なし</string>
   <string name="pref_camera_advanced_feature_entry_multi_touch_focus">マルチタッチフォーカス</string>
   <!-- Manual exposure -->
@@ -254,13 +254,13 @@
   <!-- The message is shown in toast when click showOnMap Menu and there is no map app -->
   <string name="map_activity_not_found_err">位置情報を表示するマップアプリがインストールされていません</string>
   <!-- Continous shot enable message -->
-  <string name="longshot_enable_message">高度な機能は連写モードでは使用できません</string>
+  <string name="longshot_enable_message">上級者向けの機能は連写モードでは使用できません</string>
   <!-- Advance features enable message -->
-  <string name="advance_feature_enable_msg">高度な機能が有効になっている場合は連写は使用できません</string>
+  <string name="advance_feature_enable_msg">上級者向けの機能が有効になっている場合は連写は使用できません</string>
   <!-- Toast after enable HDR function to inform continuous shot has disabled -->
   <string name="HDR_disable_continuous_shot">HDRを有効にすると連写が無効になります</string>
   <!-- Toast after enable advanced capture function to inform continuous shot has disabled -->
-  <string name="advanced_capture_disable_continuous_shot">高度な撮影を有効にすると連写が無効になります</string>
+  <string name="advanced_capture_disable_continuous_shot">上級者向けの撮影機能を有効にすると連写が無効になります</string>
   <!-- Toast after enable 2k4k video quality to inform IS has disabled -->
   <string name="video_quality_4k_disable_IS">4K動画サイズを有効にすると手ぶれ補正が無効になります</string>
   <!-- Toast after 2k4k video is enabled to inform SeeMore has been disabled -->

@@ -146,7 +146,7 @@
   <string name="pref_camera_picturesize_entry_qvga">QVGA</string>
   <!-- Settings screen, scene mode -->
   <string name="pref_camera_scenemode_entry_refocus">Makro+</string>
-  <string name="pref_camera_scenemode_entry_antimotionblur">Zmanjšanje zamegljenosti gibanja</string>
+  <string name="pref_camera_scenemode_entry_antimotionblur">Zmanjševanje zamegljenosti gibanja</string>
   <string name="pref_camera_scenemode_entry_aqua">Akva</string>
   <string name="pref_camera_scenemode_entry_ar">Izboljšana resničnost</string>
   <string name="pref_camera_scenemode_entry_asd">Najboljši posnetek</string>

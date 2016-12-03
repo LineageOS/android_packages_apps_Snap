@@ -224,6 +224,6 @@
   <string name="pref_camera_shutter_speed_title">シャッタースピード</string>
   <string name="auto_hdr_enabled">オートHDR有効</string>
   <!-- Advanced options -->
-  <string name="developer_menu_enabled">高度なカメラのオプションを有効にしました</string>
-  <string name="developer_menu_disabled">高度なカメラのオプションを無効にしました</string>
+  <string name="developer_menu_enabled">上級者向けのカメラのオプションを有効にしました</string>
+  <string name="developer_menu_disabled">上級者向けのカメラのオプションを無効にしました</string>
 </resources>
