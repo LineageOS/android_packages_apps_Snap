@@ -16,6 +16,13 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <!-- common aspect ratios -->
+  <!-- aspect ratio greater than 16:9, so "widescreen" or "cinematic" -->
+  <string name="pref_camera_aspectratio_wide">ワイド</string>
+  <!-- Format for entries in the picture size menu. Parameter one is aspect ratio,
+         parameter two is size in megapixels, e.g. "(4:3) 12.1 megapixels"
+         NOTE: for Chinese (zh) and Korean (ko) the pixel number (parameter two)
+         will be multiplied by 100 as those languages want to count by ten thousands -->
   <string name="pref_camera_megapixel_format">(%1$s) %2$1.1fメガピクセル</string>
   <!-- Settings screen, scene mode -->
   <string name="pref_camera_scenemode_entry_refocus">マクロ+</string>
@@ -83,11 +90,11 @@
   <string name="pref_camera_flashmode_entry_redeye">赤目</string>
   <string name="pref_camera_flashmode_label_redeye">赤目</string>
   <!-- Power shutter -->
-  <string name="pref_camera_power_shutter_title">電源ボタンシャッター</string>
+  <string name="pref_camera_power_shutter_title">電源ボタンでシャッター</string>
   <!-- Max brightness -->
   <string name="pref_camera_max_brightness_title">画面を明るく</string>
   <!-- Touch focus duration -->
-  <string name="pref_camera_focustime_title">タッチフォーカス継続時間</string>
+  <string name="pref_camera_focustime_title">タッチフォーカス継続</string>
   <string name="pref_camera_focustime_entry_0">0秒</string>
   <string name="pref_camera_focustime_entry_3">3秒</string>
   <string name="pref_camera_focustime_entry_5">5秒</string>
@@ -96,4 +103,7 @@
   <!-- Shutter speed -->
   <string name="pref_camera_shutter_speed_title">シャッタースピード</string>
   <string name="auto_hdr_enabled">オートHDR有効</string>
+  <!-- Advanced options -->
+  <string name="developer_menu_enabled">上級者向けのカメラのオプションを有効にしました</string>
+  <string name="developer_menu_disabled">上級者向けのカメラのオプションを無効にしました</string>
 </resources>

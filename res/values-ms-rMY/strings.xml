@@ -73,6 +73,8 @@
   <!-- title for the dialog showing the error of camera hardware -->
   <!-- message for the dialog showing the error of camera hardware -->
   <!-- message for the dialog showing the camera is disabled because of security policies. Camera cannot be used. -->
+  <!-- message for the dialog showing that the app does not have sufficient permissions [CHAR LIMIT=NONE] -->
+  <!-- Dialog "Dismiss" button. Closes the dialog [CHAR LIMIT=12]-->
   <!-- alert to the user to wait for some operation to complete -->
   <!-- alert to the user that an SD card must be installed before using the camera -->
   <!-- alert to the user that the SD card is being disk-checked -->
@@ -148,8 +150,8 @@
   <!-- Settings menu countdown timer 10 seconds [CHAR LIMIT=50] -->
   <!-- Settings menu countdown timer 15 seconds [CHAR LIMIT=50] -->
   <!-- Toast after trying to select a setting that is not allowed to change in scene mode [CHAR LIMIT=NONE] -->
-  <!-- Toast after SeeMore has been enabled to show CDS is disabled -->
-  <!-- Toast after SeeMore has been enabled to show TNR is disabled -->
+  <!-- Toast after High Quality Noise Reduction has been enabled to show CDS is disabled -->
+  <!-- Toast after High Quality Noise Reduction has been enabled to show TNR is disabled -->
   <!-- Exposure settings in preference -->
   <!--  menu label exposure compensation [CHAR LIMIT=50] -->
   <!-- Default HDR entry value -->

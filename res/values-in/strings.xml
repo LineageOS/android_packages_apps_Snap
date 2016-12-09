@@ -18,28 +18,28 @@
   <!-- The name of the Android Camera application. [CHAR LIMIT=16] -->
   <string name="app_name">Kamera</string>
   <!-- The label for the Video Camera activity. [CHAR LIMIT=16] -->
-  <string name="video_camera_label">Kamera perekam</string>
+  <string name="video_camera_label">Perekam video</string>
   <!-- Used to format short video duration in Details dialog. minutes:seconds e.g. 00:30 -->
   <string name="details_ms">%1$02d:%2$02d</string>
   <!-- Used to format video duration in Details dialog. hours:minutes:seconds e.g. 0:21:30 -->
   <string name="details_hms">%1$d:%2$02d:%3$02d</string>
   <!-- Displayed in the title of the dialog for things to do with a picture
              that is to be "set as" (e.g. set as contact photo or set as wallpaper) -->
-  <string name="set_image">Mengatur gambar sebagai</string>
+  <string name="set_image">Setel gambar sebagai</string>
   <!-- Details dialog "OK" button. Dismisses dialog. -->
-  <string name="delete">Menghilangkan</string>
+  <string name="delete">Hapus</string>
   <!-- String Delete the selected media item(s) [CHAR LIMIT=50] -->
   <plurals name="delete_selection">
-    <item quantity="other">Menghilangkan item yang dipilih?</item>
+    <item quantity="other">Hapus item yang dipilih?</item>
   </plurals>
   <string name="share">Bagikan</string>
-  <string name="share_panorama">Bagikan pemandangan luas</string>
+  <string name="share_panorama">Bagikan panorama</string>
   <string name="share_as_photo">Bagikan sebagai foto</string>
   <!-- The label shown after an image is deleted [CHAR LIMIT=16] -->
-  <string name="deleted">Dihilangkan</string>
+  <string name="deleted">Dihapus</string>
   <!-- The label on the button which when clicked will undo a deletion of image [CHAR LIMIT=16]-->
   <string name="undo">URUNGKAN</string>
-  <string name="details">Detail</string>
+  <string name="details">Rincian</string>
   <string name="close">Tutup</string>
   <!-- String indicating how many media item(s) is(are) selected
             eg. 1 selected [CHAR LIMIT=30] -->
@@ -57,16 +57,16 @@
     <item quantity="other">%1$d dipilih</item>
   </plurals>
   <!-- String indicating timestamp of photo or video -->
-  <string name="show_on_map">Tunjukkan dalam peta</string>
+  <string name="show_on_map">Tampilkan di peta</string>
   <string name="rotate_left">Putar ke kiri</string>
   <string name="rotate_right">Putar ke kanan</string>
   <!-- String used as a menu label. The user can choose to edit the image
          [CHAR_LIMIT=20]-->
   <string name="edit">Edit</string>
   <!-- The title of the menu item to let user crop the image. [CHAR LIMIT=15] -->
-  <string name="crop_action">Memotong pendek</string>
+  <string name="crop_action">Potong</string>
   <!-- The title of the menu item to let user trim the video. [CHAR LIMIT=15] -->
-  <string name="trim_action">Potong</string>
+  <string name="trim_action">Pangkas</string>
   <!-- The title of the menu item to let user set the image as background etc. [CHAR LIMIT=15] -->
   <string name="set_as">Atur sebagai</string>
   <!-- String indicating an error when playing the video. [CHAR LIMIT=30] -->
@@ -74,105 +74,109 @@
   <!-- Toast message shown when the cropped image has been saved in the
          %s folder (string: folder_download) [CHAR LIMIT=50]-->
   <string name="crop_saved">
-Gambar yang dipangkas disimpan ke <xliff:g id="folder_name">%s</xliff:g>.</string>
+Gambar yang dipotong disimpan ke <xliff:g id="folder_name">%s</xliff:g>.</string>
   <!-- Text indicating the title of a media item in details window [CHAR LIMIT=14] -->
   <string name="title">Nama</string>
   <!-- Text indicating the description of a media item in details window [CHAR LIMIT=14] -->
-  <string name="description">Gambaran</string>
+  <string name="description">Deskripsi</string>
   <!-- Text indicating the creation time of a media item in details window [CHAR LIMIT=14] -->
   <string name="time">Waktu</string>
   <!-- Text indicating the location of a media item in details window [CHAR LIMIT=14] -->
-  <string name="location">Tempat</string>
+  <string name="location">Lokasi</string>
   <!-- Text indicating the path of a media item in details window [CHAR LIMIT=14] -->
   <string name="path">Alur</string>
   <!-- Text indicating the width of a media item in details window [CHAR LIMIT=14] -->
-  <string name="width">Kelebaran</string>
+  <string name="width">Lebar</string>
   <!-- Text indicating the height of a media item in details window [CHAR LIMIT=14] -->
   <string name="height">Tinggi</string>
   <!-- Text indicating the orientation of a media item in details window [CHAR LIMIT=14] -->
-  <string name="orientation">Pedoman</string>
+  <string name="orientation">Orientasi</string>
   <!-- Text indicating the duration of a video item in details window [CHAR LIMIT=18] -->
-  <string name="duration">Lamanya</string>
+  <string name="duration">Durasi</string>
   <!-- Text indicating the mime type of a media item in details window [CHAR LIMIT=14] -->
   <string name="mimetype">Jenis MIME</string>
   <!-- Text indicating the file size of a media item in details window [CHAR LIMIT=14] -->
-  <string name="file_size">Ukuran file</string>
+  <string name="file_size">Ukuran berkas</string>
   <!-- Text indicating the maker of a media item in details window [CHAR LIMIT=14] -->
   <string name="maker">Pembuat</string>
   <!-- Text indicating the model of a media item in details window [CHAR LIMIT=14] -->
-  <string name="model">Contoh</string>
+  <string name="model">Model</string>
   <!-- Text indicating flash info of a media item in details window [CHAR LIMIT=14] -->
-  <string name="flash">Mutakhirkan</string>
+  <string name="flash">Flash</string>
   <!-- Text indicating aperture of a media item in details window [CHAR LIMIT=14] -->
-  <string name="aperture">Celah</string>
+  <string name="aperture">Bukaan</string>
   <!-- Text indicating the focal length of a media item in details window [CHAR LIMIT=14] -->
   <string name="focal_length">Panjang Fokal</string>
   <!-- Text indicating the white balance of a media item in details window [CHAR LIMIT=18] -->
   <string name="white_balance">Keseimbangan putih</string>
   <!-- Text indicating the exposure time of a media item in details window [CHAR LIMIT=14] -->
-  <string name="exposure_time">Waktu paparan</string>
+  <string name="exposure_time">Pencahayaan</string>
   <!-- Text indicating the ISO speed rating of a media item in details window [CHAR LIMIT=14] -->
   <string name="iso">ISO</string>
   <!-- String indicating the time units in seconds. [CHAR LIMIT=8] -->
   <!-- String indicating the length units in milli-meters. [CHAR LIMIT=8] -->
   <string name="unit_mm">mm</string>
   <!-- String indicating how camera shooting feature is used. [CHAR LIMIT=12] -->
-  <string name="manual">Panduan</string>
+  <string name="manual">Manual</string>
   <!-- String indicating how camera shooting feature is used. [CHAR LIMIT=12 -->
-  <string name="auto">Secara otomatis</string>
+  <string name="auto">Otomatis</string>
   <!-- String indicating camera flash is fired. [CHAR LIMIT=14] -->
   <string name="flash_on">Lampu kilat aktif</string>
   <!-- String indicating camera flash is not used. [CHAR LIMIT=14] -->
   <string name="flash_off">Tanpa lampu kilat</string>
   <!-- String indicating image width or height is unknown. [CHAR LIMIT=14] -->
-  <string name="unknown">Tidak diketahui</string>
+  <string name="unknown">Tidak dikenal</string>
   <!-- Toast message shown after we try to make a local album available offline
          [CHAR LIMIT=150] -->
-  <string name="try_to_set_local_album_available_offline">Item ini disimpan di tempat itu dan tersedia secara offline.</string>
+  <string name="try_to_set_local_album_available_offline">Item ini tersimpan secara lokal dan tersedia secara offline.</string>
   <!-- The content of a dialog showing trimming in progress. [CHAR LIMIT=30] -->
-  <string name="please_wait">Mohon untuk menunggu</string>
+  <string name="please_wait">Mohon tunggu</string>
   <!-- Text to show with progress bar while stitching a photo sphere. 'Photo sphere' is a product name. [CHAR LIMIT=35]-->
-  <string name="rendering_photo_sphere">Memberikan fotosfer</string>
+  <string name="rendering_photo_sphere">Merender Photo Sphere</string>
   <!-- title for the dialog showing the error of camera hardware -->
-  <string name="camera_error_title">Galat kamera</string>
+  <string name="camera_error_title">Kesalahan kamera</string>
   <!-- message for the dialog showing the error of camera hardware -->
-  <string name="cannot_connect_camera">Tidak dapat terhubung ke alat potret.</string>
+  <string name="cannot_connect_camera">Tidak dapat terhubung ke kamera.</string>
   <!-- message for the dialog showing the camera is disabled because of security policies. Camera cannot be used. -->
-  <string name="camera_disabled">Alat potret telah dinonaktifkan karena kebijakan keamanan.</string>
+  <string name="camera_disabled">Kamera telah dinonaktifkan karena kebijakan keamanan.</string>
+  <!-- message for the dialog showing that the app does not have sufficient permissions [CHAR LIMIT=NONE] -->
+  <string name="error_permissions">Aplikasi ini tidak memiliki izin kritis yang diperlukan untuk menjalankan. Silakan periksa pengaturan izin anda.</string>
+  <!-- Dialog "Dismiss" button. Closes the dialog [CHAR LIMIT=12]-->
+  <string name="dialog_dismiss">Abaikan</string>
   <!-- alert to the user to wait for some operation to complete -->
   <string name="wait">Harap tunggu\u2026</string>
   <!-- alert to the user that an SD card must be installed before using the camera -->
-  <string name="no_storage" product="default">Masukkan kartu Secure Digital sebelum menggunakan alat potret .</string>
+  <string name="no_storage" product="default">Masukkan kartu SD sebelum menggunakan kamera.</string>
   <!-- alert to the user that the SD card is being disk-checked -->
   <string name="preparing_sd" product="default">Menyiapkan kartu SD\u2026</string>
   <!-- alert to the user that the camera fails to read or write the SD card. -->
-  <string name="access_sd_fail" product="default">Tidak dapat mengakses kartu Secure Digital.</string>
+  <string name="access_sd_fail" product="default">Tidak dapat mengakses kartu SD.</string>
   <!-- A label that overlays on top of the preview frame to indicate the camcorder is in time lapse mode [CHAR LIMIT=35] -->
   <string name="time_lapse_title">Perekaman selang waktu</string>
   <!-- Screen display message during image capture to indicate that the capture is in progress, like during HDR+. [CHAR LIMIT=20] -->
   <string name="capturing">Menangkap</string>
   <!-- Settings screen, camera selection dialog title. Users can select a camera from the phone (front-facing or back-facing). [CHAR LIMIT=20] -->
-  <string name="pref_camera_id_title">Pilih alat potret</string>
+  <string name="pref_camera_id_title">Pilih kamera</string>
   <!-- In select camera setting, back facing camera. [CHAR LIMIT=14] -->
-  <string name="pref_camera_id_entry_back">Belakang</string>
+  <string name="pref_camera_id_entry_back">Kembali</string>
   <!-- In select camera setting, front-facing camera. [CHAR LIMIT=14] -->
   <string name="pref_camera_id_entry_front">Depan</string>
   <!-- Settings screen, setting title text -->
-  <string name="pref_camera_recordlocation_title">Lokasi tempat penyimpanan</string>
+  <string name="pref_camera_recordlocation_title">Lokasi penyimpanan</string>
   <!--  Label for record location preference [CHAR LIMIT=50] -->
-  <string name="pref_camera_location_label">TEMPAT</string>
+  <string name="pref_camera_location_label">LOKASI</string>
   <!-- Title for countdown timer on camera settings screen [CHAR LIMIT=30]-->
-  <string name="pref_camera_timer_title">Penghitung waktu mundur</string>
+  <string name="pref_camera_timer_title">Penghitung mundur</string>
   <!-- Entry for countdown timer setting. e.g. 1 second, 10 seconds, etc. [CHAR LIMIT=30]-->
   <plurals name="pref_camera_timer_entry">
     <item quantity="other">%d detik</item>
   </plurals>
   <!-- Text followed by a checkbox to turn on/off sound effects during the countdown. [CHAR LIMIT = 24]-->
-  <string name="pref_camera_timer_sound_title">Berbunyi selama hitungan mundur</string>
+  <string name="pref_camera_timer_sound_title">Bip penghitungan</string>
   <!-- Entry of a on/off setting. The setting is turned off. [CHAR LIMIT=15] -->
-  <string name="setting_off">Tidak aktif</string>
+  <string name="setting_off">Mati</string>
   <!-- Entry of a on/off setting. The setting is turned on. [CHAR LIMIT=15] -->
-  <string name="setting_on">Menyala</string>
+  <string name="setting_on">Hidup</string>
   <!-- The value of a camera preference indicating the setting is off. -->
   <!-- The value of a camera preference indicating the setting is on. -->
   <!-- The Video quality settings in preference [CHAR LIMIT=21] -->
@@ -189,29 +193,29 @@ Gambar yang dipangkas disimpan ke <xliff:g id="folder_name">%s</xliff:g>.</strin
     time lapse recording. Appears at top of the dialog. [CHAR LIMIT=30] -->
   <string name="pref_video_time_lapse_frame_interval_title">Selang waktu</string>
   <!-- Settings screen, Camera setting category title -->
-  <string name="pref_camera_settings_category">Pengaturan pada alat potret</string>
+  <string name="pref_camera_settings_category">Pengaturan kamera</string>
   <!-- Settings screen, Camcorder setting category title -->
-  <string name="pref_camcorder_settings_category">Pengaturan pada perekam video</string>
+  <string name="pref_camcorder_settings_category">Pengaturan perekam video</string>
   <!-- Settings screen, Picture size title -->
   <string name="pref_camera_picturesize_title">Ukuran gambar</string>
   <!-- Settings screen, Focus mode title -->
-  <string name="pref_camera_focusmode_title">Modus fokus</string>
+  <string name="pref_camera_focusmode_title">Mode fokus</string>
   <!-- Settings screen, Focus mode dialog radio button choices -->
-  <string name="pref_camera_focusmode_entry_auto">Secara otomatis</string>
+  <string name="pref_camera_focusmode_entry_auto">Otomatis</string>
   <!-- A setting that lets the camera focus into infinity. [CHAR LIMIT=20] -->
-  <string name="pref_camera_focusmode_entry_infinity">Tidak terhingga</string>
+  <string name="pref_camera_focusmode_entry_infinity">Tak Terbatas</string>
   <!-- A setting that lets the camera operate in macro focus mode for nearby objects. [CHAR LIMIT=20] -->
-  <string name="pref_camera_focusmode_entry_macro">Secara besar</string>
+  <string name="pref_camera_focusmode_entry_macro">Makro</string>
   <!-- Menu, focus mode labels [CHAR LIMIT=50] -->
   <string name="pref_camera_focusmode_label_auto">OTOMATIS</string>
-  <string name="pref_camera_focusmode_label_infinity">TIDAK TERBATAS</string>
+  <string name="pref_camera_focusmode_label_infinity">TAK TERBATAS</string>
   <string name="pref_camera_focusmode_label_macro">BESAR</string>
   <!-- Default flash mode setting.-->
   <!-- Value for flash off setting-->
   <!-- Settings screen, Flash mode title -->
-  <string name="pref_camera_flashmode_title">Modus lampu kilat</string>
+  <string name="pref_camera_flashmode_title">Mode flash</string>
   <!-- flash label [CHAR LIMIT=50] -->
-  <string name="pref_camera_flashmode_label">MODUS LAMPU KILAT</string>
+  <string name="pref_camera_flashmode_label">MODE LAMPU KILAT</string>
   <!-- Settings screen, Flash mode 'auto'. [CHAR LIMIT=12] -->
   <string name="pref_camera_flashmode_entry_auto">Otomatis</string>
   <!-- Settings screen, Flash mode 'alway on'. [CHAR LIMIT=12] -->
@@ -221,7 +225,7 @@ Gambar yang dipangkas disimpan ke <xliff:g id="folder_name">%s</xliff:g>.</strin
   <!-- Menu, flash mode labels [CHAR LIMIT=50] -->
   <string name="pref_camera_flashmode_label_auto">LAMPU KILAT OTOMATIS</string>
   <string name="pref_camera_flashmode_label_on">LAMPU KILAT AKTIF</string>
-  <string name="pref_camera_flashmode_label_off">LAMPU KILAT NONAKTIF</string>
+  <string name="pref_camera_flashmode_label_off">LAMPU KILAT MATI</string>
   <!-- Default videocamera flash mode setting.-->
   <!-- Default white balance setting. -->
   <!-- Settings screen, white balance title -->
@@ -229,20 +233,20 @@ Gambar yang dipangkas disimpan ke <xliff:g id="folder_name">%s</xliff:g>.</strin
   <!-- Menu, white balance label -->
   <string name="pref_camera_whitebalance_label">KESEIMBANGAN PUTIH</string>
   <!-- Settings screen, White balance dialog radio button choices -->
-  <string name="pref_camera_whitebalance_entry_auto">Secara otomatis</string>
-  <string name="pref_camera_whitebalance_entry_incandescent">Pijar</string>
+  <string name="pref_camera_whitebalance_entry_auto">Otomatis</string>
+  <string name="pref_camera_whitebalance_entry_incandescent">Berpijar</string>
   <string name="pref_camera_whitebalance_entry_daylight">Siang Hari</string>
-  <string name="pref_camera_whitebalance_entry_fluorescent">Pendarfluor</string>
+  <string name="pref_camera_whitebalance_entry_fluorescent">Berpendar</string>
   <string name="pref_camera_whitebalance_entry_cloudy">Berawan</string>
   <!-- Menu, White balance labels [CHAR LIMIT=50] -->
   <string name="pref_camera_whitebalance_label_auto">OTOMATIS</string>
-  <string name="pref_camera_whitebalance_label_incandescent">PIJAR</string>
+  <string name="pref_camera_whitebalance_label_incandescent">BERPIJAR</string>
   <string name="pref_camera_whitebalance_label_daylight">SIANG HARI</string>
-  <string name="pref_camera_whitebalance_label_fluorescent">PENDARFLUOR</string>
+  <string name="pref_camera_whitebalance_label_fluorescent">BERPENDAR</string>
   <string name="pref_camera_whitebalance_label_cloudy">BERAWAN</string>
   <!-- Default scene mode setting. -->
   <!-- Settings screen, Select Scene mode -->
-  <string name="pref_camera_scenemode_title">Modus adegan</string>
+  <string name="pref_camera_scenemode_title">Mode adegan</string>
   <!-- Settings menu, scene mode choices [CHAR LIMIT=16] -->
   <string name="pref_camera_scenemode_entry_auto">Otomatis</string>
   <!-- Scene mode that uses HDR plus (better HDR) [CHAR LIMIT=16] -->
@@ -250,19 +254,19 @@ Gambar yang dipangkas disimpan ke <xliff:g id="folder_name">%s</xliff:g>.</strin
   <!-- Scene mode that uses HDR (high dynamic range) [CHAR LIMIT=16] -->
   <string name="pref_camera_scenemode_entry_hdr">HDR</string>
   <!-- Scene mode to turn on HDR (better high dynamic range) [CHAR LIMIT=50] -->
-  <string name="pref_camera_scenemode_entry_turn_hdr_plus_on">HDR+ AKTIF</string>
+  <string name="pref_camera_scenemode_entry_turn_hdr_plus_on">HDR+ HIDUP</string>
   <!-- Scene mode to turn off HDR (better high dynamic range) [CHAR LIMIT=50] -->
-  <string name="pref_camera_scenemode_entry_turn_hdr_plus_off">HDR+ NONAKTIF</string>
+  <string name="pref_camera_scenemode_entry_turn_hdr_plus_off">HDR+ MATI</string>
   <!-- Scene mode to turn on HDR (high dynamic range) [CHAR LIMIT=50] -->
-  <string name="pref_camera_scenemode_entry_turn_hdr_on">HDR AKTIF</string>
+  <string name="pref_camera_scenemode_entry_turn_hdr_on">HDR HIDUP</string>
   <!-- Scene mode to turn off HDR (high dynamic range) [CHAR LIMIT=50] -->
-  <string name="pref_camera_scenemode_entry_turn_hdr_off">HDR NONAKTIF</string>
+  <string name="pref_camera_scenemode_entry_turn_hdr_off">HDR MATI</string>
   <!-- Scene mode that takes an image quickly with little motion blur. [CHAR LIMIT=16] -->
   <string name="pref_camera_scenemode_entry_action">Tindakan</string>
   <!-- Scene mode that takes long exposures to capture night scenes without flash. [CHAR LIMIT=16] -->
   <string name="pref_camera_scenemode_entry_night">Malam</string>
   <!-- Scene mode optimized for taking images in the sunset. [CHAR LIMIT=16] -->
-  <string name="pref_camera_scenemode_entry_sunset">Terbenam</string>
+  <string name="pref_camera_scenemode_entry_sunset">Senja</string>
   <!-- Scene mode optimized for taking indoor low-lights pictures. [CHAR LIMIT=16] -->
   <string name="pref_camera_scenemode_entry_party">Pesta</string>
   <!-- Settings menu, scene mode labels [CHAR LIMIT=50] -->
@@ -272,7 +276,7 @@ Gambar yang dipangkas disimpan ke <xliff:g id="folder_name">%s</xliff:g>.</strin
   <!-- Scene mode that takes long exposures to capture night scenes without flash. [CHAR LIMIT=50] -->
   <string name="pref_camera_scenemode_label_night">MALAM</string>
   <!-- Scene mode optimized for taking images in the sunset. [CHAR LIMIT=50] -->
-  <string name="pref_camera_scenemode_label_sunset">MATAHARI TERBENAM</string>
+  <string name="pref_camera_scenemode_label_sunset">SENJA</string>
   <!-- Scene mode optimized for taking indoor low-lights pictures. [CHAR LIMIT=50] -->
   <string name="pref_camera_scenemode_label_party">PESTA</string>
   <!-- Settings menu countdown timer off [CHAR LIMIT=50] -->
@@ -286,9 +290,11 @@ Gambar yang dipangkas disimpan ke <xliff:g id="folder_name">%s</xliff:g>.</strin
   <!-- Settings menu countdown timer 15 seconds [CHAR LIMIT=50] -->
   <string name="pref_camera_countdown_label_fifteen">15 DETIK</string>
   <!-- Toast after trying to select a setting that is not allowed to change in scene mode [CHAR LIMIT=NONE] -->
-  <string name="not_selectable_in_scene_mode">Tidak dapat dipilih dalam modus adegan.</string>
-  <!-- Toast after SeeMore has been enabled to show CDS is disabled -->
-  <!-- Toast after SeeMore has been enabled to show TNR is disabled -->
+  <string name="not_selectable_in_scene_mode">Tidak dapat dipilih dalam mode adegan.</string>
+  <!-- Toast after High Quality Noise Reduction has been enabled to show CDS is disabled -->
+  <string name="disable_CDS_during_HighQualityNoiseReduction">Kualitas tinggi Noise Reduction akan menonaktifkan CDS</string>
+  <!-- Toast after High Quality Noise Reduction has been enabled to show TNR is disabled -->
+  <string name="disable_TNR_during_HighQualityNoiseReduction">Kualitas tinggi Noise Reduction akan menonaktifkan TNR</string>
   <!-- Exposure settings in preference -->
   <string name="pref_exposure_title">Pencahayaan</string>
   <!--  menu label exposure compensation [CHAR LIMIT=50] -->
@@ -302,7 +308,7 @@ Gambar yang dipangkas disimpan ke <xliff:g id="folder_name">%s</xliff:g>.</strin
   <!-- switch camera label front [CHAR LIMIT=60] -->
   <string name="pref_camera_id_label_front">KAMERA BELAKANG</string>
   <!-- Dialog "OK" button. Dismisses dialog. -->
-  <string name="dialog_ok">Oke</string>
+  <string name="dialog_ok">OK</string>
   <!-- Low-memory dialog message [CHAR LIMIT=NONE] -->
   <string name="spaceIsLow_content" product="default">Kartu SD Anda kehabisan ruang kosong. Ubah pengaturan kualitas atau hapus beberapa gambar atau berkas lain.</string>
   <!-- Camera format string for new image files. Passed to java.text.SimpleDateFormat. -->
@@ -325,9 +331,9 @@ Gambar yang dipangkas disimpan ke <xliff:g id="folder_name">%s</xliff:g>.</strin
   <!-- The text shown on the bottom-left corner of the screen to indicate that the saving is in process [CHAR LIMIT=13] -->
   <string name="pano_review_saving_indication_str">Menyimpan\u2026</string>
   <!-- The text shown on the screen to indicate that the panorama is rendering [CHAR LIMIT=27] -->
-  <string name="pano_review_rendering">Mengambil panorama</string>
+  <string name="pano_review_rendering">Merender panorama</string>
   <!-- Toast telling users tapping on the viewfinder will trigger autofocus [CHAR LIMIT=28] -->
-  <string name="tap_to_focus">Sentuh untuk memfokuskan.</string>
+  <string name="tap_to_focus">Sentuh untuk fokus.</string>
   <!-- Default effect setting that clears the effect. -->
   <!-- Title of video effect setting popup window -->
   <string name="pref_video_effect_title">Efek</string>
@@ -364,7 +370,7 @@ Gambar yang dipangkas disimpan ke <xliff:g id="folder_name">%s</xliff:g>.</strin
   <!-- Title of category for background replacement effects. [CHAR LIMIT=26] -->
   <string name="effect_background">LATAR BELAKANG</string>
   <!-- The shutter button. [CHAR LIMIT = NONE] -->
-  <string name="accessibility_shutter_button">Rana</string>
+  <string name="accessibility_shutter_button">Bidik</string>
   <!-- The menu button. [CHAR LIMIT = NONE] -->
   <string name="accessibility_menu_button">Tombol menu</string>
   <!-- The mode picker to switch between camera, video and panorama. [CHAR LIMIT = NONE] -->
@@ -378,7 +384,7 @@ Gambar yang dipangkas disimpan ke <xliff:g id="folder_name">%s</xliff:g>.</strin
   <!-- The button to switch to Panorama mode. [CHAR LIMIT = NONE] -->
   <string name="accessibility_switch_to_panorama">Beralih ke panorama</string>
   <!-- The button to switch to the Photo Sphere mode. [CHAR LIMIT = NONE] -->
-  <string name="accessibility_switch_to_photo_sphere">Beralih ke Fotosfer</string>
+  <string name="accessibility_switch_to_photo_sphere">Beralih ke Photo Sphere</string>
   <!-- The button to switch to the high quality mode. [CHAR LIMIT = NONE] -->
   <string name="accessibility_switch_to_gcam">Beralih ke kualitas tinggi</string>
   <!-- The button in review mode indicating that the photo taking, video recording, and panorama saving session should be canceled [CHAR LIMIT = NONE] -->
@@ -389,11 +395,11 @@ Gambar yang dipangkas disimpan ke <xliff:g id="folder_name">%s</xliff:g>.</strin
 CHAR LIMIT = NONE] -->
   <string name="accessibility_review_retake">Tinjauan diambil ulang</string>
   <!-- Default text for a button that can be toggled on and off. -->
-  <string name="capital_on">AKTIF</string>
+  <string name="capital_on">HIDUP</string>
   <!-- Default text for a button that can be toggled on and off. -->
-  <string name="capital_off">NONAKTIF</string>
+  <string name="capital_off">MATI</string>
   <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
-  <string name="pref_video_time_lapse_frame_interval_off">Nonaktif</string>
+  <string name="pref_video_time_lapse_frame_interval_off">Mati</string>
   <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
   <string name="pref_video_time_lapse_frame_interval_500">0,5 detik</string>
   <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
@@ -498,16 +504,16 @@ CHAR LIMIT = NONE] -->
   <string name="remember_location_yes">Ya</string>
   <!-- Camera menu labels -->
   <!-- more options label [CHAR LIMIT=50] -->
-  <string name="camera_menu_more_label">PILIHAN LAINNYA</string>
+  <string name="camera_menu_more_label">OPSI LAINNYA</string>
   <!-- settings label [CHAR LIMIT=50] -->
-  <string name="camera_menu_settings_label">PENGATURAN</string>
+  <string name="camera_menu_settings_label">SETELAN</string>
   <!--  Tiny Planet -->
   <!-- Button to press for creating a tiny planet image. [CHAR LIMIT = 30] -->
   <string name="create_tiny_planet">Buat Tiny Planet</string>
   <!-- Message shown while a tiny planet image is being saved. [CHAR LIMIT = 30] -->
   <string name="saving_tiny_planet">Menyimpan Tiny Planet &#8230;</string>
   <!-- Label above a slider that let's the user set the zoom of a tiny planet image. [CHAR LIMIT = 15] -->
-  <string name="tiny_planet_zoom">Zum</string>
+  <string name="tiny_planet_zoom">Zoom</string>
   <!-- Label above a slider that let's the user set the rotation of a tiny planet image. [CHAR LIMIT = 15] -->
   <string name="tiny_planet_rotate">Putar</string>
   <!-- Crop -->
@@ -518,5 +524,5 @@ CHAR LIMIT = NONE] -->
   <!-- Label for album filmstrip button -->
   <string name="switch_photo_filmstrip">Tampilan bingkai film</string>
   <!--  String shown when setting the homepage wallpaper in the background [CHAR LIMIT=NONE] -->
-  <string name="setting_wallpaper">Mengatur gambar latar</string>
+  <string name="setting_wallpaper">Setel wallpaper</string>
 </resources>

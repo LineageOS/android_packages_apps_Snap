@@ -136,6 +136,8 @@
   <string name="cannot_connect_camera">Nu se poate realiza conexiunea la camera foto.</string>
   <!-- message for the dialog showing the camera is disabled because of security policies. Camera cannot be used. -->
   <string name="camera_disabled">Camera foto a fost dezactivată din cauza politicilor de securitate.</string>
+  <!-- message for the dialog showing that the app does not have sufficient permissions [CHAR LIMIT=NONE] -->
+  <!-- Dialog "Dismiss" button. Closes the dialog [CHAR LIMIT=12]-->
   <!-- alert to the user to wait for some operation to complete -->
   <string name="wait">Așteptați\u2026</string>
   <!-- alert to the user that an SD card must be installed before using the camera -->
@@ -279,8 +281,8 @@
   <!-- Settings menu countdown timer 15 seconds [CHAR LIMIT=50] -->
   <string name="pref_camera_countdown_label_fifteen">15 SECUNDE</string>
   <!-- Toast after trying to select a setting that is not allowed to change in scene mode [CHAR LIMIT=NONE] -->
-  <!-- Toast after SeeMore has been enabled to show CDS is disabled -->
-  <!-- Toast after SeeMore has been enabled to show TNR is disabled -->
+  <!-- Toast after High Quality Noise Reduction has been enabled to show CDS is disabled -->
+  <!-- Toast after High Quality Noise Reduction has been enabled to show TNR is disabled -->
   <!-- Exposure settings in preference -->
   <string name="pref_exposure_title">Expunere</string>
   <!--  menu label exposure compensation [CHAR LIMIT=50] -->

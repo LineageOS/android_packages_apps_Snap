@@ -16,9 +16,16 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <!-- common aspect ratios -->
+  <!-- aspect ratio greater than 16:9, so "widescreen" or "cinematic" -->
+  <string name="pref_camera_aspectratio_wide">Panoràmica</string>
+  <!-- Format for entries in the picture size menu. Parameter one is aspect ratio,
+         parameter two is size in megapixels, e.g. "(4:3) 12.1 megapixels"
+         NOTE: for Chinese (zh) and Korean (ko) the pixel number (parameter two)
+         will be multiplied by 100 as those languages want to count by ten thousands -->
+  <string name="pref_camera_megapixel_format">(%1$s) %2$1.1f Mp</string>
   <!-- Settings screen, scene mode -->
   <string name="pref_camera_scenemode_entry_refocus">Macro+</string>
-  <string name="pref_camera_megapixel_format">(%1$s) %2$1.1f Mp</string>
   <string name="pref_camera_scenemode_entry_antimotionblur">Reducció del difuminat del moviment</string>
   <string name="pref_camera_scenemode_entry_aqua">Aigua</string>
   <string name="pref_camera_scenemode_entry_ar">Realitat augmentada</string>
@@ -96,4 +103,7 @@
   <!-- Shutter speed -->
   <string name="pref_camera_shutter_speed_title">Velocitat d\'obturació</string>
   <string name="auto_hdr_enabled">Auto HDR habilitat</string>
+  <!-- Advanced options -->
+  <string name="developer_menu_enabled">Has habilitat les opcions avançades de la càmera</string>
+  <string name="developer_menu_disabled">Has deshabilitat les opcions avançades de la càmera</string>
 </resources>

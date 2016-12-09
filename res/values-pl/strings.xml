@@ -146,6 +146,10 @@
   <string name="cannot_connect_camera">Nie można połączyć się z aparatem.</string>
   <!-- message for the dialog showing the camera is disabled because of security policies. Camera cannot be used. -->
   <string name="camera_disabled">Aparat został wyłączony z powodu zasad bezpieczeństwa.</string>
+  <!-- message for the dialog showing that the app does not have sufficient permissions [CHAR LIMIT=NONE] -->
+  <string name="error_permissions">Aplikacja nie ma przyznanych krytycznych uprawnień niezbędnych do uruchomienia. Proszę sprawdzić ustawienia uprawnień.</string>
+  <!-- Dialog "Dismiss" button. Closes the dialog [CHAR LIMIT=12]-->
+  <string name="dialog_dismiss">Odrzuć</string>
   <!-- alert to the user to wait for some operation to complete -->
   <string name="wait">Proszę czekać\u2026</string>
   <!-- alert to the user that an SD card must be installed before using the camera -->
@@ -296,8 +300,8 @@
   <string name="pref_camera_countdown_label_fifteen">15 SEKUND</string>
   <!-- Toast after trying to select a setting that is not allowed to change in scene mode [CHAR LIMIT=NONE] -->
   <string name="not_selectable_in_scene_mode">Opcja niedostępna w trybie scenerii.</string>
-  <!-- Toast after SeeMore has been enabled to show CDS is disabled -->
-  <!-- Toast after SeeMore has been enabled to show TNR is disabled -->
+  <!-- Toast after High Quality Noise Reduction has been enabled to show CDS is disabled -->
+  <!-- Toast after High Quality Noise Reduction has been enabled to show TNR is disabled -->
   <!-- Exposure settings in preference -->
   <string name="pref_exposure_title">Ekspozycja</string>
   <!--  menu label exposure compensation [CHAR LIMIT=50] -->

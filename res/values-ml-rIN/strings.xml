@@ -142,6 +142,8 @@
   <string name="cannot_connect_camera">ക്യാമറയിലേക്ക് കണക്ട് ചെയ്യാന്‍ കഴിയില്ല.</string>
   <!-- message for the dialog showing the camera is disabled because of security policies. Camera cannot be used. -->
   <string name="camera_disabled">സുരക്ഷാ നയങ്ങൾ കാരണം ക്യാമറ അപ്രാപ്തമാക്കിയിരിക്കുന്നു.</string>
+  <!-- message for the dialog showing that the app does not have sufficient permissions [CHAR LIMIT=NONE] -->
+  <!-- Dialog "Dismiss" button. Closes the dialog [CHAR LIMIT=12]-->
   <!-- alert to the user to wait for some operation to complete -->
   <string name="wait">കാത്തിരിക്കുക…</string>
   <!-- alert to the user that an SD card must be installed before using the camera -->
@@ -291,8 +293,8 @@
   <string name="pref_camera_countdown_label_fifteen">15 സെക്കൻഡ്</string>
   <!-- Toast after trying to select a setting that is not allowed to change in scene mode [CHAR LIMIT=NONE] -->
   <string name="not_selectable_in_scene_mode">സീൻ മോഡില്‍ തിരഞ്ഞെടുക്കാനാകില്ല.</string>
-  <!-- Toast after SeeMore has been enabled to show CDS is disabled -->
-  <!-- Toast after SeeMore has been enabled to show TNR is disabled -->
+  <!-- Toast after High Quality Noise Reduction has been enabled to show CDS is disabled -->
+  <!-- Toast after High Quality Noise Reduction has been enabled to show TNR is disabled -->
   <!-- Exposure settings in preference -->
   <string name="pref_exposure_title">എക്സ്പോഷർ</string>
   <!--  menu label exposure compensation [CHAR LIMIT=50] -->

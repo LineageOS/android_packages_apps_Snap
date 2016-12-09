@@ -152,6 +152,10 @@ Predmet je shranjen lokalno in na voljo brez povezave.</string>
   <string name="cannot_connect_camera">Povezava s fotoaparatom ni mogoča.</string>
   <!-- message for the dialog showing the camera is disabled because of security policies. Camera cannot be used. -->
   <string name="camera_disabled">Fotoaparat je onemogočen zaradi varnostnih pravilnikov.</string>
+  <!-- message for the dialog showing that the app does not have sufficient permissions [CHAR LIMIT=NONE] -->
+  <string name="error_permissions">Aplikacija nima dovoljenj, ki so nujna za delovanje. Preverite nastavitve dovoljenj.</string>
+  <!-- Dialog "Dismiss" button. Closes the dialog [CHAR LIMIT=12]-->
+  <string name="dialog_dismiss">Opusti</string>
   <!-- alert to the user to wait for some operation to complete -->
   <string name="wait">Počakajte …</string>
   <!-- alert to the user that an SD card must be installed before using the camera -->
@@ -281,7 +285,6 @@ Predmet je shranjen lokalno in na voljo brez povezave.</string>
   <string name="pref_camera_scenemode_entry_sunset">Sončni zahod</string>
   <!-- Scene mode optimized for taking indoor low-lights pictures. [CHAR LIMIT=16] -->
   <string name="pref_camera_scenemode_entry_party">Zabava</string>
-  <string name="pref_camera_scenemode_entry_optizoom">Opti-Zoom</string>
   <!-- Settings menu, scene mode labels [CHAR LIMIT=50] -->
   <string name="pref_camera_scenemode_label_auto">BREZ</string>
   <!-- Scene mode that takes an image quickly with little motion blur. [CHAR LIMIT=50] -->
@@ -304,10 +307,10 @@ Predmet je shranjen lokalno in na voljo brez povezave.</string>
   <string name="pref_camera_countdown_label_fifteen">15 SEKUND</string>
   <!-- Toast after trying to select a setting that is not allowed to change in scene mode [CHAR LIMIT=NONE] -->
   <string name="not_selectable_in_scene_mode">Ni mogoče izbrati v načinu prizora.</string>
-  <!-- Toast after SeeMore has been enabled to show CDS is disabled -->
-  <string name="disable_CDS_during_SeeMore">SeeMore bo onemogočil CDS.</string>
-  <!-- Toast after SeeMore has been enabled to show TNR is disabled -->
-  <string name="disable_TNR_during_SeeMore">SeeMore bo onemogočil TNR.</string>
+  <!-- Toast after High Quality Noise Reduction has been enabled to show CDS is disabled -->
+  <string name="disable_CDS_during_HighQualityNoiseReduction">Zmanjševanje šuma visoke kakovosti bo onemogočilo CDS</string>
+  <!-- Toast after High Quality Noise Reduction has been enabled to show TNR is disabled -->
+  <string name="disable_TNR_during_HighQualityNoiseReduction">Zmanjševanje šuma visoke kakovosti bo onemogočilo TNR</string>
   <!-- Exposure settings in preference -->
   <string name="pref_exposure_title">Osvetlitev</string>
   <!--  menu label exposure compensation [CHAR LIMIT=50] -->

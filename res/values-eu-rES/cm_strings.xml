@@ -16,6 +16,14 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <!-- common aspect ratios -->
+  <!-- aspect ratio greater than 16:9, so "widescreen" or "cinematic" -->
+  <string name="pref_camera_aspectratio_wide">Zabala</string>
+  <!-- Format for entries in the picture size menu. Parameter one is aspect ratio,
+         parameter two is size in megapixels, e.g. "(4:3) 12.1 megapixels"
+         NOTE: for Chinese (zh) and Korean (ko) the pixel number (parameter two)
+         will be multiplied by 100 as those languages want to count by ten thousands -->
+  <string name="pref_camera_megapixel_format">(<xliff:g id="ratio" example="16:9">%1$s</xliff:g>) <xliff:g id="pixels">%2$1.1f</xliff:g> megapixel</string>
   <!-- Settings screen, scene mode -->
   <string name="pref_camera_scenemode_entry_refocus">Makro+</string>
   <string name="pref_camera_scenemode_entry_antimotionblur">Desenfoke murriztailea</string>
@@ -24,7 +32,7 @@
   <string name="pref_camera_scenemode_entry_asd">Kliskatze onena</string>
   <string name="pref_camera_scenemode_entry_baby">Umetxoa</string>
   <string name="pref_camera_scenemode_entry_backgroundblur">Atzealde lausotzea</string>
-  <string name="pref_camera_scenemode_entry_backlight">Kontrargia</string>
+  <string name="pref_camera_scenemode_entry_backlight">Atze-argitzea</string>
   <string name="pref_camera_scenemode_entry_backlightportrait">Erretratua kontrargian</string>
   <string name="pref_camera_scenemode_entry_barcode">Barra kodea</string>
   <string name="pref_camera_scenemode_entry_beach">Hondartza</string>
@@ -95,4 +103,7 @@
   <!-- Shutter speed -->
   <string name="pref_camera_shutter_speed_title">Obturadorearen abiadura</string>
   <string name="auto_hdr_enabled">HDR automatikoa gaitu da</string>
+  <!-- Advanced options -->
+  <string name="developer_menu_enabled">Kameraren aukera aurreratuak gaitu dituzu</string>
+  <string name="developer_menu_disabled">Kameraren aukera aurreratuak desgaitu dituzu</string>
 </resources>

@@ -16,15 +16,22 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <!-- common aspect ratios -->
+  <!-- aspect ratio greater than 16:9, so "widescreen" or "cinematic" -->
+  <string name="pref_camera_aspectratio_wide">Lebar</string>
+  <!-- Format for entries in the picture size menu. Parameter one is aspect ratio,
+         parameter two is size in megapixels, e.g. "(4:3) 12.1 megapixels"
+         NOTE: for Chinese (zh) and Korean (ko) the pixel number (parameter two)
+         will be multiplied by 100 as those languages want to count by ten thousands -->
   <string name="pref_camera_megapixel_format">(%1$s) %2$1.1f M piksel</string>
   <!-- Settings screen, scene mode -->
   <string name="pref_camera_scenemode_entry_refocus">Makro+</string>
-  <string name="pref_camera_scenemode_entry_antimotionblur">Pengurangan gerakan kabur</string>
+  <string name="pref_camera_scenemode_entry_antimotionblur">Reduksi gerakan kabur</string>
   <string name="pref_camera_scenemode_entry_aqua">Aqua</string>
-  <string name="pref_camera_scenemode_entry_ar">Kenyataan yang diperbesar</string>
-  <string name="pref_camera_scenemode_entry_asd">Tembakan yang terbaik</string>
-  <string name="pref_camera_scenemode_entry_baby">Kecil</string>
-  <string name="pref_camera_scenemode_entry_backgroundblur">Latar belakang yang kabur</string>
+  <string name="pref_camera_scenemode_entry_ar">Perkaya realita</string>
+  <string name="pref_camera_scenemode_entry_asd">Bidikan terbaik</string>
+  <string name="pref_camera_scenemode_entry_baby">Bayi</string>
+  <string name="pref_camera_scenemode_entry_backgroundblur">Latar belakang kabur</string>
   <string name="pref_camera_scenemode_entry_backlight">Lampu latar</string>
   <string name="pref_camera_scenemode_entry_backlightportrait">Potret lampu latar</string>
   <string name="pref_camera_scenemode_entry_barcode">Kode batang</string>
@@ -58,7 +65,7 @@
   <string name="pref_camera_scenemode_entry_steadyphoto">Foto stabil</string>
   <string name="pref_camera_scenemode_entry_supernight">Malam yang gelap</string>
   <string name="pref_camera_scenemode_entry_sweepstitch">Sweep stitch</string>
-  <string name="pref_camera_scenemode_entry_text">Naskah</string>
+  <string name="pref_camera_scenemode_entry_text">Teks</string>
   <string name="pref_camera_scenemode_entry_theatre">Teater</string>
   <string name="pref_camera_scenemode_entry_whiteboard">Papan tulis </string>
   <!-- Settings screen, focus mode -->
@@ -85,15 +92,18 @@
   <!-- Power shutter -->
   <string name="pref_camera_power_shutter_title">Bidik dengan tombol power</string>
   <!-- Max brightness -->
-  <string name="pref_camera_max_brightness_title">Layar yang cerah</string>
+  <string name="pref_camera_max_brightness_title">Layar cerah</string>
   <!-- Touch focus duration -->
-  <string name="pref_camera_focustime_title">Lamanya fokus sentuhan</string>
-  <string name="pref_camera_focustime_entry_0">0 detik</string>
-  <string name="pref_camera_focustime_entry_3">3 detik</string>
-  <string name="pref_camera_focustime_entry_5">5 detik</string>
-  <string name="pref_camera_focustime_entry_10">10 detik</string>
-  <string name="pref_camera_focustime_entry_infinite">Tidak terhingga</string>
+  <string name="pref_camera_focustime_title">Durasi fokus sentuhan</string>
+  <string name="pref_camera_focustime_entry_0">0d</string>
+  <string name="pref_camera_focustime_entry_3">3d</string>
+  <string name="pref_camera_focustime_entry_5">5d</string>
+  <string name="pref_camera_focustime_entry_10">10d</string>
+  <string name="pref_camera_focustime_entry_infinite">Tak terhingga</string>
   <!-- Shutter speed -->
-  <string name="pref_camera_shutter_speed_title">Kecepatan alat pengatur cahaya</string>
+  <string name="pref_camera_shutter_speed_title">Kecepatan rana</string>
   <string name="auto_hdr_enabled">HDR diaktifkan secara otomatis</string>
+  <!-- Advanced options -->
+  <string name="developer_menu_enabled">Anda telah mengaktifkan opsi kamera lanjutan</string>
+  <string name="developer_menu_disabled">Anda telah menonaktifkan opsi kamera lanjutan</string>
 </resources>

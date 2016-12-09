@@ -16,6 +16,13 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <!-- common aspect ratios -->
+  <!-- aspect ratio greater than 16:9, so "widescreen" or "cinematic" -->
+  <string name="pref_camera_aspectratio_wide">Bred</string>
+  <!-- Format for entries in the picture size menu. Parameter one is aspect ratio,
+         parameter two is size in megapixels, e.g. "(4:3) 12.1 megapixels"
+         NOTE: for Chinese (zh) and Korean (ko) the pixel number (parameter two)
+         will be multiplied by 100 as those languages want to count by ten thousands -->
   <string name="pref_camera_megapixel_format">(%1$s) %2$1.1f M piksler</string>
   <!-- Settings screen, scene mode -->
   <string name="pref_camera_scenemode_entry_refocus">Makro +</string>
@@ -96,4 +103,7 @@
   <!-- Shutter speed -->
   <string name="pref_camera_shutter_speed_title">Lukkertid</string>
   <string name="auto_hdr_enabled">Automatisk HDR aktivert</string>
+  <!-- Advanced options -->
+  <string name="developer_menu_enabled">Du har aktivert avanserte kamera innstillinger</string>
+  <string name="developer_menu_disabled">Du har deaktivert avanserte kamera innstillinger</string>
 </resources>
