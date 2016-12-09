@@ -1199,7 +1199,7 @@ public class VideoUI implements PieRenderer.PieListener,
 
     @Override
     public void onFaceDetection(Face[] faces, CameraProxy camera) {
-        Log.d(TAG, "onFacedetectopmn");
+        Log.v(TAG, "onFaceDetection");
         mFaceView.setFaces(faces);
     }
 
