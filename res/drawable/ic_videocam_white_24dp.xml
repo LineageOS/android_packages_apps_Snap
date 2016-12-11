@@ -9,6 +9,6 @@
         android:pathData="M0 0h24v24H0z" />
     <path
         android:fillColor="@color/white"
-        android:pathData="M3 5H1v16c0 1.1 .9 2 2 2h16v-2H3V5zm11 10h2V5h-4v2h2v8zm7-14H7c-1.1 0-2 .9-2
-2v14c0 1.1 .9 2 2 2h14c1.1 0 2-.9 2-2V3c0-1.1-.9-2-2-2zm0 16H7V3h14v14z" />
+        android:pathData="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55 .45 1 1 1h12c.55 0 1-.45
+1-1v-3.5l4 4v-11l-4 4z" />
 </vector>
