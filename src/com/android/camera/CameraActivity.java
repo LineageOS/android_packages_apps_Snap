@@ -2372,6 +2372,9 @@ public class CameraActivity extends Activity
      * @return whether controls are visible.
      */
     private boolean arePreviewControlsVisible() {
+        if (mCurrentModule == null) {
+            return false;
+        }
         return mCurrentModule.arePreviewControlsVisible();
     }
 
