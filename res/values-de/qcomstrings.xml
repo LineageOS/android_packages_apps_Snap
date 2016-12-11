@@ -278,8 +278,11 @@
   <!-- Toast after SeeMore has been enabled to show TNR is disabled -->
   <string name="disable_TNR_during_SeeMore">Aktivieren von SeeMore deaktiviert TNR</string>
   <!-- TODO: Remove these? -->
+  <string name="pref_camera2_camera2_title" translatable="true">Camera2-Modus</string>
   <string name="pref_camera2_camera2_entry_enable" translatable="true">Aktivieren</string>
   <string name="pref_camera2_camera2_entry_disable" translatable="true">Deaktivieren</string>
+  <string name="pref_camera2_mono_only_title" translatable="true">Nur Mono</string>
+  <string name="pref_camera2_mono_preview_title" translatable="true">Mono-Vorschau</string>
   <string name="pref_camera2_mono_preview_entry_on" translatable="true">An</string>
   <string name="pref_camera2_mono_preview_entry_off" translatable="true">Aus</string>
   <string name="pref_camera2_clearsight_title" translatable="true">ClearSight</string>
@@ -295,6 +298,7 @@
   <string name="pref_camera2_noise_reduction_entry_off" translatable="true">Aus</string>
   <string name="pref_camera2_noise_reduction_entry_fast" translatable="true">Schnell</string>
   <string name="pref_camera2_noise_reduction_entry_high_quality" translatable="true">Hohe Qualität</string>
+  <string name="pref_camera2_videosnap_title" translatable="true">Automatische Schnappschussgröße</string>
   <string name="pref_camera2_videosnap_entry_enable" translatable="true">Aktivieren</string>
   <string name="pref_camera2_videosnap_entry_disable" translatable="true">Deaktivieren</string>
 </resources>

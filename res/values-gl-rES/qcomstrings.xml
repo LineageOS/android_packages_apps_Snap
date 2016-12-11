@@ -102,8 +102,11 @@
   <!-- Default noise reduction setting. Do not translate. -->
   <string name="pref_camera_noise_reduction_default">apagado</string>
   <!-- Settings screen, Select See More title -->
+  <string name="pref_camera_noise_reduction_title">Redución do ruído</string>
   <!-- Settings screen, see more radio button choices -->
   <string name="pref_camera_noise_reduction_entry_off">Apagado</string>
+  <string name="pref_camera_noise_reduction_entry_fast">Rápido</string>
+  <string name="pref_camera_noise_reduction_entry_high_quality">Alta calidade</string>
   <!-- see more entry values. Do not translate. -->
   <string name="pref_camera_noise_reduction_value_off">apagado</string>
   <!-- ISO -->
@@ -277,9 +280,28 @@
   <!-- Toast after SeeMore has been enabled to show TNR is disabled -->
   <string name="disable_TNR_during_SeeMore">Activar SeeMore desactivará TNR</string>
   <!-- TODO: Remove these? -->
+  <string name="pref_camera2_camera2_title" translatable="true">Camera2 modo</string>
+  <string name="pref_camera2_camera2_entry_enable" translatable="true">Activado</string>
+  <string name="pref_camera2_camera2_entry_disable" translatable="true">Desactivado</string>
+  <string name="pref_camera2_mono_only_title" translatable="true">Solo mono</string>
+  <string name="pref_camera2_mono_preview_title" translatable="true">Mono Preview</string>
+  <string name="pref_camera2_mono_preview_entry_on" translatable="true">Encendido</string>
   <string name="pref_camera2_mono_preview_entry_off" translatable="true">Apagado</string>
+  <string name="pref_camera2_clearsight_title" translatable="true">ClearSight</string>
+  <string name="pref_camera2_clearsight_entry_on" translatable="true">Encendido</string>
   <string name="pref_camera2_clearsight_entry_off" translatable="true">Apagado</string>
+  <string name="clearsight_capture_success">Captura de ClearSight exitosa</string>
+  <string name="clearsight_capture_fail">Captura ClearSight fallou</string>
+  <string name="pref_camera2_mpo_title" translatable="true">Formato MPO</string>
+  <string name="pref_camera2_mpo_entry_on" translatable="true">Encendido</string>
   <string name="pref_camera2_mpo_entry_off" translatable="true">Apagado</string>
+  <string name="pref_camera2_makeup_title" translatable="true">Maquillage</string>
+  <string name="pref_camera2_noise_reduction_title" translatable="true">Redución do ruído</string>
   <string name="pref_camera2_noise_reduction_entry_off" translatable="true">Apagado</string>
+  <string name="pref_camera2_noise_reduction_entry_fast" translatable="true">Rápido</string>
+  <string name="pref_camera2_noise_reduction_entry_high_quality" translatable="true">Alta calidade</string>
+  <string name="pref_camera2_videosnap_title" translatable="true">Tamaño da instantánea automática</string>
   <string name="pref_camera2_videosnap_value_disable" translatable="true">desactivar</string>
+  <string name="pref_camera2_videosnap_entry_enable" translatable="true">Activado</string>
+  <string name="pref_camera2_videosnap_entry_disable" translatable="true">Desactivado</string>
 </resources>
