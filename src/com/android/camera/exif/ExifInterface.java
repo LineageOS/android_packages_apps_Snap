@@ -2075,6 +2075,19 @@ public class ExifInterface {
         return true;
     }
 
+    public boolean fakeGooglePixel() {
+        ExifTag t = buildTag(TAG_MAKE, "Google");
+        if (t == null) {
+            return false;
+        }
+        setTag(t);
+        t = buildTag(TAG_MODEL, "Pixel XL");
+        if (t == null) {
+            return false;
+        }
+        setTag(t);
+        return true;
+    }
 
     private static Rational[] toExifLatLong(double value) {
         // convert to the format dd/1 mm/1 ssss/100

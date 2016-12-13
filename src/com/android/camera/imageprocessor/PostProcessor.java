@@ -611,6 +611,7 @@ public class PostProcessor{
         exif.addOrientationTag(orientationInDegree);
         exif.addDateTimeStampTag(ExifInterface.TAG_DATE_TIME, System.currentTimeMillis(),
                 TimeZone.getDefault());
+        exif.fakeGooglePixel();
         ByteArrayOutputStream jpegOut = new ByteArrayOutputStream();
         try {
             exif.writeExif(jpeg, jpegOut);
