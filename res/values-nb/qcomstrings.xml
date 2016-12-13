@@ -102,8 +102,11 @@
   <!-- Default noise reduction setting. Do not translate. -->
   <string name="pref_camera_noise_reduction_default">av</string>
   <!-- Settings screen, Select See More title -->
+  <string name="pref_camera_noise_reduction_title">Støyreduksjon</string>
   <!-- Settings screen, see more radio button choices -->
   <string name="pref_camera_noise_reduction_entry_off">Av</string>
+  <string name="pref_camera_noise_reduction_entry_fast">Rask</string>
+  <string name="pref_camera_noise_reduction_entry_high_quality">Høy kvalitet</string>
   <!-- see more entry values. Do not translate. -->
   <string name="pref_camera_noise_reduction_value_off">av</string>
   <!-- ISO -->
@@ -277,9 +280,28 @@
   <!-- Toast after SeeMore has been enabled to show TNR is disabled -->
   <string name="disable_TNR_during_SeeMore">Å aktivere SeeMore vil deaktivere TNR</string>
   <!-- TODO: Remove these? -->
+  <string name="pref_camera2_camera2_title" translatable="true">Camera2-modus</string>
+  <string name="pref_camera2_camera2_entry_enable" translatable="true">Aktiver</string>
+  <string name="pref_camera2_camera2_entry_disable" translatable="true">Deaktiver</string>
+  <string name="pref_camera2_mono_only_title" translatable="true">Bare Mono</string>
+  <string name="pref_camera2_mono_preview_title" translatable="true">Mono Forhåndsvisning</string>
+  <string name="pref_camera2_mono_preview_entry_on" translatable="true">På</string>
   <string name="pref_camera2_mono_preview_entry_off" translatable="true">Av</string>
+  <string name="pref_camera2_clearsight_title" translatable="true">ClearSight</string>
+  <string name="pref_camera2_clearsight_entry_on" translatable="true">På</string>
   <string name="pref_camera2_clearsight_entry_off" translatable="true">Av</string>
+  <string name="clearsight_capture_success">ClearSight-bilde ble vellykket tatt</string>
+  <string name="clearsight_capture_fail">ClearSight-bildet mislyktes</string>
+  <string name="pref_camera2_mpo_title" translatable="true">MPO Format</string>
+  <string name="pref_camera2_mpo_entry_on" translatable="true">På</string>
   <string name="pref_camera2_mpo_entry_off" translatable="true">Av</string>
+  <string name="pref_camera2_makeup_title" translatable="true">Sminke</string>
+  <string name="pref_camera2_noise_reduction_title" translatable="true">Støyreduksjon</string>
   <string name="pref_camera2_noise_reduction_entry_off" translatable="true">Av</string>
+  <string name="pref_camera2_noise_reduction_entry_fast" translatable="true">Rask</string>
+  <string name="pref_camera2_noise_reduction_entry_high_quality" translatable="true">Høy kvalitet</string>
+  <string name="pref_camera2_videosnap_title" translatable="true">Automatisk bildestørrelse</string>
   <string name="pref_camera2_videosnap_value_disable" translatable="true">deaktiver</string>
+  <string name="pref_camera2_videosnap_entry_enable" translatable="true">Aktiver</string>
+  <string name="pref_camera2_videosnap_entry_disable" translatable="true">Deaktiver</string>
 </resources>
