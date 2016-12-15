@@ -544,8 +544,6 @@ public class CaptureModule extends BaseModule<CaptureUI> implements PhotoControl
                 // AF_PASSIVE is added for continous auto focus mode
                 if (CaptureResult.CONTROL_AF_STATE_FOCUSED_LOCKED == afState ||
                         CaptureResult.CONTROL_AF_STATE_NOT_FOCUSED_LOCKED == afState ||
-                        CaptureResult.CONTROL_AF_STATE_PASSIVE_FOCUSED == afState ||
-                        CaptureResult.CONTROL_AF_STATE_PASSIVE_UNFOCUSED == afState ||
                         (mLockRequestHashCode[id] == result.getRequest().hashCode() &&
                                 afState == CaptureResult.CONTROL_AF_STATE_INACTIVE)) {
                     if(id == MONO_ID && getCameraMode() == DUAL_MODE && isBackCamera()) {
