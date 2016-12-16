@@ -175,7 +175,7 @@
   <string name="pref_camera_sharpness_entry_level5">Tingkat 5</string>
   <string name="pref_camera_sharpness_entry_level6">Tingkat 6</string>
   <!-- Contrast -->
-  <string name="pref_camera_contrast_title">Perbedaan</string>
+  <string name="pref_camera_contrast_title">Kontras</string>
   <string name="pref_camera_contrast_entry_level0">Tingkat 0</string>
   <string name="pref_camera_contrast_entry_level1">Tingkat 1</string>
   <string name="pref_camera_contrast_entry_level2">Tingkat 2</string>
@@ -188,7 +188,7 @@
   <string name="pref_camera_contrast_entry_level9">Tingkat 9</string>
   <string name="pref_camera_contrast_entry_level10">Tingkat 10</string>
   <!-- Saturation -->
-  <string name="pref_camera_saturation_title">Kejenuhan</string>
+  <string name="pref_camera_saturation_title">Saturasi</string>
   <string name="pref_camera_saturation_entry_level0">Tingkat 0</string>
   <string name="pref_camera_saturation_entry_level1">Tingkat 1</string>
   <string name="pref_camera_saturation_entry_level2">Tingkat 2</string>
