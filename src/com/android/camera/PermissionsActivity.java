@@ -171,6 +171,7 @@ public class PermissionsActivity extends Activity {
         if (mIntent != null) {
            mIsReturnResult = true;
            mIntent.setClass(this, CameraActivity.class);
+           mIntent.setFlags(mIntent.getFlags() & ~Intent.FLAG_ACTIVITY_FORWARD_RESULT);
            startActivityForResult(mIntent, 1);
         } else {
            mIsReturnResult = false;
