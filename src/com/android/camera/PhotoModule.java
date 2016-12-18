@@ -160,6 +160,7 @@ public class PhotoModule
     private static final int SET_PHOTO_UI_PARAMS = 11;
     private static final int SWITCH_TO_GCAM_MODULE = 12;
     private static final int ON_PREVIEW_STARTED = 13;
+    private static final int UNLOCK_CAM_SHUTTER = 14;
 
     // The subset of parameters we need to update in setCameraParameters().
     private static final int UPDATE_PARAM_INITIALIZE = 1;
@@ -546,6 +547,11 @@ public class PhotoModule
 
                 case ON_PREVIEW_STARTED: {
                     onPreviewStarted();
+                    break;
+                }
+
+                case UNLOCK_CAM_SHUTTER: {
+                    mUI.enableShutter(true);
                     break;
                 }
             }
@@ -1835,10 +1841,12 @@ public class PhotoModule
         mPreviewRestartSupport &= PIXEL_FORMAT_JPEG.equalsIgnoreCase(
                 pictureFormat);
 
+        mUI.enableShutter(false);
+
         // We don't want user to press the button again while taking a
         // multi-second HDR photo. For longshot, no need to disable.
-        if (CameraUtil.SCENE_MODE_HDR.equals(mSceneMode)) {
-            mUI.enableShutter(false);
+        if (!CameraUtil.SCENE_MODE_HDR.equals(mSceneMode)) {
+            mHandler.sendEmptyMessageDelayed(UNLOCK_CAM_SHUTTER, 120);
         }
 
         if (!isShutterSoundOn()) {
