@@ -27,71 +27,280 @@
   <!-- Video quality setting entry. Videos will be recorded in QVGA quality. [CHAR LIMIT=24] -->
   <!-- Video quality setting entry. Videos will be recorded in QCIF quality. [CHAR LIMIT=24] -->
   <!-- Auto exposure -->
+  <string name="pref_camera_autoexposure_title">Automatická expozícia</string>
+  <string name="pref_camera_autoexposure_entry_centerweighted">Zamerané na stred</string>
+  <string name="pref_camera_autoexposure_entry_frameaverage">Priemer rámu</string>
+  <string name="pref_camera_autoexposure_entry_spotmetering">Bodové meranie</string>
   <!-- Video codec -->
+  <string name="pref_camera_videoencoder_title">Kodek videa</string>
   <!-- Audio codec -->
+  <string name="pref_camera_audioencoder_title">Kodek zvuku</string>
   <!-- Skin tone enhancement -->
+  <string name="pref_camera_skinToneEnhancement_title">Vylepšenia tónu pleti</string>
   <!-- Zero shutter lag-->
+  <string name="pref_camera_zsl_title">Nulové oneskorenie uzávierky</string>
   <!-- Autofocus zone -->
+  <string name="pref_camera_selectablezoneaf_title">Zóna automatického zaostrovania</string>
+  <string name="pref_camera_selectablezoneaf_entry_auto">Automaticky</string>
+  <string name="pref_camera_selectablezoneaf_entry_centerweighted">Zamerané na stred</string>
+  <string name="pref_camera_selectablezoneaf_entry_frameaverage">Priemer rámu</string>
+  <string name="pref_camera_selectablezoneaf_entry_spotmetering">Bodové meranie</string>
   <!-- Advanced features -->
+  <string name="pref_camera_advanced_features_title">Rozšírené funkcie</string>
+  <string name="pref_camera_advanced_feature_entry_none">Žiadny</string>
+  <string name="pref_camera_advanced_feature_entry_multi_touch_focus">Multi-dotykové zaostrovanie</string>
   <!-- Manual exposure -->
+  <string name="pref_camera_manual_exp_title">Manuálna expozícia</string>
+  <string name="pref_camera_manual_exp_entry_ISO_priority">Priorita ISO</string>
+  <string name="pref_camera_manual_exp_entry_exptime_priority">Priorita času expozície</string>
+  <string name="pref_camera_manual_exp_entry_user_setting">Nastavenie použivateľa</string>
+  <string name="pref_camera_manual_exp_entry_off">Vypnutá</string>
   <!-- Manual white balance -->
+  <string name="pref_camera_manual_wb_title">Manuálne vyváženie bielej</string>
+  <string name="pref_camera_manual_wb_entry_color_temperature">Teplota farieb</string>
+  <string name="pref_camera_manual_wb_entry_rbgb_gains">Zisky RBGB</string>
+  <string name="pref_camera_manual_wb_entry_off">Vypnuté</string>
   <!-- Manual focus -->
+  <string name="pref_camera_manual_focus_title">Manuálne zaostrenie</string>
+  <string name="pref_camera_manual_focus_entry_scale_mode">Režim mierky</string>
+  <string name="pref_camera_manual_focus_entry_diopter_mode">Dioptrický režim</string>
+  <string name="pref_camera_manual_focus_entry_off">Vypnuté</string>
   <!-- Still More -->
   <!-- Video HDR-->
+  <string name="pref_camera_video_hdr_title">HDR video</string>
   <!-- CDS mode-->
+  <string name="pref_camera_cds_title">Režim CDS</string>
+  <string name="pref_camera_cds_entry_auto">Automatický</string>
   <!-- Video CDS-->
+  <string name="pref_camera_video_cds_title">Režim CDS videa</string>
+  <string name="pref_camera_video_cds_entry_auto">Automatický</string>
   <!-- TNR-->
+  <string name="pref_camera_tnr_title">Režim TNR</string>
   <!-- Video TNR -->
+  <string name="pref_camera_video_tnr_title">Režim TNR videa</string>
   <!-- Face detection -->
+  <string name="pref_camera_facedetection_title">Detekcia tvárí</string>
   <!-- Selfie Flash -->
+  <string name="pref_selfie_flash_title">Selfie blesk</string>
   <!-- Red eye reduction -->
+  <string name="pref_camera_redeyereduction_title">Redukcia červených očí</string>
   <!-- AE bracketing -->
+  <string name="pref_camera_ae_bracket_hdr_title">Automatický expozičný bracketing</string>
   <!-- High-framerate recording -->
+  <string name="pref_camera_hfr_title">Spomalený pohyb</string>
+  <string name="pref_camera_hfr_entry_off">Vypnuté</string>
+  <string name="pref_camera_hfr_entry_2x">Spomalený pohyb 60 FPS</string>
+  <string name="pref_camera_hfr_entry_3x">Spomalený pohyb 90 FPS</string>
+  <string name="pref_camera_hfr_entry_4x">Spomalený pohyb 120 FPS</string>
+  <string name="pref_camera_hfr_entry_8x">Spomalený pohyb 240 FPS</string>
+  <string name="pref_camera_hfr_entry_hsr_60">Vysoká rýchlosť 60 FPS</string>
+  <string name="pref_camera_hfr_entry_hsr_90">Vysoká rýchlosť 90 FPS</string>
+  <string name="pref_camera_hfr_entry_hsr_120">Vysoká rýchlosť 120 FPS</string>
   <!-- See More -->
   <!-- Denoise -->
+  <string name="pref_camera_denoise_title">Odstránenie šumu</string>
   <!-- Default noise reduction setting. Do not translate. -->
+  <string name="pref_camera_noise_reduction_default">vypnuté</string>
   <!-- Settings screen, Select See More title -->
+  <string name="pref_camera_noise_reduction_title">Redukcia šumu</string>
   <!-- Settings screen, see more radio button choices -->
+  <string name="pref_camera_noise_reduction_entry_off">Vypnutá</string>
+  <string name="pref_camera_noise_reduction_entry_fast">Rýchlo</string>
+  <string name="pref_camera_noise_reduction_entry_high_quality">Vysoká kvalita</string>
   <!-- see more entry values. Do not translate. -->
+  <string name="pref_camera_noise_reduction_value_off">vypnuté</string>
   <!-- ISO -->
+  <string name="pref_camera_iso_title">ISO</string>
+  <string name="pref_camera_iso_entry_auto">Automaticky</string>
+  <string name="pref_camera_iso_entry_iso50">ISO 50</string>
+  <string name="pref_camera_iso_entry_iso100">ISO 100</string>
+  <string name="pref_camera_iso_entry_iso125">ISO 125</string>
+  <string name="pref_camera_iso_entry_iso150">ISO 150</string>
+  <string name="pref_camera_iso_entry_iso200">ISO 200</string>
+  <string name="pref_camera_iso_entry_iso250">ISO 250</string>
+  <string name="pref_camera_iso_entry_iso300">ISO 300</string>
+  <string name="pref_camera_iso_entry_iso320">ISO 320</string>
+  <string name="pref_camera_iso_entry_iso350">ISO 350</string>
+  <string name="pref_camera_iso_entry_iso400">ISO 400</string>
+  <string name="pref_camera_iso_entry_iso450">ISO 450</string>
+  <string name="pref_camera_iso_entry_iso500">ISO 500</string>
+  <string name="pref_camera_iso_entry_iso600">ISO 600</string>
+  <string name="pref_camera_iso_entry_iso640">ISO 640</string>
+  <string name="pref_camera_iso_entry_iso700">ISO 700</string>
+  <string name="pref_camera_iso_entry_iso800">ISO 800</string>
+  <string name="pref_camera_iso_entry_iso1000">ISO 1000</string>
+  <string name="pref_camera_iso_entry_iso1200">ISO 1200</string>
+  <string name="pref_camera_iso_entry_iso1250">ISO 1250</string>
+  <string name="pref_camera_iso_entry_iso1500">ISO 1500</string>
+  <string name="pref_camera_iso_entry_iso1600">ISO 1600</string>
+  <string name="pref_camera_iso_entry_iso2000">ISO 2000</string>
+  <string name="pref_camera_iso_entry_iso2500">ISO 2500</string>
+  <string name="pref_camera_iso_entry_iso2700">ISO 2700</string>
+  <string name="pref_camera_iso_entry_iso3200">ISO 3200</string>
+  <string name="pref_camera_iso_entry_iso6400">ISO 6400</string>
+  <string name="pref_camera_iso_entry_iso12800">ISO 12800</string>
   <!-- Antibanding -->
+  <string name="pref_camera_antibanding_title">Potlačenie blikania obrazu</string>
+  <string name="pref_camera_antibanding_entry_0">Automatické</string>
+  <string name="pref_camera_antibanding_entry_1">50 Hz (Európa)</string>
+  <string name="pref_camera_antibanding_entry_2">60 Hz (USA)</string>
   <!-- Color effect -->
+  <string name="pref_camera_coloreffect_title">Farebný efekt</string>
+  <string name="pref_camera_coloreffect_entry_none">Žiadny</string>
+  <string name="pref_camera_coloreffect_entry_mono">Čiernobiely</string>
+  <string name="pref_camera_coloreffect_entry_sepia">Sépia</string>
+  <string name="pref_camera_coloreffect_entry_negative">Negatív</string>
   <!-- Color effect that overexposes and reverses some of the tones. -->
+  <string name="pref_camera_coloreffect_entry_solarize">Solarizácia</string>
+  <string name="pref_camera_coloreffect_entry_posterize">Posterizácia</string>
+  <string name="pref_camera_coloreffect_entry_aqua">Voda</string>
+  <string name="pref_camera_coloreffect_entry_emboss">Reliéf</string>
+  <string name="pref_camera_coloreffect_entry_sketch">Náčrtok</string>
+  <string name="pref_camera_coloreffect_entry_neon">Neón</string>
+  <string name="pref_camera_coloreffect_entry_pastel">Pastel</string>
+  <string name="pref_camera_coloreffect_entry_mosaic">Mozaika</string>
+  <string name="pref_camera_coloreffect_entry_redtint">Červený odtieň</string>
+  <string name="pref_camera_coloreffect_entry_bluetint">Modrý odtieň</string>
+  <string name="pref_camera_coloreffect_entry_greentint">Zelený odtieň</string>
   <!-- Stabilization -->
+  <string name="pref_camera_dis_title">Stabilizácia videa</string>
   <!-- Face recognition -->
+  <string name="pref_camera_facerc_title">Rozpoznávanie tvárí</string>
   <!-- Sharpness -->
+  <string name="pref_camera_sharpness_title">Ostrosť</string>
+  <string name="pref_camera_sharpness_entry_level0">Úroveň 0</string>
+  <string name="pref_camera_sharpness_entry_level1">Úroveň 1</string>
+  <string name="pref_camera_sharpness_entry_level2">Úroveň 2 (Predvolené)</string>
+  <string name="pref_camera_sharpness_entry_level3">Úroveň 3</string>
+  <string name="pref_camera_sharpness_entry_level4">Úroveň 4</string>
+  <string name="pref_camera_sharpness_entry_level5">Úroveň 5</string>
+  <string name="pref_camera_sharpness_entry_level6">Úroveň 6</string>
   <!-- Contrast -->
+  <string name="pref_camera_contrast_title">Kontrast</string>
+  <string name="pref_camera_contrast_entry_level0">Úroveň 0</string>
+  <string name="pref_camera_contrast_entry_level1">Úroveň 1</string>
+  <string name="pref_camera_contrast_entry_level2">Úroveň 2</string>
+  <string name="pref_camera_contrast_entry_level3">Úroveň 3</string>
+  <string name="pref_camera_contrast_entry_level4">Úroveň 4</string>
+  <string name="pref_camera_contrast_entry_level5">Úroveň 5 (Predvolené)</string>
+  <string name="pref_camera_contrast_entry_level6">Úroveň 6</string>
+  <string name="pref_camera_contrast_entry_level7">Úroveň 7</string>
+  <string name="pref_camera_contrast_entry_level8">Úroveň 8</string>
+  <string name="pref_camera_contrast_entry_level9">Úroveň 9</string>
+  <string name="pref_camera_contrast_entry_level10">Úroveň 10</string>
   <!-- Saturation -->
+  <string name="pref_camera_saturation_title">Sýtosť</string>
+  <string name="pref_camera_saturation_entry_level0">Úroveň 0</string>
+  <string name="pref_camera_saturation_entry_level1">Úroveň 1</string>
+  <string name="pref_camera_saturation_entry_level2">Úroveň 2</string>
+  <string name="pref_camera_saturation_entry_level3">Úroveň 3</string>
+  <string name="pref_camera_saturation_entry_level4">Úroveň 4</string>
+  <string name="pref_camera_saturation_entry_level5">Úroveň 5 (Predvolené)</string>
+  <string name="pref_camera_saturation_entry_level6">Úroveň 6</string>
+  <string name="pref_camera_saturation_entry_level7">Úroveň 7</string>
+  <string name="pref_camera_saturation_entry_level8">Úroveň 8</string>
+  <string name="pref_camera_saturation_entry_level9">Úroveň 9</string>
+  <string name="pref_camera_saturation_entry_level10">Úroveň 10</string>
   <!-- Picture format -->
+  <string name="pref_camera_picture_format_title">Formát obrázku</string>
   <!-- Picture quality -->
+  <string name="pref_camera_jpegquality_title">Kvalita obrázku</string>
+  <string name="pref_camera_jpegquality_entry_0">55%</string>
+  <string name="pref_camera_jpegquality_entry_1">65% (normálne)</string>
+  <string name="pref_camera_jpegquality_entry_2">75% (jemná)</string>
+  <string name="pref_camera_jpegquality_entry_3">85% (veľmi jemné)</string>
+  <string name="pref_camera_jpegquality_entry_4">95%</string>
+  <string name="pref_camera_jpegquality_entry_5">100%</string>
   <!-- Histogram -->
+  <string name="pref_camera_histogram_title">Histogram</string>
   <!-- Auto scene detection -->
+  <string name="pref_camera_scenedetect_title">Automatická detekcia scény</string>
   <!-- Continuous shot -->
+  <string name="pref_camera_longshot_title">Sekvenčné snímanie</string>
   <!-- Auto HDR -->
+  <string name="pref_camera_auto_hdr_title">Auto HDR</string>
   <!-- HDR mode -->
+  <string name="pref_camera_hdr_mode_title">HDR režim</string>
+  <string name="pref_camera_hdr_mode_entry_sensor">Senzor HDR</string>
+  <string name="pref_camera_hdr_mode_entry_multi_frame">Multisnímkový HDR</string>
   <!-- HDR needs 1x frame -->
+  <string name="pref_camera_hdr_need_1x_title">HDR potrebuje 1x snímku</string>
   <!-- Video rotation -->
+  <string name="pref_camera_video_rotation_title">Otočenie videa</string>
+  <string name="pref_camera_video_rotation_entry_0">0 stupňov</string>
+  <string name="pref_camera_video_rotation_entry_90">90 stupňov</string>
+  <string name="pref_camera_video_rotation_entry_180">180 stupňov</string>
+  <string name="pref_camera_video_rotation_entry_270">270 stupňov</string>
   <!-- Storage location -->
+  <string name="pref_camera_savepath_title">Umiestnenie úložiska</string>
+  <string name="pref_camera_savepath_entry_0">Vnútorná pamäť</string>
+  <string name="pref_camera_savepath_entry_1">Karta SD</string>
   <!-- Misc -->
   <!-- The alias of CameraActivity for gesture operation -->
+  <string name="camera_gesture_title">Spustiť fotoaparát</string>
+  <string name="all_in_focus">Zaostrené na všetko</string>
+  <string name="refocus_toast">Pre znovu zaostrenie poslednej fotky, kliknite sem</string>
   <!-- Toast messages -->
   <!-- The message is shown in toast when the app encounters an unsupported selection for High-framerate recording mode -->
+  <string name="error_app_unsupported_hfr_selection">Vysoká rýchlosť/pomalý pohyb nie je podporované pre DIS (optická stabilizácia obrazu) a TimeLapse (časozber)</string>
   <!-- The message is shown in dialog when the app encounters an unsupported resolution for Slow motion mode -->
+  <string name="error_app_unsupported_hfr">Spomalené video nie je podporované pri vybratom rozlíšení</string>
   <!-- The message is shown in toast when the app encounters an unsupported resolution for Stabilization mode -->
+  <string name="error_app_unsupported_dis">Stabilizácia nie je podporovaná pre zvolenú veľkosť videa. Zvoľte menšiu veľkosť videa</string>
   <!-- The message is shown in dialog when the app encounters an unsupported resolution for High speed mode -->
+  <string name="error_app_unsupported_hsr">Vysokorýchlostné video nie je podporované pri vybratom rozlíšení</string>
   <!-- The message is shown in dialog when the app encounters an unsupported video codec for HFR mode -->
+  <string name="error_app_unsupported_hfr_codec">Len H.264 kódovanie videa je podporované pri spomalenom zábere</string>
   <!-- The message is shown in dialog when the app encounters an unsupported video resolution-->
+  <string name="error_app_unsupported">Nepodporované rozlíšenie videa pre tento typ kodeku</string>
   <!--The message is shown in dialog when the raw snapshot is selected in Zero shutter lag mode-->
+  <string name="error_app_unsupported_raw">Obrázky formátu RAW nie sú podporované v režime nulové oneskorenie uzávierky. Zvoľte JPEG</string>
+  <string name="msg_cancel_longshot_for_limited_memory">Nedostatok pamäte, sekvenčné snímanie sa ruší</string>
   <!-- Toast showing non-supported functionality for flash in AE bracket -->
+  <string name="flash_aebracket_message">Blesk nie je podporovaný v AE bracketing režime</string>
   <!-- toast message for storage location switch -->
+  <string name="on_switch_save_path_to_sdcard">Nedostatok vnútorného ukladacieho priestoru, ukladá sa na kartu SD</string>
   <!-- The message is shown in toast when click showOnMap Menu and there is no map app -->
+  <string name="map_activity_not_found_err">Nie je nainštalovaná žiadna mapová aplikácia pre zobrazenie polohy</string>
   <!-- Continous shot enable message -->
+  <string name="longshot_enable_message">Rozšírené funkcie nie sú podporované v sekvenčnom režime</string>
   <!-- Advance features enable message -->
+  <string name="advance_feature_enable_msg">Sekvenčné snímanie nie je podporované, ak sú zapnuté rozšírené funkcie</string>
   <!-- Toast after enable HDR function to inform continuous shot has disabled -->
+  <string name="HDR_disable_continuous_shot">Povolením HDR sa vypne sekvenčné snímanie</string>
   <!-- Toast after enable advanced capture function to inform continuous shot has disabled -->
+  <string name="advanced_capture_disable_continuous_shot">Povolením rozšírenej uzávierky sa vypne sekvenčné snímanie</string>
   <!-- Toast after enable 2k4k video quality to inform IS has disabled -->
+  <string name="video_quality_4k_disable_IS">Povolením 4k videa sa vypne stabilizácia</string>
   <!-- Toast after 2k4k video is enabled to inform SeeMore has been disabled -->
+  <string name="video_quality_4k_disable_SeeMore">SeeMore nie je možné zapnúť počas 4k videa</string>
   <!-- Toast after SeeMore has been enabled to show CDS is disabled -->
+  <string name="disable_CDS_during_SeeMore">Povolením funkcie SeeMore zakážete funkciu CDS</string>
   <!-- Toast after SeeMore has been enabled to show TNR is disabled -->
+  <string name="disable_TNR_during_SeeMore">Povolením funkcie SeeMore zakážete funkciu TNR</string>
   <!-- TODO: Remove these? -->
+  <string name="pref_camera2_camera2_title" translatable="true">Režim Camera2</string>
+  <string name="pref_camera2_camera2_entry_enable" translatable="true">Použiť</string>
+  <string name="pref_camera2_camera2_entry_disable" translatable="true">Nepoužiť</string>
+  <string name="pref_camera2_mono_only_title" translatable="true">Iba Mono</string>
+  <string name="pref_camera2_mono_preview_title" translatable="true">Náhľad Mono</string>
+  <string name="pref_camera2_mono_preview_entry_on" translatable="true">Zapnúť</string>
+  <string name="pref_camera2_mono_preview_entry_off" translatable="true">Vypnutá</string>
+  <string name="pref_camera2_clearsight_title" translatable="true">ClearSight</string>
+  <string name="pref_camera2_clearsight_entry_on" translatable="true">Zapnúť</string>
+  <string name="pref_camera2_clearsight_entry_off" translatable="true">Vypnutá</string>
+  <string name="clearsight_capture_success">ClearSight úspešně zachytené</string>
+  <string name="clearsight_capture_fail">ClearSight zachytenie zlyhalo</string>
+  <string name="pref_camera2_mpo_title" translatable="true">MPO formát</string>
+  <string name="pref_camera2_mpo_entry_on" translatable="true">Zapnúť</string>
+  <string name="pref_camera2_mpo_entry_off" translatable="true">Vypnutá</string>
+  <string name="pref_camera2_makeup_title" translatable="true">Makeup</string>
+  <string name="pref_camera2_noise_reduction_title" translatable="true">Redukcia šumu</string>
+  <string name="pref_camera2_noise_reduction_entry_off" translatable="true">Vypnutá</string>
+  <string name="pref_camera2_noise_reduction_entry_fast" translatable="true">Rychlo</string>
+  <string name="pref_camera2_noise_reduction_entry_high_quality" translatable="true">Vysoká kvalita</string>
+  <string name="pref_camera2_videosnap_title" translatable="true">Automatická veľkosť obrázku</string>
+  <string name="pref_camera2_videosnap_value_enable" translatable="true">použiť</string>
+  <string name="pref_camera2_videosnap_entry_enable" translatable="true">Použiť</string>
+  <string name="pref_camera2_videosnap_entry_disable" translatable="true">Zakázať</string>
 </resources>
