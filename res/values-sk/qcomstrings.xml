@@ -127,15 +127,65 @@
   <string name="pref_camera_iso_entry_iso2000">ISO 2000</string>
   <string name="pref_camera_iso_entry_iso2500">ISO 2500</string>
   <string name="pref_camera_iso_entry_iso2700">ISO 2700</string>
+  <string name="pref_camera_iso_entry_iso3200">ISO 3200</string>
+  <string name="pref_camera_iso_entry_iso6400">ISO 6400</string>
+  <string name="pref_camera_iso_entry_iso12800">ISO 12800</string>
   <!-- Antibanding -->
+  <string name="pref_camera_antibanding_title">Potlačenie blikania obrazu</string>
+  <string name="pref_camera_antibanding_entry_0">Automatické</string>
+  <string name="pref_camera_antibanding_entry_1">50 Hz (Európa)</string>
+  <string name="pref_camera_antibanding_entry_2">60 Hz (USA)</string>
   <!-- Color effect -->
+  <string name="pref_camera_coloreffect_title">Farebný efekt</string>
+  <string name="pref_camera_coloreffect_entry_none">Žiadny</string>
+  <string name="pref_camera_coloreffect_entry_mono">Čiernobiely</string>
+  <string name="pref_camera_coloreffect_entry_sepia">Sépia</string>
+  <string name="pref_camera_coloreffect_entry_negative">Negatív</string>
   <!-- Color effect that overexposes and reverses some of the tones. -->
+  <string name="pref_camera_coloreffect_entry_solarize">Solarizácia</string>
+  <string name="pref_camera_coloreffect_entry_posterize">Posterizácia</string>
+  <string name="pref_camera_coloreffect_entry_aqua">Voda</string>
+  <string name="pref_camera_coloreffect_entry_emboss">Reliéf</string>
+  <string name="pref_camera_coloreffect_entry_sketch">Náčrtok</string>
+  <string name="pref_camera_coloreffect_entry_neon">Neón</string>
+  <string name="pref_camera_coloreffect_entry_pastel">Pastel</string>
+  <string name="pref_camera_coloreffect_entry_mosaic">Mozaika</string>
+  <string name="pref_camera_coloreffect_entry_redtint">Červený odtieň</string>
+  <string name="pref_camera_coloreffect_entry_bluetint">Modrý odtieň</string>
   <string name="pref_camera_coloreffect_entry_greentint">Zelený odtieň</string>
   <!-- Stabilization -->
+  <string name="pref_camera_dis_title">Stabilizácia videa</string>
   <!-- Face recognition -->
+  <string name="pref_camera_facerc_title">Rozpoznávanie tvárí</string>
   <!-- Sharpness -->
+  <string name="pref_camera_sharpness_title">Ostrosť</string>
+  <string name="pref_camera_sharpness_entry_level0">Úroveň 0</string>
+  <string name="pref_camera_sharpness_entry_level1">Úroveň 1</string>
+  <string name="pref_camera_sharpness_entry_level2">Úroveň 2 (Predvolené)</string>
+  <string name="pref_camera_sharpness_entry_level3">Úroveň 3</string>
+  <string name="pref_camera_sharpness_entry_level4">Úroveň 4</string>
+  <string name="pref_camera_sharpness_entry_level5">Úroveň 5</string>
+  <string name="pref_camera_sharpness_entry_level6">Úroveň 6</string>
   <!-- Contrast -->
+  <string name="pref_camera_contrast_title">Kontrast</string>
+  <string name="pref_camera_contrast_entry_level0">Úroveň 0</string>
+  <string name="pref_camera_contrast_entry_level1">Úroveň 1</string>
+  <string name="pref_camera_contrast_entry_level2">Úroveň 2</string>
+  <string name="pref_camera_contrast_entry_level3">Úroveň 3</string>
+  <string name="pref_camera_contrast_entry_level4">Úroveň 4</string>
+  <string name="pref_camera_contrast_entry_level5">Úroveň 5 (Predvolené)</string>
+  <string name="pref_camera_contrast_entry_level6">Úroveň 6</string>
+  <string name="pref_camera_contrast_entry_level7">Úroveň 7</string>
+  <string name="pref_camera_contrast_entry_level8">Úroveň 8</string>
+  <string name="pref_camera_contrast_entry_level9">Úroveň 9</string>
+  <string name="pref_camera_contrast_entry_level10">Úroveň 10</string>
   <!-- Saturation -->
+  <string name="pref_camera_saturation_title">Sýtosť</string>
+  <string name="pref_camera_saturation_entry_level0">Úroveň 0</string>
+  <string name="pref_camera_saturation_entry_level1">Úroveň 1</string>
+  <string name="pref_camera_saturation_entry_level2">Úroveň 2</string>
+  <string name="pref_camera_saturation_entry_level3">Úroveň 3</string>
+  <string name="pref_camera_saturation_entry_level4">Úroveň 4</string>
   <string name="pref_camera_saturation_entry_level5">Úroveň 5 (Predvolené)</string>
   <string name="pref_camera_saturation_entry_level6">Úroveň 6</string>
   <string name="pref_camera_saturation_entry_level7">Úroveň 7</string>
@@ -216,6 +266,8 @@
   <!-- Toast after 2k4k video is enabled to inform SeeMore has been disabled -->
   <string name="video_quality_4k_disable_SeeMore">SeeMore nie je možné zapnúť počas 4k videa</string>
   <!-- Toast after SeeMore has been enabled to show CDS is disabled -->
+  <string name="disable_CDS_during_SeeMore">Povolením funkcie SeeMore zakážete funkciu CDS</string>
   <!-- Toast after SeeMore has been enabled to show TNR is disabled -->
+  <string name="disable_TNR_during_SeeMore">Povolením funkcie SeeMore zakážete funkciu TNR</string>
   <!-- TODO: Remove these? -->
 </resources>
