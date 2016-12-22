@@ -29,6 +29,12 @@
          of the fullscreen pano preview. -->
     <bool name="enable_warped_pano_preview">false</bool>
 
+    <!-- Opens back camera using openLegacy() and forces api v1 -->
+    <bool name="back_camera_open_legacy">true</bool>
+
+    <!-- Opens front camera using openLegacy() and forces api v1 -->
+    <bool name="front_camera_open_legacy">true</bool>
+
     <!-- Set's parameter "lge-camera" for LGE devices. -->
     <bool name="lge_camera">false</bool>
 
