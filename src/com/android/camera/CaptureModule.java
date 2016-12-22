@@ -640,6 +640,11 @@ public class CaptureModule extends BaseModule<CaptureUI> implements PhotoControl
         }
     }
 
+    public void unRegisterSettingsListener(){
+        mSettingsManager.unregisterListener(this);
+        mSettingsManager.unregisterListener(mUI);
+    }
+
     public void startFaceDetection() {
             mUI.onStartFaceDetection(mDisplayOrientation,
                     mSettingsManager.isFacingFront(getMainCameraId()),
