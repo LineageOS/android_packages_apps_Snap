@@ -194,6 +194,7 @@ public class CameraActivity extends Activity
     /** This data adapter represents the real local camera data. */
     private LocalDataAdapter mWrappedDataAdapter;
 
+    private Context mContext;
     private PanoramaStitchingManager mPanoramaManager;
     private PlaceholderManager mPlaceholderManager;
     private int mCurrentModuleIndex = -1;
@@ -1427,6 +1428,9 @@ public class CameraActivity extends Activity
             finish();
             return;
         }
+
+        mContext = getApplicationContext();
+
         // Check if this is in the secure camera mode.
         Intent intent = getIntent();
         String action = intent.getAction();
@@ -1501,7 +1505,7 @@ public class CameraActivity extends Activity
             }
         }
 
-        boolean cam2on = mSettingsManager.isCamera2On();
+        boolean cam2on = mSettingsManager.isCamera2On() || mContext.getResources().getBoolean(R.bool.use_camera_api_v2);
         if (cam2on && moduleIndex == ModuleSwitcher.PHOTO_MODULE_INDEX)
             moduleIndex = ModuleSwitcher.CAPTURE_MODULE_INDEX;
 
@@ -1612,12 +1616,11 @@ public class CameraActivity extends Activity
         registerSDcardMountedReceiver();
 
         if (!Glide.isSetup()) {
-            Context context = getApplicationContext();
-            Glide.setup(new GlideBuilder(context)
+            Glide.setup(new GlideBuilder(mContext)
                     .setDecodeFormat(DecodeFormat.ALWAYS_ARGB_8888)
                     .setResizeService(new FifoPriorityThreadPoolExecutor(2)));
 
-            Glide glide = Glide.get(context);
+            Glide glide = Glide.get(mContext);
 
             // As a camera we will use a large amount of memory
             // for displaying images.
@@ -2049,7 +2052,7 @@ public class CameraActivity extends Activity
 
     @Override
     public void onModuleSelected(int moduleIndex, final Point hotspot) {
-        boolean cam2on = mSettingsManager.isCamera2On();
+        boolean cam2on = mSettingsManager.isCamera2On() || mContext.getResources().getBoolean(R.bool.use_camera_api_v2);
         mForceReleaseCamera = moduleIndex == ModuleSwitcher.CAPTURE_MODULE_INDEX ||
                 (cam2on && moduleIndex == ModuleSwitcher.PHOTO_MODULE_INDEX);
         if (mForceReleaseCamera) {

@@ -111,7 +111,6 @@ public class CaptureUI extends BaseUI implements PreviewGestures.SingleTapListen
             SettingsManager.KEY_LONGSHOT,
             SettingsManager.KEY_EXPOSURE,
             SettingsManager.KEY_WHITE_BALANCE,
-            SettingsManager.KEY_CAMERA2,
             SettingsManager.KEY_FACE_DETECTION,
             SettingsManager.KEY_VIDEO_HIGH_FRAME_RATE,
             SettingsManager.KEY_VIDEO_FLASH_MODE,
@@ -120,7 +119,8 @@ public class CaptureUI extends BaseUI implements PreviewGestures.SingleTapListen
             SettingsManager.KEY_TRACKINGFOCUS,
             SettingsManager.KEY_MAKEUP,
             SettingsManager.KEY_VIDEO_TIME_LAPSE_FRAME_INTERVAL,
-            SettingsManager.KEY_SHUTTER_SOUND
+            SettingsManager.KEY_SHUTTER_SOUND,
+            SettingsManager.KEY_CAMERA2
     };
     String[] mDeveloperKeys = new String[]{
             SettingsManager.KEY_REDEYE_REDUCTION,

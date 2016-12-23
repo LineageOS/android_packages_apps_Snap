@@ -35,6 +35,9 @@
     <!-- Opens front camera using openLegacy() and forces api v1 -->
     <bool name="front_camera_open_legacy">true</bool>
 
+    <!-- Force use camera api v2 -->
+    <bool name="use_camera_api_v2">false</bool>
+
     <!-- Set's parameter "lge-camera" for LGE devices. -->
     <bool name="lge_camera">false</bool>
 
