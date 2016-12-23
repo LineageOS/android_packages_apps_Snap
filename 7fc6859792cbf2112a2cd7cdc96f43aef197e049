@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5f681702_8fe09f98",
+        "filename": "src/com/android/camera/AndroidCameraManagerImpl.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 7880
+      },
+      "writtenOn": "2016-12-23T08:51:51Z",
+      "side": 1,
+      "message": "nitpick but this line should have 8 spaces instead of 4",
+      "revId": "7fc6859792cbf2112a2cd7cdc96f43aef197e049",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
