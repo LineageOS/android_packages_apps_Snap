@@ -2773,6 +2773,9 @@ public class VideoModule extends BaseModule<VideoUI> implements
 
     private void updateCameraParametersInitialize() {
         mParameters.setPreviewSize(mDesiredPreviewWidth, mDesiredPreviewHeight);
+        if (mProfile == null) {
+            readVideoPreferences();
+        }
         mParameters.set("video-size", mProfile.videoFrameWidth + "x" + mProfile.videoFrameHeight);
         int[] fpsRange = CameraUtil.getMaxPreviewFpsRange(mParameters);
         if (fpsRange.length > 0) {
