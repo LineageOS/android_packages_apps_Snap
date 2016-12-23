@@ -2089,6 +2089,11 @@ public class CameraActivity extends Activity
         getWindow().getDecorView().setBackgroundColor(getResources().getColor(R.color.camera_controls_bg_opaque));
 
         anim.start();
+
+        // Store the module index so we can use it the next time the Camera
+        // starts up.
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        prefs.edit().putInt(CameraSettings.KEY_STARTUP_MODULE_INDEX, moduleIndex).apply();
     }
 
     private void selectModuleWithReveal(final int moduleIndex, Point hotspot) {
