@@ -346,7 +346,7 @@ public class PostProcessor{
         if(setFilter(postFilterId) || isLongShotOn || isFlashModeOn) {
             mUseZSL = false;
         } else {
-            mUseZSL = true;
+            mUseZSL = false;
         }
         startBackgroundThread();
         if(mUseZSL) {
