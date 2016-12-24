@@ -201,9 +201,9 @@
   <string name="pref_camera_saturation_entry_level9">9 級</string>
   <string name="pref_camera_saturation_entry_level10">10 級</string>
   <!-- Picture format -->
-  <string name="pref_camera_picture_format_title">相片格式</string>
+  <string name="pref_camera_picture_format_title">照片格式</string>
   <!-- Picture quality -->
-  <string name="pref_camera_jpegquality_title">相片品質</string>
+  <string name="pref_camera_jpegquality_title">照片品質</string>
   <string name="pref_camera_jpegquality_entry_0">55%</string>
   <string name="pref_camera_jpegquality_entry_1">65% (一般)</string>
   <string name="pref_camera_jpegquality_entry_2">75% (精細)</string>
@@ -232,13 +232,13 @@
   <string name="pref_camera_video_rotation_entry_270">270 度</string>
   <!-- Storage location -->
   <string name="pref_camera_savepath_title">儲存位置</string>
-  <string name="pref_camera_savepath_entry_0">內部儲存</string>
+  <string name="pref_camera_savepath_entry_0">內部儲存空間</string>
   <string name="pref_camera_savepath_entry_1">SD 卡</string>
   <!-- Misc -->
   <!-- The alias of CameraActivity for gesture operation -->
   <string name="camera_gesture_title">啟動相機</string>
   <string name="all_in_focus">全焦</string>
-  <string name="refocus_toast">輕觸此為上一張相片重新對焦</string>
+  <string name="refocus_toast">輕觸此為上一張照片重新對焦</string>
   <!-- Toast messages -->
   <!-- The message is shown in toast when the app encounters an unsupported selection for High-framerate recording mode -->
   <string name="error_app_unsupported_hfr_selection">當使用穩定化/縮時/HDR時不支援高幀率拍攝</string>
@@ -249,7 +249,7 @@
   <!-- The message is shown in dialog when the app encounters an unsupported resolution for High speed mode -->
   <string name="error_app_unsupported_hsr">所選的影片尺寸不支援高速模式，請選擇較細的影片尺寸</string>
   <!-- The message is shown in dialog when the app encounters an unsupported video codec for HFR mode -->
-  <string name="error_app_unsupported_hfr_codec">當啟用高幀率模式時只支援 H264 編碼格式</string>
+  <string name="error_app_unsupported_hfr_codec">當啟用高幀率模式時僅支援 H264 編碼格式</string>
   <!-- The message is shown in dialog when the app encounters an unsupported video resolution-->
   <string name="error_app_unsupported">影片解像度不支援此編碼器類型</string>
   <!--The message is shown in dialog when the raw snapshot is selected in Zero shutter lag mode-->

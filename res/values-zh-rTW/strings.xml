@@ -25,12 +25,12 @@
   <string name="details_hms">%1$d:%2$02d:%3$02d</string>
   <!-- Displayed in the title of the dialog for things to do with a picture
              that is to be "set as" (e.g. set as contact photo or set as wallpaper) -->
-  <string name="set_image">將相片設為</string>
+  <string name="set_image">將照片設為</string>
   <!-- Details dialog "OK" button. Dismisses dialog. -->
   <string name="delete">刪除</string>
   <!-- String Delete the selected media item(s) [CHAR LIMIT=50] -->
   <plurals name="delete_selection">
-    <item quantity="other">刪除已選取的項目？</item>
+    <item quantity="other">是否刪除選取的項目？</item>
   </plurals>
   <string name="share">分享</string>
   <string name="share_panorama">分享全景</string>
@@ -131,7 +131,7 @@
   <!-- The content of a dialog showing trimming in progress. [CHAR LIMIT=30] -->
   <string name="please_wait">請稍候</string>
   <!-- Text to show with progress bar while stitching a photo sphere. 'Photo sphere' is a product name. [CHAR LIMIT=35]-->
-  <string name="rendering_photo_sphere">正在轉譯全景拍攝相片</string>
+  <string name="rendering_photo_sphere">正在轉譯全景拍攝照片</string>
   <!-- title for the dialog showing the error of camera hardware -->
   <string name="camera_error_title">相機發生錯誤</string>
   <!-- message for the dialog showing the error of camera hardware -->
@@ -143,7 +143,7 @@
   <!-- Dialog "Dismiss" button. Closes the dialog [CHAR LIMIT=12]-->
   <string name="dialog_dismiss">忽略</string>
   <!-- alert to the user to wait for some operation to complete -->
-  <string name="wait">請稍候…</string>
+  <string name="wait">請稍候\u2026</string>
   <!-- alert to the user that an SD card must be installed before using the camera -->
   <string name="no_storage" product="default">使用相機前，請先插入 SD 卡。</string>
   <!-- alert to the user that the SD card is being disk-checked -->
@@ -161,7 +161,7 @@
   <!-- In select camera setting, front-facing camera. [CHAR LIMIT=14] -->
   <string name="pref_camera_id_entry_front">前置</string>
   <!-- Settings screen, setting title text -->
-  <string name="pref_camera_recordlocation_title">儲存位置</string>
+  <string name="pref_camera_recordlocation_title">儲存定位</string>
   <!--  Label for record location preference [CHAR LIMIT=50] -->
   <string name="pref_camera_location_label">位置</string>
   <!-- Title for countdown timer on camera settings screen [CHAR LIMIT=30]-->
@@ -309,7 +309,7 @@
   <!-- Dialog "OK" button. Dismisses dialog. -->
   <string name="dialog_ok">確定</string>
   <!-- Low-memory dialog message [CHAR LIMIT=NONE] -->
-  <string name="spaceIsLow_content" product="default">您 SD 卡的空間即將用盡，請變更圖片的品質設定，或是刪除部分圖片或其他檔案。</string>
+  <string name="spaceIsLow_content" product="default">您 SD 卡的空間即將用盡，請更改圖片的品質設定，或是刪除部分圖片或其他檔案。</string>
   <!-- Camera format string for new image files. Passed to java.text.SimpleDateFormat. -->
   <!-- Video Camera format string for new video files. Passed to java.text.SimpleDateFormat. -->
   <!-- Filename prefix for panorama output. -->
@@ -494,9 +494,9 @@ CHAR LIMIT = NONE] -->
   <!-- On-screen hint during timer countdown for taking a photo. [CHAR LIMIT = 60]-->
   <string name="count_down_title_text">拍照倒數計時中</string>
   <!-- Title for first run dialog asking if the user wants to remember photo locations [CHAR LIMIT = 50] -->
-  <string name="remember_location_title">記錄拍攝位置？</string>
+  <string name="remember_location_title">是否記錄拍攝位置？</string>
   <!-- Message for first run dialog asking if the user wants to remember photo locations [CHAR LIMIT = None] -->
-  <string name="remember_location_prompt">為您的相片和影片標示拍攝位置。\n\n其他應用程式可存取這項資訊及您所儲存的相片。</string>
+  <string name="remember_location_prompt">為您的照片和影片標示拍攝位置。\n\n其他應用程式可存取這項資訊及您所儲存的照片。</string>
   <!-- Negative answer for first run dialog asking if the user wants to remember photo locations [CHAR LIMIT = 20] -->
   <string name="remember_location_no">不用了，謝謝</string>
   <!-- Positive answer for first run dialog asking if the user wants to remember photo locations [CHAR LIMIT = 20] -->
@@ -508,7 +508,7 @@ CHAR LIMIT = NONE] -->
   <string name="camera_menu_settings_label">設定</string>
   <!--  Tiny Planet -->
   <!-- Button to press for creating a tiny planet image. [CHAR LIMIT = 30] -->
-  <string name="create_tiny_planet">建立小星球視角相片</string>
+  <string name="create_tiny_planet">建立小星球視角照片</string>
   <!-- Message shown while a tiny planet image is being saved. [CHAR LIMIT = 30] -->
   <string name="saving_tiny_planet">正在儲存小星球視角相片&#8230;</string>
   <!-- Label above a slider that let's the user set the zoom of a tiny planet image. [CHAR LIMIT = 15] -->
