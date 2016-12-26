@@ -412,7 +412,7 @@ public class CaptureModule implements CameraModule, PhotoController,
     private float mZoomValue = 1f;
     private FocusStateListener mFocusStateListener;
     private LocationManager mLocationManager;
-    private SettingsManager mSettingsManager;
+    public SettingsManager mSettingsManager;
     private long SECONDARY_SERVER_MEM;
     private boolean mLongshotActive = false;
     private CameraCharacteristics mMainCameraCharacteristics;
@@ -2324,7 +2324,9 @@ public class CaptureModule implements CameraModule, PhotoController,
      * @param width  The width of available size for camera preview
      * @param height The height of available size for camera preview
      */
-    private void setUpCameraOutputs(int imageFormat) {
+    private void setUpCameraOutputs(boolean isFilterOrZslEnabled) {
+        int imageFormat = ImageFormat.JPEG;
+
         Log.d(TAG, "setUpCameraOutputs");
         CameraManager manager = (CameraManager) mActivity.getSystemService(Context.CAMERA_SERVICE);
         try {
@@ -2360,6 +2362,23 @@ public class CaptureModule implements CameraModule, PhotoController,
                     continue;
                 }
                 mCameraId[i] = cameraId;
+
+                // Set ImageFormat for ZSL
+                if (isFilterOrZslEnabled) {
+                    for (int capability : capabilities) {
+                        // YUV has higher priority
+                        if (capability == CameraCharacteristics
+                                .REQUEST_AVAILABLE_CAPABILITIES_YUV_REPROCESSING) {
+                            Log.d(TAG, "ImageFormat: YUV_420_888");
+                            imageFormat = ImageFormat.YUV_420_888;
+                            break;
+                        } else if (capability == CameraCharacteristics
+                                .REQUEST_AVAILABLE_CAPABILITIES_PRIVATE_REPROCESSING) {
+                            Log.d(TAG, "ImageFormat: PRIVATE");
+                            imageFormat = ImageFormat.PRIVATE;
+                        }
+                    }
+                }
 
                 if (isClearSightOn()) {
                     if(i == getMainCameraId()) {
@@ -3099,15 +3118,12 @@ public class CaptureModule implements CameraModule, PhotoController,
             mFrameProcessor.onOpen(getFrameProcFilterId(), mPreviewSize);
         }
 
-        if(mPostProcessor.isZSLEnabled()) {
-            mChosenImageFormat = ImageFormat.PRIVATE;
-        } else if(mPostProcessor.isFilterOn() || getFrameFilters().size() != 0 || mPostProcessor.isSelfieMirrorOn()) {
-            mChosenImageFormat = ImageFormat.YUV_420_888;
+        if (mPostProcessor.isFilterOn() || getFrameFilters().size() != 0 ||
+                mPostProcessor.isSelfieMirrorOn()) {
+            setUpCameraOutputs(true);
         } else {
-            mChosenImageFormat = ImageFormat.JPEG;
+            setUpCameraOutputs(false);
         }
-        setUpCameraOutputs(mChosenImageFormat);
-
     }
 
     @Override
@@ -3129,27 +3145,10 @@ public class CaptureModule implements CameraModule, PhotoController,
         openProcessors();
         Message msg = Message.obtain();
         msg.what = OPEN_CAMERA;
-        if (isBackCamera()) {
-            switch (getCameraMode()) {
-                case DUAL_MODE:
-                case BAYER_MODE:
-                    msg.arg1 = BAYER_ID;
-                    mCameraHandler.sendMessage(msg);
-                    break;
-                case MONO_MODE:
-                    msg.arg1 = MONO_ID;
-                    mCameraHandler.sendMessage(msg);
-                    break;
-                case SWITCH_MODE:
-                    msg.arg1 = SWITCH_ID;
-                    mCameraHandler.sendMessage(msg);
-                    break;
-            }
-        } else {
-            int cameraId = SWITCH_ID == -1? FRONT_ID : SWITCH_ID;
-            msg.arg1 = cameraId;
-            mCameraHandler.sendMessage(msg);
-        }
+        int cameraId = getMainCameraId();
+        msg.arg1 = cameraId;
+        mCameraHandler.sendMessage(msg);
+
         if (mDeepPortraitMode) {
             mUI.startDeepPortraitMode(mPreviewSize);
             if (mUI.getGLCameraPreview() != null) {
