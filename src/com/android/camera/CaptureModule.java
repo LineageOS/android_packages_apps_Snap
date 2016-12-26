@@ -2974,13 +2974,14 @@ public class CaptureModule extends BaseModule<CaptureUI> implements PhotoControl
         String value = mSettingsManager.getValue(SettingsManager.KEY_ISO);
         if (value == null) return;
         if (value.equals("auto")) {
-            request.set(CaptureRequest.CONTROL_AE_MODE, CaptureRequest.CONTROL_AE_MODE_ON);
+            int flashMode = request.get(CaptureRequest.CONTROL_AE_MODE);
+            applyFlash(request, Integer.toString(flashMode));
         } else {
             int intValue = Integer.parseInt(value);
             request.set(CaptureRequest.CONTROL_AE_MODE, CaptureRequest.CONTROL_AE_MODE_OFF);
             request.set(CaptureRequest.SENSOR_SENSITIVITY, intValue);
             request.set(CaptureRequest.SENSOR_EXPOSURE_TIME, EXPOSURE_TIME_DEFAULT);
-        }     
+        }
     }
 
     private void applyColorEffect(CaptureRequest.Builder request) {
