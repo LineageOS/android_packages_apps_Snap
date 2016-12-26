@@ -116,10 +116,18 @@ public class PostProcessor{
     private CameraDevice mCameraDevice;
     private CameraCaptureSession mCaptureSession;
     private ImageReader mImageReader;
-    private boolean mUseZSL = true;
+    private boolean mUseZSL = false;
     private Handler mZSLHandler;
     private HandlerThread mZSLHandlerThread;
     private ImageHandlerTask mImageHandlerTask;
+
+    private void checkAndEnableZSL(int cameraId) {
+        if (mController.mSettingsManager.isZslSupported(cameraId)) {
+            mUseZSL = true;
+        } else {
+            mUseZSL = false;
+        }
+    }
 
     public boolean isZSLEnabled() {
         return mUseZSL;
@@ -305,6 +313,7 @@ public class PostProcessor{
     public PostProcessor(CameraActivity activity, CaptureModule module) {
         mController = module;
         mActivity = activity;
+        checkAndEnableZSL(mController.getMainCameraId());
         mNamedImages = new PhotoModule.NamedImages();
     }
 
@@ -343,13 +352,19 @@ public class PostProcessor{
     public void onOpen(int postFilterId, boolean isLongShotOn, boolean isFlashModeOn) {
         mImageHandlerTask = new ImageHandlerTask();
 
-        if(setFilter(postFilterId) || isLongShotOn || isFlashModeOn) {
-            mUseZSL = false;
+        if (mController.mSettingsManager.isZslSupported(mController.getMainCameraId())) {
+             if (setFilter(postFilterId) || isLongShotOn || isFlashModeOn) {
+                 mUseZSL = false;
+             } else {
+                 mUseZSL = true;
+             }
         } else {
-            mUseZSL = true;
+            mUseZSL = false;
         }
+
         startBackgroundThread();
-        if(mUseZSL) {
+
+        if (mUseZSL) {
             mZSLQueue = new ZSLQueue(mController);
         }
     }
@@ -360,13 +375,13 @@ public class PostProcessor{
 
     public void onClose() {
         synchronized (lock) {
-            if(mHandler != null) {
+            if (mHandler != null) {
                 mHandler.setInActive();
             }
             stopBackgroundThread();
         }
         setFilter(FILTER_NONE);
-        if(mZSLQueue != null) {
+        if (mZSLQueue != null) {
             mZSLQueue.onClose();
             mZSLQueue = null;
         }
