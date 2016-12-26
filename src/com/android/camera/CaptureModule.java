@@ -206,7 +206,7 @@ public class CaptureModule extends BaseModule<CaptureUI> implements PhotoControl
     private float mZoomValue = 1f;
     private FocusStateListener mFocusStateListener;
     private LocationManager mLocationManager;
-    private SettingsManager mSettingsManager;
+    public SettingsManager mSettingsManager;
     private long SECONDARY_SERVER_MEM;
     private boolean mLongshotActive = false;
     private CameraCharacteristics mMainCameraCharacteristics;
@@ -860,12 +860,12 @@ public class CaptureModule extends BaseModule<CaptureUI> implements PhotoControl
                         }
                     };
 
-            if(id == getMainCameraId()) {
+            if (id == getMainCameraId()) {
                 mFrameProcessor.init(mPreviewSize);
                 mFrameProcessor.setOutputSurface(surface);
             }
 
-            if(isClearSightOn()) {
+            if (isClearSightOn()) {
                 mPreviewRequestBuilder[id].addTarget(surface);
                 list.add(surface);
                 ClearSightImageProcessor.getInstance().createCaptureSession(
@@ -884,7 +884,7 @@ public class CaptureModule extends BaseModule<CaptureUI> implements PhotoControl
                     list.add(surs);
                 }
                 list.add(mImageReader[id].getSurface());
-                if(mPostProcessor.isZSLEnabled()) {
+                if (mPostProcessor.isZSLEnabled()) {
                     mPreviewRequestBuilder[id].addTarget(mImageReader[id].getSurface());
                     mCameraDevice[id].createReprocessableCaptureSession(new InputConfiguration(mImageReader[id].getWidth(),
                                     mImageReader[id].getHeight(), mImageReader[id].getImageFormat()),
@@ -1314,7 +1314,9 @@ public class CaptureModule extends BaseModule<CaptureUI> implements PhotoControl
      * @param width  The width of available size for camera preview
      * @param height The height of available size for camera preview
      */
-    private void setUpCameraOutputs(int imageFormat) {
+    private void setUpCameraOutputs(boolean isFilterOrZslEnabled) {
+        int imageFormat = ImageFormat.JPEG;
+
         Log.d(TAG, "setUpCameraOutputs");
         CameraManager manager = (CameraManager) mActivity.getSystemService(Context.CAMERA_SERVICE);
         try {
@@ -1323,6 +1325,8 @@ public class CaptureModule extends BaseModule<CaptureUI> implements PhotoControl
                 String cameraId = cameraIdList[i];
 
                 CameraCharacteristics characteristics = manager.getCameraCharacteristics(cameraId);
+                int [] capabilities = characteristics.get(CameraCharacteristics.REQUEST_AVAILABLE_CAPABILITIES);
+
                 if (isInMode(i))
                     mCameraIdList.add(i);
                 if(i == getMainCameraId()) {
@@ -1336,6 +1340,21 @@ public class CaptureModule extends BaseModule<CaptureUI> implements PhotoControl
                     continue;
                 }
                 mCameraId[i] = cameraId;
+
+                // Set ImageFormat for ZSL
+                if (isFilterOrZslEnabled) {
+                    for (int capability : capabilities) {
+                        // YUV has higher priority
+                        if (capability == CameraCharacteristics.REQUEST_AVAILABLE_CAPABILITIES_YUV_REPROCESSING) {
+                            Log.d(TAG, "ImageFormat: YUV_420_888");
+                            imageFormat = ImageFormat.YUV_420_888;
+                            break;
+                        } else if (capability == CameraCharacteristics.REQUEST_AVAILABLE_CAPABILITIES_PRIVATE_REPROCESSING) {
+                            Log.d(TAG, "ImageFormat: PRIVATE");
+                            imageFormat = ImageFormat.PRIVATE;
+                        }
+                    }
+                }
 
                 if (isClearSightOn()) {
                     if(i == getMainCameraId()) {
@@ -1838,12 +1857,13 @@ public class CaptureModule extends BaseModule<CaptureUI> implements PhotoControl
         updatePreviewSize();
         mUI.showSurfaceView();
         mCameraIdList = new ArrayList<>();
+        int cameraId = getMainCameraId();
 
         if (mSound == null) {
             mSound = new MediaActionSound();
         }
 
-        if(mPostProcessor != null) {
+        if (mPostProcessor != null) {
             String longshot = mSettingsManager.getValue(SettingsManager.KEY_LONGSHOT);
             String flashMode = mSettingsManager.getValue(SettingsManager.KEY_FLASH_MODE);
             String scene = mSettingsManager.getValue(SettingsManager.KEY_SCENE_MODE);
@@ -1857,35 +1877,24 @@ public class CaptureModule extends BaseModule<CaptureUI> implements PhotoControl
                                       flashMode != null && flashMode.equals(CaptureRequest.CONTROL_AE_MODE_ON_ALWAYS_FLASH+""));
             }
         }
-        if(mFrameProcessor != null) {
+        if (mFrameProcessor != null) {
             mFrameProcessor.onOpen(getFrameProcFilterId());
         }
 
-        if(mPostProcessor.isFilterOn() || getFrameFilters().size() != 0 || mPostProcessor.isZSLEnabled()) {
-            setUpCameraOutputs(ImageFormat.YUV_420_888);
+        if (mPostProcessor.isFilterOn() || getFrameFilters().size() != 0 || mPostProcessor.isZSLEnabled()) {
+            setUpCameraOutputs(true);
         } else {
-            setUpCameraOutputs(ImageFormat.JPEG);
+            setUpCameraOutputs(false);
         }
+
         setDisplayOrientation();
         startBackgroundThread();
+
         Message msg = Message.obtain();
         msg.what = OPEN_CAMERA;
-        if (isBackCamera()) {
-            switch (getCameraMode()) {
-                case DUAL_MODE:
-                case BAYER_MODE:
-                    msg.arg1 = BAYER_ID;
-                    mCameraHandler.sendMessage(msg);
-                    break;
-                case MONO_MODE:
-                    msg.arg1 = MONO_ID;
-                    mCameraHandler.sendMessage(msg);
-                    break;
-            }
-        } else {
-            msg.arg1 = FRONT_ID;
-            mCameraHandler.sendMessage(msg);
-        }
+        msg.arg1 = cameraId;
+        mCameraHandler.sendMessage(msg);
+
         if (!mFirstTimeInitialized) {
             initializeFirstTime();
         } else {
