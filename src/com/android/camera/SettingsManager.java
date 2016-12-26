@@ -1909,6 +1909,22 @@ public class SettingsManager implements ListMenu.SettingsListener {
                 CaptureModule.CURRENT_MODE != CaptureModule.CameraMode.SAT;
     }
 
+    public boolean isZslSupported(int id) {
+        boolean zslSupported = false;
+        int [] capabilities = mCharacteristics.get(id)
+                .get(CameraCharacteristics.REQUEST_AVAILABLE_CAPABILITIES);
+        for (int capability : capabilities) {
+            if (capability == CameraCharacteristics
+                    .REQUEST_AVAILABLE_CAPABILITIES_YUV_REPROCESSING ||
+                    capability == CameraCharacteristics
+                    .REQUEST_AVAILABLE_CAPABILITIES_PRIVATE_REPROCESSING) {
+                zslSupported = true;
+            }
+        }
+        Log.d(TAG, "isZslSupported=" + zslSupported);
+        return zslSupported;
+    }
+
     private List<Size> getSupportedPictureSizeList(int cameraId) {
         StreamConfigurationMap map = mCharacteristics.get(cameraId).get(
                 CameraCharacteristics.SCALER_STREAM_CONFIGURATION_MAP);

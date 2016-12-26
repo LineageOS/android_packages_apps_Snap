@@ -584,7 +584,7 @@ public class CaptureModule implements CameraModule, PhotoController,
     private float mZoomValue = 1f;
     private FocusStateListener mFocusStateListener;
     private LocationManager mLocationManager;
-    private SettingsManager mSettingsManager;
+    public SettingsManager mSettingsManager;
     private long SECONDARY_SERVER_MEM;
     private boolean mLongshotActive = false;
     private long mLastLongshotTimestamp = 0;
@@ -3332,7 +3332,9 @@ public class CaptureModule implements CameraModule, PhotoController,
      * @param width  The width of available size for camera preview
      * @param height The height of available size for camera preview
      */
-    private void setUpCameraOutputs(int imageFormat) {
+    private void setUpCameraOutputs(boolean isFilterOrZslEnabled) {
+        int imageFormat = ImageFormat.JPEG;
+
         Log.d(TAG, "setUpCameraOutputs");
         CameraManager manager = (CameraManager) mActivity.getSystemService(Context.CAMERA_SERVICE);
         try {
@@ -3376,6 +3378,23 @@ public class CaptureModule implements CameraModule, PhotoController,
                 }
                 mCameraId[i] = cameraId;
 
+                // Set ImageFormat for ZSL
+                if (isFilterOrZslEnabled) {
+                    for (int capability : capabilities) {
+                        // YUV has higher priority
+                        if (capability == CameraCharacteristics
+                                .REQUEST_AVAILABLE_CAPABILITIES_YUV_REPROCESSING) {
+                            Log.d(TAG, "ImageFormat: YUV_420_888");
+                            imageFormat = ImageFormat.YUV_420_888;
+                            break;
+                        } else if (capability == CameraCharacteristics
+                                .REQUEST_AVAILABLE_CAPABILITIES_PRIVATE_REPROCESSING) {
+                            Log.d(TAG, "ImageFormat: PRIVATE");
+                            imageFormat = ImageFormat.PRIVATE;
+                        }
+                    }
+                }
+
                 if (isClearSightOn()) {
                     if(i == getMainCameraId()) {
                         ClearSightImageProcessor.getInstance().init(map, mActivity,
@@ -3411,6 +3430,7 @@ public class CaptureModule implements CameraModule, PhotoController,
                             }
                         }
                     } else if (i == getMainCameraId()) {
+                        final boolean isHeic = imageFormat == ImageFormat.HEIC;
                         ImageAvailableListener listener = new ImageAvailableListener(i) {
                             @Override
                             public void onImageAvailable(ImageReader reader) {
@@ -3485,7 +3505,7 @@ public class CaptureModule implements CameraModule, PhotoController,
                                             if (mLongshotActive) {
                                                 mLastJpegData = bytes;
                                             } else {
-                                                if (imageFormat != ImageFormat.HEIC){
+                                                if (!isHeic) {
                                                     mActivity.updateThumbnail(bytes);
                                                 }
                                             }
@@ -4468,17 +4488,14 @@ public class CaptureModule implements CameraModule, PhotoController,
             mFrameProcessor.onOpen(getFrameProcFilterId(), mPreviewSize);
         }
 
-        if(mPostProcessor.isZSLEnabled() && !isActionImageCapture()) {
-            mChosenImageFormat = ImageFormat.PRIVATE;
-        } else if(mPostProcessor.isFilterOn() || getFrameFilters().size() != 0 || mPostProcessor.isSelfieMirrorOn()) {
-            mChosenImageFormat = ImageFormat.YUV_420_888;
-        } else if(mSettingsManager.isHeifHALEncoding()) {
-            mChosenImageFormat = ImageFormat.HEIC;
-        } else {
-            mChosenImageFormat = ImageFormat.JPEG;
-        }
-        setUpCameraOutputs(mChosenImageFormat);
 
+        if (mPostProcessor.isFilterOn() && !isActionImageCapture() ||
+                getFrameFilters().size() != 0 ||
+                mPostProcessor.isSelfieMirrorOn()) {
+            setUpCameraOutputs(true);
+        } else {
+            setUpCameraOutputs(false);
+        }
     }
 
     private void loadSoundPoolResource() {

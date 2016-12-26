@@ -139,7 +139,7 @@ public class PostProcessor{
     private CameraCaptureSession mCaptureSession;
     private ImageReader mImageReader;
     private ImageReader mZSLReprocessImageReader;
-    private boolean mUseZSL = true;
+    private boolean mUseZSL = false;
     private boolean mSaveRaw = false;
     private Handler mZSLHandler;
     private HandlerThread mZSLHandlerThread;
@@ -154,6 +154,14 @@ public class PostProcessor{
     private int mPendingContinuousRequestCount = 0;
     public int mMaxRequiredImageNum;
     private boolean mIsDeepPortrait = false;
+
+    private void checkAndEnableZSL(int cameraId) {
+        if (mController.mSettingsManager.isZslSupported(cameraId)) {
+            mUseZSL = true;
+        } else {
+            mUseZSL = false;
+        }
+    }
 
     public int getMaxRequiredImageNum() {
         return mMaxRequiredImageNum;
@@ -643,6 +651,7 @@ public class PostProcessor{
     public PostProcessor(CameraActivity activity, CaptureModule module) {
         mController = module;
         mActivity = activity;
+        checkAndEnableZSL(mController.getMainCameraId());
         mNamedImages = new PhotoModule.NamedImages();
     }
 
@@ -704,19 +713,24 @@ public class PostProcessor{
         mImageHandlerTask = new ImageHandlerTask();
         mSaveRaw = isSaveRaw;
         mIsDeepPortrait = isDeepPortrait;
-        if(setFilter(postFilterId) || isFlashModeOn || isTrackingFocusOn || isT2TFocusOn
-                || isMakeupOn || isSelfieMirrorOn || PersistUtil.getCameraZSLDisabled()
-                || !SettingsManager.getInstance().isZSLInAppEnabled()
-                || "enable".equals(
-                         SettingsManager.getInstance().getValue(SettingsManager.KEY_AUTO_HDR))
-                || SettingsManager.getInstance().isCamera2HDRSupport()
-                || "18".equals(SettingsManager.getInstance().getValue(
-                                  SettingsManager.KEY_SCENE_MODE))
-                || mController.getCameraMode() == CaptureModule.DUAL_MODE
-                || isSupportedQcfa || isDeepPortrait) {
-            mUseZSL = false;
+
+        if (mController.mSettingsManager.isZslSupported(mController.getMainCameraId())) {
+            if (setFilter(postFilterId) || isFlashModeOn || isTrackingFocusOn || isT2TFocusOn
+                    || isMakeupOn || isSelfieMirrorOn || PersistUtil.getCameraZSLDisabled()
+                    || !SettingsManager.getInstance().isZSLInAppEnabled()
+                    || "enable".equals(
+                             SettingsManager.getInstance().getValue(SettingsManager.KEY_AUTO_HDR))
+                    || SettingsManager.getInstance().isCamera2HDRSupport()
+                    || "18".equals(SettingsManager.getInstance().getValue(
+                                      SettingsManager.KEY_SCENE_MODE))
+                    || mController.getCameraMode() == CaptureModule.DUAL_MODE
+                    || isSupportedQcfa || isDeepPortrait) {
+                mUseZSL = false;
+            } else {
+                mUseZSL = true;
+            }
         } else {
-            mUseZSL = true;
+            mUseZSL = false;
         }
         Log.d(TAG,"ZSL is "+mUseZSL);
         startBackgroundThread();
