@@ -415,7 +415,7 @@ public class CaptureUI extends BaseUI implements PreviewGestures.SingleTapListen
         } else {
             mSceneAndFilterMenuStatus = SCENE_AND_FILTER_MENU_NONE;
             if (mSceneAndFilterLayout != null) {
-                ((ViewGroup) mRootView).removeView(mSceneAndFilterLayout);
+                mRootView.removeView(mSceneAndFilterLayout);
                 mSceneAndFilterLayout = null;
             }
         }
@@ -567,11 +567,11 @@ public class CaptureUI extends BaseUI implements PreviewGestures.SingleTapListen
         if (portrait) {
             params = new ViewGroup.LayoutParams(size, FrameLayout.LayoutParams.MATCH_PARENT);
             mSceneAndFilterLayout.setLayoutParams(params);
-            ((ViewGroup) mRootView).addView(mSceneAndFilterLayout);
+            mRootView.addView(mSceneAndFilterLayout);
         } else {
             params = new ViewGroup.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, size);
             mSceneAndFilterLayout.setLayoutParams(params);
-            ((ViewGroup) mRootView).addView(mSceneAndFilterLayout);
+            mRootView.addView(mSceneAndFilterLayout);
             mSceneAndFilterLayout.setY(display.getHeight() - size);
         }
         gridOuterLayout.setLayoutParams(new FrameLayout.LayoutParams(FrameLayout.LayoutParams
@@ -685,11 +685,11 @@ public class CaptureUI extends BaseUI implements PreviewGestures.SingleTapListen
         if (portrait) {
             params = new ViewGroup.LayoutParams(size, FrameLayout.LayoutParams.MATCH_PARENT);
             mSceneAndFilterLayout.setLayoutParams(params);
-            ((ViewGroup) mRootView).addView(mSceneAndFilterLayout);
+            mRootView.addView(mSceneAndFilterLayout);
         } else {
             params = new ViewGroup.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, size);
             mSceneAndFilterLayout.setLayoutParams(params);
-            ((ViewGroup) mRootView).addView(mSceneAndFilterLayout);
+            mRootView.addView(mSceneAndFilterLayout);
             mSceneAndFilterLayout.setY(display.getHeight() - size);
         }
         gridOuterLayout.setLayoutParams(new FrameLayout.LayoutParams(FrameLayout.LayoutParams
@@ -759,6 +759,10 @@ public class CaptureUI extends BaseUI implements PreviewGestures.SingleTapListen
         }
     }
 
+    private boolean isRtl() {
+        return mRootView.getLayoutDirection() == View.LAYOUT_DIRECTION_RTL;
+    }
+
     private void animateFadeOut(final View v, final int level) {
         if (v == null || mSettingMenuState == SETTING_MENU_IN_ANIMATION)
             return;
@@ -794,37 +798,20 @@ public class CaptureUI extends BaseUI implements PreviewGestures.SingleTapListen
             return;
         mSettingMenuState = SETTING_MENU_IN_ANIMATION;
         ViewPropertyAnimator vp = v.animate();
-        if (View.LAYOUT_DIRECTION_RTL == TextUtils
-                .getLayoutDirectionFromLocale(Locale.getDefault())) {
-            switch (getOrientation()) {
-                case 0:
-                    vp.translationXBy(v.getWidth());
-                    break;
-                case 90:
-                    vp.translationYBy(-2 * v.getHeight());
-                    break;
-                case 180:
-                    vp.translationXBy(-2 * v.getWidth());
-                    break;
-                case 270:
-                    vp.translationYBy(v.getHeight());
-                    break;
-            }
-        } else {
-            switch (getOrientation()) {
-                case 0:
-                    vp.translationXBy(-v.getWidth());
-                    break;
-                case 90:
-                    vp.translationYBy(2 * v.getHeight());
-                    break;
-                case 180:
-                    vp.translationXBy(2 * v.getWidth());
-                    break;
-                case 270:
-                    vp.translationYBy(-v.getHeight());
-                    break;
-            }
+        int sign = isRtl() ? -1 : 1;
+        switch (getOrientation()) {
+            case 0:
+                vp.translationXBy(-sign * v.getWidth());
+                break;
+            case 90:
+                vp.translationYBy(2 * sign * v.getHeight());
+                break;
+            case 180:
+                vp.translationXBy(2 * sign * v.getWidth());
+                break;
+            case 270:
+                vp.translationYBy(-sign * v.getHeight());
+                break;
         }
         vp.setListener(new Animator.AnimatorListener() {
             @Override
@@ -876,13 +863,9 @@ public class CaptureUI extends BaseUI implements PreviewGestures.SingleTapListen
             return;
         mSceneAndFilterMenuStatus = SCENE_AND_FILTER_MENU_IN_ANIMATION;
 
-        ViewPropertyAnimator vp = v.animate();
-        if (View.LAYOUT_DIRECTION_RTL == TextUtils
-                .getLayoutDirectionFromLocale(Locale.getDefault())) {
-            vp.translationXBy(v.getWidth()).setDuration(ANIMATION_DURATION);
-        } else {
-            vp.translationXBy(-v.getWidth()).setDuration(ANIMATION_DURATION);
-        }
+        ViewPropertyAnimator vp = v.animate()
+                .translationXBy(-v.getWidth() * (isRtl() ? -1 : 1))
+                .setDuration(ANIMATION_DURATION);
         vp.setListener(new Animator.AnimatorListener() {
             @Override
             public void onAnimationStart(Animator animation) {
@@ -913,53 +896,28 @@ public class CaptureUI extends BaseUI implements PreviewGestures.SingleTapListen
 
         ViewPropertyAnimator vp = v.animate();
         float dest;
-        if (View.LAYOUT_DIRECTION_RTL == TextUtils
-                .getLayoutDirectionFromLocale(Locale.getDefault())) {
-            switch (orientation) {
-                case 0:
-                    dest = v.getX();
-                    v.setX(-(dest - delta));
-                    vp.translationX(dest);
-                    break;
-                case 90:
-                    dest = v.getY();
-                    v.setY(-(dest + delta));
-                    vp.translationY(dest);
-                    break;
-                case 180:
-                    dest = v.getX();
-                    v.setX(-(dest + delta));
-                    vp.translationX(dest);
-                    break;
-                case 270:
-                    dest = v.getY();
-                    v.setY(-(dest - delta));
-                    vp.translationY(dest);
-                    break;
-            }
-        } else {
-            switch (orientation) {
-                case 0:
-                    dest = v.getX();
-                    v.setX(dest - delta);
-                    vp.translationX(dest);
-                    break;
-                case 90:
-                    dest = v.getY();
-                    v.setY(dest + delta);
-                    vp.translationY(dest);
-                    break;
-                case 180:
-                    dest = v.getX();
-                    v.setX(dest + delta);
-                    vp.translationX(dest);
-                    break;
-                case 270:
-                    dest = v.getY();
-                    v.setY(dest - delta);
-                    vp.translationY(dest);
-                    break;
-            }
+        int sign = isRtl() ? -1 : 1;
+        switch (orientation) {
+            case 0:
+                dest = v.getX();
+                v.setX((dest - delta) * sign);
+                vp.translationX(dest);
+                break;
+            case 90:
+                dest = v.getY();
+                v.setY((dest + delta) * sign);
+                vp.translationY(dest);
+                break;
+            case 180:
+                dest = v.getX();
+                v.setX((dest + delta) * sign);
+                vp.translationX(dest);
+                break;
+            case 270:
+                dest = v.getY();
+                v.setY((dest - delta) * sign);
+                vp.translationY(dest);
+                break;
         }
         vp.setDuration(ANIMATION_DURATION).start();
     }
@@ -1008,7 +966,6 @@ public class CaptureUI extends BaseUI implements PreviewGestures.SingleTapListen
     }
 
     private void showSettingMenu(int level, boolean animate) {
-        FrameLayout.LayoutParams params;
         hideUI();
 
         mSettingMenu.setVisibility(View.VISIBLE);
@@ -1017,48 +974,42 @@ public class CaptureUI extends BaseUI implements PreviewGestures.SingleTapListen
             mSettingMenuLevel = SETTING_MENU_LEVEL_ONE;
             if (mMenuLayout == null) {
                 mMenuLayout = new RotateLayout(mActivity, null);
-                if (mRootView.getLayoutDirection() != View.LAYOUT_DIRECTION_RTL) {
-                    params = new FrameLayout.LayoutParams(CameraActivity.SETTING_LIST_WIDTH_1,
-                            FrameLayout.LayoutParams.WRAP_CONTENT, Gravity.LEFT | Gravity.TOP);
-                } else {
-                    params = new FrameLayout.LayoutParams(CameraActivity.SETTING_LIST_WIDTH_1,
-                            FrameLayout.LayoutParams.WRAP_CONTENT, Gravity.RIGHT | Gravity.TOP);
-                }
-                mMenuLayout.setLayoutParams(params);
-                ((ViewGroup) mRootView).addView(mMenuLayout);
+                mMenuLayout.setRootView(mRootView);
+                mMenuLayout.setLayoutParams(new FrameLayout.LayoutParams(
+                        CameraActivity.SETTING_LIST_WIDTH_1, FrameLayout.LayoutParams.WRAP_CONTENT,
+                        Gravity.START | Gravity.TOP));
+                mRootView.addView(mMenuLayout);
             }
+            mMenuLayout.addView(mSettingMenu, new RotateLayout.LayoutParams(
+                    RotateLayout.LayoutParams.MATCH_PARENT,
+                    RotateLayout.LayoutParams.MATCH_PARENT));
             mMenuLayout.setOrientation(mOrientation, true);
-            mMenuLayout.addView(mSettingMenu);
         } else if (level == SETTING_MENU_LEVEL_TWO) {
             mSettingMenuLevel = SETTING_MENU_LEVEL_TWO;
             if (mSubMenuLayout == null) {
                 mSubMenuLayout = new RotateLayout(mActivity, null);
-                ((ViewGroup) mRootView).addView(mSubMenuLayout);
+                mSubMenuLayout.setRootView(mRootView);
+                mRootView.addView(mSubMenuLayout);
             }
-            if (mRootView.getLayoutDirection() != View.LAYOUT_DIRECTION_RTL) {
-                params = new FrameLayout.LayoutParams(CameraActivity.SETTING_LIST_WIDTH_2,
-                        FrameLayout.LayoutParams.WRAP_CONTENT, Gravity.LEFT | Gravity.TOP);
-            } else {
-                params = new FrameLayout.LayoutParams(CameraActivity.SETTING_LIST_WIDTH_2,
-                        FrameLayout.LayoutParams.WRAP_CONTENT, Gravity.RIGHT | Gravity.TOP);
-            }
-            int screenHeight = (mOrientation == 0 || mOrientation == 180)
-                    ? mRootView.getHeight() : mRootView.getWidth();
+            int containerHeight = mRootView.getClientRectForOrientation(mOrientation).height();
             int height = mSettingSubMenu.getPreCalculatedHeight();
-            int yBase = mSettingSubMenu.getYBase();
-            int y = Math.max(0, yBase);
-            if (yBase + height > screenHeight)
-                y = Math.max(0, screenHeight - height);
-            if (mRootView.getLayoutDirection() != View.LAYOUT_DIRECTION_RTL) {
-                params.setMargins(CameraActivity.SETTING_LIST_WIDTH_1, y, 0, 0);
-            } else {
-                params.setMargins(0, y, CameraActivity.SETTING_LIST_WIDTH_1, 0);
+            int yBase = mSettingSubMenu.getYBase(), y = yBase;
+            if (yBase + height > containerHeight) {
+                y = Math.max(0, containerHeight - height);
             }
 
+            final FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(
+                    CameraActivity.SETTING_LIST_WIDTH_2, FrameLayout.LayoutParams.WRAP_CONTENT,
+                    Gravity.START | Gravity.TOP);
+            if (isRtl()) {
+                params.setMargins(0, y, CameraActivity.SETTING_LIST_WIDTH_1, 0);
+            } else {
+                params.setMargins(CameraActivity.SETTING_LIST_WIDTH_1, y, 0, 0);
+            }
             mSubMenuLayout.setLayoutParams(params);
 
-            mSubMenuLayout.addView(mSettingSubMenu);
             mSubMenuLayout.setOrientation(mOrientation, true);
+            mSubMenuLayout.addView(mSettingSubMenu);
         }
         if (animate) {
             if (level == SETTING_MENU_LEVEL_ONE) {
@@ -1275,9 +1226,8 @@ public class CaptureUI extends BaseUI implements PreviewGestures.SingleTapListen
     }
 
     private void initializeCountDown() {
-        mActivity.getLayoutInflater().inflate(R.layout.count_down_to_capture,
-                (ViewGroup) mRootView, true);
-        mCountDownView = (CountDownView) (mRootView.findViewById(R.id.count_down_to_capture));
+        mActivity.getLayoutInflater().inflate(R.layout.count_down_to_capture, mRootView, true);
+        mCountDownView = (CountDownView) mRootView.findViewById(R.id.count_down_to_capture);
         mCountDownView.setCountDownFinishedListener((CountDownView.OnCountDownFinishedListener) mModule);
         mCountDownView.bringToFront();
         mCountDownView.setOrientation(mOrientation);
@@ -1384,8 +1334,6 @@ public class CaptureUI extends BaseUI implements PreviewGestures.SingleTapListen
             mSubMenuLayout.setOrientation(orientation, animation);
         if (mSceneAndFilterLayout != null) {
             ViewGroup vg = (ViewGroup) mSceneAndFilterLayout.getChildAt(0);
-            if (vg != null)
-                vg = (ViewGroup) vg.getChildAt(0);
             if (vg != null) {
                 for (int i = vg.getChildCount() - 1; i >= 0; --i) {
                     RotateLayout l = (RotateLayout) vg.getChildAt(i);
@@ -1490,7 +1438,7 @@ public class CaptureUI extends BaseUI implements PreviewGestures.SingleTapListen
 
     public void startSelfieFlash() {
         if (mSelfieView == null)
-            mSelfieView = (SelfieFlashView) (mRootView.findViewById(R.id.selfie_flash));
+            mSelfieView = (SelfieFlashView) mRootView.findViewById(R.id.selfie_flash);
         mSelfieView.bringToFront();
         mSelfieView.open();
         mScreenBrightness = setScreenBrightness(1F);
@@ -1498,7 +1446,7 @@ public class CaptureUI extends BaseUI implements PreviewGestures.SingleTapListen
 
     public void stopSelfieFlash() {
         if (mSelfieView == null)
-            mSelfieView = (SelfieFlashView) (mRootView.findViewById(R.id.selfie_flash));
+            mSelfieView = (SelfieFlashView) mRootView.findViewById(R.id.selfie_flash);
         mSelfieView.close();
         if (mScreenBrightness != 0.0f)
             setScreenBrightness(mScreenBrightness);
