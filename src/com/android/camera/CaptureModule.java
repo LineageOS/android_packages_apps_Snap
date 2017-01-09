@@ -429,7 +429,9 @@ public class CaptureModule extends BaseModule<CaptureUI> implements PhotoControl
                 mActivity.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        mUI.hidePreviewCover();
+                        if (arePreviewControlsVisible()) {
+                            mUI.hidePreviewCover();
+                        }
                     }
                 });
                 mFirstPreviewLoaded = true;

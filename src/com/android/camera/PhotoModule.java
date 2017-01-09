@@ -2997,7 +2997,9 @@ public class PhotoModule extends BaseModule<PhotoUI> implements
                 new CameraManager.CameraPreviewDataCallback() {
                     @Override
                     public void onPreviewFrame(byte[] data, CameraProxy camera) {
-                        mUI.hidePreviewCover();
+                        if (arePreviewControlsVisible()) {
+                            mUI.hidePreviewCover();
+                        }
                     }
                 });
         mCameraDevice.startPreview();

@@ -1698,13 +1698,6 @@ public class CameraActivity extends Activity
         }
     }
 
-    @Override
-    public void onWindowFocusChanged(boolean focus) {
-        // Hide action bar first since we are in full screen mode first, and
-        // switch the system UI to lights-out mode.
-        if (focus) this.setSystemBarsVisibility(false);
-    }
-
     /**
      * Checks if any of the needed Android runtime permissions are missing.
      * If they are, then launch the permissions activity under one of the following conditions:
@@ -1750,9 +1743,6 @@ public class CameraActivity extends Activity
             finish();
             return;
         }
-        // Hide action bar first since we are in full screen mode first, and
-        // switch the system UI to lights-out mode.
-        this.setSystemBarsVisibility(false);
 
         UsageStatistics.onEvent(UsageStatistics.COMPONENT_CAMERA,
                 UsageStatistics.ACTION_FOREGROUNDED, this.getClass().getSimpleName());
@@ -1762,14 +1752,21 @@ public class CameraActivity extends Activity
         super.onResume();
         mPaused = false;
         mCurrentModule.onResumeAfterSuper();
-        mCurrentModule.animateControls(0);
 
         setSwipingEnabled(true);
 
         if (mResetToPreviewOnResume) {
+            // Hide action bar first since we are in full screen mode first, and
+            // switch the system UI to lights-out mode.
+            setSystemBarsVisibility(false);
             // Go to the preview on resume.
+            mCurrentModule.animateControls(0);
             mFilmStripView.getController().goToFirstItem();
+        } else {
+            setSystemBarsVisibility(true);
+            mCurrentModule.animateControls(1);
         }
+
         // Default is showing the preview, unless disabled by explicitly
         // starting an activity we want to return from to the filmstrip rather
         // than the preview.
