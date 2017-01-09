@@ -199,14 +199,8 @@ public class CameraControls extends RotatableLayout {
         }
 
         synchronized (mViews) {
-            for (int i = 0; i < mTopBar.getChildCount(); i++) {
-                mViews.add(mTopBar.getChildAt(i));
-            }
-
-            for (int i = 0; i < mBottomBar.getChildCount(); i++) {
-                mViews.add(mBottomBar.getChildAt(i));
-            }
-
+            addChildViewsRecursivelyLocked(mTopBar);
+            addChildViewsRecursivelyLocked(mBottomBar);
             mViews.add(mAutoHdrNotice);
             mViews.add(mHistogramView);
         }
@@ -249,6 +243,17 @@ public class CameraControls extends RotatableLayout {
     public void collapse() {
         if (mSwitcher != null) {
             mSwitcher.closePopup();
+        }
+    }
+
+    private void addChildViewsRecursivelyLocked(View view) {
+        if (view instanceof ViewGroup) {
+            final ViewGroup group = (ViewGroup) view;
+            for (int i = 0; i < group.getChildCount(); i++) {
+                addChildViewsRecursivelyLocked(group.getChildAt(i));
+            }
+        } else {
+            mViews.add(view);
         }
     }
 
