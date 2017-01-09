@@ -468,7 +468,9 @@ public class CameraControls extends RotatableLayout {
             } else {
                 mRemainingPhotosText.setText(remaining + " ");
             }
-            mRemainingPhotos.setVisibility(View.VISIBLE);
+            if (mAnimationHelper.areControlsVisible()) {
+                mRemainingPhotos.setVisibility(View.VISIBLE);
+            }
         }
         mCurrentRemaining = remaining;
     }
@@ -489,7 +491,6 @@ public class CameraControls extends RotatableLayout {
         } else {
             mBottomBar.setBackgroundResource(R.drawable.camera_controls_bg_translucent);
         }
-        mAnimationHelper.reset();
     }
 
     public void showRefocusToast(boolean show) {
@@ -636,6 +637,7 @@ public class CameraControls extends RotatableLayout {
         }
 
         public void reset() {
+            dump("reset");
             if (mAnimator != null) {
                 mAnimator.cancel();
             }
