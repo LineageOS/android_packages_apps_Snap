@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fa3479d7_ccb6aadc",
+        "filename": "res/values/qcomstrings.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 11604
+      },
+      "writtenOn": "2017-01-11T08:18:44Z",
+      "side": 1,
+      "message": "are these strings shown to the user? they probably shouldn\u0027t have underscores in them...",
+      "revId": "4fb65f7690f5d17ba2c860a528c64c651673ea7c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
