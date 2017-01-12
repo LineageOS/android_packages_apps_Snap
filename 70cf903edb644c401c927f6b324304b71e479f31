@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "da3975d1_914a1cab",
+        "filename": "res/values/qcomstrings.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1053
+      },
+      "writtenOn": "2017-01-12T13:41:50Z",
+      "side": 1,
+      "message": "Is this untranslatable because it\u0027s a trademark?\nIf yes I think it should be UbiFocus.\n\nhttps://www.qualcomm.com/news/snapdragon/2015/01/12/snapdragon-camera-features-add-dslr-effects-your-mobile-phone",
+      "revId": "70cf903edb644c401c927f6b324304b71e479f31",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
