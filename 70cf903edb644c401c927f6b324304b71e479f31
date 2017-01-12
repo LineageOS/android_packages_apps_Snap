@@ -16,6 +16,24 @@
       "revId": "70cf903edb644c401c927f6b324304b71e479f31",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da3975d1_31d130ce",
+        "filename": "res/values/qcomstrings.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2017-01-12T13:47:58Z",
+      "side": 1,
+      "message": "Fix: https://review.lineageos.org/#/c/156124/2",
+      "parentUuid": "da3975d1_914a1cab",
+      "revId": "70cf903edb644c401c927f6b324304b71e479f31",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
