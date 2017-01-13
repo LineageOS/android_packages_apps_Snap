@@ -86,7 +86,7 @@
     <string name="pref_camera_video_duration_default" translatable="false">10</string>
 
     <!-- Default Skin Tone Enhancement setting. Do not translate. -->
-    <string name="pref_camera_skinToneEnhancement_default">disable</string>
+    <string name="pref_camera_skinToneEnhancement_default" translatable="false">disable</string>
 
     <!-- Settings screen, Select Skin Tone Enhancement title -->
     <string name="pref_camera_skinToneEnhancement_title">Skin Tone Enhancement</string>
@@ -326,7 +326,7 @@
     <string name="pref_camera_shuttersound_entry_disable">Disabled</string>
 
     <!-- Default mce setting. Do not translate. -->
-    <string name="pref_camera_mce_default">enable</string>
+    <string name="pref_camera_mce_default" translatable="false">enable</string>
 
     <!-- The message is shown in toast when the app encounters an unsupported selection for HFR/HSR mode -->
     <string name="error_app_unsupported_hfr_selection">High-framerate recording is not supported when using Stabilization/Time lapse/HDR.</string>
