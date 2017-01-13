@@ -92,8 +92,8 @@
     <string name="pref_camera_skinToneEnhancement_title">Skin Tone Enhancement</string>
 
     <!-- Settings screen, Skin Tone Enhancement radio button choices -->
-    <string name="pref_camera_skinToneEnhancement_entry_enable">Enable</string>
-    <string name="pref_camera_skinToneEnhancement_entry_disable">Disable</string>
+    <string name="pref_camera_skinToneEnhancement_entry_enable" translatable="false">@string/generic_enable</string>
+    <string name="pref_camera_skinToneEnhancement_entry_disable" translatable="false">@string/generic_disable</string>
 
     <!-- Skin Tone Enhancement entry values. Do not translate. -->
     <string name="pref_camera_skinToneEnhancement_value_enable" translatable="false">enable</string>
@@ -110,7 +110,7 @@
     <string name="pref_camera_selectablezoneaf_title">Autofocus zone</string>
 
     <!-- Settings screen, Selectable Zone Af dialog radio button choices -->
-    <string name="pref_camera_selectablezoneaf_entry_auto">Auto</string>
+    <string name="pref_camera_selectablezoneaf_entry_auto" translatable="false">@string/generic_auto</string>
     <string name="pref_camera_selectablezoneaf_entry_spotmetering">Spot Metering</string>
     <string name="pref_camera_selectablezoneaf_entry_centerweighted">Center Weighted</string>
     <string name="pref_camera_selectablezoneaf_entry_frameaverage">Frame Average</string>
@@ -162,7 +162,7 @@
     <string name="pref_camera_manual_exp_entry_ISO_priority">ISO priority</string>
     <string name="pref_camera_manual_exp_entry_exptime_priority">Exposure time priority</string>
     <string name="pref_camera_manual_exp_entry_user_setting">User setting</string>
-    <string name="pref_camera_manual_exp_entry_off">Off</string>
+    <string name="pref_camera_manual_exp_entry_off" translatable="false">@string/generic_off</string>
 
     <string name="pref_camera_manual_exp_default" translatable="false">off</string>
     <string name="pref_camera_manual_exp_value_ISO_priority" translatable="false">iso-priority</string>
@@ -174,7 +174,7 @@
     <string name="pref_camera_manual_wb_title">Manual white balance</string>
     <string name="pref_camera_manual_wb_entry_color_temperature">Color temperature</string>
     <string name="pref_camera_manual_wb_entry_rbgb_gains">RBGB gains</string>
-    <string name="pref_camera_manual_wb_entry_off">Off</string>
+    <string name="pref_camera_manual_wb_entry_off" translatable="false">@string/generic_off</string>
 
     <string name="pref_camera_manual_wb_default" translatable="false">off</string>
     <string name="pref_camera_manual_wb_value_color_temperature" translatable="false">color-temperature</string>
@@ -185,7 +185,7 @@
     <string name="pref_camera_manual_focus_title">Manual focus</string>
     <string name="pref_camera_manual_focus_entry_scale_mode">Scale mode</string>
     <string name="pref_camera_manual_focus_entry_diopter_mode">Diopter mode</string>
-    <string name="pref_camera_manual_focus_entry_off">Off</string>
+    <string name="pref_camera_manual_focus_entry_off" translatable="false">@string/generic_off</string>
 
     <string name="pref_camera_manual_focus_default" translatable="false">off</string>
     <string name="pref_camera_manual_focus_value_scale_mode" translatable="false">scale-mode</string>
@@ -196,7 +196,7 @@
     <string name="pref_camera_instant_capture_title" translatable="true">Instant Capture</string>
     <string name="pref_camera_instant_capture_entry_aggressive_aec" translatable="true">Aggressive AEC</string>
     <string name="pref_camera_instant_capture_entry_fast_aec" translatable="true">Fast AEC</string>
-    <string name="pref_camera_instant_capture_entry_disable" translatable="true">Disable</string>
+    <string name="pref_camera_instant_capture_entry_disable" translatable="false">@string/generic_disable</string>
 
     <!-- Instant Capture entry values -->
     <string name="pref_camera_instant_capture_default" translatable="false">0</string>
@@ -205,8 +205,8 @@
     <string name="pref_camera_instant_capture_value_disable" translatable="false">0</string>
 
     <!-- Settings screen, ZSL location dialog choices -->
-    <string name="pref_camera_zsl_entry_off">Off</string>
-    <string name="pref_camera_zsl_entry_on">On</string>
+    <string name="pref_camera_zsl_entry_off" translatable="false">@string/generic_off</string>
+    <string name="pref_camera_zsl_entry_on" translatable="false">@string/generic_on</string>
 
     <string name="pref_camera_zsl_value_off" translatable="false">off</string>
     <string name="pref_camera_zsl_value_on" translatable="false">on</string>
@@ -216,41 +216,41 @@
     <string name="scene_enable_message">HDR is not supported in the scene mode other than Auto</string>
 
     <!-- Settings screen, Video HDR location dialog choices -->
-    <string name="pref_camera_video_hdr_entry_off">Off</string>
-    <string name="pref_camera_video_hdr_entry_on">On</string>
+    <string name="pref_camera_video_hdr_entry_off" translatable="false">@string/generic_off</string>
+    <string name="pref_camera_video_hdr_entry_on" translatable="false">@string/generic_on</string>
 
     <string name="pref_camera_video_hdr_value_off" translatable="false">off</string>
     <string name="pref_camera_video_hdr_value_on" translatable="false">on</string>
 
     <!-- Settings screen, CDS location dialog choices -->
-    <string name="pref_camera_cds_entry_off">Off</string>
-    <string name="pref_camera_cds_entry_on">On</string>
-    <string name="pref_camera_cds_entry_auto">Auto</string>
+    <string name="pref_camera_cds_entry_off" translatable="false">@string/generic_off</string>
+    <string name="pref_camera_cds_entry_on" translatable="false">@string/generic_on</string>
+    <string name="pref_camera_cds_entry_auto" translatable="false">@string/generic_auto</string>
 
     <string name="pref_camera_cds_value_off" translatable="false">off</string>
     <string name="pref_camera_cds_value_on" translatable="false">on</string>
     <string name="pref_camera_cds_value_auto" translatable="false">auto</string>
 
     <!-- Settings screen, video CDS location dialog choices -->
-    <string name="pref_camera_video_cds_entry_off">Off</string>
-    <string name="pref_camera_video_cds_entry_on">On</string>
-    <string name="pref_camera_video_cds_entry_auto">Auto</string>
+    <string name="pref_camera_video_cds_entry_off" translatable="false">@string/generic_off</string>
+    <string name="pref_camera_video_cds_entry_on" translatable="false">@string/generic_on</string>
+    <string name="pref_camera_video_cds_entry_auto" translatable="false">@string/generic_auto</string>
 
     <string name="pref_camera_video_cds_value_off" translatable="false">off</string>
     <string name="pref_camera_video_cds_value_on" translatable="false">on</string>
     <string name="pref_camera_video_cds_value_auto" translatable="false">auto</string>
 
     <!-- Settings screen, TNR location dialog choices -->
-    <string name="pref_camera_tnr_entry_disable">Disable</string>
-    <string name="pref_camera_tnr_entry_enable">Enable</string>
+    <string name="pref_camera_tnr_entry_disable" translatable="false">@string/generic_disable</string>
+    <string name="pref_camera_tnr_entry_enable" translatable="false">@string/generic_enable</string>
 
     <!-- Settings screen, TNR location dialog choices -->
     <string name="pref_camera_tnr_value_off" translatable="false">off</string>
     <string name="pref_camera_tnr_value_on" translatable="false">on</string>
 
     <!-- Settings screen, video TNR location dialog choices -->
-    <string name="pref_camera_video_tnr_entry_disable">Disable</string>
-    <string name="pref_camera_video_tnr_entry_enable">Enable</string>
+    <string name="pref_camera_video_tnr_entry_disable" translatable="false">@string/generic_disable</string>
+    <string name="pref_camera_video_tnr_entry_enable" translatable="false">@string/generic_enable</string>
 
     <!-- Settings screen, video TNR location dialog choices -->
     <string name="pref_camera_video_tnr_value_off" translatable="false">off</string>
@@ -292,8 +292,8 @@
     <string name="pref_camera_facedetection_title">Face Detection</string>
 
     <!-- Settings menu, Face Detection choices -->
-    <string name="pref_camera_facedetection_entry_off">Off</string>
-    <string name="pref_camera_facedetection_entry_on">On</string>
+    <string name="pref_camera_facedetection_entry_off" translatable="false">@string/generic_off</string>
+    <string name="pref_camera_facedetection_entry_on" translatable="false">@string/generic_on</string>
 
     <!-- Default Selfie Flash setting. -->
     <string name="pref_selfie_flash_default" translatable="false">off</string>
@@ -302,8 +302,8 @@
     <string name="pref_selfie_flash_title">Selfie flash</string>
 
     <!-- Settings menu, Selfie Flash choices -->
-    <string name="pref_selfie_flash_entry_off">Off</string>
-    <string name="pref_selfie_flash_entry_on">On</string>
+    <string name="pref_selfie_flash_entry_off" translatable="false">@string/generic_off</string>
+    <string name="pref_selfie_flash_entry_on" translatable="false">@string/generic_on</string>
 
     <!-- Default redeye reduction setting. -->
     <string name="pref_camera_redeyereduction_default" translatable="false">disable</string>
@@ -312,18 +312,18 @@
     <string name="pref_camera_redeyereduction_title">Red eye reduction</string>
 
     <!-- Settings menu, redeye reduction choices -->
-    <string name="pref_camera_redeyereduction_entry_enable">Enable</string>
-    <string name="pref_camera_redeyereduction_entry_disable">Disable</string>
+    <string name="pref_camera_redeyereduction_entry_enable" translatable="false">@string/generic_enable</string>
+    <string name="pref_camera_redeyereduction_entry_disable" translatable="false">@string/generic_disable</string>
 
     <string name="pref_camera_selfiemirror_default" translatable="false">disable</string>
     <string name="pref_camera_selfiemirror_title" translatable="true">Selfie Mirror</string>
-    <string name="pref_camera_selfiemirror_entry_enable">Enable</string>
-    <string name="pref_camera_selfiemirror_entry_disable">Disable</string>
+    <string name="pref_camera_selfiemirror_entry_enable" translatable="false">@string/generic_enable</string>
+    <string name="pref_camera_selfiemirror_entry_disable" translatable="false">@string/generic_disable</string>
 
     <string name="pref_camera_shuttersound_default" translatable="false">enable</string>
     <string name="pref_camera_shuttersound_title" translatable="true">Shutter Sound</string>
-    <string name="pref_camera_shuttersound_entry_enable">Enabled</string>
-    <string name="pref_camera_shuttersound_entry_disable">Disabled</string>
+    <string name="pref_camera_shuttersound_entry_enable" translatable="false">@string/generic_enabled</string>
+    <string name="pref_camera_shuttersound_entry_disable" translatable="false">@string/generic_disabled</string>
 
     <!-- Default mce setting. Do not translate. -->
     <string name="pref_camera_mce_default" translatable="false">enable</string>
@@ -361,9 +361,9 @@
 
     <string name="pref_camera_ae_bracket_hdr_default" translatable="false">Off</string>
 
-    <string name="pref_camera_ae_bracket_hdr_entry_on">On</string>
+    <string name="pref_camera_ae_bracket_hdr_entry_on" translatable="false">@string/generic_on</string>
 
-    <string name="pref_camera_ae_bracket_hdr_entry_off">Off</string>
+    <string name="pref_camera_ae_bracket_hdr_entry_off" translatable="false">@string/generic_off</string>
 
     <string name="err_app_unsupport_ae_bracket_code">no ae bracket support by Apps now</string>
 
@@ -383,7 +383,7 @@
     <string name="pref_camera_hfr_title">High-framerate recording</string>
 
     <!-- Settings screen, hfr radio button choices -->
-    <string name="pref_camera_hfr_entry_off">Off</string>
+    <string name="pref_camera_hfr_entry_off" translatable="false">@string/generic_off</string>
     <string name="pref_camera_hfr_entry_2x">Slow motion 60 FPS</string>
     <string name="pref_camera_hfr_entry_3x">Slow motion 90 FPS</string>
     <string name="pref_camera_hfr_entry_4x">Slow motion 120 FPS</string>
@@ -411,7 +411,7 @@
     <string name="pref_camera_noise_reduction_title">Noise Reduction</string>
 
     <!-- Settings screen, see more radio button choices -->
-    <string name="pref_camera_noise_reduction_entry_off">Off</string>
+    <string name="pref_camera_noise_reduction_entry_off" translatable="false">@string/generic_off</string>
     <string name="pref_camera_noise_reduction_entry_fast">Fast</string>
     <string name="pref_camera_noise_reduction_entry_high_quality">High Quality</string>
 
@@ -427,8 +427,8 @@
     <string name="pref_camera_see_more_title">See More</string>
 
     <!-- Settings screen, see more radio button choices -->
-    <string name="pref_camera_see_more_entry_off">Off</string>
-    <string name="pref_camera_see_more_entry_on">On</string>
+    <string name="pref_camera_see_more_entry_off" translatable="false">@string/generic_off</string>
+    <string name="pref_camera_see_more_entry_on" translatable="false">@string/generic_on</string>
 
     <!-- see more entry values. Do not translate. -->
     <string name="pref_camera_see_more_value_off" translatable="false">off</string>
@@ -439,8 +439,8 @@
     <string name="pref_camera_denoise_default" translatable="false">denoise-on</string>
 
     <!-- Denoise Settings screen, Record location dialog choices -->
-    <string name="pref_camera_denoise_entry_off">Off</string>
-    <string name="pref_camera_denoise_entry_on">On</string>
+    <string name="pref_camera_denoise_entry_off" translatable="false">@string/generic_off</string>
+    <string name="pref_camera_denoise_entry_on" translatable="false">@string/generic_on</string>
 
     <!-- Default iso setting. Do not translate. -->
     <string name="pref_camera_iso_default" translatable="false">auto</string>
@@ -449,7 +449,7 @@
     <string name="pref_camera_iso_title">ISO</string>
 
     <!-- Settings screen, ISO dialog radio button choices -->
-    <string name="pref_camera_iso_entry_auto">Auto</string>
+    <string name="pref_camera_iso_entry_auto" translatable="false">@string/generic_auto</string>
     <string name="pref_camera_iso_entry_isodeblur">ISO Auto (HJR)</string>
     <string name="pref_camera_iso_entry_iso100">ISO100</string>
     <string name="pref_camera_iso_entry_iso200">ISO200</string>
@@ -473,15 +473,15 @@
     <string name="pref_camera_antibanding_default" translatable="false">auto</string>
 
     <!-- Settings screen, Anti Banding entries -->
-    <string name="pref_camera_antibanding_entry_0">Off</string>
+    <string name="pref_camera_antibanding_entry_0" translatable="false">@string/generic_off</string>
     <string name="pref_camera_antibanding_entry_1">50 Hz (Europe)</string>
     <string name="pref_camera_antibanding_entry_2">60 Hz (USA)</string>
-    <string name="pref_camera_antibanding_entry_3">Auto</string>
+    <string name="pref_camera_antibanding_entry_3" translatable="false">@string/generic_auto</string>
 
     <!-- Default color effect setting. -->
     <string name="pref_camera_coloreffect_default" translatable="false">none</string>
-    <string name="pref_camera_filter_mode_entry_on">On</string>
-    <string name="pref_camera_filter_mode_entry_off">Off</string>
+    <string name="pref_camera_filter_mode_entry_on" translatable="false">@string/generic_on</string>
+    <string name="pref_camera_filter_mode_entry_off" translatable="false">@string/generic_off</string>
 
     <!-- Settings screen, Select Color effect title -->
     <string name="pref_camera_coloreffect_title">Color effect</string>
@@ -512,16 +512,16 @@
     <string name="pref_camera_touchafaec_title">Touch AF/AEC</string>
 
     <!-- Settings screen, Touch AF/AEC dialog radio button choices -->
-    <string name="pref_camera_touchafaec_entry_off">Off</string>
-    <string name="pref_camera_touchafaec_entry_on">On</string>
+    <string name="pref_camera_touchafaec_entry_off" translatable="false">@string/generic_off</string>
+    <string name="pref_camera_touchafaec_entry_on" translatable="false">@string/generic_on</string>
 
     <!-- Select IS title -->
     <string name="pref_camera_dis_title">Stabilization</string>
     <string name="pref_camera_dis_default" translatable="false">disable</string>
 
     <!-- DIS choices -->
-    <string name="pref_camera_dis_entry_off">Off</string>
-    <string name="pref_camera_dis_entry_on">On</string>
+    <string name="pref_camera_dis_entry_off" translatable="false">@string/generic_off</string>
+    <string name="pref_camera_dis_entry_on" translatable="false">@string/generic_on</string>
 
     <string name="pref_camera_dis_value_disable" translatable="false">disable</string>
     <string name="pref_camera_dis_value_enable" translatable="false">enable</string>
@@ -532,8 +532,8 @@
     <string name="pref_camera_facerc_default" translatable="false">off</string>
 
     <!-- Face Recognition choices -->
-    <string name="pref_camera_facerc_entry_off">Off</string>
-    <string name="pref_camera_facerc_entry_on">On</string>
+    <string name="pref_camera_facerc_entry_off" translatable="false">@string/generic_off</string>
+    <string name="pref_camera_facerc_entry_on" translatable="false">@string/generic_on</string>
 
     <!-- Settings screen, Multiple levels entries -->
     <string name="pref_camera_sharpness_entry_level0">Level 0</string>
@@ -757,8 +757,8 @@
     <string name="pref_camera_histogram_title">Histogram</string>
 
     <!-- Settings screen, Histogram radio button choices -->
-    <string name="pref_camera_histogram_entry_enable">Enable</string>
-    <string name="pref_camera_histogram_entry_disable">Disable</string>
+    <string name="pref_camera_histogram_entry_enable" translatable="false">@string/generic_enable</string>
+    <string name="pref_camera_histogram_entry_disable" translatable="false">@string/generic_disable</string>
 
     <!-- Histogram entry values. Do not translate. -->
     <string name="pref_camera_histogram_value_enable" translatable="false">enable</string>
@@ -781,9 +781,9 @@
     <string name="pref_camera_scenedetect_title">Auto Scene Detection</string>
 
     <!-- Settings menu, auto scene detection choices -->
-    <string name="pref_camera_scenedetect_entry_off">Off</string>
+    <string name="pref_camera_scenedetect_entry_off" translatable="false">@string/generic_off</string>
     <!-- Scene detection set to on - supports backlight and snow cloudy detection. -->
-    <string name="pref_camera_scenedetect_entry_on">On</string>
+    <string name="pref_camera_scenedetect_entry_on" translatable="false">@string/generic_on</string>
 
     <!-- Toast showing error if invalid size selected for  time lapse  [CHAR LIMIT=65] -->
     <string name="time_lapse_error">Invalid video-size for time-lapse recording.</string>
@@ -803,8 +803,8 @@
     <string name="pref_camera_auto_hdr_default" translatable="false">disable</string>
 
     <!-- Settings screen, Auto HDR location dialog choices -->
-    <string name="pref_camera_auto_hdr_entry_enable">Enable</string>
-    <string name="pref_camera_auto_hdr_entry_disable">Disable</string>
+    <string name="pref_camera_auto_hdr_entry_enable" translatable="false">@string/generic_enable</string>
+    <string name="pref_camera_auto_hdr_entry_disable" translatable="false">@string/generic_disable</string>
     <string name="pref_camera_auto_hdr_value_enable" translatable="false">enable</string>
     <string name="pref_camera_auto_hdr_value_disable" translatable="false">disable</string>
 
@@ -864,8 +864,8 @@
     <!-- The alas of CameraActivity for gesture operation -->
     <string name="camera_gesture_title">Launch camera</string>
     <string name="pref_camera_tsmakeup_title">Beautification</string>
-    <string name="pref_camera_tsmakeup_entry_on">On</string>
-    <string name="pref_camera_tsmakeup_entry_off">Off</string>
+    <string name="pref_camera_tsmakeup_entry_on" translatable="false">@string/generic_on</string>
+    <string name="pref_camera_tsmakeup_entry_off" translatable="false">@string/generic_off</string>
     <string name="pref_camera_tsmakeup_entry_low">Low</string>
     <string name="pref_camera_tsmakeup_entry_mid">Mid</string>
     <string name="pref_camera_tsmakeup_entry_high">High</string>
@@ -908,8 +908,8 @@
     <string name="help_menu_switcher_3" translatable="true">camera, video, and panorama</string>
 
     <string name="pref_camera2_camera2_title" translatable="true">Camera2 Mode</string>
-    <string name="pref_camera2_camera2_entry_enable" translatable="true">Enable</string>
-    <string name="pref_camera2_camera2_entry_disable" translatable="true">Disable</string>
+    <string name="pref_camera2_camera2_entry_enable" translatable="false">@string/generic_enable</string>
+    <string name="pref_camera2_camera2_entry_disable" translatable="false">@string/generic_disable</string>
     <string name="pref_camera2_camera2_default" translatable="false">disable</string>
     <string name="pref_camera2_camera2_value_enable" translatable="false">enable</string>
     <string name="pref_camera2_camera2_value_disable" translatable="false">disable</string>
@@ -918,16 +918,16 @@
     <string name="pref_camera2_mono_only_default" translatable="false">off</string>
 
     <string name="pref_camera2_mono_preview_title" translatable="true">Mono Preview</string>
-    <string name="pref_camera2_mono_preview_entry_on" translatable="true">On</string>
-    <string name="pref_camera2_mono_preview_entry_off" translatable="true">Off</string>
+    <string name="pref_camera2_mono_preview_entry_on" translatable="false">@string/generic_on</string>
+    <string name="pref_camera2_mono_preview_entry_off" translatable="false">@string/generic_off</string>
     <string name="pref_camera2_mono_preview_default" translatable="false">off</string>
     <string name="pref_camera2_mono_preview_value_on" translatable="false">on</string>
     <string name="pref_camera2_mono_preview_value_off" translatable="false">off</string>
 
     <string name="pref_camera2_clearsight_title" translatable="true">ClearSight</string>
     <string name="pref_camera2_clearsight_default" translatable="false">on</string>
-    <string name="pref_camera2_clearsight_entry_on" translatable="true">On</string>
-    <string name="pref_camera2_clearsight_entry_off" translatable="true">Off</string>
+    <string name="pref_camera2_clearsight_entry_on" translatable="false">@string/generic_on</string>
+    <string name="pref_camera2_clearsight_entry_off" translatable="false">@string/generic_off</string>
 
     <string name="pref_camera2_clearsight_value_on" translatable="false">on</string>
     <string name="pref_camera2_clearsight_value_off" translatable="false">off</string>
@@ -937,8 +937,8 @@
 
     <string name="pref_camera2_mpo_title" translatable="true">MPO Format</string>
     <string name="pref_camera2_mpo_default" translatable="false">off</string>
-    <string name="pref_camera2_mpo_entry_on" translatable="true">On</string>
-    <string name="pref_camera2_mpo_entry_off" translatable="true">Off</string>
+    <string name="pref_camera2_mpo_entry_on" translatable="false">@string/generic_on</string>
+    <string name="pref_camera2_mpo_entry_off" translatable="false">@string/generic_off</string>
 
     <string name="pref_camera2_mpo_value_on" translatable="false">on</string>
     <string name="pref_camera2_mpo_value_off" translatable="false">off</string>
@@ -953,7 +953,7 @@
     <string name="pref_camera2_noise_reduction_default" translatable="false">off</string>
     <string name="pref_camera2_noise_reduction_title" translatable="true">Noise Reduction</string>
 
-    <string name="pref_camera2_noise_reduction_entry_off" translatable="true">Off</string>
+    <string name="pref_camera2_noise_reduction_entry_off" translatable="false">@string/generic_off</string>
     <string name="pref_camera2_noise_reduction_entry_fast" translatable="true">Fast</string>
     <string name="pref_camera2_noise_reduction_entry_high_quality" translatable="true">High Quality</string>
 
@@ -967,8 +967,8 @@
     <string name="pref_camera2_videosnap_value_enable" translatable="true">enable</string>
     <string name="pref_camera2_videosnap_value_disable" translatable="true">disable</string>
 
-    <string name="pref_camera2_videosnap_entry_enable" translatable="true">Enable</string>
-    <string name="pref_camera2_videosnap_entry_disable" translatable="true">Disable</string>
+    <string name="pref_camera2_videosnap_entry_enable" translatable="false">@string/generic_enable</string>
+    <string name="pref_camera2_videosnap_entry_disable" translatable="false">@string/generic_disable</string>
     <string name="pref_camera2_trackingfocus_title" translatable="true">Tracking Focus</string>
     <string name="pref_camera_scenemode_entry_bestpicture" translatable="true">BestPicture</string>
     <string name="bestpicture_done" translatable="true">DONE</string>
@@ -978,8 +978,8 @@
     <string name="pref_camera2_shutter_sound_value_on" translatable="true">on</string>
     <string name="pref_camera2_shutter_sound_value_off" translatable="true">off</string>
 
-    <string name="pref_camera2_shutter_sound_entry_on" translatable="true">On</string>
-    <string name="pref_camera2_shutter_sound_entry_off" translatable="true">Off</string>
+    <string name="pref_camera2_shutter_sound_entry_on" translatable="false">@string/generic_on</string>
+    <string name="pref_camera2_shutter_sound_entry_off" translatable="false">@string/generic_off</string>
     <string name="pref_camera2_shutter_sound_title" translatable="true">Shutter Sound</string>
 </resources>
 
