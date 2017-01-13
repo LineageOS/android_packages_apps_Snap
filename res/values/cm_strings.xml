@@ -149,4 +149,13 @@
     <!-- Advanced options -->
     <string name="developer_menu_enabled">You have enabled advanced camera options</string>
     <string name="developer_menu_disabled">You have disabled advanced camera options</string>
+
+    <!-- Generic strings -->
+    <string name="generic_enabled">Enabled</string>
+    <string name="generic_disabled">Disabled</string>
+    <string name="generic_enable">Enable</string>
+    <string name="generic_disable">Disable</string>
+    <string name="generic_on">On</string>
+    <string name="generic_off">Off</string>
+    <string name="generic_auto">Auto</string>
 </resources>
