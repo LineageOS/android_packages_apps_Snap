@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "da3975d1_f7a27899",
+        "filename": "res/values/qcomstrings.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 7880
+      },
+      "writtenOn": "2017-01-13T12:47:49Z",
+      "side": 1,
+      "message": "translatable*",
+      "revId": "9dd8daea8984278e60d9c361724d770a6ada41d7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
