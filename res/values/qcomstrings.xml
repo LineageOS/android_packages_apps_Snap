@@ -30,11 +30,11 @@
     <string name="pref_video_quality_entry_qcif" translatable="false">QCIF</string>
 
     <!-- Settings screen, Power Mode title -->
-    <string name="pref_camera_powermode_title">Power Mode</string>
+    <string name="pref_camera_powermode_title">Power mode</string>
 
     <!-- Settings screen, Power mode dialog radio button choices -->
-    <string name="pref_camera_powermode_entry_lp">Low Power</string>
-    <string name="pref_camera_powermode_entry_np">Normal Power</string>
+    <string name="pref_camera_powermode_entry_lp">Low power</string>
+    <string name="pref_camera_powermode_entry_np">Normal power</string>
 
     <!-- Settings screen, Power mode dialog radio button choices -->
     <string name="pref_camera_powermode_value_lp" translatable="false">Low_Power</string>
@@ -71,13 +71,13 @@
     <string name="pref_camera_videoencoder_default" translatable="false">h264</string>
 
     <!-- Settings screen, Video encoder dialog title -->
-    <string name="pref_camera_videoencoder_dialogtitle">Video Encoder</string>
+    <string name="pref_camera_videoencoder_dialogtitle">Video codec</string>
 
     <!-- Default audio encoder setting. A numerical value. -->
     <string name="pref_camera_audioencoder_default" translatable="false">aac</string>
 
     <!-- Settings screen, Audio encoder title -->
-    <string name="pref_camera_audioencoder_title">Audio Encoder</string>
+    <string name="pref_camera_audioencoder_title">Audio codec</string>
 
     <!-- Settings screen, Audio encoder dialog radio button choices -->
     <string name="pref_camera_audioencoder_entry_0" translatable="false">AMRNB</string>
@@ -89,7 +89,7 @@
     <string name="pref_camera_skinToneEnhancement_default">disable</string>
 
     <!-- Settings screen, Select Skin Tone Enhancement title -->
-    <string name="pref_camera_skinToneEnhancement_title">Skin Tone Enhancement</string>
+    <string name="pref_camera_skinToneEnhancement_title">Skin tone enhancement</string>
 
     <!-- Settings screen, Skin Tone Enhancement radio button choices -->
     <string name="pref_camera_skinToneEnhancement_entry_enable">Enable</string>
@@ -111,9 +111,9 @@
 
     <!-- Settings screen, Selectable Zone Af dialog radio button choices -->
     <string name="pref_camera_selectablezoneaf_entry_auto">Auto</string>
-    <string name="pref_camera_selectablezoneaf_entry_spotmetering">Spot Metering</string>
-    <string name="pref_camera_selectablezoneaf_entry_centerweighted">Center Weighted</string>
-    <string name="pref_camera_selectablezoneaf_entry_frameaverage">Frame Average</string>
+    <string name="pref_camera_selectablezoneaf_entry_spotmetering">Spot metering</string>
+    <string name="pref_camera_selectablezoneaf_entry_centerweighted">Center weighted</string>
+    <string name="pref_camera_selectablezoneaf_entry_frameaverage">Frame average</string>
 
     <!-- Auto exposure entry values. Do not translate. -->
     <string name="pref_camera_selectablezoneaf_value_auto" translatable="false">auto</string>
@@ -124,7 +124,7 @@
     <string name="pref_camera_advanced_feature_default" translatable="false">none</string>
 
     <!-- Settings screen, Selectable advanced features title -->
-    <string name="pref_camera_advanced_features_title">Advanced Features</string>
+    <string name="pref_camera_advanced_features_title">Advanced features</string>
 
     <!-- Settings screen, Selectable Zone Af dialog radio button choices -->
     <string name="pref_camera_advanced_feature_entry_none">None</string>
@@ -133,7 +133,7 @@
     <string name="pref_camera_advanced_feature_entry_chromaflash" translatable="false">ChromaFlash</string>
     <string name="pref_camera_advanced_feature_entry_optizoom" translatable="false">OptiZoom</string>
     <string name="pref_camera_advanced_feature_entry_FSSR" translatable="false">FSSR</string>
-    <string name="pref_camera_advanced_feature_entry_trueportrait" translatable="false">True Portrait</string>
+    <string name="pref_camera_advanced_feature_entry_trueportrait" translatable="false">TruPortrait</string>
     <string name="pref_camera_advanced_feature_entry_multi_touch_focus">Multi-touch Focus</string>
     <string name="pref_camera_advanced_feature_entry_stillmore" translatable="false">Still More</string>
 
@@ -193,7 +193,7 @@
     <string name="pref_camera_manual_focus_value_off" translatable="false">off</string>
 
     <!-- Instant Capture entry -->
-    <string name="pref_camera_instant_capture_title" translatable="true">Instant Capture</string>
+    <string name="pref_camera_instant_capture_title" translatable="true">Instant capture</string>
     <string name="pref_camera_instant_capture_entry_aggressive_aec" translatable="true">Aggressive AEC</string>
     <string name="pref_camera_instant_capture_entry_fast_aec" translatable="true">Fast AEC</string>
     <string name="pref_camera_instant_capture_entry_disable" translatable="true">Disable</string>
@@ -289,7 +289,7 @@
     <string name="pref_camera_facedetection_default" translatable="false">off</string>
 
     <!-- Settings screen, Select Face Detection -->
-    <string name="pref_camera_facedetection_title">Face Detection</string>
+    <string name="pref_camera_facedetection_title">Face detection</string>
 
     <!-- Settings menu, Face Detection choices -->
     <string name="pref_camera_facedetection_entry_off">Off</string>
@@ -316,12 +316,12 @@
     <string name="pref_camera_redeyereduction_entry_disable">Disable</string>
 
     <string name="pref_camera_selfiemirror_default" translatable="false">disable</string>
-    <string name="pref_camera_selfiemirror_title" translatable="true">Selfie Mirror</string>
+    <string name="pref_camera_selfiemirror_title" translatable="true">Selfie mirror</string>
     <string name="pref_camera_selfiemirror_entry_enable">Enable</string>
     <string name="pref_camera_selfiemirror_entry_disable">Disable</string>
 
     <string name="pref_camera_shuttersound_default" translatable="false">enable</string>
-    <string name="pref_camera_shuttersound_title" translatable="true">Shutter Sound</string>
+    <string name="pref_camera_shuttersound_title" translatable="true">Shutter sound</string>
     <string name="pref_camera_shuttersound_entry_enable">Enabled</string>
     <string name="pref_camera_shuttersound_entry_disable">Disabled</string>
 
@@ -353,11 +353,11 @@
     <string name="error_app_unsupported_raw">Raw picture format is not supported in Zero shutter lag mode. Select JPEG</string>
 
     <!-- Settings screen, AE bracketing and HDR location dialog choices -->
-    <string name="pref_camera_ae_bracket_hdr_entry_ae_bracket">AE-Bracket</string>
+    <string name="pref_camera_ae_bracket_hdr_entry_ae_bracket">AE bracketing</string>
 
-    <string name="pref_camera_ae_bracket_hdr_value_ae_bracket">AE-Bracket</string>
+    <string name="pref_camera_ae_bracket_hdr_value_ae_bracket" translatable="false">AE-Bracket</string>
 
-    <string name="pref_camera_ae_bracket_hdr_title">AE-Bracket</string>
+    <string name="pref_camera_ae_bracket_hdr_title">AE bracketing</string>
 
     <string name="pref_camera_ae_bracket_hdr_default" translatable="false">Off</string>
 
@@ -365,16 +365,16 @@
 
     <string name="pref_camera_ae_bracket_hdr_entry_off">Off</string>
 
-    <string name="err_app_unsupport_ae_bracket_code">no ae bracket support by Apps now</string>
+    <string name="err_app_unsupport_ae_bracket_code">AE bracketing is not supported yet</string>
 
     <!-- The messsage shown if user selects a snapshot resolution lower than the current video size. -->
-    <string name="snapshot_lower_than_video">Video snapshot size lower than video size. Capping to Video size. Please select a resolution higher or equal to the current video size. </string>
+    <string name="snapshot_lower_than_video">Video snapshot size is lower than video size, capping to video size. Please select a resolution higher or equal to the current video size.</string>
 
     <!-- The messsage shown if user selects a snapshot resolution in low power mode. -->
-    <string name="snapshotsize_low_powermode">We do not support picture resolution in Low Power Mode. Video size snapshot will be taken. Please select High power mode for picture size.</string>
+    <string name="snapshotsize_low_powermode">Changing picture size is not supported in Low Power mode, video size snapshot will be taken. Please select Normal Power mode to allow changing picture size.</string>
 
     <!-- The messsage shown if user tries to take snapshot during D1/QCIF resolution. -->
-    <string name="snapshot_qcif_and_d1">Only Video size snapshot supported for this resolution. </string>
+    <string name="snapshot_qcif_and_d1">Only video size snapshot is supported for this resolution.</string>
 
     <!-- Default hfr setting. Do not translate. -->
     <string name="pref_camera_hfr_default" translatable="false">off</string>
@@ -408,12 +408,12 @@
     <string name="pref_camera_noise_reduction_default" translatable="false">off</string>
 
     <!-- Settings screen, Select See More title -->
-    <string name="pref_camera_noise_reduction_title">Noise Reduction</string>
+    <string name="pref_camera_noise_reduction_title">Noise reduction</string>
 
     <!-- Settings screen, see more radio button choices -->
     <string name="pref_camera_noise_reduction_entry_off">Off</string>
     <string name="pref_camera_noise_reduction_entry_fast">Fast</string>
-    <string name="pref_camera_noise_reduction_entry_high_quality">High Quality</string>
+    <string name="pref_camera_noise_reduction_entry_high_quality">High quality</string>
 
     <!-- see more entry values. Do not translate. -->
     <string name="pref_camera_noise_reduction_value_off" translatable="false">off</string>
@@ -424,7 +424,7 @@
     <string name="pref_camera_see_more_default" translatable="false">off</string>
 
     <!-- Settings screen, Select See More title -->
-    <string name="pref_camera_see_more_title">See More</string>
+    <string name="pref_camera_see_more_title" translatable="false">SeeMore</string>
 
     <!-- Settings screen, see more radio button choices -->
     <string name="pref_camera_see_more_entry_off">Off</string>
@@ -450,7 +450,7 @@
 
     <!-- Settings screen, ISO dialog radio button choices -->
     <string name="pref_camera_iso_entry_auto">Auto</string>
-    <string name="pref_camera_iso_entry_isodeblur">ISO Auto (HJR)</string>
+    <string name="pref_camera_iso_entry_isodeblur">Auto (HJR)</string>
     <string name="pref_camera_iso_entry_iso100">ISO100</string>
     <string name="pref_camera_iso_entry_iso200">ISO200</string>
     <string name="pref_camera_iso_entry_iso400">ISO400</string>
@@ -467,7 +467,7 @@
     <string name="pref_camera_iso_value_iso1600" translatable="false">ISO1600</string>
 
     <!-- Settings screen, Anti Banding title -->
-    <string name="pref_camera_antibanding_title">Anti Banding</string>
+    <string name="pref_camera_antibanding_title">Antibanding</string>
 
     <!-- Default Anti Banding setting. -->
     <string name="pref_camera_antibanding_default" translatable="false">auto</string>
@@ -485,7 +485,7 @@
 
     <!-- Settings screen, Select Color effect title -->
     <string name="pref_camera_coloreffect_title">Color effect</string>
-    <string name="pref_camera_filter_mode_title">Color effect Mode</string>
+    <string name="pref_camera_filter_mode_title">Color effect</string>
 
     <!-- Settings screen, Color effect dialog radio button choices -->
     <string name="pref_camera_coloreffect_entry_none">None</string>
@@ -527,7 +527,7 @@
     <string name="pref_camera_dis_value_enable" translatable="false">enable</string>
 
     <!-- Select Face Recognition title -->
-    <string name="pref_camera_facerc_title">Face Recognition</string>
+    <string name="pref_camera_facerc_title">Face recognition</string>
 
     <string name="pref_camera_facerc_default" translatable="false">off</string>
 
@@ -563,7 +563,7 @@
     <string name="pref_camera_saturation_entry_level2">Level 2</string>
     <string name="pref_camera_saturation_entry_level3">Level 3</string>
     <string name="pref_camera_saturation_entry_level4">Level 4</string>
-    <string name="pref_camera_saturation_entry_level5">Level 5 (Default)</string>
+    <string name="pref_camera_saturation_entry_level5">Level 5 (default)</string>
     <string name="pref_camera_saturation_entry_level6">Level 6</string>
     <string name="pref_camera_saturation_entry_level7">Level 7</string>
     <string name="pref_camera_saturation_entry_level8">Level 8</string>
@@ -598,7 +598,7 @@
     <string name="pref_camera_picture_format_title">Picture format</string>
 
     <!-- Settings screen, picture format dialog radio button choices -->
-    <string name="pref_camera_picture_format_entry_jpeg" translatable="false">Jpeg</string>
+    <string name="pref_camera_picture_format_entry_jpeg" translatable="false">JPEG</string>
     <string name="pref_camera_picture_format_entry_raw" translatable="false">Raw</string>
     <string name="pref_camera_picture_format_entry_raw_yuv_422_sp" translatable="false">YUV422SP</string>
     <string name="pref_camera_picture_format_entry_raw_yuv_8bit_yuyv" translatable="false">YUVRaw8YUYV</string>
@@ -764,21 +764,11 @@
     <string name="pref_camera_histogram_value_enable" translatable="false">enable</string>
     <string name="pref_camera_histogram_value_disable" translatable="false">disable</string>
 
-    <string name="pref_camera_picturesize_entry_1920x1080" translatable="false">HD1080</string>
-    <string name="pref_camera_picturesize_entry_1280x768" translatable="false">WXGA</string>
-    <string name="pref_camera_picturesize_entry_1280x720" translatable="false">HD720</string>
-    <string name="pref_camera_picturesize_entry_800x600" translatable="false">SVGA</string>
-    <string name="pref_camera_picturesize_entry_800x480" translatable="false">WVGA</string>
-    <string name="pref_camera_picturesize_entry_960x720" translatable="false">960 x 720</string>
-    <string name="pref_camera_picturesize_entry_720x480" translatable="false">720 x 480</string>
-    <string name="pref_camera_picturesize_entry_352x288" translatable="false">CIF</string>
-    <string name="pref_camera_picturesize_entry_176x144" translatable="false">QCIF</string>
-
     <!-- Default auto scene detection setting. -->
     <string name="pref_camera_scenedetect_default" translatable="false">off</string>
 
     <!-- Settings screen, Select Auto Scene Detection -->
-    <string name="pref_camera_scenedetect_title">Auto Scene Detection</string>
+    <string name="pref_camera_scenedetect_title">Auto scene detection</string>
 
     <!-- Settings menu, auto scene detection choices -->
     <string name="pref_camera_scenedetect_entry_off">Off</string>
@@ -814,7 +804,7 @@
     <string name="pref_camera_hdr_mode_default" translatable="false">hdr-mode-multiframe</string>
 
     <!-- Settings screen, Selectable HDR mode title -->
-    <string name="pref_camera_hdr_mode_title">HDR Mode</string>
+    <string name="pref_camera_hdr_mode_title">HDR mode</string>
 
     <!-- Settings screen, Selectable HDR mode radio button choices -->
     <string name="pref_camera_hdr_mode_entry_sensor">Sensor HDR</string>
@@ -842,7 +832,7 @@
     <string name="pref_camera_video_rotation_default" translatable="false">0</string>
 
     <!--Settings screen, video rotation title-->
-    <string name="pref_camera_video_rotation_title">Video Rotation</string>
+    <string name="pref_camera_video_rotation_title">Video rotation</string>
 
     <!--Menu, video rotation label-->
     <string name="pref_camera_video_rotation_label">VIDEO ROTATION</string>
@@ -867,7 +857,7 @@
     <string name="pref_camera_tsmakeup_entry_on">On</string>
     <string name="pref_camera_tsmakeup_entry_off">Off</string>
     <string name="pref_camera_tsmakeup_entry_low">Low</string>
-    <string name="pref_camera_tsmakeup_entry_mid">Mid</string>
+    <string name="pref_camera_tsmakeup_entry_mid">Medium</string>
     <string name="pref_camera_tsmakeup_entry_high">High</string>
     <string name="pref_camera_tsmakeup_default" translatable="false">Off</string>
     <string name="pref_camera_tsmakeup_level_default" translatable="false">60</string>
@@ -875,59 +865,59 @@
     <string name="pref_camera_tsmakeup_level_whiten">Whiten</string>
     <string name="pref_camera_tsmakeup_level_clean">Soften</string>
     <string name="text_tsmakeup_alert_title">Warning</string>
-    <string name="text_tsmakeup_alert_msg">The beautification must turn on Face Detection, Continue or Quit?</string>
+    <string name="text_tsmakeup_alert_msg">Face detection must be enabled in order to use the beautification feature. Do you want to continue?</string>
     <string name="text_tsmakeup_alert_continue">Continue</string>
-    <string name="text_tsmakeup_alert_quit">Quit</string>
-    <string name="text_tsmakeup_beautify_toast" translatable="true">Beautify</string>
+    <string name="text_tsmakeup_alert_quit">Cancel</string>
+    <string name="text_tsmakeup_beautify_toast">Beautify</string>
 
     <string name="all_in_focus">All in focus</string>
     <string name="refocus_toast">To re-focus last photo, tap here</string>
-    <string name="refocus_prompt_title">UbiFocus</string>
+    <string name="refocus_prompt_title" translatable="false">UbiFocus</string>
     <string name="refocus_prompt_message">With UbiFocus, your camera will take 5 pictures, each time that you press the shutter button. The 5 pictures will be combined into 1 picture, where everything is in focus. You can choose to re-focus, after you take the picture.</string>
 
     <string name="camera_thermal_shutdown">Phone overheated, closing camera.</string>
     <string name="camera_server_died">Media server died, closing camera.</string>
     <string name="camera_unknown_error">Unknown error, closing camera.</string>
 
-    <string name="mute_button_desc">Mute Button</string>
+    <string name="mute_button_desc">Mute button</string>
 
     <!-- Help menu strings -->
-    <string name="help_menu_ok" translatable="true">OK</string>
-    <string name="help_menu_scene_mode_1" translatable="true">Select a</string>
-    <string name="help_menu_scene_mode_2" translatable="true">Scene Mode</string>
-    <string name="help_menu_scene_mode_3" translatable="true">for better pictures</string>
-    <string name="help_menu_color_filter_1" translatable="true">Apply color</string>
-    <string name="help_menu_color_filter_2" translatable="true">filters</string>
-    <string name="help_menu_color_filter_3" translatable="true">to</string>
-    <string name="help_menu_color_filter_4" translatable="true">improve pictures</string>
-    <string name="help_menu_beautify_1" translatable="true">Enhance portraits</string>
-    <string name="help_menu_beautify_2" translatable="true">with the</string>
-    <string name="help_menu_beautify_3" translatable="true">Beautify feature</string>
-    <string name="help_menu_switcher_1" translatable="true">Switch</string>
-    <string name="help_menu_switcher_2" translatable="true">between</string>
-    <string name="help_menu_switcher_3" translatable="true">camera, video, and panorama</string>
+    <string name="help_menu_ok">OK</string>
+    <string name="help_menu_scene_mode_1">Select a</string>
+    <string name="help_menu_scene_mode_2">Scene mode</string>
+    <string name="help_menu_scene_mode_3">for better pictures</string>
+    <string name="help_menu_color_filter_1">Apply color</string>
+    <string name="help_menu_color_filter_2">filters</string>
+    <string name="help_menu_color_filter_3">to</string>
+    <string name="help_menu_color_filter_4">improve pictures</string>
+    <string name="help_menu_beautify_1">Enhance portraits</string>
+    <string name="help_menu_beautify_2">with the</string>
+    <string name="help_menu_beautify_3">Beautify feature</string>
+    <string name="help_menu_switcher_1">Switch</string>
+    <string name="help_menu_switcher_2">between</string>
+    <string name="help_menu_switcher_3">camera, video, and panorama</string>
 
-    <string name="pref_camera2_camera2_title" translatable="true">Camera2 Mode</string>
-    <string name="pref_camera2_camera2_entry_enable" translatable="true">Enable</string>
-    <string name="pref_camera2_camera2_entry_disable" translatable="true">Disable</string>
+    <string name="pref_camera2_camera2_title">Camera2 mode</string>
+    <string name="pref_camera2_camera2_entry_enable">Enable</string>
+    <string name="pref_camera2_camera2_entry_disable">Disable</string>
     <string name="pref_camera2_camera2_default" translatable="false">disable</string>
     <string name="pref_camera2_camera2_value_enable" translatable="false">enable</string>
     <string name="pref_camera2_camera2_value_disable" translatable="false">disable</string>
 
-    <string name="pref_camera2_mono_only_title" translatable="true">Mono Only</string>
+    <string name="pref_camera2_mono_only_title">Mono only</string>
     <string name="pref_camera2_mono_only_default" translatable="false">off</string>
 
-    <string name="pref_camera2_mono_preview_title" translatable="true">Mono Preview</string>
-    <string name="pref_camera2_mono_preview_entry_on" translatable="true">On</string>
-    <string name="pref_camera2_mono_preview_entry_off" translatable="true">Off</string>
+    <string name="pref_camera2_mono_preview_title">Mono preview</string>
+    <string name="pref_camera2_mono_preview_entry_on">On</string>
+    <string name="pref_camera2_mono_preview_entry_off">Off</string>
     <string name="pref_camera2_mono_preview_default" translatable="false">off</string>
     <string name="pref_camera2_mono_preview_value_on" translatable="false">on</string>
     <string name="pref_camera2_mono_preview_value_off" translatable="false">off</string>
 
-    <string name="pref_camera2_clearsight_title" translatable="true">ClearSight</string>
+    <string name="pref_camera2_clearsight_title" translatable="false">ClearSight</string>
     <string name="pref_camera2_clearsight_default" translatable="false">on</string>
-    <string name="pref_camera2_clearsight_entry_on" translatable="true">On</string>
-    <string name="pref_camera2_clearsight_entry_off" translatable="true">Off</string>
+    <string name="pref_camera2_clearsight_entry_on">On</string>
+    <string name="pref_camera2_clearsight_entry_off">Off</string>
 
     <string name="pref_camera2_clearsight_value_on" translatable="false">on</string>
     <string name="pref_camera2_clearsight_value_off" translatable="false">off</string>
@@ -935,10 +925,10 @@
     <string name="clearsight_capture_success">ClearSight capture successful</string>
     <string name="clearsight_capture_fail">ClearSight capture failed</string>
 
-    <string name="pref_camera2_mpo_title" translatable="true">MPO Format</string>
+    <string name="pref_camera2_mpo_title">MPO format</string>
     <string name="pref_camera2_mpo_default" translatable="false">off</string>
-    <string name="pref_camera2_mpo_entry_on" translatable="true">On</string>
-    <string name="pref_camera2_mpo_entry_off" translatable="true">Off</string>
+    <string name="pref_camera2_mpo_entry_on">On</string>
+    <string name="pref_camera2_mpo_entry_off">Off</string>
 
     <string name="pref_camera2_mpo_value_on" translatable="false">on</string>
     <string name="pref_camera2_mpo_value_off" translatable="false">off</string>
@@ -948,38 +938,38 @@
     <string name="pref_camera2_coloreffect_default" translatable="false">0</string>
     <string name="pref_camera2_flashmode_default" translatable="false">2</string>
 
-    <string name="pref_camera2_makeup_title" translatable="true">Makeup</string>
+    <string name="pref_camera2_makeup_title">Makeup</string>
 
     <string name="pref_camera2_noise_reduction_default" translatable="false">off</string>
-    <string name="pref_camera2_noise_reduction_title" translatable="true">Noise Reduction</string>
+    <string name="pref_camera2_noise_reduction_title">Noise reduction</string>
 
-    <string name="pref_camera2_noise_reduction_entry_off" translatable="true">Off</string>
-    <string name="pref_camera2_noise_reduction_entry_fast" translatable="true">Fast</string>
-    <string name="pref_camera2_noise_reduction_entry_high_quality" translatable="true">High Quality</string>
+    <string name="pref_camera2_noise_reduction_entry_off">Off</string>
+    <string name="pref_camera2_noise_reduction_entry_fast">Fast</string>
+    <string name="pref_camera2_noise_reduction_entry_high_quality">High quality</string>
 
     <string name="pref_camera2_noise_reduction_value_off" translatable="false">off</string>
     <string name="pref_camera2_noise_reduction_value_fast" translatable="false">fast</string>
     <string name="pref_camera2_noise_reduction_value_high_quality" translatable="false">high-quality</string>
 
     <string name="pref_camera2_videosnap_default" translatable="false">enable</string>
-    <string name="pref_camera2_videosnap_title" translatable="true">Auto Snapshot Size</string>
+    <string name="pref_camera2_videosnap_title">Auto snapshot size</string>
 
-    <string name="pref_camera2_videosnap_value_enable" translatable="true">enable</string>
-    <string name="pref_camera2_videosnap_value_disable" translatable="true">disable</string>
+    <string name="pref_camera2_videosnap_value_enable" translatable="false">enable</string>
+    <string name="pref_camera2_videosnap_value_disable" translatable="false">disable</string>
 
-    <string name="pref_camera2_videosnap_entry_enable" translatable="true">Enable</string>
-    <string name="pref_camera2_videosnap_entry_disable" translatable="true">Disable</string>
-    <string name="pref_camera2_trackingfocus_title" translatable="true">Tracking Focus</string>
-    <string name="pref_camera_scenemode_entry_bestpicture" translatable="true">BestPicture</string>
-    <string name="bestpicture_done" translatable="true">DONE</string>
-    <string name="bestpicture_at_least_one_picture" translatable="true">At least, one picture has to be chosen.</string>
+    <string name="pref_camera2_videosnap_entry_enable">Enable</string>
+    <string name="pref_camera2_videosnap_entry_disable">Disable</string>
+    <string name="pref_camera2_trackingfocus_title">Tracking focus</string>
+    <string name="pref_camera_scenemode_entry_bestpicture">Best picture</string>
+    <string name="bestpicture_done">DONE</string>
+    <string name="bestpicture_at_least_one_picture">At least one picture has to be chosen.</string>
 
-    <string name="pref_camera2_shutter_sound_default" translatable="true">on</string>
-    <string name="pref_camera2_shutter_sound_value_on" translatable="true">on</string>
-    <string name="pref_camera2_shutter_sound_value_off" translatable="true">off</string>
+    <string name="pref_camera2_shutter_sound_default" translatable="false">on</string>
+    <string name="pref_camera2_shutter_sound_value_on" translatable="false">on</string>
+    <string name="pref_camera2_shutter_sound_value_off" translatable="false">off</string>
 
-    <string name="pref_camera2_shutter_sound_entry_on" translatable="true">On</string>
-    <string name="pref_camera2_shutter_sound_entry_off" translatable="true">Off</string>
-    <string name="pref_camera2_shutter_sound_title" translatable="true">Shutter Sound</string>
+    <string name="pref_camera2_shutter_sound_entry_on">On</string>
+    <string name="pref_camera2_shutter_sound_entry_off">Off</string>
+    <string name="pref_camera2_shutter_sound_title">Shutter sound</string>
 </resources>
 
