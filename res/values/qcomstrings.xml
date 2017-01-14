@@ -77,7 +77,7 @@
     <string name="pref_camera_audioencoder_default" translatable="false">aac</string>
 
     <!-- Settings screen, Audio encoder title -->
-    <string name="pref_camera_audioencoder_title">Audio Encoder</string>
+    <string name="pref_camera_audioencoder_title">Audio codec</string>
 
     <!-- Settings screen, Audio encoder dialog radio button choices -->
     <string name="pref_camera_audioencoder_entry_0" translatable="false">AMRNB</string>
@@ -124,7 +124,7 @@
     <string name="pref_camera_advanced_feature_default" translatable="false">none</string>
 
     <!-- Settings screen, Selectable advanced features title -->
-    <string name="pref_camera_advanced_features_title">Advanced Features</string>
+    <string name="pref_camera_advanced_features_title">Advanced features</string>
 
     <!-- Settings screen, Selectable Zone Af dialog radio button choices -->
     <string name="pref_camera_advanced_feature_entry_none">None</string>
@@ -133,7 +133,7 @@
     <string name="pref_camera_advanced_feature_entry_chromaflash" translatable="false">ChromaFlash</string>
     <string name="pref_camera_advanced_feature_entry_optizoom" translatable="false">OptiZoom</string>
     <string name="pref_camera_advanced_feature_entry_FSSR" translatable="false">FSSR</string>
-    <string name="pref_camera_advanced_feature_entry_trueportrait" translatable="false">True Portrait</string>
+    <string name="pref_camera_advanced_feature_entry_trueportrait" translatable="false">TruPortrait</string>
     <string name="pref_camera_advanced_feature_entry_multi_touch_focus">Multi-touch Focus</string>
     <string name="pref_camera_advanced_feature_entry_stillmore" translatable="false">Still More</string>
 
@@ -289,7 +289,7 @@
     <string name="pref_camera_facedetection_default" translatable="false">off</string>
 
     <!-- Settings screen, Select Face Detection -->
-    <string name="pref_camera_facedetection_title">Face Detection</string>
+    <string name="pref_camera_facedetection_title">Face detection</string>
 
     <!-- Settings menu, Face Detection choices -->
     <string name="pref_camera_facedetection_entry_off">Off</string>
@@ -357,7 +357,7 @@
 
     <string name="pref_camera_ae_bracket_hdr_value_ae_bracket">AE-Bracket</string>
 
-    <string name="pref_camera_ae_bracket_hdr_title">AE-Bracket</string>
+    <string name="pref_camera_ae_bracket_hdr_title">AE bracketing</string>
 
     <string name="pref_camera_ae_bracket_hdr_default" translatable="false">Off</string>
 
@@ -450,7 +450,7 @@
 
     <!-- Settings screen, ISO dialog radio button choices -->
     <string name="pref_camera_iso_entry_auto">Auto</string>
-    <string name="pref_camera_iso_entry_isodeblur">ISO Auto (HJR)</string>
+    <string name="pref_camera_iso_entry_isodeblur">Auto (HJR)</string>
     <string name="pref_camera_iso_entry_iso100">ISO100</string>
     <string name="pref_camera_iso_entry_iso200">ISO200</string>
     <string name="pref_camera_iso_entry_iso400">ISO400</string>
@@ -467,7 +467,7 @@
     <string name="pref_camera_iso_value_iso1600" translatable="false">ISO1600</string>
 
     <!-- Settings screen, Anti Banding title -->
-    <string name="pref_camera_antibanding_title">Anti Banding</string>
+    <string name="pref_camera_antibanding_title">Antibanding</string>
 
     <!-- Default Anti Banding setting. -->
     <string name="pref_camera_antibanding_default" translatable="false">auto</string>
@@ -527,7 +527,7 @@
     <string name="pref_camera_dis_value_enable" translatable="false">enable</string>
 
     <!-- Select Face Recognition title -->
-    <string name="pref_camera_facerc_title">Face Recognition</string>
+    <string name="pref_camera_facerc_title">Face recognition</string>
 
     <string name="pref_camera_facerc_default" translatable="false">off</string>
 
@@ -563,7 +563,7 @@
     <string name="pref_camera_saturation_entry_level2">Level 2</string>
     <string name="pref_camera_saturation_entry_level3">Level 3</string>
     <string name="pref_camera_saturation_entry_level4">Level 4</string>
-    <string name="pref_camera_saturation_entry_level5">Level 5 (Default)</string>
+    <string name="pref_camera_saturation_entry_level5">Level 5 (default)</string>
     <string name="pref_camera_saturation_entry_level6">Level 6</string>
     <string name="pref_camera_saturation_entry_level7">Level 7</string>
     <string name="pref_camera_saturation_entry_level8">Level 8</string>
@@ -598,7 +598,7 @@
     <string name="pref_camera_picture_format_title">Picture format</string>
 
     <!-- Settings screen, picture format dialog radio button choices -->
-    <string name="pref_camera_picture_format_entry_jpeg" translatable="false">Jpeg</string>
+    <string name="pref_camera_picture_format_entry_jpeg" translatable="false">JPEG</string>
     <string name="pref_camera_picture_format_entry_raw" translatable="false">Raw</string>
     <string name="pref_camera_picture_format_entry_raw_yuv_422_sp" translatable="false">YUV422SP</string>
     <string name="pref_camera_picture_format_entry_raw_yuv_8bit_yuyv" translatable="false">YUVRaw8YUYV</string>
@@ -814,7 +814,7 @@
     <string name="pref_camera_hdr_mode_default" translatable="false">hdr-mode-multiframe</string>
 
     <!-- Settings screen, Selectable HDR mode title -->
-    <string name="pref_camera_hdr_mode_title">HDR Mode</string>
+    <string name="pref_camera_hdr_mode_title">HDR mode</string>
 
     <!-- Settings screen, Selectable HDR mode radio button choices -->
     <string name="pref_camera_hdr_mode_entry_sensor">Sensor HDR</string>
