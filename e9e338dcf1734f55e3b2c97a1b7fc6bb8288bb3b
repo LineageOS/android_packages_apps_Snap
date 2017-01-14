@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "da3975d1_ebc04d7e",
+        "filename": "res/values/qcomstrings.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2017-01-14T16:28:26Z",
+      "side": 1,
+      "message": "Video codec",
+      "range": {
+        "startLine": 74,
+        "startChar": 56,
+        "endLine": 74,
+        "endChar": 69
+      },
+      "revId": "e9e338dcf1734f55e3b2c97a1b7fc6bb8288bb3b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da3975d1_cbbd8904",
+        "filename": "res/values/qcomstrings.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2017-01-14T16:28:26Z",
+      "side": 1,
+      "message": "Skin tone enhancement",
+      "range": {
+        "startLine": 92,
+        "startChar": 57,
+        "endLine": 92,
+        "endChar": 78
+      },
+      "revId": "e9e338dcf1734f55e3b2c97a1b7fc6bb8288bb3b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da3975d1_abba4508",
+        "filename": "res/values/qcomstrings.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2017-01-14T16:28:26Z",
+      "side": 1,
+      "message": "Spot metering",
+      "range": {
+        "startLine": 114,
+        "startChar": 67,
+        "endLine": 114,
+        "endChar": 80
+      },
+      "revId": "e9e338dcf1734f55e3b2c97a1b7fc6bb8288bb3b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da3975d1_8b3781b0",
+        "filename": "res/values/qcomstrings.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2017-01-14T16:28:26Z",
+      "side": 1,
+      "message": "Center weighted",
+      "range": {
+        "startLine": 115,
+        "startChar": 69,
+        "endLine": 115,
+        "endChar": 84
+      },
+      "revId": "e9e338dcf1734f55e3b2c97a1b7fc6bb8288bb3b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da3975d1_6b3c5d94",
+        "filename": "res/values/qcomstrings.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2017-01-14T16:28:26Z",
+      "side": 1,
+      "message": "Frame average",
+      "range": {
+        "startLine": 116,
+        "startChar": 67,
+        "endLine": 116,
+        "endChar": 80
+      },
+      "revId": "e9e338dcf1734f55e3b2c97a1b7fc6bb8288bb3b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da3975d1_2b465524",
+        "filename": "res/values/qcomstrings.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2017-01-14T16:28:26Z",
+      "side": 1,
+      "message": "High quality",
+      "range": {
+        "startLine": 416,
+        "startChar": 66,
+        "endLine": 416,
+        "endChar": 78
+      },
+      "revId": "e9e338dcf1734f55e3b2c97a1b7fc6bb8288bb3b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
