@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9a437d4f_03725e7c",
+        "filename": "src/com/android/camera/CameraSettings.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 1421,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2017-01-21T05:00:28Z",
+      "side": 1,
+      "message": "Better variable name here perhaps?",
+      "range": {
+        "startLine": 1421,
+        "startChar": 21,
+        "endLine": 1421,
+        "endChar": 25
+      },
+      "revId": "17087aeac8eb9dcfb249b77d0f82042f5a9c1c93",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
