@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9a437d4f_6a468d25",
+        "filename": "src/com/android/camera/CameraSettings.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 1434,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2017-01-25T05:33:28Z",
+      "side": 1,
+      "message": "Is this safe to add in all circumstances, or do we want to just go with something like CamcorderProfile.QUALITY_HIGH and QUALITY_LOW (since those are guaranteed to always be present in the profiles).",
+      "range": {
+        "startLine": 1426,
+        "startChar": 12,
+        "endLine": 1434,
+        "endChar": 38
+      },
+      "revId": "e58c58456a1bf379586a0762f7064f69e065a97a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
