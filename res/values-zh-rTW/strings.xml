@@ -25,16 +25,16 @@
   <string name="details_hms">%1$d:%2$02d:%3$02d</string>
   <!-- Displayed in the title of the dialog for things to do with a picture
              that is to be "set as" (e.g. set as contact photo or set as wallpaper) -->
-  <string name="set_image">將照片設為</string>
+  <string name="set_image">將相片設為</string>
   <!-- Details dialog "OK" button. Dismisses dialog. -->
   <string name="delete">刪除</string>
   <!-- String Delete the selected media item(s) [CHAR LIMIT=50] -->
   <plurals name="delete_selection">
-    <item quantity="other">是否刪除選取的項目？</item>
+    <item quantity="other">刪除已選取的項目？</item>
   </plurals>
   <string name="share">分享</string>
   <string name="share_panorama">分享全景</string>
-  <string name="share_as_photo">作為照片分享</string>
+  <string name="share_as_photo">作為相片分享</string>
   <!-- The label shown after an image is deleted [CHAR LIMIT=16] -->
   <string name="deleted">已刪除</string>
   <!-- The label on the button which when clicked will undo a deletion of image [CHAR LIMIT=16]-->
@@ -131,7 +131,7 @@
   <!-- The content of a dialog showing trimming in progress. [CHAR LIMIT=30] -->
   <string name="please_wait">請稍候</string>
   <!-- Text to show with progress bar while stitching a photo sphere. 'Photo sphere' is a product name. [CHAR LIMIT=35]-->
-  <string name="rendering_photo_sphere">正在轉譯全景拍攝照片</string>
+  <string name="rendering_photo_sphere">正在轉譯全景拍攝相片</string>
   <!-- title for the dialog showing the error of camera hardware -->
   <string name="camera_error_title">相機發生錯誤</string>
   <!-- message for the dialog showing the error of camera hardware -->
@@ -139,7 +139,7 @@
   <!-- message for the dialog showing the camera is disabled because of security policies. Camera cannot be used. -->
   <string name="camera_disabled">由於安全性政策規定，相機已遭停用。</string>
   <!-- message for the dialog showing that the app does not have sufficient permissions [CHAR LIMIT=NONE] -->
-  <string name="error_permissions">應用程式沒有運行所需的關鍵權限，請檢查權限設定。</string>
+  <string name="error_permissions">此應用程式沒有取得執行所需的必要權限。請檢查權限設定。</string>
   <!-- Dialog "Dismiss" button. Closes the dialog [CHAR LIMIT=12]-->
   <string name="dialog_dismiss">忽略</string>
   <!-- alert to the user to wait for some operation to complete -->
@@ -147,7 +147,7 @@
   <!-- alert to the user that an SD card must be installed before using the camera -->
   <string name="no_storage" product="default">使用相機前，請先插入 SD 卡。</string>
   <!-- alert to the user that the SD card is being disk-checked -->
-  <string name="preparing_sd" product="default">正在準備 SD 卡…</string>
+  <string name="preparing_sd" product="default">正在準備 SD 卡\u2026</string>
   <!-- alert to the user that the camera fails to read or write the SD card. -->
   <string name="access_sd_fail" product="default">無法存取 SD 卡。</string>
   <!-- A label that overlays on top of the preview frame to indicate the camcorder is in time lapse mode [CHAR LIMIT=35] -->
@@ -179,7 +179,7 @@
   <!-- The value of a camera preference indicating the setting is off. -->
   <!-- The value of a camera preference indicating the setting is on. -->
   <!-- The Video quality settings in preference [CHAR LIMIT=21] -->
-  <string name="pref_video_quality_title">影片畫質</string>
+  <string name="pref_video_quality_title">視訊畫質</string>
   <!-- The default quality value is NULL -->
   <!-- Video quality setting entry.
     Videos will be recorded in 4k DCI quality. [CHAR LIMIT=24] -->
@@ -249,17 +249,17 @@
   <!-- Settings menu, scene mode choices [CHAR LIMIT=16] -->
   <string name="pref_camera_scenemode_entry_auto">自動</string>
   <!-- Scene mode that uses HDR plus (better HDR) [CHAR LIMIT=16] -->
-  <string name="pref_camera_scenemode_entry_hdr_plus">高動態範圍+</string>
+  <string name="pref_camera_scenemode_entry_hdr_plus">HDR+</string>
   <!-- Scene mode that uses HDR (high dynamic range) [CHAR LIMIT=16] -->
-  <string name="pref_camera_scenemode_entry_hdr">高動態範圍</string>
+  <string name="pref_camera_scenemode_entry_hdr">HDR</string>
   <!-- Scene mode to turn on HDR (better high dynamic range) [CHAR LIMIT=50] -->
-  <string name="pref_camera_scenemode_entry_turn_hdr_plus_on">開啟 HDR+</string>
+  <string name="pref_camera_scenemode_entry_turn_hdr_plus_on">HDR+ 開啟</string>
   <!-- Scene mode to turn off HDR (better high dynamic range) [CHAR LIMIT=50] -->
-  <string name="pref_camera_scenemode_entry_turn_hdr_plus_off">關閉 HDR+</string>
+  <string name="pref_camera_scenemode_entry_turn_hdr_plus_off">HDR+ 關閉</string>
   <!-- Scene mode to turn on HDR (high dynamic range) [CHAR LIMIT=50] -->
-  <string name="pref_camera_scenemode_entry_turn_hdr_on">開啟 HDR</string>
+  <string name="pref_camera_scenemode_entry_turn_hdr_on">HDR 開啟</string>
   <!-- Scene mode to turn off HDR (high dynamic range) [CHAR LIMIT=50] -->
-  <string name="pref_camera_scenemode_entry_turn_hdr_off">關閉 HDR</string>
+  <string name="pref_camera_scenemode_entry_turn_hdr_off">HDR 關閉</string>
   <!-- Scene mode that takes an image quickly with little motion blur. [CHAR LIMIT=16] -->
   <string name="pref_camera_scenemode_entry_action">動作</string>
   <!-- Scene mode that takes long exposures to capture night scenes without flash. [CHAR LIMIT=16] -->
@@ -297,7 +297,7 @@
   <!-- Default HDR entry value -->
   <!-- Default HDR+ entry value -->
   <!-- HDR label ON [CHAR LIMIT=60] -->
-  <string name="pref_camera_hdr_label">高動態範圍</string>
+  <string name="pref_camera_hdr_label">HDR</string>
   <!-- switch camera label back [CHAR LIMIT=60] -->
   <string name="pref_camera_id_label_back">前置鏡頭</string>
   <!-- switch camera label front [CHAR LIMIT=60] -->
@@ -305,7 +305,7 @@
   <!-- Dialog "OK" button. Dismisses dialog. -->
   <string name="dialog_ok">確定</string>
   <!-- Low-memory dialog message [CHAR LIMIT=NONE] -->
-  <string name="spaceIsLow_content" product="default">您 SD 卡的空間即將用盡，請更改圖片的品質設定，或是刪除部分圖片或其他檔案。</string>
+  <string name="spaceIsLow_content" product="default">您 SD 卡的空間即將用盡，請變更圖片的品質設定，或是刪除部分圖片或其他檔案。</string>
   <!-- Camera format string for new image files. Passed to java.text.SimpleDateFormat. -->
   <!-- Video Camera format string for new video files. Passed to java.text.SimpleDateFormat. -->
   <!-- Filename prefix for panorama output. -->
@@ -324,7 +324,7 @@
   <!-- The text shown in the progress dialog when waiting for previous panorama finishing [CHAR LIMIT=40] -->
   <string name="pano_dialog_waiting_previous">正在等待先前的全景處理完成</string>
   <!-- The text shown on the bottom-left corner of the screen to indicate that the saving is in process [CHAR LIMIT=13] -->
-  <string name="pano_review_saving_indication_str">儲存中…</string>
+  <string name="pano_review_saving_indication_str">儲存中\u2026</string>
   <!-- The text shown on the screen to indicate that the panorama is rendering [CHAR LIMIT=27] -->
   <string name="pano_review_rendering">正在進行全景成像作業</string>
   <!-- Toast telling users tapping on the viewfinder will trigger autofocus [CHAR LIMIT=28] -->
@@ -371,7 +371,7 @@
   <!-- The mode picker to switch between camera, video and panorama. [CHAR LIMIT = NONE] -->
   <string name="accessibility_mode_picker">相機、影片或全景選取工具</string>
   <!-- The check box in camera settings, such as store location. [CHAR LIMIT = NONE] -->
-  <string name="accessibility_check_box">%1$s核取方塊</string>
+  <string name="accessibility_check_box">%1$s 核取方塊</string>
   <!-- The button to switch to Camera mode. [CHAR LIMIT = NONE] -->
   <string name="accessibility_switch_to_camera">切換至拍照模式</string>
   <!-- The button to switch to Video mode. [CHAR LIMIT = NONE] -->
@@ -490,9 +490,9 @@ CHAR LIMIT = NONE] -->
   <!-- On-screen hint during timer countdown for taking a photo. [CHAR LIMIT = 60]-->
   <string name="count_down_title_text">拍照倒數計時中</string>
   <!-- Title for first run dialog asking if the user wants to remember photo locations [CHAR LIMIT = 50] -->
-  <string name="remember_location_title">是否記錄拍攝位置？</string>
+  <string name="remember_location_title">記錄拍攝位置？</string>
   <!-- Message for first run dialog asking if the user wants to remember photo locations [CHAR LIMIT = None] -->
-  <string name="remember_location_prompt">為您的照片和影片標示拍攝位置。\n\n其他應用程式可存取這項資訊及您所儲存的照片。</string>
+  <string name="remember_location_prompt">為您的相片和影片標示拍攝位置。\n\n其他應用程式可存取這項資訊及您所儲存的相片。</string>
   <!-- Negative answer for first run dialog asking if the user wants to remember photo locations [CHAR LIMIT = 20] -->
   <string name="remember_location_no">不用了，謝謝</string>
   <!-- Positive answer for first run dialog asking if the user wants to remember photo locations [CHAR LIMIT = 20] -->
@@ -504,7 +504,7 @@ CHAR LIMIT = NONE] -->
   <string name="camera_menu_settings_label">設定</string>
   <!--  Tiny Planet -->
   <!-- Button to press for creating a tiny planet image. [CHAR LIMIT = 30] -->
-  <string name="create_tiny_planet">建立小星球視角照片</string>
+  <string name="create_tiny_planet">建立小星球視角相片</string>
   <!-- Message shown while a tiny planet image is being saved. [CHAR LIMIT = 30] -->
   <string name="saving_tiny_planet">正在儲存小星球視角相片&#8230;</string>
   <!-- Label above a slider that let's the user set the zoom of a tiny planet image. [CHAR LIMIT = 15] -->

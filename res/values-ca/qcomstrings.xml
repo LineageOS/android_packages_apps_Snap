@@ -85,7 +85,7 @@
   <!-- Red eye reduction -->
   <string name="pref_camera_redeyereduction_title">Reducció d\'ull vermells</string>
   <!-- AE bracketing -->
-  <string name="pref_camera_ae_bracket_hdr_title">Bracketing d\'exposició automàtica</string>
+  <string name="pref_camera_ae_bracket_hdr_title">Bracketing d\'AE</string>
   <!-- High-framerate recording -->
   <string name="pref_camera_hfr_title">Enregistrament Càmera lenta</string>
   <string name="pref_camera_hfr_entry_off">Desactivat</string>
@@ -131,7 +131,7 @@
   <string name="pref_camera_iso_entry_iso6400">ISO6400</string>
   <string name="pref_camera_iso_entry_iso12800">ISO12800</string>
   <!-- Antibanding -->
-  <string name="pref_camera_antibanding_title">Antibandeig</string>
+  <string name="pref_camera_antibanding_title">Antibanding</string>
   <string name="pref_camera_antibanding_entry_0">Auto</string>
   <string name="pref_camera_antibanding_entry_1">50 Hz (Europa)</string>
   <string name="pref_camera_antibanding_entry_2">60 Hz (EUA)</string>

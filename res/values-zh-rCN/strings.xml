@@ -306,7 +306,7 @@
   <!-- Dialog "OK" button. Dismisses dialog. -->
   <string name="dialog_ok">确定</string>
   <!-- Low-memory dialog message [CHAR LIMIT=NONE] -->
-  <string name="spaceIsLow_content" product="default">SD 卡空间不足。请更改画质设置，或删除部分图片或其他文件。</string>
+  <string name="spaceIsLow_content" product="default">您的 SD 卡空间不足。更改质量设置或删除一些图片或其他文件以释放空间。</string>
   <!-- Camera format string for new image files. Passed to java.text.SimpleDateFormat. -->
   <!-- Video Camera format string for new video files. Passed to java.text.SimpleDateFormat. -->
   <!-- Filename prefix for panorama output. -->
