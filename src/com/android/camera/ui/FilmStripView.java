@@ -889,6 +889,11 @@ public class FilmStripView extends ViewGroup implements BottomControlsListener {
         return false;
     }
 
+    @Override
+    public boolean shouldDelayChildPressedState() {
+        return !inCameraFullscreen();
+    }
+
     private int findTheNearestView(int pointX) {
 
         int nearest = 0;
