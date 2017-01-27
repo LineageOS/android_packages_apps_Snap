@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9a437d4f_feba3609",
+        "filename": "res/values-uk/cm_strings.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 2681
+      },
+      "writtenOn": "2017-01-27T17:06:15Z",
+      "side": 1,
+      "message": "Extra string change",
+      "revId": "22720efb3e69ecaf50ce27dae06ccfe5e0e099ba",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
