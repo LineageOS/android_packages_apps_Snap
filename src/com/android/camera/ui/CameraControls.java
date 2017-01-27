@@ -147,9 +147,6 @@ public class CameraControls extends RotatableLayout {
         synchronized (mViews) {
             for (View v : mViews) {
                 if (v.getVisibility() != View.GONE) {
-                    if (enable) {
-                        v.setPressed(false);
-                    }
                     v.setEnabled(enable);
                 }
             }
