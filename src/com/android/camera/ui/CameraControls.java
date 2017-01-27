@@ -37,6 +37,7 @@ import android.util.MathUtils;
 import android.util.Pair;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewParent;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.LinearLayout;
@@ -147,9 +148,6 @@ public class CameraControls extends RotatableLayout {
         synchronized (mViews) {
             for (View v : mViews) {
                 if (v.getVisibility() != View.GONE) {
-                    if (enable) {
-                        v.setPressed(false);
-                    }
                     v.setEnabled(enable);
                 }
             }
@@ -353,6 +351,7 @@ public class CameraControls extends RotatableLayout {
                 if (background instanceof RippleDrawable) {
                     RippleDrawable ripple = (RippleDrawable) background;
                     if (enable) {
+                        applyBoundsAsHotspot(ripple, mShutter, v);
                         ripple.setState(new int[]{android.R.attr.state_pressed, android.R.attr.state_enabled});
                     } else {
                         ripple.setState(new int[]{});
@@ -360,6 +359,21 @@ public class CameraControls extends RotatableLayout {
                 }
             }
         });
+    }
+
+    private void applyBoundsAsHotspot(RippleDrawable d, View view, View targetParent) {
+        int left = view.getLeft(), right = view.getRight();
+        int top = view.getTop(), bottom = view.getBottom();
+        ViewParent parent = view.getParent();
+        while (parent != targetParent && parent instanceof View) {
+            final View vp = (View) parent;
+            left += vp.getLeft();
+            right += vp.getLeft();
+            top += vp.getTop();
+            bottom += vp.getTop();
+            parent = vp.getParent();
+        }
+        d.setHotspotBounds(left, top, right, bottom);
     }
 
     private void setLocation(int w, int h) {
