@@ -202,6 +202,19 @@ public class VideoUI extends BaseUI implements PieRenderer.PieListener,
             }
         });
 
+        if (!mActivity.isSecureCamera()) {
+            mThumbnail = (ImageView) mRootView.findViewById(R.id.preview_thumb);
+            mThumbnail.setOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    // Do not allow navigation to filmstrip during video recording
+                    if (!mRecordingStarted && !isCameraControlsAnimating()) {
+                        mActivity.gotoGallery();
+                    }
+                }
+            });
+        }
+
         mRenderOverlay = (RenderOverlay) mRootView.findViewById(R.id.render_overlay);
         mFocusRing = (FocusRing) mRootView.findViewById(R.id.focus_ring);
         mShutterButton = (ShutterButton) mRootView.findViewById(R.id.shutter_button);
@@ -529,19 +542,6 @@ public class VideoUI extends BaseUI implements PieRenderer.PieListener,
 
         initializeZoom(params);
         mActivity.setPreviewGestures(mGestures);
-
-        if (!mActivity.isSecureCamera()) {
-            mThumbnail = (ImageView) mRootView.findViewById(R.id.preview_thumb);
-            mThumbnail.setOnClickListener(new OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    // Do not allow navigation to filmstrip during video recording
-                    if (!mRecordingStarted && !isCameraControlsAnimating()) {
-                        mActivity.gotoGallery();
-                    }
-                }
-            });
-        }
     }
 
     public boolean isCameraControlsAnimating() {
