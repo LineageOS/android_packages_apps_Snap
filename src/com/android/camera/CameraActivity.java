@@ -189,11 +189,15 @@ public class CameraActivity extends Activity
     private static boolean PIE_MENU_ENABLED = false;
     private boolean mDeveloperMenuEnabled = false;
 
+    private boolean mCamera2supported = false;
+    private boolean mCamera2enabled = false;
+
     /** This data adapter is used by FilmStripView. */
     private LocalDataAdapter mDataAdapter;
     /** This data adapter represents the real local camera data. */
     private LocalDataAdapter mWrappedDataAdapter;
 
+    private Context mContext;
     private PanoramaStitchingManager mPanoramaManager;
     private PlaceholderManager mPlaceholderManager;
     private int mCurrentModuleIndex = -1;
@@ -1428,6 +1432,9 @@ public class CameraActivity extends Activity
             finish();
             return;
         }
+
+        mContext = getApplicationContext();
+
         // Check if this is in the secure camera mode.
         Intent intent = getIntent();
         String action = intent.getAction();
@@ -1502,8 +1509,14 @@ public class CameraActivity extends Activity
             }
         }
 
-        boolean cam2on = mSettingsManager.isCamera2On();
-        if (cam2on && moduleIndex == ModuleSwitcher.PHOTO_MODULE_INDEX)
+        // Check if the device supports Camera API 2
+        mCamera2supported = CameraUtil.isCamera2Supported(mContext);
+        Log.d(TAG, "Camera API 2 supported: " + mCamera2supported);
+
+        mCamera2enabled = mCamera2supported && mContext.getResources().getBoolean(R.bool.support_camera_api_v2);
+        Log.d(TAG, "Camera API 2 enabled: " + mCamera2enabled);
+
+        if (mCamera2enabled && moduleIndex == ModuleSwitcher.PHOTO_MODULE_INDEX)
             moduleIndex = ModuleSwitcher.CAPTURE_MODULE_INDEX;
 
         mOrientationListener = new MyOrientationEventListener(this);
@@ -1613,12 +1626,11 @@ public class CameraActivity extends Activity
         registerSDcardMountedReceiver();
 
         if (!Glide.isSetup()) {
-            Context context = getApplicationContext();
-            Glide.setup(new GlideBuilder(context)
+            Glide.setup(new GlideBuilder(mContext)
                     .setDecodeFormat(DecodeFormat.ALWAYS_ARGB_8888)
                     .setResizeService(new FifoPriorityThreadPoolExecutor(2)));
 
-            Glide glide = Glide.get(context);
+            Glide glide = Glide.get(mContext);
 
             // As a camera we will use a large amount of memory
             // for displaying images.
@@ -2047,9 +2059,8 @@ public class CameraActivity extends Activity
 
     @Override
     public void onModuleSelected(int moduleIndex, final Point hotspot) {
-        boolean cam2on = mSettingsManager.isCamera2On();
         mForceReleaseCamera = moduleIndex == ModuleSwitcher.CAPTURE_MODULE_INDEX ||
-                (cam2on && moduleIndex == ModuleSwitcher.PHOTO_MODULE_INDEX);
+                (mCamera2enabled && moduleIndex == ModuleSwitcher.PHOTO_MODULE_INDEX);
         if (mForceReleaseCamera) {
             moduleIndex = ModuleSwitcher.CAPTURE_MODULE_INDEX;
         }
