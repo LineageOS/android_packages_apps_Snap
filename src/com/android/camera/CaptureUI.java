@@ -114,6 +114,7 @@ public class CaptureUI extends BaseUI implements PreviewGestures.SingleTapListen
             SettingsManager.KEY_WHITE_BALANCE,
             SettingsManager.KEY_CAMERA2,
             SettingsManager.KEY_FACE_DETECTION,
+            SettingsManager.KEY_REDEYE_REDUCTION,
             SettingsManager.KEY_VIDEO_HIGH_FRAME_RATE,
             SettingsManager.KEY_VIDEO_FLASH_MODE,
             SettingsManager.KEY_VIDEO_DURATION,
@@ -124,7 +125,6 @@ public class CaptureUI extends BaseUI implements PreviewGestures.SingleTapListen
             SettingsManager.KEY_SHUTTER_SOUND
     };
     String[] mDeveloperKeys = new String[]{
-            SettingsManager.KEY_REDEYE_REDUCTION,
             SettingsManager.KEY_MONO_ONLY,
             SettingsManager.KEY_CLEARSIGHT,
             SettingsManager.KEY_MONO_PREVIEW,
