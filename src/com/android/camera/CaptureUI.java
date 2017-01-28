@@ -112,7 +112,6 @@ public class CaptureUI extends BaseUI implements PreviewGestures.SingleTapListen
             SettingsManager.KEY_EXPOSURE,
             SettingsManager.KEY_ISO,
             SettingsManager.KEY_WHITE_BALANCE,
-            SettingsManager.KEY_CAMERA2,
             SettingsManager.KEY_FACE_DETECTION,
             SettingsManager.KEY_REDEYE_REDUCTION,
             SettingsManager.KEY_NOISE_REDUCTION,
