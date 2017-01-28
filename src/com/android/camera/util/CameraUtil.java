@@ -35,6 +35,8 @@ import android.hardware.Camera;
 import android.hardware.Camera.CameraInfo;
 import android.hardware.Camera.Parameters;
 import android.hardware.Camera.Size;
+import android.hardware.camera2.CameraAccessException;
+import android.hardware.camera2.CameraCharacteristics;
 import android.location.Location;
 import android.media.MediaRecorder;
 import android.net.Uri;
@@ -375,6 +377,30 @@ public class CameraUtil {
         if (dpm.getCameraDisabled(null)) {
             throw new CameraDisabledException();
         }
+    }
+
+    public static boolean isCamera2Supported(Context context) {
+        android.hardware.camera2.CameraManager manager = (android.hardware.camera2.CameraManager)context.getSystemService(Context.CAMERA_SERVICE);
+
+        try {
+            CameraCharacteristics characteristics = manager.getCameraCharacteristics(manager.getCameraIdList()[0]);
+            int deviceLevel = characteristics.get(CameraCharacteristics.INFO_SUPPORTED_HARDWARE_LEVEL);
+
+            switch (deviceLevel) {
+                case CameraCharacteristics.INFO_SUPPORTED_HARDWARE_LEVEL_LIMITED:
+                    return true;
+                case CameraCharacteristics.INFO_SUPPORTED_HARDWARE_LEVEL_FULL:
+                    return true;
+                case CameraCharacteristics.INFO_SUPPORTED_HARDWARE_LEVEL_3:
+                    return true;
+                default:
+                    return false;
+            }
+        } catch(CameraAccessException | NumberFormatException e) {
+            Log.e(TAG, "exception trying to get camera characteristics");
+        }
+
+        return false;
     }
 
     public static CameraManager.CameraProxy openCamera(
