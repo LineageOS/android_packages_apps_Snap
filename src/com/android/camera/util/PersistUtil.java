@@ -58,8 +58,6 @@ public class PersistUtil {
             get("persist.sys.camera.video.snapshotsize", "");
     private static final String PERSIST_CAMERA_VIDEO_SIZE =
             get("persist.sys.camera.video.size", "");
-    private static final boolean PERSIST_CAMERA_CAMERA2 =
-            getBoolean("persist.sys.camera.camera2", true);
     private static final boolean PERSIST_YUV_CALLBACK_ENABLE =
             getBoolean("persist.sys.camera.yuvcallback",false);
     private static final boolean PERSIST_CAMERA_ZSL =
@@ -245,10 +243,6 @@ public class PersistUtil {
             }
         }
         return result;
-    }
-
-    public static boolean getCamera2Mode() {
-        return PERSIST_CAMERA_CAMERA2;
     }
 
     public static boolean getCameraZSLDisabled() {
