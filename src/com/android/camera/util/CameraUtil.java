@@ -409,6 +409,37 @@ public class CameraUtil {
         }
     }
 
+    public static boolean isCamera2Supported(Context context) {
+        android.hardware.camera2.CameraManager manager = (android.hardware.camera2.CameraManager)
+                context.getSystemService(Context.CAMERA_SERVICE);
+
+        try {
+            String[] cameraIds = manager.getCameraIdList();
+
+            if (cameraIds != null && cameraIds.length > 0) {
+                CameraCharacteristics characteristics =
+                        manager.getCameraCharacteristics(cameraIds[0]);
+                int deviceLevel =
+                        characteristics.get(CameraCharacteristics.INFO_SUPPORTED_HARDWARE_LEVEL);
+
+                switch (deviceLevel) {
+                    case CameraCharacteristics.INFO_SUPPORTED_HARDWARE_LEVEL_LIMITED:
+                        return true;
+                    case CameraCharacteristics.INFO_SUPPORTED_HARDWARE_LEVEL_FULL:
+                        return true;
+                    case CameraCharacteristics.INFO_SUPPORTED_HARDWARE_LEVEL_3:
+                        return true;
+                    default:
+                        return false;
+                }
+            }
+        } catch(CameraAccessException | NumberFormatException e) {
+            Log.e(TAG, "exception trying to get camera characteristics");
+        }
+
+        return false;
+    }
+
     public static CameraManager.CameraProxy openCamera(
             Activity activity, final int cameraId,
             Handler handler, final CameraManager.CameraOpenErrorCallback cb) {
