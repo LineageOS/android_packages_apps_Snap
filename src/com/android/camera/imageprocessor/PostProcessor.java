@@ -116,7 +116,7 @@ public class PostProcessor{
     private CameraDevice mCameraDevice;
     private CameraCaptureSession mCaptureSession;
     private ImageReader mImageReader;
-    private boolean mUseZSL = true;
+    private boolean mUseZSL = false;
     private Handler mZSLHandler;
     private HandlerThread mZSLHandlerThread;
     private ImageHandlerTask mImageHandlerTask;
@@ -346,7 +346,7 @@ public class PostProcessor{
         if(setFilter(postFilterId) || isLongShotOn || isFlashModeOn) {
             mUseZSL = false;
         } else {
-            mUseZSL = true;
+            mUseZSL = false;
         }
         startBackgroundThread();
         if(mUseZSL) {
