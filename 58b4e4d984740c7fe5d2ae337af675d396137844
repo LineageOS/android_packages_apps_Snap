@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9a437d4f_2be2bd9f",
+        "filename": "src/com/android/camera/CameraActivity.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 1515,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2017-01-29T09:06:49Z",
+      "side": 1,
+      "message": "Did you mean \u0026\u0026 ?",
+      "range": {
+        "startLine": 1515,
+        "startChar": 44,
+        "endLine": 1515,
+        "endChar": 45
+      },
+      "revId": "58b4e4d984740c7fe5d2ae337af675d396137844",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
