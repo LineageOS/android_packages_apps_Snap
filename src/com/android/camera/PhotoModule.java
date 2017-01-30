@@ -634,10 +634,8 @@ public class PhotoModule extends BaseModule<PhotoUI> implements
 
         mLocationPromptTriggered = true;
 
-        /* Enable the location at the begining, always.
-           If the user denies the permission, it will be disabled
-           right away due to exception */
-        enableRecordingLocation(true);
+        /* Geotagging should be disabled by default just for privacy purpose */
+        enableRecordingLocation(false);
     }
 
     @Override
