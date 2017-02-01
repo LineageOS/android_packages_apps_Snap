@@ -27,6 +27,7 @@
   <!-- Video quality setting entry. Videos will be recorded in QCIF quality. [CHAR LIMIT=24] -->
   <!-- Settings screen, Power Mode title -->
   <!-- Settings screen, Power mode dialog radio button choices -->
+  <string name="pref_camera_powermode_entry_lp">Nizka poraba</string>
   <!-- Settings screen, Power mode dialog radio button choices -->
   <!-- Default Power mode.. -->
   <!-- Default auto exposure setting. Do not translate. -->
@@ -52,6 +53,8 @@
   <!-- Settings screen, Select Skin Tone Enhancement title -->
   <string name="pref_camera_skinToneEnhancement_title">Izboljšanje tona kože</string>
   <!-- Settings screen, Skin Tone Enhancement radio button choices -->
+  <string name="pref_camera_skinToneEnhancement_entry_enable">Omogoči</string>
+  <string name="pref_camera_skinToneEnhancement_entry_disable">Onemogoči</string>
   <!-- Skin Tone Enhancement entry values. Do not translate. -->
   <!-- Settings screen, setting title text for ZSL-->
   <string name="pref_camera_zsl_title">Brez zakasnitve sprožilca</string>
@@ -87,6 +90,10 @@
   <string name="pref_camera_manual_focus_entry_diopter_mode">Način dioptra</string>
   <string name="pref_camera_manual_focus_entry_off">Izklopljeno</string>
   <!-- Instant Capture entry -->
+  <string name="pref_camera_instant_capture_title" translatable="true">Takojšen zajem</string>
+  <string name="pref_camera_instant_capture_entry_aggressive_aec" translatable="true">Agresiven AEC</string>
+  <string name="pref_camera_instant_capture_entry_fast_aec" translatable="true">Hitri AEC</string>
+  <string name="pref_camera_instant_capture_entry_disable" translatable="true">Onemogoči</string>
   <!-- Instant Capture entry values -->
   <!-- Settings screen, ZSL location dialog choices -->
   <string name="pref_camera_zsl_entry_off">Izklopljeno</string>
@@ -100,8 +107,12 @@
   <string name="pref_camera_video_cds_entry_off">Izklopljeno</string>
   <string name="pref_camera_video_cds_entry_auto">Samodejno</string>
   <!-- Settings screen, TNR location dialog choices -->
+  <string name="pref_camera_tnr_entry_disable">Onemogoči</string>
+  <string name="pref_camera_tnr_entry_enable">Omogoči</string>
   <!-- Settings screen, TNR location dialog choices -->
   <!-- Settings screen, video TNR location dialog choices -->
+  <string name="pref_camera_video_tnr_entry_disable">Onemogoči</string>
+  <string name="pref_camera_video_tnr_entry_enable">Omogoči</string>
   <!-- Settings screen, video TNR location dialog choices -->
   <!-- Settings screen, setting title text for Video HDR-->
   <string name="pref_camera_video_hdr_title">HDR slike</string>
@@ -131,6 +142,12 @@
   <!-- Settings screen, Select Redeye Reduction -->
   <string name="pref_camera_redeyereduction_title">Zmanjšanje učinka rdečih oči</string>
   <!-- Settings menu, redeye reduction choices -->
+  <string name="pref_camera_redeyereduction_entry_enable">Omogoči</string>
+  <string name="pref_camera_redeyereduction_entry_disable">Onemogoči</string>
+  <string name="pref_camera_selfiemirror_entry_enable">Omogoči</string>
+  <string name="pref_camera_selfiemirror_entry_disable">Onemogoči</string>
+  <string name="pref_camera_shuttersound_entry_enable">Omogočen</string>
+  <string name="pref_camera_shuttersound_entry_disable">Onemogočen</string>
   <!-- Default mce setting. Do not translate. -->
   <!-- The message is shown in toast when the app encounters an unsupported selection for HFR/HSR mode -->
   <string name="error_app_unsupported_hfr_selection">Počasni posnetek ni podprt ob uporabi ustalitve/časovnega zamika/HDR-a.</string>
@@ -165,12 +182,15 @@
   <string name="pref_camera_hfr_entry_hsr_60">Visoka hitrost 60 sl./s</string>
   <string name="pref_camera_hfr_entry_hsr_90">Visoka hitrost 90 sl./s</string>
   <string name="pref_camera_hfr_entry_hsr_120">Visoka hitrost 120 sl./s</string>
+  <string name="pref_camera_hfr_entry_hsr_240">Visoka hitrost 240 sl./s</string>
   <!-- HFR entry values. Do not translate. -->
   <!-- Default noise reduction setting. Do not translate. -->
   <!-- Settings screen, Select See More title -->
+  <string name="pref_camera_noise_reduction_title">Zmanjševanje šuma</string>
   <!-- Settings screen, see more radio button choices -->
   <string name="pref_camera_noise_reduction_entry_off">Izklopljeno</string>
   <string name="pref_camera_noise_reduction_entry_fast">Hitro</string>
+  <string name="pref_camera_noise_reduction_entry_high_quality">Visoka kakovost</string>
   <!-- see more entry values. Do not translate. -->
   <!-- Default see more setting. Do not translate. -->
   <!-- Settings screen, Select See More title -->
@@ -289,6 +309,8 @@
   <!-- Settings screen, Select Histogram title -->
   <string name="pref_camera_histogram_title">Histogram</string>
   <!-- Settings screen, Histogram radio button choices -->
+  <string name="pref_camera_histogram_entry_enable">Omogoči</string>
+  <string name="pref_camera_histogram_entry_disable">Onemogoči</string>
   <!-- Histogram entry values. Do not translate. -->
   <!-- Default auto scene detection setting. -->
   <!-- Settings screen, Select Auto Scene Detection -->
@@ -305,6 +327,8 @@
   <!-- Settings screen, setting title text for Auto HDR-->
   <string name="pref_camera_auto_hdr_title">Samodejni HDR</string>
   <!-- Settings screen, Auto HDR location dialog choices -->
+  <string name="pref_camera_auto_hdr_entry_enable">Omogoči</string>
+  <string name="pref_camera_auto_hdr_entry_disable">Onemogoči</string>
   <!-- toast message for storage location switch -->
   <string name="on_switch_save_path_to_sdcard">Na notranjem pomnilniku je premalo prostora, preklop na kartico SD</string>
   <!-- Settings screen, Selectable HDR mode title -->
@@ -322,6 +346,7 @@
   <!--Settings screen, video rotation title-->
   <string name="pref_camera_video_rotation_title">Sukanje videoposnetka</string>
   <!--Menu, video rotation label-->
+  <string name="pref_camera_video_rotation_label">SUKANJE VIDEOPOSNETKA</string>
   <!-- Settings screen, Video rotation dialog radio button choices -->
   <string name="pref_camera_video_rotation_entry_0">0 stopinj</string>
   <string name="pref_camera_video_rotation_entry_90">90 stopinj</string>
@@ -336,9 +361,14 @@
   <!-- The alas of CameraActivity for gesture operation -->
   <string name="camera_gesture_title">Zaženi fotoaparat</string>
   <string name="pref_camera_tsmakeup_entry_off">Izklopljeno</string>
+  <string name="text_tsmakeup_alert_title">Opozorilo</string>
+  <string name="text_tsmakeup_alert_continue">Nadaljuj</string>
+  <string name="text_tsmakeup_alert_quit">Prekliči</string>
   <string name="all_in_focus">V celoti izostreno</string>
   <string name="refocus_toast">Za ponovno ostrenje zadnje slike tapnite tukaj</string>
   <!-- Help menu strings -->
+  <string name="help_menu_ok">V REDU</string>
+  <string name="help_menu_color_filter_2">filtri</string>
   <string name="pref_camera2_camera2_entry_enable">Omogoči</string>
   <string name="pref_camera2_camera2_entry_disable">Onemogoči</string>
   <string name="pref_camera2_mono_preview_entry_on">Vkl.</string>
@@ -350,8 +380,10 @@
   <string name="pref_camera2_mpo_entry_on">Vkl.</string>
   <string name="pref_camera2_mpo_entry_off">Izklopljeno</string>
   <string name="pref_camera2_makeup_title">Ličilo</string>
+  <string name="pref_camera2_noise_reduction_title">Zmanjševanje šuma</string>
   <string name="pref_camera2_noise_reduction_entry_off">Izklopljeno</string>
   <string name="pref_camera2_noise_reduction_entry_fast">Hitro</string>
+  <string name="pref_camera2_noise_reduction_entry_high_quality">Visoka kakovost</string>
   <string name="pref_camera2_videosnap_entry_enable">Omogoči</string>
   <string name="pref_camera2_videosnap_entry_disable">Onemogoči</string>
   <string name="pref_camera2_shutter_sound_entry_off">Izklopljeno</string>

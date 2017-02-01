@@ -185,6 +185,7 @@
   <!-- The messsage shown if user selects a snapshot resolution lower than the current video size. -->
   <string name="snapshot_lower_than_video">Die Auflösung des Schnappschusses ist geringer als die Videoauflösung. Bitte wählen Sie die gleiche oder eine höhere Auflösung als die aktuelle Videoauflösung.</string>
   <!-- The messsage shown if user selects a snapshot resolution in low power mode. -->
+  <string name="snapshotsize_low_powermode">Das Verändern der Auflösung wird im Energiesparmodus nicht unterstützt. Der Schnappschuss wird daher in Videoauflösung aufgenommen. Wählen Sie den normalen Energiemodus aus, um die Auflösung einstellen zu können.</string>
   <!-- The messsage shown if user tries to take snapshot during D1/QCIF resolution. -->
   <string name="snapshot_qcif_and_d1">Schnappschüsse werden nur in der Videoauflösung unterstützt.</string>
   <!-- Default hfr setting. Do not translate. -->

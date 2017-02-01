@@ -144,7 +144,9 @@ Kesilen resim <xliff:g id="folder_name">%s</xliff:g> klasörüne kaydedildi.</st
   <!-- message for the dialog showing the camera is disabled because of security policies. Camera cannot be used. -->
   <string name="camera_disabled">Güvenlik politikaları nedeniyle kamera devre dışı bırakıldı.</string>
   <!-- message for the dialog showing that the app does not have sufficient permissions [CHAR LIMIT=NONE] -->
+  <string name="error_permissions">Uygulamanın, çalışması için gerekli olan kritik izinleri yok. Lütfen izin ayarlarınızı kontrol edin.</string>
   <!-- Dialog "Dismiss" button. Closes the dialog [CHAR LIMIT=12]-->
+  <string name="dialog_dismiss">Vazgeç</string>
   <!-- alert to the user to wait for some operation to complete -->
   <string name="wait">Lütfen bekleyin…\u2026</string>
   <!-- alert to the user that an SD card must be installed before using the camera -->
@@ -164,6 +166,7 @@ Kesilen resim <xliff:g id="folder_name">%s</xliff:g> klasörüne kaydedildi.</st
   <!-- In select camera setting, front-facing camera. [CHAR LIMIT=14] -->
   <string name="pref_camera_id_entry_front">Ön</string>
   <!-- Settings screen, setting title text -->
+  <string name="pref_camera_recordlocation_title">GPS konumu</string>
   <!--  Label for record location preference [CHAR LIMIT=50] -->
   <string name="pref_camera_location_label">KONUM</string>
   <!-- Title for countdown timer on camera settings screen [CHAR LIMIT=30]-->
@@ -176,6 +179,9 @@ Kesilen resim <xliff:g id="folder_name">%s</xliff:g> klasörüne kaydedildi.</st
   <!-- Text followed by a checkbox to turn on/off sound effects during the countdown. [CHAR LIMIT = 24]-->
   <string name="pref_camera_timer_sound_title">Geri sayımda bip sesi çıkar</string>
   <!-- Entry of camera save path -->
+  <string name="pref_camera_savepath_title">Depolama</string>
+  <string name="pref_camera_savepath_entry_0">Telefon</string>
+  <string name="pref_camera_savepath_entry_1">SD Kart</string>
   <!-- Entry of a on/off setting. The setting is turned off. [CHAR LIMIT=15] -->
   <string name="setting_off">Kapalı</string>
   <!-- Entry of a on/off setting. The setting is turned on. [CHAR LIMIT=15] -->
@@ -296,14 +302,23 @@ Kesilen resim <xliff:g id="folder_name">%s</xliff:g> klasörüne kaydedildi.</st
   <!-- Toast after trying to select a setting that is not allowed to change in scene mode [CHAR LIMIT=NONE] -->
   <string name="not_selectable_in_scene_mode">Sahne modunda seçilemez.</string>
   <!-- Toast after enable HDR function to inform Continuous Shot has disabled -->
+  <string name="HDR_disable_continuous_shot">Sürekli çekimde HDR devre dışı bırakılır.</string>
   <!-- Toast after enable Advanced Capture function to inform Continuous Shot has disabled -->
+  <string name="advanced_capture_disable_continuous_shot">Sürekli çekimde gelişmiş yakalama devre dışı bırakılır.</string>
   <!-- Toast after enable 2k4k video quality to inform IS has disabled -->
+  <string name="video_quality_4k_disable_IS">Resim stabilizasyonunda 4K devre dışı bırakılır.</string>
   <!-- Toast after 2k4k video is enabled to inform SeeMore has been disabled -->
+  <string name="video_quality_4k_disable_SeeMore">SeeMore 4K videoda etkinleştirilemez.</string>
   <!-- Toast after High Quality Noise Reduction has been enabled to show CDS is disabled -->
+  <string name="disable_CDS_during_HighQualityNoiseReduction">Yüksek kalitede parazit azaltma CDS\'yi devre dışı bırakır.</string>
   <!-- Toast after High Quality Noise Reduction has been enabled to show TNR is disabled -->
+  <string name="disable_TNR_during_HighQualityNoiseReduction">Yüksek kalitede parazit azaltma TNR\'yi devre dışı bırakır.</string>
   <!-- Toast after SeeMore has been enabled to show CDS is disabled -->
+  <string name="disable_CDS_during_SeeMore">SeeMore CDS\'yi devre dışı bırakır.</string>
   <!-- Toast after SeeMore has been enabled to show TNR is disabled -->
+  <string name="disable_TNR_during_SeeMore">SeeMore TNR\'yi devre dışı bırakır.</string>
   <!-- Toast after SeeMore has been enabled to show NR is disabled -->
+  <string name="disable_NR_during_SeeMore">SeeMore parazit azaltmayı devre dışı bırakır.</string>
   <!-- Exposure settings in preference -->
   <string name="pref_exposure_title">Pozlama</string>
   <!--  menu label exposure compensation [CHAR LIMIT=50] -->
@@ -535,4 +550,6 @@ CHAR LIMIT = NONE] -->
   <!--  String shown when setting the homepage wallpaper in the background [CHAR LIMIT=NONE] -->
   <string name="setting_wallpaper">Duvar kağıdı ayarlanıyor</string>
   <!-- Menu, Video rotation labels [CHAR LIMIT=50] -->
+  <string name="remaining_photos_format">%d kaldı</string>
+  <string name="makeup_video_size_limit">Videoda makyaj sadece VGA kalitede çalışır.</string>
 </resources>

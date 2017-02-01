@@ -36,9 +36,9 @@
   <!-- Settings screen, Select auto exposure title -->
   <string name="pref_camera_autoexposure_title">Автоматична експозиция</string>
   <!-- Settings screen, auto exposure dialog radio button choices -->
-  <string name="pref_camera_autoexposure_entry_frameaverage">Усреднен</string>
+  <string name="pref_camera_autoexposure_entry_frameaverage">Усреднена</string>
   <string name="pref_camera_autoexposure_entry_centerweighted">В центъра на кадъра</string>
-  <string name="pref_camera_autoexposure_entry_spotmetering">Пунктирана</string>
+  <string name="pref_camera_autoexposure_entry_spotmetering">Точково измерване</string>
   <!-- Auto exposure entry values. Do not translate. -->
   <!-- Settings screen, Video encoder title -->
   <string name="pref_camera_videoencoder_title">Видео кодек</string>
@@ -64,10 +64,10 @@
   <!-- Settings screen, Selectable zone af title -->
   <string name="pref_camera_selectablezoneaf_title">Зона за автофокус</string>
   <!-- Settings screen, Selectable Zone Af dialog radio button choices -->
-  <string name="pref_camera_selectablezoneaf_entry_auto">Автом</string>
-  <string name="pref_camera_selectablezoneaf_entry_spotmetering">Пунктирана</string>
+  <string name="pref_camera_selectablezoneaf_entry_auto">Автоматично</string>
+  <string name="pref_camera_selectablezoneaf_entry_spotmetering">Точково измерване</string>
   <string name="pref_camera_selectablezoneaf_entry_centerweighted">В центъра на кадъра</string>
-  <string name="pref_camera_selectablezoneaf_entry_frameaverage">Усреднен</string>
+  <string name="pref_camera_selectablezoneaf_entry_frameaverage">Усреднена</string>
   <!-- Auto exposure entry values. Do not translate. -->
   <!-- Settings screen, Selectable advanced features title -->
   <string name="pref_camera_advanced_features_title">Разширени функции</string>
@@ -80,17 +80,17 @@
   <string name="pref_camera_manual_exp_entry_ISO_priority">ISO приоритет</string>
   <string name="pref_camera_manual_exp_entry_exptime_priority">Време за експозиция приоритет</string>
   <string name="pref_camera_manual_exp_entry_user_setting">Потребителска настройка</string>
-  <string name="pref_camera_manual_exp_entry_off">Изключено</string>
+  <string name="pref_camera_manual_exp_entry_off">Изкл.</string>
   <!-- Manual white balance entry values -->
   <string name="pref_camera_manual_wb_title">Ръчен баланс на бялото</string>
   <string name="pref_camera_manual_wb_entry_color_temperature">Температура на цвета</string>
   <string name="pref_camera_manual_wb_entry_rbgb_gains">RBGB печалби</string>
-  <string name="pref_camera_manual_wb_entry_off">Изключено</string>
+  <string name="pref_camera_manual_wb_entry_off">Изкл.</string>
   <!-- Manual Focus entry values -->
   <string name="pref_camera_manual_focus_title">Ръчен фокус</string>
   <string name="pref_camera_manual_focus_entry_scale_mode">Мащабен режим</string>
   <string name="pref_camera_manual_focus_entry_diopter_mode">Диоптър режим</string>
-  <string name="pref_camera_manual_focus_entry_off">Изключено</string>
+  <string name="pref_camera_manual_focus_entry_off">Изкл.</string>
   <!-- Instant Capture entry -->
   <string name="pref_camera_instant_capture_title" translatable="true">Моментално стимка</string>
   <string name="pref_camera_instant_capture_entry_aggressive_aec" translatable="true">Агресивен AEC</string>
@@ -98,22 +98,22 @@
   <string name="pref_camera_instant_capture_entry_disable" translatable="true">Изкл.</string>
   <!-- Instant Capture entry values -->
   <!-- Settings screen, ZSL location dialog choices -->
-  <string name="pref_camera_zsl_entry_off">Изключено</string>
+  <string name="pref_camera_zsl_entry_off">Изкл.</string>
   <string name="pref_camera_zsl_entry_on">Вкл.</string>
   <!-- The message is shown in toast when HDR or scene mode is enabled -->
   <string name="hdr_enable_message">HDR е разрешен, само автоматичен в режим на сцена</string>
   <string name="scene_enable_message">HDR не се поддържа в решим раличен от автоматичен</string>
   <!-- Settings screen, Video HDR location dialog choices -->
-  <string name="pref_camera_video_hdr_entry_off">Изключено</string>
+  <string name="pref_camera_video_hdr_entry_off">Изкл.</string>
   <string name="pref_camera_video_hdr_entry_on">Вкл.</string>
   <!-- Settings screen, CDS location dialog choices -->
-  <string name="pref_camera_cds_entry_off">Изключено</string>
+  <string name="pref_camera_cds_entry_off">Изкл.</string>
   <string name="pref_camera_cds_entry_on">Вкл.</string>
-  <string name="pref_camera_cds_entry_auto">Автоматично</string>
+  <string name="pref_camera_cds_entry_auto">Автоматичен</string>
   <!-- Settings screen, video CDS location dialog choices -->
-  <string name="pref_camera_video_cds_entry_off">Изключено</string>
+  <string name="pref_camera_video_cds_entry_off">Изкл.</string>
   <string name="pref_camera_video_cds_entry_on">Вкл.</string>
-  <string name="pref_camera_video_cds_entry_auto">Автоматично</string>
+  <string name="pref_camera_video_cds_entry_auto">Автоматичен</string>
   <!-- Settings screen, TNR location dialog choices -->
   <string name="pref_camera_tnr_entry_disable">Изкл.</string>
   <string name="pref_camera_tnr_entry_enable">Вкл.</string>
@@ -140,13 +140,13 @@
   <!-- Settings screen, Select Face Detection -->
   <string name="pref_camera_facedetection_title">Откриване на лице</string>
   <!-- Settings menu, Face Detection choices -->
-  <string name="pref_camera_facedetection_entry_off">Изключено</string>
+  <string name="pref_camera_facedetection_entry_off">Изкл.</string>
   <string name="pref_camera_facedetection_entry_on">Вкл.</string>
   <!-- Default Selfie Flash setting. -->
   <!-- Settings screen, Selfie Flash Detection -->
   <string name="pref_selfie_flash_title">Светкавица за селфи</string>
   <!-- Settings menu, Selfie Flash choices -->
-  <string name="pref_selfie_flash_entry_off">Изключено</string>
+  <string name="pref_selfie_flash_entry_off">Изкл.</string>
   <string name="pref_selfie_flash_entry_on">Вкл.</string>
   <!-- Default redeye reduction setting. -->
   <!-- Settings screen, Select Redeye Reduction -->
@@ -206,20 +206,20 @@
   <!-- Settings screen, Select See More title -->
   <string name="pref_camera_noise_reduction_title">Намаляване на шума</string>
   <!-- Settings screen, see more radio button choices -->
-  <string name="pref_camera_noise_reduction_entry_off">Изключено</string>
+  <string name="pref_camera_noise_reduction_entry_off">Изкл.</string>
   <string name="pref_camera_noise_reduction_entry_fast">Бързо</string>
   <string name="pref_camera_noise_reduction_entry_high_quality">Високо качество</string>
   <!-- see more entry values. Do not translate. -->
   <!-- Default see more setting. Do not translate. -->
   <!-- Settings screen, Select See More title -->
   <!-- Settings screen, see more radio button choices -->
-  <string name="pref_camera_see_more_entry_off">Изключено</string>
+  <string name="pref_camera_see_more_entry_off">Изкл.</string>
   <string name="pref_camera_see_more_entry_on">Вкл.</string>
   <!-- see more entry values. Do not translate. -->
   <!-- Denoise Settings screen, setting title text -->
   <string name="pref_camera_denoise_title">Режим за намаляване на шум</string>
   <!-- Denoise Settings screen, Record location dialog choices -->
-  <string name="pref_camera_denoise_entry_off">Изключено</string>
+  <string name="pref_camera_denoise_entry_off">Изкл.</string>
   <string name="pref_camera_denoise_entry_on">Вкл.</string>
   <!-- Default iso setting. Do not translate. -->
   <!-- Settings screen, Select Iso title -->
@@ -237,13 +237,13 @@
   <string name="pref_camera_antibanding_title">Намаляване на трептене</string>
   <!-- Default Anti Banding setting. -->
   <!-- Settings screen, Anti Banding entries -->
-  <string name="pref_camera_antibanding_entry_0">Изключено</string>
+  <string name="pref_camera_antibanding_entry_0">Изкл.</string>
   <string name="pref_camera_antibanding_entry_1">50Hz (Европа)</string>
   <string name="pref_camera_antibanding_entry_2">60Hz(Америка)</string>
-  <string name="pref_camera_antibanding_entry_3">Автом</string>
+  <string name="pref_camera_antibanding_entry_3">Автоматично</string>
   <!-- Default color effect setting. -->
   <string name="pref_camera_filter_mode_entry_on">Вкл.</string>
-  <string name="pref_camera_filter_mode_entry_off">Изключено</string>
+  <string name="pref_camera_filter_mode_entry_off">Изкл.</string>
   <!-- Settings screen, Select Color effect title -->
   <string name="pref_camera_coloreffect_title">Ефект на цвят</string>
   <string name="pref_camera_filter_mode_title">Ефект на цвят</string>
@@ -268,17 +268,17 @@
   <!-- Settings screen, Select Touch AF/AEC title -->
   <string name="pref_camera_touchafaec_title">Touch AF/AEC</string>
   <!-- Settings screen, Touch AF/AEC dialog radio button choices -->
-  <string name="pref_camera_touchafaec_entry_off">Изключено</string>
+  <string name="pref_camera_touchafaec_entry_off">Изкл.</string>
   <string name="pref_camera_touchafaec_entry_on">Вкл.</string>
   <!-- Select IS title -->
   <string name="pref_camera_dis_title">Стабилизация</string>
   <!-- DIS choices -->
-  <string name="pref_camera_dis_entry_off">Изключено</string>
+  <string name="pref_camera_dis_entry_off">Изкл.</string>
   <string name="pref_camera_dis_entry_on">Вкл.</string>
   <!-- Select Face Recognition title -->
   <string name="pref_camera_facerc_title">Разпознаване на лица</string>
   <!-- Face Recognition choices -->
-  <string name="pref_camera_facerc_entry_off">Изключено</string>
+  <string name="pref_camera_facerc_entry_off">Изкл.</string>
   <string name="pref_camera_facerc_entry_on">Вкл.</string>
   <!-- Settings screen, Multiple levels entries -->
   <string name="pref_camera_sharpness_entry_level0">Ниво 0</string>
@@ -344,7 +344,7 @@
   <!-- Settings screen, Select Auto Scene Detection -->
   <string name="pref_camera_scenedetect_title">Автоматично откриване на сцена</string>
   <!-- Settings menu, auto scene detection choices -->
-  <string name="pref_camera_scenedetect_entry_off">Изключено</string>
+  <string name="pref_camera_scenedetect_entry_off">Изкл.</string>
   <!-- Scene detection set to on - supports backlight and snow cloudy detection. -->
   <string name="pref_camera_scenedetect_entry_on">Вкл.</string>
   <!-- Toast showing error if invalid size selected for  time lapse  [CHAR LIMIT=65] -->
@@ -392,7 +392,7 @@
   <string name="camera_gesture_title">Стартиране на камерата</string>
   <string name="pref_camera_tsmakeup_title">Разкрасяване</string>
   <string name="pref_camera_tsmakeup_entry_on">Вкл.</string>
-  <string name="pref_camera_tsmakeup_entry_off">Изключено</string>
+  <string name="pref_camera_tsmakeup_entry_off">Изкл.</string>
   <string name="pref_camera_tsmakeup_entry_low">Ниско</string>
   <string name="pref_camera_tsmakeup_entry_mid">Средно</string>
   <string name="pref_camera_tsmakeup_entry_high">Високо</string>
@@ -432,17 +432,17 @@
   <string name="pref_camera2_mono_only_title">Моно само</string>
   <string name="pref_camera2_mono_preview_title">Моно визуализация</string>
   <string name="pref_camera2_mono_preview_entry_on">Включване</string>
-  <string name="pref_camera2_mono_preview_entry_off">Изключено</string>
+  <string name="pref_camera2_mono_preview_entry_off">Изкл.</string>
   <string name="pref_camera2_clearsight_entry_on">Включване</string>
-  <string name="pref_camera2_clearsight_entry_off">Изключено</string>
+  <string name="pref_camera2_clearsight_entry_off">Изкл.</string>
   <string name="clearsight_capture_success">ClearSight снимане успешно</string>
   <string name="clearsight_capture_fail">ClearSight снимане неуспешно</string>
   <string name="pref_camera2_mpo_title">MPO формат</string>
-  <string name="pref_camera2_mpo_entry_on">Включване</string>
-  <string name="pref_camera2_mpo_entry_off">Изключено</string>
+  <string name="pref_camera2_mpo_entry_on">Вкл.</string>
+  <string name="pref_camera2_mpo_entry_off">Изкл.</string>
   <string name="pref_camera2_makeup_title">Грим</string>
   <string name="pref_camera2_noise_reduction_title">Намаляване на шума</string>
-  <string name="pref_camera2_noise_reduction_entry_off">Изключено</string>
+  <string name="pref_camera2_noise_reduction_entry_off">Изкл.</string>
   <string name="pref_camera2_noise_reduction_entry_fast">Бързо</string>
   <string name="pref_camera2_noise_reduction_entry_high_quality">Високо качество</string>
   <string name="pref_camera2_videosnap_title">Автоматичен размер на снимка</string>
@@ -453,6 +453,6 @@
   <string name="bestpicture_done">ГОТОВО</string>
   <string name="bestpicture_at_least_one_picture">Най-малко една снимка трябва да бъде избрана.</string>
   <string name="pref_camera2_shutter_sound_entry_on">Вкл.</string>
-  <string name="pref_camera2_shutter_sound_entry_off">Изключено</string>
+  <string name="pref_camera2_shutter_sound_entry_off">Изкл.</string>
   <string name="pref_camera2_shutter_sound_title">Зкук на затвора</string>
 </resources>
