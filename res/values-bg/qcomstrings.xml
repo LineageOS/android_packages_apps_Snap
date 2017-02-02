@@ -70,10 +70,10 @@
   <string name="pref_camera_video_hdr_title">Видео HDR</string>
   <!-- CDS mode-->
   <string name="pref_camera_cds_title">CDS режим</string>
-  <string name="pref_camera_cds_entry_auto">Автоматично</string>
+  <string name="pref_camera_cds_entry_auto">Автоматичен</string>
   <!-- Video CDS-->
   <string name="pref_camera_video_cds_title">Видео CDS режим</string>
-  <string name="pref_camera_video_cds_entry_auto">Автоматично</string>
+  <string name="pref_camera_video_cds_entry_auto">Автоматичен</string>
   <!-- TNR-->
   <string name="pref_camera_tnr_title">TNR режим</string>
   <!-- Video TNR -->

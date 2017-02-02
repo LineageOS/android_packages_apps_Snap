@@ -248,7 +248,7 @@
   <string name="error_app_unsupported_raw">零快門延遲模式下不支援 RAW 格式圖片，請選擇 JPEG 格式圖片</string>
   <string name="msg_cancel_longshot_for_limited_memory">記憶體不足，正取消連拍模式</string>
   <!-- Toast showing non-supported functionality for flash in AE bracket -->
-  <string name="flash_aebracket_message">在 AE 包覆曝光模式下不支援閃光燈</string>
+  <string name="flash_aebracket_message">在自動包圍曝光模式下不支援閃光燈</string>
   <!-- toast message for storage location switch -->
   <string name="on_switch_save_path_to_sdcard">內部儲存空間不足，已切換儲存位置至 SD 卡</string>
   <!-- The message is shown in toast when click showOnMap Menu and there is no map app -->

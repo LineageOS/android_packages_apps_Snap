@@ -254,13 +254,13 @@
   <!-- The message is shown in toast when click showOnMap Menu and there is no map app -->
   <string name="map_activity_not_found_err">Er is geen kaart-app geïnstalleerd om de locatie weer te geven</string>
   <!-- Continous shot enable message -->
-  <string name="longshot_enable_message">Geavanceerde functies worden niet ondersteund in continuopname modus</string>
+  <string name="longshot_enable_message">Geavanceerde functies worden niet ondersteund bij continue opname</string>
   <!-- Advance features enable message -->
-  <string name="advance_feature_enable_msg">Continuopname wordt niet ondersteund als geavanceerde functies ingeschakeld zijn</string>
+  <string name="advance_feature_enable_msg">Continue opname wordt niet ondersteund als geavanceerde functies ingeschakeld zijn</string>
   <!-- Toast after enable HDR function to inform continuous shot has disabled -->
-  <string name="HDR_disable_continuous_shot">Inschakelen van HDR zal doorlopende opnamen uitschakelen</string>
+  <string name="HDR_disable_continuous_shot">Inschakelen van HDR zal continue opnamen uitschakelen</string>
   <!-- Toast after enable advanced capture function to inform continuous shot has disabled -->
-  <string name="advanced_capture_disable_continuous_shot">Inschakelen van geavanceerd vastleggen zal continuopname uitschakelen</string>
+  <string name="advanced_capture_disable_continuous_shot">Inschakelen van geavanceerd vastleggen zal continue opname uitschakelen</string>
   <!-- Toast after enable 2k4k video quality to inform IS has disabled -->
   <string name="video_quality_4k_disable_IS">Inschakelen van 4k video zal stabilisatie uitschakelen</string>
   <!-- Toast after 2k4k video is enabled to inform SeeMore has been disabled -->
