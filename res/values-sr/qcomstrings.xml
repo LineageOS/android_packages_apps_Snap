@@ -154,8 +154,10 @@
   <!-- Settings menu, redeye reduction choices -->
   <string name="pref_camera_redeyereduction_entry_enable">Омогући</string>
   <string name="pref_camera_redeyereduction_entry_disable">Онемогући</string>
+  <string name="pref_camera_selfiemirror_title" translatable="true">Огледало аутопортрета</string>
   <string name="pref_camera_selfiemirror_entry_enable">Омогући</string>
   <string name="pref_camera_selfiemirror_entry_disable">Онемогући</string>
+  <string name="pref_camera_shuttersound_title" translatable="true">Звук окидања</string>
   <string name="pref_camera_shuttersound_entry_enable">Omogućeno</string>
   <string name="pref_camera_shuttersound_entry_disable">Онемогућено</string>
   <!-- Default mce setting. Do not translate. -->
@@ -172,14 +174,20 @@
   <!-- The message is shown in dialog when the app encounters an unsupported video resolution-->
   <string name="error_app_unsupported">Неподржана видео резолуција за овај тип кодека</string>
   <!-- The message is shown in dialog when the app encounters an unsupported video profile-->
+  <string name="error_app_unsupported_profile">Неподржани видео профил</string>
   <!--The message is shown in dialog when the raw snapshot is selected in zsl mode-->
   <string name="error_app_unsupported_raw">Raw формат слике није подржан у режиму нула лага окидача. Изабери JPEG</string>
   <!-- Settings screen, AE bracketing and HDR location dialog choices -->
   <string name="pref_camera_ae_bracket_hdr_entry_ae_bracket">Држање аутоматске експозиције</string>
   <string name="pref_camera_ae_bracket_hdr_title">Држање аутоматске експозиције</string>
+  <string name="pref_camera_ae_bracket_hdr_entry_on">Укљ</string>
+  <string name="err_app_unsupport_ae_bracket_code">Држање аутоматске експозитуре још увек није подржано</string>
   <!-- The messsage shown if user selects a snapshot resolution lower than the current video size. -->
+  <string name="snapshot_lower_than_video">Величина snapshot-а је мања од величине видеа, премашена видео величина. Изабери резолуцију већу или једнаку тренутној видео величини.</string>
   <!-- The messsage shown if user selects a snapshot resolution in low power mode. -->
+  <string name="snapshotsize_low_powermode">Промена величине слике није подржана у режиму уштеде енергије, величина snapshot-а биће преузета. Молимо изабери Нормални режим напајања да дозволиш промену величине слике.</string>
   <!-- The messsage shown if user tries to take snapshot during D1/QCIF resolution. -->
+  <string name="snapshot_qcif_and_d1">Само snapshot величине видеа је подржан за ову резолуцију.</string>
   <!-- Default hfr setting. Do not translate. -->
   <!-- Settings screen, Select hfr title -->
   <string name="pref_camera_hfr_title">Успорени снимак</string>
@@ -192,12 +200,15 @@
   <string name="pref_camera_hfr_entry_hsr_60">Висока брзина 60 FPS</string>
   <string name="pref_camera_hfr_entry_hsr_90">Висока брзина 90 FPS</string>
   <string name="pref_camera_hfr_entry_hsr_120">Висока брзина 120 FPS</string>
+  <string name="pref_camera_hfr_entry_hsr_240">Висока брзина 240 FPS</string>
   <!-- HFR entry values. Do not translate. -->
   <!-- Default noise reduction setting. Do not translate. -->
   <!-- Settings screen, Select See More title -->
+  <string name="pref_camera_noise_reduction_title">Smanjenje šuma</string>
   <!-- Settings screen, see more radio button choices -->
   <string name="pref_camera_noise_reduction_entry_off">Искључено</string>
   <string name="pref_camera_noise_reduction_entry_fast">Брзо</string>
+  <string name="pref_camera_noise_reduction_entry_high_quality">Високи квалитет</string>
   <!-- see more entry values. Do not translate. -->
   <!-- Default see more setting. Do not translate. -->
   <!-- Settings screen, Select See More title -->
@@ -373,9 +384,37 @@
   <string name="all_in_focus">Све у фокусу</string>
   <string name="refocus_toast">Да поново фокусираш фото, додирни овде</string>
   <!-- Help menu strings -->
+  <string name="help_menu_beautify_3">Опција улепшавања</string>
+  <string name="help_menu_switcher_1">Прекидач</string>
+  <string name="help_menu_switcher_2">између</string>
+  <string name="help_menu_switcher_3">камера, видео и панорама</string>
+  <string name="pref_camera2_camera2_title">Режим Камера2</string>
+  <string name="pref_camera2_camera2_entry_enable">Омогући</string>
+  <string name="pref_camera2_camera2_entry_disable">Онемогући</string>
+  <string name="pref_camera2_mono_only_title">Само црно-бело</string>
+  <string name="pref_camera2_mono_preview_title">Црно-бели преглед</string>
+  <string name="pref_camera2_mono_preview_entry_on">Укљ</string>
   <string name="pref_camera2_mono_preview_entry_off">Искључено</string>
+  <string name="pref_camera2_clearsight_entry_on">Укљ</string>
   <string name="pref_camera2_clearsight_entry_off">Искључено</string>
+  <string name="clearsight_capture_success">ClearSight сликање успешно</string>
+  <string name="clearsight_capture_fail">ClearSight сликање неуспешно</string>
+  <string name="pref_camera2_mpo_title">MPO формат</string>
+  <string name="pref_camera2_mpo_entry_on">Укљ</string>
   <string name="pref_camera2_mpo_entry_off">Искључено</string>
+  <string name="pref_camera2_makeup_title">Шминка</string>
+  <string name="pref_camera2_noise_reduction_title">Smanjenje šuma</string>
   <string name="pref_camera2_noise_reduction_entry_off">Искључено</string>
+  <string name="pref_camera2_noise_reduction_entry_fast">Брзо</string>
+  <string name="pref_camera2_noise_reduction_entry_high_quality">Високи квалитет</string>
+  <string name="pref_camera2_videosnap_title">Ауто величина снимка</string>
+  <string name="pref_camera2_videosnap_entry_enable">Омогући</string>
+  <string name="pref_camera2_videosnap_entry_disable">Онемогући</string>
+  <string name="pref_camera2_trackingfocus_title">Пратећи фокус</string>
+  <string name="pref_camera_scenemode_entry_bestpicture">Najbolja slika</string>
+  <string name="bestpicture_done">ГОТОВО</string>
+  <string name="bestpicture_at_least_one_picture">Барем једна слика мора бити изабрана.</string>
+  <string name="pref_camera2_shutter_sound_entry_on">Укљ</string>
   <string name="pref_camera2_shutter_sound_entry_off">Искључено</string>
+  <string name="pref_camera2_shutter_sound_title">Звук окидања</string>
 </resources>

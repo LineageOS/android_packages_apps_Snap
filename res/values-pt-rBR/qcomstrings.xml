@@ -285,6 +285,8 @@
   <!-- Settings screen, Picture quality title -->
   <string name="pref_camera_jpegquality_title">Qualidade da imagem</string>
   <!-- Settings screen, Picture quality dialog radio button choices -->
+  <string name="pref_camera_jpegquality_entry_1">Padrão</string>
+  <string name="pref_camera_jpegquality_entry_2">Alta</string>
   <!-- Default auto histogram setting. Do not translate. -->
   <!-- Settings screen, Select Histogram title -->
   <string name="pref_camera_histogram_title">Histograma</string>
@@ -352,6 +354,7 @@
   <string name="pref_camera2_makeup_title">Maquiagem</string>
   <string name="pref_camera2_noise_reduction_entry_off">Desl.</string>
   <string name="pref_camera2_noise_reduction_entry_fast">Rápido</string>
+  <string name="pref_camera2_noise_reduction_entry_high_quality">Alta qualidade</string>
   <string name="pref_camera2_videosnap_entry_enable">Ativar</string>
   <string name="pref_camera2_videosnap_entry_disable">Desativar</string>
   <string name="pref_camera2_shutter_sound_entry_off">Desl.</string>

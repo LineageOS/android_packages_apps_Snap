@@ -204,9 +204,9 @@ La imagen recortada se guardó en <xliff:g id="folder_name">%s</xliff:g>.</strin
     time lapse recording. Appears at top of the dialog. [CHAR LIMIT=30] -->
   <string name="pref_video_time_lapse_frame_interval_title">Intervalo</string>
   <!-- Settings screen, Camera setting category title -->
-  <string name="pref_camera_settings_category">Configuración de la cámara</string>
+  <string name="pref_camera_settings_category">Ajustes de la cámara</string>
   <!-- Settings screen, Camcorder setting category title -->
-  <string name="pref_camcorder_settings_category">Configuración de cámara de video</string>
+  <string name="pref_camcorder_settings_category">Ajustes de la cámara de video</string>
   <!-- Settings screen, Picture size title -->
   <string name="pref_camera_picturesize_title">Tamaño de imagen</string>
   <!-- Settings screen, Focus mode title -->
@@ -334,7 +334,7 @@ La imagen recortada se guardó en <xliff:g id="folder_name">%s</xliff:g>.</strin
   <!-- Dialog "OK" button. Dismisses dialog. -->
   <string name="dialog_ok">Aceptar</string>
   <!-- Low-memory dialog message [CHAR LIMIT=NONE] -->
-  <string name="spaceIsLow_content" product="default">Tu tarjeta SD se está quedando sin espacio. Cambia la configuración de calidad o elimina algunas imágenes u otros archivos.</string>
+  <string name="spaceIsLow_content" product="default">Tu tarjeta SD se está quedando sin espacio. Cambia los ajustes de calidad o elimina algunas imágenes u otros archivos.</string>
   <!-- Camera format string for new image files. Passed to java.text.SimpleDateFormat. -->
   <!-- Video Camera format string for new video files. Passed to java.text.SimpleDateFormat. -->
   <!-- Filename prefix for panorama output. -->

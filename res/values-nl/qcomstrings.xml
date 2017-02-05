@@ -26,9 +26,9 @@
   <!-- Video quality setting entry. Videos will be recorded in QVGA quality. [CHAR LIMIT=24] -->
   <!-- Video quality setting entry. Videos will be recorded in QCIF quality. [CHAR LIMIT=24] -->
   <!-- Settings screen, Power Mode title -->
-  <string name="pref_camera_powermode_title">Krachtige modus</string>
+  <string name="pref_camera_powermode_title">Energieverbruik</string>
   <!-- Settings screen, Power mode dialog radio button choices -->
-  <string name="pref_camera_powermode_entry_lp">Laag stroomverbruik</string>
+  <string name="pref_camera_powermode_entry_lp">Laag</string>
   <string name="pref_camera_powermode_entry_np">Normaal</string>
   <!-- Settings screen, Power mode dialog radio button choices -->
   <!-- Default Power mode.. -->
@@ -92,7 +92,7 @@
   <string name="pref_camera_manual_focus_entry_diopter_mode">Dioptrie modus</string>
   <string name="pref_camera_manual_focus_entry_off">Uit</string>
   <!-- Instant Capture entry -->
-  <string name="pref_camera_instant_capture_title" translatable="true">Instant opname</string>
+  <string name="pref_camera_instant_capture_title" translatable="true">Directe opname</string>
   <string name="pref_camera_instant_capture_entry_aggressive_aec" translatable="true">Agressieve AEC</string>
   <string name="pref_camera_instant_capture_entry_fast_aec" translatable="true">Snelle AEC</string>
   <string name="pref_camera_instant_capture_entry_disable" translatable="true">Uitschakelen</string>
@@ -157,7 +157,7 @@
   <string name="pref_camera_selfiemirror_title" translatable="true">Selfie-spiegel</string>
   <string name="pref_camera_selfiemirror_entry_enable">Inschakelen</string>
   <string name="pref_camera_selfiemirror_entry_disable">Uitschakelen</string>
-  <string name="pref_camera_shuttersound_title" translatable="true">Afdruk geluid</string>
+  <string name="pref_camera_shuttersound_title" translatable="true">Sluitergeluid</string>
   <string name="pref_camera_shuttersound_entry_enable">Ingeschakeld</string>
   <string name="pref_camera_shuttersound_entry_disable">Uitgeschakeld</string>
   <!-- Default mce setting. Do not translate. -->
@@ -196,7 +196,7 @@
   <string name="pref_camera_hfr_entry_hsr_60">Hoge snelheid 60 fps</string>
   <string name="pref_camera_hfr_entry_hsr_90">Hoge snelheid 90 fps</string>
   <string name="pref_camera_hfr_entry_hsr_120">Hoge snelheid 120 fps</string>
-  <string name="pref_camera_hfr_entry_hsr_240">Hoge-snelheid 240 FPS</string>
+  <string name="pref_camera_hfr_entry_hsr_240">Hoge snelheid 240 fps</string>
   <!-- HFR entry values. Do not translate. -->
   <!-- Default noise reduction setting. Do not translate. -->
   <!-- Settings screen, Select See More title -->
@@ -371,7 +371,7 @@
   <!--Settings screen, video rotation title-->
   <string name="pref_camera_video_rotation_title">Videorotatie</string>
   <!--Menu, video rotation label-->
-  <string name="pref_camera_video_rotation_label">VIDEO ROTATIE</string>
+  <string name="pref_camera_video_rotation_label">VIDEOROTATIE</string>
   <!-- Settings screen, Video rotation dialog radio button choices -->
   <string name="pref_camera_video_rotation_entry_0">0 graden</string>
   <string name="pref_camera_video_rotation_entry_90">90 graden</string>
@@ -380,57 +380,59 @@
   <!-- The message is shown in toast when click showOnMap Menu and there is no map app -->
   <string name="map_activity_not_found_err">Er is geen kaart-app geïnstalleerd om de locatie weer te geven</string>
   <!-- Continuous shot enable message -->
-  <string name="longshot_enable_message">Geavanceerde functies worden niet ondersteund in continuopname modus</string>
+  <string name="longshot_enable_message">Geavanceerde functies worden niet ondersteund bij continue opname</string>
   <!-- Advanced features enable message -->
-  <string name="advance_feature_enable_msg">Continuopname wordt niet ondersteund als geavanceerde functies ingeschakeld zijn</string>
+  <string name="advance_feature_enable_msg">Continue opname wordt niet ondersteund als geavanceerde functies ingeschakeld zijn</string>
   <!-- The alas of CameraActivity for gesture operation -->
   <string name="camera_gesture_title">Camera openen</string>
+  <string name="pref_camera_tsmakeup_title">Verfraaiing</string>
   <string name="pref_camera_tsmakeup_entry_on">Aan</string>
   <string name="pref_camera_tsmakeup_entry_off">Uit</string>
   <string name="pref_camera_tsmakeup_entry_low">Laag</string>
   <string name="pref_camera_tsmakeup_entry_mid">Middel</string>
   <string name="pref_camera_tsmakeup_entry_high">Hoog</string>
   <string name="pref_camera_tsmakeup_custom">Aangepast</string>
-  <string name="text_tsmakeup_alert_title">Attentie</string>
-  <string name="text_tsmakeup_alert_msg">Gezichtsherkenning moet ingeschakeld zijn om beautification te kunnen gebruiken. Wilt u doorgaan?</string>
+  <string name="text_tsmakeup_alert_title">Let op</string>
+  <string name="text_tsmakeup_alert_msg">Gezichtsherkenning moet ingeschakeld zijn om de optie Verfraaien te kunnen gebruiken. Wilt u doorgaan?</string>
   <string name="text_tsmakeup_alert_continue">Doorgaan</string>
-  <string name="text_tsmakeup_alert_quit">Annuleer</string>
-  <string name="text_tsmakeup_beautify_toast">Beautify</string>
+  <string name="text_tsmakeup_alert_quit">Annuleren</string>
+  <string name="text_tsmakeup_beautify_toast">Verfraaien</string>
   <string name="all_in_focus">Alles in focus</string>
   <string name="refocus_toast">Om laatste foto opnieuw scherp te stellen, tap hier</string>
   <string name="refocus_prompt_message">Met UbiFocus maakt uw camera 5 foto\'s, elke keer als u op de sluiterknop drukt. De 5 foto\'s zullen worden samengevoegd tot 1 afbeelding, waarop alles in focus is. U kunt de focus nog verplaatsen, nadat de foto genomen is.</string>
   <string name="camera_thermal_shutdown">Telefoon oververhit, camera wordt afgesloten.</string>
   <string name="camera_server_died">Mediaserver gecrasht, camera wordt gestopt.</string>
   <string name="camera_unknown_error">Onbekende fout, camera wordt gestopt.</string>
-  <string name="mute_button_desc">Mute knop</string>
+  <string name="mute_button_desc">Mute-knop</string>
   <!-- Help menu strings -->
   <string name="help_menu_ok">OK</string>
   <string name="help_menu_scene_mode_1">Selecteer een</string>
-  <string name="help_menu_scene_mode_2">Scene modus</string>
-  <string name="help_menu_scene_mode_3">voor betere resultaten</string>
+  <string name="help_menu_scene_mode_2">scènemodus</string>
+  <string name="help_menu_scene_mode_3">voor betere foto\'s</string>
   <string name="help_menu_color_filter_1">Gebruik kleuren</string>
   <string name="help_menu_color_filter_2">filters</string>
   <string name="help_menu_color_filter_3">om</string>
   <string name="help_menu_color_filter_4">foto\'s te verbeteren</string>
   <string name="help_menu_beautify_1">Verbeter portretfoto\'s</string>
   <string name="help_menu_beautify_2">met de</string>
-  <string name="help_menu_beautify_3">Beautify optie</string>
-  <string name="help_menu_switcher_1">Wijzig</string>
+  <string name="help_menu_beautify_3">optie Verfraaien</string>
+  <string name="help_menu_switcher_1">Wissel</string>
   <string name="help_menu_switcher_2">tussen</string>
   <string name="help_menu_switcher_3">camera, video en panorama</string>
   <string name="pref_camera2_camera2_entry_enable">Inschakelen</string>
   <string name="pref_camera2_camera2_entry_disable">Uitschakelen</string>
-  <string name="pref_camera2_mono_only_title">Enkel Mono</string>
+  <string name="pref_camera2_mono_only_title">Alleen mono</string>
   <string name="pref_camera2_mono_preview_title">Mono preview</string>
   <string name="pref_camera2_mono_preview_entry_on">Aan</string>
   <string name="pref_camera2_mono_preview_entry_off">Uit</string>
   <string name="pref_camera2_clearsight_entry_on">Aan</string>
   <string name="pref_camera2_clearsight_entry_off">Uit</string>
-  <string name="clearsight_capture_success">ClearSight opname geslaagd</string>
-  <string name="clearsight_capture_fail">ClearSight opname mislukt</string>
-  <string name="pref_camera2_mpo_title">MPO formaat</string>
+  <string name="clearsight_capture_success">ClearSight-opname gelukt</string>
+  <string name="clearsight_capture_fail">ClearSight-opname mislukt</string>
+  <string name="pref_camera2_mpo_title">MPO-bestand</string>
   <string name="pref_camera2_mpo_entry_on">Aan</string>
   <string name="pref_camera2_mpo_entry_off">Uit</string>
+  <string name="pref_camera2_makeup_title">Make-up</string>
   <string name="pref_camera2_noise_reduction_title">Ruisonderdrukking</string>
   <string name="pref_camera2_noise_reduction_entry_off">Uit</string>
   <string name="pref_camera2_noise_reduction_entry_fast">Snel</string>
@@ -443,5 +445,5 @@
   <string name="bestpicture_at_least_one_picture">Er moet ten minste één foto worden gekozen.</string>
   <string name="pref_camera2_shutter_sound_entry_on">Aan</string>
   <string name="pref_camera2_shutter_sound_entry_off">Uit</string>
-  <string name="pref_camera2_shutter_sound_title">Afdruk geluid</string>
+  <string name="pref_camera2_shutter_sound_title">Sluitergeluid</string>
 </resources>
