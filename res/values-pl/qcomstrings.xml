@@ -285,6 +285,8 @@
   <!-- Settings screen, Picture quality title -->
   <string name="pref_camera_jpegquality_title">Jakość zdjęcia</string>
   <!-- Settings screen, Picture quality dialog radio button choices -->
+  <string name="pref_camera_jpegquality_entry_0">Niska</string>
+  <string name="pref_camera_jpegquality_entry_2">Wysoka</string>
   <!-- Default auto histogram setting. Do not translate. -->
   <!-- Settings screen, Select Histogram title -->
   <string name="pref_camera_histogram_title">Histogram</string>
@@ -322,6 +324,7 @@
   <!--Settings screen, video rotation title-->
   <string name="pref_camera_video_rotation_title">Orientacja wideo</string>
   <!--Menu, video rotation label-->
+  <string name="pref_camera_video_rotation_label">OBRACANIE WIDEO</string>
   <!-- Settings screen, Video rotation dialog radio button choices -->
   <string name="pref_camera_video_rotation_entry_0">0 stopni</string>
   <string name="pref_camera_video_rotation_entry_90">90 stopni</string>
@@ -335,6 +338,7 @@
   <string name="advance_feature_enable_msg">Tryb ciągły nie jest dostępny, kiedy są włączone zaawansowane funkcje</string>
   <!-- The alas of CameraActivity for gesture operation -->
   <string name="camera_gesture_title">Uruchom aparat</string>
+  <string name="pref_camera_tsmakeup_title">Upiększanie</string>
   <string name="pref_camera_tsmakeup_entry_off">Wyłączona</string>
   <string name="all_in_focus">Wszystko wyostrzone</string>
   <string name="refocus_toast">Dotknij tutaj, aby zmienić ostrość ostatniego zdjęcia</string>

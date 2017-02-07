@@ -181,6 +181,7 @@
   <string name="pref_camera_ae_bracket_hdr_entry_ae_bracket">Reeksopname met automatische belichting (AEB)</string>
   <string name="pref_camera_ae_bracket_hdr_title">Reeksopname met automatische belichting (AEB)</string>
   <string name="pref_camera_ae_bracket_hdr_entry_on">Aan</string>
+  <string name="err_app_unsupport_ae_bracket_code">AE bracketing wordt nog niet ondersteund</string>
   <!-- The messsage shown if user selects a snapshot resolution lower than the current video size. -->
   <!-- The messsage shown if user selects a snapshot resolution in low power mode. -->
   <!-- The messsage shown if user tries to take snapshot during D1/QCIF resolution. -->
@@ -392,6 +393,7 @@
   <string name="pref_camera_tsmakeup_entry_mid">Middel</string>
   <string name="pref_camera_tsmakeup_entry_high">Hoog</string>
   <string name="pref_camera_tsmakeup_custom">Aangepast</string>
+  <string name="pref_camera_tsmakeup_level_clean">Verzachten</string>
   <string name="text_tsmakeup_alert_title">Let op</string>
   <string name="text_tsmakeup_alert_msg">Gezichtsherkenning moet ingeschakeld zijn om de optie Verfraaien te kunnen gebruiken. Wilt u doorgaan?</string>
   <string name="text_tsmakeup_alert_continue">Doorgaan</string>
@@ -419,6 +421,7 @@
   <string name="help_menu_switcher_1">Wissel</string>
   <string name="help_menu_switcher_2">tussen</string>
   <string name="help_menu_switcher_3">camera, video en panorama</string>
+  <string name="pref_camera2_camera2_title">Camera2 modus</string>
   <string name="pref_camera2_camera2_entry_enable">Inschakelen</string>
   <string name="pref_camera2_camera2_entry_disable">Uitschakelen</string>
   <string name="pref_camera2_mono_only_title">Alleen mono</string>

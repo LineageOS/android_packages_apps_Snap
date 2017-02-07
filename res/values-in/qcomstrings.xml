@@ -26,7 +26,10 @@
   <!-- Video quality setting entry. Videos will be recorded in QVGA quality. [CHAR LIMIT=24] -->
   <!-- Video quality setting entry. Videos will be recorded in QCIF quality. [CHAR LIMIT=24] -->
   <!-- Settings screen, Power Mode title -->
+  <string name="pref_camera_powermode_title">Mode daya</string>
   <!-- Settings screen, Power mode dialog radio button choices -->
+  <string name="pref_camera_powermode_entry_lp">Daya rendah</string>
+  <string name="pref_camera_powermode_entry_np">Daya normal</string>
   <!-- Settings screen, Power mode dialog radio button choices -->
   <!-- Default Power mode.. -->
   <!-- Default auto exposure setting. Do not translate. -->
@@ -87,14 +90,17 @@
   <string name="pref_camera_manual_focus_entry_diopter_mode">Modus Diopter</string>
   <string name="pref_camera_manual_focus_entry_off">Tidak aktif</string>
   <!-- Instant Capture entry -->
+  <string name="pref_camera_instant_capture_title" translatable="true">Ambil foto instan</string>
   <!-- Instant Capture entry values -->
   <!-- Settings screen, ZSL location dialog choices -->
   <string name="pref_camera_zsl_entry_off">Tidak aktif</string>
   <!-- The message is shown in toast when HDR or scene mode is enabled -->
   <!-- Settings screen, Video HDR location dialog choices -->
   <string name="pref_camera_video_hdr_entry_off">Tidak aktif</string>
+  <string name="pref_camera_video_hdr_entry_on">Aktif</string>
   <!-- Settings screen, CDS location dialog choices -->
   <string name="pref_camera_cds_entry_off">Tidak aktif</string>
+  <string name="pref_camera_cds_entry_on">Aktif</string>
   <string name="pref_camera_cds_entry_auto">Secara otomatis</string>
   <!-- Settings screen, video CDS location dialog choices -->
   <string name="pref_camera_video_cds_entry_off">Tidak aktif</string>
@@ -155,7 +161,7 @@
   <!-- The messsage shown if user tries to take snapshot during D1/QCIF resolution. -->
   <!-- Default hfr setting. Do not translate. -->
   <!-- Settings screen, Select hfr title -->
-  <string name="pref_camera_hfr_title">Perekaman tinggi framerate</string>
+  <string name="pref_camera_hfr_title">Perekaman framerate tinggi</string>
   <!-- Settings screen, hfr radio button choices -->
   <string name="pref_camera_hfr_entry_off">Tidak aktif</string>
   <string name="pref_camera_hfr_entry_2x">Gerakan lambat 60 FPS</string>
@@ -176,11 +182,13 @@
   <!-- Settings screen, Select See More title -->
   <!-- Settings screen, see more radio button choices -->
   <string name="pref_camera_see_more_entry_off">Tidak aktif</string>
+  <string name="pref_camera_see_more_entry_on">Aktif</string>
   <!-- see more entry values. Do not translate. -->
   <!-- Denoise Settings screen, setting title text -->
   <string name="pref_camera_denoise_title">Pengurangan Kebisingan</string>
   <!-- Denoise Settings screen, Record location dialog choices -->
   <string name="pref_camera_denoise_entry_off">Tidak aktif</string>
+  <string name="pref_camera_denoise_entry_on">Aktif</string>
   <!-- Default iso setting. Do not translate. -->
   <!-- Settings screen, Select Iso title -->
   <string name="pref_camera_iso_title">ISO</string>
@@ -202,6 +210,7 @@
   <string name="pref_camera_antibanding_entry_2">60 HZ (Amerika Serikat)</string>
   <string name="pref_camera_antibanding_entry_3">Secara otomatis</string>
   <!-- Default color effect setting. -->
+  <string name="pref_camera_filter_mode_entry_on">Aktif</string>
   <string name="pref_camera_filter_mode_entry_off">Tidak aktif</string>
   <!-- Settings screen, Select Color effect title -->
   <string name="pref_camera_coloreffect_title">Pengaruh pada warna</string>
@@ -227,18 +236,21 @@
   <!-- Settings screen, Select Touch AF/AEC title -->
   <!-- Settings screen, Touch AF/AEC dialog radio button choices -->
   <string name="pref_camera_touchafaec_entry_off">Tidak aktif</string>
+  <string name="pref_camera_touchafaec_entry_on">Aktif</string>
   <!-- Select IS title -->
   <string name="pref_camera_dis_title">Proses penetapan</string>
   <!-- DIS choices -->
   <string name="pref_camera_dis_entry_off">Tidak aktif</string>
+  <string name="pref_camera_dis_entry_on">Aktif</string>
   <!-- Select Face Recognition title -->
   <string name="pref_camera_facerc_title">Pengenalan wajah</string>
   <!-- Face Recognition choices -->
   <string name="pref_camera_facerc_entry_off">Tidak aktif</string>
+  <string name="pref_camera_facerc_entry_on">Aktif</string>
   <!-- Settings screen, Multiple levels entries -->
   <string name="pref_camera_sharpness_entry_level0">Tingkat 0</string>
   <string name="pref_camera_sharpness_entry_level1">Tingkat 1</string>
-  <string name="pref_camera_sharpness_entry_level2">Tingkat 2 (bawaan)</string>
+  <string name="pref_camera_sharpness_entry_level2">Tingkat 2 (standar)</string>
   <string name="pref_camera_sharpness_entry_level3">Tingkat 3</string>
   <string name="pref_camera_sharpness_entry_level4">Tingkat 4</string>
   <string name="pref_camera_sharpness_entry_level5">Tingkat 5</string>
@@ -285,6 +297,9 @@
   <!-- Settings screen, Picture quality title -->
   <string name="pref_camera_jpegquality_title">Mutu gambar</string>
   <!-- Settings screen, Picture quality dialog radio button choices -->
+  <string name="pref_camera_jpegquality_entry_0">Rendah</string>
+  <string name="pref_camera_jpegquality_entry_1">Standar</string>
+  <string name="pref_camera_jpegquality_entry_2">Tinggi</string>
   <!-- Default auto histogram setting. Do not translate. -->
   <!-- Settings screen, Select Histogram title -->
   <string name="pref_camera_histogram_title">Histogram</string>
@@ -322,6 +337,7 @@
   <!--Settings screen, video rotation title-->
   <string name="pref_camera_video_rotation_title">Rotasi video</string>
   <!--Menu, video rotation label-->
+  <string name="pref_camera_video_rotation_label">ROTASI VIDEO</string>
   <!-- Settings screen, Video rotation dialog radio button choices -->
   <string name="pref_camera_video_rotation_entry_0">0 derajat</string>
   <string name="pref_camera_video_rotation_entry_90">90 derajat</string>
@@ -335,24 +351,38 @@
   <string name="advance_feature_enable_msg">Bidikan terus menerus tidak didukung pada saat tampilan canggih diaktifkan</string>
   <!-- The alas of CameraActivity for gesture operation -->
   <string name="camera_gesture_title">Luncurkan Kamera</string>
+  <string name="pref_camera_tsmakeup_entry_on">Aktif</string>
   <string name="pref_camera_tsmakeup_entry_off">Tidak aktif</string>
+  <string name="text_tsmakeup_alert_title">Peringatan</string>
+  <string name="text_tsmakeup_alert_continue">Lanjutkan</string>
+  <string name="text_tsmakeup_alert_quit">Batalkan</string>
   <string name="all_in_focus">Semua dalam fokus</string>
   <string name="refocus_toast">Untuk fokus kembali pada foto yang terakhir, tekan di sini</string>
+  <string name="camera_unknown_error">Terjadi kesalahan, menutup kamera.</string>
   <!-- Help menu strings -->
+  <string name="help_menu_ok">OKE</string>
+  <string name="help_menu_switcher_3">kamera, video, dan panorama</string>
   <string name="pref_camera2_camera2_entry_enable">Hidup</string>
   <string name="pref_camera2_camera2_entry_disable">Mati</string>
+  <string name="pref_camera2_mono_only_title">Hanya mono</string>
+  <string name="pref_camera2_mono_preview_title">Pratinjau mono</string>
   <string name="pref_camera2_mono_preview_entry_on">Hidup</string>
   <string name="pref_camera2_mono_preview_entry_off">Tidak aktif</string>
   <string name="pref_camera2_clearsight_entry_on">Hidup</string>
   <string name="pref_camera2_clearsight_entry_off">Tidak aktif</string>
   <string name="clearsight_capture_success">Sukses menangkap ClearSight</string>
   <string name="clearsight_capture_fail">Gagal menangkap ClearSight</string>
+  <string name="pref_camera2_mpo_title">Format MPO</string>
   <string name="pref_camera2_mpo_entry_on">Hidup</string>
   <string name="pref_camera2_mpo_entry_off">Tidak aktif</string>
   <string name="pref_camera2_makeup_title">Makeup</string>
   <string name="pref_camera2_noise_reduction_entry_off">Tidak aktif</string>
   <string name="pref_camera2_noise_reduction_entry_fast">Cepat</string>
+  <string name="pref_camera2_noise_reduction_entry_high_quality">Kualitas tinggi</string>
   <string name="pref_camera2_videosnap_entry_enable">Hidup</string>
   <string name="pref_camera2_videosnap_entry_disable">Mati</string>
+  <string name="bestpicture_done">SELESAI</string>
+  <string name="pref_camera2_shutter_sound_entry_on">Aktif</string>
   <string name="pref_camera2_shutter_sound_entry_off">Tidak aktif</string>
+  <string name="pref_camera2_shutter_sound_title">Suara rana</string>
 </resources>
