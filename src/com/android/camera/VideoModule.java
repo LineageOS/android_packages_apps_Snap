@@ -1317,7 +1317,7 @@ public class VideoModule extends BaseModule<VideoUI> implements
 
     private void startPreview() {
         Log.e(TAG, String.format("startPreview paused=%b device=%b params=%b", mPaused, mCameraDevice == null, mParameters == null), new Throwable());
-        if (mPaused || mCameraDevice == null || mParameters == null) {
+        if (!mPreferenceRead || mPaused || mCameraDevice == null || mParameters == null) {
             return;
         }
 
