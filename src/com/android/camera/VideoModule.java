@@ -2843,6 +2843,8 @@ public class VideoModule extends BaseModule<VideoUI> implements
         synchronized (mCameraDevice) {
             Log.d(TAG, "Preview dimension in App->" + mDesiredPreviewWidth + "X" + mDesiredPreviewHeight);
 
+            forceFlashOffIfSupported(!mPreviewFocused);
+
             // Set exposure compensation
             int value = CameraSettings.readExposure(mPreferences);
             int max = mParameters.getMaxExposureCompensation();
