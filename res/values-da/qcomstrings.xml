@@ -26,7 +26,10 @@
   <!-- Video quality setting entry. Videos will be recorded in QVGA quality. [CHAR LIMIT=24] -->
   <!-- Video quality setting entry. Videos will be recorded in QCIF quality. [CHAR LIMIT=24] -->
   <!-- Settings screen, Power Mode title -->
+  <string name="pref_camera_powermode_title">Strømtilstand</string>
   <!-- Settings screen, Power mode dialog radio button choices -->
+  <string name="pref_camera_powermode_entry_lp">Lavt strømforbrug</string>
+  <string name="pref_camera_powermode_entry_np">Normalt strømforbrug</string>
   <!-- Settings screen, Power mode dialog radio button choices -->
   <!-- Default Power mode.. -->
   <!-- Default auto exposure setting. Do not translate. -->
@@ -52,6 +55,8 @@
   <!-- Settings screen, Select Skin Tone Enhancement title -->
   <string name="pref_camera_skinToneEnhancement_title">Hudfarveforbedring</string>
   <!-- Settings screen, Skin Tone Enhancement radio button choices -->
+  <string name="pref_camera_skinToneEnhancement_entry_enable">Aktivér</string>
+  <string name="pref_camera_skinToneEnhancement_entry_disable">Deaktivér</string>
   <!-- Skin Tone Enhancement entry values. Do not translate. -->
   <!-- Settings screen, setting title text for ZSL-->
   <string name="pref_camera_zsl_title">Ingen udløserforsinkelse</string>
@@ -87,21 +92,35 @@
   <string name="pref_camera_manual_focus_entry_diopter_mode">Diopter tilstand</string>
   <string name="pref_camera_manual_focus_entry_off">Fra</string>
   <!-- Instant Capture entry -->
+  <string name="pref_camera_instant_capture_title" translatable="true">Straksfotografering</string>
+  <string name="pref_camera_instant_capture_entry_aggressive_aec" translatable="true">Aggressiv AEC</string>
+  <string name="pref_camera_instant_capture_entry_fast_aec" translatable="true">Hurtig AEC</string>
+  <string name="pref_camera_instant_capture_entry_disable" translatable="true">Deaktivér</string>
   <!-- Instant Capture entry values -->
   <!-- Settings screen, ZSL location dialog choices -->
   <string name="pref_camera_zsl_entry_off">Fra</string>
+  <string name="pref_camera_zsl_entry_on">Til</string>
   <!-- The message is shown in toast when HDR or scene mode is enabled -->
+  <string name="hdr_enable_message">HDR er aktiveret, kun automatisk scenetilstand understøttes</string>
+  <string name="scene_enable_message">HDR understøttes ikke i anden scenetilstand end automatisk</string>
   <!-- Settings screen, Video HDR location dialog choices -->
   <string name="pref_camera_video_hdr_entry_off">Fra</string>
+  <string name="pref_camera_video_hdr_entry_on">Til</string>
   <!-- Settings screen, CDS location dialog choices -->
   <string name="pref_camera_cds_entry_off">Fra</string>
+  <string name="pref_camera_cds_entry_on">Til</string>
   <string name="pref_camera_cds_entry_auto">Automatisk</string>
   <!-- Settings screen, video CDS location dialog choices -->
   <string name="pref_camera_video_cds_entry_off">Fra</string>
+  <string name="pref_camera_video_cds_entry_on">Til</string>
   <string name="pref_camera_video_cds_entry_auto">Automatisk</string>
   <!-- Settings screen, TNR location dialog choices -->
+  <string name="pref_camera_tnr_entry_disable">Deaktivér</string>
+  <string name="pref_camera_tnr_entry_enable">Aktivér</string>
   <!-- Settings screen, TNR location dialog choices -->
   <!-- Settings screen, video TNR location dialog choices -->
+  <string name="pref_camera_video_tnr_entry_disable">Deaktivér</string>
+  <string name="pref_camera_video_tnr_entry_enable">Aktivér</string>
   <!-- Settings screen, video TNR location dialog choices -->
   <!-- Settings screen, setting title text for Video HDR-->
   <string name="pref_camera_video_hdr_title">Video-HDR</string>
@@ -122,15 +141,25 @@
   <string name="pref_camera_facedetection_title">Ansigtsgenkendelse</string>
   <!-- Settings menu, Face Detection choices -->
   <string name="pref_camera_facedetection_entry_off">Fra</string>
+  <string name="pref_camera_facedetection_entry_on">Til</string>
   <!-- Default Selfie Flash setting. -->
   <!-- Settings screen, Selfie Flash Detection -->
   <string name="pref_selfie_flash_title">Selfie blitz</string>
   <!-- Settings menu, Selfie Flash choices -->
   <string name="pref_selfie_flash_entry_off">Fra</string>
+  <string name="pref_selfie_flash_entry_on">Til</string>
   <!-- Default redeye reduction setting. -->
   <!-- Settings screen, Select Redeye Reduction -->
   <string name="pref_camera_redeyereduction_title">Rødøjereduktion</string>
   <!-- Settings menu, redeye reduction choices -->
+  <string name="pref_camera_redeyereduction_entry_enable">Aktivér</string>
+  <string name="pref_camera_redeyereduction_entry_disable">Deaktivér</string>
+  <string name="pref_camera_selfiemirror_title" translatable="true">Selfie-spejl</string>
+  <string name="pref_camera_selfiemirror_entry_enable">Aktivér</string>
+  <string name="pref_camera_selfiemirror_entry_disable">Deaktivér</string>
+  <string name="pref_camera_shuttersound_title" translatable="true">Lukkerlyd</string>
+  <string name="pref_camera_shuttersound_entry_enable">Aktiveret</string>
+  <string name="pref_camera_shuttersound_entry_disable">Deaktiveret</string>
   <!-- Default mce setting. Do not translate. -->
   <!-- The message is shown in toast when the app encounters an unsupported selection for HFR/HSR mode -->
   <string name="error_app_unsupported_hfr_selection">Optagelse med høj billedfrekvens er ikke understøttet under Stabilisering/Tidsforløb/HDR.</string>
@@ -145,14 +174,20 @@
   <!-- The message is shown in dialog when the app encounters an unsupported video resolution-->
   <string name="error_app_unsupported">Ikke understøttet videoopløsning for denne codectype</string>
   <!-- The message is shown in dialog when the app encounters an unsupported video profile-->
+  <string name="error_app_unsupported_profile">Ikke-understøttet videoformat</string>
   <!--The message is shown in dialog when the raw snapshot is selected in zsl mode-->
   <string name="error_app_unsupported_raw">RAW billedformatet er ikke understøttet i tilstanden Ingen lukkertid. Vælg JPEG</string>
   <!-- Settings screen, AE bracketing and HDR location dialog choices -->
   <string name="pref_camera_ae_bracket_hdr_entry_ae_bracket">Autoeksponeringsrammer</string>
   <string name="pref_camera_ae_bracket_hdr_title">Autoeksponeringsrammer</string>
+  <string name="pref_camera_ae_bracket_hdr_entry_on">Til</string>
+  <string name="err_app_unsupport_ae_bracket_code">AE-bracketing understøttes ikke endnu</string>
   <!-- The messsage shown if user selects a snapshot resolution lower than the current video size. -->
+  <string name="snapshot_lower_than_video">Størrelse på videosnapshot er mindre end videoens størrelse, loftet er videostørrelsen. Vælg en opløsning højere eller magen til den aktuelle videostørrelse.</string>
   <!-- The messsage shown if user selects a snapshot resolution in low power mode. -->
+  <string name="snapshotsize_low_powermode">Skift af billedstørrelse understøttes ikke i Lav strømtilstand, et snapshot i videostørrelsen vil blive taget. Vælg Normal strømtilstand for at tillade ændring af billedstørrelse.</string>
   <!-- The messsage shown if user tries to take snapshot during D1/QCIF resolution. -->
+  <string name="snapshot_qcif_and_d1">Kun størrelsen på videosnapshot understøttes for denne opløsning.</string>
   <!-- Default hfr setting. Do not translate. -->
   <!-- Settings screen, Select hfr title -->
   <string name="pref_camera_hfr_title">Langsom gengivelse</string>
@@ -165,22 +200,27 @@
   <string name="pref_camera_hfr_entry_hsr_60">Hurtig gengivelse 60 FPS</string>
   <string name="pref_camera_hfr_entry_hsr_90">Hurtig gengivelse 90 FPS</string>
   <string name="pref_camera_hfr_entry_hsr_120">Hurtig gengivelse 120 FPS</string>
+  <string name="pref_camera_hfr_entry_hsr_240">Høj hastighed 240 FPS</string>
   <!-- HFR entry values. Do not translate. -->
   <!-- Default noise reduction setting. Do not translate. -->
   <!-- Settings screen, Select See More title -->
+  <string name="pref_camera_noise_reduction_title">Støjreduktion</string>
   <!-- Settings screen, see more radio button choices -->
   <string name="pref_camera_noise_reduction_entry_off">Fra</string>
   <string name="pref_camera_noise_reduction_entry_fast">Hurtig</string>
+  <string name="pref_camera_noise_reduction_entry_high_quality">Høj kvalitet</string>
   <!-- see more entry values. Do not translate. -->
   <!-- Default see more setting. Do not translate. -->
   <!-- Settings screen, Select See More title -->
   <!-- Settings screen, see more radio button choices -->
   <string name="pref_camera_see_more_entry_off">Fra</string>
+  <string name="pref_camera_see_more_entry_on">Til</string>
   <!-- see more entry values. Do not translate. -->
   <!-- Denoise Settings screen, setting title text -->
   <string name="pref_camera_denoise_title">Fjern støj</string>
   <!-- Denoise Settings screen, Record location dialog choices -->
   <string name="pref_camera_denoise_entry_off">Fra</string>
+  <string name="pref_camera_denoise_entry_on">Til</string>
   <!-- Default iso setting. Do not translate. -->
   <!-- Settings screen, Select Iso title -->
   <string name="pref_camera_iso_title">ISO</string>
@@ -202,6 +242,7 @@
   <string name="pref_camera_antibanding_entry_2">60 Hz (USA)</string>
   <string name="pref_camera_antibanding_entry_3">Auto</string>
   <!-- Default color effect setting. -->
+  <string name="pref_camera_filter_mode_entry_on">Til</string>
   <string name="pref_camera_filter_mode_entry_off">Fra</string>
   <!-- Settings screen, Select Color effect title -->
   <string name="pref_camera_coloreffect_title">Farveeffekt</string>
@@ -223,18 +264,19 @@
   <string name="pref_camera_coloreffect_entry_redtint">Rød toning</string>
   <string name="pref_camera_coloreffect_entry_bluetint">Blå toning</string>
   <string name="pref_camera_coloreffect_entry_greentint">Grøn toning</string>
-  <!-- Default Touch AF/AEC setting. Do not translate. -->
-  <!-- Settings screen, Select Touch AF/AEC title -->
   <!-- Settings screen, Touch AF/AEC dialog radio button choices -->
   <string name="pref_camera_touchafaec_entry_off">Fra</string>
+  <string name="pref_camera_touchafaec_entry_on">Til</string>
   <!-- Select IS title -->
   <string name="pref_camera_dis_title">Stabilisering</string>
   <!-- DIS choices -->
   <string name="pref_camera_dis_entry_off">Fra</string>
+  <string name="pref_camera_dis_entry_on">Til</string>
   <!-- Select Face Recognition title -->
   <string name="pref_camera_facerc_title">Ansigtsgenkendelse</string>
   <!-- Face Recognition choices -->
   <string name="pref_camera_facerc_entry_off">Fra</string>
+  <string name="pref_camera_facerc_entry_on">Til</string>
   <!-- Settings screen, Multiple levels entries -->
   <string name="pref_camera_sharpness_entry_level0">Niveau 0</string>
   <string name="pref_camera_sharpness_entry_level1">Niveau 1</string>
@@ -285,10 +327,15 @@
   <!-- Settings screen, Picture quality title -->
   <string name="pref_camera_jpegquality_title">Billedkvalitet</string>
   <!-- Settings screen, Picture quality dialog radio button choices -->
+  <string name="pref_camera_jpegquality_entry_0">Lav</string>
+  <string name="pref_camera_jpegquality_entry_1">Standard</string>
+  <string name="pref_camera_jpegquality_entry_2">Høj</string>
   <!-- Default auto histogram setting. Do not translate. -->
   <!-- Settings screen, Select Histogram title -->
   <string name="pref_camera_histogram_title">Histogram</string>
   <!-- Settings screen, Histogram radio button choices -->
+  <string name="pref_camera_histogram_entry_enable">Aktivér</string>
+  <string name="pref_camera_histogram_entry_disable">Deaktivér</string>
   <!-- Histogram entry values. Do not translate. -->
   <!-- Default auto scene detection setting. -->
   <!-- Settings screen, Select Auto Scene Detection -->
@@ -296,7 +343,9 @@
   <!-- Settings menu, auto scene detection choices -->
   <string name="pref_camera_scenedetect_entry_off">Fra</string>
   <!-- Scene detection set to on - supports backlight and snow cloudy detection. -->
+  <string name="pref_camera_scenedetect_entry_on">Til</string>
   <!-- Toast showing error if invalid size selected for  time lapse  [CHAR LIMIT=65] -->
+  <string name="time_lapse_error">Ugyldig videostørrelse for tidsforskudt optagelse.</string>
   <!-- longshot value -->
   <string name="pref_camera_longshot_title">Kontinuerlig optagelse</string>
   <string name="msg_cancel_longshot_for_limited_memory">Hukommelsen er ved at løbe ud, afbryder kontinuerlig optagelse</string>
@@ -305,6 +354,8 @@
   <!-- Settings screen, setting title text for Auto HDR-->
   <string name="pref_camera_auto_hdr_title">Auto HDR</string>
   <!-- Settings screen, Auto HDR location dialog choices -->
+  <string name="pref_camera_auto_hdr_entry_enable">Aktivér</string>
+  <string name="pref_camera_auto_hdr_entry_disable">Deaktivér</string>
   <!-- toast message for storage location switch -->
   <string name="on_switch_save_path_to_sdcard">Der er ikke nok intern lagerplads, skiftede lagerplacering til SD-kort</string>
   <!-- Settings screen, Selectable HDR mode title -->
@@ -322,6 +373,7 @@
   <!--Settings screen, video rotation title-->
   <string name="pref_camera_video_rotation_title">Video rotation</string>
   <!--Menu, video rotation label-->
+  <string name="pref_camera_video_rotation_label">VIDEOROTATION</string>
   <!-- Settings screen, Video rotation dialog radio button choices -->
   <string name="pref_camera_video_rotation_entry_0">0 grader</string>
   <string name="pref_camera_video_rotation_entry_90">90 grader</string>
@@ -335,24 +387,69 @@
   <string name="advance_feature_enable_msg">Kontinuerlig optagelse understøttes ikke når avancerede funktioner er aktiveret</string>
   <!-- The alas of CameraActivity for gesture operation -->
   <string name="camera_gesture_title">Start kamera</string>
+  <string name="pref_camera_tsmakeup_title">Forskønnelse</string>
+  <string name="pref_camera_tsmakeup_entry_on">Til</string>
   <string name="pref_camera_tsmakeup_entry_off">Fra</string>
+  <string name="pref_camera_tsmakeup_entry_low">Lav</string>
+  <string name="pref_camera_tsmakeup_entry_mid">Normal</string>
+  <string name="pref_camera_tsmakeup_entry_high">Høj</string>
+  <string name="pref_camera_tsmakeup_custom">Brugerdefineret</string>
+  <string name="pref_camera_tsmakeup_level_whiten">Blegning</string>
+  <string name="pref_camera_tsmakeup_level_clean">Blødgøring</string>
+  <string name="text_tsmakeup_alert_title">Advarsel</string>
+  <string name="text_tsmakeup_alert_msg">Ansigtsgenkendelse skal være aktiveret for at kunne bruge funktionen Forskønnelse. Vil du fortsætte?</string>
+  <string name="text_tsmakeup_alert_continue">Fortsæt</string>
+  <string name="text_tsmakeup_alert_quit">Annuller</string>
+  <string name="text_tsmakeup_beautify_toast">Forskønnelse</string>
   <string name="all_in_focus">Alt i fokus</string>
   <string name="refocus_toast">Tryk her, for at fokusere på sidste billede igen</string>
+  <string name="refocus_prompt_message">Med UbiFocus vil kameraet tage 5 billeder hver gang, du trykker på udløserknappen. De 5 billeder kombineres til 1 billede, hvor alt er i fokus. Du kan vælge at refokusere, når du tager billedet.</string>
+  <string name="camera_thermal_shutdown">Telefonen er overophedet, kameraet lukkes.</string>
+  <string name="camera_server_died">Medieserver døde, kameraet lukkes.</string>
+  <string name="camera_unknown_error">Ukendt fejl, kameraet lukkes.</string>
+  <string name="mute_button_desc">Knappen Lydløs</string>
   <!-- Help menu strings -->
+  <string name="help_menu_ok">OK</string>
+  <string name="help_menu_scene_mode_1">Vælg en</string>
+  <string name="help_menu_scene_mode_2">Scenetilstand</string>
+  <string name="help_menu_scene_mode_3">for bedre billeder</string>
+  <string name="help_menu_color_filter_1">Anvend farve</string>
+  <string name="help_menu_color_filter_2">filtre</string>
+  <string name="help_menu_color_filter_3">til</string>
+  <string name="help_menu_color_filter_4">forbedre billeder</string>
+  <string name="help_menu_beautify_1">Forbedre portrætter</string>
+  <string name="help_menu_beautify_2">med</string>
+  <string name="help_menu_beautify_3">Funktionen Forskønnelse</string>
+  <string name="help_menu_switcher_1">Skift</string>
+  <string name="help_menu_switcher_2">mellem</string>
+  <string name="help_menu_switcher_3">kamera, video og panorama</string>
+  <string name="pref_camera2_camera2_title">Camera2-tilstand</string>
   <string name="pref_camera2_camera2_entry_enable">Aktivér</string>
   <string name="pref_camera2_camera2_entry_disable">Deaktivér</string>
+  <string name="pref_camera2_mono_only_title">Kun mono</string>
+  <string name="pref_camera2_mono_preview_title">Eksempel på Mono</string>
   <string name="pref_camera2_mono_preview_entry_on">Til</string>
   <string name="pref_camera2_mono_preview_entry_off">Fra</string>
   <string name="pref_camera2_clearsight_entry_on">Til</string>
   <string name="pref_camera2_clearsight_entry_off">Fra</string>
   <string name="clearsight_capture_success">ClearSight-foto lykkedes</string>
   <string name="clearsight_capture_fail">ClearSight-foto mislykkedes</string>
+  <string name="pref_camera2_mpo_title">MPO-format</string>
   <string name="pref_camera2_mpo_entry_on">Til</string>
   <string name="pref_camera2_mpo_entry_off">Fra</string>
   <string name="pref_camera2_makeup_title">Makeup</string>
+  <string name="pref_camera2_noise_reduction_title">Støjreduktion</string>
   <string name="pref_camera2_noise_reduction_entry_off">Fra</string>
   <string name="pref_camera2_noise_reduction_entry_fast">Hurtig</string>
+  <string name="pref_camera2_noise_reduction_entry_high_quality">Høj kvalitet</string>
+  <string name="pref_camera2_videosnap_title">Automatisk snapshotstørrelse</string>
   <string name="pref_camera2_videosnap_entry_enable">Aktivér</string>
   <string name="pref_camera2_videosnap_entry_disable">Deaktivér</string>
+  <string name="pref_camera2_trackingfocus_title">Sporingsfokus</string>
+  <string name="pref_camera_scenemode_entry_bestpicture">Bedste billede</string>
+  <string name="bestpicture_done">UDFØRT</string>
+  <string name="bestpicture_at_least_one_picture">Mindst ét billede skal vælges.</string>
+  <string name="pref_camera2_shutter_sound_entry_on">Til</string>
   <string name="pref_camera2_shutter_sound_entry_off">Fra</string>
+  <string name="pref_camera2_shutter_sound_title">Lukkerlyd</string>
 </resources>

@@ -264,9 +264,6 @@
   <string name="pref_camera_coloreffect_entry_redtint">Odstín červené</string>
   <string name="pref_camera_coloreffect_entry_bluetint">Odstín modré</string>
   <string name="pref_camera_coloreffect_entry_greentint">Odstín zelené</string>
-  <!-- Default Touch AF/AEC setting. Do not translate. -->
-  <!-- Settings screen, Select Touch AF/AEC title -->
-  <string name="pref_camera_touchafaec_title">AF/AEC dotykem</string>
   <!-- Settings screen, Touch AF/AEC dialog radio button choices -->
   <string name="pref_camera_touchafaec_entry_off">Vypnuto</string>
   <string name="pref_camera_touchafaec_entry_on">Zapnuto</string>

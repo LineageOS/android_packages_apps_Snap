@@ -261,8 +261,6 @@
   <string name="pref_camera_coloreffect_entry_redtint">Rode tint</string>
   <string name="pref_camera_coloreffect_entry_bluetint">Blauwe tint</string>
   <string name="pref_camera_coloreffect_entry_greentint">Groene tint</string>
-  <!-- Default Touch AF/AEC setting. Do not translate. -->
-  <!-- Settings screen, Select Touch AF/AEC title -->
   <!-- Settings screen, Touch AF/AEC dialog radio button choices -->
   <string name="pref_camera_touchafaec_entry_off">Uit</string>
   <string name="pref_camera_touchafaec_entry_on">Aan</string>

@@ -218,8 +218,6 @@
   <string name="pref_camera_coloreffect_entry_redtint">Routstach</string>
   <string name="pref_camera_coloreffect_entry_bluetint">Blostach</string>
   <string name="pref_camera_coloreffect_entry_greentint">Gréngstach</string>
-  <!-- Default Touch AF/AEC setting. Do not translate. -->
-  <!-- Settings screen, Select Touch AF/AEC title -->
   <!-- Settings screen, Touch AF/AEC dialog radio button choices -->
   <string name="pref_camera_touchafaec_entry_off">Aus</string>
   <!-- Select IS title -->

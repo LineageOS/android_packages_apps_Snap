@@ -299,7 +299,7 @@
   <!-- Toast after enable HDR function to inform Continuous Shot has disabled -->
   <!-- Toast after enable Advanced Capture function to inform Continuous Shot has disabled -->
   <!-- Toast after enable 2k4k video quality to inform IS has disabled -->
-  <string name="video_quality_4k_disable_IS">Qualidade de vídeo 4K desativará a estabilização de imagem.</string>
+  <string name="video_quality_4k_disable_IS">A qualidade de vídeo 4K desativará a estabilização de imagem.</string>
   <!-- Toast after 2k4k video is enabled to inform SeeMore has been disabled -->
   <!-- Toast after High Quality Noise Reduction has been enabled to show CDS is disabled -->
   <!-- Toast after High Quality Noise Reduction has been enabled to show TNR is disabled -->
@@ -537,4 +537,5 @@ CHAR LIMIT = NONE] -->
   <!--  String shown when setting the homepage wallpaper in the background [CHAR LIMIT=NONE] -->
   <string name="setting_wallpaper">Definindo plano de fundo</string>
   <!-- Menu, Video rotation labels [CHAR LIMIT=50] -->
+  <string name="remaining_photos_format">%d restante(s)</string>
 </resources>

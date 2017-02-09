@@ -264,9 +264,6 @@
   <string name="pref_camera_coloreffect_entry_redtint">红色调</string>
   <string name="pref_camera_coloreffect_entry_bluetint">蓝色调</string>
   <string name="pref_camera_coloreffect_entry_greentint">绿色调</string>
-  <!-- Default Touch AF/AEC setting. Do not translate. -->
-  <!-- Settings screen, Select Touch AF/AEC title -->
-  <string name="pref_camera_touchafaec_title">触摸 AF/AEC</string>
   <!-- Settings screen, Touch AF/AEC dialog radio button choices -->
   <string name="pref_camera_touchafaec_entry_off">关闭</string>
   <string name="pref_camera_touchafaec_entry_on">开启</string>

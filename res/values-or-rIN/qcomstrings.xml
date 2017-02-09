@@ -222,8 +222,6 @@
   <string name="pref_camera_coloreffect_entry_redtint">ରେଡ୍‍ ଟିଣ୍ଟ</string>
   <string name="pref_camera_coloreffect_entry_bluetint">ବ୍ଲୁ ଟିଣ୍ଟ</string>
   <string name="pref_camera_coloreffect_entry_greentint">ଗ୍ରୀନ୍‍ ଟିଣ୍ଟ</string>
-  <!-- Default Touch AF/AEC setting. Do not translate. -->
-  <!-- Settings screen, Select Touch AF/AEC title -->
   <!-- Settings screen, Touch AF/AEC dialog radio button choices -->
   <string name="pref_camera_touchafaec_entry_off">ଅଫ୍</string>
   <!-- Select IS title -->

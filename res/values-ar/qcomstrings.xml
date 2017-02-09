@@ -222,8 +222,6 @@
   <string name="pref_camera_coloreffect_entry_redtint">صبغة حمراء</string>
   <string name="pref_camera_coloreffect_entry_bluetint">صبغة زرقاء</string>
   <string name="pref_camera_coloreffect_entry_greentint">صبغة خضراء</string>
-  <!-- Default Touch AF/AEC setting. Do not translate. -->
-  <!-- Settings screen, Select Touch AF/AEC title -->
   <!-- Settings screen, Touch AF/AEC dialog radio button choices -->
   <string name="pref_camera_touchafaec_entry_off">إيقاف تشغيل</string>
   <!-- Select IS title -->
