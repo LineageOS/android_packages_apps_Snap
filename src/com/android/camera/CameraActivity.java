@@ -217,6 +217,7 @@ public class CameraActivity extends Activity
     private final Object mStorageSpaceLock = new Object();
     private long mStorageSpaceBytes = Storage.LOW_STORAGE_THRESHOLD_BYTES;
     private boolean mSecureCamera;
+    private boolean mInCameraApp = true;
     // Keep track of powershutter state
     public static boolean mPowerShutter = false;
     // Keep track of max brightness state
@@ -1955,7 +1956,7 @@ public class CameraActivity extends Activity
         if (!CameraUtil.hasCameraKey()) {
             mPowerShutter = val.equals(CameraSettings.VALUE_ON);
         }
-        if (mPowerShutter && arePreviewControlsVisible()) {
+        if (mPowerShutter && mInCameraApp) {
             getWindow().addPrivateFlags(
                     WindowManager.LayoutParams.PRIVATE_FLAG_PREVENT_POWER_KEY);
         } else {
@@ -1973,7 +1974,7 @@ public class CameraActivity extends Activity
 
         mMaxBrightness = val.equals(CameraSettings.VALUE_ON);
 
-        if (mMaxBrightness && arePreviewControlsVisible()) {
+        if (mMaxBrightness && mInCameraApp) {
             params.screenBrightness = WindowManager.LayoutParams.BRIGHTNESS_OVERRIDE_FULL;
         } else {
             params.screenBrightness = WindowManager.LayoutParams.BRIGHTNESS_OVERRIDE_NONE;
@@ -2388,6 +2389,7 @@ public class CameraActivity extends Activity
      */
     private void setPreviewControlsVisibility(boolean visible) {
         mCurrentModule.onPreviewFocusChanged(visible);
+        mInCameraApp = visible;
     }
 
     // Accessor methods for getting latency times used in performance testing
