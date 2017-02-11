@@ -351,11 +351,14 @@
   <string name="camera_gesture_title">Luncurkan Kamera</string>
   <string name="pref_camera_tsmakeup_entry_on">Aktif</string>
   <string name="pref_camera_tsmakeup_entry_off">Tidak aktif</string>
+  <string name="pref_camera_tsmakeup_level_whiten">Putihkan</string>
+  <string name="pref_camera_tsmakeup_level_clean">Perhalus</string>
   <string name="text_tsmakeup_alert_title">Peringatan</string>
   <string name="text_tsmakeup_alert_continue">Lanjutkan</string>
   <string name="text_tsmakeup_alert_quit">Batalkan</string>
   <string name="all_in_focus">Semua dalam fokus</string>
   <string name="refocus_toast">Untuk fokus kembali pada foto yang terakhir, tekan di sini</string>
+  <string name="refocus_prompt_message">Dengan UbiFocus, kamera akan mengambil lima foto, setiap kali Anda menekan tombol rana. Kelima foto tersebut akan digabungkan menjadi satu foto, yang semuanya dalam fokus. Anda bisa memfokuskan ulang, setelah mengambil foto.</string>
   <string name="camera_unknown_error">Terjadi kesalahan, menutup kamera.</string>
   <!-- Help menu strings -->
   <string name="help_menu_ok">OKE</string>
