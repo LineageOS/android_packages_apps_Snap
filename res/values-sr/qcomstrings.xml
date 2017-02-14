@@ -327,10 +327,15 @@
   <!-- Settings screen, Picture quality title -->
   <string name="pref_camera_jpegquality_title">Квалитет слике</string>
   <!-- Settings screen, Picture quality dialog radio button choices -->
+  <string name="pref_camera_jpegquality_entry_0">Ниско</string>
+  <string name="pref_camera_jpegquality_entry_1">Стандардно</string>
+  <string name="pref_camera_jpegquality_entry_2">Високо</string>
   <!-- Default auto histogram setting. Do not translate. -->
   <!-- Settings screen, Select Histogram title -->
   <string name="pref_camera_histogram_title">Хистограм</string>
   <!-- Settings screen, Histogram radio button choices -->
+  <string name="pref_camera_histogram_entry_enable">Укључи</string>
+  <string name="pref_camera_histogram_entry_disable">Искључи</string>
   <!-- Histogram entry values. Do not translate. -->
   <!-- Default auto scene detection setting. -->
   <!-- Settings screen, Select Auto Scene Detection -->
@@ -377,10 +382,26 @@
   <string name="advance_feature_enable_msg">Непрекидно окидање није подржано при укљученим напредним могућностима</string>
   <!-- The alas of CameraActivity for gesture operation -->
   <string name="camera_gesture_title">Покрени камеру</string>
+  <string name="pref_camera_tsmakeup_title">Улепшавање</string>
   <string name="pref_camera_tsmakeup_entry_off">Искључено</string>
+  <string name="pref_camera_tsmakeup_entry_low">Ниско</string>
+  <string name="pref_camera_tsmakeup_entry_mid">Средње</string>
+  <string name="pref_camera_tsmakeup_entry_high">Високо</string>
+  <string name="pref_camera_tsmakeup_custom">Прилагођено</string>
+  <string name="pref_camera_tsmakeup_level_whiten">Избелити</string>
+  <string name="pref_camera_tsmakeup_level_clean">Омекшати</string>
+  <string name="text_tsmakeup_alert_title">Упозорење</string>
+  <string name="text_tsmakeup_alert_continue">Настави</string>
+  <string name="text_tsmakeup_alert_quit">Поништи</string>
+  <string name="text_tsmakeup_beautify_toast">Улепшај</string>
   <string name="all_in_focus">Све у фокусу</string>
   <string name="refocus_toast">Да поново фокусираш фото, додирни овде</string>
   <!-- Help menu strings -->
+  <string name="help_menu_scene_mode_3">за боље слике</string>
+  <string name="help_menu_color_filter_1">Примена боје</string>
+  <string name="help_menu_color_filter_2">филтери</string>
+  <string name="help_menu_color_filter_4">побољшање слике</string>
+  <string name="help_menu_beautify_1">Побољшај портрете</string>
   <string name="help_menu_beautify_3">Опција улепшавања</string>
   <string name="help_menu_switcher_1">Прекидач</string>
   <string name="help_menu_switcher_2">између</string>

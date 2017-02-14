@@ -391,6 +391,7 @@
   <string name="pref_camera_tsmakeup_entry_mid">Middel</string>
   <string name="pref_camera_tsmakeup_entry_high">Hoog</string>
   <string name="pref_camera_tsmakeup_custom">Aangepast</string>
+  <string name="pref_camera_tsmakeup_level_whiten">Witten</string>
   <string name="pref_camera_tsmakeup_level_clean">Verzachten</string>
   <string name="text_tsmakeup_alert_title">Let op</string>
   <string name="text_tsmakeup_alert_msg">Gezichtsherkenning moet ingeschakeld zijn om de optie Verfraaien te kunnen gebruiken. Wilt u doorgaan?</string>

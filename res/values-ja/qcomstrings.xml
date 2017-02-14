@@ -436,6 +436,7 @@
   <string name="pref_camera2_videosnap_entry_enable">有効</string>
   <string name="pref_camera2_videosnap_entry_disable">無効</string>
   <string name="pref_camera2_trackingfocus_title">追尾フォーカス</string>
+  <string name="pref_camera_scenemode_entry_bestpicture">最高の写真</string>
   <string name="bestpicture_done">完了</string>
   <string name="bestpicture_at_least_one_picture">少なくとも1枚の写真を選んでください。</string>
   <string name="pref_camera2_shutter_sound_entry_on">ON</string>
