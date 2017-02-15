@@ -311,7 +311,11 @@ class AndroidCameraManagerImpl implements CameraManager {
                         return;
 
                     case AUTO_FOCUS:
-                        mCamera.autoFocus((AutoFocusCallback) msg.obj);
+                        try {
+                            mCamera.autoFocus((AutoFocusCallback) msg.obj);
+                        } catch (RuntimeException e) {
+                            e.printStackTrace();
+                        }
                         return;
 
                     case CANCEL_AUTO_FOCUS:
