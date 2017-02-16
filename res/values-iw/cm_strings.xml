@@ -16,9 +16,15 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <!-- common aspect ratios -->
+  <!-- aspect ratio greater than 16:9, so "widescreen" or "cinematic" -->
+  <string name="pref_camera_aspectratio_wide">רחב</string>
+  <!-- format for entries in the picture size menu. Parameter one is aspect ratio
+         parameter two is size in megapixels, e.g. "(4:3) 12.1 megapixels"
+         NOTE: for Chinese (zh) and Korean (ko) the pixel number (parameter two)
+         will be multiplied by 100 as those languages want to count by ten thousands -->
   <string name="pref_camera_megapixel_format">(%1$s) %2$1.1f מגה פיקסל</string>
   <!-- Settings screen, scene mode -->
-  <string name="pref_camera_scenemode_entry_refocus">מאקרו+</string>
   <string name="pref_camera_scenemode_entry_antimotionblur">הפחתת טשטוש תנועה</string>
   <string name="pref_camera_scenemode_entry_aqua">מים</string>
   <string name="pref_camera_scenemode_entry_ar">מציאות מוגברת</string>
@@ -40,10 +46,10 @@
   <string name="pref_camera_scenemode_entry_fallcolor">צבעי סתיו</string>
   <string name="pref_camera_scenemode_entry_fireworks">זיקוקים</string>
   <string name="pref_camera_scenemode_entry_flowers">פרחים</string>
-  <string name="pref_camera_scenemode_entry_handheldtwilight">בין ערביים</string>
+  <string name="pref_camera_scenemode_entry_handheldtwilight">בין-ערביים</string>
   <string name="pref_camera_scenemode_entry_highsensitivity">רגישות גבוהה</string>
   <string name="pref_camera_scenemode_entry_indoor">בתוך מבנים</string>
-  <string name="pref_camera_scenemode_entry_landscape">נוף</string>
+  <string name="pref_camera_scenemode_entry_landscape">נוף/רוחב</string>
   <string name="pref_camera_scenemode_entry_mix_illuminant">תאורה מעורבת</string>
   <string name="pref_camera_scenemode_entry_mood">מצב רוח</string>
   <string name="pref_camera_scenemode_entry_nightportrait">דיוקן לילה</string>
@@ -61,6 +67,7 @@
   <string name="pref_camera_scenemode_entry_text">טקסט</string>
   <string name="pref_camera_scenemode_entry_theatre">תיאטרון</string>
   <string name="pref_camera_scenemode_entry_whiteboard">לוח ציור</string>
+  <!-- Settings screen, focus mode -->
   <string name="pref_camera_focusmode_entry_continuous">רציף</string>
   <string name="pref_camera_focusmode_entry_mw_continuous">רציף (MW)</string>
   <string name="pref_camera_focusmode_entry_extended">מורחב</string>
@@ -70,23 +77,32 @@
   <string name="pref_camera_focusmode_entry_normal">רגיל</string>
   <string name="pref_camera_focusmode_entry_portrait">דיוקן</string>
   <string name="pref_camera_focusmode_entry_hyperfocal">מיקוד יתר</string>
+  <!-- Color effects -->
   <string name="pref_camera_coloreffect_entry_washed">דהוי</string>
-  <string name="pref_camera_coloreffect_entry_vintage_warm">וינטאג\' חם</string>
-  <string name="pref_camera_coloreffect_entry_vintage_cold">וינטאג\' קר</string>
+  <string name="pref_camera_coloreffect_entry_vintage_warm">וינטג\' חם</string>
+  <string name="pref_camera_coloreffect_entry_vintage_cold">וינטג\' קר</string>
   <string name="pref_camera_coloreffect_entry_point_blue">הצבע הכחול</string>
   <string name="pref_camera_coloreffect_entry_point_green">הצבע הירוק</string>
   <string name="pref_camera_coloreffect_entry_point_red_yellow">הצבע האדום-צהוב</string>
-  <string name="pref_camera_coloreffect_entry_cartoonize">קומיקסי</string>
+  <string name="pref_camera_coloreffect_entry_cartoonize">אפקט קומיקס</string>
+  <!-- Red eye flash mode title -->
   <string name="pref_camera_flashmode_entry_redeye">עיניים אדומות</string>
   <string name="pref_camera_flashmode_label_redeye">עיניים אדומות</string>
+  <!-- Power shutter -->
   <string name="pref_camera_power_shutter_title">צילום בלחיצה על לחצן ההפעלה</string>
+  <!-- Max brightness -->
   <string name="pref_camera_max_brightness_title">בהירות מסך מירבית</string>
+  <!-- Touch focus duration -->
   <string name="pref_camera_focustime_title">משך פוקוס</string>
   <string name="pref_camera_focustime_entry_0">0 שנ\'</string>
   <string name="pref_camera_focustime_entry_3">3 שנ\'</string>
   <string name="pref_camera_focustime_entry_5">5 שנ\'</string>
   <string name="pref_camera_focustime_entry_10">10 שנ\'</string>
   <string name="pref_camera_focustime_entry_infinite">אינסופי</string>
+  <!-- Shutter speed -->
   <string name="pref_camera_shutter_speed_title">מהירות צמצם</string>
   <string name="auto_hdr_enabled">HDR אוטומטי מופעל</string>
+  <!-- Advanced options -->
+  <string name="developer_menu_enabled">הפעלת אפשרויות מצלמה מתקדמות</string>
+  <string name="developer_menu_disabled">כיבית אפשרויות מצלמה מתקדמות</string>
 </resources>
