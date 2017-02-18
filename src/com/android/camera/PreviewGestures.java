@@ -107,9 +107,9 @@ public class PreviewGestures
                 else if (mCaptureUI != null && !mCaptureUI.isMenuBeingShown())
                     mCaptureUI.showSettingMenu();
                 return true;
-            } else {
-                return onSingleTapUp(e2);
             }
+
+            return false;
         }
 
         private boolean isSwipeForMenu(int orientation, int deltaX, int deltaY) {
