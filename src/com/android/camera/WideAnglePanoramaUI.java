@@ -559,31 +559,41 @@ public class WideAnglePanoramaUI extends BaseUI implements
                 mRootView.findViewById(R.id.pano_progress_layout);
         int pivotY = ((ViewGroup) progressLayout).getPaddingTop()
                 + progressLayout.getChildAt(0).getHeight() / 2;
+        int navbarHeight = mRootView.getHeight() - mRootView.getClientRectForOrientation(0).bottom;
 
         int[] x = { r / 2, r / 10, r * 9 / 10, r / 2 };
         int[] y = { t / 2 + pivotY, (t + b1) / 2, (t + b1) / 2, b1 + pivotY };
 
         int idx1, idx2;
         int g;
+        int adjustmentY, adjustmentX;
         switch (orientation) {
             case 90:
                 idx1 = 1;
                 idx2 = 2;
+                adjustmentX = -navbarHeight;
+                adjustmentY = 0;
                 g = Gravity.TOP | Gravity.RIGHT;
                 break;
             case 180:
                 idx1 = 3;
                 idx2 = 0;
+                adjustmentX = 0;
+                adjustmentY = navbarHeight;
                 g = Gravity.CENTER_HORIZONTAL | Gravity.BOTTOM;
                 break;
             case 270:
                 idx1 = 2;
                 idx2 = 1;
+                adjustmentX = navbarHeight;
+                adjustmentY = 0;
                 g = Gravity.TOP | Gravity.RIGHT;
                 break;
             default:
                 idx1 = 0;
                 idx2 = 3;
+                adjustmentX = 0;
+                adjustmentY = -navbarHeight;
                 g = Gravity.CENTER_HORIZONTAL | Gravity.BOTTOM;
                 break;
         }
@@ -610,10 +620,10 @@ public class WideAnglePanoramaUI extends BaseUI implements
 
         final View[] views2 = { progressLayout, mReviewControl };
         for (final View v : views2) {
-            v.setPivotX(r / 2);
-            v.setPivotY(pivotY);
-            v.setTranslationX(x[idx2] - x[3]);
-            v.setTranslationY(y[idx2] - y[3]);
+            v.setPivotX(r / 2 + adjustmentX / 2);
+            v.setPivotY(pivotY + adjustmentY / 2);
+            v.setTranslationX(x[idx2] - x[3] + adjustmentX);
+            v.setTranslationY(y[idx2] - y[3] + adjustmentY);
             v.setRotation(-orientation);
         }
 
