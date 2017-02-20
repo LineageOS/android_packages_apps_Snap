@@ -334,7 +334,7 @@ La imagen recortada se guardó en <xliff:g id="folder_name">%s</xliff:g>.</strin
   <!-- The text shown on the screen to indicate that the panorama is rendering [CHAR LIMIT=27] -->
   <string name="pano_review_rendering">Procesando foto panorámica</string>
   <!-- Toast telling users tapping on the viewfinder will trigger autofocus [CHAR LIMIT=28] -->
-  <string name="tap_to_focus">Toca para enfocar.</string>
+  <string name="tap_to_focus">Pulsa para enfocar.</string>
   <!-- Default effect setting that clears the effect. -->
   <!-- Title of video effect setting popup window -->
   <string name="pref_video_effect_title">Efectos</string>
@@ -359,7 +359,7 @@ La imagen recortada se guardó en <xliff:g id="folder_name">%s</xliff:g>.</strin
   <!-- Effect setting item that replaces background with video from gallery. [CHAR LIMIT=14] -->
   <string name="effect_backdropper_gallery">Tu video</string>
   <!-- Toast telling users tapping on the viewfinder will take a picture [CHAR LIMIT=54] -->
-  <string name="video_snapshot_hint">Toca para tomar una foto mientras grabas un video.</string>
+  <string name="video_snapshot_hint">Pulsa para tomar una foto mientras grabas un video.</string>
   <!-- Announcement telling users video recording has just started [CHAR LIMIT=NONE] -->
   <string name="video_recording_started">Comenzó la grabación de video.</string>
   <!-- Announcement telling users video recording has just stopped [CHAR LIMIT=NONE] -->

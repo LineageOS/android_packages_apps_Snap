@@ -258,7 +258,7 @@
   <!-- Advance features enable message -->
   <string name="advance_feature_enable_msg">El disparo continuo no es compatible cuando se activan las características avanzadas</string>
   <!-- Toast after enable HDR function to inform continuous shot has disabled -->
-  <string name="HDR_disable_continuous_shot">Habilitar HDR desactivará el disparo continuo</string>
+  <string name="HDR_disable_continuous_shot">Activar HDR desactivará el disparo continuo</string>
   <!-- Toast after enable advanced capture function to inform continuous shot has disabled -->
   <string name="advanced_capture_disable_continuous_shot">La habilitación de captura avanzada desactivará el disparo continuo</string>
   <!-- Toast after enable 2k4k video quality to inform IS has disabled -->

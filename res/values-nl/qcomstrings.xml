@@ -85,7 +85,7 @@
   <!-- Red eye reduction -->
   <string name="pref_camera_redeyereduction_title">Rode ogen verminderen</string>
   <!-- AE bracketing -->
-  <string name="pref_camera_ae_bracket_hdr_title">Reeksopname met automatische belichting (AEB)</string>
+  <string name="pref_camera_ae_bracket_hdr_title">Reeksopname met automatische belichtingscompensatie (AEB)</string>
   <!-- High-framerate recording -->
   <string name="pref_camera_hfr_title">Opname met hoge beeldsnelheid</string>
   <string name="pref_camera_hfr_entry_off">Uit</string>
@@ -248,7 +248,7 @@
   <string name="error_app_unsupported_raw">Raw beeldformaat wordt niet ondersteund in Zero shutter lag modus. Selecteer JPEG</string>
   <string name="msg_cancel_longshot_for_limited_memory">Niet genoeg geheugen, continue opname wordt afgebroken</string>
   <!-- Toast showing non-supported functionality for flash in AE bracket -->
-  <string name="flash_aebracket_message">Flits is niet ondersteund in AE bracketing modus</string>
+  <string name="flash_aebracket_message">Flits wordt niet ondersteund in AEB-stand</string>
   <!-- toast message for storage location switch -->
   <string name="on_switch_save_path_to_sdcard">Onvoldoende interne opslagruimte, opslaglocatie veranderd naar SD-kaart</string>
   <!-- The message is shown in toast when click showOnMap Menu and there is no map app -->
