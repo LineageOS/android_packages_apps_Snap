@@ -206,7 +206,8 @@ public class PhotoMenu extends MenuController
                 CameraSettings.KEY_SHARPNESS,
                 CameraSettings.KEY_AUTOEXPOSURE,
                 CameraSettings.KEY_ANTIBANDING,
-                CameraSettings.KEY_DENOISE
+                CameraSettings.KEY_DENOISE,
+                CameraSettings.KEY_AUTO_HDR
         };
 
         mOtherKeys2 = new String[] {
