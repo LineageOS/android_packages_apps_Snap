@@ -166,13 +166,13 @@
   <!-- The message is shown in dialog when the app encounters an unsupported resolution for HFR mode -->
   <string name="error_app_unsupported_hfr">Slow motion video wordt niet ondersteund bij deze resolutie. Selecteer een lagere resolutie</string>
   <!-- The message is shown in toast when the app encounters an unsupported resolution for DIS mode -->
-  <string name="error_app_unsupported_dis">Stabilisatie is niet ondersteund voor de geselecteerde videogrootte. Selecteer een kleinere videogrootte</string>
+  <string name="error_app_unsupported_dis">Stabilisatie wordt niet ondersteund voor de geselecteerde videogrootte. Selecteer een kleinere videogrootte</string>
   <!-- The message is shown in dialog when the app encounters an unsupported resolution for HSR mode -->
   <string name="error_app_unsupported_hsr">Hoge snelheid video wordt niet ondersteund bij deze resolutie</string>
   <!-- The message is shown in dialog when the app encounters an unsupported video codec for HFR mode -->
   <string name="error_app_unsupported_hfr_codec">Alleen H.264-videocodec ondersteund bij opname met hoge beeldsnelheid</string>
   <!-- The message is shown in dialog when the app encounters an unsupported video resolution-->
-  <string name="error_app_unsupported">Videoresolutie niet ondersteund bij deze codec</string>
+  <string name="error_app_unsupported">Videoresolutie wordt niet ondersteund bij deze codec</string>
   <!-- The message is shown in dialog when the app encounters an unsupported video profile-->
   <string name="error_app_unsupported_profile">Niet-ondersteund videoformaat</string>
   <!--The message is shown in dialog when the raw snapshot is selected in zsl mode-->
@@ -399,7 +399,7 @@
   <string name="text_tsmakeup_alert_quit">Annuleren</string>
   <string name="text_tsmakeup_beautify_toast">Verfraaien</string>
   <string name="all_in_focus">Alles in focus</string>
-  <string name="refocus_toast">Om laatste foto opnieuw scherp te stellen, tap hier</string>
+  <string name="refocus_toast">Om laatste foto opnieuw scherp te stellen, tik hier</string>
   <string name="refocus_prompt_message">Met UbiFocus maakt uw camera 5 foto\'s, elke keer als u op de sluiterknop drukt. De 5 foto\'s zullen worden samengevoegd tot 1 afbeelding, waarop alles in focus is. U kunt de focus nog verplaatsen, nadat de foto genomen is.</string>
   <string name="camera_thermal_shutdown">Telefoon oververhit, camera wordt afgesloten.</string>
   <string name="camera_server_died">Mediaserver gecrasht, camera wordt gestopt.</string>

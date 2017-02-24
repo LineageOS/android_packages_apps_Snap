@@ -395,7 +395,7 @@
   <string name="pref_camera_tsmakeup_entry_high">Високе</string>
   <string name="pref_camera_tsmakeup_custom">Користувацьке</string>
   <string name="pref_camera_tsmakeup_level_whiten">Відбілювання</string>
-  <string name="pref_camera_tsmakeup_level_clean">М\'ягко</string>
+  <string name="pref_camera_tsmakeup_level_clean">М\'яко</string>
   <string name="text_tsmakeup_alert_title">Попередження</string>
   <string name="text_tsmakeup_alert_msg">Для використання функції прикрашання має бути увімкнуто розпізнавання облич. Ви хочете продовжити?</string>
   <string name="text_tsmakeup_alert_continue">Продовжити</string>

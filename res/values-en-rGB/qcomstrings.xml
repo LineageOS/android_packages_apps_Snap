@@ -26,17 +26,25 @@
   <!-- Video quality setting entry. Videos will be recorded in QVGA quality. [CHAR LIMIT=24] -->
   <!-- Video quality setting entry. Videos will be recorded in QCIF quality. [CHAR LIMIT=24] -->
   <!-- Settings screen, Power Mode title -->
+  <string name="pref_camera_powermode_title">Power mode</string>
   <!-- Settings screen, Power mode dialog radio button choices -->
+  <string name="pref_camera_powermode_entry_lp">Low power</string>
+  <string name="pref_camera_powermode_entry_np">Normal power</string>
   <!-- Settings screen, Power mode dialog radio button choices -->
   <!-- Default Power mode.. -->
   <!-- Default auto exposure setting. Do not translate. -->
   <!-- Settings screen, Select auto exposure title -->
+  <string name="pref_camera_autoexposure_title">Auto exposure</string>
   <!-- Settings screen, auto exposure dialog radio button choices -->
+  <string name="pref_camera_autoexposure_entry_frameaverage">Frame average</string>
+  <string name="pref_camera_autoexposure_entry_centerweighted">Centre weighted</string>
   <!-- Auto exposure entry values. Do not translate. -->
   <!-- Settings screen, Video encoder title -->
+  <string name="pref_camera_videoencoder_title">Video codec</string>
   <!-- Settings screen, Video encoder dialog radio button choices -->
   <!-- Default video encoder setting. A numerical value. -->
   <!-- Settings screen, Video encoder dialog title -->
+  <string name="pref_camera_videoencoder_dialogtitle">Video codec</string>
   <!-- Default audio encoder setting. A numerical value. -->
   <!-- Settings screen, Audio encoder title -->
   <!-- Settings screen, Audio encoder dialog radio button choices -->
@@ -46,15 +54,18 @@
   <!-- Settings screen, Skin Tone Enhancement radio button choices -->
   <!-- Skin Tone Enhancement entry values. Do not translate. -->
   <!-- Settings screen, setting title text for ZSL-->
+  <string name="pref_camera_zsl_title">Zero shutter lag</string>
   <!-- Default selectable zone af setting. Do not translate. -->
   <!-- Settings screen, Selectable zone af title -->
   <!-- Settings screen, Selectable Zone Af dialog radio button choices -->
+  <string name="pref_camera_selectablezoneaf_entry_centerweighted">Centre weighted</string>
   <!-- Auto exposure entry values. Do not translate. -->
   <!-- Settings screen, Selectable advanced features title -->
   <!-- Settings screen, Selectable Zone Af dialog radio button choices -->
   <!-- Auto exposure entry values. Do not translate. -->
   <!-- Manual exposure control entry values -->
   <!-- Manual white balance entry values -->
+  <string name="pref_camera_manual_wb_entry_color_temperature">Colour temperature</string>
   <!-- Manual Focus entry values -->
   <!-- Instant Capture entry -->
   <!-- Instant Capture entry values -->
@@ -96,7 +107,9 @@
   <!--The message is shown in dialog when the raw snapshot is selected in zsl mode-->
   <!-- Settings screen, AE bracketing and HDR location dialog choices -->
   <!-- The messsage shown if user selects a snapshot resolution lower than the current video size. -->
+  <string name="snapshot_lower_than_video">Video snapshot size is lower than video size, capping to video size. Please select a resolution higher or equal to the current video size.</string>
   <!-- The messsage shown if user selects a snapshot resolution in low power mode. -->
+  <string name="snapshotsize_low_powermode">Changing picture size is not supported in Low Power mode, video size snapshot will be taken. Please select Normal Power mode to allow changing picture size.</string>
   <!-- The messsage shown if user tries to take snapshot during D1/QCIF resolution. -->
   <!-- Default hfr setting. Do not translate. -->
   <!-- Settings screen, Select hfr title -->
@@ -121,8 +134,12 @@
   <!-- Settings screen, Anti Banding entries -->
   <!-- Default color effect setting. -->
   <!-- Settings screen, Select Color effect title -->
+  <string name="pref_camera_coloreffect_title">Colour effect</string>
+  <string name="pref_camera_filter_mode_title">Colour effect</string>
   <!-- Settings screen, Color effect dialog radio button choices -->
   <!-- Color effect that overexposes and reverses some of the tones. -->
+  <string name="pref_camera_coloreffect_entry_solarize">Solarise</string>
+  <string name="pref_camera_coloreffect_entry_posterize">Posterise</string>
   <!-- Settings screen, Touch AF/AEC dialog radio button choices -->
   <!-- Select IS title -->
   <!-- DIS choices -->
@@ -153,6 +170,7 @@
   <!-- Settings menu, auto scene detection choices -->
   <!-- Scene detection set to on - supports backlight and snow cloudy detection. -->
   <!-- Toast showing error if invalid size selected for  time lapse  [CHAR LIMIT=65] -->
+  <string name="time_lapse_error">Invalid video-size for time-lapse recording.</string>
   <!-- longshot value -->
   <!-- Toast showing non-supported functionality for flash in AE bracket -->
   <!-- Settings screen, setting title text for Auto HDR-->
@@ -174,4 +192,5 @@
   <!-- Advanced features enable message -->
   <!-- The alas of CameraActivity for gesture operation -->
   <!-- Help menu strings -->
+  <string name="help_menu_color_filter_1">Apply colour</string>
 </resources>

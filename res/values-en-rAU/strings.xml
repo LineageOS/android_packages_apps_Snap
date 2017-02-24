@@ -156,6 +156,7 @@
   <!-- Toast after enable HDR function to inform Continuous Shot has disabled -->
   <!-- Toast after enable Advanced Capture function to inform Continuous Shot has disabled -->
   <!-- Toast after enable 2k4k video quality to inform IS has disabled -->
+  <string name="video_quality_4k_disable_IS">4k video quality will disable image stabilisation.</string>
   <!-- Toast after 2k4k video is enabled to inform SeeMore has been disabled -->
   <!-- Toast after High Quality Noise Reduction has been enabled to show CDS is disabled -->
   <!-- Toast after High Quality Noise Reduction has been enabled to show TNR is disabled -->

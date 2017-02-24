@@ -16,15 +16,29 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- The name of the Android Camera application. [CHAR LIMIT=16] -->
+  <string name="app_name">Camera</string>
   <!-- The label for the Video Camera activity. [CHAR LIMIT=16] -->
+  <string name="video_camera_label">Camcorder</string>
   <!-- Used to format short video duration in Details dialog. minutes:seconds e.g. 00:30 -->
+  <string name="details_ms">%1$02d:%2$02d</string>
   <!-- Used to format video duration in Details dialog. hours:minutes:seconds e.g. 0:21:30 -->
+  <string name="details_hms">%1$d:%2$02d:%3$02d</string>
   <!-- Displayed in the title of the dialog for things to do with a picture
              that is to be "set as" (e.g. set as contact photo or set as wallpaper) -->
+  <string name="set_image">Set picture as</string>
   <!-- Details dialog "OK" button. Dismisses dialog. -->
+  <string name="delete">Delete</string>
   <!-- String Delete the selected media item(s) [CHAR LIMIT=50] -->
+  <plurals name="delete_selection">
+    <item quantity="one">Delete selected item?</item>
+    <item quantity="other">Delete selected items?</item>
+  </plurals>
+  <string name="share">Share</string>
+  <string name="share_panorama">Share panorama</string>
   <!-- The label shown after an image is deleted [CHAR LIMIT=16] -->
+  <string name="deleted">Deleted</string>
   <!-- The label on the button which when clicked will undo a deletion of image [CHAR LIMIT=16]-->
+  <string name="details">Details</string>
   <!-- String indicating how many media item(s) is(are) selected
             eg. 1 selected [CHAR LIMIT=30] -->
   <!-- String indicating how many media album(s) is(are) selected
@@ -51,6 +65,7 @@
   <!-- Text indicating the duration of a video item in details window [CHAR LIMIT=18] -->
   <!-- Text indicating the mime type of a media item in details window [CHAR LIMIT=14] -->
   <!-- Text indicating the file size of a media item in details window [CHAR LIMIT=14] -->
+  <string name="file_size">File size</string>
   <!-- Text indicating the maker of a media item in details window [CHAR LIMIT=14] -->
   <!-- Text indicating the model of a media item in details window [CHAR LIMIT=14] -->
   <!-- Text indicating flash info of a media item in details window [CHAR LIMIT=14] -->
@@ -110,6 +125,7 @@
   <!-- Settings screen, Camera setting category title -->
   <!-- Settings screen, Camcorder setting category title -->
   <!-- Settings screen, Picture size title -->
+  <string name="pref_camera_picturesize_title">Picture size</string>
   <!-- Settings screen, Focus mode title -->
   <!-- Settings screen, Focus mode dialog radio button choices -->
   <!-- A setting that lets the camera focus into infinity. [CHAR LIMIT=20] -->
@@ -175,6 +191,7 @@
   <!-- Video Camera format string for new video files. Passed to java.text.SimpleDateFormat. -->
   <!-- Filename prefix for panorama output. -->
   <!-- The message shown when video record reaches size limit. -->
+  <string name="video_reach_size_limit">Size limit reached.</string>
   <!-- The text shown when the panorama panning speed is to fast [CHAR LIMIT=16] -->
   <!-- The text shown in the progress dialog when panorama preview is generating in the background [CHAR LIMIT=30] -->
   <!-- The text shown in the dialog when panorama saving failed [CHAR LIMIT=40] -->
@@ -212,6 +229,7 @@
   <!-- The button to switch to the Photo Sphere mode. [CHAR LIMIT = NONE] -->
   <!-- The button to switch to the high quality mode. [CHAR LIMIT = NONE] -->
   <!-- The button in review mode indicating that the photo taking, video recording, and panorama saving session should be canceled [CHAR LIMIT = NONE] -->
+  <string name="accessibility_review_cancel">Review cancel</string>
   <!-- The button in review mode indicating that the taken photo/video is OK to be attached/uploaded [CHAR LIMIT = NONE] -->
   <!-- button in review mode indicate the user want to retake another photo/video for attachment [
 CHAR LIMIT = NONE] -->
@@ -283,4 +301,5 @@ CHAR LIMIT = NONE] -->
   <!-- Label for album filmstrip button -->
   <!--  String shown when setting the homepage wallpaper in the background [CHAR LIMIT=NONE] -->
   <!-- Menu, Video rotation labels [CHAR LIMIT=50] -->
+  <string name="makeup_video_size_limit">Makeup works only under VGA size in video recording.</string>
 </resources>
