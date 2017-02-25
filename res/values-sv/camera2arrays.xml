@@ -37,6 +37,10 @@
     <item>Mono</item>
     <item>Front</item>
   </string-array>
+  <string-array name="pref_camera2_makeup_entries">
+    <item>På</item>
+    <item>Av</item>
+  </string-array>
   <string-array name="pref_camera2_trackingfocus_entries">
     <item>På</item>
     <item>Av</item>
