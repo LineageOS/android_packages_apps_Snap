@@ -165,6 +165,7 @@ Den beskurna bilden har sparats i <xliff:g id="folder_name">%s</xliff:g>.</strin
   <!-- In select camera setting, front-facing camera. [CHAR LIMIT=14] -->
   <string name="pref_camera_id_entry_front">Främre</string>
   <!-- Settings screen, setting title text -->
+  <string name="pref_camera_recordlocation_title">GPS plats</string>
   <!--  Label for record location preference [CHAR LIMIT=50] -->
   <string name="pref_camera_location_label">PLATS</string>
   <!-- Title for countdown timer on camera settings screen [CHAR LIMIT=30]-->
@@ -177,6 +178,8 @@ Den beskurna bilden har sparats i <xliff:g id="folder_name">%s</xliff:g>.</strin
   <!-- Text followed by a checkbox to turn on/off sound effects during the countdown. [CHAR LIMIT = 24]-->
   <string name="pref_camera_timer_sound_title">Ljudsignal under nedräkningen</string>
   <!-- Entry of camera save path -->
+  <string name="pref_camera_savepath_title">Lagring</string>
+  <string name="pref_camera_savepath_entry_1">SD-kort</string>
   <!-- Entry of a on/off setting. The setting is turned off. [CHAR LIMIT=15] -->
   <string name="setting_off">Av</string>
   <!-- Entry of a on/off setting. The setting is turned on. [CHAR LIMIT=15] -->
