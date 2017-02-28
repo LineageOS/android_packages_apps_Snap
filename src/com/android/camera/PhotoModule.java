@@ -1265,9 +1265,7 @@ public class PhotoModule extends BaseModule<PhotoUI> implements
     private byte[] flipJpeg(byte[] jpegData, int orientation, int jpegOrientation) {
         Bitmap srcBitmap = BitmapFactory.decodeByteArray(jpegData, 0, jpegData.length);
         Matrix m = new Matrix();
-        if(orientation == 270) {
-            m.preScale(-1, 1);
-        } else { //if it's 90
+        if(orientation == 270 || orientation == 90) {
             // Judge whether the picture or phone is horizontal screen
             if (jpegOrientation == 0 || jpegOrientation == 180) {
                 m.preScale(-1, 1);
