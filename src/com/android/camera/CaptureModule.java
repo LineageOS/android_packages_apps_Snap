@@ -3407,8 +3407,14 @@ public class CaptureModule extends BaseModule<CaptureUI> implements PhotoControl
 
     private Size getMaxPictureSizeLessThan4k() {
         Size[] sizes = mSettingsManager.getSupportedOutputSize(getMainCameraId(), ImageFormat.JPEG);
+        float ratio = (float) mVideoSize.getWidth() / mVideoSize.getHeight();
         for (Size size : sizes) {
-            if (!is4kSize(size)) return size;
+            if (!is4kSize(size)) {
+                float pictureRatio = (float) size.getWidth() / size.getHeight();
+                if (Math.abs(pictureRatio - ratio) < 0.01) {
+                    return size;
+                }
+            }
         }
         return sizes[sizes.length - 1];
     }
