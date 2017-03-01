@@ -91,6 +91,8 @@
   <string name="pref_camera_manual_focus_entry_off">Desl.</string>
   <!-- Instant Capture entry -->
   <string name="pref_camera_instant_capture_title" translatable="true">Captura instantânea</string>
+  <string name="pref_camera_instant_capture_entry_aggressive_aec" translatable="true">AEC agressivo</string>
+  <string name="pref_camera_instant_capture_entry_fast_aec" translatable="true">AEC rápido</string>
   <string name="pref_camera_instant_capture_entry_disable" translatable="true">Desativar</string>
   <!-- Instant Capture entry values -->
   <!-- Settings screen, ZSL location dialog choices -->
@@ -98,6 +100,7 @@
   <string name="pref_camera_zsl_entry_on">Ativado</string>
   <!-- The message is shown in toast when HDR or scene mode is enabled -->
   <string name="hdr_enable_message">O modo HDR está ativado. Somente o modo de cena automático é suportado</string>
+  <string name="scene_enable_message">O modo HDR é suportado somente no modo de cena automático</string>
   <!-- Settings screen, Video HDR location dialog choices -->
   <string name="pref_camera_video_hdr_entry_off">Desl.</string>
   <string name="pref_camera_video_hdr_entry_on">Ativado</string>
@@ -389,6 +392,7 @@
   <string name="refocus_toast">Para re-focar a última foto, toque aqui</string>
   <string name="camera_server_died">O servidor de mídia foi encerrado, fechando a câmera.</string>
   <string name="camera_unknown_error">Erro desconhecido, fechando a câmera.</string>
+  <string name="mute_button_desc">Botão de silêncio</string>
   <!-- Help menu strings -->
   <string name="help_menu_ok">OK</string>
   <string name="help_menu_scene_mode_1">Selecione um</string>
