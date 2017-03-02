@@ -28,6 +28,23 @@
      IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->
 <resources>
+  <string-array name="pref_camera2_mono_only_entries">
+    <item>켜짐</item>
+    <item>꺼짐</item>
+  </string-array>
+  <string-array name="pref_camera2_initial_camera_entries">
+    <item>바이엘</item>
+    <item>흑백</item>
+    <item>전면</item>
+  </string-array>
+  <string-array name="pref_camera2_makeup_entries">
+    <item>켜짐</item>
+    <item>꺼짐</item>
+  </string-array>
+  <string-array name="pref_camera2_trackingfocus_entries">
+    <item>켜짐</item>
+    <item>꺼짐</item>
+  </string-array>
   <!-- Refer to CONTROL_SCENE_MODE of Camera2 API for values
         -1 refers to ones not supported in Camera2 API
         0 is special case added for auto (meaning off)

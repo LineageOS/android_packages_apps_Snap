@@ -382,7 +382,12 @@
   <string name="help_menu_ok">OKE</string>
   <string name="help_menu_scene_mode_1">Pilih</string>
   <string name="help_menu_scene_mode_2">Mode pemotretan</string>
+  <string name="help_menu_scene_mode_3">untuk foto yang lebih bagus</string>
+  <string name="help_menu_color_filter_3">ke</string>
+  <string name="help_menu_beautify_2">dengan</string>
+  <string name="help_menu_switcher_2">antara</string>
   <string name="help_menu_switcher_3">kamera, video, dan panorama</string>
+  <string name="pref_camera2_camera2_title">Mode Camera2</string>
   <string name="pref_camera2_camera2_entry_enable">Hidup</string>
   <string name="pref_camera2_camera2_entry_disable">Mati</string>
   <string name="pref_camera2_mono_only_title">Hanya mono</string>

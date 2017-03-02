@@ -70,7 +70,7 @@
   <!-- The title of the menu item to let user set the image as background etc. [CHAR LIMIT=15] -->
   <string name="set_as">다음으로 설정</string>
   <!-- String indicating an error when playing the video. [CHAR LIMIT=30] -->
-  <string name="video_err">동영상을 재생할 수 없습니다.</string>
+  <string name="video_err">영상을 재생할 수 없습니다.</string>
   <!-- Toast message shown when the cropped image has been saved in the
          %s folder (string: folder_download) [CHAR LIMIT=50]-->
   <string name="crop_saved">
@@ -141,7 +141,9 @@
   <!-- message for the dialog showing the camera is disabled because of security policies. Camera cannot be used. -->
   <string name="camera_disabled">보안 정책으로 인해 카메라 사용이 중지되었습니다.</string>
   <!-- message for the dialog showing that the app does not have sufficient permissions [CHAR LIMIT=NONE] -->
+  <string name="error_permissions">앱을 실행하는 데 필수적인 권한이 부여되지 않았습니다. 권한 설정을 확인해 주세요.</string>
   <!-- Dialog "Dismiss" button. Closes the dialog [CHAR LIMIT=12]-->
+  <string name="dialog_dismiss">다시 묻지 않기</string>
   <!-- alert to the user to wait for some operation to complete -->
   <string name="wait">잠시 기다려 주세요\u2026</string>
   <!-- alert to the user that an SD card must be installed before using the camera -->
@@ -161,6 +163,7 @@
   <!-- In select camera setting, front-facing camera. [CHAR LIMIT=14] -->
   <string name="pref_camera_id_entry_front">전면</string>
   <!-- Settings screen, setting title text -->
+  <string name="pref_camera_recordlocation_title">GPS 위치</string>
   <!--  Label for record location preference [CHAR LIMIT=50] -->
   <string name="pref_camera_location_label">위치</string>
   <!-- Title for countdown timer on camera settings screen [CHAR LIMIT=30]-->
@@ -172,6 +175,9 @@
   <!-- Text followed by a checkbox to turn on/off sound effects during the countdown. [CHAR LIMIT = 24]-->
   <string name="pref_camera_timer_sound_title">카운트다운 신호음 켜기</string>
   <!-- Entry of camera save path -->
+  <string name="pref_camera_savepath_title">저장소</string>
+  <string name="pref_camera_savepath_entry_0">휴대전화</string>
+  <string name="pref_camera_savepath_entry_1">SD 카드</string>
   <!-- Entry of a on/off setting. The setting is turned off. [CHAR LIMIT=15] -->
   <string name="setting_off">OFF</string>
   <!-- Entry of a on/off setting. The setting is turned on. [CHAR LIMIT=15] -->
@@ -192,7 +198,7 @@
   <!-- Video quality setting entry. Videos will be recorded in 2K quality. [CHAR LIMIT=24] -->
   <!-- Describes the preference dialog for choosing interval between frame capture for
     time lapse recording. Appears at top of the dialog. [CHAR LIMIT=30] -->
-  <string name="pref_video_time_lapse_frame_interval_title">시간 경과</string>
+  <string name="pref_video_time_lapse_frame_interval_title">타임랩스</string>
   <!-- Settings screen, Camera setting category title -->
   <string name="pref_camera_settings_category">카메라 설정</string>
   <!-- Settings screen, Camcorder setting category title -->
@@ -292,14 +298,23 @@
   <!-- Toast after trying to select a setting that is not allowed to change in scene mode [CHAR LIMIT=NONE] -->
   <string name="not_selectable_in_scene_mode">장면 모드에서 선택할 수 없습니다.</string>
   <!-- Toast after enable HDR function to inform Continuous Shot has disabled -->
+  <string name="HDR_disable_continuous_shot">HDR을 사용하면 연속 촬영이 꺼집니다.</string>
   <!-- Toast after enable Advanced Capture function to inform Continuous Shot has disabled -->
+  <string name="advanced_capture_disable_continuous_shot">고급 캡처 옵션을 사용하면 연속 촬영이 꺼집니다.</string>
   <!-- Toast after enable 2k4k video quality to inform IS has disabled -->
+  <string name="video_quality_4k_disable_IS">4K 영상 해상도를 사용하면 이미지 안정화가 꺼집니다.</string>
   <!-- Toast after 2k4k video is enabled to inform SeeMore has been disabled -->
+  <string name="video_quality_4k_disable_SeeMore">4K 영상 기능을 사용하는 동안에는 SeeMore 기능을 사용할 수 없습니다.</string>
   <!-- Toast after High Quality Noise Reduction has been enabled to show CDS is disabled -->
+  <string name="disable_CDS_during_HighQualityNoiseReduction">고품질 노이즈 감소 기능을 사용하면 상관 이중 샘플링 기능(CDS)이 꺼집니다.</string>
   <!-- Toast after High Quality Noise Reduction has been enabled to show TNR is disabled -->
+  <string name="disable_TNR_during_HighQualityNoiseReduction">고품질 노이즈 감소 기능을 사용하면 시간적 노이즈 감소 기능(TNR)이 꺼집니다.</string>
   <!-- Toast after SeeMore has been enabled to show CDS is disabled -->
+  <string name="disable_CDS_during_SeeMore">SeeMore를 사용하면 상관 이중 샘플링 기능(CDS)이 꺼집니다.</string>
   <!-- Toast after SeeMore has been enabled to show TNR is disabled -->
+  <string name="disable_TNR_during_SeeMore">SeeMore 기능을 사용하면 시간적 노이즈 감소 기능(TNR)이 꺼집니다.</string>
   <!-- Toast after SeeMore has been enabled to show NR is disabled -->
+  <string name="disable_NR_during_SeeMore">SeeMore 기능을 사용하면 노이즈 감소 기능이 꺼집니다.</string>
   <!-- Exposure settings in preference -->
   <string name="pref_exposure_title">노출</string>
   <!--  menu label exposure compensation [CHAR LIMIT=50] -->
@@ -531,4 +546,6 @@ CHAR LIMIT = NONE] -->
   <!--  String shown when setting the homepage wallpaper in the background [CHAR LIMIT=NONE] -->
   <string name="setting_wallpaper">배경화면 설정 중</string>
   <!-- Menu, Video rotation labels [CHAR LIMIT=50] -->
+  <string name="remaining_photos_format">%d 남음</string>
+  <string name="makeup_video_size_limit">메이크업은 영상 촬영 시 VGA 해상도 이하에서만 작동합니다.</string>
 </resources>

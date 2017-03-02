@@ -192,12 +192,15 @@
   <string name="pref_camera_hfr_entry_hsr_60">Ускор. съёмка — 60 к/с</string>
   <string name="pref_camera_hfr_entry_hsr_90">Ускор. съёмка — 90 к/с</string>
   <string name="pref_camera_hfr_entry_hsr_120">Ускор. съёмка — 120 к/с</string>
+  <string name="pref_camera_hfr_entry_hsr_240">Ускор. съёмка — 240 к/с</string>
   <!-- HFR entry values. Do not translate. -->
   <!-- Default noise reduction setting. Do not translate. -->
   <!-- Settings screen, Select See More title -->
+  <string name="pref_camera_noise_reduction_title">Шумоподавление</string>
   <!-- Settings screen, see more radio button choices -->
   <string name="pref_camera_noise_reduction_entry_off">Отключить</string>
   <string name="pref_camera_noise_reduction_entry_fast">Быстро</string>
+  <string name="pref_camera_noise_reduction_entry_high_quality">Высокое качество</string>
   <!-- see more entry values. Do not translate. -->
   <!-- Default see more setting. Do not translate. -->
   <!-- Settings screen, Select See More title -->
@@ -342,6 +345,8 @@
   <!-- Settings screen, setting title text for Auto HDR-->
   <string name="pref_camera_auto_hdr_title">Авто HDR</string>
   <!-- Settings screen, Auto HDR location dialog choices -->
+  <string name="pref_camera_auto_hdr_entry_enable">Включить</string>
+  <string name="pref_camera_auto_hdr_entry_disable">Выключить</string>
   <!-- toast message for storage location switch -->
   <string name="on_switch_save_path_to_sdcard">Внутренней памяти недостаточно. Выбрано сохранение на SD-карту</string>
   <!-- Settings screen, Selectable HDR mode title -->
@@ -359,6 +364,7 @@
   <!--Settings screen, video rotation title-->
   <string name="pref_camera_video_rotation_title">Поворот видео</string>
   <!--Menu, video rotation label-->
+  <string name="pref_camera_video_rotation_label">ПОВОРОТ ВИДЕО</string>
   <!-- Settings screen, Video rotation dialog radio button choices -->
   <string name="pref_camera_video_rotation_entry_0">0 градусов</string>
   <string name="pref_camera_video_rotation_entry_90">90 градусов</string>
@@ -373,9 +379,14 @@
   <!-- The alas of CameraActivity for gesture operation -->
   <string name="camera_gesture_title">Включить камеру</string>
   <string name="pref_camera_tsmakeup_entry_off">Отключить</string>
+  <string name="text_tsmakeup_alert_continue">Продолжить</string>
+  <string name="text_tsmakeup_alert_quit">Отмена</string>
   <string name="all_in_focus">Все в фокусе</string>
   <string name="refocus_toast">Нажмите, чтобы перефокусировать последнее фото</string>
+  <string name="mute_button_desc">Кнопка отключения звука</string>
   <!-- Help menu strings -->
+  <string name="help_menu_ok">ОК</string>
+  <string name="help_menu_scene_mode_2">Режим съёмки</string>
   <string name="pref_camera2_camera2_entry_enable">Включить</string>
   <string name="pref_camera2_camera2_entry_disable">Выключить</string>
   <string name="pref_camera2_mono_preview_entry_on">Включено</string>

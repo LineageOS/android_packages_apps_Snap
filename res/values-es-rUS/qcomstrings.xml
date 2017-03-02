@@ -59,7 +59,7 @@
   <string name="pref_camera_skinToneEnhancement_entry_disable">Desactivar</string>
   <!-- Skin Tone Enhancement entry values. Do not translate. -->
   <!-- Settings screen, setting title text for ZSL-->
-  <string name="pref_camera_zsl_title">Eliminar retraso del disparador</string>
+  <string name="pref_camera_zsl_title">Desactivar retraso del disparador</string>
   <!-- Default selectable zone af setting. Do not translate. -->
   <!-- Settings screen, Selectable zone af title -->
   <string name="pref_camera_selectablezoneaf_title">Zona de enfoque automático</string>

@@ -27,11 +27,11 @@
              that is to be "set as" (e.g. set as contact photo or set as wallpaper) -->
   <string name="set_image">Establecer imagen como</string>
   <!-- Details dialog "OK" button. Dismisses dialog. -->
-  <string name="delete">Eliminar</string>
+  <string name="delete">Borrar</string>
   <!-- String Delete the selected media item(s) [CHAR LIMIT=50] -->
   <plurals name="delete_selection">
-    <item quantity="one">¿Eliminar elemento?</item>
-    <item quantity="other">¿Eliminar elementos?</item>
+    <item quantity="one">¿Borrar elemento?</item>
+    <item quantity="other">¿Borrar elementos?</item>
   </plurals>
   <string name="share">Compartir</string>
   <string name="share_panorama">Compartir foto panorámica</string>
@@ -388,7 +388,7 @@ La imagen recortada se guardó en <xliff:g id="folder_name">%s</xliff:g>.</strin
   <!-- Announcement telling users video recording has just stopped [CHAR LIMIT=NONE] -->
   <string name="video_recording_stopped">Se detuvo la grabación de video.</string>
   <!-- A button in effect setting popup to clear the effect. [CHAR LIMIT=26] -->
-  <string name="clear_effects">Eliminar efectos</string>
+  <string name="clear_effects">Limpiar efectos</string>
   <!-- Title of category for silly face effects. [CHAR LIMIT=26] -->
   <string name="effect_silly_faces">CARAS GRACIOSAS</string>
   <!-- Title of category for background replacement effects. [CHAR LIMIT=26] -->

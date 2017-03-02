@@ -18,10 +18,12 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- common aspect ratios -->
   <!-- aspect ratio greater than 16:9, so "widescreen" or "cinematic" -->
+  <string name="pref_camera_aspectratio_wide">와이드</string>
   <!-- format for entries in the picture size menu. Parameter one is aspect ratio
          parameter two is size in megapixels, e.g. "(4:3) 12.1 megapixels"
          NOTE: for Chinese (zh) and Korean (ko) the pixel number (parameter two)
          will be multiplied by 100 as those languages want to count by ten thousands -->
+  <string name="pref_camera_megapixel_format">(%1$s) %2$1.1f만 화소</string>
   <!-- Settings screen, scene mode -->
   <string name="pref_camera_scenemode_entry_antimotionblur">모션 블러 감소</string>
   <string name="pref_camera_scenemode_entry_aqua">아쿠아</string>
@@ -101,4 +103,6 @@
   <string name="pref_camera_shutter_speed_title">셔터 속도</string>
   <string name="auto_hdr_enabled">자동 HDR 사용</string>
   <!-- Advanced options -->
+  <string name="developer_menu_enabled">고급 카메라 옵션이 활성화되었습니다</string>
+  <string name="developer_menu_disabled">고급 카메라 옵션이 비활성화되었습니다</string>
 </resources>
