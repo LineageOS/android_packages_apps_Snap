@@ -308,7 +308,7 @@
   <!-- Toast after enable 2k4k video quality to inform IS has disabled -->
   <string name="video_quality_4k_disable_IS">Beeldstabilisatie wordt uitgeschakeld bij 4K-video.</string>
   <!-- Toast after 2k4k video is enabled to inform SeeMore has been disabled -->
-  <string name="video_quality_4k_disable_SeeMore">SeeMore wordt uitgeschakeld bij bij 4K-video.</string>
+  <string name="video_quality_4k_disable_SeeMore">SeeMore wordt uitgeschakeld bij 4K-video.</string>
   <!-- Toast after High Quality Noise Reduction has been enabled to show CDS is disabled -->
   <string name="disable_CDS_during_HighQualityNoiseReduction">Ruisonderdrukking van hoge kwaliteit zal CDS uitschakelen.</string>
   <!-- Toast after High Quality Noise Reduction has been enabled to show TNR is disabled -->
@@ -551,4 +551,5 @@ CHAR LIMIT = NONE] -->
   <string name="setting_wallpaper">Achtergrond instellen</string>
   <!-- Menu, Video rotation labels [CHAR LIMIT=50] -->
   <string name="remaining_photos_format">%d resterend</string>
+  <string name="makeup_video_size_limit">Make-up werkt alleen bij video-opnamen in VGA.</string>
 </resources>

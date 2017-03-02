@@ -387,7 +387,7 @@
   <string name="advance_feature_enable_msg">上級者向けの機能が有効になっている場合は連写は使用できません</string>
   <!-- The alas of CameraActivity for gesture operation -->
   <string name="camera_gesture_title">カメラを起動</string>
-  <string name="pref_camera_tsmakeup_title">美化</string>
+  <string name="pref_camera_tsmakeup_title">ビューティーモード</string>
   <string name="pref_camera_tsmakeup_entry_on">ON</string>
   <string name="pref_camera_tsmakeup_entry_off">OFF</string>
   <string name="pref_camera_tsmakeup_entry_low">弱</string>
@@ -397,10 +397,10 @@
   <string name="pref_camera_tsmakeup_level_whiten">白くする</string>
   <string name="pref_camera_tsmakeup_level_clean">ソフトにする</string>
   <string name="text_tsmakeup_alert_title">注意</string>
-  <string name="text_tsmakeup_alert_msg">美化機能を使用するには顔検出を有効にしないといけません。続行しますか？</string>
+  <string name="text_tsmakeup_alert_msg">ビューティーモードを使用するには顔検出を有効にしないといけません。続行しますか？</string>
   <string name="text_tsmakeup_alert_continue">続行</string>
   <string name="text_tsmakeup_alert_quit">キャンセル</string>
-  <string name="text_tsmakeup_beautify_toast">美化</string>
+  <string name="text_tsmakeup_beautify_toast">ビューティーモード</string>
   <string name="all_in_focus">全焦点</string>
   <string name="refocus_toast">前の写真をリフォーカスするには、ここをタップしてください</string>
   <string name="refocus_prompt_message">UbiFocus を使用すると、シャッターボタンを押す度に5枚写真を撮影します。5枚の写真を1枚に結合してすべてにフォーカスされているようにします。写真を撮影した後でも再フォーカスできます。</string>
@@ -410,9 +410,19 @@
   <string name="mute_button_desc">ミュートボタン</string>
   <!-- Help menu strings -->
   <string name="help_menu_ok">OK</string>
+  <string name="help_menu_scene_mode_1">最適な</string>
   <string name="help_menu_scene_mode_2">撮影モード</string>
-  <string name="help_menu_color_filter_1">色を適用</string>
-  <string name="help_menu_color_filter_2">フィルター</string>
+  <string name="help_menu_scene_mode_3">で良い写真を撮影しましょう</string>
+  <string name="help_menu_color_filter_1">カラー</string>
+  <string name="help_menu_color_filter_2">フィルタを適用</string>
+  <string name="help_menu_color_filter_3">して、</string>
+  <string name="help_menu_color_filter_4">写真を改善しましょう</string>
+  <string name="help_menu_beautify_1">ビューティーモードで</string>
+  <string name="help_menu_beautify_2">ポートレートを</string>
+  <string name="help_menu_beautify_3">もっと綺麗に</string>
+  <string name="help_menu_switcher_1">カメラやビデオ、パノラマを</string>
+  <string name="help_menu_switcher_2">自由自在に</string>
+  <string name="help_menu_switcher_3">切り替えます</string>
   <string name="pref_camera2_camera2_title">Camera2 モード</string>
   <string name="pref_camera2_camera2_entry_enable">有効</string>
   <string name="pref_camera2_camera2_entry_disable">無効</string>
