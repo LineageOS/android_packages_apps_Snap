@@ -521,7 +521,7 @@ CHAR LIMIT = NONE] -->
   <!-- Title for first run dialog asking if the user wants to remember photo locations [CHAR LIMIT = 50] -->
   <string name="remember_location_title">¿Recordar ubicaciones de las fotos?</string>
   <!-- Message for first run dialog asking if the user wants to remember photo locations [CHAR LIMIT = None] -->
-  <string name="remember_location_prompt">Agrega una etiqueta a tus fotos y videos con la ubicación donde se tomaron.\n\nOtras aplicaciones pueden acceder a esta información junto con las imágenes guardadas.</string>
+  <string name="remember_location_prompt">Añade una etiqueta a tus fotos y videos con la ubicación donde se tomaron.\n\nOtras aplicaciones pueden acceder a esta información junto con las imágenes guardadas.</string>
   <!-- Negative answer for first run dialog asking if the user wants to remember photo locations [CHAR LIMIT = 20] -->
   <string name="remember_location_no">No, gracias</string>
   <!-- Positive answer for first run dialog asking if the user wants to remember photo locations [CHAR LIMIT = 20] -->
@@ -530,7 +530,7 @@ CHAR LIMIT = NONE] -->
   <!-- more options label [CHAR LIMIT=50] -->
   <string name="camera_menu_more_label">MÁS OPCIONES</string>
   <!-- settings label [CHAR LIMIT=50] -->
-  <string name="camera_menu_settings_label">CONFIGURACIÓN</string>
+  <string name="camera_menu_settings_label">AJUSTES</string>
   <!--  Tiny Planet -->
   <!-- Button to press for creating a tiny planet image. [CHAR LIMIT = 30] -->
   <string name="create_tiny_planet">Crear efecto miniplaneta</string>

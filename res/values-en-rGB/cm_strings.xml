@@ -25,9 +25,27 @@
          will be multiplied by 100 as those languages want to count by ten thousands -->
   <string name="pref_camera_megapixel_format">(%1$s) %2$1.1f megapixels</string>
   <!-- Settings screen, scene mode -->
+  <string name="pref_camera_scenemode_entry_antimotionblur">Motion blur reduction</string>
   <string name="pref_camera_scenemode_entry_aqua">Aqua</string>
+  <string name="pref_camera_scenemode_entry_ar">Augmented reality</string>
   <string name="pref_camera_scenemode_entry_asd">Best shot</string>
+  <string name="pref_camera_scenemode_entry_baby">Baby</string>
+  <string name="pref_camera_scenemode_entry_backgroundblur">Background blur</string>
+  <string name="pref_camera_scenemode_entry_backlight">Backlight</string>
+  <string name="pref_camera_scenemode_entry_backlightportrait">Backlight portrait</string>
+  <string name="pref_camera_scenemode_entry_barcode">Barcode</string>
+  <string name="pref_camera_scenemode_entry_beach">Beach</string>
+  <string name="pref_camera_scenemode_entry_beauty">Beauty</string>
+  <string name="pref_camera_scenemode_entry_candlelight">Candlelight</string>
+  <string name="pref_camera_scenemode_entry_cine">Cine</string>
+  <string name="pref_camera_scenemode_entry_closeup">Closeup</string>
+  <string name="pref_camera_scenemode_entry_dark">Dark</string>
+  <string name="pref_camera_scenemode_entry_dish">Dish</string>
+  <string name="pref_camera_scenemode_entry_duskdawn">Duskdawn</string>
+  <string name="pref_camera_scenemode_entry_document">Document</string>
   <string name="pref_camera_scenemode_entry_fallcolor">Autumn</string>
+  <string name="pref_camera_scenemode_entry_fireworks">Fireworks</string>
+  <string name="pref_camera_scenemode_entry_highsensitivity">High sensitivity</string>
   <!-- Settings screen, focus mode -->
   <!-- Color effects -->
   <string name="pref_camera_coloreffect_entry_cartoonize">Cartoonise</string>

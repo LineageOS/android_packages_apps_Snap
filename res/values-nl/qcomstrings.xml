@@ -176,15 +176,18 @@
   <!-- The message is shown in dialog when the app encounters an unsupported video profile-->
   <string name="error_app_unsupported_profile">Niet-ondersteund videoformaat</string>
   <!--The message is shown in dialog when the raw snapshot is selected in zsl mode-->
-  <string name="error_app_unsupported_raw">Raw beeldformaat wordt niet ondersteund in Zero shutter lag modus. Selecteer JPEG</string>
+  <string name="error_app_unsupported_raw">Raw beeldformaat wordt niet ondersteund in de stand zonder ontspanvertraging (ZSL). Selecteer JPEG</string>
   <!-- Settings screen, AE bracketing and HDR location dialog choices -->
   <string name="pref_camera_ae_bracket_hdr_entry_ae_bracket">Reeksopname met automatische belichtingscompensatie (AEB)</string>
   <string name="pref_camera_ae_bracket_hdr_title">Reeksopname met automatische belichtingscompensatie (AEB)</string>
   <string name="pref_camera_ae_bracket_hdr_entry_on">Aan</string>
   <string name="err_app_unsupport_ae_bracket_code">Bracketing (AEB) wordt nog niet ondersteund</string>
   <!-- The messsage shown if user selects a snapshot resolution lower than the current video size. -->
+  <string name="snapshot_lower_than_video">Resolutie momentopname is kleiner dan die van de video. Momentopname wordt gemaakt ter grootte van de video. Kies een hogere of gelijke resolutie als de huidige videoresolutie.</string>
   <!-- The messsage shown if user selects a snapshot resolution in low power mode. -->
+  <string name="snapshotsize_low_powermode">Resolutie aanpassen wordt niet ondersteund in laag-energieverbruik-stand. Momentopname wordt gemaakt ter grootte van de video. Kies normaal-energieverbruik-stand om de resolutie aan te kunnen passen.</string>
   <!-- The messsage shown if user tries to take snapshot during D1/QCIF resolution. -->
+  <string name="snapshot_qcif_and_d1">Alleen momentopname ter grootte van de video wordt ondersteund in deze resolutie.</string>
   <!-- Default hfr setting. Do not translate. -->
   <!-- Settings screen, Select hfr title -->
   <string name="pref_camera_hfr_title">Opname met hoge beeldsnelheid</string>
@@ -439,6 +442,7 @@
   <string name="pref_camera2_noise_reduction_entry_off">Uit</string>
   <string name="pref_camera2_noise_reduction_entry_fast">Snel</string>
   <string name="pref_camera2_noise_reduction_entry_high_quality">Hoge kwaliteit</string>
+  <string name="pref_camera2_videosnap_title">Automatische grootte momentopname</string>
   <string name="pref_camera2_videosnap_entry_enable">Inschakelen</string>
   <string name="pref_camera2_videosnap_entry_disable">Uitschakelen</string>
   <string name="pref_camera2_trackingfocus_title">Focus volgt object</string>

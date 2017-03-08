@@ -38,6 +38,7 @@
   <!-- Settings screen, auto exposure dialog radio button choices -->
   <string name="pref_camera_autoexposure_entry_frameaverage">Frame average</string>
   <string name="pref_camera_autoexposure_entry_centerweighted">Centre weighted</string>
+  <string name="pref_camera_autoexposure_entry_spotmetering">Spot metering</string>
   <!-- Auto exposure entry values. Do not translate. -->
   <!-- Settings screen, Video encoder title -->
   <string name="pref_camera_videoencoder_title">Video codec</string>
@@ -47,18 +48,23 @@
   <string name="pref_camera_videoencoder_dialogtitle">Video codec</string>
   <!-- Default audio encoder setting. A numerical value. -->
   <!-- Settings screen, Audio encoder title -->
+  <string name="pref_camera_audioencoder_title">Audio codec</string>
   <!-- Settings screen, Audio encoder dialog radio button choices -->
   <!-- Default video duration setting. A numerical value.-->
   <!-- Default Skin Tone Enhancement setting. Do not translate. -->
   <!-- Settings screen, Select Skin Tone Enhancement title -->
+  <string name="pref_camera_skinToneEnhancement_title">Skin tone enhancement</string>
   <!-- Settings screen, Skin Tone Enhancement radio button choices -->
   <!-- Skin Tone Enhancement entry values. Do not translate. -->
   <!-- Settings screen, setting title text for ZSL-->
   <string name="pref_camera_zsl_title">Zero shutter lag</string>
   <!-- Default selectable zone af setting. Do not translate. -->
   <!-- Settings screen, Selectable zone af title -->
+  <string name="pref_camera_selectablezoneaf_title">Autofocus zone</string>
   <!-- Settings screen, Selectable Zone Af dialog radio button choices -->
+  <string name="pref_camera_selectablezoneaf_entry_auto">Auto</string>
   <string name="pref_camera_selectablezoneaf_entry_centerweighted">Centre weighted</string>
+  <string name="pref_camera_selectablezoneaf_entry_frameaverage">Frame average</string>
   <!-- Auto exposure entry values. Do not translate. -->
   <!-- Settings screen, Selectable advanced features title -->
   <!-- Settings screen, Selectable Zone Af dialog radio button choices -->
@@ -132,6 +138,7 @@
   <!-- Settings screen, Anti Banding title -->
   <!-- Default Anti Banding setting. -->
   <!-- Settings screen, Anti Banding entries -->
+  <string name="pref_camera_antibanding_entry_3">Auto</string>
   <!-- Default color effect setting. -->
   <!-- Settings screen, Select Color effect title -->
   <string name="pref_camera_coloreffect_title">Colour effect</string>

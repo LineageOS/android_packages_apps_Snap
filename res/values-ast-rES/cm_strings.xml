@@ -22,6 +22,7 @@
          parameter two is size in megapixels, e.g. "(4:3) 12.1 megapixels"
          NOTE: for Chinese (zh) and Korean (ko) the pixel number (parameter two)
          will be multiplied by 100 as those languages want to count by ten thousands -->
+  <string name="pref_camera_megapixel_format">(%1$s) %2$1.1f megapíxeles</string>
   <!-- Settings screen, scene mode -->
   <!-- Settings screen, focus mode -->
   <!-- Color effects -->
