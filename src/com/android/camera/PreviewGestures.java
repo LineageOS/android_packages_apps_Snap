@@ -340,10 +340,6 @@ public class PreviewGestures
         return true;
     }
 
-    public boolean waitUntilNextDown() {
-        return waitUntilNextDown;
-    }
-
     private MotionEvent makeCancelEvent(MotionEvent m) {
         MotionEvent c = MotionEvent.obtain(m);
         c.setAction(MotionEvent.ACTION_CANCEL);
