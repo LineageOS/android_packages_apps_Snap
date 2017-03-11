@@ -2825,8 +2825,6 @@ public class FilmStripView extends ViewGroup implements BottomControlsListener {
 
         @Override
         public boolean onScroll(float x, float y, float dx, float dy) {
-            if (mPreviewGestures != null && mPreviewGestures.waitUntilNextDown())
-                return false;
             ViewItem currItem = mViewItem[mCurrentItem];
             if (currItem == null) {
                 return false;
@@ -2892,8 +2890,6 @@ public class FilmStripView extends ViewGroup implements BottomControlsListener {
 
         @Override
         public boolean onFling(float velocityX, float velocityY) {
-            if (mPreviewGestures != null && mPreviewGestures.waitUntilNextDown())
-                return false;
             final ViewItem currItem = mViewItem[mCurrentItem];
             if (currItem == null) {
                 return false;
