@@ -164,6 +164,7 @@ public class RecordingTime extends RotateLayout implements PauseButton.OnPauseBu
             public void run() {
                 updateRecordingTime();
                 setVisibility(View.VISIBLE);
+                bringToFront();
             }
         });
 
