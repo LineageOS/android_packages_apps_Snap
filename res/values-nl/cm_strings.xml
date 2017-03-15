@@ -47,7 +47,6 @@
   <string name="pref_camera_scenemode_entry_fireworks">Vuurwerk</string>
   <string name="pref_camera_scenemode_entry_flowers">Bloemen</string>
   <string name="pref_camera_scenemode_entry_handheldtwilight">Schemering</string>
-  <string name="pref_camera_scenemode_entry_highsensitivity">Zeer gevoelig</string>
   <string name="pref_camera_scenemode_entry_indoor">Binnen</string>
   <string name="pref_camera_scenemode_entry_landscape">Landschap</string>
   <string name="pref_camera_scenemode_entry_mix_illuminant">Gemixte belichting</string>

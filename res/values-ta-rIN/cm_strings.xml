@@ -45,7 +45,6 @@
   <string name="pref_camera_scenemode_entry_fireworks">வானவேடிக்கைகள்</string>
   <string name="pref_camera_scenemode_entry_flowers">பூக்கள்</string>
   <string name="pref_camera_scenemode_entry_handheldtwilight">கையடக்க அந்தி</string>
-  <string name="pref_camera_scenemode_entry_highsensitivity">உயர்ந்த உணர்திறன்</string>
   <string name="pref_camera_scenemode_entry_indoor">கதவினுள்</string>
   <string name="pref_camera_scenemode_entry_landscape">நிலைபரப்பு</string>
   <string name="pref_camera_scenemode_entry_mix_illuminant">கலந்த ஒளி</string>

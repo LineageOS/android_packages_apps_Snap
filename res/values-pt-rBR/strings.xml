@@ -165,6 +165,7 @@
   <!-- In select camera setting, front-facing camera. [CHAR LIMIT=14] -->
   <string name="pref_camera_id_entry_front">Frontal</string>
   <!-- Settings screen, setting title text -->
+  <string name="pref_camera_recordlocation_title">Localização GPS</string>
   <!--  Label for record location preference [CHAR LIMIT=50] -->
   <string name="pref_camera_location_label">LOCAL</string>
   <!-- Title for countdown timer on camera settings screen [CHAR LIMIT=30]-->
@@ -177,6 +178,9 @@
   <!-- Text followed by a checkbox to turn on/off sound effects during the countdown. [CHAR LIMIT = 24]-->
   <string name="pref_camera_timer_sound_title">Aviso sonoro na contagem</string>
   <!-- Entry of camera save path -->
+  <string name="pref_camera_savepath_title">Armazenamento</string>
+  <string name="pref_camera_savepath_entry_0">Telefone</string>
+  <string name="pref_camera_savepath_entry_1">Cartão SD</string>
   <!-- Entry of a on/off setting. The setting is turned off. [CHAR LIMIT=15] -->
   <string name="setting_off">Desl.</string>
   <!-- Entry of a on/off setting. The setting is turned on. [CHAR LIMIT=15] -->
@@ -297,11 +301,15 @@
   <!-- Toast after trying to select a setting that is not allowed to change in scene mode [CHAR LIMIT=NONE] -->
   <string name="not_selectable_in_scene_mode">Não pode ser selecionado no modo de cena.</string>
   <!-- Toast after enable HDR function to inform Continuous Shot has disabled -->
+  <string name="HDR_disable_continuous_shot">O modo HDR desativará o disparo contínuo.</string>
   <!-- Toast after enable Advanced Capture function to inform Continuous Shot has disabled -->
+  <string name="advanced_capture_disable_continuous_shot">A captura avançada desativará o disparo contínuo.</string>
   <!-- Toast after enable 2k4k video quality to inform IS has disabled -->
   <string name="video_quality_4k_disable_IS">A qualidade de vídeo 4K desativará a estabilização de imagem.</string>
   <!-- Toast after 2k4k video is enabled to inform SeeMore has been disabled -->
+  <string name="video_quality_4k_disable_SeeMore">O modo SeeMore não pode estar ativado durante o modo de vídeo 4K.</string>
   <!-- Toast after High Quality Noise Reduction has been enabled to show CDS is disabled -->
+  <string name="disable_CDS_during_HighQualityNoiseReduction">A redução de ruído em alta qualidade desativará o CDS.</string>
   <!-- Toast after High Quality Noise Reduction has been enabled to show TNR is disabled -->
   <string name="disable_TNR_during_HighQualityNoiseReduction">A redução de ruído em alta qualidade desativará o TNR.</string>
   <!-- Toast after SeeMore has been enabled to show CDS is disabled -->
@@ -542,4 +550,5 @@ CHAR LIMIT = NONE] -->
   <string name="setting_wallpaper">Definindo plano de fundo</string>
   <!-- Menu, Video rotation labels [CHAR LIMIT=50] -->
   <string name="remaining_photos_format">%d restante(s)</string>
+  <string name="makeup_video_size_limit">A maquiagem funciona apenas em tamanhos inferiores a VGA para a gravação de vídeo.</string>
 </resources>

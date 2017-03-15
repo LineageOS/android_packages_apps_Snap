@@ -55,6 +55,8 @@
   <!-- Settings screen, Select Skin Tone Enhancement title -->
   <string name="pref_camera_skinToneEnhancement_title">Skin tone enhancement</string>
   <!-- Settings screen, Skin Tone Enhancement radio button choices -->
+  <string name="pref_camera_skinToneEnhancement_entry_enable">Enable</string>
+  <string name="pref_camera_skinToneEnhancement_entry_disable">Disable</string>
   <!-- Skin Tone Enhancement entry values. Do not translate. -->
   <!-- Settings screen, setting title text for ZSL-->
   <string name="pref_camera_zsl_title">Zero shutter lag</string>
@@ -63,11 +65,15 @@
   <string name="pref_camera_selectablezoneaf_title">Autofocus zone</string>
   <!-- Settings screen, Selectable Zone Af dialog radio button choices -->
   <string name="pref_camera_selectablezoneaf_entry_auto">Auto</string>
+  <string name="pref_camera_selectablezoneaf_entry_spotmetering">Spot metering</string>
   <string name="pref_camera_selectablezoneaf_entry_centerweighted">Centre weighted</string>
   <string name="pref_camera_selectablezoneaf_entry_frameaverage">Frame average</string>
   <!-- Auto exposure entry values. Do not translate. -->
   <!-- Settings screen, Selectable advanced features title -->
+  <string name="pref_camera_advanced_features_title">Advanced features</string>
   <!-- Settings screen, Selectable Zone Af dialog radio button choices -->
+  <string name="pref_camera_advanced_feature_entry_none">None</string>
+  <string name="pref_camera_advanced_feature_entry_multi_touch_focus">Multi-touch Focus</string>
   <!-- Auto exposure entry values. Do not translate. -->
   <!-- Manual exposure control entry values -->
   <!-- Manual white balance entry values -->
@@ -104,6 +110,7 @@
   <!-- Settings menu, redeye reduction choices -->
   <!-- Default mce setting. Do not translate. -->
   <!-- The message is shown in toast when the app encounters an unsupported selection for HFR/HSR mode -->
+  <string name="error_app_unsupported_hfr_selection">High-frame rate recording is not supported when using Stabilisation/Time lapse/HDR.</string>
   <!-- The message is shown in dialog when the app encounters an unsupported resolution for HFR mode -->
   <!-- The message is shown in toast when the app encounters an unsupported resolution for DIS mode -->
   <!-- The message is shown in dialog when the app encounters an unsupported resolution for HSR mode -->

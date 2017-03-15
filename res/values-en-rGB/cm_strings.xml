@@ -45,7 +45,19 @@
   <string name="pref_camera_scenemode_entry_document">Document</string>
   <string name="pref_camera_scenemode_entry_fallcolor">Autumn</string>
   <string name="pref_camera_scenemode_entry_fireworks">Fireworks</string>
-  <string name="pref_camera_scenemode_entry_highsensitivity">High sensitivity</string>
+  <string name="pref_camera_scenemode_entry_flowers">Flowers</string>
+  <string name="pref_camera_scenemode_entry_handheldtwilight">Handheld twilight</string>
+  <string name="pref_camera_scenemode_entry_indoor">Indoor</string>
+  <string name="pref_camera_scenemode_entry_landscape">Landscape</string>
+  <string name="pref_camera_scenemode_entry_mix_illuminant">Mixed lighting</string>
+  <string name="pref_camera_scenemode_entry_mood">Mood</string>
+  <string name="pref_camera_scenemode_entry_nightportrait">Night portrait</string>
+  <string name="pref_camera_scenemode_entry_oldfilm">Old film</string>
+  <string name="pref_camera_scenemode_entry_pet">Pet</string>
+  <string name="pref_camera_scenemode_entry_portrait">Portrait</string>
+  <string name="pref_camera_scenemode_entry_softskin">Soft skin</string>
+  <string name="pref_camera_scenemode_entry_sports">Sports</string>
+  <string name="pref_camera_scenemode_entry_spotlight">Spotlight</string>
   <!-- Settings screen, focus mode -->
   <!-- Color effects -->
   <string name="pref_camera_coloreffect_entry_cartoonize">Cartoonise</string>

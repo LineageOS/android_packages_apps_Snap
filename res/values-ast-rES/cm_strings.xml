@@ -25,6 +25,7 @@
   <string name="pref_camera_megapixel_format">(%1$s) %2$1.1f megapíxeles</string>
   <!-- Settings screen, scene mode -->
   <!-- Settings screen, focus mode -->
+  <string name="pref_camera_focusmode_entry_normal">Normal</string>
   <!-- Color effects -->
   <!-- Red eye flash mode title -->
   <!-- Power shutter -->

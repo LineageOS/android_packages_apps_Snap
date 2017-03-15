@@ -47,7 +47,6 @@
   <string name="pref_camera_scenemode_entry_fireworks">불꽃놀이</string>
   <string name="pref_camera_scenemode_entry_flowers">꽃</string>
   <string name="pref_camera_scenemode_entry_handheldtwilight">손으로 찍는 황혼</string>
-  <string name="pref_camera_scenemode_entry_highsensitivity">고감도</string>
   <string name="pref_camera_scenemode_entry_indoor">실내</string>
   <string name="pref_camera_scenemode_entry_landscape">풍경</string>
   <string name="pref_camera_scenemode_entry_mix_illuminant">혼합된 조명</string>

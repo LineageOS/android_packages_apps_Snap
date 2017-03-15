@@ -140,6 +140,7 @@
   <!-- Settings screen, Select Face Detection -->
   <string name="pref_camera_facedetection_title">Detección de rostro</string>
   <!-- Settings menu, Face Detection choices -->
+  <string name="pref_camera_facedetection_entry_off">Desactivado</string>
   <string name="pref_camera_facedetection_entry_on">Activado</string>
   <!-- Default Selfie Flash setting. -->
   <!-- Settings screen, Selfie Flash Detection -->
@@ -402,7 +403,7 @@
   <string name="text_tsmakeup_beautify_toast">Embellecer</string>
   <string name="all_in_focus">Todo en foco</string>
   <string name="refocus_toast">Para volver a centrar la última foto, pulsa aquí</string>
-  <string name="refocus_prompt_message">Con UbiFocus, la cámara tomará 5 cuadros, cada vez que usted presione el botón disparador. Las 5 fotos se combinarán en 1 cuadro, donde todo está en foco. Puede volver a enfocar, después de tomar la fotografía.</string>
+  <string name="refocus_prompt_message">Con UbiFocus, la cámara tomará 5 fotos, cada vez que pulses el disparador. Las 5 fotos se combinarán en 1 sola, donde todo estará enfocado. Puede volver a enfocar, después de tomar la fotografía.</string>
   <string name="camera_thermal_shutdown">Teléfono sobrecalentado, cerrando cámara.</string>
   <string name="camera_server_died">El servidor multimedia se ha cerrado, cerrando cámara.</string>
   <string name="camera_unknown_error">Error desconocido, cerrando cámara.</string>

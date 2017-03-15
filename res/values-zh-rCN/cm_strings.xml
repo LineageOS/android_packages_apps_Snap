@@ -47,7 +47,6 @@
   <string name="pref_camera_scenemode_entry_fireworks">烟火</string>
   <string name="pref_camera_scenemode_entry_flowers">花朵</string>
   <string name="pref_camera_scenemode_entry_handheldtwilight">手持夜摄</string>
-  <string name="pref_camera_scenemode_entry_highsensitivity">高感光度</string>
   <string name="pref_camera_scenemode_entry_indoor">室内</string>
   <string name="pref_camera_scenemode_entry_landscape">风景</string>
   <string name="pref_camera_scenemode_entry_mix_illuminant">混合照明</string>

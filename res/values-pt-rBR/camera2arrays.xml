@@ -32,6 +32,11 @@
     <item>Ativado</item>
     <item>Desativado</item>
   </string-array>
+  <string-array name="pref_camera2_initial_camera_entries">
+    <item>Bayer</item>
+    <item>Monocromático</item>
+    <item>Frontal</item>
+  </string-array>
   <string-array name="pref_camera2_makeup_entries">
     <item>Ativado</item>
     <item>Desativado</item>

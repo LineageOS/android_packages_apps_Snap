@@ -45,7 +45,6 @@
   <string name="pref_camera_scenemode_entry_fireworks">आतषबाजी</string>
   <string name="pref_camera_scenemode_entry_flowers">फुले</string>
   <string name="pref_camera_scenemode_entry_handheldtwilight">हातातधरलेला संधिप्रकाश</string>
-  <string name="pref_camera_scenemode_entry_highsensitivity">उच्च संवेदनक्षमता</string>
   <string name="pref_camera_scenemode_entry_indoor">आत</string>
   <string name="pref_camera_scenemode_entry_landscape">भूदृश्य</string>
   <string name="pref_camera_scenemode_entry_mix_illuminant">मिश्र प्रकाशयोजना</string>

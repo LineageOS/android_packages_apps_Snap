@@ -26,7 +26,10 @@
   <!-- Video quality setting entry. Videos will be recorded in QVGA quality. [CHAR LIMIT=24] -->
   <!-- Video quality setting entry. Videos will be recorded in QCIF quality. [CHAR LIMIT=24] -->
   <!-- Settings screen, Power Mode title -->
+  <string name="pref_camera_powermode_title">Энергопотребление</string>
   <!-- Settings screen, Power mode dialog radio button choices -->
+  <string name="pref_camera_powermode_entry_lp">Пониженное</string>
+  <string name="pref_camera_powermode_entry_np">Обычное</string>
   <!-- Settings screen, Power mode dialog radio button choices -->
   <!-- Default Power mode.. -->
   <!-- Default auto exposure setting. Do not translate. -->
@@ -337,6 +340,7 @@
   <!-- Scene detection set to on - supports backlight and snow cloudy detection. -->
   <string name="pref_camera_scenedetect_entry_on">Вкл</string>
   <!-- Toast showing error if invalid size selected for  time lapse  [CHAR LIMIT=65] -->
+  <string name="time_lapse_error">Неверное разрешение видео для замедленной съёмки.</string>
   <!-- longshot value -->
   <string name="pref_camera_longshot_title">Непрерывная съёмка</string>
   <string name="msg_cancel_longshot_for_limited_memory">Недостаточно памяти. Непрерывная съёмка отменена</string>
@@ -379,14 +383,28 @@
   <!-- The alas of CameraActivity for gesture operation -->
   <string name="camera_gesture_title">Включить камеру</string>
   <string name="pref_camera_tsmakeup_entry_off">Отключить</string>
+  <string name="text_tsmakeup_alert_title">Внимание</string>
   <string name="text_tsmakeup_alert_continue">Продолжить</string>
   <string name="text_tsmakeup_alert_quit">Отмена</string>
   <string name="all_in_focus">Все в фокусе</string>
   <string name="refocus_toast">Нажмите, чтобы перефокусировать последнее фото</string>
+  <string name="refocus_prompt_message">С UbiFocus ваша камера будет делать сразу 5 фотографий за один раз. После этого, 5 фотографий будут объединены в одну, где все объекты будут в фокусе. После объединения вы сможете выбрать место фокусировки на итоговом изображении.</string>
+  <string name="camera_thermal_shutdown">Перегрев устройства. Камера будет выключена.</string>
+  <string name="camera_server_died">Сервер медиа неожиданно завершил работу. Камера будет выключена.</string>
+  <string name="camera_unknown_error">Произошла неизвестная ошибка. Камера будет выключена.</string>
   <string name="mute_button_desc">Кнопка отключения звука</string>
   <!-- Help menu strings -->
   <string name="help_menu_ok">ОК</string>
+  <string name="help_menu_scene_mode_1">Выберите</string>
   <string name="help_menu_scene_mode_2">Режим съёмки</string>
+  <string name="help_menu_scene_mode_3">для улучшения фотографий</string>
+  <string name="help_menu_color_filter_1">Примените цветовые</string>
+  <string name="help_menu_color_filter_2">фильтры</string>
+  <string name="help_menu_color_filter_3">для</string>
+  <string name="help_menu_color_filter_4">улучшения фотографий</string>
+  <string name="help_menu_switcher_2">между</string>
+  <string name="help_menu_switcher_3">фото, видео и панорамой</string>
+  <string name="pref_camera2_camera2_title">Режим Camera2</string>
   <string name="pref_camera2_camera2_entry_enable">Включить</string>
   <string name="pref_camera2_camera2_entry_disable">Выключить</string>
   <string name="pref_camera2_mono_preview_entry_on">Включено</string>
@@ -395,6 +413,7 @@
   <string name="pref_camera2_clearsight_entry_off">Отключить</string>
   <string name="clearsight_capture_success">ClearSight захват успешен</string>
   <string name="clearsight_capture_fail">ClearSight захват не успешен</string>
+  <string name="pref_camera2_mpo_title">Формат MPO</string>
   <string name="pref_camera2_mpo_entry_on">Включено</string>
   <string name="pref_camera2_mpo_entry_off">Отключить</string>
   <string name="pref_camera2_makeup_title">Макияж</string>

@@ -47,7 +47,6 @@
   <string name="pref_camera_scenemode_entry_fireworks">Pháo hoa</string>
   <string name="pref_camera_scenemode_entry_flowers">Hoa</string>
   <string name="pref_camera_scenemode_entry_handheldtwilight">Đèn cầm tay</string>
-  <string name="pref_camera_scenemode_entry_highsensitivity">Độ nhạy cao</string>
   <string name="pref_camera_scenemode_entry_indoor">Trong nhà</string>
   <string name="pref_camera_scenemode_entry_landscape">Ngang</string>
   <string name="pref_camera_scenemode_entry_mix_illuminant">Hỗn hợp ánh sáng</string>

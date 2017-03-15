@@ -45,7 +45,6 @@
   <string name="pref_camera_scenemode_entry_fireworks">الألعاب النارية</string>
   <string name="pref_camera_scenemode_entry_flowers">زهور</string>
   <string name="pref_camera_scenemode_entry_handheldtwilight">وضع التصوير المحمول بدون مساعدة</string>
-  <string name="pref_camera_scenemode_entry_highsensitivity">حساسية عالية</string>
   <string name="pref_camera_scenemode_entry_indoor">داخلي</string>
   <string name="pref_camera_scenemode_entry_landscape">المناظر الطبيعية</string>
   <string name="pref_camera_scenemode_entry_mix_illuminant">الإضاءة المختلطة</string>

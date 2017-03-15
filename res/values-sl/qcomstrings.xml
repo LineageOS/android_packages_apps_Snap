@@ -64,7 +64,7 @@
   <!-- Settings screen, Selectable zone af title -->
   <string name="pref_camera_selectablezoneaf_title">Področje sam. ostrenja</string>
   <!-- Settings screen, Selectable Zone Af dialog radio button choices -->
-  <string name="pref_camera_selectablezoneaf_entry_auto">Samod.</string>
+  <string name="pref_camera_selectablezoneaf_entry_auto">Samodejno</string>
   <string name="pref_camera_selectablezoneaf_entry_spotmetering">Točkovno</string>
   <string name="pref_camera_selectablezoneaf_entry_centerweighted">Sredinsko uravnoteženo</string>
   <string name="pref_camera_selectablezoneaf_entry_frameaverage">Povprečje okvirja</string>
@@ -109,7 +109,7 @@
   <!-- Settings screen, CDS location dialog choices -->
   <string name="pref_camera_cds_entry_off">Izklopljeno</string>
   <string name="pref_camera_cds_entry_on">Vklopljeno</string>
-  <string name="pref_camera_cds_entry_auto">Samod.</string>
+  <string name="pref_camera_cds_entry_auto">Samodejno</string>
   <!-- Settings screen, video CDS location dialog choices -->
   <string name="pref_camera_video_cds_entry_off">Izklopljeno</string>
   <string name="pref_camera_video_cds_entry_on">Vklopljeno</string>
@@ -225,7 +225,7 @@
   <!-- Settings screen, Select Iso title -->
   <string name="pref_camera_iso_title">ISO</string>
   <!-- Settings screen, ISO dialog radio button choices -->
-  <string name="pref_camera_iso_entry_auto">Samod.</string>
+  <string name="pref_camera_iso_entry_auto">Samodejno</string>
   <string name="pref_camera_iso_entry_isodeblur">Samodejno (HJR)</string>
   <string name="pref_camera_iso_entry_iso100">ISO 100</string>
   <string name="pref_camera_iso_entry_iso200">ISO 200</string>
@@ -240,7 +240,7 @@
   <string name="pref_camera_antibanding_entry_0">Izklopljeno</string>
   <string name="pref_camera_antibanding_entry_1">50 Hz (Evropa)</string>
   <string name="pref_camera_antibanding_entry_2">60 Hz (ZDA)</string>
-  <string name="pref_camera_antibanding_entry_3">Samod.</string>
+  <string name="pref_camera_antibanding_entry_3">Samodejno</string>
   <!-- Default color effect setting. -->
   <string name="pref_camera_filter_mode_entry_on">Vklopljeno</string>
   <string name="pref_camera_filter_mode_entry_off">Izklopljeno</string>

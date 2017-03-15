@@ -55,6 +55,8 @@
   <!-- Settings screen, Select Skin Tone Enhancement title -->
   <string name="pref_camera_skinToneEnhancement_title">Aprimorar tom da pele</string>
   <!-- Settings screen, Skin Tone Enhancement radio button choices -->
+  <string name="pref_camera_skinToneEnhancement_entry_enable">Ativar</string>
+  <string name="pref_camera_skinToneEnhancement_entry_disable">Desativar</string>
   <!-- Skin Tone Enhancement entry values. Do not translate. -->
   <!-- Settings screen, setting title text for ZSL-->
   <string name="pref_camera_zsl_title">Eliminar atraso do disparador</string>
@@ -155,6 +157,7 @@
   <string name="pref_camera_selfiemirror_title" translatable="true">Espelhar selfie</string>
   <string name="pref_camera_selfiemirror_entry_enable">Ativar</string>
   <string name="pref_camera_selfiemirror_entry_disable">Desativar</string>
+  <string name="pref_camera_shuttersound_title" translatable="true">Som de captura</string>
   <string name="pref_camera_shuttersound_entry_enable">Ligado</string>
   <string name="pref_camera_shuttersound_entry_disable">Desligado</string>
   <!-- Default mce setting. Do not translate. -->
@@ -178,6 +181,7 @@
   <string name="pref_camera_ae_bracket_hdr_entry_ae_bracket">Assistente de auto-exposição</string>
   <string name="pref_camera_ae_bracket_hdr_title">Assistente de auto-exposição</string>
   <string name="pref_camera_ae_bracket_hdr_entry_on">Ativado</string>
+  <string name="err_app_unsupport_ae_bracket_code">Escalonamento AE ainda não é suportado</string>
   <!-- The messsage shown if user selects a snapshot resolution lower than the current video size. -->
   <!-- The messsage shown if user selects a snapshot resolution in low power mode. -->
   <!-- The messsage shown if user tries to take snapshot during D1/QCIF resolution. -->
@@ -193,6 +197,7 @@
   <string name="pref_camera_hfr_entry_hsr_60">Alta velocidade 60 FPS</string>
   <string name="pref_camera_hfr_entry_hsr_90">Alta velocidade 90 FPS</string>
   <string name="pref_camera_hfr_entry_hsr_120">Alta velocidade 120 FPS</string>
+  <string name="pref_camera_hfr_entry_hsr_240">Alta velocidade a 240 FPS</string>
   <!-- HFR entry values. Do not translate. -->
   <!-- Default noise reduction setting. Do not translate. -->
   <!-- Settings screen, Select See More title -->
@@ -379,17 +384,23 @@
   <string name="advance_feature_enable_msg">Disparo contínuo não é suportado quando recursos avançados estão ativados</string>
   <!-- The alas of CameraActivity for gesture operation -->
   <string name="camera_gesture_title">Iniciar a câmera</string>
+  <string name="pref_camera_tsmakeup_title">Embelezamento</string>
   <string name="pref_camera_tsmakeup_entry_on">Ativado</string>
   <string name="pref_camera_tsmakeup_entry_off">Desl.</string>
   <string name="pref_camera_tsmakeup_entry_low">Baixa</string>
   <string name="pref_camera_tsmakeup_entry_mid">Média</string>
   <string name="pref_camera_tsmakeup_entry_high">Alta</string>
   <string name="pref_camera_tsmakeup_custom">Personalizada</string>
+  <string name="pref_camera_tsmakeup_level_whiten">Branqueado</string>
   <string name="text_tsmakeup_alert_title">Aviso</string>
+  <string name="text_tsmakeup_alert_msg">A detecção de rosto deverá ser ativada para usar o recurso de embelezamento. Deseja continuar?</string>
   <string name="text_tsmakeup_alert_continue">Continuar</string>
   <string name="text_tsmakeup_alert_quit">Cancelar</string>
+  <string name="text_tsmakeup_beautify_toast">Embelezar</string>
   <string name="all_in_focus">Tudo em foco</string>
   <string name="refocus_toast">Para re-focar a última foto, toque aqui</string>
+  <string name="refocus_prompt_message">Com o UbiFocus, a sua câmera tirará 5 fotos a cada vez que pressionar o botão de tirar foto. As 5 fotos serão combinadas em somente uma foto, onde tudo estará focado. Você poderá optar por mudar o foco após tirar a foto.</string>
+  <string name="camera_thermal_shutdown">Telefone superaquecido, fechando a câmera.</string>
   <string name="camera_server_died">O servidor de mídia foi encerrado, fechando a câmera.</string>
   <string name="camera_unknown_error">Erro desconhecido, fechando a câmera.</string>
   <string name="mute_button_desc">Botão de silêncio</string>
@@ -400,11 +411,18 @@
   <string name="help_menu_color_filter_1">Aplicar cor</string>
   <string name="help_menu_color_filter_2">filtros</string>
   <string name="help_menu_color_filter_3">para</string>
+  <string name="help_menu_color_filter_4">melhorar as imagens</string>
+  <string name="help_menu_beautify_1">Melhorar retratos</string>
+  <string name="help_menu_beautify_2">com a</string>
+  <string name="help_menu_beautify_3">Recurso Embelezar</string>
+  <string name="help_menu_switcher_1">Alternar</string>
   <string name="help_menu_switcher_2">entre</string>
   <string name="help_menu_switcher_3">câmera, vídeo e panorama</string>
   <string name="pref_camera2_camera2_title">Modo Camera2</string>
   <string name="pref_camera2_camera2_entry_enable">Ativar</string>
   <string name="pref_camera2_camera2_entry_disable">Desativar</string>
+  <string name="pref_camera2_mono_only_title">Somente monocromático</string>
+  <string name="pref_camera2_mono_preview_title">Pré-visualização em monocromático</string>
   <string name="pref_camera2_mono_preview_entry_on">Ativado</string>
   <string name="pref_camera2_mono_preview_entry_off">Desl.</string>
   <string name="pref_camera2_clearsight_entry_on">Ativado</string>
@@ -419,10 +437,13 @@
   <string name="pref_camera2_noise_reduction_entry_off">Desl.</string>
   <string name="pref_camera2_noise_reduction_entry_fast">Rápido</string>
   <string name="pref_camera2_noise_reduction_entry_high_quality">Alta qualidade</string>
+  <string name="pref_camera2_videosnap_title">Tamanho automático da foto instantânea</string>
   <string name="pref_camera2_videosnap_entry_enable">Ativar</string>
   <string name="pref_camera2_videosnap_entry_disable">Desativar</string>
+  <string name="pref_camera2_trackingfocus_title">Rastreamento de foco</string>
   <string name="bestpicture_done">CONCLUÍDO</string>
   <string name="bestpicture_at_least_one_picture">Pelo menos uma imagem deve ser escolhida.</string>
   <string name="pref_camera2_shutter_sound_entry_on">Ativado</string>
   <string name="pref_camera2_shutter_sound_entry_off">Desl.</string>
+  <string name="pref_camera2_shutter_sound_title">Som de captura</string>
 </resources>

@@ -49,6 +49,7 @@
   <!-- Settings screen, Select Skin Tone Enhancement title -->
   <!-- Settings screen, Skin Tone Enhancement radio button choices -->
   <string name="pref_camera_skinToneEnhancement_entry_enable">Habilitar</string>
+  <string name="pref_camera_skinToneEnhancement_entry_disable">Deshabilitar</string>
   <!-- Skin Tone Enhancement entry values. Do not translate. -->
   <!-- Settings screen, setting title text for ZSL-->
   <!-- Default selectable zone af setting. Do not translate. -->
@@ -70,6 +71,7 @@
   <string name="pref_camera_instant_capture_title" translatable="true">Captura nel intre</string>
   <string name="pref_camera_instant_capture_entry_aggressive_aec" translatable="true">AEC agresivo</string>
   <string name="pref_camera_instant_capture_entry_fast_aec" translatable="true">AEC rápido</string>
+  <string name="pref_camera_instant_capture_entry_disable" translatable="true">Deshabilitar</string>
   <!-- Instant Capture entry values -->
   <!-- Settings screen, ZSL location dialog choices -->
   <!-- The message is shown in toast when HDR or scene mode is enabled -->
@@ -79,9 +81,11 @@
   <!-- Settings screen, video CDS location dialog choices -->
   <string name="pref_camera_video_cds_entry_auto">Auto</string>
   <!-- Settings screen, TNR location dialog choices -->
+  <string name="pref_camera_tnr_entry_disable">Deshabilitar</string>
   <string name="pref_camera_tnr_entry_enable">Habilitar</string>
   <!-- Settings screen, TNR location dialog choices -->
   <!-- Settings screen, video TNR location dialog choices -->
+  <string name="pref_camera_video_tnr_entry_disable">Deshabilitar</string>
   <string name="pref_camera_video_tnr_entry_enable">Habilitar</string>
   <!-- Settings screen, video TNR location dialog choices -->
   <!-- Settings screen, setting title text for Video HDR-->
@@ -109,7 +113,9 @@
   <!-- Settings screen, Select Redeye Reduction -->
   <!-- Settings menu, redeye reduction choices -->
   <string name="pref_camera_redeyereduction_entry_enable">Habilitar</string>
+  <string name="pref_camera_redeyereduction_entry_disable">Deshabilitar</string>
   <string name="pref_camera_selfiemirror_entry_enable">Habilitar</string>
+  <string name="pref_camera_selfiemirror_entry_disable">Deshabilitar</string>
   <!-- Default mce setting. Do not translate. -->
   <!-- The message is shown in toast when the app encounters an unsupported selection for HFR/HSR mode -->
   <!-- The message is shown in dialog when the app encounters an unsupported resolution for HFR mode -->
@@ -227,6 +233,7 @@
   <string name="pref_camera_histogram_title">Histograma</string>
   <!-- Settings screen, Histogram radio button choices -->
   <string name="pref_camera_histogram_entry_enable">Habilitar</string>
+  <string name="pref_camera_histogram_entry_disable">Deshabilitar</string>
   <!-- Histogram entry values. Do not translate. -->
   <!-- Default auto scene detection setting. -->
   <!-- Settings screen, Select Auto Scene Detection -->
@@ -238,6 +245,7 @@
   <!-- Settings screen, setting title text for Auto HDR-->
   <!-- Settings screen, Auto HDR location dialog choices -->
   <string name="pref_camera_auto_hdr_entry_enable">Habilitar</string>
+  <string name="pref_camera_auto_hdr_entry_disable">Deshabilitar</string>
   <!-- toast message for storage location switch -->
   <!-- Settings screen, Selectable HDR mode title -->
   <string name="pref_camera_hdr_mode_title">Mou HDR</string>
@@ -275,6 +283,7 @@
   <string name="mute_button_desc">Botón de silenciar</string>
   <!-- Help menu strings -->
   <string name="help_menu_ok">ACEUTAR</string>
+  <string name="help_menu_scene_mode_1">Esbilla un</string>
   <string name="help_menu_scene_mode_2">mou d\'escena</string>
   <string name="help_menu_scene_mode_3">pa semeyes meyores</string>
   <string name="help_menu_color_filter_2">de color</string>
@@ -286,6 +295,8 @@
   <string name="help_menu_switcher_3">cámara, videu y panorámicu</string>
   <string name="pref_camera2_camera2_title">Mou Camera2</string>
   <string name="pref_camera2_camera2_entry_enable">Habilitar</string>
+  <string name="pref_camera2_mono_only_title">Namái mono</string>
+  <string name="pref_camera2_mono_preview_title">Previsualización mono</string>
   <string name="clearsight_capture_fail">Falló la captura ClearSight</string>
   <string name="pref_camera2_mpo_title">Formatu MPO</string>
   <string name="pref_camera2_noise_reduction_title">Reducción de ruíu</string>
