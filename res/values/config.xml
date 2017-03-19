@@ -43,6 +43,9 @@
     <!-- Restart preview for front camera onPictureTaken -->
     <bool name="front_camera_restart_preview_onPictureTaken">false</bool>
 
+    <!-- Restart preview for additional camera onPictureTaken -->
+    <bool name="additional_camera_restart_preview_onPictureTaken">false</bool>
+
     <!-- Set's manufacturer specific parameters on startup.
          Example: lge-camera=1;cam-mode=0 -->
     <string name="manufacturer_key_values"></string>
