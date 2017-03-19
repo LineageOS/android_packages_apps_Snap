@@ -1382,16 +1382,21 @@ public class PhotoModule extends BaseModule<PhotoUI> implements
 
             boolean backCameraRestartPreviewOnPictureTaken = false;
             boolean frontCameraRestartPreviewOnPictureTaken = false;
+            boolean additionalCameraRestartPreviewOnPictureTaken = false;
             backCameraRestartPreviewOnPictureTaken =
                     mActivity.getResources().getBoolean(R.bool.back_camera_restart_preview_onPictureTaken);
             frontCameraRestartPreviewOnPictureTaken =
                     mActivity.getResources().getBoolean(R.bool.front_camera_restart_preview_onPictureTaken);
+            additionalCameraRestartPreviewOnPictureTaken =
+                    mActivity.getResources().getBoolean(R.bool.additional_camera_restart_preview_onPictureTaken);
 
             CameraInfo info = CameraHolder.instance().getCameraInfo()[mCameraId];
             if ((info.facing == CameraInfo.CAMERA_FACING_BACK
                     && backCameraRestartPreviewOnPictureTaken && (mCameraState != LONGSHOT))
                     || (info.facing == CameraInfo.CAMERA_FACING_FRONT
-                    && frontCameraRestartPreviewOnPictureTaken && (mCameraState != LONGSHOT))) {
+                    && frontCameraRestartPreviewOnPictureTaken && (mCameraState != LONGSHOT))
+                    || (info.facing > CameraInfo.CAMERA_FACING_FRONT
+                    && additionalCameraRestartPreviewOnPictureTaken && (mCameraState != LONGSHOT))) {
                 needRestartPreview = true;
             }
 
