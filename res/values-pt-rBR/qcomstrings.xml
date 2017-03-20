@@ -392,6 +392,7 @@
   <string name="pref_camera_tsmakeup_entry_high">Alta</string>
   <string name="pref_camera_tsmakeup_custom">Personalizada</string>
   <string name="pref_camera_tsmakeup_level_whiten">Branqueado</string>
+  <string name="pref_camera_tsmakeup_level_clean">Macio</string>
   <string name="text_tsmakeup_alert_title">Aviso</string>
   <string name="text_tsmakeup_alert_msg">A detecção de rosto deverá ser ativada para usar o recurso de embelezamento. Deseja continuar?</string>
   <string name="text_tsmakeup_alert_continue">Continuar</string>
@@ -408,6 +409,7 @@
   <string name="help_menu_ok">OK</string>
   <string name="help_menu_scene_mode_1">Selecione um</string>
   <string name="help_menu_scene_mode_2">Modo de cena</string>
+  <string name="help_menu_scene_mode_3">para melhores imagens</string>
   <string name="help_menu_color_filter_1">Aplicar cor</string>
   <string name="help_menu_color_filter_2">filtros</string>
   <string name="help_menu_color_filter_3">para</string>
@@ -441,6 +443,7 @@
   <string name="pref_camera2_videosnap_entry_enable">Ativar</string>
   <string name="pref_camera2_videosnap_entry_disable">Desativar</string>
   <string name="pref_camera2_trackingfocus_title">Rastreamento de foco</string>
+  <string name="pref_camera_scenemode_entry_bestpicture">Melhor imagem</string>
   <string name="bestpicture_done">CONCLUÍDO</string>
   <string name="bestpicture_at_least_one_picture">Pelo menos uma imagem deve ser escolhida.</string>
   <string name="pref_camera2_shutter_sound_entry_on">Ativado</string>

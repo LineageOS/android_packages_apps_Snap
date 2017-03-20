@@ -165,6 +165,7 @@
   <!-- In select camera setting, front-facing camera. [CHAR LIMIT=14] -->
   <string name="pref_camera_id_entry_front">Voorkant</string>
   <!-- Settings screen, setting title text -->
+  <string name="pref_camera_recordlocation_title">GPS ligging</string>
   <!--  Label for record location preference [CHAR LIMIT=50] -->
   <string name="pref_camera_location_label">LIGGING</string>
   <!-- Title for countdown timer on camera settings screen [CHAR LIMIT=30]-->
@@ -177,6 +178,9 @@
   <!-- Text followed by a checkbox to turn on/off sound effects during the countdown. [CHAR LIMIT = 24]-->
   <string name="pref_camera_timer_sound_title">Biep tydens aftelling</string>
   <!-- Entry of camera save path -->
+  <string name="pref_camera_savepath_title">Berging</string>
+  <string name="pref_camera_savepath_entry_0">Foon</string>
+  <string name="pref_camera_savepath_entry_1">SD-kaart</string>
   <!-- Entry of a on/off setting. The setting is turned off. [CHAR LIMIT=15] -->
   <string name="setting_off">Af</string>
   <!-- Entry of a on/off setting. The setting is turned on. [CHAR LIMIT=15] -->
@@ -297,14 +301,23 @@
   <!-- Toast after trying to select a setting that is not allowed to change in scene mode [CHAR LIMIT=NONE] -->
   <string name="not_selectable_in_scene_mode">Kan nie in toneelmodus gekies word nie.</string>
   <!-- Toast after enable HDR function to inform Continuous Shot has disabled -->
+  <string name="HDR_disable_continuous_shot">HDR sal deurlopende skoot deaktiveer.</string>
   <!-- Toast after enable Advanced Capture function to inform Continuous Shot has disabled -->
+  <string name="advanced_capture_disable_continuous_shot">Gevorderde vaslegging sal deurlopende skoot deaktiveer.</string>
   <!-- Toast after enable 2k4k video quality to inform IS has disabled -->
+  <string name="video_quality_4k_disable_IS">4 k videokwaliteit sal beeldstabilisering deaktiveer.</string>
   <!-- Toast after 2k4k video is enabled to inform SeeMore has been disabled -->
+  <string name="video_quality_4k_disable_SeeMore">SeeMore kan nie aktiveer word gedurende 4k videoopneming nie.</string>
   <!-- Toast after High Quality Noise Reduction has been enabled to show CDS is disabled -->
+  <string name="disable_CDS_during_HighQualityNoiseReduction">Hoë-gehalte geraasvermindering sal TNR deaktiveer.</string>
   <!-- Toast after High Quality Noise Reduction has been enabled to show TNR is disabled -->
+  <string name="disable_TNR_during_HighQualityNoiseReduction">Hoë-gehalte geraasvermindering sal TNR deaktiveer.</string>
   <!-- Toast after SeeMore has been enabled to show CDS is disabled -->
+  <string name="disable_CDS_during_SeeMore">SeeMore sal CDS deaktiveer.</string>
   <!-- Toast after SeeMore has been enabled to show TNR is disabled -->
+  <string name="disable_TNR_during_SeeMore">SeeMore sal TNR deaktiveer.</string>
   <!-- Toast after SeeMore has been enabled to show NR is disabled -->
+  <string name="disable_NR_during_SeeMore">SeeMore sal geraasvermindering deaktiveer.</string>
   <!-- Exposure settings in preference -->
   <string name="pref_exposure_title">Beligting</string>
   <!--  menu label exposure compensation [CHAR LIMIT=50] -->
@@ -536,4 +549,6 @@ CHAR LIMIT = NONE] -->
   <!--  String shown when setting the homepage wallpaper in the background [CHAR LIMIT=NONE] -->
   <string name="setting_wallpaper">Stel tans muurpapier in</string>
   <!-- Menu, Video rotation labels [CHAR LIMIT=50] -->
+  <string name="remaining_photos_format">%d oor</string>
+  <string name="makeup_video_size_limit">Make-up werk net onder VGA grootte in video-opname.</string>
 </resources>

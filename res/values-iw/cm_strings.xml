@@ -47,6 +47,7 @@
   <string name="pref_camera_scenemode_entry_fireworks">זיקוקים</string>
   <string name="pref_camera_scenemode_entry_flowers">פרחים</string>
   <string name="pref_camera_scenemode_entry_handheldtwilight">בין-ערביים</string>
+  <string name="pref_camera_scenemode_entry_highsensitivity">רגישות גבוהה</string>
   <string name="pref_camera_scenemode_entry_indoor">בתוך מבנים</string>
   <string name="pref_camera_scenemode_entry_landscape">נוף/רוחב</string>
   <string name="pref_camera_scenemode_entry_mix_illuminant">תאורה מעורבת</string>

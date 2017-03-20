@@ -169,6 +169,7 @@
   <!-- In select camera setting, front-facing camera. [CHAR LIMIT=14] -->
   <string name="pref_camera_id_entry_front">Przedni</string>
   <!-- Settings screen, setting title text -->
+  <string name="pref_camera_recordlocation_title">Lokalizacja GPS</string>
   <!--  Label for record location preference [CHAR LIMIT=50] -->
   <string name="pref_camera_location_label">LOKALIZACJA</string>
   <!-- Title for countdown timer on camera settings screen [CHAR LIMIT=30]-->
@@ -182,6 +183,8 @@
   <!-- Text followed by a checkbox to turn on/off sound effects during the countdown. [CHAR LIMIT = 24]-->
   <string name="pref_camera_timer_sound_title">Sygnał odliczania</string>
   <!-- Entry of camera save path -->
+  <string name="pref_camera_savepath_entry_0">Telefon</string>
+  <string name="pref_camera_savepath_entry_1">Karta SD</string>
   <!-- Entry of a on/off setting. The setting is turned off. [CHAR LIMIT=15] -->
   <string name="setting_off">Wyłączona</string>
   <!-- Entry of a on/off setting. The setting is turned on. [CHAR LIMIT=15] -->
@@ -541,4 +544,5 @@ CHAR LIMIT = NONE] -->
   <!--  String shown when setting the homepage wallpaper in the background [CHAR LIMIT=NONE] -->
   <string name="setting_wallpaper">Ustawiam tapetę</string>
   <!-- Menu, Video rotation labels [CHAR LIMIT=50] -->
+  <string name="makeup_video_size_limit">\"Makijaż\" działa tylko w rozmiarze wideo VGA.</string>
 </resources>

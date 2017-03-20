@@ -26,7 +26,10 @@
   <!-- Video quality setting entry. Videos will be recorded in QVGA quality. [CHAR LIMIT=24] -->
   <!-- Video quality setting entry. Videos will be recorded in QCIF quality. [CHAR LIMIT=24] -->
   <!-- Settings screen, Power Mode title -->
+  <string name="pref_camera_powermode_title">Λειτουργία ισχύος</string>
   <!-- Settings screen, Power mode dialog radio button choices -->
+  <string name="pref_camera_powermode_entry_lp">Χαμηλή ισχύς</string>
+  <string name="pref_camera_powermode_entry_np">Κανονική ισχύς</string>
   <!-- Settings screen, Power mode dialog radio button choices -->
   <!-- Default Power mode.. -->
   <!-- Default auto exposure setting. Do not translate. -->
@@ -52,6 +55,8 @@
   <!-- Settings screen, Select Skin Tone Enhancement title -->
   <string name="pref_camera_skinToneEnhancement_title">Βελτίωση τόνου δέρματος</string>
   <!-- Settings screen, Skin Tone Enhancement radio button choices -->
+  <string name="pref_camera_skinToneEnhancement_entry_enable">Ενεργοποίηση</string>
+  <string name="pref_camera_skinToneEnhancement_entry_disable">Απενεργοποίηση</string>
   <!-- Skin Tone Enhancement entry values. Do not translate. -->
   <!-- Settings screen, setting title text for ZSL-->
   <string name="pref_camera_zsl_title">Μηδενική καθυστέρηση κλείστρου</string>
@@ -87,6 +92,7 @@
   <string name="pref_camera_manual_focus_entry_diopter_mode">Λειτουργία διόπτρας</string>
   <string name="pref_camera_manual_focus_entry_off">Ανενεργή</string>
   <!-- Instant Capture entry -->
+  <string name="pref_camera_instant_capture_title" translatable="true">Άμεση καταγραφή</string>
   <!-- Instant Capture entry values -->
   <!-- Settings screen, ZSL location dialog choices -->
   <string name="pref_camera_zsl_entry_off">Ανενεργή</string>
@@ -165,11 +171,15 @@
   <string name="pref_camera_hfr_entry_hsr_60">Υψηλή ταχύτητα 60 FPS</string>
   <string name="pref_camera_hfr_entry_hsr_90">Υψηλή ταχύτητα 90 FPS</string>
   <string name="pref_camera_hfr_entry_hsr_120">Υψηλή ταχύτητα 120 FPS</string>
+  <string name="pref_camera_hfr_entry_hsr_240">Υψηλή ταχύτητα 240 FPS</string>
   <!-- HFR entry values. Do not translate. -->
   <!-- Default noise reduction setting. Do not translate. -->
   <!-- Settings screen, Select See More title -->
+  <string name="pref_camera_noise_reduction_title">Μείωση θορύβου</string>
   <!-- Settings screen, see more radio button choices -->
   <string name="pref_camera_noise_reduction_entry_off">Ανενεργή</string>
+  <string name="pref_camera_noise_reduction_entry_fast">Γρήγορη</string>
+  <string name="pref_camera_noise_reduction_entry_high_quality">Υψηλή ποιότητα</string>
   <!-- see more entry values. Do not translate. -->
   <!-- Default see more setting. Do not translate. -->
   <!-- Settings screen, Select See More title -->

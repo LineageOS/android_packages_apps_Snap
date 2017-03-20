@@ -47,6 +47,7 @@
   <string name="pref_camera_scenemode_entry_fireworks">Fuochi d\'artificio</string>
   <string name="pref_camera_scenemode_entry_flowers">Fiori</string>
   <string name="pref_camera_scenemode_entry_handheldtwilight">Crepuscolo, a mano</string>
+  <string name="pref_camera_scenemode_entry_highsensitivity">Alta sensibilità</string>
   <string name="pref_camera_scenemode_entry_indoor">Interno</string>
   <string name="pref_camera_scenemode_entry_landscape">Panorama</string>
   <string name="pref_camera_scenemode_entry_mix_illuminant">Luce mista</string>

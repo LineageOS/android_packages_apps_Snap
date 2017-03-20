@@ -165,6 +165,7 @@
   <!-- In select camera setting, front-facing camera. [CHAR LIMIT=14] -->
   <string name="pref_camera_id_entry_front">Μπροστινή</string>
   <!-- Settings screen, setting title text -->
+  <string name="pref_camera_recordlocation_title">Τοποθεσία GPS</string>
   <!--  Label for record location preference [CHAR LIMIT=50] -->
   <string name="pref_camera_location_label">ΤΟΠΟΘΕΣΙΑ</string>
   <!-- Title for countdown timer on camera settings screen [CHAR LIMIT=30]-->
@@ -177,6 +178,9 @@
   <!-- Text followed by a checkbox to turn on/off sound effects during the countdown. [CHAR LIMIT = 24]-->
   <string name="pref_camera_timer_sound_title">Ήχος σε αντ.μέτ.</string>
   <!-- Entry of camera save path -->
+  <string name="pref_camera_savepath_title">Αποθηκευτικός χώρος</string>
+  <string name="pref_camera_savepath_entry_0">Τηλέφωνο</string>
+  <string name="pref_camera_savepath_entry_1">Κάρτα SD</string>
   <!-- Entry of a on/off setting. The setting is turned off. [CHAR LIMIT=15] -->
   <string name="setting_off">Ανενεργό</string>
   <!-- Entry of a on/off setting. The setting is turned on. [CHAR LIMIT=15] -->
@@ -297,14 +301,23 @@
   <!-- Toast after trying to select a setting that is not allowed to change in scene mode [CHAR LIMIT=NONE] -->
   <string name="not_selectable_in_scene_mode">Δεν υπάρχει δυνατότητα επιλογής στη λειτουργία σκηνής.</string>
   <!-- Toast after enable HDR function to inform Continuous Shot has disabled -->
+  <string name="HDR_disable_continuous_shot">Η ενεργοποίηση του HDR θα απενεργοποιήσει την συνεχή λήψη.</string>
   <!-- Toast after enable Advanced Capture function to inform Continuous Shot has disabled -->
+  <string name="advanced_capture_disable_continuous_shot">Η ενεργοποίηση της προηγμένης λήψης θα απενεργοποιήσει την συνεχή λήψη.</string>
   <!-- Toast after enable 2k4k video quality to inform IS has disabled -->
+  <string name="video_quality_4k_disable_IS">Η ποιότητα 4k θα απενεργοποιήσει την σταθεροποίηση εικόνας.</string>
   <!-- Toast after 2k4k video is enabled to inform SeeMore has been disabled -->
+  <string name="video_quality_4k_disable_SeeMore">Το SeeMore δεν μπορεί να ενεργοποιηθεί κατά τη διάρκεια 4k βίντεο.</string>
   <!-- Toast after High Quality Noise Reduction has been enabled to show CDS is disabled -->
+  <string name="disable_CDS_during_HighQualityNoiseReduction">Η υψηλής ποιότητας μείωση θορύβου θα απενεργοποιήσει το CDS.</string>
   <!-- Toast after High Quality Noise Reduction has been enabled to show TNR is disabled -->
+  <string name="disable_TNR_during_HighQualityNoiseReduction">Η υψηλής ποιότητας μείωση θορύβου θα απενεργοποιήσει το TNR.</string>
   <!-- Toast after SeeMore has been enabled to show CDS is disabled -->
+  <string name="disable_CDS_during_SeeMore">Το SeeMore θα απενεργοποιήσει το CDS.</string>
   <!-- Toast after SeeMore has been enabled to show TNR is disabled -->
+  <string name="disable_TNR_during_SeeMore">Το SeeMore θα απενεργοποιήσει το TNR.</string>
   <!-- Toast after SeeMore has been enabled to show NR is disabled -->
+  <string name="disable_NR_during_SeeMore">Το SeeMore θα απενεργοποιήσει την μείωση θορύβου.</string>
   <!-- Exposure settings in preference -->
   <string name="pref_exposure_title">Έκθεση</string>
   <!--  menu label exposure compensation [CHAR LIMIT=50] -->
@@ -536,4 +549,6 @@ CHAR LIMIT = NONE] -->
   <!--  String shown when setting the homepage wallpaper in the background [CHAR LIMIT=NONE] -->
   <string name="setting_wallpaper">Ορισμός ταπετσαρίας</string>
   <!-- Menu, Video rotation labels [CHAR LIMIT=50] -->
+  <string name="remaining_photos_format">Απομένουν %d</string>
+  <string name="makeup_video_size_limit">Το makeup λειτουργεί μόνο με ανάλυση μικρότερη από VGA κατά την εγγραφή βίντεο.</string>
 </resources>

@@ -142,7 +142,7 @@ La imagen recortada se guardó en <xliff:g id="folder_name">%s</xliff:g>.</strin
   <!-- message for the dialog showing the error of camera hardware -->
   <string name="cannot_connect_camera">No se puede establecer conexión con la cámara.</string>
   <!-- message for the dialog showing the camera is disabled because of security policies. Camera cannot be used. -->
-  <string name="camera_disabled">Se inhabilitó la cámara por políticas de seguridad.</string>
+  <string name="camera_disabled">Se desactivó la cámara por políticas de seguridad.</string>
   <!-- message for the dialog showing that the app does not have sufficient permissions [CHAR LIMIT=NONE] -->
   <string name="error_permissions">La aplicación no tiene los permisos críticos necesarios para funcionar. Comprueba los ajustes de los permisos.</string>
   <!-- Dialog "Dismiss" button. Closes the dialog [CHAR LIMIT=12]-->

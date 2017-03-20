@@ -47,6 +47,7 @@
   <string name="pref_camera_scenemode_entry_fireworks">Ohňostroj</string>
   <string name="pref_camera_scenemode_entry_flowers">Kvetiny</string>
   <string name="pref_camera_scenemode_entry_handheldtwilight">Súmrak fotografovaný z ruky</string>
+  <string name="pref_camera_scenemode_entry_highsensitivity">Vysoká citlivosť</string>
   <string name="pref_camera_scenemode_entry_indoor">Vnútrajšok</string>
   <string name="pref_camera_scenemode_entry_landscape">Krajina</string>
   <string name="pref_camera_scenemode_entry_mix_illuminant">Zmiešané osvetlenie</string>

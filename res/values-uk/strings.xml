@@ -543,7 +543,7 @@ CHAR LIMIT = NONE] -->
   <!-- Message shown while a tiny planet image is being saved. [CHAR LIMIT = 30] -->
   <string name="saving_tiny_planet">Збереження крихітної планети &#8230;</string>
   <!-- Label above a slider that let's the user set the zoom of a tiny planet image. [CHAR LIMIT = 15] -->
-  <string name="tiny_planet_zoom">Маштабування</string>
+  <string name="tiny_planet_zoom">Масштабування</string>
   <!-- Label above a slider that let's the user set the rotation of a tiny planet image. [CHAR LIMIT = 15] -->
   <string name="tiny_planet_rotate">Повернути</string>
   <!-- Crop -->

@@ -47,6 +47,7 @@
   <string name="pref_camera_scenemode_entry_fireworks">Fajerwerki</string>
   <string name="pref_camera_scenemode_entry_flowers">Kwiaty</string>
   <string name="pref_camera_scenemode_entry_handheldtwilight">Zmierzch bez statywu</string>
+  <string name="pref_camera_scenemode_entry_highsensitivity">Wysoka czułość</string>
   <string name="pref_camera_scenemode_entry_indoor">W pomieszczeniu</string>
   <string name="pref_camera_scenemode_entry_landscape">Poziomo</string>
   <string name="pref_camera_scenemode_entry_mix_illuminant">Mieszane oświetlenie</string>

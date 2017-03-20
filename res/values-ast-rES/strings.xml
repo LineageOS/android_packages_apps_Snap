@@ -31,8 +31,10 @@
     <item quantity="one">¿Desaniciar l\'elementu esbilláu?</item>
     <item quantity="other">¿Desaniciar los elementos esbillaos?</item>
   </plurals>
+  <string name="share">Compartir</string>
   <!-- The label shown after an image is deleted [CHAR LIMIT=16] -->
   <!-- The label on the button which when clicked will undo a deletion of image [CHAR LIMIT=16]-->
+  <string name="undo">DESFACER</string>
   <!-- String indicating how many media item(s) is(are) selected
             eg. 1 selected [CHAR LIMIT=30] -->
   <!-- String indicating how many media album(s) is(are) selected
