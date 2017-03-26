@@ -901,9 +901,10 @@ public class PhotoMenu extends MenuController
         final IconListPreference pref = (IconListPreference) mPreferenceGroup
                 .findPreference(CameraSettings.KEY_SCENE_MODE);
         if (pref == null) {
-            mUI.removeControlView(button);
+            button.setVisibility(View.GONE);
             return;
         }
+        button.setVisibility(View.VISIBLE);
         updateSceneModeIcon(pref);
         button.setOnClickListener(new OnClickListener() {
             @Override
@@ -1044,9 +1045,10 @@ public class PhotoMenu extends MenuController
         final IconListPreference pref = (IconListPreference) mPreferenceGroup
                 .findPreference(CameraSettings.KEY_COLOR_EFFECT);
         if (pref == null || pref.getValue() == null) {
-            mUI.removeControlView(button);
+            button.setVisibility(View.GONE);
             return;
         }
+        button.setVisibility(View.VISIBLE);
         changeFilterModeControlIcon(pref.getValue());
         button.setOnClickListener(new OnClickListener() {
             @Override
