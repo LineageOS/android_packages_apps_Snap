@@ -16,7 +16,6 @@
 
 package com.android.camera;
 
-import android.app.ActivityManager;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
@@ -908,12 +907,7 @@ public class WideAnglePanoramaModule extends BaseModule<WideAnglePanoramaUI> imp
             return;
         }
 
-        int perct = 100;
-        final ActivityManager am = (ActivityManager)
-                mActivity.getSystemService(Context.ACTIVITY_SERVICE);
-        if (am.isLowRamDevice()) {
-            perct = mActivity.getResources().getInteger(R.integer.panorama_frame_size_reduction);
-        }
+        int perct = mActivity.getResources().getInteger(R.integer.panorama_frame_size_reduction);
 
         int width = (mCameraPreviewWidth * perct) / 100;
         int height = (mCameraPreviewHeight * perct) / 100;
