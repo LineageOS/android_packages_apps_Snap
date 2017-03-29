@@ -18,12 +18,14 @@
   <!-- The name of the Android Camera application. [CHAR LIMIT=16] -->
   <string name="app_name">Cámara</string>
   <!-- The label for the Video Camera activity. [CHAR LIMIT=16] -->
+  <string name="video_camera_label">Videocámara</string>
   <!-- Used to format short video duration in Details dialog. minutes:seconds e.g. 00:30 -->
   <string name="details_ms">%1$02d:%2$02d</string>
   <!-- Used to format video duration in Details dialog. hours:minutes:seconds e.g. 0:21:30 -->
   <string name="details_hms">%1$d:%2$02d:%3$02d</string>
   <!-- Displayed in the title of the dialog for things to do with a picture
              that is to be "set as" (e.g. set as contact photo or set as wallpaper) -->
+  <string name="set_image">Afitar como</string>
   <!-- Details dialog "OK" button. Dismisses dialog. -->
   <string name="delete">Desaniciar</string>
   <!-- String Delete the selected media item(s) [CHAR LIMIT=50] -->
@@ -32,34 +34,58 @@
     <item quantity="other">¿Desaniciar los elementos esbillaos?</item>
   </plurals>
   <string name="share">Compartir</string>
+  <string name="share_panorama">Compartir panorámica</string>
+  <string name="share_as_photo">Compartir como semeya</string>
   <!-- The label shown after an image is deleted [CHAR LIMIT=16] -->
+  <string name="deleted">Desaniciáu</string>
   <!-- The label on the button which when clicked will undo a deletion of image [CHAR LIMIT=16]-->
   <string name="undo">DESFACER</string>
+  <string name="details">Detalles</string>
+  <string name="close">Zarrar</string>
   <!-- String indicating how many media item(s) is(are) selected
             eg. 1 selected [CHAR LIMIT=30] -->
+  <plurals name="number_of_items_selected">
+    <item quantity="one">%1$d esbilláu</item>
+    <item quantity="other">%1$d esbillaos</item>
+  </plurals>
   <!-- String indicating how many media album(s) is(are) selected
             eg. 1 selected [CHAR LIMIT=30] -->
+  <plurals name="number_of_albums_selected">
+    <item quantity="one">%1$d esbilláu</item>
+    <item quantity="other">%1$d esbillaos</item>
+  </plurals>
   <!-- String indicating how many media group(s) is(are) selected
             eg. 1 selected [CHAR LIMIT=30] -->
+  <plurals name="number_of_groups_selected">
+    <item quantity="one">%1$d esbilláu</item>
+    <item quantity="other">%1$d esbillaos</item>
+  </plurals>
   <!-- String indicating timestamp of photo or video -->
+  <string name="show_on_map">Amosar nel mapa</string>
+  <string name="rotate_left">Xirar a la esquierda</string>
   <!-- String used as a menu label. The user can choose to edit the image
          [CHAR_LIMIT=20]-->
   <!-- The title of the menu item to let user crop the image. [CHAR LIMIT=15] -->
   <!-- The title of the menu item to let user trim the video. [CHAR LIMIT=15] -->
   <!-- The title of the menu item to let user set the image as background etc. [CHAR LIMIT=15] -->
   <!-- String indicating an error when playing the video. [CHAR LIMIT=30] -->
+  <string name="video_err">Nun pue reproducise\'l videu.</string>
   <!-- Toast message shown when the cropped image has been saved in the
          %s folder (string: folder_download) [CHAR LIMIT=50]-->
   <!-- Text indicating the title of a media item in details window [CHAR LIMIT=14] -->
   <!-- Text indicating the description of a media item in details window [CHAR LIMIT=14] -->
   <!-- Text indicating the creation time of a media item in details window [CHAR LIMIT=14] -->
   <!-- Text indicating the location of a media item in details window [CHAR LIMIT=14] -->
+  <string name="location">Allugamientu</string>
   <!-- Text indicating the path of a media item in details window [CHAR LIMIT=14] -->
   <!-- Text indicating the width of a media item in details window [CHAR LIMIT=14] -->
+  <string name="width">Anchor</string>
   <!-- Text indicating the height of a media item in details window [CHAR LIMIT=14] -->
   <!-- Text indicating the orientation of a media item in details window [CHAR LIMIT=14] -->
+  <string name="orientation">Orientación</string>
   <!-- Text indicating the duration of a video item in details window [CHAR LIMIT=18] -->
   <!-- Text indicating the mime type of a media item in details window [CHAR LIMIT=14] -->
+  <string name="mimetype">Triba MIME</string>
   <!-- Text indicating the file size of a media item in details window [CHAR LIMIT=14] -->
   <!-- Text indicating the maker of a media item in details window [CHAR LIMIT=14] -->
   <!-- Text indicating the model of a media item in details window [CHAR LIMIT=14] -->

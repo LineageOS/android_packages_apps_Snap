@@ -405,7 +405,6 @@
   <string name="refocus_toast">For å re-fokusere det siste bildet, trykk her</string>
   <string name="refocus_prompt_message">Med UbiFocus tar kameraet 5 bilder hver gang du trykker på utløserknappen. 5 bilder kombineres i 1 bilde, der alt er i fokus. Du kan velge å re-fokusere, etter at du tar bildet.</string>
   <string name="camera_thermal_shutdown">Telefon overopphetet, kameraet lukkes.</string>
-  <string name="camera_server_died">Medieserveren døde, kameraet lukkes.</string>
   <string name="camera_unknown_error">Ukjent feil, kameraet lukkes.</string>
   <string name="mute_button_desc">Dempe-knapp</string>
   <!-- Help menu strings -->

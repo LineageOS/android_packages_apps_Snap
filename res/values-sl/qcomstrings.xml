@@ -192,7 +192,7 @@
   <!-- Settings screen, Select hfr title -->
   <string name="pref_camera_hfr_title">Počasni posnetek</string>
   <!-- Settings screen, hfr radio button choices -->
-  <string name="pref_camera_hfr_entry_off">Izk.</string>
+  <string name="pref_camera_hfr_entry_off">Izklopljeno</string>
   <string name="pref_camera_hfr_entry_2x">Počasni posnetek 60 sl./s</string>
   <string name="pref_camera_hfr_entry_3x">Počasni posnetek 90 sl./s</string>
   <string name="pref_camera_hfr_entry_4x">Počasni posnetek 120 sl./s</string>
@@ -428,14 +428,14 @@
   <string name="pref_camera2_camera2_entry_disable">Onemogoči</string>
   <string name="pref_camera2_mono_only_title">Samo mono</string>
   <string name="pref_camera2_mono_preview_title">Predogled mono</string>
-  <string name="pref_camera2_mono_preview_entry_on">Vkl.</string>
+  <string name="pref_camera2_mono_preview_entry_on">Vklopljeno</string>
   <string name="pref_camera2_mono_preview_entry_off">Izklopljeno</string>
-  <string name="pref_camera2_clearsight_entry_on">Vkl.</string>
+  <string name="pref_camera2_clearsight_entry_on">Vklopljeno</string>
   <string name="pref_camera2_clearsight_entry_off">Izklopljeno</string>
   <string name="clearsight_capture_success">Zajem ClearSight je bil upešen</string>
   <string name="clearsight_capture_fail">Zajem ClearSight je spodletel</string>
   <string name="pref_camera2_mpo_title">Oblika MPO-ja</string>
-  <string name="pref_camera2_mpo_entry_on">Vkl.</string>
+  <string name="pref_camera2_mpo_entry_on">Vklopljeno</string>
   <string name="pref_camera2_mpo_entry_off">Izklopljeno</string>
   <string name="pref_camera2_makeup_title">Ličilo</string>
   <string name="pref_camera2_noise_reduction_title">Zmanjševanje šuma</string>

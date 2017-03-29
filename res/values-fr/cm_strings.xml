@@ -47,6 +47,7 @@
   <string name="pref_camera_scenemode_entry_fireworks">Feux d\'artifice</string>
   <string name="pref_camera_scenemode_entry_flowers">Fleurs</string>
   <string name="pref_camera_scenemode_entry_handheldtwilight">Crépuscule à main levée</string>
+  <string name="pref_camera_scenemode_entry_highsensitivity">Forte sensibilité</string>
   <string name="pref_camera_scenemode_entry_indoor">Intérieur</string>
   <string name="pref_camera_scenemode_entry_landscape">Paysage</string>
   <string name="pref_camera_scenemode_entry_mix_illuminant">Éclairage mixte</string>

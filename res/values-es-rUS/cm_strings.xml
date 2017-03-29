@@ -94,10 +94,10 @@
   <string name="pref_camera_max_brightness_title">Pantalla brillante</string>
   <!-- Touch focus duration -->
   <string name="pref_camera_focustime_title">Duración del enfoque</string>
-  <string name="pref_camera_focustime_entry_0">0s</string>
-  <string name="pref_camera_focustime_entry_3">3s</string>
-  <string name="pref_camera_focustime_entry_5">5 segundos</string>
-  <string name="pref_camera_focustime_entry_10">10 segundos</string>
+  <string name="pref_camera_focustime_entry_0">0 seg.</string>
+  <string name="pref_camera_focustime_entry_3">3 seg.</string>
+  <string name="pref_camera_focustime_entry_5">5 seg.</string>
+  <string name="pref_camera_focustime_entry_10">10 seg.</string>
   <string name="pref_camera_focustime_entry_infinite">Infinito</string>
   <!-- Shutter speed -->
   <string name="pref_camera_shutter_speed_title">Velocidad de obturación</string>

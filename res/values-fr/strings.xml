@@ -550,4 +550,5 @@ CHAR LIMIT = NONE] -->
   <string name="setting_wallpaper">Définition du fond d\'écran en cours…</string>
   <!-- Menu, Video rotation labels [CHAR LIMIT=50] -->
   <string name="remaining_photos_format">%d restante(s)</string>
+  <string name="makeup_video_size_limit">Le mode maquillage ne fonctionne que pour les enregistrements vidéos de taille VGA.</string>
 </resources>

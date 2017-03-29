@@ -341,6 +341,7 @@
   <string name="all_in_focus">Wszystko wyostrzone</string>
   <string name="refocus_toast">Dotknij tutaj, aby zmienić ostrość ostatniego zdjęcia</string>
   <!-- Help menu strings -->
+  <string name="help_menu_ok">OK</string>
   <string name="pref_camera2_mono_preview_entry_off">Wyłączona</string>
   <string name="pref_camera2_clearsight_entry_off">Wyłączona</string>
   <string name="pref_camera2_mpo_entry_off">Wyłączona</string>
@@ -348,5 +349,6 @@
   <string name="pref_camera2_noise_reduction_entry_fast">Szybka</string>
   <string name="pref_camera2_videosnap_entry_enable">Wł.</string>
   <string name="pref_camera2_videosnap_entry_disable">Wył.</string>
+  <string name="pref_camera2_trackingfocus_title">Śledzenie ostrości</string>
   <string name="pref_camera2_shutter_sound_entry_off">Wyłączona</string>
 </resources>

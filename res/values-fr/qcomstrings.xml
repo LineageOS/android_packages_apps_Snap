@@ -399,13 +399,16 @@
   <string name="text_tsmakeup_alert_msg">La détection de visage doit être activée pour utiliser la fonctionnalité d\'embellissement. Souhaitez-vous continuer ?</string>
   <string name="text_tsmakeup_alert_continue">Poursuivre</string>
   <string name="text_tsmakeup_alert_quit">Annuler</string>
+  <string name="text_tsmakeup_beautify_toast">Embellissement</string>
   <string name="all_in_focus">Tout sur le focus</string>
   <string name="refocus_toast">Pour refaire la mise au point, appuyer ici</string>
   <string name="camera_thermal_shutdown">Téléphone en surchauffe, fermeture de l\'appareil photo.</string>
+  <string name="camera_server_died">Arrêt inopiné du serveur multimédia, fermeture de l\'appareil photo.</string>
   <string name="camera_unknown_error">Erreur inconnue, fermeture de l\'appareil photo.</string>
   <!-- Help menu strings -->
   <string name="help_menu_ok">OK</string>
   <string name="help_menu_scene_mode_1">Sélectionnez un</string>
+  <string name="help_menu_scene_mode_2">Mode Scène</string>
   <string name="help_menu_scene_mode_3">pour de meilleures photos</string>
   <string name="help_menu_beautify_1">Améliorer les portraits</string>
   <string name="help_menu_beautify_2">avec la</string>
