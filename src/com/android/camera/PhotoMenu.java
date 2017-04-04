@@ -160,17 +160,13 @@ public class PhotoMenu extends MenuController
         initFilterModeButton(mFilterModeSwitcher);
         if (TsMakeupManager.HAS_TS_MAKEUP) {
             if (initMakeupModeButton(mTsMakeupSwitcher)) {
-                mUI.removeControlView(mHdrSwitcher);
+                mHdrSwitcher.setVisibility(View.INVISIBLE);
             }
         }
 
         if(!TsMakeupManager.HAS_TS_MAKEUP) {
             // HDR.
-            if (group.findPreference(CameraSettings.KEY_CAMERA_HDR) != null) {
-                initSwitchItem(CameraSettings.KEY_CAMERA_HDR, mHdrSwitcher);
-            } else {
-                mUI.removeControlView(mHdrSwitcher);
-            }
+            initSwitchItem(CameraSettings.KEY_CAMERA_HDR, mHdrSwitcher);
         }
 
         mOtherKeys1 = new String[] {
@@ -756,9 +752,10 @@ public class PhotoMenu extends MenuController
         final IconListPreference pref =
                 (IconListPreference) mPreferenceGroup.findPreference(prefKey);
         if (pref == null) {
-            mUI.removeControlView(switcher);
+            switcher.setVisibility(View.INVISIBLE);
             return;
         }
+        switcher.setVisibility(View.VISIBLE);
 
         int[] iconIds = pref.getLargeIconIds();
         int resid = -1;
@@ -809,9 +806,10 @@ public class PhotoMenu extends MenuController
         final IconListPreference pref = (IconListPreference) mPreferenceGroup
                 .findPreference(CameraSettings.KEY_TS_MAKEUP_UILABLE);
         if (pref == null) {
-            mUI.removeControlView(button);
+            button.setVisibility(View.INVISIBLE);
             return false;
         }
+        button.setVisibility(View.VISIBLE);
 
         int[] iconIds = pref.getLargeIconIds();
         int resid = -1;
@@ -901,7 +899,7 @@ public class PhotoMenu extends MenuController
         final IconListPreference pref = (IconListPreference) mPreferenceGroup
                 .findPreference(CameraSettings.KEY_SCENE_MODE);
         if (pref == null) {
-            button.setVisibility(View.GONE);
+            button.setVisibility(View.INVISIBLE);
             return;
         }
         button.setVisibility(View.VISIBLE);
@@ -1045,7 +1043,7 @@ public class PhotoMenu extends MenuController
         final IconListPreference pref = (IconListPreference) mPreferenceGroup
                 .findPreference(CameraSettings.KEY_COLOR_EFFECT);
         if (pref == null || pref.getValue() == null) {
-            button.setVisibility(View.GONE);
+            button.setVisibility(View.INVISIBLE);
             return;
         }
         button.setVisibility(View.VISIBLE);
@@ -1421,11 +1419,12 @@ public class PhotoMenu extends MenuController
 
         ListPreference autoHdrPref = mPreferenceGroup.findPreference(CameraSettings.KEY_AUTO_HDR);
         if (autoHdrPref == null) {
-            mHdrSwitcher.setVisibility(View.GONE);
-            mUI.getCameraControls().removeFromViewList(mHdrSwitcher);
+            mHdrSwitcher.setVisibility(View.INVISIBLE);
         } else if (autoHdrPref.getValue().equalsIgnoreCase("enable")) {
+            mHdrSwitcher.setVisibility(View.VISIBLE);
             mHdrSwitcher.setEnabled(false);
         } else {
+            mHdrSwitcher.setVisibility(View.VISIBLE);
             mHdrSwitcher.setEnabled(true);
         }
         updateFilterModeIcon(pref, pref);
