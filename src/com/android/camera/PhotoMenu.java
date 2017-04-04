@@ -1422,16 +1422,19 @@ public class PhotoMenu extends MenuController
         }
 
         ListPreference autoHdrPref = mPreferenceGroup.findPreference(CameraSettings.KEY_AUTO_HDR);
-        if (autoHdrPref == null) {
-            controlEnabled(mHdrSwitcher, false);
-        } else if (autoHdrPref.getValue().equalsIgnoreCase("enable")) {
-            controlEnabled(mHdrSwitcher, true);
-            mHdrSwitcher.setEnabled(false);
-        } else {
-            controlEnabled(mHdrSwitcher, true);
-            mHdrSwitcher.setEnabled(true);
+        if (autoHdrPref != null) {
+            if (autoHdrPref.getValue().equalsIgnoreCase("enable")) {
+                controlEnabled(mHdrSwitcher, true);
+                mHdrSwitcher.setEnabled(false);
+            } else {
+                controlEnabled(mHdrSwitcher, true);
+                mHdrSwitcher.setEnabled(true);
+            }
         }
-        updateFilterModeIcon(pref, pref);
+
+        ListPreference hdrPref = mPreferenceGroup.findPreference(CameraSettings.KEY_CAMERA_HDR);
+        ListPreference scenePref = mPreferenceGroup.findPreference(CameraSettings.KEY_SCENE_MODE);
+        updateFilterModeIcon(scenePref, hdrPref);
 
         if (same(pref, CameraSettings.KEY_RECORD_LOCATION, "on")) {
             mActivity.requestLocationPermission();
