@@ -426,8 +426,10 @@ public class VideoMenu extends MenuController
         final IconListPreference pref =
                 (IconListPreference) mPreferenceGroup.findPreference(prefKey);
         if (pref == null) {
-            mUI.removeControlView(switcher);
+            controlEnabled(switcher, false);
             return;
+        } else {
+            controlEnabled(switcher, true);
         }
 
         int[] iconIds = pref.getLargeIconIds();
@@ -470,8 +472,10 @@ public class VideoMenu extends MenuController
         final IconListPreference pref = (IconListPreference) mPreferenceGroup
                 .findPreference(CameraSettings.KEY_VIDEOCAMERA_COLOR_EFFECT);
         if (pref == null || pref.getValue() == null) {
-            mUI.removeControlView(button);
+            controlEnabled(button, false);
             return;
+        } else {
+            controlEnabled(button, true);
         }
 
         changeFilterModeControlIcon(pref.getValue());

@@ -131,4 +131,9 @@ public class MenuController {
         }
         reloadPreference(pref);
     }
+
+    protected void controlEnabled(View view, boolean enabled) {
+        view.setVisibility(enabled ? View.VISIBLE : View.INVISIBLE);
+        view.setEnabled(enabled);
+    }
 }
