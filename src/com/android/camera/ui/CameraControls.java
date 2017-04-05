@@ -80,6 +80,7 @@ public class CameraControls extends RotatableLayout {
     private View mReviewRetakeButton;
 
     private final List<View> mViews = new ArrayList<>();
+    private final List<View> mViewsDisabled = new ArrayList<>();
 
     private static final int WIDTH_GRID = 5;
     private static final int HEIGHT_GRID = 7;
@@ -146,10 +147,18 @@ public class CameraControls extends RotatableLayout {
 
     public void enableTouch(boolean enable) {
         synchronized (mViews) {
-            for (View v : mViews) {
-                if (v.getVisibility() != View.GONE) {
-                    v.setEnabled(enable);
+            if (!enable) {
+                for (View v : mViews) {
+                    if (v.getVisibility() != View.GONE && v.isEnabled()) {
+                        mViewsDisabled.add(v);
+                        v.setEnabled(false);
+                    }
                 }
+            } else {
+                for (View v : mViewsDisabled) {
+                    v.setEnabled(true);
+                }
+                mViewsDisabled.clear();
             }
         }
 
@@ -165,6 +174,9 @@ public class CameraControls extends RotatableLayout {
 
     public void removeFromViewList(View view) {
         synchronized (mViews) {
+            if (mViewsDisabled.contains(view)) {
+                mViewsDisabled.remove(view);
+            }
             if (view == null || !mViews.contains(view)) {
                 return;
             }
