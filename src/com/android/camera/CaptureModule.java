@@ -1857,6 +1857,7 @@ public class CaptureModule extends BaseModule<CaptureUI> implements PhotoControl
         initializeValues();
         updatePreviewSize();
         mUI.showSurfaceView();
+        mUI.setSwitcherIndex();
         mCameraIdList = new ArrayList<>();
         int cameraId = getMainCameraId();
 
