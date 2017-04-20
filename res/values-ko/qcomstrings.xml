@@ -101,8 +101,8 @@
   <string name="pref_camera_zsl_entry_off">끄기</string>
   <string name="pref_camera_zsl_entry_on">켜짐</string>
   <!-- The message is shown in toast when HDR or scene mode is enabled -->
-  <string name="hdr_enable_message">HDR이 켜져 있을 때에는 자동 모드만 사용할 수 있습니다</string>
-  <string name="scene_enable_message">HDR은 자동을 제외한 장면 모드를 지원하지 않습니다</string>
+  <string name="hdr_enable_message">HDR이 켜져 있을 때에는 자동 모드만 사용할 수 있습니다.</string>
+  <string name="scene_enable_message">HDR은 자동을 제외한 장면 모드를 지원하지 않습니다.</string>
   <!-- Settings screen, Video HDR location dialog choices -->
   <string name="pref_camera_video_hdr_entry_off">끄기</string>
   <string name="pref_camera_video_hdr_entry_on">켜짐</string>
@@ -181,7 +181,7 @@
   <string name="pref_camera_ae_bracket_hdr_entry_ae_bracket">자동 노출 브래킷</string>
   <string name="pref_camera_ae_bracket_hdr_title">자동 노출 브래킷</string>
   <string name="pref_camera_ae_bracket_hdr_entry_on">켜짐</string>
-  <string name="err_app_unsupport_ae_bracket_code">자동 노출(AE) 브라케팅은 아직 지원하지 않습니다</string>
+  <string name="err_app_unsupport_ae_bracket_code">자동 노출(AE) 브라케팅은 아직 지원하지 않습니다.</string>
   <!-- The messsage shown if user selects a snapshot resolution lower than the current video size. -->
   <string name="snapshot_lower_than_video">비디오 스냅샷 해상도가 영상의 해상도보다 낮아 해상도를 영상에 맞춥니다. 해상도를 현재 영상 해상도와 같거나 높게 선택해주세요.</string>
   <!-- The messsage shown if user selects a snapshot resolution in low power mode. -->

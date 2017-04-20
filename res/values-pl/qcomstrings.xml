@@ -52,6 +52,7 @@
   <!-- Settings screen, Select Skin Tone Enhancement title -->
   <string name="pref_camera_skinToneEnhancement_title">Poprawa koloru skóry</string>
   <!-- Settings screen, Skin Tone Enhancement radio button choices -->
+  <string name="pref_camera_skinToneEnhancement_entry_enable">Włącz</string>
   <!-- Skin Tone Enhancement entry values. Do not translate. -->
   <!-- Settings screen, setting title text for ZSL-->
   <string name="pref_camera_zsl_title">Brak opóźnienia migawki</string>
@@ -340,8 +341,11 @@
   <string name="pref_camera_tsmakeup_entry_off">Wyłączona</string>
   <string name="all_in_focus">Wszystko wyostrzone</string>
   <string name="refocus_toast">Dotknij tutaj, aby zmienić ostrość ostatniego zdjęcia</string>
+  <string name="camera_server_died">Serwer mediów padł, wyłączanie aparatu.</string>
   <!-- Help menu strings -->
   <string name="help_menu_ok">OK</string>
+  <string name="help_menu_color_filter_1">Zastosuj kolor</string>
+  <string name="help_menu_beautify_2">z</string>
   <string name="pref_camera2_mono_preview_entry_off">Wyłączona</string>
   <string name="pref_camera2_clearsight_entry_off">Wyłączona</string>
   <string name="pref_camera2_mpo_entry_off">Wyłączona</string>

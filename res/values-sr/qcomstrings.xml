@@ -344,7 +344,9 @@
   <!-- Settings menu, auto scene detection choices -->
   <string name="pref_camera_scenedetect_entry_off">Искључено</string>
   <!-- Scene detection set to on - supports backlight and snow cloudy detection. -->
+  <string name="pref_camera_scenedetect_entry_on">Укљ</string>
   <!-- Toast showing error if invalid size selected for  time lapse  [CHAR LIMIT=65] -->
+  <string name="time_lapse_error">Неважећа видео-величина за time-lapsе снимање.</string>
   <!-- longshot value -->
   <string name="pref_camera_longshot_title">Непрекидан снимак</string>
   <string name="msg_cancel_longshot_for_limited_memory">Понестаје меморије, искључујем непрекидно окидање</string>
@@ -353,6 +355,8 @@
   <!-- Settings screen, setting title text for Auto HDR-->
   <string name="pref_camera_auto_hdr_title">Аутоматски HDR</string>
   <!-- Settings screen, Auto HDR location dialog choices -->
+  <string name="pref_camera_auto_hdr_entry_enable">Омогући</string>
+  <string name="pref_camera_auto_hdr_entry_disable">Onemogući</string>
   <!-- toast message for storage location switch -->
   <string name="on_switch_save_path_to_sdcard">Простор унутрашњег складишта није довољан, пребачена локација складишта на SD картицу</string>
   <!-- Settings screen, Selectable HDR mode title -->
@@ -370,6 +374,7 @@
   <!--Settings screen, video rotation title-->
   <string name="pref_camera_video_rotation_title">Ротација видеа</string>
   <!--Menu, video rotation label-->
+  <string name="pref_camera_video_rotation_label">РОТАЦИЈА ВИДЕА</string>
   <!-- Settings screen, Video rotation dialog radio button choices -->
   <string name="pref_camera_video_rotation_entry_0">0 степени</string>
   <string name="pref_camera_video_rotation_entry_90">90 степени</string>
@@ -384,6 +389,7 @@
   <!-- The alas of CameraActivity for gesture operation -->
   <string name="camera_gesture_title">Покрени камеру</string>
   <string name="pref_camera_tsmakeup_title">Улепшавање</string>
+  <string name="pref_camera_tsmakeup_entry_on">Укљ</string>
   <string name="pref_camera_tsmakeup_entry_off">Искључено</string>
   <string name="pref_camera_tsmakeup_entry_low">Ниско</string>
   <string name="pref_camera_tsmakeup_entry_mid">Средње</string>
@@ -398,6 +404,9 @@
   <string name="all_in_focus">Све у фокусу</string>
   <string name="refocus_toast">Да поново фокусираш фото, додирни овде</string>
   <!-- Help menu strings -->
+  <string name="help_menu_ok">ОК</string>
+  <string name="help_menu_scene_mode_1">Изабери а</string>
+  <string name="help_menu_scene_mode_2">Режим сцене</string>
   <string name="help_menu_scene_mode_3">за боље слике</string>
   <string name="help_menu_color_filter_1">Примена боје</string>
   <string name="help_menu_color_filter_2">филтери</string>

@@ -183,8 +183,11 @@
   <string name="pref_camera_ae_bracket_hdr_entry_on">Ativado</string>
   <string name="err_app_unsupport_ae_bracket_code">Escalonamento AE ainda não é suportado</string>
   <!-- The messsage shown if user selects a snapshot resolution lower than the current video size. -->
+  <string name="snapshot_lower_than_video">O tamanho da foto instantânea é menor que o tamanho do vídeo. O tamanho da foto instantânea é limitada ao tamanho do vídeo. Escolha uma resolução maior ou igual ao tamanho de vídeo atual.</string>
   <!-- The messsage shown if user selects a snapshot resolution in low power mode. -->
+  <string name="snapshotsize_low_powermode">Não é possível alterar o tamanho da imagem no modo de baixo consumo, portanto será tirada uma foto instantânea com o mesmo tamanho do vídeo. Escolha o modo de energia normal para alterar o tamanho da imagem.</string>
   <!-- The messsage shown if user tries to take snapshot during D1/QCIF resolution. -->
+  <string name="snapshot_qcif_and_d1">Apenas fotos instantâneas do tamanho do vídeo são suportadas nesta resolução.</string>
   <!-- Default hfr setting. Do not translate. -->
   <!-- Settings screen, Select hfr title -->
   <string name="pref_camera_hfr_title">Câmera lenta</string>
