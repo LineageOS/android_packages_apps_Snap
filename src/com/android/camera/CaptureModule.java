@@ -1062,6 +1062,17 @@ public class CaptureModule implements CameraModule, PhotoController,
                                 } else if (mChosenImageFormat == ImageFormat.PRIVATE && id == getMainCameraId()) {
                                     mPostProcessor.onSessionConfigured(mCameraDevice[id], mCaptureSession[id]);
                                 }
+                                mActivity.runOnUiThread(new Runnable() {
+                                    public void run() {
+                                        SurfaceHolder sh = mUI.getSurfaceHolder();
+                                        if ( sh != null ) {
+                                            sh.setFixedSize(mPreviewSize.getHeight(),
+                                                    mPreviewSize.getWidth());
+                                        }
+                                    }
+                                });
+
+
                             } catch (CameraAccessException e) {
                                 e.printStackTrace();
                             } catch(IllegalStateException e) {
@@ -4249,7 +4260,7 @@ public class CaptureModule implements CameraModule, PhotoController,
         }
     }
 
-    private Surface getPreviewSurfaceForSession(int id) {
+    public Surface getPreviewSurfaceForSession(int id) {
         if (isBackCamera()) {
             if (getCameraMode() == DUAL_MODE && id == MONO_ID) {
                 return mUI.getMonoDummySurface();
