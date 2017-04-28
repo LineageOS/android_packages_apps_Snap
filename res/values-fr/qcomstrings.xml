@@ -102,6 +102,7 @@
   <string name="pref_camera_zsl_entry_on">Activé</string>
   <!-- The message is shown in toast when HDR or scene mode is enabled -->
   <string name="hdr_enable_message">Le HDR est activé, seul le mode scène automatique est pris en charge</string>
+  <string name="scene_enable_message">Le HDR n\'est pas pris en charge dans un autre mode que scène automatique</string>
   <!-- Settings screen, Video HDR location dialog choices -->
   <string name="pref_camera_video_hdr_entry_off">Désactivé</string>
   <string name="pref_camera_video_hdr_entry_on">Activé</string>
@@ -405,13 +406,19 @@
   <string name="camera_thermal_shutdown">Téléphone en surchauffe, fermeture de l\'appareil photo.</string>
   <string name="camera_server_died">Arrêt inopiné du serveur multimédia, fermeture de l\'appareil photo.</string>
   <string name="camera_unknown_error">Erreur inconnue, fermeture de l\'appareil photo.</string>
+  <string name="mute_button_desc">Bouton « Muet »</string>
   <!-- Help menu strings -->
   <string name="help_menu_ok">OK</string>
   <string name="help_menu_scene_mode_1">Sélectionnez un</string>
   <string name="help_menu_scene_mode_2">Mode Scène</string>
   <string name="help_menu_scene_mode_3">pour de meilleures photos</string>
+  <string name="help_menu_color_filter_1">Appliquer les filtres</string>
+  <string name="help_menu_color_filter_2">de couleurs</string>
+  <string name="help_menu_color_filter_3">pour</string>
+  <string name="help_menu_color_filter_4">améliorer les photos</string>
   <string name="help_menu_beautify_1">Améliorer les portraits</string>
   <string name="help_menu_beautify_2">avec la</string>
+  <string name="help_menu_beautify_3">Fonction Embellissement</string>
   <string name="help_menu_switcher_1">Permuter</string>
   <string name="help_menu_switcher_2">entre</string>
   <string name="help_menu_switcher_3">appareil photo, vidéo et panorama</string>
@@ -437,6 +444,7 @@
   <string name="pref_camera2_videosnap_title">Taille auto de l\'instantané</string>
   <string name="pref_camera2_videosnap_entry_enable">Activer</string>
   <string name="pref_camera2_videosnap_entry_disable">Désactiver</string>
+  <string name="pref_camera2_trackingfocus_title">Mise au point automatique par suivi du sujet</string>
   <string name="pref_camera_scenemode_entry_bestpicture">Image optimale</string>
   <string name="bestpicture_done">TERMINÉ</string>
   <string name="bestpicture_at_least_one_picture">Vous devez choisir au moins une photo.</string>
