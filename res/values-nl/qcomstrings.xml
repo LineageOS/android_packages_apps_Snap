@@ -230,22 +230,22 @@
   <!-- The alias of CameraActivity for gesture operation -->
   <string name="camera_gesture_title">Camera openen</string>
   <string name="all_in_focus">Alles in focus</string>
-  <string name="refocus_toast">Om laatste foto opnieuw scherp te stellen, tap hier</string>
+  <string name="refocus_toast">Om laatste foto opnieuw scherp te stellen, tik hier</string>
   <!-- Toast messages -->
   <!-- The message is shown in toast when the app encounters an unsupported selection for High-framerate recording mode -->
   <string name="error_app_unsupported_hfr_selection">Opname met hoge beeldsnelheid wordt niet ondersteund bij digitale beeldstabilisatie, time-lapse of HDR.</string>
   <!-- The message is shown in dialog when the app encounters an unsupported resolution for Slow motion mode -->
   <string name="error_app_unsupported_hfr">Slow motion video wordt niet ondersteund bij deze resolutie. Selecteer een lagere resolutie</string>
   <!-- The message is shown in toast when the app encounters an unsupported resolution for Stabilization mode -->
-  <string name="error_app_unsupported_dis">Stabilisatie is niet ondersteund voor de geselecteerde videogrootte. Selecteer een kleinere videogrootte</string>
+  <string name="error_app_unsupported_dis">Stabilisatie wordt niet ondersteund voor de geselecteerde videogrootte. Selecteer een kleinere videogrootte</string>
   <!-- The message is shown in dialog when the app encounters an unsupported resolution for High speed mode -->
   <string name="error_app_unsupported_hsr">Hoge snelheid video wordt niet ondersteund bij deze resolutie</string>
   <!-- The message is shown in dialog when the app encounters an unsupported video codec for HFR mode -->
   <string name="error_app_unsupported_hfr_codec">Alleen H.264-videocodec ondersteund bij opname met hoge beeldsnelheid</string>
   <!-- The message is shown in dialog when the app encounters an unsupported video resolution-->
-  <string name="error_app_unsupported">Videoresolutie niet ondersteund bij deze codec</string>
+  <string name="error_app_unsupported">Videoresolutie wordt niet ondersteund bij deze codec</string>
   <!--The message is shown in dialog when the raw snapshot is selected in Zero shutter lag mode-->
-  <string name="error_app_unsupported_raw">Raw beeldformaat wordt niet ondersteund in Zero shutter lag modus. Selecteer JPEG</string>
+  <string name="error_app_unsupported_raw">Raw beeldformaat wordt niet ondersteund in de stand zonder ontspanvertraging (ZSL). Selecteer JPEG</string>
   <string name="msg_cancel_longshot_for_limited_memory">Niet genoeg geheugen, continue opname wordt afgebroken</string>
   <!-- Toast showing non-supported functionality for flash in AE bracket -->
   <string name="flash_aebracket_message">Flits wordt niet ondersteund in AEB-stand</string>

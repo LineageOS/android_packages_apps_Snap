@@ -34,50 +34,112 @@
   <!-- Autofocus zone -->
   <!-- Advanced features -->
   <!-- Manual exposure -->
+  <string name="pref_camera_manual_exp_entry_off">Inaktiv</string>
   <!-- Manual white balance -->
+  <string name="pref_camera_manual_wb_entry_off">Inaktiv</string>
   <!-- Manual focus -->
+  <string name="pref_camera_manual_focus_entry_off">Inaktiv</string>
   <!-- Still More -->
   <!-- Video HDR-->
+  <string name="pref_camera_video_hdr_title">Video HDR</string>
   <!-- CDS mode-->
   <!-- Video CDS-->
   <!-- TNR-->
   <!-- Video TNR -->
   <!-- Face detection -->
+  <string name="pref_camera_facedetection_title">Dallimi i fytyrës</string>
   <!-- Selfie Flash -->
   <!-- Red eye reduction -->
   <!-- AE bracketing -->
   <!-- High-framerate recording -->
+  <string name="pref_camera_hfr_entry_off">Inaktiv</string>
+  <string name="pref_camera_hfr_entry_hsr_60">Shpejtësi e lartë 60 FPS</string>
+  <string name="pref_camera_hfr_entry_hsr_90">Shpejtësi e lartë 90 FPS</string>
+  <string name="pref_camera_hfr_entry_hsr_120">Shpejtësi e lartë 120 FPS</string>
   <!-- See More -->
   <!-- Denoise -->
+  <string name="pref_camera_denoise_title">Reduktimi i zhurmave</string>
   <!-- ISO -->
+  <string name="pref_camera_iso_title">ISO</string>
+  <string name="pref_camera_iso_entry_auto">Auto</string>
+  <string name="pref_camera_iso_entry_isodeblur">Auto (HJR)</string>
+  <string name="pref_camera_iso_entry_iso50">ISO50</string>
+  <string name="pref_camera_iso_entry_iso100">ISO100</string>
+  <string name="pref_camera_iso_entry_iso125">ISO125</string>
+  <string name="pref_camera_iso_entry_iso150">ISO150</string>
+  <string name="pref_camera_iso_entry_iso200">ISO200</string>
+  <string name="pref_camera_iso_entry_iso250">ISO250</string>
+  <string name="pref_camera_iso_entry_iso1000">ISO1000</string>
+  <string name="pref_camera_iso_entry_iso1200">ISO1200</string>
+  <string name="pref_camera_iso_entry_iso1250">ISO1250</string>
+  <string name="pref_camera_iso_entry_iso1500">ISO1500</string>
+  <string name="pref_camera_iso_entry_iso1600">ISO1600</string>
+  <string name="pref_camera_iso_entry_iso2000">ISO2000</string>
+  <string name="pref_camera_iso_entry_iso2500">ISO2500</string>
+  <string name="pref_camera_iso_entry_iso2700">ISO2700</string>
+  <string name="pref_camera_iso_entry_iso3200">ISO3200</string>
+  <string name="pref_camera_iso_entry_iso6400">ISO6400</string>
+  <string name="pref_camera_iso_entry_iso12800">ISO12800</string>
   <!-- Antibanding -->
+  <string name="pref_camera_antibanding_title">Antibanding</string>
+  <string name="pref_camera_antibanding_entry_0">Automatikisht</string>
+  <string name="pref_camera_antibanding_entry_1">50 Hz (Evropë)</string>
+  <string name="pref_camera_antibanding_entry_2">60 Hz (SHBA)</string>
   <!-- Color effect -->
+  <string name="pref_camera_coloreffect_title">Efekti i ngjyrave</string>
+  <string name="pref_camera_coloreffect_entry_none">Asnjë</string>
+  <string name="pref_camera_coloreffect_entry_mono">Mono</string>
+  <string name="pref_camera_coloreffect_entry_sepia">Sepia</string>
+  <string name="pref_camera_coloreffect_entry_negative">Negativ</string>
   <!-- Color effect that overexposes and reverses some of the tones. -->
   <!-- Stabilization -->
   <!-- Face recognition -->
   <!-- Sharpness -->
   <!-- Contrast -->
+  <string name="pref_camera_contrast_title">Kontrasti</string>
   <!-- Saturation -->
+  <string name="pref_camera_saturation_title">Saturimi</string>
   <!-- Picture format -->
+  <string name="pref_camera_picture_format_title">Formati i fotos</string>
   <!-- Picture quality -->
+  <string name="pref_camera_jpegquality_title">Cilësia e fotos</string>
+  <string name="pref_camera_jpegquality_entry_0">55%</string>
+  <string name="pref_camera_jpegquality_entry_1">65% (normale)</string>
+  <string name="pref_camera_jpegquality_entry_2">75% (e mirë)</string>
+  <string name="pref_camera_jpegquality_entry_3">85% (shumë e mirë)</string>
+  <string name="pref_camera_jpegquality_entry_4">95%</string>
+  <string name="pref_camera_jpegquality_entry_5">100%</string>
   <!-- Histogram -->
+  <string name="pref_camera_histogram_title">Histogram</string>
   <!-- Auto scene detection -->
+  <string name="pref_camera_scenedetect_title">Përcaktimi automatik i peizazhit</string>
   <!-- Continuous shot -->
   <!-- Auto HDR -->
   <!-- HDR mode -->
   <!-- HDR needs 1x frame -->
   <!-- Video rotation -->
+  <string name="pref_camera_video_rotation_title">Rrotullimi i videos</string>
+  <string name="pref_camera_video_rotation_entry_0">0 gradë</string>
+  <string name="pref_camera_video_rotation_entry_90">90 gradë</string>
+  <string name="pref_camera_video_rotation_entry_180">180 gradë</string>
+  <string name="pref_camera_video_rotation_entry_270">270 gradë</string>
   <!-- Storage location -->
+  <string name="pref_camera_savepath_title">Vendndodhja e ruajtjes</string>
+  <string name="pref_camera_savepath_entry_0">Memoria e brëndshme</string>
+  <string name="pref_camera_savepath_entry_1">Karta SD</string>
   <!-- Misc -->
   <!-- The alias of CameraActivity for gesture operation -->
+  <string name="camera_gesture_title">Hap kamerën</string>
   <!-- Toast messages -->
   <!-- The message is shown in toast when the app encounters an unsupported selection for High-framerate recording mode -->
   <!-- The message is shown in dialog when the app encounters an unsupported resolution for Slow motion mode -->
   <!-- The message is shown in toast when the app encounters an unsupported resolution for Stabilization mode -->
   <!-- The message is shown in dialog when the app encounters an unsupported resolution for High speed mode -->
+  <string name="error_app_unsupported_hsr">Profili i shpejtësisë së lartë nuk është i suportuar për madhësinë e zgjedhur të videos. Zgjidhni një madhësi videoje më të vogël</string>
   <!-- The message is shown in dialog when the app encounters an unsupported video codec for HFR mode -->
   <!-- The message is shown in dialog when the app encounters an unsupported video resolution-->
   <!--The message is shown in dialog when the raw snapshot is selected in Zero shutter lag mode-->
+  <string name="msg_cancel_longshot_for_limited_memory">Memoria po mbaron. Për këtë arsye profili i fotove të vazhdueshme do të çaktivizohet</string>
   <!-- Toast showing non-supported functionality for flash in AE bracket -->
   <!-- toast message for storage location switch -->
   <!-- The message is shown in toast when click showOnMap Menu and there is no map app -->

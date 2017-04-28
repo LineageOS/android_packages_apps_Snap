@@ -389,12 +389,12 @@
   <!-- The button to switch to the high quality mode. [CHAR LIMIT = NONE] -->
   <string name="accessibility_switch_to_gcam">Overschakelen naar hoge kwaliteit</string>
   <!-- The button in review mode indicating that the photo taking, video recording, and panorama saving session should be canceled [CHAR LIMIT = NONE] -->
-  <string name="accessibility_review_cancel">Controle annuleren</string>
+  <string name="accessibility_review_cancel">Annuleren</string>
   <!-- The button in review mode indicating that the taken photo/video is OK to be attached/uploaded [CHAR LIMIT = NONE] -->
-  <string name="accessibility_review_ok">Controle gereed</string>
+  <string name="accessibility_review_ok">Gereed</string>
   <!-- button in review mode indicate the user want to retake another photo/video for attachment [
 CHAR LIMIT = NONE] -->
-  <string name="accessibility_review_retake">Opnieuw maken na controle</string>
+  <string name="accessibility_review_retake">Opnieuw</string>
   <!-- Default text for a button that can be toggled on and off. -->
   <string name="capital_on">AAN</string>
   <!-- Default text for a button that can be toggled on and off. -->

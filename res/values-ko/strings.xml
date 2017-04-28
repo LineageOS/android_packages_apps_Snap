@@ -141,7 +141,9 @@
   <!-- message for the dialog showing the camera is disabled because of security policies. Camera cannot be used. -->
   <string name="camera_disabled">보안 정책으로 인해 카메라 사용이 중지되었습니다.</string>
   <!-- message for the dialog showing that the app does not have sufficient permissions [CHAR LIMIT=NONE] -->
+  <string name="error_permissions">앱을 실행하는 데 필수적인 권한이 부여되지 않았습니다. 권한 설정을 확인해 주세요.</string>
   <!-- Dialog "Dismiss" button. Closes the dialog [CHAR LIMIT=12]-->
+  <string name="dialog_dismiss">다시 묻지 않기</string>
   <!-- alert to the user to wait for some operation to complete -->
   <string name="wait">잠시 기다려 주세요\u2026</string>
   <!-- alert to the user that an SD card must be installed before using the camera -->

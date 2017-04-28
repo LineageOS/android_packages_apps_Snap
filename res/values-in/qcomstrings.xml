@@ -81,7 +81,7 @@
   <!-- Face detection -->
   <string name="pref_camera_facedetection_title">Deteksi wajah</string>
   <!-- Selfie Flash -->
-  <string name="pref_selfie_flash_title">Lampu kilat swafoto</string>
+  <string name="pref_selfie_flash_title">Lampu kilat selfie</string>
   <!-- Red eye reduction -->
   <string name="pref_camera_redeyereduction_title">Penurunan mata merah</string>
   <!-- AE bracketing -->

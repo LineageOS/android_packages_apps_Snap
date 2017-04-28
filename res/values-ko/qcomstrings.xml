@@ -266,6 +266,8 @@
   <!-- Toast after 2k4k video is enabled to inform SeeMore has been disabled -->
   <string name="video_quality_4k_disable_SeeMore">SeeMore은 4K 비디오와 같이 켜질 수 없습니다</string>
   <!-- Toast after SeeMore has been enabled to show CDS is disabled -->
+  <string name="disable_CDS_during_SeeMore">SeeMore를 사용하면 상관 이중 샘플링 기능(CDS)이 꺼집니다</string>
   <!-- Toast after SeeMore has been enabled to show TNR is disabled -->
+  <string name="disable_TNR_during_SeeMore">SeeMore 기능을 사용하면 시간적 노이즈 감소 기능(TNR)이 꺼집니다</string>
   <!-- TODO: Remove these? -->
 </resources>

@@ -102,7 +102,7 @@ Gambar yang dipotong disimpan ke <xliff:g id="folder_name">%s</xliff:g>.</string
   <!-- Text indicating the model of a media item in details window [CHAR LIMIT=14] -->
   <string name="model">Model</string>
   <!-- Text indicating flash info of a media item in details window [CHAR LIMIT=14] -->
-  <string name="flash">Flash</string>
+  <string name="flash">Lampu kilat</string>
   <!-- Text indicating aperture of a media item in details window [CHAR LIMIT=14] -->
   <string name="aperture">Bukaan</string>
   <!-- Text indicating the focal length of a media item in details window [CHAR LIMIT=14] -->
@@ -224,7 +224,7 @@ Gambar yang dipotong disimpan ke <xliff:g id="folder_name">%s</xliff:g>.</string
   <string name="pref_camera_flashmode_entry_off">Tidak aktif</string>
   <!-- Menu, flash mode labels [CHAR LIMIT=50] -->
   <string name="pref_camera_flashmode_label_auto">LAMPU KILAT OTOMATIS</string>
-  <string name="pref_camera_flashmode_label_on">LAMPU KILAT AKTIF</string>
+  <string name="pref_camera_flashmode_label_on">LAMPU KILAT HIDUP</string>
   <string name="pref_camera_flashmode_label_off">LAMPU KILAT MATI</string>
   <!-- Default videocamera flash mode setting.-->
   <!-- Default white balance setting. -->
