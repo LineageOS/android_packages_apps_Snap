@@ -3061,6 +3061,7 @@ public class VideoModule extends BaseModule<VideoUI> implements
         boolean mirror = (info.facing == CameraInfo.CAMERA_FACING_FRONT);
         mFocusManager.setMirror(mirror);
         mFocusManager.setParameters(mInitialParams);
+        readVideoPreferences();
         setCameraParameters(UPDATE_PARAM_ALL);
         startPreview();
 
