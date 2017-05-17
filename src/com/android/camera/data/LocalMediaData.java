@@ -493,6 +493,13 @@ public abstract class LocalMediaData implements LocalData {
                 return;
             }
 
+            // band-aid over a race condition where the filmstrip is in the process
+            // of refreshing because of new media just as the camera exits
+            if ((context instanceof Activity) && ((Activity)context).isDestroyed()) {
+                Log.d(TAG, "aborted loadImage because context was destroyed");
+                return;
+            }
+
             final int overrideWidth;
             final int overrideHeight;
             final BitmapRequestBuilder<Uri, Bitmap> thumbnailRequest;
