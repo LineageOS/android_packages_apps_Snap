@@ -53,6 +53,7 @@
   <!-- Default video duration setting. A numerical value.-->
   <!-- Default Skin Tone Enhancement setting. Do not translate. -->
   <!-- Settings screen, Select Skin Tone Enhancement title -->
+  <string name="pref_camera_skinToneEnhancement_title">Ameyora del tonu la piel</string>
   <!-- Settings screen, Skin Tone Enhancement radio button choices -->
   <string name="pref_camera_skinToneEnhancement_entry_enable">Habilitar</string>
   <string name="pref_camera_skinToneEnhancement_entry_disable">Deshabilitar</string>
@@ -60,6 +61,7 @@
   <!-- Settings screen, setting title text for ZSL-->
   <!-- Default selectable zone af setting. Do not translate. -->
   <!-- Settings screen, Selectable zone af title -->
+  <string name="pref_camera_selectablezoneaf_title">Zona d\'auto-enfoque</string>
   <!-- Settings screen, Selectable Zone Af dialog radio button choices -->
   <string name="pref_camera_selectablezoneaf_entry_auto">Auto</string>
   <!-- Auto exposure entry values. Do not translate. -->

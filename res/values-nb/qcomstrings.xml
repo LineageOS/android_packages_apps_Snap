@@ -183,7 +183,7 @@
   <string name="pref_camera_ae_bracket_hdr_entry_on">På</string>
   <string name="err_app_unsupport_ae_bracket_code">AE bracketing støttes ikke ennå</string>
   <!-- The messsage shown if user selects a snapshot resolution lower than the current video size. -->
-  <string name="snapshot_lower_than_video">Stillbilde størrelsen er lavere enn bildestørrelsen, capper til bildestørrelsen. Velg en oppløsning høyere eller lik for den gjeldende bildestørrelsen.</string>
+  <string name="snapshot_lower_than_video">Stillbildestørrelsen er lavere enn bildestørrelsen, begrenser til bildestørrelsen. Velg en oppløsning høyere eller lik gjeldende bildestørrelse.</string>
   <!-- The messsage shown if user selects a snapshot resolution in low power mode. -->
   <string name="snapshotsize_low_powermode">Endring av bildestørrelse støttes ikke i lavt strømforbruk, video-størrelse bilde vil bli tatt. Velg Normal strømmodus for å tillate å endre bildestørrelse.</string>
   <!-- The messsage shown if user tries to take snapshot during D1/QCIF resolution. -->

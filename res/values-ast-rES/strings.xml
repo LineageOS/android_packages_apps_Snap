@@ -68,6 +68,7 @@
   <!-- The title of the menu item to let user crop the image. [CHAR LIMIT=15] -->
   <!-- The title of the menu item to let user trim the video. [CHAR LIMIT=15] -->
   <!-- The title of the menu item to let user set the image as background etc. [CHAR LIMIT=15] -->
+  <string name="set_as">Afitar como</string>
   <!-- String indicating an error when playing the video. [CHAR LIMIT=30] -->
   <string name="video_err">Nun pue reproducise\'l videu.</string>
   <!-- Toast message shown when the cropped image has been saved in the
