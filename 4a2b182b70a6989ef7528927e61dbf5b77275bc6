@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1a486d77_835f2ce5",
+        "filename": "src/com/android/camera/data/LocalMediaData.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 499,
+      "author": {
+        "id": 444
+      },
+      "writtenOn": "2017-05-23T01:20:53Z",
+      "side": 1,
+      "message": "s/fillImageView/loadImage",
+      "revId": "4a2b182b70a6989ef7528927e61dbf5b77275bc6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
