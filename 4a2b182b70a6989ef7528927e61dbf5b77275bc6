@@ -16,6 +16,24 @@
       "revId": "4a2b182b70a6989ef7528927e61dbf5b77275bc6",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa82b9bf_023caa2e",
+        "filename": "src/com/android/camera/data/LocalMediaData.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 499,
+      "author": {
+        "id": 9338
+      },
+      "writtenOn": "2017-05-23T13:12:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1a486d77_835f2ce5",
+      "revId": "4a2b182b70a6989ef7528927e61dbf5b77275bc6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
