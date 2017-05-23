@@ -107,7 +107,7 @@ public class VideoModule implements CameraModule,
 
     private static final int SCREEN_DELAY = 2 * 60 * 1000;
 
-    private static final int SDCARD_SIZE_LIMIT = 4000 * 1024 * 1024;
+    private static final long SDCARD_SIZE_LIMIT = 4000 * 1024 * 1024;
 
     private static final long SHUTTER_BUTTON_TIMEOUT = 0L; // 0ms
 
@@ -285,6 +285,15 @@ public class VideoModule implements CameraModule,
         }
         mParameters = mCameraDevice.getParameters();
         mPreviewFocused = arePreviewControlsVisible();
+        mActivity.runOnUiThread(new Runnable() {
+            public void run() {
+                Size size = mParameters.getPreviewSize();
+                SurfaceHolder sh = mUI.getSurfaceHolder();
+                if ( sh != null ){
+                    sh.setFixedSize(size.width-2, size.height-2);
+                }
+            }
+        });
     }
 
     //QCOM data Members Starts here
@@ -1141,7 +1150,6 @@ public class VideoModule implements CameraModule,
         if(mWasMute != mIsMute) {
             setMute(mIsMute, false);
         }
-        initializeVideoControl();
         showVideoSnapshotUI(false);
         installIntentFilter();
 
@@ -1158,6 +1166,7 @@ public class VideoModule implements CameraModule,
             mUI.enableShutter(true);
         }
 
+        initializeVideoControl();
         mUI.applySurfaceChange(VideoUI.SURFACE_STATUS.SURFACE_VIEW);
 
         mUI.initDisplayChangeListener();
@@ -1249,6 +1258,15 @@ public class VideoModule implements CameraModule,
                     @Override
                     public void onPreviewFrame(byte[] data, CameraProxy camera) {
                         mUI.hidePreviewCover();
+                        mActivity.runOnUiThread(new Runnable() {
+                            public void run() {
+                                Size size = mParameters.getPreviewSize();
+                                SurfaceHolder sh = mUI.getSurfaceHolder();
+                                if ( sh != null ){
+                                    sh.setFixedSize(size.width+2, size.height+2);
+                                }
+                            }
+                        });
                     }
                 });
             mCameraDevice.startPreview();
@@ -2938,6 +2956,16 @@ public class VideoModule implements CameraModule,
 
         //Display timelapse msg depending upon selection in front/back camera.
         mUI.showTimeLapseUI(mCaptureTimeLapse);
+
+        mActivity.runOnUiThread(new Runnable() {
+            public void run() {
+                Size size = mParameters.getPreviewSize();
+                SurfaceHolder sh = mUI.getSurfaceHolder();
+                if ( sh != null ){
+                    sh.setFixedSize(size.width-2, size.height-2);
+                }
+            }
+        });
     }
 
     // Preview texture has been copied. Now camera can be released and the

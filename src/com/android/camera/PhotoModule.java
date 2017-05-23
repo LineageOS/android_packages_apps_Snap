@@ -740,6 +740,15 @@ public class PhotoModule
         openCameraCommon();
         resizeForPreviewAspectRatio();
         updateFocusManager(mUI);
+        mActivity.runOnUiThread(new Runnable() {
+            public void run() {
+                Size size = mParameters.getPreviewSize();
+                SurfaceHolder sh = mUI.getSurfaceHolder();
+                if ( sh != null ){
+                    sh.setFixedSize(size.width-2, size.height-2);
+                }
+            }
+        });
     }
 
     private void switchCamera() {
@@ -795,15 +804,15 @@ public class PhotoModule
         // Start switch camera animation. Post a message because
         // onFrameAvailable from the old camera may already exist.
         mHandler.sendEmptyMessage(SWITCH_CAMERA_START_ANIMATION);
-         mActivity.runOnUiThread(new Runnable() {
-                 public void run() {
-                         Size size = mParameters.getPreviewSize();
-                         SurfaceHolder sh = mUI.getSurfaceHolder();
-                         if ( sh != null ){
-                                 sh.setFixedSize(size.width-2, size.height-2);
-                             }
-                     }
-             });
+        mActivity.runOnUiThread(new Runnable() {
+            public void run() {
+                Size size = mParameters.getPreviewSize();
+                SurfaceHolder sh = mUI.getSurfaceHolder();
+                if ( sh != null ){
+                    sh.setFixedSize(size.width-2, size.height-2);
+                }
+            }
+        });
 
     }
 
@@ -1158,15 +1167,16 @@ public class PhotoModule
             }
         }
     }
+
     private final class StatsCallback
-           implements android.hardware.Camera$CameraDataCallback {
+           implements android.hardware.Camera.CameraDataCallback {
             @Override
         public void onCameraData(int [] data, android.hardware.Camera camera) {
             //if(!mPreviewing || !mHiston || !mFirstTimeInitialized){
             if(!mHiston || !mFirstTimeInitialized){
                 return;
             }
-            /*The first element in the array stores max hist value . Stats data begin from second value*/
+            //The first element in the array stores max hist value . Stats data begin from second value
             synchronized(statsdata) {
                 System.arraycopy(data,0,statsdata,0,STATS_DATA);
             }
@@ -1180,7 +1190,7 @@ public class PhotoModule
     }
 
     private final class MetaDataCallback
-           implements android.hardware.Camera$CameraMetaDataCallback{
+           implements android.hardware.Camera.CameraMetaDataCallback{
         @Override
         public void onCameraMetaData (byte[] data, android.hardware.Camera camera) {
             int metadata[] = new int[3];
@@ -1188,7 +1198,7 @@ public class PhotoModule
                 for (int i =0;i<3;i++) {
                     metadata[i] = byteToInt( (byte []) data, i*4);
                 }
-                /* Checking if the meta data is for auto HDR */
+                // Checking if the meta data is for auto HDR
                 if (metadata[0] == 3) {
                     if (metadata[2] == 1) {
                         mAutoHdrEnable = true;
@@ -4988,6 +4998,10 @@ public class PhotoModule
         if (mPaused) return index;
         mZoomValue = index;
         if (mParameters == null || mCameraDevice == null) return index;
+        if ( mFocusManager != null
+                && mFocusManager.getCurrentFocusState() == FocusOverlayManager.STATE_FOCUSING ) {
+            mFocusManager.cancelAutoFocus();
+        }
         // Set zoom parameters asynchronously
         synchronized (mCameraDevice) {
             mParameters.setZoom(mZoomValue);
@@ -5000,7 +5014,10 @@ public class PhotoModule
 
     @Override
     public void onZoomChanged(float requestedZoom) {
-
+        if ( mFocusManager != null
+                && mFocusManager.getCurrentFocusState() == FocusOverlayManager.STATE_FOCUSING ) {
+            mFocusManager.cancelAutoFocus();
+        }
     }
 
     @Override

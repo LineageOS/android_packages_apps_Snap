@@ -33,19 +33,32 @@ import android.os.SystemProperties;
 public class PersistUtil {
 
     private static final int PERSIST_MEMORY_LIMIT =
-            SystemProperties.getInt("persist.sys.camera.perf.memlimit", 60);
+            SystemProperties.getInt("persist.vendor.camera.perf.memlimit", 60);
     private static final boolean PERSIST_SKIP_MEMORY_CHECK =
-            SystemProperties.getBoolean("persist.sys.camera.perf.skip_memck", false);
+            SystemProperties.getBoolean("persist.vendor.camera.perf.skip_memck", false);
     private static final int PERSIST_LONGSHOT_SHOT_LIMIT =
-            SystemProperties.getInt("persist.sys.camera.longshot.shotnum", 50);
+            SystemProperties.getInt("persist.vendor.camera.longshot.shotnum", 50);
     private static final int PERSIST_CAMERA_PREVIEW_SIZE =
-            SystemProperties.getInt("persist.sys.camera.preview.size", 0);
+            SystemProperties.getInt("persist.vendor.camera.preview.size", 0);
     private static final boolean PERSIST_CAMERA_CAMERA2 =
-            SystemProperties.getBoolean("persist.sys.camera.camera2", false);
+            SystemProperties.getBoolean("persist.vendor.camera.camera2", false);
     private static final boolean PERSIST_CAMERA_ZSL =
-            SystemProperties.getBoolean("persist.sys.camera.zsl.disabled", false);
+            SystemProperties.getBoolean("persist.vendor.camera.zsl.disabled", false);
     private static final int PERSIST_CAMERA2_DEBUG =
-            SystemProperties.getInt("persist.sys.camera2.debug", 0);
+            SystemProperties.getInt("persist.vendor.camera2.debug", 0);
+    private static final int PERSIST_CAMERA_CANCEL_TOUCHFOCUS_DELAY =
+            SystemProperties.getInt("persist.vendor.camera.focus_delay", 5000);
+    private static final int PERSIST_CAMERA_DEBUG =
+            SystemProperties.getInt("persist.vendor.camera.debug", 0);
+    private static final String PERSIST_CAMERA_STILLMORE_BRCOLR =
+            SystemProperties.get("persist.vendor.camera.stm_brcolor", "0.5");
+    private static final String PERSIST_CAMERA_STILLMORE_BRINTENSITY =
+            SystemProperties.get("persist.vendor.camera.stm_brintensity", "0.6");
+    private static final String PERSIST_CAMERA_STILLMORE_SMOOTHINGINTENSITY =
+            SystemProperties.get("persist.vendor.camera.stm_smooth", "0");
+    private static final int PERSIST_CAMERA_STILLMORE_NUM_REQUIRED_IMAGE =
+            SystemProperties.getInt("persist.vendor.camera.stm_img_nums", 5);
+
 
     public static final int CAMERA2_DEBUG_DUMP_IMAGE = 1;
     public static final int CAMERA2_DEBUG_DUMP_LOG = 2;
@@ -76,6 +89,32 @@ public class PersistUtil {
     }
 
     public static int getCamera2Debug() {
-        return PERSIST_CAMERA2_DEBUG;
+        return PERSIST_CAMERA_DEBUG;
+    }
+
+    public static float getStillmoreBrColor(){
+        float brColor = Float.parseFloat(PERSIST_CAMERA_STILLMORE_BRCOLR);
+        return brColor = (brColor < 0 || brColor > 1) ? 0.5f : brColor;
+    }
+
+    public static float getStillmoreBrIntensity(){
+        float brIntensity = Float.parseFloat(PERSIST_CAMERA_STILLMORE_BRINTENSITY);
+        return brIntensity = (brIntensity < 0 || brIntensity > 1) ? 0.6f : brIntensity;
+    }
+
+    public static float getStillmoreSmoothingIntensity(){
+        float smoothingIntensity = Float.parseFloat(PERSIST_CAMERA_STILLMORE_SMOOTHINGINTENSITY);
+        return smoothingIntensity = (smoothingIntensity < 0 || smoothingIntensity > 1) ?
+                0f : smoothingIntensity;
+    }
+
+    public static int getStillmoreNumRequiredImages() {
+        return (PERSIST_CAMERA_STILLMORE_NUM_REQUIRED_IMAGE < 3 ||
+                PERSIST_CAMERA_STILLMORE_NUM_REQUIRED_IMAGE > 5) ?
+                5 : PERSIST_CAMERA_STILLMORE_NUM_REQUIRED_IMAGE;
+    }
+
+    public static int getCancelTouchFocusDelay() {
+        return PERSIST_CAMERA_CANCEL_TOUCHFOCUS_DELAY;
     }
 }

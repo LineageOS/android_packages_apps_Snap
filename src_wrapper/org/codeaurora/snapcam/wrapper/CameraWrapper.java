@@ -46,13 +46,13 @@ import android.hardware.Camera.ShutterCallback;
 import android.util.Log;
 import android.view.SurfaceHolder;
 
-import android.hardware.Camera$CameraMetaDataCallback;
-import android.hardware.Camera$CameraDataCallback;
+import android.hardware.Camera.CameraMetaDataCallback;
+import android.hardware.Camera.CameraDataCallback;
 
 public class CameraWrapper extends Wrapper{
 
     private static Method method_setMetadataCb = null;
-    public static final void setMetadataCb(Camera camera, Camera$CameraMetaDataCallback cb){
+    public static final void setMetadataCb(Camera camera, CameraMetaDataCallback cb){
         if ( DEBUG ){
             Log.e(TAG, "" + Camera.class + " no setMetadataCb");
             return;
@@ -60,7 +60,7 @@ public class CameraWrapper extends Wrapper{
         try{
             if ( method_setMetadataCb == null ){
                 method_setMetadataCb = Camera.class.getMethod("setMetadataCb",
-                        android.hardware.Camera$CameraMetaDataCallback.class);
+                        CameraMetaDataCallback.class);
             }
             method_setMetadataCb.invoke(camera, cb);
         }catch (Exception exception){
@@ -68,9 +68,8 @@ public class CameraWrapper extends Wrapper{
         }
     }
 
-
     private static Method method_setHistogramMode = null;
-    public static final void setHistogramMode(Camera camera, Camera$CameraDataCallback cb) {
+    public static final void setHistogramMode(Camera camera, Camera.CameraDataCallback cb) {
         if ( DEBUG ){
             Log.e(TAG, "" + Camera.class + " no setHistogramMode");
             return;
@@ -78,7 +77,7 @@ public class CameraWrapper extends Wrapper{
         try{
             if ( method_setHistogramMode == null ){
                 method_setHistogramMode = Camera.class.getMethod("setHistogramMode",
-                        android.hardware.Camera$CameraDataCallback.class);
+                        android.hardware.Camera.CameraDataCallback.class);
             }
             method_setHistogramMode.invoke(camera, cb);
         }catch (Exception exception){

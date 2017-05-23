@@ -76,6 +76,7 @@ import android.provider.MediaStore;
 import android.util.Log;
 import android.util.Range;
 import android.util.Size;
+import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.OrientationEventListener;
 import android.view.Surface;
@@ -147,10 +148,10 @@ public class CaptureModule implements CameraModule, PhotoController,
     public static final int INTENT_MODE_CAPTURE_SECURE = 3;
     private static final int BACK_MODE = 0;
     private static final int FRONT_MODE = 1;
-    private static final int CANCEL_TOUCH_FOCUS_DELAY = 5000;
+    private static final int CANCEL_TOUCH_FOCUS_DELAY = PersistUtil.getCancelTouchFocusDelay();
     private static final int OPEN_CAMERA = 0;
     private static final int CANCEL_TOUCH_FOCUS = 1;
-    private static final int MAX_NUM_CAM = 3;
+    private static final int MAX_NUM_CAM = 4;
     private static final MeteringRectangle[] ZERO_WEIGHT_3A_REGION = new MeteringRectangle[]{
             new MeteringRectangle(0, 0, 0, 0, 0)};
     private static final String EXTRA_QUICK_CAPTURE =
@@ -753,6 +754,9 @@ public class CaptureModule implements CameraModule, PhotoController,
                 break;
             }
             case STATE_WAITING_TOUCH_FOCUS:
+                Integer afState = result.get(CaptureResult.CONTROL_AF_STATE);
+                Integer aeState = result.get(CaptureResult.CONTROL_AE_STATE);
+                Log.d(TAG, "STATE_WAITING_TOUCH_FOCUS id: " + id + " afState:" + afState + " aeState:" + aeState);
                 break;
         }
     }
@@ -3138,8 +3142,13 @@ public class CaptureModule implements CameraModule, PhotoController,
             mControlAFMode = CaptureRequest.CONTROL_AF_MODE_CONTINUOUS_PICTURE;
             closePreviewSession();
             mFrameProcessor.onClose();
-            boolean changed = mUI.setPreviewSize(mVideoPreviewSize.getWidth(),
-                    mVideoPreviewSize.getHeight());
+
+            Size preview = mVideoPreviewSize;
+            if (mHighSpeedCapture) {
+                preview = mVideoSize;
+            }
+            boolean changed = mUI.setPreviewSize(preview.getWidth(),
+                    preview.getHeight());
             if (changed) {
                 mUI.hideSurfaceView();
                 mUI.showSurfaceView();
@@ -4077,8 +4086,17 @@ public class CaptureModule implements CameraModule, PhotoController,
                 mCaptureSession[id].capture(mPreviewRequestBuilder[id]
                         .build(), mCaptureCallback, mCameraHandler);
             } else {
-                mCaptureSession[id].setRepeatingRequest(mPreviewRequestBuilder[id]
-                        .build(), mCaptureCallback, mCameraHandler);
+                CameraCaptureSession session = mCaptureSession[id];
+                if (session instanceof CameraConstrainedHighSpeedCaptureSession) {
+                    List list = CameraUtil
+                            .createHighSpeedRequestList(mPreviewRequestBuilder[id].build(),id);
+                    ((CameraConstrainedHighSpeedCaptureSession) session).setRepeatingBurst(list
+                            , mCaptureCallback, mCameraHandler);
+                } else {
+                    mCaptureSession[id].setRepeatingRequest(mPreviewRequestBuilder[id]
+                            .build(), mCaptureCallback, mCameraHandler);
+                }
+
             }
         } catch (CameraAccessException | IllegalStateException e) {
             e.printStackTrace();
@@ -4411,6 +4429,7 @@ public class CaptureModule implements CameraModule, PhotoController,
                     updateVideoFlash();
                     return;
                 case SettingsManager.KEY_FLASH_MODE:
+                case SettingsManager.KEY_ZSL:
                 case SettingsManager.KEY_AUTO_HDR:
                 case SettingsManager.KEY_SAVERAW:
                 case SettingsManager.KEY_HDR:
@@ -4682,6 +4701,7 @@ public class CaptureModule implements CameraModule, PhotoController,
     @Override
     public void onClearSightSuccess(byte[] thumbnailBytes) {
         Log.d(TAG, "onClearSightSuccess");
+        onReleaseShutterLock();
         if(thumbnailBytes != null) mActivity.updateThumbnail(thumbnailBytes);
         mActivity.runOnUiThread(new Runnable() {
             @Override
@@ -4704,8 +4724,7 @@ public class CaptureModule implements CameraModule, PhotoController,
             }
         });
 
-        unlockFocus(BAYER_ID);
-        unlockFocus(MONO_ID);
+        onReleaseShutterLock();
     }
 
     /**
@@ -4859,6 +4878,7 @@ public class CaptureModule implements CameraModule, PhotoController,
     private void showToast(String tips) {
         if (mToast == null) {
             mToast = Toast.makeText(mActivity, tips, Toast.LENGTH_LONG);
+            mToast.setGravity(Gravity.CENTER, 0, 0);
         }
         mToast.setText(tips);
         mToast.show();
