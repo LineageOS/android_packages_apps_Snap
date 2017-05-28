@@ -289,6 +289,7 @@ public class PhotoModule extends BaseModule<PhotoUI> implements
     private boolean mMirror;
     private boolean mFirstTimeInitialized;
     private boolean mIsImageCaptureIntent;
+    private boolean mDeviceIsLandscape;
 
     private int mCameraState = INIT;
     private boolean mSnapshotOnIdle = false;
@@ -556,6 +557,7 @@ public class PhotoModule extends BaseModule<PhotoUI> implements
     public void init(CameraActivity activity, View parent) {
         mActivity = activity;
         mRootView = parent;
+        mDeviceIsLandscape = CameraUtil.isDefaultToPortrait(mActivity)?false:true;
         mPreferences = ComboPreferences.get(mActivity);
         if (mPreferences == null) {
             mPreferences = new ComboPreferences(mActivity);
@@ -1702,7 +1704,7 @@ public class PhotoModule extends BaseModule<PhotoUI> implements
         }
 
         // Set rotation and gps data.
-        int orientation = mOrientation;
+        int orientation = mDeviceIsLandscape?(mOrientation + 90) % 360:mOrientation;
         mJpegRotation = CameraUtil.getJpegRotation(mCameraId, orientation);
         String pictureFormat = mParameters.get(KEY_PICTURE_FORMAT);
         Location loc = getLocationAccordPictureFormat(pictureFormat);
@@ -2179,6 +2181,7 @@ public class PhotoModule extends BaseModule<PhotoUI> implements
         // the camera then point the camera to floor or sky, we still have
         // the correct orientation.
         if (orientation == OrientationEventListener.ORIENTATION_UNKNOWN) return;
+        orientation = mDeviceIsLandscape?(orientation - 90 + 360) % 360:orientation;
         int oldOrientation = mOrientation;
         mOrientation = CameraUtil.roundOrientation(orientation, mOrientation);
         if (oldOrientation != mOrientation) {
@@ -3718,6 +3721,7 @@ public class PhotoModule extends BaseModule<PhotoUI> implements
         int preview_flip_value = SystemProperties.getInt("debug.camera.preview.flip", 0);
         int video_flip_value = SystemProperties.getInt("debug.camera.video.flip", 0);
         int picture_flip_value = SystemProperties.getInt("debug.camera.picture.flip", 0);
+        //int orientation = mDeviceIsLandscape?(mOrientation + 90) % 360:mOrientation;
         int rotation = CameraUtil.getJpegRotation(mCameraId, mOrientation);
         mParameters.setRotation(rotation);
         if (rotation == 90 || rotation == 270) {
