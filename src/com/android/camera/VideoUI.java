@@ -351,6 +351,9 @@ public class VideoUI implements PieRenderer.PieListener,
 
         float scaledTextureWidth = 0.0f, scaledTextureHeight = 0.0f;
         int rotation = CameraUtil.getDisplayRotation(mActivity);
+        if(!CameraUtil.isDefaultToPortrait(mActivity)) {
+        rotation = (rotation - 90) % 360;
+        }
         if (mScreenRatio == CameraUtil.RATIO_16_9
                 && CameraUtil.determinCloseRatio(ratio) == CameraUtil.RATIO_4_3) {
             int l = (mTopMargin + mBottomMargin) * 4;
