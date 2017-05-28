@@ -129,6 +129,7 @@ public class WideAnglePanoramaModule extends BaseModule<WideAnglePanoramaUI> imp
     // respectively.
     private int mDeviceOrientation;
     private int mDeviceOrientationAtCapture;
+    private boolean mDeviceIsLandscape;
     private int mCameraOrientation;
     private int mOrientationCompensation;
     private boolean mOrientationLocked;
@@ -193,6 +194,7 @@ public class WideAnglePanoramaModule extends BaseModule<WideAnglePanoramaUI> imp
             // the camera then point the camera to floor or sky, we still have
             // the correct orientation.
             if (orientation == ORIENTATION_UNKNOWN) return;
+            orientation = (orientation - (mDeviceIsLandscape?90:0) + 360) % 360;
             int oldOrientation = mDeviceOrientation;
             mDeviceOrientation = CameraUtil.roundOrientation(orientation, mDeviceOrientation);
             // When the screen is unlocked, display rotation may change. Always
@@ -226,6 +228,7 @@ public class WideAnglePanoramaModule extends BaseModule<WideAnglePanoramaUI> imp
     public void init(CameraActivity activity, View parent) {
         mActivity = activity;
         mRootView = parent;
+        mDeviceIsLandscape = !CameraUtil.isDefaultToPortrait(mActivity);
 
         mOrientationManager = new OrientationManager(activity);
         mCaptureState = CAPTURE_STATE_VIEWFINDER;
@@ -750,9 +753,9 @@ public class WideAnglePanoramaModule extends BaseModule<WideAnglePanoramaUI> imp
         if (mUsingFrontCamera) {
             // mCameraOrientation is negative with respect to the front facing camera.
             // See document of android.hardware.Camera.Parameters.setRotation.
-            orientation = (mDeviceOrientationAtCapture - mCameraOrientation - 360) % 360;
+            orientation = (mDeviceOrientationAtCapture - mCameraOrientation + (mDeviceIsLandscape?90:0) + 360) % 360;
         } else {
-            orientation = (mDeviceOrientationAtCapture + mCameraOrientation) % 360;
+            orientation = (mDeviceOrientationAtCapture + mCameraOrientation + (mDeviceIsLandscape?90:0)) % 360;
         }
         return orientation;
     }
