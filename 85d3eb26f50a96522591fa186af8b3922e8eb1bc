@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fa82b9bf_dd19bc23",
+        "filename": "src/com/android/camera/PhotoModule.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 560,
+      "author": {
+        "id": 17392
+      },
+      "writtenOn": "2017-05-28T18:58:28Z",
+      "side": 1,
+      "message": "This can be simplest\nmDeviceIsLandscape \u003d !CameraUtil.isDefaultToPortrait(mActivity);",
+      "range": {
+        "startLine": 560,
+        "startChar": 8,
+        "endLine": 560,
+        "endChar": 82
+      },
+      "revId": "85d3eb26f50a96522591fa186af8b3922e8eb1bc",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa82b9bf_fd1600f1",
+        "filename": "src/com/android/camera/VideoModule.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 546,
+      "author": {
+        "id": 17392
+      },
+      "writtenOn": "2017-05-28T18:58:28Z",
+      "side": 1,
+      "message": "this too",
+      "range": {
+        "startLine": 546,
+        "startChar": 8,
+        "endLine": 546,
+        "endChar": 82
+      },
+      "revId": "85d3eb26f50a96522591fa186af8b3922e8eb1bc",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa82b9bf_9dd33438",
+        "filename": "src/com/android/camera/WideAnglePanoramaModule.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 17392
+      },
+      "writtenOn": "2017-05-28T18:58:28Z",
+      "side": 1,
+      "message": "and this",
+      "range": {
+        "startLine": 231,
+        "startChar": 8,
+        "endLine": 231,
+        "endChar": 82
+      },
+      "revId": "85d3eb26f50a96522591fa186af8b3922e8eb1bc",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
