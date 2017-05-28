@@ -194,6 +194,7 @@ public class VideoModule extends BaseModule<VideoUI> implements
     // true.
     private int mDisplayRotation;
     private int mCameraDisplayOrientation;
+    private int mOrientationOffset;
 
     private int mDesiredPreviewWidth;
     private int mDesiredPreviewHeight;
@@ -542,12 +543,12 @@ public class VideoModule extends BaseModule<VideoUI> implements
     @Override
     public void init(CameraActivity activity, View root) {
         mActivity = activity;
+        mOrientationOffset = CameraUtil.isDefaultToPortrait(mActivity) ? 0 : 90;
 
         mPreferences = ComboPreferences.get(mActivity);
         if (mPreferences == null) {
             mPreferences = new ComboPreferences(mActivity);
         }
-
         CameraSettings.upgradeGlobalPreferences(mPreferences.getGlobal(), activity);
         mCameraId = getPreferredCameraId(mPreferences);
         mContentResolver = mActivity.getContentResolver();
@@ -689,7 +690,8 @@ public class VideoModule extends BaseModule<VideoUI> implements
             }
 
             // Set rotation and gps data.
-            int rotation = CameraUtil.getJpegRotation(mCameraId, mOrientation);
+            int orientation = (mOrientation + mOrientationOffset) % 360;
+            int rotation = CameraUtil.getJpegRotation(mCameraId, orientation);
             mParameters.setRotation(rotation);
             Location loc = mLocationManager.getCurrentLocation();
             CameraUtil.setGpsParameters(mParameters, loc);
@@ -765,6 +767,7 @@ public class VideoModule extends BaseModule<VideoUI> implements
         // the camera then point the camera to floor or sky, we still have
         // the correct orientation.
         if (orientation == OrientationEventListener.ORIENTATION_UNKNOWN) return;
+        orientation = (orientation - mOrientationOffset + 360) % 360;
         int newOrientation = CameraUtil.roundOrientation(orientation, mOrientation);
 
         if (mOrientation != newOrientation) {
@@ -1869,9 +1872,9 @@ public class VideoModule extends BaseModule<VideoUI> implements
         if (mOrientation != OrientationEventListener.ORIENTATION_UNKNOWN) {
             CameraInfo info = CameraHolder.instance().getCameraInfo()[mCameraId];
             if (info.facing == CameraInfo.CAMERA_FACING_FRONT) {
-                rotation = (info.orientation - mOrientation + 360) % 360;
+                rotation = (info.orientation - mOrientation - mOrientationOffset + 360) % 360;
             } else {  // back-facing camera
-                rotation = (info.orientation + mOrientation) % 360;
+                rotation = (info.orientation + mOrientation + mOrientationOffset) % 360;
             }
         }
         mMediaRecorder.setOrientationHint(rotation);
