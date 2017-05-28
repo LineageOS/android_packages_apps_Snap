@@ -133,6 +133,7 @@ public class WideAnglePanoramaModule
     // respectively.
     private int mDeviceOrientation;
     private int mDeviceOrientationAtCapture;
+    private int mOrientationOffset;
     private int mCameraOrientation;
     private int mOrientationCompensation;
     private boolean mOrientationLocked;
@@ -197,6 +198,7 @@ public class WideAnglePanoramaModule
             // the camera then point the camera to floor or sky, we still have
             // the correct orientation.
             if (orientation == ORIENTATION_UNKNOWN) return;
+            orientation = (orientation - mOrientationOffset + 360) % 360;
             int oldOrientation = mDeviceOrientation;
             mDeviceOrientation = CameraUtil.roundOrientation(orientation, mDeviceOrientation);
             // When the screen is unlocked, display rotation may change. Always
@@ -230,6 +232,7 @@ public class WideAnglePanoramaModule
     public void init(CameraActivity activity, View parent) {
         mActivity = activity;
         mRootView = parent;
+        mOrientationOffset = CameraUtil.isDefaultToPortrait(mActivity) ? 0 : 90;
 
         mOrientationManager = new OrientationManager(activity);
         mCaptureState = CAPTURE_STATE_VIEWFINDER;
@@ -728,9 +731,11 @@ public class WideAnglePanoramaModule
         if (mUsingFrontCamera) {
             // mCameraOrientation is negative with respect to the front facing camera.
             // See document of android.hardware.Camera.Parameters.setRotation.
-            orientation = (mDeviceOrientationAtCapture - mCameraOrientation - 360) % 360;
+            orientation = (mDeviceOrientationAtCapture - mCameraOrientation -
+                    mOrientationOffset + 360) % 360;
         } else {
-            orientation = (mDeviceOrientationAtCapture + mCameraOrientation) % 360;
+            orientation = (mDeviceOrientationAtCapture + mCameraOrientation +
+                    mOrientationOffset) % 360;
         }
         return orientation;
     }
