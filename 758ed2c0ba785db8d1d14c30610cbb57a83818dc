@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fa82b9bf_f3e38f31",
+        "filename": "src/com/android/camera/PhotoModule.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 560,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2017-05-29T16:46:41Z",
+      "side": 1,
+      "message": "Why not save a mOrientationOffset here instead of using the ternary operators below?",
+      "revId": "758ed2c0ba785db8d1d14c30610cbb57a83818dc",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa82b9bf_93d00355",
+        "filename": "src/com/android/camera/PhotoUI.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2017-05-29T16:46:41Z",
+      "side": 1,
+      "message": "Should use an if here instead of the ternary operator. Also the \u0027+ 360\u0027 is useless.",
+      "revId": "758ed2c0ba785db8d1d14c30610cbb57a83818dc",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa82b9bf_b3d50745",
+        "filename": "src/com/android/camera/VideoModule.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 546,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2017-05-29T16:46:41Z",
+      "side": 1,
+      "message": "See comment in PhotoModule.",
+      "revId": "758ed2c0ba785db8d1d14c30610cbb57a83818dc",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
