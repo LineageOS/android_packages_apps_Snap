@@ -574,13 +574,10 @@ public class CaptureModule extends BaseModule<CaptureUI> implements PhotoControl
                 Log.d(TAG, "STATE_WAITING_PRECAPTURE id: " + id + " afState: " + afState + " aeState:" + aeState);
                 if (aeState == null ||
                         aeState == CaptureResult.CONTROL_AE_STATE_PRECAPTURE ||
-                        aeState == CaptureResult.CONTROL_AE_PRECAPTURE_TRIGGER_START ||
                         aeState == CaptureResult.CONTROL_AE_STATE_FLASH_REQUIRED ||
                         aeState == CaptureResult.CONTROL_AE_STATE_CONVERGED) {
-                    if (mPrecaptureRequestHashCode[id] == result.getRequest().hashCode()) {
-                        Log.d(TAG, "updateCaptureStateMachine: hashes are equal, lock exposure");
+                    if (mPrecaptureRequestHashCode[id] == result.getRequest().hashCode())
                         lockExposure(id);
-                    }
                 }
                 break;
             }
