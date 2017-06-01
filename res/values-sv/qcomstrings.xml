@@ -54,6 +54,7 @@
   <string name="pref_camera_skinToneEnhancement_title">Hudfärgsförstärkning</string>
   <!-- Settings screen, Skin Tone Enhancement radio button choices -->
   <string name="pref_camera_skinToneEnhancement_entry_enable">Aktivera</string>
+  <string name="pref_camera_skinToneEnhancement_entry_disable">Avaktivera</string>
   <!-- Skin Tone Enhancement entry values. Do not translate. -->
   <!-- Settings screen, setting title text for ZSL-->
   <string name="pref_camera_zsl_title">Ingen slutarfördröjning</string>
@@ -386,6 +387,7 @@
   <string name="help_menu_color_filter_3">till</string>
   <string name="help_menu_switcher_1">Byt till</string>
   <string name="help_menu_switcher_2">mellan</string>
+  <string name="pref_camera2_camera2_title">Camera2-läge</string>
   <string name="pref_camera2_camera2_entry_enable">Aktivera</string>
   <string name="pref_camera2_camera2_entry_disable">Avaktivera</string>
   <string name="pref_camera2_mono_only_title">Endast mono</string>
