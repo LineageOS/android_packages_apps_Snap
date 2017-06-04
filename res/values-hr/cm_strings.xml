@@ -47,7 +47,6 @@
   <string name="pref_camera_scenemode_entry_fireworks">Vatromet</string>
   <string name="pref_camera_scenemode_entry_flowers">Cvijeće</string>
   <string name="pref_camera_scenemode_entry_handheldtwilight">Sumrak (držano rukama)</string>
-  <string name="pref_camera_scenemode_entry_highsensitivity">Visoka osjetljivost</string>
   <string name="pref_camera_scenemode_entry_indoor">Unutarnje</string>
   <string name="pref_camera_scenemode_entry_landscape">Krajolik</string>
   <string name="pref_camera_scenemode_entry_mix_illuminant">Mješovita rasvjeta</string>

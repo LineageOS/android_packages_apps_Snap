@@ -250,7 +250,7 @@
   <!-- Toast showing non-supported functionality for flash in AE bracket -->
   <string name="flash_aebracket_message">Flash no es compatible con el modo de bracketing AE</string>
   <!-- toast message for storage location switch -->
-  <string name="on_switch_save_path_to_sdcard">El espacio de almacenamiento interno no es suficiente, cambiar la ubicación de almacenamiento a tarjeta SD</string>
+  <string name="on_switch_save_path_to_sdcard">El espacio de almacenamiento interno es insuficiente, cambiar la ubicación de almacenamiento a tarjeta SD</string>
   <!-- The message is shown in toast when click showOnMap Menu and there is no map app -->
   <string name="map_activity_not_found_err">Sin aplicación de mapas instalada para mostrar la ubicación</string>
   <!-- Continous shot enable message -->

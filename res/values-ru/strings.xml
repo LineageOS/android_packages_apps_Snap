@@ -303,9 +303,9 @@
   <!-- Toast after trying to select a setting that is not allowed to change in scene mode [CHAR LIMIT=NONE] -->
   <string name="not_selectable_in_scene_mode">Недоступно в режиме съемки</string>
   <!-- Exposure settings in preference -->
-  <string name="pref_exposure_title">Выдержка</string>
+  <string name="pref_exposure_title">Экспокоррекция</string>
   <!--  menu label exposure compensation [CHAR LIMIT=50] -->
-  <string name="pref_exposure_label">ВЫДЕРЖКА</string>
+  <string name="pref_exposure_label">ЭКСПОКОРРЕКЦИЯ</string>
   <!-- Default HDR entry value -->
   <!-- Default HDR+ entry value -->
   <!-- HDR label ON [CHAR LIMIT=60] -->
