@@ -3244,7 +3244,7 @@ public class VideoModule implements CameraModule,
             return;
         }
         forceFlashOffIfSupported(forceOff);
-        mCameraDevice.setParameters(mCameraDevice.getParameters());
+        mCameraDevice.setParameters(mParameters);
     }
 
     @Override
