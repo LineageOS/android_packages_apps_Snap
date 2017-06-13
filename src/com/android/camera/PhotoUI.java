@@ -596,6 +596,14 @@ public class PhotoUI implements PieListener,
         }
     }
 
+    public void hideRemainingPhotoCnt() {
+        mCameraControls.hideRemainingPhotoCnt();
+    }
+
+    public void showRemainingPhotoCnt() {
+        mCameraControls.showRemainingPhotoCnt();
+    }
+
     public void hideUI() {
         mSwitcher.closePopup();
         if (mUIhidden)
