@@ -109,6 +109,7 @@ public class ProMode extends View {
         if (key == null) return;
         int index = mSettingsManager.getValueIndex(key);
         CharSequence[] cc = mSettingsManager.getEntries(key);
+        if(cc == null) return;
         mUI.updateProModeText(mode, cc[index].toString());
     }
 

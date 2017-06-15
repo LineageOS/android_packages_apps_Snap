@@ -31,6 +31,7 @@ package com.android.camera;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.graphics.Camera;
 import android.graphics.ImageFormat;
 import android.graphics.Rect;
 import android.hardware.camera2.CameraAccessException;
@@ -213,10 +214,12 @@ public class SettingsManager implements ListMenu.SettingsListener {
                     CaptureModule.MONO_ID = i;
                     mIsMonoCameraPresent = true;
                 }
-                int facing = characteristics.get(CameraCharacteristics.LENS_FACING);
-                if (facing == CameraCharacteristics.LENS_FACING_FRONT) {
-                    CaptureModule.FRONT_ID = i;
-                    mIsFrontCameraPresent = true;
+                if(!CaptureModule.mIsBringUp) {
+                    int facing = characteristics.get(CameraCharacteristics.LENS_FACING);
+                    if (facing == CameraCharacteristics.LENS_FACING_FRONT) {
+                        CaptureModule.FRONT_ID = i;
+                        mIsFrontCameraPresent = true;
+                    }
                 }
                 mCharacteristics.add(i, characteristics);
             }
@@ -781,6 +784,7 @@ public class SettingsManager implements ListMenu.SettingsListener {
     private void buildExposureCompensation(int cameraId) {
         Range<Integer> range = mCharacteristics.get(cameraId).get(CameraCharacteristics
                 .CONTROL_AE_COMPENSATION_RANGE);
+        if(range == null) return;
         int max = range.getUpper();
         int min = range.getLower();
         if (min == 0 && max == 0) {
@@ -790,6 +794,7 @@ public class SettingsManager implements ListMenu.SettingsListener {
         ListPreference pref = mPreferenceGroup.findPreference(KEY_EXPOSURE);
         Rational rational = mCharacteristics.get(cameraId).get(CameraCharacteristics
                 .CONTROL_AE_COMPENSATION_STEP);
+        if(rational == null) return;
         double step = rational.doubleValue();
         int increment = 1;
         while ((max - min) / increment > 10) {
@@ -899,6 +904,7 @@ public class SettingsManager implements ListMenu.SettingsListener {
     }
 
     private List<String> getSupportedChromaFlashPictureSize() {
+        if(CameraCharacteristics.SCALER_STREAM_CONFIGURATION_MAP == null) return new ArrayList<>();
         StreamConfigurationMap map = mCharacteristics.get(getCurrentCameraId()).get(
                 CameraCharacteristics.SCALER_STREAM_CONFIGURATION_MAP);
         Size[] sizes = map.getOutputSizes(ImageFormat.JPEG);
@@ -928,6 +934,7 @@ public class SettingsManager implements ListMenu.SettingsListener {
         supported.add("off");
 
         ListPreference videoQuality = mPreferenceGroup.findPreference(KEY_VIDEO_QUALITY);
+        if(videoQuality == null) return supported;
         String videoSizeStr = videoQuality.getValue();
         if (videoSizeStr != null) {
             Size videoSize = parseSize(videoSizeStr);
@@ -973,11 +980,13 @@ public class SettingsManager implements ListMenu.SettingsListener {
     }
 
     public float getMaxZoom(int id) {
+        if(CameraCharacteristics.SCALER_AVAILABLE_MAX_DIGITAL_ZOOM == null) return 1.0f;
         return mCharacteristics.get(id).get(CameraCharacteristics
                 .SCALER_AVAILABLE_MAX_DIGITAL_ZOOM);
     }
 
     public Rect getSensorActiveArraySize(int id) {
+        if(CameraCharacteristics.SENSOR_INFO_ACTIVE_ARRAY_SIZE == null) return null;
         return mCharacteristics.get(id).get(CameraCharacteristics
                 .SENSOR_INFO_ACTIVE_ARRAY_SIZE);
     }
@@ -991,6 +1000,7 @@ public class SettingsManager implements ListMenu.SettingsListener {
     }
 
     public boolean isZoomSupported(int id) {
+        if(CameraCharacteristics.SCALER_AVAILABLE_MAX_DIGITAL_ZOOM == null) return false;
         return mCharacteristics.get(id).get(CameraCharacteristics
                 .SCALER_AVAILABLE_MAX_DIGITAL_ZOOM) > 1f;
     }
@@ -1020,12 +1030,14 @@ public class SettingsManager implements ListMenu.SettingsListener {
     }
 
     public boolean isAutoExposureRegionSupported(int id) {
+        if(CameraCharacteristics.CONTROL_MAX_REGIONS_AE == null) return false;
         Integer maxAERegions = mCharacteristics.get(id).get(
                 CameraCharacteristics.CONTROL_MAX_REGIONS_AE);
         return maxAERegions != null && maxAERegions > 0;
     }
 
     public boolean isAutoFocusRegionSupported(int id) {
+        if(CameraCharacteristics.CONTROL_MAX_REGIONS_AF == null) return false;
         Integer maxAfRegions = mCharacteristics.get(id).get(
                 CameraCharacteristics.CONTROL_MAX_REGIONS_AF);
         return maxAfRegions != null && maxAfRegions > 0;
@@ -1038,6 +1050,7 @@ public class SettingsManager implements ListMenu.SettingsListener {
     }
 
     public boolean isFixedFocus(int id) {
+        if(CameraCharacteristics.LENS_INFO_MINIMUM_FOCUS_DISTANCE == null) return false;
         Float focusDistance = mCharacteristics.get(id).get(CameraCharacteristics
                 .LENS_INFO_MINIMUM_FOCUS_DISTANCE);
         if (focusDistance == null || focusDistance == 0) {
@@ -1048,8 +1061,10 @@ public class SettingsManager implements ListMenu.SettingsListener {
     }
 
     public boolean isFaceDetectionSupported(int id) {
+        if(CameraCharacteristics.STATISTICS_INFO_AVAILABLE_FACE_DETECT_MODES == null) return false;
         int[] faceDetection = mCharacteristics.get(id).get
                 (CameraCharacteristics.STATISTICS_INFO_AVAILABLE_FACE_DETECT_MODES);
+        if(faceDetection == null) return false;
         for (int value: faceDetection) {
             if (value == CameraMetadata.STATISTICS_FACE_DETECT_MODE_SIMPLE)
                 return true;
@@ -1069,16 +1084,24 @@ public class SettingsManager implements ListMenu.SettingsListener {
     }
 
     public boolean isFacingFront(int id) {
+        if(CameraCharacteristics.LENS_FACING == null) return false;
         int facing = mCharacteristics.get(id).get(CameraCharacteristics.LENS_FACING);
         return facing == CameraCharacteristics.LENS_FACING_FRONT;
     }
 
     public boolean isFlashSupported(int id) {
+        if(CameraCharacteristics.FLASH_INFO_AVAILABLE == null) return false;
         return mCharacteristics.get(id).get(CameraCharacteristics.FLASH_INFO_AVAILABLE) &&
                 mValuesMap.get(KEY_FLASH_MODE) != null;
     }
 
     private List<String> getSupportedPictureSize(int cameraId) {
+        if(CameraCharacteristics.SCALER_STREAM_CONFIGURATION_MAP == null) {
+            Size rts = new Size(640, 480);
+            List<String> l = new ArrayList<>();
+            l.add(rts.toString());
+            return l;
+        }
         StreamConfigurationMap map = mCharacteristics.get(cameraId).get(
                 CameraCharacteristics.SCALER_STREAM_CONFIGURATION_MAP);
         Size[] sizes = map.getOutputSizes(ImageFormat.JPEG);
@@ -1101,6 +1124,7 @@ public class SettingsManager implements ListMenu.SettingsListener {
 
     private boolean checkAeAvailableTargetFpsRanges(int cameraId, int fps) {
         boolean supported = false;
+        if(CameraCharacteristics.CONTROL_AE_AVAILABLE_TARGET_FPS_RANGES == null) return supported;
         Range[] aeFpsRanges = mCharacteristics.get(cameraId).get(CameraCharacteristics
                 .CONTROL_AE_AVAILABLE_TARGET_FPS_RANGES);
 
@@ -1116,6 +1140,7 @@ public class SettingsManager implements ListMenu.SettingsListener {
     }
 
     private int getSupportedMaximumVideoFPSForNormalSession(int cameraId, Size videoSize) {
+        if(CameraCharacteristics.SCALER_STREAM_CONFIGURATION_MAP == null) return 30;
         StreamConfigurationMap map = mCharacteristics.get(cameraId).get(
                 CameraCharacteristics.SCALER_STREAM_CONFIGURATION_MAP);
         long duration = map.getOutputMinFrameDuration(MediaRecorder.class, videoSize);
@@ -1131,23 +1156,40 @@ public class SettingsManager implements ListMenu.SettingsListener {
 
 
     public Size[] getSupportedThumbnailSizes(int cameraId) {
+        if(CameraCharacteristics.JPEG_AVAILABLE_THUMBNAIL_SIZES == null) {
+            Size[] size = new Size[1];
+            size[0] = new Size(64,48);
+            return size;
+        }
         return mCharacteristics.get(cameraId).get(
                 CameraCharacteristics.JPEG_AVAILABLE_THUMBNAIL_SIZES);
     }
 
     public Size[] getSupportedOutputSize(int cameraId, int format) {
+        if(CameraCharacteristics.SCALER_STREAM_CONFIGURATION_MAP == null) {
+            Size[] size = new Size[1];
+            size[0] = new Size(640,480);
+        }
         StreamConfigurationMap map = mCharacteristics.get(cameraId).get(
                 CameraCharacteristics.SCALER_STREAM_CONFIGURATION_MAP);
         return map.getOutputSizes(format);
     }
 
     public Size[] getSupportedOutputSize(int cameraId, Class cl) {
+        if(CameraCharacteristics.SCALER_STREAM_CONFIGURATION_MAP == null) {
+            Size[] size = new Size[1];
+            size[0] = new Size(640,480);
+        }
         StreamConfigurationMap map = mCharacteristics.get(cameraId).get(
                 CameraCharacteristics.SCALER_STREAM_CONFIGURATION_MAP);
         return map.getOutputSizes(cl);
     }
 
     private List<String> getSupportedVideoSize(int cameraId) {
+        if(CameraCharacteristics.SCALER_STREAM_CONFIGURATION_MAP == null) {
+            Size[] size = new Size[1];
+            size[0] = new Size(640,480);
+        }
         StreamConfigurationMap map = mCharacteristics.get(cameraId).get(
                 CameraCharacteristics.SCALER_STREAM_CONFIGURATION_MAP);
         Size[] sizes = map.getOutputSizes(MediaRecorder.class);
@@ -1165,12 +1207,20 @@ public class SettingsManager implements ListMenu.SettingsListener {
     }
 
     public Size[] getSupportedHighSpeedVideoSize(int cameraId) {
+        if(CameraCharacteristics.SCALER_STREAM_CONFIGURATION_MAP == null) {
+            Size[] size = new Size[1];
+            size[0] = new Size(640,480);
+        }
         StreamConfigurationMap map = mCharacteristics.get(cameraId).get(
                 CameraCharacteristics.SCALER_STREAM_CONFIGURATION_MAP);
         return map.getHighSpeedVideoSizes();
     }
 
     public Range[] getSupportedHighSpeedVideoFPSRange(int cameraId, Size videoSize) {
+        if(CameraCharacteristics.SCALER_STREAM_CONFIGURATION_MAP == null) {
+            Size[] size = new Size[1];
+            size[0] = new Size(640,480);
+        }
         StreamConfigurationMap map = mCharacteristics.get(cameraId).get(
                 CameraCharacteristics.SCALER_STREAM_CONFIGURATION_MAP);
         return map.getHighSpeedVideoFpsRangesFor(videoSize);
@@ -1189,6 +1239,7 @@ public class SettingsManager implements ListMenu.SettingsListener {
     }
 
     private List<String> getSupportedRedeyeReduction(int cameraId) {
+        if(CameraCharacteristics.CONTROL_AE_AVAILABLE_MODES == null) return new ArrayList<>();
         int[] flashModes = mCharacteristics.get(cameraId).get(CameraCharacteristics
                 .CONTROL_AE_AVAILABLE_MODES);
         List<String> modes = new ArrayList<>();
@@ -1203,14 +1254,17 @@ public class SettingsManager implements ListMenu.SettingsListener {
     }
 
     public float getMinimumFocusDistance(int cameraId) {
+        if(CameraCharacteristics.LENS_INFO_MINIMUM_FOCUS_DISTANCE == null) return 1.0f;
         return mCharacteristics.get(cameraId)
                 .get(CameraCharacteristics.LENS_INFO_MINIMUM_FOCUS_DISTANCE);
     }
 
     private List<String> getSupportedWhiteBalanceModes(int cameraId) {
+        if(CameraCharacteristics.CONTROL_AWB_AVAILABLE_MODES == null) return new ArrayList<>();
         int[] whiteBalanceModes = mCharacteristics.get(cameraId).get(CameraCharacteristics
                 .CONTROL_AWB_AVAILABLE_MODES);
         List<String> modes = new ArrayList<>();
+        if(whiteBalanceModes == null) return modes;
         for (int mode : whiteBalanceModes) {
             modes.add("" + mode);
         }
@@ -1218,6 +1272,7 @@ public class SettingsManager implements ListMenu.SettingsListener {
     }
 
     private List<String> getSupportedSceneModes(int cameraId) {
+        if(CameraCharacteristics.CONTROL_AVAILABLE_SCENE_MODES == null) new ArrayList<>();
         int[] sceneModes = mCharacteristics.get(cameraId).get(CameraCharacteristics
                 .CONTROL_AVAILABLE_SCENE_MODES);
         List<String> modes = new ArrayList<>();
@@ -1232,6 +1287,7 @@ public class SettingsManager implements ListMenu.SettingsListener {
         if (SharpshooterFilter.isSupportedStatic()) modes.add(SCENE_MODE_SHARPSHOOTER_INT + "");
         if (TrackingFocusFrameListener.isSupportedStatic()) modes.add(SCENE_MODE_TRACKINGFOCUS_INT + "");
         modes.add("" + SCENE_MODE_PROMODE_INT);
+        if(sceneModes == null) return modes;
         for (int mode : sceneModes) {
             modes.add("" + mode);
         }
@@ -1239,6 +1295,7 @@ public class SettingsManager implements ListMenu.SettingsListener {
     }
 
     private List<String> getSupportedFlashModes(int cameraId) {
+        if(CameraCharacteristics.CONTROL_AE_AVAILABLE_MODES == null) return new ArrayList<>();
         int[] flashModes = mCharacteristics.get(cameraId).get(CameraCharacteristics
                 .CONTROL_AE_AVAILABLE_MODES);
         List<String> modes = new ArrayList<>();
@@ -1249,18 +1306,25 @@ public class SettingsManager implements ListMenu.SettingsListener {
     }
 
     private boolean isFlashAvailable(int cameraId) {
-        return mCharacteristics.get(cameraId).get(CameraCharacteristics.FLASH_INFO_AVAILABLE);
+        try {
+            return mCharacteristics.get(cameraId).get(CameraCharacteristics.FLASH_INFO_AVAILABLE);
+        }catch(NullPointerException e) {
+            return false;
+        }
     }
 
     public StreamConfigurationMap getStreamConfigurationMap(int cameraId){
+        if(CameraCharacteristics.SCALER_STREAM_CONFIGURATION_MAP == null) return null;
         return mCharacteristics.get(cameraId)
                 .get(CameraCharacteristics.SCALER_STREAM_CONFIGURATION_MAP);
     }
 
     public List<String> getSupportedColorEffects(int cameraId) {
+        if(CameraCharacteristics.CONTROL_AVAILABLE_EFFECTS == null) return new ArrayList<>();
         int[] flashModes = mCharacteristics.get(cameraId).get(CameraCharacteristics
                 .CONTROL_AVAILABLE_EFFECTS);
         List<String> modes = new ArrayList<>();
+        if(flashModes == null) return modes;
         for (int mode : flashModes) {
             modes.add("" + mode);
         }
@@ -1268,11 +1332,19 @@ public class SettingsManager implements ListMenu.SettingsListener {
     }
 
     private List<String> getSupportedIso(int cameraId) {
+        if(CameraCharacteristics.SENSOR_INFO_SENSITIVITY_RANGE == null) {
+            List<String> iso = new ArrayList<>();
+            iso.add("auto");
+            return iso;
+        }
         Range<Integer> range = mCharacteristics.get(cameraId).get(CameraCharacteristics
                 .SENSOR_INFO_SENSITIVITY_RANGE);
+        List<String> supportedIso = new ArrayList<>();
+        if(range == null) {
+            return supportedIso;
+        }
         int max = range.getUpper();
         int value = 50;
-        List<String> supportedIso = new ArrayList<>();
         supportedIso.add("auto");
         while (value <= max) {
             if (range.contains(value)) {
@@ -1286,6 +1358,7 @@ public class SettingsManager implements ListMenu.SettingsListener {
     private boolean isCurrentVideoResolutionSupportedByEncoder(VideoEncoderCap encoderCap) {
         boolean supported = false;
         ListPreference videoQuality = mPreferenceGroup.findPreference(KEY_VIDEO_QUALITY);
+        if(videoQuality == null) return supported;
         String videoSizeStr = videoQuality.getValue();
 
         if (videoSizeStr != null) {
@@ -1311,6 +1384,7 @@ public class SettingsManager implements ListMenu.SettingsListener {
         ArrayList<String> supported = new ArrayList<String>();
         String str = null;
         List<VideoEncoderCap> videoEncoders = EncoderCapabilities.getVideoEncoders();
+        if(videoEncoders == null) return supported;
         for (VideoEncoderCap videoEncoder: videoEncoders) {
             str = SettingTranslation.getVideoEncoder(videoEncoder.mCodec);
             if (str != null) {
@@ -1333,9 +1407,11 @@ public class SettingsManager implements ListMenu.SettingsListener {
     }
 
     public List<String> getSupportedNoiseReductionModes(int cameraId) {
+        if(CameraCharacteristics.NOISE_REDUCTION_AVAILABLE_NOISE_REDUCTION_MODES == null) return new ArrayList<>();
         int[] noiseReduction = mCharacteristics.get(cameraId).get(CameraCharacteristics
                 .NOISE_REDUCTION_AVAILABLE_NOISE_REDUCTION_MODES);
         List<String> modes = new ArrayList<>();
+        if(noiseReduction == null) return modes;
         for (int mode : noiseReduction) {
             String str = SettingTranslation.getNoiseReduction(mode);
             if (str != null) modes.add(str);
@@ -1344,9 +1420,10 @@ public class SettingsManager implements ListMenu.SettingsListener {
     }
 
     private  List<String> getSupportedZoomLevel(int cameraId) {
+        ArrayList<String> supported = new ArrayList<String>();
+        if(CameraCharacteristics.SCALER_AVAILABLE_MAX_DIGITAL_ZOOM == null) return supported;
         float maxZoom = mCharacteristics.get(cameraId).get(CameraCharacteristics
                 .SCALER_AVAILABLE_MAX_DIGITAL_ZOOM);
-        ArrayList<String> supported = new ArrayList<String>();
         for (int zoomLevel = 0; zoomLevel <= maxZoom; zoomLevel++) {
             supported.add(String.valueOf(zoomLevel));
         }
@@ -1373,15 +1450,21 @@ public class SettingsManager implements ListMenu.SettingsListener {
     }
 
     public List<String> getSupportedInstantAecAvailableModes(int cameraId) {
-        int[] instantAecAvailableModes = mCharacteristics.get(cameraId).get(
-                                           CaptureModule.InstantAecAvailableModes);
-        if (instantAecAvailableModes == null) {
-            return null;
-        }
         List<String> modes = new ArrayList<>();
-        for (int i : instantAecAvailableModes) {
-            modes.add(""+i);
+        try {
+            int[] instantAecAvailableModes = mCharacteristics.get(cameraId).get(
+                    CaptureModule.InstantAecAvailableModes);
+            if (instantAecAvailableModes == null) {
+                return null;
+            }
+
+            for (int i : instantAecAvailableModes) {
+                modes.add("" + i);
+            }
+        } catch(NullPointerException e) {
+        } catch(IllegalArgumentException e) {
         }
+
         return  modes;
     }
 
@@ -1395,9 +1478,10 @@ public class SettingsManager implements ListMenu.SettingsListener {
     }
 
     public List<String> getSupportedAntiBandingLevelAvailableModes(int cameraId) {
+        List<String> modes = new ArrayList<>();
+        if(CameraCharacteristics.CONTROL_AE_AVAILABLE_ANTIBANDING_MODES == null) return modes;
         int[] antiBandingLevelAvailableModes = mCharacteristics.get(cameraId).get(
                 CameraCharacteristics.CONTROL_AE_AVAILABLE_ANTIBANDING_MODES);
-        List<String> modes = new ArrayList<>();
         for (int i : antiBandingLevelAvailableModes) {
             modes.add(""+i);
         }

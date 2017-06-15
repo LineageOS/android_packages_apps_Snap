@@ -41,7 +41,7 @@ public class PersistUtil {
     private static final int PERSIST_CAMERA_PREVIEW_SIZE =
             SystemProperties.getInt("persist.camera.preview.size", 0);
     private static final boolean PERSIST_CAMERA_CAMERA2 =
-            SystemProperties.getBoolean("persist.camera.camera2", false);
+            SystemProperties.getBoolean("persist.camera.camera2", true);
     private static final boolean PERSIST_CAMERA_ZSL =
             SystemProperties.getBoolean("persist.camera.zsl.disabled", false);
     private static final int PERSIST_CAMERA_CANCEL_TOUCHFOCUS_DELAY =
@@ -56,6 +56,8 @@ public class PersistUtil {
             SystemProperties.get("persist.camera.stm_smooth", "0");
     private static final int PERSIST_CAMERA_STILLMORE_NUM_REQUIRED_IMAGE =
             SystemProperties.getInt("persist.camera.stm_img_nums", 5);
+    private static final boolean PERSIST_CAMERA_BRINGUP_4KVIDEO =
+            SystemProperties.getBoolean("persist.camera2.bringup.4kvideo", false);
 
     public static final int CAMERA2_DEBUG_DUMP_IMAGE = 1;
     public static final int CAMERA2_DEBUG_DUMP_LOG = 2;
@@ -71,6 +73,10 @@ public class PersistUtil {
 
     public static int getLongshotShotLimit() {
         return PERSIST_LONGSHOT_SHOT_LIMIT;
+    }
+
+    public static boolean getCameraBringup4KVIDEO() {
+        return PERSIST_CAMERA_BRINGUP_4KVIDEO;
     }
 
     public static int getCameraPreviewSize() {
