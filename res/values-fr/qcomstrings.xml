@@ -403,6 +403,7 @@
   <string name="text_tsmakeup_beautify_toast">Embellissement</string>
   <string name="all_in_focus">Tout sur le focus</string>
   <string name="refocus_toast">Pour refaire la mise au point, appuyer ici</string>
+  <string name="refocus_prompt_message">Avec UbiFocus, votre appareil photo va prendre 5 photos à chaque fois que vous appuyez sur le bouton d\'obturateur. Les 5 photos vont être combinées en une seule photo, où le focus sera sur tous les éléments. Vous pourrez changer de focus à nouveau après avoir pris la photo.</string>
   <string name="camera_thermal_shutdown">Téléphone en surchauffe, fermeture de l\'appareil photo.</string>
   <string name="camera_server_died">Arrêt inopiné du serveur multimédia, fermeture de l\'appareil photo.</string>
   <string name="camera_unknown_error">Erreur inconnue, fermeture de l\'appareil photo.</string>

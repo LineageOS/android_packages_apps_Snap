@@ -29,21 +29,21 @@
 -->
 <resources>
   <string-array name="pref_camera2_mono_only_entries">
-    <item>Укљ</item>
-    <item>Искљ</item>
+    <item>Укључено</item>
+    <item>Искључено</item>
   </string-array>
   <string-array name="pref_camera2_initial_camera_entries">
     <item>Bayer</item>
-    <item>Црно-бело</item>
-    <item>Напред</item>
+    <item>Моно</item>
+    <item>Предња</item>
   </string-array>
   <string-array name="pref_camera2_makeup_entries">
-    <item>Укљ</item>
-    <item>Искљ</item>
+    <item>Укључено</item>
+    <item>Искључено</item>
   </string-array>
   <string-array name="pref_camera2_trackingfocus_entries">
-    <item>Укљ</item>
-    <item>Искљ</item>
+    <item>Укључено</item>
+    <item>Искључено</item>
   </string-array>
   <!-- Refer to CONTROL_SCENE_MODE of Camera2 API for values
         -1 refers to ones not supported in Camera2 API

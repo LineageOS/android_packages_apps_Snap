@@ -18,90 +18,91 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- common aspect ratios -->
   <!-- aspect ratio greater than 16:9, so "widescreen" or "cinematic" -->
-  <string name="pref_camera_aspectratio_wide">Широк</string>
+  <string name="pref_camera_aspectratio_wide">Широки</string>
   <!-- format for entries in the picture size menu. Parameter one is aspect ratio
          parameter two is size in megapixels, e.g. "(4:3) 12.1 megapixels"
          NOTE: for Chinese (zh) and Korean (ko) the pixel number (parameter two)
          will be multiplied by 100 as those languages want to count by ten thousands -->
   <string name="pref_camera_megapixel_format">(%1$s) %2$1.1f мегапиксела</string>
   <!-- Settings screen, scene mode -->
-  <string name="pref_camera_scenemode_entry_antimotionblur">Редукција замагљивања покрета</string>
+  <string name="pref_camera_scenemode_entry_antimotionblur">Смањење замагљености услед покрета</string>
   <string name="pref_camera_scenemode_entry_aqua">Вода</string>
-  <string name="pref_camera_scenemode_entry_ar">Измењена реалност</string>
-  <string name="pref_camera_scenemode_entry_asd">Најбољи хитац</string>
+  <string name="pref_camera_scenemode_entry_ar">Проширена реалност</string>
+  <string name="pref_camera_scenemode_entry_asd">Најбољи снимак</string>
   <string name="pref_camera_scenemode_entry_baby">Беба</string>
-  <string name="pref_camera_scenemode_entry_backgroundblur">Замагљивање позадине</string>
+  <string name="pref_camera_scenemode_entry_backgroundblur">Замагљење позадине</string>
   <string name="pref_camera_scenemode_entry_backlight">Позадинско осветљење</string>
-  <string name="pref_camera_scenemode_entry_backlightportrait">Портрет позадинског осветљења</string>
-  <string name="pref_camera_scenemode_entry_barcode">Баркод</string>
+  <string name="pref_camera_scenemode_entry_backlightportrait">Портрет са позадинским осветљењем</string>
+  <string name="pref_camera_scenemode_entry_barcode">Бар-код</string>
   <string name="pref_camera_scenemode_entry_beach">Плажа</string>
   <string name="pref_camera_scenemode_entry_beauty">Лепота</string>
-  <string name="pref_camera_scenemode_entry_candlelight">Светлост свеће</string>
+  <string name="pref_camera_scenemode_entry_candlelight">Свеће</string>
   <string name="pref_camera_scenemode_entry_cine">Биоскоп</string>
-  <string name="pref_camera_scenemode_entry_closeup">Изблиза</string>
-  <string name="pref_camera_scenemode_entry_dark">Мрак</string>
+  <string name="pref_camera_scenemode_entry_closeup">Крупни план</string>
+  <string name="pref_camera_scenemode_entry_dark">Тамно</string>
   <string name="pref_camera_scenemode_entry_dish">Јело</string>
   <string name="pref_camera_scenemode_entry_duskdawn">Сумрак</string>
-  <string name="pref_camera_scenemode_entry_document">Документарац</string>
+  <string name="pref_camera_scenemode_entry_document">Документ</string>
   <string name="pref_camera_scenemode_entry_fallcolor">Јесење боје</string>
   <string name="pref_camera_scenemode_entry_fireworks">Ватромет</string>
   <string name="pref_camera_scenemode_entry_flowers">Цвеће</string>
-  <string name="pref_camera_scenemode_entry_handheldtwilight">Сумрак 2</string>
-  <string name="pref_camera_scenemode_entry_indoor">Унутра</string>
+  <string name="pref_camera_scenemode_entry_handheldtwilight">HHT</string>
+  <string name="pref_camera_scenemode_entry_highsensitivity">Велика осетљивост</string>
+  <string name="pref_camera_scenemode_entry_indoor">У затвореном простору</string>
   <string name="pref_camera_scenemode_entry_landscape">Пејзаж</string>
-  <string name="pref_camera_scenemode_entry_mix_illuminant">Мешано осветљење</string>
+  <string name="pref_camera_scenemode_entry_mix_illuminant">Комбиновано осветљење</string>
   <string name="pref_camera_scenemode_entry_mood">Расположење</string>
-  <string name="pref_camera_scenemode_entry_nightportrait">Портрет ноћу</string>
-  <string name="pref_camera_scenemode_entry_nightindoor">Унутрашња ноћ</string>
+  <string name="pref_camera_scenemode_entry_nightportrait">Ноћни портрет</string>
+  <string name="pref_camera_scenemode_entry_nightindoor">У затвореном простору ноћу</string>
   <string name="pref_camera_scenemode_entry_oldfilm">Стари филм</string>
   <string name="pref_camera_scenemode_entry_pet">Кућни љубимац</string>
   <string name="pref_camera_scenemode_entry_portrait">Портрет</string>
   <string name="pref_camera_scenemode_entry_snow">Снег</string>
-  <string name="pref_camera_scenemode_entry_softskin">Мекана кожа</string>
-  <string name="pref_camera_scenemode_entry_sports">Спортови</string>
+  <string name="pref_camera_scenemode_entry_softskin">Нежна кожа</string>
+  <string name="pref_camera_scenemode_entry_sports">Спорт</string>
   <string name="pref_camera_scenemode_entry_spotlight">Рефлектор</string>
-  <string name="pref_camera_scenemode_entry_steadyphoto">Стабилна фотографија</string>
+  <string name="pref_camera_scenemode_entry_steadyphoto">Стабилни снимак</string>
   <string name="pref_camera_scenemode_entry_supernight">Тамна ноћ</string>
-  <string name="pref_camera_scenemode_entry_sweepstitch">Широко чисто</string>
+  <string name="pref_camera_scenemode_entry_sweepstitch">Панорама</string>
   <string name="pref_camera_scenemode_entry_text">Текст</string>
   <string name="pref_camera_scenemode_entry_theatre">Позориште</string>
-  <string name="pref_camera_scenemode_entry_whiteboard">Белатабла</string>
+  <string name="pref_camera_scenemode_entry_whiteboard">Бела табла</string>
   <!-- Settings screen, focus mode -->
-  <string name="pref_camera_focusmode_entry_continuous">Непрекидно</string>
-  <string name="pref_camera_focusmode_entry_mw_continuous">Непрекидно (MW)</string>
-  <string name="pref_camera_focusmode_entry_extended">Проширено</string>
-  <string name="pref_camera_focusmode_entry_facedetect">Детекција лица</string>
-  <string name="pref_camera_focusmode_entry_facepriority">Приоритет лица</string>
-  <string name="pref_camera_focusmode_entry_fixed">Стабилно</string>
-  <string name="pref_camera_focusmode_entry_normal">Нормално</string>
+  <string name="pref_camera_focusmode_entry_continuous">Непрекидни</string>
+  <string name="pref_camera_focusmode_entry_mw_continuous">Непрекидни (MW)</string>
+  <string name="pref_camera_focusmode_entry_extended">Проширени</string>
+  <string name="pref_camera_focusmode_entry_facedetect">Препознавање лица</string>
+  <string name="pref_camera_focusmode_entry_facepriority">Фокус на лицу</string>
+  <string name="pref_camera_focusmode_entry_fixed">Фиксирани</string>
+  <string name="pref_camera_focusmode_entry_normal">Нормални</string>
   <string name="pref_camera_focusmode_entry_portrait">Портрет</string>
-  <string name="pref_camera_focusmode_entry_hyperfocal">Жижно</string>
+  <string name="pref_camera_focusmode_entry_hyperfocal">Хиперфокални</string>
   <!-- Color effects -->
-  <string name="pref_camera_coloreffect_entry_washed">Опрано</string>
-  <string name="pref_camera_coloreffect_entry_vintage_warm">Берба топло</string>
-  <string name="pref_camera_coloreffect_entry_vintage_cold">Берба хладно</string>
-  <string name="pref_camera_coloreffect_entry_point_blue">Тачка плаве</string>
-  <string name="pref_camera_coloreffect_entry_point_green">Тачка зелене</string>
-  <string name="pref_camera_coloreffect_entry_point_red_yellow">Тачка црвено-жута</string>
-  <string name="pref_camera_coloreffect_entry_cartoonize">Цртаћ</string>
+  <string name="pref_camera_coloreffect_entry_washed">Испрано</string>
+  <string name="pref_camera_coloreffect_entry_vintage_warm">Старински (топло)</string>
+  <string name="pref_camera_coloreffect_entry_vintage_cold">Старински (хладно)</string>
+  <string name="pref_camera_coloreffect_entry_point_blue">Плава тачка</string>
+  <string name="pref_camera_coloreffect_entry_point_green">Зелена тачка</string>
+  <string name="pref_camera_coloreffect_entry_point_red_yellow">Црвено-жута тачка</string>
+  <string name="pref_camera_coloreffect_entry_cartoonize">Цртани филм</string>
   <!-- Red eye flash mode title -->
   <string name="pref_camera_flashmode_entry_redeye">Црвене очи</string>
   <string name="pref_camera_flashmode_label_redeye">ЦРВЕНЕ ОЧИ</string>
   <!-- Power shutter -->
-  <string name="pref_camera_power_shutter_title">Power окидач</string>
+  <string name="pref_camera_power_shutter_title">Дугме за напајање</string>
   <!-- Max brightness -->
-  <string name="pref_camera_max_brightness_title">Светли екран</string>
+  <string name="pref_camera_max_brightness_title">Максимално осветљење екрана</string>
   <!-- Touch focus duration -->
-  <string name="pref_camera_focustime_title">Трајање додирног фокуса</string>
-  <string name="pref_camera_focustime_entry_0">0с</string>
-  <string name="pref_camera_focustime_entry_3">3с</string>
-  <string name="pref_camera_focustime_entry_5">5с</string>
-  <string name="pref_camera_focustime_entry_10">10с</string>
-  <string name="pref_camera_focustime_entry_infinite">Неограничен</string>
+  <string name="pref_camera_focustime_title">Трајање фокуса додиром</string>
+  <string name="pref_camera_focustime_entry_0">0 секунди</string>
+  <string name="pref_camera_focustime_entry_3">3 секунде</string>
+  <string name="pref_camera_focustime_entry_5">5 секунди</string>
+  <string name="pref_camera_focustime_entry_10">10 секунди</string>
+  <string name="pref_camera_focustime_entry_infinite">Неограничено</string>
   <!-- Shutter speed -->
   <string name="pref_camera_shutter_speed_title">Брзина затварача</string>
-  <string name="auto_hdr_enabled">Аутоматски HDR омогућен</string>
+  <string name="auto_hdr_enabled">Аутоматски HDR је омогућен.</string>
   <!-- Advanced options -->
-  <string name="developer_menu_enabled">Омогућили сте напредне опције камере</string>
-  <string name="developer_menu_disabled">Онемогућили сте напредне опције камере</string>
+  <string name="developer_menu_enabled">Омогућили сте напредне опције камере.</string>
+  <string name="developer_menu_disabled">Онемогућили сте напредне опције камере.</string>
 </resources>
