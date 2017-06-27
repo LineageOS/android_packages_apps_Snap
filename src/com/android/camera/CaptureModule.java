@@ -1043,9 +1043,10 @@ public class CaptureModule implements CameraModule, PhotoController,
                             if(id == getMainCameraId()) {
                                 mCurrentSession = cameraCaptureSession;
                             }
-                            initializePreviewConfiguration(id);
+
+                            //Todo initializePreviewConfiguration(id);
                             setDisplayOrientation();
-                            updateFaceDetection();
+                            //Todo updateFaceDetection();
                             try {
                                 if (isBackCamera() && getCameraMode() == DUAL_MODE) {
                                     linkBayerMono(id);
@@ -1071,6 +1072,7 @@ public class CaptureModule implements CameraModule, PhotoController,
                             } catch(IllegalStateException e) {
                                 e.printStackTrace();
                             }
+
                         }
 
                         @Override
@@ -1826,8 +1828,11 @@ public class CaptureModule implements CameraModule, PhotoController,
         if (mVideoSnapshotImageReader != null) {
             mVideoSnapshotImageReader.close();
         }
-        mVideoSnapshotImageReader = ImageReader.newInstance(mVideoSnapshotSize.getWidth(),
-                mVideoSnapshotSize.getHeight(), ImageFormat.JPEG, 2);
+/*Todo        mVideoSnapshotImageReader = ImageReader.newInstance(mVideoSnapshotSize.getWidth(),
+                mVideoSnapshotSize.getHeight(), ImageFormat.JPEG, 2);*/
+
+        mVideoSnapshotImageReader = ImageReader.newInstance(3840, 2160, mChosenImageFormat, 10);
+Log.e("JW", "Image="+mChosenImageFormat);
         mVideoSnapshotImageReader.setOnImageAvailableListener(
                 new ImageReader.OnImageAvailableListener() {
                     @Override
@@ -2305,8 +2310,43 @@ public class CaptureModule implements CameraModule, PhotoController,
         updateMaxVideoDuration();
     }
 
-    private void updatePreviewSize() {
+    private Size checkOverridePreviewSize(int cur_width, int cur_height) {
         int preview_resolution = PersistUtil.getCameraPreviewSize();
+
+        switch (preview_resolution) {
+            case 1: {
+                cur_width = 640;
+                cur_height = 480;
+                Log.v(TAG, "Preview resolution hardcoded to 640x480");
+                break;
+            }
+            case 2: {
+                cur_width = 720;
+                cur_height = 480;
+                Log.v(TAG, "Preview resolution hardcoded to 720x480");
+                break;
+            }
+            case 3: {
+                cur_width = 1280;
+                cur_height = 720;
+                Log.v(TAG, "Preview resolution hardcoded to 1280x720");
+                break;
+            }
+            case 4: {
+                cur_width = 1920;
+                cur_height = 1080;
+                Log.v(TAG, "Preview resolution hardcoded to 1920x1080");
+                break;
+            }
+            default: {
+                Log.v(TAG, "Preview resolution as per Snapshot aspect ratio");
+                break;
+            }
+        }
+        return new Size(cur_width, cur_height);
+    }
+
+    private void updatePreviewSize() {
         int width = mPreviewSize.getWidth();
         int height = mPreviewSize.getHeight();
 
@@ -2316,37 +2356,7 @@ public class CaptureModule implements CameraModule, PhotoController,
             width = mVideoSize.getWidth();
             height = mVideoSize.getHeight();
         }
-        switch (preview_resolution) {
-            case 1: {
-                width = 640;
-                height = 480;
-                Log.v(TAG, "Preview resolution hardcoded to 640x480");
-                break;
-            }
-            case 2: {
-                width = 720;
-                height = 480;
-                Log.v(TAG, "Preview resolution hardcoded to 720x480");
-                break;
-            }
-            case 3: {
-                width = 1280;
-                height = 720;
-                Log.v(TAG, "Preview resolution hardcoded to 1280x720");
-                break;
-            }
-            case 4: {
-                width = 1920;
-                height = 1080;
-                Log.v(TAG, "Preview resolution hardcoded to 1920x1080");
-                break;
-            }
-            default: {
-                Log.v(TAG, "Preview resolution as per Snapshot aspect ratio");
-                break;
-            }
-        }
-        mPreviewSize = new Size(width, height);
+        mPreviewSize = checkOverridePreviewSize(width, height);
         mUI.setPreviewSize(mPreviewSize.getWidth(), mPreviewSize.getHeight());
     }
 
@@ -2387,7 +2397,7 @@ public class CaptureModule implements CameraModule, PhotoController,
         } else if(mPostProcessor.isFilterOn() || getFrameFilters().size() != 0 || mPostProcessor.isSelfieMirrorOn()) {
             mChosenImageFormat = ImageFormat.YUV_420_888;
         } else {
-            mChosenImageFormat = ImageFormat.JPEG;
+            mChosenImageFormat = ImageFormat.YUV_420_888; //JW ImageFormat.JPEG;
         }
         setUpCameraOutputs(mChosenImageFormat);
 
@@ -3022,9 +3032,11 @@ public class CaptureModule implements CameraModule, PhotoController,
         Size[] prevSizes = mSettingsManager.getSupportedOutputSize(getMainCameraId(),
                 SurfaceHolder.class);
         mSupportedMaxPictureSize = prevSizes[0];
-        Size[] rawSize = mSettingsManager.getSupportedOutputSize(getMainCameraId(),
+        if (mSaveRaw == true) {
+            Size[] rawSize = mSettingsManager.getSupportedOutputSize(getMainCameraId(),
                     ImageFormat.RAW10);
-        mSupportedRawPictureSize = rawSize[0];
+            mSupportedRawPictureSize = rawSize[0];
+        }
         mPreviewSize = getOptimalPreviewSize(mPictureSize, prevSizes);
         Size[] thumbSizes = mSettingsManager.getSupportedThumbnailSizes(getMainCameraId());
         mPictureThumbSize = getOptimalPreviewSize(mPictureSize, thumbSizes); // get largest thumb size
@@ -3056,6 +3068,8 @@ public class CaptureModule implements CameraModule, PhotoController,
         Size[] prevSizes = mSettingsManager.getSupportedOutputSize(getMainCameraId(),
                 MediaRecorder.class);
         mVideoPreviewSize = getOptimalPreviewSize(mVideoSize, prevSizes);
+        mVideoPreviewSize = checkOverridePreviewSize(mVideoPreviewSize.getWidth(),
+                                                    mVideoPreviewSize.getHeight());
     }
 
     private void updateVideoSnapshotSize() {
@@ -3222,7 +3236,7 @@ public class CaptureModule implements CameraModule, PhotoController,
                     }
                 }, null);
             } else {
-                surfaces.add(mVideoSnapshotImageReader.getSurface());
+                //JW surfaces.add(mVideoSnapshotImageReader.getSurface());
                 mCameraDevice[cameraId].createCaptureSession(surfaces, new CameraCaptureSession
                         .StateCallback() {
 
