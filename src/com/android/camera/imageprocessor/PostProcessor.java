@@ -672,7 +672,6 @@ public class PostProcessor{
         mImageHandlerTask = new ImageHandlerTask();
         mSaveRaw = isSaveRaw;
         if(setFilter(postFilterId) || isFlashModeOn || isTrackingFocusOn || isMakeupOn || isSelfieMirrorOn
-                || PersistUtil.getCameraZSLDisabled()
                 || "disable".equals(SettingsManager.getInstance().getValue(SettingsManager.KEY_ZSL))
                 || "enable".equals(
                          SettingsManager.getInstance().getValue(SettingsManager.KEY_AUTO_HDR))
@@ -1205,7 +1204,7 @@ public class PostProcessor{
         return quality;
     }
 
-    private class BitmapOutputStream extends ByteArrayOutputStream {
+    public static class BitmapOutputStream extends ByteArrayOutputStream {
         public BitmapOutputStream(int size) {
             super(size);
         }
