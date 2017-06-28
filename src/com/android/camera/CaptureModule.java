@@ -1503,7 +1503,13 @@ public class CaptureModule implements CameraModule, PhotoController,
             } else {
                 captureBuilder = mCameraDevice[id].createCaptureRequest(CameraDevice.TEMPLATE_STILL_CAPTURE);
             }
-
+            if (PersistUtil.getCameraHalZSLDisabled() == false) {
+                Log.d(TAG, "CONTROL_ENABLE_ZSL is enabled.");
+                captureBuilder.set(CaptureRequest.CONTROL_ENABLE_ZSL, true);
+            } else {
+                Log.d(TAG, "CONTROL_ENABLE_ZSL is disabled.");
+                captureBuilder.set(CaptureRequest.CONTROL_ENABLE_ZSL, false);
+            }
 /*todo            Location location = mLocationManager.getCurrentLocation();
             if(location != null) {
                 // make copy so that we don't alter the saved location since we may re-use it
