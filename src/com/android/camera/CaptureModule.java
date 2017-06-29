@@ -1045,9 +1045,9 @@ public class CaptureModule implements CameraModule, PhotoController,
                                 mCurrentSession = cameraCaptureSession;
                             }
 
-                            //Todo initializePreviewConfiguration(id);
+                            initializePreviewConfiguration(id);
                             setDisplayOrientation();
-                            //Todo updateFaceDetection();
+                            updateFaceDetection();
                             try {
                                 if (isBackCamera() && getCameraMode() == DUAL_MODE) {
                                     linkBayerMono(id);
@@ -1163,10 +1163,10 @@ public class CaptureModule implements CameraModule, PhotoController,
         if (DEBUG) {
             Log.d(TAG, "setAFModeToPreview " + afMode);
         }
-        /* todo mPreviewRequestBuilder[id].set(CaptureRequest.CONTROL_AF_MODE, afMode);
+        mPreviewRequestBuilder[id].set(CaptureRequest.CONTROL_AF_MODE, afMode);
         applyAFRegions(mPreviewRequestBuilder[id], id);
         applyAERegions(mPreviewRequestBuilder[id], id);
-        mPreviewRequestBuilder[id].setTag(id);*/
+        mPreviewRequestBuilder[id].setTag(id);
         try {
             mCaptureSession[id].setRepeatingRequest(mPreviewRequestBuilder[id]
                     .build(), mCaptureCallback, mCameraHandler);
@@ -1524,14 +1524,15 @@ public class CaptureModule implements CameraModule, PhotoController,
             captureBuilder.set(CaptureRequest.JPEG_ORIENTATION, CameraUtil.getJpegRotation(id, mOrientation));
             captureBuilder.set(CaptureRequest.JPEG_THUMBNAIL_SIZE, mPictureThumbSize);
             captureBuilder.set(CaptureRequest.JPEG_THUMBNAIL_QUALITY, (byte)80);
+*/
             captureBuilder.set(CaptureRequest.CONTROL_MODE, CaptureRequest.CONTROL_MODE_AUTO);
-*/
+
             addPreviewSurface(captureBuilder, null, id);
-/*todo            captureBuilder.set(CaptureRequest.CONTROL_AF_MODE, mControlAFMode);
+            captureBuilder.set(CaptureRequest.CONTROL_AF_MODE, mControlAFMode);
             captureBuilder.set(CaptureRequest.CONTROL_AF_TRIGGER, CaptureRequest.CONTROL_AF_TRIGGER_IDLE);
-            captureBuilder.set(CdsModeKey, 2); // CDS 0-OFF, 1-ON, 2-AUTO
+//todo            captureBuilder.set(CdsModeKey, 2); // CDS 0-OFF, 1-ON, 2-AUTO
             applySettingsForCapture(captureBuilder, id);
-*/
+
             if(csEnabled) {
                 applySettingsForLockExposure(captureBuilder, id);
                 checkAndPlayShutterSound(id);
@@ -1872,7 +1873,7 @@ public class CaptureModule implements CameraModule, PhotoController,
                 mVideoSnapshotSize.getHeight(), ImageFormat.JPEG, 2);*/
 
         mVideoSnapshotImageReader = ImageReader.newInstance(3840, 2160, mChosenImageFormat, 10);
-Log.e("JW", "Image="+mChosenImageFormat);
+        Log.e(TAG, "Image="+mChosenImageFormat);
         mVideoSnapshotImageReader.setOnImageAvailableListener(
                 new ImageReader.OnImageAvailableListener() {
                     @Override
@@ -1915,7 +1916,7 @@ Log.e("JW", "Image="+mChosenImageFormat);
             builder.setTag(id);
             addPreviewSurface(builder, null, id);
 
-            //todo applySettingsForUnlockFocus(builder, id);
+            applySettingsForUnlockFocus(builder, id);
             mCaptureSession[id].capture(builder.build(), mCaptureCallback, mCameraHandler);
             mState[id] = STATE_PREVIEW;
             if (id == getMainCameraId()) {
@@ -1927,8 +1928,8 @@ Log.e("JW", "Image="+mChosenImageFormat);
                 });
             }
             mControlAFMode = CaptureRequest.CONTROL_AF_MODE_CONTINUOUS_PICTURE;
-//todo            applyFlash(mPreviewRequestBuilder[id], id);
-//todo            applySettingsForUnlockExposure(mPreviewRequestBuilder[id], id);
+            applyFlash(mPreviewRequestBuilder[id], id);
+            applySettingsForUnlockExposure(mPreviewRequestBuilder[id], id);
             setAFModeToPreview(id, mControlAFMode);
             mTakingPicture[id] = false;
             if (id == getMainCameraId()) {
@@ -2437,7 +2438,7 @@ Log.e("JW", "Image="+mChosenImageFormat);
         } else if(mPostProcessor.isFilterOn() || getFrameFilters().size() != 0 || mPostProcessor.isSelfieMirrorOn()) {
             mChosenImageFormat = ImageFormat.YUV_420_888;
         } else {
-            mChosenImageFormat = ImageFormat.YUV_420_888; //JW ImageFormat.JPEG;
+            mChosenImageFormat = ImageFormat.YUV_420_888; //todo ImageFormat.JPEG;
         }
         setUpCameraOutputs(mChosenImageFormat);
 
@@ -3276,7 +3277,7 @@ Log.e("JW", "Image="+mChosenImageFormat);
                     }
                 }, null);
             } else {
-                //JW surfaces.add(mVideoSnapshotImageReader.getSurface());
+                //todo surfaces.add(mVideoSnapshotImageReader.getSurface());
                 mCameraDevice[cameraId].createCaptureSession(surfaces, new CameraCaptureSession
                         .StateCallback() {
 
@@ -4011,14 +4012,14 @@ Log.e("JW", "Image="+mChosenImageFormat);
         if (value == null || value.equals("0"))
             return;
         int intValue = Integer.parseInt(value);
-        request.set(CaptureModule.INSTANT_AEC_MODE, intValue);
+        //todo request.set(CaptureModule.INSTANT_AEC_MODE, intValue);
     }
 
     private void applySaturationLevel(CaptureRequest.Builder request) {
         String value = mSettingsManager.getValue(SettingsManager.KEY_SATURATION_LEVEL);
         if (value != null) {
             int intValue = Integer.parseInt(value);
-            request.set(CaptureModule.SATURATION, intValue);
+            //todo request.set(CaptureModule.SATURATION, intValue);
         }
     }
 
@@ -4207,8 +4208,8 @@ Log.e("JW", "Image="+mChosenImageFormat);
         String value = mSettingsManager.getValue(SettingsManager.KEY_ISO);
         if (value == null) return;
         if (value.equals("auto")) {
-            request.set(SELECT_PRIORITY, 0);
-            request.set(ISO_EXP, 0L);
+            //todo request.set(SELECT_PRIORITY, 0);
+            //todo request.set(ISO_EXP, 0L);
             if (request.get(CaptureRequest.SENSOR_EXPOSURE_TIME) == null) {
                 request.set(CaptureRequest.SENSOR_EXPOSURE_TIME, mIsoExposureTime);
             }
