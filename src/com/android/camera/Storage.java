@@ -119,7 +119,6 @@ public class Storage {
         int size = writeFile(path, jpeg, exif, mimeType);
         // Try to get the real image size after add exif.
         File f = new File(path);
-        Log.d(TAG, "New image is taken to "+f.getAbsolutePath());
         if (f.exists() && f.isFile()) {
             size = (int) f.length();
         }
