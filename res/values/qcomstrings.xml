@@ -1172,5 +1172,10 @@
     <string name="pref_camera2_zsl_default" translatable="false">disable</string>
     <string name="pref_camera2_zsl_entry_enable" translatable="true">Enable</string>
     <string name="pref_camera2_zsl_entry_disable" translatable="true">Disable</string>
+
+
+    <string name="pref_camera2_picturesize_default" translatable="false">3840x2160</string>
+    <string name="pref_camera2_video_quality_default" translatable="false">1920x1080</string>
+
 </resources>
 
