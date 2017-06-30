@@ -1647,12 +1647,12 @@ public class CaptureModule implements CameraModule, PhotoController,
             CaptureRequest.Builder captureBuilder =
                     mCameraDevice[id].createCaptureRequest(CameraDevice.TEMPLATE_VIDEO_SNAPSHOT);
 
-            captureBuilder.set(CaptureRequest.JPEG_ORIENTATION, CameraUtil.getJpegRotation(id, mOrientation));
+            /* todo captureBuilder.set(CaptureRequest.JPEG_ORIENTATION, CameraUtil.getJpegRotation(id, mOrientation));
             captureBuilder.set(CaptureRequest.JPEG_THUMBNAIL_SIZE, mVideoSnapshotThumbSize);
             captureBuilder.set(CaptureRequest.JPEG_THUMBNAIL_QUALITY, (byte)80);
             applyVideoSnapshot(captureBuilder, id);
             applyZoom(captureBuilder, id);
-
+              */
             captureBuilder.addTarget(mVideoSnapshotImageReader.getSurface());
 
             mCurrentSession.capture(captureBuilder.build(),
@@ -1872,12 +1872,14 @@ public class CaptureModule implements CameraModule, PhotoController,
 /*Todo        mVideoSnapshotImageReader = ImageReader.newInstance(mVideoSnapshotSize.getWidth(),
                 mVideoSnapshotSize.getHeight(), ImageFormat.JPEG, 2);*/
 
-        mVideoSnapshotImageReader = ImageReader.newInstance(3840, 2160, mChosenImageFormat, 10);
+        mVideoSnapshotImageReader = ImageReader.newInstance(3840, 2160, mChosenImageFormat, 2);
         Log.e(TAG, "Image="+mChosenImageFormat);
         mVideoSnapshotImageReader.setOnImageAvailableListener(
                 new ImageReader.OnImageAvailableListener() {
                     @Override
                     public void onImageAvailable(ImageReader reader) {
+                        Log.d(TAG, "Video Snapshot Image Available.");
+
                         Image image = reader.acquireNextImage();
                         mCaptureStartTime = System.currentTimeMillis();
                         mNamedImages.nameNewImage(mCaptureStartTime);
@@ -1885,19 +1887,39 @@ public class CaptureModule implements CameraModule, PhotoController,
                         String title = (name == null) ? null : name.title;
                         long date = (name == null) ? -1 : name.date;
 
-                        ByteBuffer buffer = image.getPlanes()[0].getBuffer();
-                        byte[] bytes = new byte[buffer.remaining()];
-                        buffer.get(bytes);
+                        if (image.getFormat() == ImageFormat.YUV_420_888) {
+                            Log.d(TAG, "Bring up picture of YUV is taken and ready to process");
+                            int width = image.getWidth();
+                            int height = image.getHeight();
+                            int stride = image.getPlanes()[0].getRowStride();
+                            ByteBuffer yuvBuf = ByteBuffer.allocateDirect(stride * height*3/2);
 
-                        ExifInterface exif = Exif.getExif(bytes);
-                        int orientation = Exif.getOrientation(exif);
+                            ByteBuffer yBuf = image.getPlanes()[0].getBuffer();
+                            ByteBuffer vuBuf = image.getPlanes()[2].getBuffer();
+                            yBuf.get(yuvBuf.array(), 0, yBuf.remaining());
+                            vuBuf.get(yuvBuf.array(), stride*height, vuBuf.remaining());
+                            byte[] bytes = nv21ToJpeg(yuvBuf, width, height, stride);
+                            mActivity.getMediaSaveService().addImage(bytes, title, date,
+                                               null, width, height, 90, null,
+                                               mOnMediaSavedListener, mContentResolver, "jpeg");
+                             mActivity.updateThumbnail(bytes);
+                             image.close();
+                        } else {
 
-                        mActivity.getMediaSaveService().addImage(bytes, title, date,
+                            ByteBuffer buffer = image.getPlanes()[0].getBuffer();
+                            byte[] bytes = new byte[buffer.remaining()];
+                            buffer.get(bytes);
+
+                            ExifInterface exif = Exif.getExif(bytes);
+                            int orientation = Exif.getOrientation(exif);
+
+                            mActivity.getMediaSaveService().addImage(bytes, title, date,
                                 null, image.getWidth(), image.getHeight(), orientation, null,
                                 mOnMediaSavedListener, mContentResolver, "jpeg");
 
-                        mActivity.updateThumbnail(bytes);
-                        image.close();
+                            mActivity.updateThumbnail(bytes);
+                            image.close();
+                        }
                     }
                 }, mImageAvailableHandler);
     }
@@ -3277,7 +3299,7 @@ public class CaptureModule implements CameraModule, PhotoController,
                     }
                 }, null);
             } else {
-                //todo surfaces.add(mVideoSnapshotImageReader.getSurface());
+                surfaces.add(mVideoSnapshotImageReader.getSurface());
                 mCameraDevice[cameraId].createCaptureSession(surfaces, new CameraCaptureSession
                         .StateCallback() {
 
