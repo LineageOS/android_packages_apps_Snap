@@ -312,6 +312,7 @@
   <!-- Toast after enable 2k4k video quality to inform IS has disabled -->
   <string name="video_quality_4k_disable_IS">Nagrywanie w 4K wyłączy stabilizację.</string>
   <!-- Toast after 2k4k video is enabled to inform SeeMore has been disabled -->
+  <string name="video_quality_4k_disable_SeeMore">Funkcja SeeMore nie może być włączona podczas nagrywania 4K.</string>
   <!-- Toast after High Quality Noise Reduction has been enabled to show CDS is disabled -->
   <string name="disable_CDS_during_HighQualityNoiseReduction">Redukcja szumów wysokiej jakości wyłączy CDS.</string>
   <!-- Toast after High Quality Noise Reduction has been enabled to show TNR is disabled -->

@@ -101,6 +101,7 @@
   <string name="pref_camera_zsl_entry_off">Wyłączona</string>
   <string name="pref_camera_zsl_entry_on">Włączone</string>
   <!-- The message is shown in toast when HDR or scene mode is enabled -->
+  <string name="hdr_enable_message">HDR jest włączony, obsługiwany jest tylko tryb automatycznej scenerii</string>
   <string name="scene_enable_message">HDR nie jest obsługiwany w trybie innej sceny niż Auto</string>
   <!-- Settings screen, Video HDR location dialog choices -->
   <string name="pref_camera_video_hdr_entry_off">Wyłączona</string>
@@ -115,8 +116,11 @@
   <string name="pref_camera_video_cds_entry_auto">Automatyczny</string>
   <!-- Settings screen, TNR location dialog choices -->
   <string name="pref_camera_tnr_entry_disable">Wyłącz</string>
+  <string name="pref_camera_tnr_entry_enable">Włącz</string>
   <!-- Settings screen, TNR location dialog choices -->
   <!-- Settings screen, video TNR location dialog choices -->
+  <string name="pref_camera_video_tnr_entry_disable">Wyłącz</string>
+  <string name="pref_camera_video_tnr_entry_enable">Włącz</string>
   <!-- Settings screen, video TNR location dialog choices -->
   <!-- Settings screen, setting title text for Video HDR-->
   <string name="pref_camera_video_hdr_title">Wideo HDR</string>
@@ -177,9 +181,11 @@
   <string name="pref_camera_ae_bracket_hdr_entry_ae_bracket">Autobracketing ekspozycji</string>
   <string name="pref_camera_ae_bracket_hdr_title">Autobracketing ekspozycji</string>
   <string name="pref_camera_ae_bracket_hdr_entry_on">Włączone</string>
+  <string name="err_app_unsupport_ae_bracket_code">Autobracketing nie jest jeszcze wspierany</string>
   <!-- The messsage shown if user selects a snapshot resolution lower than the current video size. -->
   <string name="snapshot_lower_than_video">Rozmiar zrzutu jest mniejszy niż rozmiar wideo. Ustaw rozdzielczość większą lub równą aktualnej wielkości wideo.</string>
   <!-- The messsage shown if user selects a snapshot resolution in low power mode. -->
+  <string name="snapshotsize_low_powermode">Zmiana rozmiaru obrazka w trybie niskiego poboru energii nie jest wspierana. Zostanie wykonany zrzut o rozdzielczości wideo. Wybierz standardowy tryb pracy, aby zmienić rozmiar obrazka.</string>
   <!-- The messsage shown if user tries to take snapshot during D1/QCIF resolution. -->
   <string name="snapshot_qcif_and_d1">Tylko zrzut wideo jest wspierany dla tej rozdzielczości.</string>
   <!-- Default hfr setting. Do not translate. -->
@@ -208,6 +214,7 @@
   <!-- Settings screen, Select See More title -->
   <!-- Settings screen, see more radio button choices -->
   <string name="pref_camera_see_more_entry_off">Wyłączona</string>
+  <string name="pref_camera_see_more_entry_on">Włączone</string>
   <!-- see more entry values. Do not translate. -->
   <!-- Denoise Settings screen, setting title text -->
   <string name="pref_camera_denoise_title">Odszumianie</string>
@@ -400,27 +407,42 @@
   <string name="camera_thermal_shutdown">Telefon przegrzany, wyłączanie aparatu.</string>
   <string name="camera_server_died">Serwer mediów padł, wyłączanie aparatu.</string>
   <string name="camera_unknown_error">Nieznany błąd, wyłączanie aparatu.</string>
+  <string name="mute_button_desc">Wycisz dźwięk migawki</string>
   <!-- Help menu strings -->
   <string name="help_menu_ok">OK</string>
+  <string name="help_menu_scene_mode_1">Zaznacz</string>
+  <string name="help_menu_scene_mode_2">Tryb scenerii</string>
+  <string name="help_menu_scene_mode_3">dla lepszego efektu</string>
   <string name="help_menu_color_filter_1">Zastosuj kolor</string>
   <string name="help_menu_color_filter_2">filtry</string>
   <string name="help_menu_color_filter_3">do</string>
+  <string name="help_menu_color_filter_4">popraw jakość zdjęć</string>
   <string name="help_menu_beautify_1">Uwydatnij portret</string>
   <string name="help_menu_beautify_2">z</string>
   <string name="help_menu_beautify_3">Funkcja upiększenia</string>
+  <string name="help_menu_switcher_1">Przełącz</string>
+  <string name="help_menu_switcher_2">pomiędzy</string>
+  <string name="help_menu_switcher_3">aparat, wideo i panorama</string>
   <string name="pref_camera2_camera2_title">Tryb Camera2</string>
   <string name="pref_camera2_camera2_entry_enable">Włącz</string>
   <string name="pref_camera2_camera2_entry_disable">Wyłącz</string>
   <string name="pref_camera2_mono_only_title">Tylko monochromatyczny</string>
+  <string name="pref_camera2_mono_preview_title">Podgląd monochromatyczny</string>
+  <string name="pref_camera2_mono_preview_entry_on">Włączone</string>
   <string name="pref_camera2_mono_preview_entry_off">Wyłączona</string>
+  <string name="pref_camera2_clearsight_entry_on">Włączone</string>
   <string name="pref_camera2_clearsight_entry_off">Wyłączona</string>
   <string name="clearsight_capture_success">Przechwytywanie ClearSight powiodło się</string>
   <string name="clearsight_capture_fail">Przechwytywanie ClearSight nie powiodło się</string>
   <string name="pref_camera2_mpo_title">Format MPO</string>
+  <string name="pref_camera2_mpo_entry_on">Włączone</string>
   <string name="pref_camera2_mpo_entry_off">Wyłączona</string>
+  <string name="pref_camera2_makeup_title">Makijaż</string>
+  <string name="pref_camera2_noise_reduction_title">Redukcja szumów</string>
   <string name="pref_camera2_noise_reduction_entry_off">Wyłączona</string>
   <string name="pref_camera2_noise_reduction_entry_fast">Szybka</string>
   <string name="pref_camera2_noise_reduction_entry_high_quality">Wysoka jakość</string>
+  <string name="pref_camera2_videosnap_title">Automatyczny rozmiar migawki</string>
   <string name="pref_camera2_videosnap_entry_enable">Wł.</string>
   <string name="pref_camera2_videosnap_entry_disable">Wył.</string>
   <string name="pref_camera2_trackingfocus_title">Śledzenie ostrości</string>

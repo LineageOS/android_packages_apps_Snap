@@ -181,6 +181,7 @@
   <string name="pref_camera_ae_bracket_hdr_entry_ae_bracket">AE bracketing</string>
   <string name="pref_camera_ae_bracket_hdr_title">AE bracketing</string>
   <string name="pref_camera_ae_bracket_hdr_entry_on">On</string>
+  <string name="pref_camera_ae_bracket_hdr_entry_off">Off</string>
   <string name="err_app_unsupport_ae_bracket_code">AE bracketing is not supported yet</string>
   <!-- The messsage shown if user selects a snapshot resolution lower than the current video size. -->
   <string name="snapshot_lower_than_video">Video snapshot size is lower than video size, capping to video size. Please select a resolution higher or equal to the current video size.</string>
