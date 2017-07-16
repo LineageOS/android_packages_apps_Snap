@@ -1342,9 +1342,7 @@ public class CaptureModule extends BaseModule<CaptureUI> implements PhotoControl
      * @param width  The width of available size for camera preview
      * @param height The height of available size for camera preview
      */
-    private void setUpCameraOutputs(boolean isFilterOrZslEnabled) {
-        int imageFormat = ImageFormat.JPEG;
-
+    private void setUpCameraOutputs(int imageFormat) {
         Log.d(TAG, "setUpCameraOutputs");
         CameraManager manager = (CameraManager) mActivity.getSystemService(Context.CAMERA_SERVICE);
         try {
@@ -1368,21 +1366,6 @@ public class CaptureModule extends BaseModule<CaptureUI> implements PhotoControl
                     continue;
                 }
                 mCameraId[i] = cameraId;
-
-                // Set ImageFormat for ZSL
-                if (isFilterOrZslEnabled) {
-                    for (int capability : capabilities) {
-                        // YUV has higher priority
-                        if (capability == CameraCharacteristics.REQUEST_AVAILABLE_CAPABILITIES_YUV_REPROCESSING) {
-                            Log.d(TAG, "ImageFormat: YUV_420_888");
-                            imageFormat = ImageFormat.YUV_420_888;
-                            break;
-                        } else if (capability == CameraCharacteristics.REQUEST_AVAILABLE_CAPABILITIES_PRIVATE_REPROCESSING) {
-                            Log.d(TAG, "ImageFormat: PRIVATE");
-                            imageFormat = ImageFormat.PRIVATE;
-                        }
-                    }
-                }
 
                 if (isClearSightOn()) {
                     if(i == getMainCameraId()) {
@@ -1882,6 +1865,7 @@ public class CaptureModule extends BaseModule<CaptureUI> implements PhotoControl
     @Override
     public void onResumeAfterSuper() {
         Log.d(TAG, "onResume " + getCameraMode());
+        int imageFormat = ImageFormat.JPEG;
         initializeValues();
         updatePreviewSize();
         mUI.showSurfaceView();
@@ -1912,11 +1896,33 @@ public class CaptureModule extends BaseModule<CaptureUI> implements PhotoControl
         }
 
         if (mPostProcessor.isFilterOn() || getFrameFilters().size() != 0 || mPostProcessor.isZSLEnabled()) {
-            setUpCameraOutputs(true);
-        } else {
-            setUpCameraOutputs(false);
+            try {
+                CameraManager manager = (CameraManager) mActivity.getSystemService(Context.CAMERA_SERVICE);
+                CameraCharacteristics characteristics = manager.getCameraCharacteristics(Integer.toString(cameraId));
+                int [] capabilities = characteristics.get(CameraCharacteristics.REQUEST_AVAILABLE_CAPABILITIES);
+
+                for (int capability : capabilities) {
+                    // YUV has higher priority
+                    if (capability == CameraCharacteristics.REQUEST_AVAILABLE_CAPABILITIES_YUV_REPROCESSING) {
+                        Log.d(TAG, "Using YUV_420_888 ImageFormat");
+                        imageFormat = ImageFormat.YUV_420_888;
+                        break;
+                    } else if (capability == CameraCharacteristics.REQUEST_AVAILABLE_CAPABILITIES_PRIVATE_REPROCESSING) {
+                        Log.d(TAG, "Using PRIVATE ImageFormat");
+                        imageFormat = ImageFormat.PRIVATE;
+                    }
+                }
+            } catch (CameraAccessException e) {
+                e.printStackTrace();
+            }
         }
 
+        // Update supported picture size for new image format
+        if (imageFormat != ImageFormat.JPEG) {
+            mSettingsManager.updateSupportedPictureSizes(cameraId, imageFormat);
+        }
+
+        setUpCameraOutputs(imageFormat);
         setDisplayOrientation();
         startBackgroundThread();
 
