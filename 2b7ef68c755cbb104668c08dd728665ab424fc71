@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e43f4bd2_10728700",
+        "filename": "src/com/android/camera/CaptureModule.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 1902,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2017-07-16T18:19:20Z",
+      "side": 1,
+      "message": "remove",
+      "range": {
+        "startLine": 1902,
+        "startChar": 19,
+        "endLine": 1902,
+        "endChar": 20
+      },
+      "revId": "2b7ef68c755cbb104668c08dd728665ab424fc71",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
