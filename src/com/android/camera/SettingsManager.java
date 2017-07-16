@@ -474,6 +474,17 @@ public class SettingsManager implements ListMenu.SettingsListener {
         }
     }
 
+    public void updateSupportedPictureSizes(int cameraId, int format) {
+        Log.d(TAG, "updatePictureSizes: cameraId=" + cameraId + " format=" + format);
+        ListPreference pictureSize = mPreferenceGroup.findPreference(KEY_PICTURE_SIZE);
+
+        if (pictureSize != null) {
+            CameraSettings.formatPictureSizes(pictureSize,
+                    getSupportedPictureSize(cameraId, format), mContext);
+            CameraSettings.resetIfInvalid(pictureSize);
+        }
+    }
+
     private void filterPreferences(int cameraId) {
         // filter unsupported preferences
         ListPreference whiteBalance = mPreferenceGroup.findPreference(KEY_WHITE_BALANCE);
@@ -522,7 +533,7 @@ public class SettingsManager implements ListMenu.SettingsListener {
 
         if (pictureSize != null) {
             CameraSettings.formatPictureSizes(pictureSize,
-                    getSupportedPictureSize(cameraId), mContext);
+                    getSupportedPictureSize(cameraId, ImageFormat.JPEG), mContext);
             CameraSettings.resetIfInvalid(pictureSize);
         }
 
@@ -853,10 +864,10 @@ public class SettingsManager implements ListMenu.SettingsListener {
         return zslSupported;
     }
 
-    private List<Size> getSupportedPictureSize(int cameraId) {
+    private List<Size> getSupportedPictureSize(int cameraId, int format) {
         StreamConfigurationMap map = mCharacteristics.get(cameraId).get(
                 CameraCharacteristics.SCALER_STREAM_CONFIGURATION_MAP);
-        Size[] sizes = map.getOutputSizes(ImageFormat.JPEG);
+        Size[] sizes = map.getOutputSizes(format);
         List<Size> res = new ArrayList<>();
         if (sizes != null) {
             for (int i = 0; i < sizes.length; i++) {
@@ -864,7 +875,7 @@ public class SettingsManager implements ListMenu.SettingsListener {
             }
         }
 
-        Size[] highResSizes = map.getHighResolutionOutputSizes(ImageFormat.JPEG);
+        Size[] highResSizes = map.getHighResolutionOutputSizes(format);
         if (highResSizes != null) {
             for (int i = 0; i < highResSizes.length; i++) {
                 res.add(highResSizes[i]);
