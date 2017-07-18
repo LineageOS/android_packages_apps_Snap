@@ -1336,7 +1336,11 @@ public class CaptureModule implements CameraModule, PhotoController,
             if(takeZSLPicture(FRONT_ID)) {
                     return;
             }
-            lockFocus(FRONT_ID);
+/* take picture directly for now*/
+            captureStillPicture(FRONT_ID);
+            mState[FRONT_ID] = STATE_PICTURE_TAKEN;
+
+//todo             lockFocus(FRONT_ID);
         }
     }
 
