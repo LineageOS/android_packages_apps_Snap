@@ -321,6 +321,7 @@ public class CameraSettings {
         VIDEO_QUALITY_TABLE.put("176x144",   CamcorderProfile.QUALITY_QCIF);
 
         //video encoder bitrate
+        VIDEO_ENCODER_BITRATE.put("3840x2160:60",  67200000);
         VIDEO_ENCODER_BITRATE.put("1920x1080:60",  32000000);
         VIDEO_ENCODER_BITRATE.put("1920x1080:120", 50000000);
         VIDEO_ENCODER_BITRATE.put("1280x720:120",  35000000);
