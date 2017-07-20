@@ -672,7 +672,7 @@ public class PostProcessor{
         mImageHandlerTask = new ImageHandlerTask();
         mSaveRaw = isSaveRaw;
         if(setFilter(postFilterId) || isFlashModeOn || isTrackingFocusOn || isMakeupOn || isSelfieMirrorOn
-                || "disable".equals(SettingsManager.getInstance().getValue(SettingsManager.KEY_ZSL))
+                || !SettingsManager.getInstance().isZSLInAppEnabled()
                 || "enable".equals(
                          SettingsManager.getInstance().getValue(SettingsManager.KEY_AUTO_HDR))
                 || SettingsManager.getInstance().isCamera2HDRSupport()
