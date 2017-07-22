@@ -92,6 +92,7 @@
   <string name="pref_camera_manual_focus_entry_diopter_mode">Режим диоптрий</string>
   <string name="pref_camera_manual_focus_entry_off">Откл</string>
   <!-- Instant Capture entry -->
+  <string name="pref_camera_instant_capture_title" translatable="true">Мгновенный захват</string>
   <string name="pref_camera_instant_capture_entry_aggressive_aec" translatable="true">Агрессивный AEC</string>
   <string name="pref_camera_instant_capture_entry_fast_aec" translatable="true">Быстрый AEC</string>
   <string name="pref_camera_instant_capture_entry_disable" translatable="true">Выключить</string>
@@ -153,6 +154,7 @@
   <!-- Settings menu, redeye reduction choices -->
   <string name="pref_camera_redeyereduction_entry_enable">Включить</string>
   <string name="pref_camera_redeyereduction_entry_disable">Отключить</string>
+  <string name="pref_camera_selfiemirror_title" translatable="true">Селфи-зеркало</string>
   <string name="pref_camera_selfiemirror_entry_enable">Включить</string>
   <string name="pref_camera_selfiemirror_entry_disable">Отключить</string>
   <string name="pref_camera_shuttersound_title" translatable="true">Звук затвора</string>
@@ -181,8 +183,11 @@
   <string name="pref_camera_ae_bracket_hdr_entry_on">Вкл</string>
   <string name="err_app_unsupport_ae_bracket_code">Автобрекетинг не поддерживается</string>
   <!-- The messsage shown if user selects a snapshot resolution lower than the current video size. -->
+  <string name="snapshot_lower_than_video">Разрешение снимка меньше, чем разрешение видеосъёмки. Выберите разрешение выше или равное разрешению видеосъёмки.</string>
   <!-- The messsage shown if user selects a snapshot resolution in low power mode. -->
+  <string name="snapshotsize_low_powermode">Изменение разрешения изображения не поддерживается в энергосберегающем режиме. Переключитесь в стандартный режим энергопотребления для использования этой функции.</string>
   <!-- The messsage shown if user tries to take snapshot during D1/QCIF resolution. -->
+  <string name="snapshot_qcif_and_d1">Для этого разрешения поддерживается только снимок видеоизображения в этом размере.</string>
   <!-- Default hfr setting. Do not translate. -->
   <!-- Settings screen, Select hfr title -->
   <string name="pref_camera_hfr_title">Ускоренная съёмка</string>
@@ -382,10 +387,20 @@
   <string name="advance_feature_enable_msg">Непрерывная съёмка не поддерживается, когда включены расширенные функции</string>
   <!-- The alas of CameraActivity for gesture operation -->
   <string name="camera_gesture_title">Включить камеру</string>
+  <string name="pref_camera_tsmakeup_title">Облагораживание</string>
+  <string name="pref_camera_tsmakeup_entry_on">Вкл</string>
   <string name="pref_camera_tsmakeup_entry_off">Отключить</string>
+  <string name="pref_camera_tsmakeup_entry_low">Низкий</string>
+  <string name="pref_camera_tsmakeup_entry_mid">Средний</string>
+  <string name="pref_camera_tsmakeup_entry_high">Высокий</string>
+  <string name="pref_camera_tsmakeup_custom">Пользовательский</string>
+  <string name="pref_camera_tsmakeup_level_whiten">Отбелить</string>
+  <string name="pref_camera_tsmakeup_level_clean">Смягчить</string>
   <string name="text_tsmakeup_alert_title">Внимание</string>
+  <string name="text_tsmakeup_alert_msg">Распознавание лиц должно быть включено для того, чтобы использовать функцию облагораживания. Вы хотите продолжить?</string>
   <string name="text_tsmakeup_alert_continue">Продолжить</string>
   <string name="text_tsmakeup_alert_quit">Отмена</string>
+  <string name="text_tsmakeup_beautify_toast">Облагородить</string>
   <string name="all_in_focus">Все в фокусе</string>
   <string name="refocus_toast">Нажмите, чтобы перефокусировать последнее фото</string>
   <string name="refocus_prompt_message">С UbiFocus ваша камера будет делать сразу 5 фотографий за один раз. После этого, 5 фотографий будут объединены в одну, где все объекты будут в фокусе. После объединения вы сможете выбрать место фокусировки на итоговом изображении.</string>
@@ -402,11 +417,17 @@
   <string name="help_menu_color_filter_2">фильтры</string>
   <string name="help_menu_color_filter_3">для</string>
   <string name="help_menu_color_filter_4">улучшения фотографий</string>
+  <string name="help_menu_beautify_1">Улучшение портретов</string>
+  <string name="help_menu_beautify_2">при помощи</string>
+  <string name="help_menu_beautify_3">Функция \"макияжа\"</string>
+  <string name="help_menu_switcher_1">Переключить</string>
   <string name="help_menu_switcher_2">между</string>
   <string name="help_menu_switcher_3">фото, видео и панорамой</string>
   <string name="pref_camera2_camera2_title">Режим Camera2</string>
   <string name="pref_camera2_camera2_entry_enable">Включить</string>
   <string name="pref_camera2_camera2_entry_disable">Выключить</string>
+  <string name="pref_camera2_mono_only_title">Только Моно</string>
+  <string name="pref_camera2_mono_preview_title">Предпросмотр Моно</string>
   <string name="pref_camera2_mono_preview_entry_on">Включено</string>
   <string name="pref_camera2_mono_preview_entry_off">Отключить</string>
   <string name="pref_camera2_clearsight_entry_on">Включено</string>
@@ -421,6 +442,7 @@
   <string name="pref_camera2_noise_reduction_entry_off">Отключить</string>
   <string name="pref_camera2_noise_reduction_entry_fast">Быстро</string>
   <string name="pref_camera2_noise_reduction_entry_high_quality">Высокое качество</string>
+  <string name="pref_camera2_videosnap_title">Размер моментального автоснимка</string>
   <string name="pref_camera2_videosnap_entry_enable">Включить</string>
   <string name="pref_camera2_videosnap_entry_disable">Выключить</string>
   <string name="pref_camera2_trackingfocus_title">Следящий автофокус</string>

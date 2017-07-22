@@ -74,8 +74,8 @@
   <string name="pref_camera_zsl_entry_off">Inaktiv</string>
   <string name="pref_camera_zsl_entry_on">Aktiv</string>
   <!-- The message is shown in toast when HDR or scene mode is enabled -->
-  <string name="hdr_enable_message">HDR u aktivizua. Vetëm profili i peizazhit Auto është i suportuar</string>
-  <string name="scene_enable_message">HDR nuk është i suportuar në ndonjë profil skene përveç atij Auto</string>
+  <string name="hdr_enable_message">HDR u aktivizua. Vetëm profili i peizazhit Auto është i pranueshëm</string>
+  <string name="scene_enable_message">HDR nuk është i pranueshëm në asnjë profil skene përveç atij Auto</string>
   <!-- Settings screen, Video HDR location dialog choices -->
   <string name="pref_camera_video_hdr_entry_off">Inaktiv</string>
   <string name="pref_camera_video_hdr_entry_on">Aktiv</string>
@@ -130,21 +130,21 @@
   <!-- The message is shown in dialog when the app encounters an unsupported resolution for HFR mode -->
   <!-- The message is shown in toast when the app encounters an unsupported resolution for DIS mode -->
   <!-- The message is shown in dialog when the app encounters an unsupported resolution for HSR mode -->
-  <string name="error_app_unsupported_hsr">Profili i shpejtësisë së lartë nuk është i suportuar për madhësinë e zgjedhur të videos. Zgjidhni një madhësi videoje më të vogël</string>
+  <string name="error_app_unsupported_hsr">Profili i shpejtësisë së lartë nuk është i disponueshëm për madhësinë e zgjedhur të videos. Zgjidhni një madhësi videoje më të vogël</string>
   <!-- The message is shown in dialog when the app encounters an unsupported video codec for HFR mode -->
   <!-- The message is shown in dialog when the app encounters an unsupported video resolution-->
   <!-- The message is shown in dialog when the app encounters an unsupported video profile-->
-  <string name="error_app_unsupported_profile">Profili i videos nuk është i suportuar</string>
+  <string name="error_app_unsupported_profile">Profil video i papranueshëm</string>
   <!--The message is shown in dialog when the raw snapshot is selected in zsl mode-->
   <!-- Settings screen, AE bracketing and HDR location dialog choices -->
   <string name="pref_camera_ae_bracket_hdr_entry_on">Aktiv</string>
-  <string name="err_app_unsupport_ae_bracket_code">Grupimi AE është akoma i pasuportuar</string>
+  <string name="err_app_unsupport_ae_bracket_code">Grupimi AE është ende i papranueshëm</string>
   <!-- The messsage shown if user selects a snapshot resolution lower than the current video size. -->
   <string name="snapshot_lower_than_video">Madhësia e videos së çastit është më e vogel se madhësia e videos. Zgjidhni një rezolucion më të lartë ose të barabartë me madhësinë e videos aktuale.</string>
   <!-- The messsage shown if user selects a snapshot resolution in low power mode. -->
-  <string name="snapshotsize_low_powermode">Ndryshimi i madhësisë së fotos nuk është i suportuar në profilin Energji e Ulët. Zgjidhni profilin Energji Normale për të lejuar ndryshimin e madhësisë së fotos.</string>
+  <string name="snapshotsize_low_powermode">Ndryshimi i madhësisë së fotos nuk është i pranueshëm në profilin Energji e Ulët. Zgjidhni profilin Energji Normale për të lejuar ndryshimin e madhësisë së fotos.</string>
   <!-- The messsage shown if user tries to take snapshot during D1/QCIF resolution. -->
-  <string name="snapshot_qcif_and_d1">Vetëm video e çastit me madhësi videoje është e suportuar për këtë rezolucion.</string>
+  <string name="snapshot_qcif_and_d1">Vetëm video e çastit me madhësi videoje është e pranueshme për këtë rezolucion.</string>
   <!-- Default hfr setting. Do not translate. -->
   <!-- Settings screen, Select hfr title -->
   <!-- Settings screen, hfr radio button choices -->

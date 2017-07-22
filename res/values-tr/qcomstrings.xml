@@ -357,7 +357,7 @@
   <string name="pref_camera_auto_hdr_entry_enable">Etkin</string>
   <string name="pref_camera_auto_hdr_entry_disable">Devre dışı</string>
   <!-- toast message for storage location switch -->
-  <string name="on_switch_save_path_to_sdcard">Dahili depolama alanı yeterli değil, depolama yeri SD karta geçiş yaptı</string>
+  <string name="on_switch_save_path_to_sdcard">Dahili depolama alanı yeterli değil, depolama konumu SD kart olarak değiştirildi</string>
   <!-- Settings screen, Selectable HDR mode title -->
   <string name="pref_camera_hdr_mode_title">HDR modu</string>
   <!-- Settings screen, Selectable HDR mode radio button choices -->

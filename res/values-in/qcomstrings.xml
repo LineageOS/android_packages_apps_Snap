@@ -55,8 +55,8 @@
   <!-- Settings screen, Select Skin Tone Enhancement title -->
   <string name="pref_camera_skinToneEnhancement_title">Perbaikan warna kulit</string>
   <!-- Settings screen, Skin Tone Enhancement radio button choices -->
-  <string name="pref_camera_skinToneEnhancement_entry_enable">Hidupkan</string>
-  <string name="pref_camera_skinToneEnhancement_entry_disable">Matikan</string>
+  <string name="pref_camera_skinToneEnhancement_entry_enable">Hidup</string>
+  <string name="pref_camera_skinToneEnhancement_entry_disable">Mati</string>
   <!-- Skin Tone Enhancement entry values. Do not translate. -->
   <!-- Settings screen, setting title text for ZSL-->
   <string name="pref_camera_zsl_title">Rana tanpa jeda</string>
@@ -92,10 +92,10 @@
   <string name="pref_camera_manual_focus_entry_diopter_mode">Modus Diopter</string>
   <string name="pref_camera_manual_focus_entry_off">Tidak aktif</string>
   <!-- Instant Capture entry -->
-  <string name="pref_camera_instant_capture_title" translatable="true">Ambil foto instan</string>
+  <string name="pref_camera_instant_capture_title" translatable="true">Tangkapan instant</string>
   <string name="pref_camera_instant_capture_entry_aggressive_aec" translatable="true">AEC agresif</string>
   <string name="pref_camera_instant_capture_entry_fast_aec" translatable="true">AEC cepat</string>
-  <string name="pref_camera_instant_capture_entry_disable" translatable="true">Matikan</string>
+  <string name="pref_camera_instant_capture_entry_disable" translatable="true">Mati</string>
   <!-- Instant Capture entry values -->
   <!-- Settings screen, ZSL location dialog choices -->
   <string name="pref_camera_zsl_entry_off">Tidak aktif</string>
@@ -115,12 +115,12 @@
   <string name="pref_camera_video_cds_entry_on">Hidup</string>
   <string name="pref_camera_video_cds_entry_auto">Secara otomatis</string>
   <!-- Settings screen, TNR location dialog choices -->
-  <string name="pref_camera_tnr_entry_disable">Matikan</string>
-  <string name="pref_camera_tnr_entry_enable">Hidupkan</string>
+  <string name="pref_camera_tnr_entry_disable">Mati</string>
+  <string name="pref_camera_tnr_entry_enable">Hidup</string>
   <!-- Settings screen, TNR location dialog choices -->
   <!-- Settings screen, video TNR location dialog choices -->
-  <string name="pref_camera_video_tnr_entry_disable">Nonaktifkan</string>
-  <string name="pref_camera_video_tnr_entry_enable">Hidupkan</string>
+  <string name="pref_camera_video_tnr_entry_disable">Mati</string>
+  <string name="pref_camera_video_tnr_entry_enable">Hidup</string>
   <!-- Settings screen, video TNR location dialog choices -->
   <!-- Settings screen, setting title text for Video HDR-->
   <string name="pref_camera_video_hdr_title">Video HDR</string>
@@ -152,10 +152,10 @@
   <!-- Settings screen, Select Redeye Reduction -->
   <string name="pref_camera_redeyereduction_title">Penurunan mata merah</string>
   <!-- Settings menu, redeye reduction choices -->
-  <string name="pref_camera_redeyereduction_entry_enable">Hidupkan</string>
-  <string name="pref_camera_redeyereduction_entry_disable">Nonaktifkan</string>
-  <string name="pref_camera_selfiemirror_entry_enable">Hidupkan</string>
-  <string name="pref_camera_selfiemirror_entry_disable">Matikan</string>
+  <string name="pref_camera_redeyereduction_entry_enable">Hidup</string>
+  <string name="pref_camera_redeyereduction_entry_disable">Mati</string>
+  <string name="pref_camera_selfiemirror_entry_enable">Hidup</string>
+  <string name="pref_camera_selfiemirror_entry_disable">Mati</string>
   <string name="pref_camera_shuttersound_title" translatable="true">Suara rana</string>
   <string name="pref_camera_shuttersound_entry_enable">Dihidupkan</string>
   <string name="pref_camera_shuttersound_entry_disable">Dimatikan</string>
@@ -396,6 +396,7 @@
   <string name="refocus_toast">Untuk fokus kembali pada foto yang terakhir, tekan di sini</string>
   <string name="refocus_prompt_message">Dengan UbiFocus, kamera akan mengambil lima foto, setiap kali Anda menekan tombol rana. Kelima foto tersebut akan digabungkan menjadi satu foto, yang semuanya dalam fokus. Anda bisa memfokuskan ulang, setelah mengambil foto.</string>
   <string name="camera_thermal_shutdown">Telepon terlalu panas, menutup kamera.</string>
+  <string name="camera_server_died">Server media mati, menutup kamera.</string>
   <string name="camera_unknown_error">Terjadi kesalahan, menutup kamera.</string>
   <!-- Help menu strings -->
   <string name="help_menu_ok">OKE</string>

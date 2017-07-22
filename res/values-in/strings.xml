@@ -302,17 +302,17 @@ Gambar yang dipotong disimpan ke <xliff:g id="folder_name">%s</xliff:g>.</string
   <!-- Toast after enable 2k4k video quality to inform IS has disabled -->
   <string name="video_quality_4k_disable_IS">Kualitas video 4k akan menonaktifkan kestabilan gambar.</string>
   <!-- Toast after 2k4k video is enabled to inform SeeMore has been disabled -->
-  <string name="video_quality_4k_disable_SeeMore">SeeMore tidak dapat diaktifkan selama video 4k.</string>
+  <string name="video_quality_4k_disable_SeeMore">Pandangan lebih lanjut tidak dapat diaktifkan selama video 4k.</string>
   <!-- Toast after High Quality Noise Reduction has been enabled to show CDS is disabled -->
   <string name="disable_CDS_during_HighQualityNoiseReduction">Pengurangan kebisingan berkualitas tinggi akan mematikan CDS.</string>
   <!-- Toast after High Quality Noise Reduction has been enabled to show TNR is disabled -->
   <string name="disable_TNR_during_HighQualityNoiseReduction">Pengurangan kebisingan berkualitas tinggi akan mematikan TNR.</string>
   <!-- Toast after SeeMore has been enabled to show CDS is disabled -->
-  <string name="disable_CDS_during_SeeMore">SeeMore akan menonaktifkan CDS.</string>
+  <string name="disable_CDS_during_SeeMore">Pandangan lebih lanjut akan menonaktifkan CDS.</string>
   <!-- Toast after SeeMore has been enabled to show TNR is disabled -->
-  <string name="disable_TNR_during_SeeMore">SeeMore akan menonaktifkan TNR.</string>
+  <string name="disable_TNR_during_SeeMore">Pandangan lebih lanjut akan menonaktifkan TNR.</string>
   <!-- Toast after SeeMore has been enabled to show NR is disabled -->
-  <string name="disable_NR_during_SeeMore">SeeMore akan mematikan pengurangan kebisingan.</string>
+  <string name="disable_NR_during_SeeMore">Pandangan lebih lanjut akan mematikan pengurangan kebisingan.</string>
   <!-- Exposure settings in preference -->
   <string name="pref_exposure_title">Pencahayaan</string>
   <!--  menu label exposure compensation [CHAR LIMIT=50] -->
@@ -545,4 +545,5 @@ CHAR LIMIT = NONE] -->
   <string name="setting_wallpaper">Setel wallpaper</string>
   <!-- Menu, Video rotation labels [CHAR LIMIT=50] -->
   <string name="remaining_photos_format">%d tersisa</string>
+  <string name="makeup_video_size_limit">Makeup hanya bekerja dibawah ukuran VGA di perekam video.</string>
 </resources>

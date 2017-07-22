@@ -170,7 +170,7 @@
   <!-- The message is shown in dialog when the app encounters an unsupported resolution for HSR mode -->
   <string name="error_app_unsupported_hsr">La grabación de video en alta velocidad no es compatible con la resolución seleccionada</string>
   <!-- The message is shown in dialog when the app encounters an unsupported video codec for HFR mode -->
-  <string name="error_app_unsupported_hfr_codec">Solo se admite el códec H264 cuando está activado el modo HFR</string>
+  <string name="error_app_unsupported_hfr_codec">Sólo se admite el códec H264 cuando está activado el modo HFR</string>
   <!-- The message is shown in dialog when the app encounters an unsupported video resolution-->
   <string name="error_app_unsupported">Resolución de video no compatible con este tipo de códec</string>
   <!-- The message is shown in dialog when the app encounters an unsupported video profile-->
