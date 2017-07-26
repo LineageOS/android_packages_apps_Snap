@@ -334,7 +334,7 @@ La imagen recortada se guardó en <xliff:g id="folder_name">%s</xliff:g>.</strin
   <!-- Dialog "OK" button. Dismisses dialog. -->
   <string name="dialog_ok">Aceptar</string>
   <!-- Low-memory dialog message [CHAR LIMIT=NONE] -->
-  <string name="spaceIsLow_content" product="default">Tu tarjeta SD se está quedando sin espacio. Cambia los ajustes de calidad o elimina algunas imágenes u otros archivos.</string>
+  <string name="spaceIsLow_content" product="default">Tu tarjeta SD se está quedando sin espacio. Cambia la configuración de calidad o elimina algunas imágenes u otros archivos.</string>
   <!-- Camera format string for new image files. Passed to java.text.SimpleDateFormat. -->
   <!-- Video Camera format string for new video files. Passed to java.text.SimpleDateFormat. -->
   <!-- Filename prefix for panorama output. -->
