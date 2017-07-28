@@ -135,7 +135,7 @@
   <!-- The message is shown in dialog when the app encounters an unsupported resolution for Slow motion mode -->
   <!-- The message is shown in toast when the app encounters an unsupported resolution for Stabilization mode -->
   <!-- The message is shown in dialog when the app encounters an unsupported resolution for High speed mode -->
-  <string name="error_app_unsupported_hsr">Profili i shpejtësisë së lartë nuk është i suportuar për madhësinë e zgjedhur të videos. Zgjidhni një madhësi videoje më të vogël</string>
+  <string name="error_app_unsupported_hsr">Profili i shpejtësisë së lartë nuk është i disponueshëm për madhësinë e zgjedhur të videos. Zgjidhni një madhësi videoje më të vogël</string>
   <!-- The message is shown in dialog when the app encounters an unsupported video codec for HFR mode -->
   <!-- The message is shown in dialog when the app encounters an unsupported video resolution-->
   <!--The message is shown in dialog when the raw snapshot is selected in Zero shutter lag mode-->

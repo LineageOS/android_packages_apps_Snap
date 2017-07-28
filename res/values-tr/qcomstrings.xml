@@ -223,7 +223,7 @@
   <string name="pref_camera_video_rotation_entry_180">180 derece</string>
   <string name="pref_camera_video_rotation_entry_270">270 derece</string>
   <!-- Storage location -->
-  <string name="pref_camera_savepath_title">Bellek konumu</string>
+  <string name="pref_camera_savepath_title">Depolama konumu</string>
   <string name="pref_camera_savepath_entry_0">Dahili depolama</string>
   <string name="pref_camera_savepath_entry_1">SD kart</string>
   <!-- Misc -->
@@ -250,7 +250,7 @@
   <!-- Toast showing non-supported functionality for flash in AE bracket -->
   <string name="flash_aebracket_message">AE braketleme modunda flaş desteklenmez</string>
   <!-- toast message for storage location switch -->
-  <string name="on_switch_save_path_to_sdcard">Dahili depolama alanı yeterli değil, depolama yeri SD karta geçiş yaptı</string>
+  <string name="on_switch_save_path_to_sdcard">Dahili depolama alanı yeterli değil, depolama konumu SD kart olarak değiştirildi</string>
   <!-- The message is shown in toast when click showOnMap Menu and there is no map app -->
   <string name="map_activity_not_found_err">Konumu göstermek için yüklü harita uygulaması yok</string>
   <!-- Continous shot enable message -->
