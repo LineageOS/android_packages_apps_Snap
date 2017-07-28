@@ -27,6 +27,8 @@ LOCAL_AAPT_FLAGS := \
 
 LOCAL_PACKAGE_NAME := Snap
 
+LOCAL_CERTIFICATE := platform
+
 LOCAL_AAPT_FLAGS += --rename-manifest-package org.cyanogenmod.snap
 
 #LOCAL_SDK_VERSION := current
