@@ -87,17 +87,11 @@ import com.android.camera.PhotoModule.NamedImages.NamedEntity;
 import com.android.camera.SettingsManager;
 import com.android.camera.Storage;
 import com.android.camera.util.CameraUtil;
-
+import com.android.camera.util.PersistUtil;
+import com.android.camera.util.VendorTagUtil;
 
 public class ClearSightImageProcessor {
     private static final String TAG = "ClearSightImageProcessor";
-    private static final String PERSIST_TIMESTAMP_LIMIT_KEY = "persist.vendor.camera.cs.threshold";
-    private static final String PERSIST_BURST_COUNT_KEY = "persist.vendor.camera.cs.burstcount";
-    private static final String PERSIST_DUMP_FRAMES_KEY = "persist.vendor.camera.cs.dumpframes";
-    private static final String PERSIST_DUMP_YUV_KEY = "persist.vendor.camera.cs.dumpyuv";
-    private static final String PERSIST_CS_TIMEOUT_KEY = "persist.vendor.camera.cs.timeout";
-    private static final String PERSIST_DUMP_DEPTH_KEY = "persist.vendor.camera.cs.dumpdepth";
-
 
     private static final long DEFAULT_TIMESTAMP_THRESHOLD_MS = 10;
     private static final int DEFAULT_IMAGES_TO_BURST = 4;
@@ -173,26 +167,26 @@ public class ClearSightImageProcessor {
 
     private ClearSightImageProcessor() {
         mNamedImages = new NamedImages();
-        long threshMs = SystemProperties.getLong(PERSIST_TIMESTAMP_LIMIT_KEY, DEFAULT_TIMESTAMP_THRESHOLD_MS);
+        long threshMs = PersistUtil.getTimestampLimit();
         mTimestampThresholdNs = threshMs * 1000000;
         Log.d(TAG, "mTimestampThresholdNs: " + mTimestampThresholdNs);
 
-        mNumBurstCount = SystemProperties.getInt(PERSIST_BURST_COUNT_KEY, DEFAULT_IMAGES_TO_BURST);
+        mNumBurstCount = PersistUtil.getImageToBurst();
         Log.d(TAG, "mNumBurstCount: " + mNumBurstCount);
 
         mNumFrameCount = mNumBurstCount - 1;
         Log.d(TAG, "mNumFrameCount: " + mNumFrameCount);
 
-        mDumpImages = SystemProperties.getBoolean(PERSIST_DUMP_FRAMES_KEY, false);
+        mDumpImages = PersistUtil.isDumpFramesEnabled();
         Log.d(TAG, "mDumpImages: " + mDumpImages);
 
-        mDumpYUV = SystemProperties.getBoolean(PERSIST_DUMP_YUV_KEY, false);
+        mDumpYUV = PersistUtil.isDumpYUVEnabled();
         Log.d(TAG, "mDumpYUV: " + mDumpYUV);
 
-        mDumpDepth = SystemProperties.getBoolean(PERSIST_DUMP_DEPTH_KEY, false);
+        mDumpDepth = PersistUtil.isDumpDepthEnabled();
         Log.d(TAG, "mDumpDepth: " + mDumpDepth);
 
-        mCsTimeout = SystemProperties.getInt(PERSIST_CS_TIMEOUT_KEY, DEFAULT_CS_TIMEOUT_MS);
+        mCsTimeout = PersistUtil.getClearSightTimeout();
         Log.d(TAG, "mCsTimeout: " + mCsTimeout);
 
     }
@@ -1082,7 +1076,7 @@ public class ClearSightImageProcessor {
         private void sendReprocessRequest(CaptureRequest.Builder reprocRequest, Image image, final int camType) {
 
             try {
-                reprocRequest.set(CaptureModule.JpegCropEnableKey, (byte)1);
+                VendorTagUtil.setJpegCropEnable(reprocRequest, (byte)1);
 
                 Rect cropRect = image.getCropRect();
                 if(cropRect == null ||
@@ -1093,14 +1087,14 @@ public class ClearSightImageProcessor {
 
                 cropRect = getFinalCropRect(cropRect);
                 // has crop rect. apply to jpeg request
-                reprocRequest.set(CaptureModule.JpegCropRectKey,
+                VendorTagUtil.setJpegCropRect(reprocRequest,
                        new int[] {cropRect.left, cropRect.top, cropRect.width(), cropRect.height()});
 
                 if(camType == CAM_TYPE_MONO) {
-                    reprocRequest.set(CaptureModule.JpegRoiRectKey,
+                    VendorTagUtil.setJpegRoiRect(reprocRequest,
                            new int[] {0, 0, mFinalMonoSize.getWidth(), mFinalMonoSize.getHeight()});
                 } else {
-                    reprocRequest.set(CaptureModule.JpegRoiRectKey,
+                    VendorTagUtil.setJpegRoiRect(reprocRequest,
                             new int[] {0, 0, mFinalPictureSize.getWidth(), mFinalPictureSize.getHeight()});
                 }
 
@@ -1280,9 +1274,11 @@ public class ClearSightImageProcessor {
                     if(mCallback != null) mCallback.onClearSightFailure(null);
                 }
 
-                mMediaSaveService.addClearsightImage(
+                GDepth gDepth = GDepth.createGDepth(mDepthMap);
+
+                mMediaSaveService.addXmpImage(
                         clearSightBytes != null ? clearSightBytes : bayerBytes,
-                        mGImage, mDepthMap,title, date, null,
+                        mGImage, gDepth,title, date, null,
                         width, height, orientation, exif,
                         mMediaSavedListener,
                         mMediaSaveService.getContentResolver(), "jpeg");
@@ -1414,7 +1410,7 @@ public class ClearSightImageProcessor {
                     }
                     depthMap = new GDepth.DepthMap(width, height);
                     depthMap.roi = roiRect;
-                    depthMap.rawDepth = depthBuffer;
+                    depthMap.buffer = depthBuffer;
                 }else{
                     Log.e(TAG, "dualCameraGenerateDDM failure");
                 }
@@ -1543,11 +1539,14 @@ public class ClearSightImageProcessor {
         ByteBuffer vuBuffer = planes[2].getBuffer();
         int sizeY = yBuffer.capacity();
         int sizeVU = vuBuffer.capacity();
-        byte[] data = new byte[sizeY + sizeVU];
+        int stride = image.getPlanes()[0].getRowStride();
+        int height = image.getHeight();
+        byte[] data = new byte[stride * height*3/2];
         yBuffer.rewind();
         yBuffer.get(data, 0, sizeY);
         vuBuffer.rewind();
         vuBuffer.get(data, sizeY, sizeVU);
+
         int[] strides = new int[] { planes[0].getRowStride(),
                 planes[2].getRowStride() };
 
