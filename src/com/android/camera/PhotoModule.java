@@ -131,6 +131,7 @@ public class PhotoModule extends BaseModule<PhotoUI> implements
     private int mLongshotSnapNum = 0;
     public boolean mFaceDetectionEnabled = false;
     private boolean mLgeHdrMode = false;
+    private boolean mLgeAeAwbMode = false;
     public boolean mHistogramEnabled = false;
     // We number the request code from 1000 to avoid collision with Gallery.
     private static final int REQUEST_CROP = 1000;
@@ -596,6 +597,8 @@ public class PhotoModule extends BaseModule<PhotoUI> implements
 
         // LGE HDR mode
         mLgeHdrMode = mActivity.getResources().getBoolean(R.bool.lge_hdr_mode);
+        // LGE AE and AWB mode
+        mLgeAeAwbMode = mActivity.getResources().getBoolean(R.bool.lge_ae_awb_mode);
     }
 
     private void initializeControlByIntent() {
@@ -4466,10 +4469,17 @@ public class PhotoModule extends BaseModule<PhotoUI> implements
             Ginput.setInputType(floatType);
             Binput.setInputType(floatType);
 
-            String minGainStr = mParameters.get(CameraSettings.KEY_MIN_WB_GAIN);
-            final double minGain = Double.parseDouble(minGainStr);
-            String maxGainStr = mParameters.get(CameraSettings.KEY_MAX_WB_GAIN);
-            final double maxGain = Double.parseDouble(maxGainStr);
+            if (mLgeHdrMode) {
+                String minGainStr = mParameters.get(CameraSettings.KEY_LGE_WB_MIN);
+                final double minGain = Double.parseDouble(minGainStr);
+                String maxGainStr = mParameters.get(CameraSettings.KEY_LGE_WB_MAX);
+                final double maxGain = Double.parseDouble(maxGainStr);
+            } else {
+                String minGainStr = mParameters.get(CameraSettings.KEY_MIN_WB_GAIN);
+                final double minGain = Double.parseDouble(minGainStr);
+                String maxGainStr = mParameters.get(CameraSettings.KEY_MAX_WB_GAIN);
+                final double maxGain = Double.parseDouble(maxGainStr);
+            }
 
             //refresh camera parameters to get latest WB gains
             mParameters = mCameraDevice.getParameters();

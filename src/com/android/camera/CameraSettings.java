@@ -242,6 +242,12 @@ public class CameraSettings {
     public static final String KEY_MANUAL_WB_TYPE = "manual-wb-type";
     public static final String KEY_MANUAL_WB_VALUE = "manual-wb-value";
 
+    // LG white balance
+    public static final String KEY_LGE_WB = "lg-wb";
+    public static final String KEY_LGE_WB_MIN = "lg-wb-supported-min";
+    public static final String KEY_LGE_WB_MAX = "lg-wb-supported-max";
+    public static final String KEY_LGE_WB_STEP = "lg-wb-supported-step";
+
     //manual focus
     public static final String KEY_MIN_FOCUS_SCALE = "min-focus-pos-ratio";
     public static final String KEY_MAX_FOCUS_SCALE = "max-focus-pos-ratio";
@@ -359,7 +365,7 @@ public class CameraSettings {
         VIDEO_QUALITY_TO_HIGHSPEED.put(CamcorderProfile.QUALITY_2160P, CamcorderProfile.QUALITY_HIGH_SPEED_2160P);
         VIDEO_QUALITY_TO_HIGHSPEED.put(CamcorderProfile.QUALITY_VGA  , CamcorderProfile.QUALITY_HIGH_SPEED_VGA  );
         VIDEO_QUALITY_TO_HIGHSPEED.put(CamcorderProfile.QUALITY_4KDCI, CamcorderProfile.QUALITY_HIGH_SPEED_4KDCI);
-   } 
+   }
 
    public static int getHighSpeedQualityFor(int quality) {
        return VIDEO_QUALITY_TO_HIGHSPEED.get(quality);
