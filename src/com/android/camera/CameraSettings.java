@@ -242,6 +242,12 @@ public class CameraSettings {
     public static final String KEY_MANUAL_WB_TYPE = "manual-wb-type";
     public static final String KEY_MANUAL_WB_VALUE = "manual-wb-value";
 
+    // LG white balance
+    public static final String KEY_LGE_WB = "lg-wb"
+    public static final String KEY_LGE_WB_MIN = "lg-wb-supported-min"
+    public static final String KEY_LGE_WB_MAX = "lg-wb-supported-max"
+    public static final String KEY_LGE_WB_STEP = "lg-wb-supported-step"
+
     //manual focus
     public static final String KEY_MIN_FOCUS_SCALE = "min-focus-pos-ratio";
     public static final String KEY_MAX_FOCUS_SCALE = "max-focus-pos-ratio";
