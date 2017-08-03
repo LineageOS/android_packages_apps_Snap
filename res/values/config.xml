@@ -26,7 +26,7 @@
 
     <!-- This value may be changed to true to enable the warped pano preview overlayed on top
          of the fullscreen pano preview. -->
-    <bool name="enable_warped_pano_preview">true</bool>
+    <bool name="enable_warped_pano_preview">false</bool>
 
     <!-- Enable support for camera api v2 -->
     <bool name="support_camera_api_v2">false</bool>
