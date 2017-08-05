@@ -156,12 +156,12 @@
     <dimen name="photoeditor_original_text_size">18dp</dimen>
     <dimen name="photoeditor_original_text_margin">4dp</dimen>
 
-    <dimen name="scene_mode_height">85dp</dimen>
-    <dimen name="scene_mode_width">90dp</dimen>
-    <dimen name="scene_mode_padding">10dp</dimen>
+    <dimen name="scene_mode_height">90dp</dimen>
+    <dimen name="scene_mode_width">100dp</dimen>
+    <dimen name="scene_mode_padding">5dp</dimen>
     <dimen name="filter_mode_height">100dp</dimen>
     <dimen name="filter_mode_width">100dp</dimen>
-    <dimen name="filter_mode_padding">0dp</dimen>
+    <dimen name="filter_mode_padding">5dp</dimen>
 
     <dimen name="remaining_photos_margin">75dp</dimen>
     <dimen name="tsmakeup_mode_paddingBottom">96dp</dimen>
