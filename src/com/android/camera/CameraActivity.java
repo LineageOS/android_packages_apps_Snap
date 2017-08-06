@@ -191,6 +191,7 @@ public class CameraActivity extends Activity
 
     private boolean mCamera2supported = false;
     private boolean mCamera2enabled = false;
+    private boolean mCamera2CapModuleEnabled = false;
 
     /** This data adapter is used by FilmStripView. */
     private LocalDataAdapter mDataAdapter;
@@ -1510,7 +1511,11 @@ public class CameraActivity extends Activity
         mCamera2enabled = mCamera2supported && mContext.getResources().getBoolean(R.bool.support_camera_api_v2);
         Log.d(TAG, "Camera API 2 enabled: " + mCamera2enabled);
 
-        if (mCamera2enabled && moduleIndex == ModuleSwitcher.PHOTO_MODULE_INDEX)
+        mCamera2CapModuleEnabled = mCamera2enabled && mContext.getResources().getBoolean(R.bool.api2_use_capture_module);
+        Log.d(TAG, "Capute Module enabled: " + mCamera2enabled);
+
+        if (mCamera2enabled && (moduleIndex == ModuleSwitcher.PHOTO_MODULE_INDEX ||
+                moduleIndex == ModuleSwitcher.VIDEO_MODULE_INDEX) && mCamera2CapModuleEnabled)
             moduleIndex = ModuleSwitcher.CAPTURE_MODULE_INDEX;
 
         mOrientationListener = new MyOrientationEventListener(this);
