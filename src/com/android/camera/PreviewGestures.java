@@ -88,17 +88,24 @@ public class PreviewGestures
                 return false;
             }
             if (mZoomOnly || mMode == MODE_ZOOM) return false;
-
             int deltaX = (int) (e1.getX() - e2.getX());
             int deltaY = (int) (e1.getY() - e2.getY());
 
             int orientation = 0;
-            if (mCaptureUI != null)
+            if (mPhotoMenu != null)
+                orientation = mPhotoMenu.getOrientation();
+            else if (mVideoMenu != null)
+                orientation = mVideoMenu.getOrientation();
+            else if (mCaptureUI != null)
                 orientation = mCaptureUI.getOrientation();
 
             if (isLeftSwipe(orientation, deltaX, deltaY)) {
                 waitUntilNextDown = true;
-                if (mCaptureUI != null)
+                if (mPhotoMenu != null && !mPhotoMenu.isMenuBeingShown())
+                    mPhotoMenu.openFirstLevel();
+                else if (mVideoMenu != null && !mVideoMenu.isMenuBeingShown())
+                    mVideoMenu.openFirstLevel();
+                else if (mCaptureUI != null)
                     mCaptureUI.openSettingsMenu();
                 return true;
             }
