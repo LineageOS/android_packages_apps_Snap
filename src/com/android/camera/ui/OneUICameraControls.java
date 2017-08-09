@@ -309,7 +309,8 @@ public class OneUICameraControls extends RotatableLayout {
         } else {
             v.setY(mHeight - mBottom + (mBottom - h) / 2);
         }
-        float bW = mWidth / 5f;
+        int bW = mWidth / 5;
+
         v.setX(bW * idx + (bW - w) / 2);
     }
 
