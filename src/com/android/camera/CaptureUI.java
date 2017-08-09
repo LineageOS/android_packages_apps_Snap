@@ -72,7 +72,6 @@ import com.android.camera.imageprocessor.filter.DeepPortraitFilter;
 import com.android.camera.ui.AutoFitSurfaceView;
 import com.android.camera.ui.Camera2FaceView;
 import com.android.camera.ui.CameraControls;
-import com.android.camera.ui.MenuHelp;
 import com.android.camera.ui.OneUICameraControls;
 import com.android.camera.ui.CountDownView;
 import com.android.camera.ui.FlashToggleButton;
@@ -182,7 +181,6 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
     private FlashToggleButton mFlashButton;
     private CountDownView mCountDownView;
     private OneUICameraControls mCameraControls;
-    private MenuHelp mMenuHelp;
     private PieRenderer mPieRenderer;
     private ZoomRenderer mZoomRenderer;
     private Allocation mMonoDummyAllocation;
@@ -545,7 +543,6 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
 
         mActivity.setPreviewGestures(mGestures);
         mRecordingTimeRect.setVisibility(View.GONE);
-        showFirstTimeHelp();
     }
 
     protected void showCapturedImageForReview(byte[] jpegData, int orientation) {
@@ -1670,9 +1667,6 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
     public void setOrientation(int orientation, boolean animation) {
         mOrientation = orientation;
         mCameraControls.setOrientation(orientation, animation);
-        if (mMenuHelp != null) {
-            mMenuHelp.setOrientation(orientation, animation);
-        }
         if (mFilterLayout != null) {
             ViewGroup vg = (ViewGroup) mFilterLayout.getChildAt(0);
             if (vg != null)
@@ -1727,33 +1721,6 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
 
     public int getOrientation() {
         return mOrientation;
-    }
-
-    public void showFirstTimeHelp() {
-        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(mActivity);
-        boolean isMenuShown = prefs.getBoolean(CameraSettings.KEY_SHOW_MENU_HELP, false);
-        if(!isMenuShown) {
-            showFirstTimeHelp(mTopMargin, mBottomMargin);
-            SharedPreferences.Editor editor = prefs.edit();
-            editor.putBoolean(CameraSettings.KEY_SHOW_MENU_HELP, true);
-            editor.apply();
-        }
-    }
-
-    private void showFirstTimeHelp(int topMargin, int bottomMargin) {
-        mMenuHelp = (MenuHelp) mRootView.findViewById(R.id.menu_help);
-        mMenuHelp.setForCamera2(true);
-        mMenuHelp.setVisibility(View.VISIBLE);
-        mMenuHelp.setMargins(topMargin, bottomMargin);
-        mMenuHelp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (mMenuHelp != null) {
-                    mMenuHelp.setVisibility(View.GONE);
-                    mMenuHelp = null;
-                }
-            }
-        });
     }
 
     @Override
