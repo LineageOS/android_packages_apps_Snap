@@ -378,9 +378,9 @@
   <!-- Toast telling users tapping on the viewfinder will take a picture [CHAR LIMIT=54] -->
   <string name="video_snapshot_hint">輕觸即可在錄製期間拍照。</string>
   <!-- Announcement telling users video recording has just started [CHAR LIMIT=NONE] -->
-  <string name="video_recording_started">錄影程序已啟動。</string>
+  <string name="video_recording_started">影片錄製已經開始。</string>
   <!-- Announcement telling users video recording has just stopped [CHAR LIMIT=NONE] -->
-  <string name="video_recording_stopped">錄影程序已暫停。</string>
+  <string name="video_recording_stopped">影片錄製已經停止。</string>
   <!-- A button in effect setting popup to clear the effect. [CHAR LIMIT=26] -->
   <string name="clear_effects">清除效果</string>
   <!-- Title of category for silly face effects. [CHAR LIMIT=26] -->
