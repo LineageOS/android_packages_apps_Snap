@@ -31,6 +31,7 @@ import android.hardware.Camera.Parameters;
 import android.graphics.Rect;
 import android.os.Handler;
 import android.os.Message;
+import android.preference.Preference;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import android.util.Log;
@@ -98,6 +99,7 @@ public class PhotoMenu extends MenuController
     private int mSceneStatus;
     private View mHdrSwitcher;
     private View mTsMakeupSwitcher;
+    private View mBokehSwitcher;
     private View mFrontBackSwitcher;
     private View mSceneModeSwitcher;
     private View mFilterModeSwitcher;
@@ -132,6 +134,7 @@ public class PhotoMenu extends MenuController
         mHdrSwitcher = ui.getRootView().findViewById(R.id.hdr_switcher);
         mTsMakeupSwitcher = ui.getRootView().findViewById(R.id.ts_makeup_switcher);
         mSceneModeSwitcher = ui.getRootView().findViewById(R.id.scene_mode_switcher);
+        mBokehSwitcher = ui.getRootView().findViewById(R.id.bokeh_switcher);
         mFilterModeSwitcher = ui.getRootView().findViewById(R.id.filter_mode_switcher);
         mMakeupListener = makeupListener;
         mSettingMenu = ui.getRootView().findViewById(R.id.menu);
@@ -167,6 +170,7 @@ public class PhotoMenu extends MenuController
         } else {
             mHdrSwitcher.setVisibility(View.INVISIBLE);
         }
+        initBokehModeButton(mBokehSwitcher);
 
         mFrontBackSwitcher.setVisibility(View.INVISIBLE);
         if(!TsMakeupManager.HAS_TS_MAKEUP) {
@@ -557,9 +561,7 @@ public class PhotoMenu extends MenuController
             View v2 = ((ViewGroup) v).getChildAt(0);
             if (v2 != null)
                 v2.setEnabled(enable);
-
         }
-
     }
 
     public boolean isOverMenu(MotionEvent ev) {
@@ -781,6 +783,38 @@ public class PhotoMenu extends MenuController
             mHdrSwitcher.setVisibility(View.VISIBLE);
         }
 
+        pref = mPreferenceGroup.findPreference(CameraSettings.KEY_BOKEH_MODE);
+        String bokeh = (pref != null) ? pref.getValue() : null;
+        if ("1".equals(bokeh)) {
+            buttonSetEnabled(mHdrSwitcher,false);
+            buttonSetEnabled(mSceneModeSwitcher,false);
+            buttonSetEnabled(mFilterModeSwitcher,false);
+            popup1.setPreferenceEnabled(CameraSettings.KEY_SCENE_MODE,false);
+            popup1.setPreferenceEnabled(CameraSettings.KEY_CAMERA_HDR,false);
+            popup1.setPreferenceEnabled(CameraSettings.KEY_ZSL,false);
+            popup1.setPreferenceEnabled(CameraSettings.KEY_FLASH_MODE,false);
+            popup1.setPreferenceEnabled(CameraSettings.KEY_LONGSHOT,false);
+            popup1.setPreferenceEnabled(CameraSettings.KEY_COLOR_EFFECT,false);
+            popup1.setPreferenceEnabled(CameraSettings.KEY_QC_CHROMA_FLASH,false);
+            popup1.setPreferenceEnabled(CameraSettings.KEY_PICTURE_SIZE,false);
+
+            setPreference(CameraSettings.KEY_SCENE_MODE,
+                    mActivity.getString(R.string.pref_camera_scenemode_default));
+            setPreference(CameraSettings.KEY_CAMERA_HDR,"off");
+            setPreference(CameraSettings.KEY_ZSL,
+                    mActivity.getString(R.string.pref_camera_zsl_value_on));
+            setPreference(CameraSettings.KEY_FLASH_MODE, "off");
+            setPreference(CameraSettings.KEY_LONGSHOT, "off");
+            setPreference(CameraSettings.KEY_COLOR_EFFECT,"none");
+            setPreference(CameraSettings.KEY_QC_CHROMA_FLASH,"off");
+            ListPreference picSize =
+                    mPreferenceGroup.findPreference(CameraSettings.KEY_PICTURE_SIZE);
+            CharSequence maxSize = picSize.getEntryValues()[0];
+            if (maxSize != null) {
+                setPreference(CameraSettings.KEY_PICTURE_SIZE,maxSize.toString());
+            }
+        }
+
         if (mListener != null) {
             mListener.onSharedPreferenceChanged();
         }
@@ -844,6 +878,50 @@ public class PhotoMenu extends MenuController
                     mListener.onCameraPickerClicked(index);
                 reloadPreference(pref);
                 onSettingChanged(pref);
+            }
+        });
+    }
+
+    public void initBokehModeButton(View button) {
+        button.setVisibility(View.INVISIBLE);
+        final IconListPreference pref = (IconListPreference) mPreferenceGroup.findPreference(
+                CameraSettings.KEY_BOKEH_MODE);
+        if (pref == null) {
+            button.setVisibility(View.GONE);
+            return;
+        }
+
+        int[] iconIds = pref.getLargeIconIds();
+        int resid = -1;
+        int index = pref.findIndexOfValue(pref.getValue());
+        if (!pref.getUseSingleIcon() && iconIds != null) {
+            resid = iconIds[index];
+        } else {
+            resid = pref.getSingleIcon();
+        }
+        ImageView iv = (ImageView) button;
+        iv.setImageResource(resid);
+
+        button.setVisibility(View.VISIBLE);
+
+        button.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ListPreference bokehPref =
+                        mPreferenceGroup.findPreference(CameraSettings.KEY_BOKEH_MODE);
+                String bokeh = (bokehPref != null) ? bokehPref.getValue() : null;
+                if (bokeh != null) {
+                    CharSequence[] values = bokehPref.getEntryValues();
+                    int index = (bokehPref.getCurrentIndex() + 1) % values.length;
+                    bokehPref.setValueIndex(index);
+                    ((ImageView) v).setImageResource(
+                            ((IconListPreference) pref).getLargeIconIds()[index]);
+                    reloadPreference(pref);
+                    initializePopup();
+                    onSettingChanged(bokehPref);
+                } else {
+
+                }
             }
         });
     }
@@ -1501,6 +1579,15 @@ public class PhotoMenu extends MenuController
             mActivity.requestLocationPermission();
         }
 
+        if (same(pref, CameraSettings.KEY_BOKEH_MODE, "1")) {
+            ListPreference scene =
+                    mPreferenceGroup.findPreference(CameraSettings.KEY_SCENE_MODE);
+            updateSceneModeIcon((IconListPreference)scene);
+            changeFilterModeControlIcon("none");
+            buttonSetEnabled(mHdrSwitcher,false);
+            buttonSetEnabled(mSceneModeSwitcher,false);
+            buttonSetEnabled(mFilterModeSwitcher,false);
+        }
         super.onSettingChanged(pref);
     }
 
