@@ -649,9 +649,27 @@ public class PhotoUI implements PieListener,
     // called from onResume but only the first time
     public void initializeFirstTime() {
         // Initialize shutter button.
-        mShutterButton.setImageResource(R.drawable.btn_new_shutter);
+        mShutterButton.setImageResource(R.drawable.shutter_button_anim);
+        mShutterButton.setOnClickListener(new OnClickListener()
+        {
+            @Override
+            public void onClick(View v) {
+                if (!CameraControls.isAnimating())
+                    doShutterAnimation();
+                    if (mController.isImageCaptureIntent()) {
+                        mCameraControls.setTitleBarVisibility(View.VISIBLE);
+                    }
+            }
+        });
+
         mShutterButton.setOnShutterButtonListener(mController);
         mShutterButton.setVisibility(View.VISIBLE);
+    }
+
+    public void doShutterAnimation() {
+        AnimationDrawable frameAnimation = (AnimationDrawable) mShutterButton.getDrawable();
+        frameAnimation.stop();
+        frameAnimation.start();
     }
 
     // called from onResume every other time
