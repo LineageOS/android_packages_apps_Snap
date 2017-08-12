@@ -807,7 +807,7 @@ int Blend::PerformFinalBlending(YUVinfo &imgMos, MosaicRect &cropping_rect)
         delete b[j];
     }
 
-    delete b;
+    delete[] b;
 
     return BLEND_RET_OK;
 }
