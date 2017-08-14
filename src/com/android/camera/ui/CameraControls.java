@@ -991,7 +991,7 @@ public class CameraControls extends RotatableLayout {
                 mPaint.setColor(getResources().getColor(R.color.camera_control_bg_transparent));
             }
         }
-        invalidate();
+        requestLayout();
     }
 
     public void showRefocusToast(boolean show) {
