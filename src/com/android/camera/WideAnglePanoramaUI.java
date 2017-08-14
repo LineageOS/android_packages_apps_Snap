@@ -108,6 +108,10 @@ public class WideAnglePanoramaUI implements
     private RotateLayout mPanoFailedDialog;
     private Button mPanoFailedButton;
 
+    private int mTopMargin = 0;
+    private int mBottomMargin = 0;
+    private float mAspectRatio = 1.0f;
+
     /** Constructor. */
     public WideAnglePanoramaUI(
             CameraActivity activity,
@@ -142,6 +146,14 @@ public class WideAnglePanoramaUI implements
 
         RotateImageView muteButton = (RotateImageView)mRootView.findViewById(R.id.mute_button);
         muteButton.setVisibility(View.GONE);
+    }
+
+    private void calculateMargins(Point size) {
+        int l = size.x > size.y ? size.x : size.y;
+        int tm = mActivity.getResources().getDimensionPixelSize(R.dimen.preview_top_margin);
+        int bm = mActivity.getResources().getDimensionPixelSize(R.dimen.preview_bottom_margin);
+        mTopMargin = l / 4 * tm / (tm + bm);
+        mBottomMargin = l / 4 - mTopMargin;
     }
 
     public void onStartCapture() {
@@ -363,16 +375,19 @@ public class WideAnglePanoramaUI implements
         Display display = mActivity.getWindowManager().getDefaultDisplay();
         Point size = new Point();
         display.getSize(size);
+        mActivity.getWindowManager().getDefaultDisplay().getRealSize(size);
+        calculateMargins(size);
+        mCameraControls.setMargins(mTopMargin, mBottomMargin);
 
         int width = size.x;
-        int height = size.y;
+        int height = size.y - mTopMargin - mBottomMargin;
         int xOffset = 0;
         int yOffset = 0;
         int w = width;
         int h = height;
 
         h = w * 4 / 3;
-        yOffset = (height - h) / 2;
+        yOffset = (height - h) / 2 + mTopMargin;
 
         FrameLayout.LayoutParams param = new FrameLayout.LayoutParams(w, h);
         mTextureView.setLayoutParams(param);
@@ -383,12 +398,7 @@ public class WideAnglePanoramaUI implements
         mPreviewBorder.setY(yOffset);
         mPreviewYOffset = yOffset;
 
-        int t = mPreviewYOffset;
-        int b1 = mTextureView.getBottom() - mPreviewYOffset;
-        int r = mTextureView.getRight();
-        int b2 = mTextureView.getBottom();
-
-        mCameraControls.setPreviewRatio(1.0f, true);
+        mTextureView.layout(0, mPreviewYOffset, mTextureView.getRight(), mTextureView.getBottom());
     }
 
     public void resetSavingProgress() {
@@ -710,5 +720,24 @@ public class WideAnglePanoramaUI implements
         if (mPreviewCover.getVisibility() != View.GONE) {
             mPreviewCover.setVisibility(View.GONE);
         }
+    }
+
+    public void setPreviewSize(int width, int height) {
+        if (width == 0 || height == 0) {
+            Log.w(TAG, "Preview size should not be 0.");
+            return;
+        }
+        float ratio;
+        if (width > height) {
+            ratio = (float) width / height;
+        } else {
+            ratio = (float) height / width;
+        }
+
+        if (ratio != mAspectRatio) {
+            mAspectRatio = ratio;
+        }
+
+        mCameraControls.setPreviewRatio(mAspectRatio, false);
     }
 }
