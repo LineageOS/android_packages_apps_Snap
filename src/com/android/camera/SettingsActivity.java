@@ -82,6 +82,8 @@ public class SettingsActivity extends PreferenceActivity {
             if (key.equals(SettingsManager.KEY_VIDEO_QUALITY)) {
                 updatePreference(SettingsManager.KEY_VIDEO_HIGH_FRAME_RATE);
                 updatePreference(SettingsManager.KEY_VIDEO_ENCODER);
+            }else if ( key.equals(SettingsManager.KEY_VIDEO_ENCODER) ) {
+                updatePreference(SettingsManager.KEY_VIDEO_ENCODER_PROFILE);
             }
             List<String> list = mSettingsManager.getDependentKeys(key);
             if (list != null) {

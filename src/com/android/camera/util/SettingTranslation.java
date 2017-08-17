@@ -29,6 +29,7 @@
 package com.android.camera.util;
 
 import android.hardware.camera2.CameraMetadata;
+import android.media.MediaCodecInfo;
 import android.media.MediaRecorder;
 
 import java.util.HashMap;
@@ -39,6 +40,7 @@ public class SettingTranslation {
     private static final TwoWayMap VIDEO_ENCODER_TABLE = new TwoWayMap();
     private static final TwoWayMap AUDIO_ENCODER_TABLE = new TwoWayMap();
     private static final TwoWayMap NOISE_REDUCTION_TABLE = new TwoWayMap();
+    private static final TwoWayMap VIDEO_ENCODER_PROFILE_TABLE = new TwoWayMap();
 
     static {
         VIDEO_ENCODER_TABLE.put("default", MediaRecorder.VideoEncoder.DEFAULT);
@@ -69,6 +71,11 @@ public class SettingTranslation {
         NOISE_REDUCTION_TABLE.put("minimal", CameraMetadata.NOISE_REDUCTION_MODE_MINIMAL);
         NOISE_REDUCTION_TABLE.put("zero-shutter-lag", CameraMetadata
                 .NOISE_REDUCTION_MODE_ZERO_SHUTTER_LAG);
+
+        VIDEO_ENCODER_PROFILE_TABLE.put("HEVCProfileMain10",
+                MediaCodecInfo.CodecProfileLevel.HEVCProfileMain10);
+        VIDEO_ENCODER_PROFILE_TABLE.put("HEVCProfileMain10HDR10",
+                MediaCodecInfo.CodecProfileLevel.HEVCProfileMain10HDR10);
     }
 
     public static int getVideoEncoder(String key) {
@@ -93,6 +100,14 @@ public class SettingTranslation {
 
     public static String getNoiseReduction(int key) {
         return NOISE_REDUCTION_TABLE.get(key);
+    }
+
+    public static int getVideoEncoderProfile(String key) {
+        return VIDEO_ENCODER_PROFILE_TABLE.get(key);
+    }
+
+    public static String getVideoEncoderProfile(int key) {
+        return VIDEO_ENCODER_PROFILE_TABLE.get(key);
     }
 
     private static class TwoWayMap {

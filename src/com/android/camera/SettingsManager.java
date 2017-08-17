@@ -150,6 +150,7 @@ public class SettingsManager implements ListMenu.SettingsListener {
     public static final HashMap<String, Integer> KEY_ISO_INDEX = new HashMap<String, Integer>();
     public static final String KEY_BSGC_DETECTION = "pref_camera2_bsgc_key";
     public static final String KEY_ZSL = "pref_camera2_zsl_key";
+    public static final String KEY_VIDEO_ENCODER_PROFILE = "pref_camera2_videoencoderprofile_key";
 
     private static final String TAG = "SnapCam_SettingsManager";
 
@@ -166,6 +167,7 @@ public class SettingsManager implements ListMenu.SettingsListener {
     private JSONObject mDependency;
     private int mCameraId;
     private Set<String> mFilteredKeys;
+    private static Map<String, Set<String>> VIDEO_ENCODER_PROFILE_TABLE = new HashMap<>();
 
     public Map<String, Values> getValuesMap() {
         return mValuesMap;
@@ -185,6 +187,10 @@ public class SettingsManager implements ListMenu.SettingsListener {
         KEY_ISO_INDEX.put("400", 4);
         KEY_ISO_INDEX.put("800", 5);
         KEY_ISO_INDEX.put("1600", 6);
+        Set<String> h265 = new HashSet<>();
+        h265.add("HEVCProfileMain10");
+        h265.add("HEVCProfileMain10HDR10");
+        VIDEO_ENCODER_PROFILE_TABLE.put("h265", h265);
     }
 
     private SettingsManager(Context context) {
@@ -393,6 +399,7 @@ public class SettingsManager implements ListMenu.SettingsListener {
         while (it.hasNext()) {
             turnOn.remove(it.next());
         }
+
 
         for (String keyToTurnOn: turnOn) {
             Set<String> dependsOnSet = mDependendsOnMap.get(keyToTurnOn);
@@ -754,6 +761,7 @@ public class SettingsManager implements ListMenu.SettingsListener {
         // These list can be changed run-time
         filterHFROptions();
         filterVideoEncoderOptions();
+        filterVideoEncoderProfileOptions();
 
         if (!mIsFrontCameraPresent || !isFacingFront(mCameraId)) {
             removePreference(mPreferenceGroup, KEY_SELFIE_FLASH);
@@ -766,6 +774,8 @@ public class SettingsManager implements ListMenu.SettingsListener {
                 mFilteredKeys.add(zoom.getKey());
             }
         }
+
+
     }
 
     private void runTimeUpdateDependencyOptions(ListPreference pref) {
@@ -775,6 +785,8 @@ public class SettingsManager implements ListMenu.SettingsListener {
             filterVideoEncoderOptions();
         } else if (pref.getKey().equals(KEY_SCENE_MODE)) {
             filterChromaflashPictureSizeOptions();
+        } else if ( pref.getKey().equals(KEY_VIDEO_ENCODER) ) {
+            filterVideoEncoderProfileOptions();
         }
     }
 
@@ -894,6 +906,20 @@ public class SettingsManager implements ListMenu.SettingsListener {
             if (filterUnsupportedOptions(hfrPref,
                     getSupportedHighFrameRate())) {
                 mFilteredKeys.add(hfrPref.getKey());
+            }
+        }
+    }
+
+    private void filterVideoEncoderProfileOptions() {
+        ListPreference videoEncoderProfilePref =
+                mPreferenceGroup.findPreference(KEY_VIDEO_ENCODER_PROFILE);
+        ListPreference videoEncoderPref = mPreferenceGroup.findPreference(KEY_VIDEO_ENCODER);
+        if ( videoEncoderProfilePref != null && videoEncoderPref != null ) {
+            String videoEncoder = videoEncoderPref.getValue();
+            videoEncoderProfilePref.reloadInitialEntriesAndEntryValues();
+            if ( filterUnsupportedOptions(videoEncoderProfilePref,
+                    getSupportedVideoEncoderProfile(videoEncoder)) ) {
+                mFilteredKeys.add(videoEncoderProfilePref.getKey());
             }
         }
     }
@@ -1184,7 +1210,7 @@ public class SettingsManager implements ListMenu.SettingsListener {
         String resolutionFpsEncoder = key + ":" + profile.videoCodec;
         if (CameraSettings.VIDEO_ENCODER_BITRATE.containsKey(resolutionFpsEncoder)) {
             bitRate = CameraSettings.VIDEO_ENCODER_BITRATE.get(resolutionFpsEncoder);
-        } else if (CameraSettings.VIDEO_ENCODER_BITRATE.containsKey(key) ) {
+        } else if (CameraSettings.VIDEO_ENCODER_BITRATE.containsKey(key)) {
             bitRate = CameraSettings.VIDEO_ENCODER_BITRATE.get(key);
         } else {
             Log.i(TAG, "No pre-defined bitrate for "+key);
@@ -1440,6 +1466,15 @@ public class SettingsManager implements ListMenu.SettingsListener {
             modes.add(i);
         }
         return  modes;
+    }
+
+    public List<String> getSupportedVideoEncoderProfile(String videoEncoder) {
+        List<String> profile = new ArrayList<>();
+        profile.add("off");
+        if ( VIDEO_ENCODER_PROFILE_TABLE.containsKey(videoEncoder) ) {
+            profile.addAll(VIDEO_ENCODER_PROFILE_TABLE.get(videoEncoder));
+        }
+        return profile;
     }
 
     public boolean isHistogramSupport(){

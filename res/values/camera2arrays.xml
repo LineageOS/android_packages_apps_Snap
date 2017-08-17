@@ -1063,4 +1063,15 @@ for time lapse recording -->
         <item>@string/pref_camera2_zsl_entryvalue_hal_zsl</item>
     </string-array>
 
+    <string-array name="pref_camera2_videoencoderprofile_entry" translatable="false">
+        <item>Off</item>
+        <item>HLG</item>
+        <item>HDR10</item>
+    </string-array>
+
+    <string-array name="pref_camera2_videoencoderprofile_entryvalues" translatable="false">
+        <item>"off"</item>
+        <item>HEVCProfileMain10</item>
+        <item>HEVCProfileMain10HDR10</item>
+    </string-array>
 </resources>

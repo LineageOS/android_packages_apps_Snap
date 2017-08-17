@@ -28,6 +28,8 @@
  */
 package com.android.camera.util;
 
+import android.hardware.camera2.CameraAccessException;
+import android.hardware.camera2.CameraDevice;
 import android.hardware.camera2.CaptureRequest;
 import android.util.Log;
 
@@ -52,7 +54,8 @@ public class VendorTagUtil {
     private static CaptureRequest.Key<Long> ISO_EXP =
             new CaptureRequest.Key<>("org.codeaurora.qcamera3.iso_exp_priority.use_iso_exp_priority",
                     Long.class);
-
+    private static final CaptureRequest.Key<Byte> HDRVideoMode =
+            new CaptureRequest.Key<>("org.quic.camera2.streamconfigs.HDRVideoMode", Byte.class);
 
     private static boolean isSupported(CaptureRequest.Builder builder,
                                        CaptureRequest.Key<?> key) {
@@ -62,6 +65,7 @@ public class VendorTagUtil {
         }catch(IllegalArgumentException exception){
             supported = false;
             Log.d(TAG, "vendor tag " + key.getName() + " is not supported");
+            exception.printStackTrace();
         }
         if ( supported ) {
             Log.d(TAG, "vendor tag " + key.getName() + " is supported");
@@ -131,4 +135,23 @@ public class VendorTagUtil {
         return isSupported(builder, ISO_EXP);
     }
 
+    public static void setHDRVideoMode(CaptureRequest.Builder builder, byte mode) {
+        if ( isHDRVideoModeSupported(builder) ) {
+            builder.set(HDRVideoMode, mode);
+        }
+    }
+
+    public static boolean isHDRVideoModeSupported(CaptureRequest.Builder builder) {
+        return isSupported(builder, HDRVideoMode);
+    }
+
+    public static boolean isHDRVideoModeSupported(CameraDevice camera) {
+        try {
+            CaptureRequest.Builder builder = camera.createCaptureRequest(CameraDevice.TEMPLATE_RECORD);
+            return isHDRVideoModeSupported(builder);
+        }catch(CameraAccessException exception) {
+            exception.printStackTrace();
+            return false;
+        }
+    }
 }

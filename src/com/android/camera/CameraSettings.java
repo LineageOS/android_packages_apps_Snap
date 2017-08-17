@@ -338,6 +338,44 @@ public class CameraSettings {
         VIDEO_ENCODER_BITRATE.put("1280x720:120",  35000000);
         VIDEO_ENCODER_BITRATE.put("1280x720:240",  72000000);
         VIDEO_ENCODER_BITRATE.put("720:480:120",   5200000);
+        //4k DCI
+        VIDEO_ENCODER_BITRATE.put("4096x2160:60" + MediaRecorder.VideoEncoder.HEVC, 70840000);
+        VIDEO_ENCODER_BITRATE.put("4096x2160:90" + MediaRecorder.VideoEncoder.HEVC, 84700000);
+        VIDEO_ENCODER_BITRATE.put("4096x2160:120" + MediaRecorder.VideoEncoder.HEVC, 106260000);
+        //4k UHD
+        VIDEO_ENCODER_BITRATE.put("3840x2160:60" + MediaRecorder.VideoEncoder.HEVC, 61600000);
+        VIDEO_ENCODER_BITRATE.put("3840x2160:90" + MediaRecorder.VideoEncoder.HEVC, 73920000);
+        VIDEO_ENCODER_BITRATE.put("3840x2160:120" + MediaRecorder.VideoEncoder.HEVC, 92400000);
+        //QHD
+        VIDEO_ENCODER_BITRATE.put("2560x1440:60" + MediaRecorder.VideoEncoder.HEVC, 38808000);
+        VIDEO_ENCODER_BITRATE.put("2560x1440:90" + MediaRecorder.VideoEncoder.HEVC, 51744000);
+        VIDEO_ENCODER_BITRATE.put("2560x1440:120" + MediaRecorder.VideoEncoder.HEVC, 56595000);
+        VIDEO_ENCODER_BITRATE.put("2560x1440:240" + MediaRecorder.VideoEncoder.HEVC, 88935000);
+        //HD 1080p
+        VIDEO_ENCODER_BITRATE.put("1920x1080:60" + MediaRecorder.VideoEncoder.HEVC, 24640000);
+        VIDEO_ENCODER_BITRATE.put("1920x1080:90" + MediaRecorder.VideoEncoder.HEVC, 30800000);
+        VIDEO_ENCODER_BITRATE.put("1920x1080:120" + MediaRecorder.VideoEncoder.HEVC, 38500000);
+        VIDEO_ENCODER_BITRATE.put("1920x1080:240" + MediaRecorder.VideoEncoder.HEVC, 61600000);
+        //HD 720p
+        VIDEO_ENCODER_BITRATE.put("1280x720:60" + MediaRecorder.VideoEncoder.HEVC, 18480000);
+        VIDEO_ENCODER_BITRATE.put("1280x720:90" + MediaRecorder.VideoEncoder.HEVC, 24640000);
+        VIDEO_ENCODER_BITRATE.put("1280x720:120" + MediaRecorder.VideoEncoder.HEVC, 26950000);
+        VIDEO_ENCODER_BITRATE.put("1280x720:240" + MediaRecorder.VideoEncoder.HEVC, 42350000);
+        //VGA
+        VIDEO_ENCODER_BITRATE.put("640x480:60" + MediaRecorder.VideoEncoder.HEVC, 1892352);
+        VIDEO_ENCODER_BITRATE.put("640x480:90" + MediaRecorder.VideoEncoder.HEVC, 2464000);
+        VIDEO_ENCODER_BITRATE.put("640x480:120" + MediaRecorder.VideoEncoder.HEVC, 3027640);
+        VIDEO_ENCODER_BITRATE.put("640x480:240" + MediaRecorder.VideoEncoder.HEVC, 4928000);
+        //CIF
+        VIDEO_ENCODER_BITRATE.put("352x288:60" + MediaRecorder.VideoEncoder.HEVC, 887040);
+        VIDEO_ENCODER_BITRATE.put("352x288:90" + MediaRecorder.VideoEncoder.HEVC, 1078000);
+        VIDEO_ENCODER_BITRATE.put("352x288:120" + MediaRecorder.VideoEncoder.HEVC, 1416800);
+        VIDEO_ENCODER_BITRATE.put("352x288:240" + MediaRecorder.VideoEncoder.HEVC, 2310000);
+        //QVGA
+        VIDEO_ENCODER_BITRATE.put("320x240:60" + MediaRecorder.VideoEncoder.HEVC, 630784);
+        VIDEO_ENCODER_BITRATE.put("320x240:90" + MediaRecorder.VideoEncoder.HEVC, 770000);
+        VIDEO_ENCODER_BITRATE.put("320x240:120" + MediaRecorder.VideoEncoder.HEVC, 1016400);
+        VIDEO_ENCODER_BITRATE.put("320x240:240" + MediaRecorder.VideoEncoder.HEVC, 1617000);
 
         //resolution, fps and encoder type
         VIDEO_ENCODER_BITRATE.put("3840x2160:60:" + MediaRecorder.VideoEncoder.H264,  67200000);

@@ -55,13 +55,14 @@ import android.location.Location;
 import android.media.AudioManager;
 import android.media.CamcorderProfile;
 import android.media.CameraProfile;
+import android.media.EncoderCapabilities;
+import android.media.EncoderCapabilities.VideoEncoderCap;
 import android.media.Image;
 import android.media.ImageReader;
 import android.media.MediaActionSound;
 import android.media.MediaMetadataRetriever;
 import android.media.MediaRecorder;
-import android.media.EncoderCapabilities;
-import android.media.EncoderCapabilities.VideoEncoderCap;
+import android.media.MediaCodecInfo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Debug;
@@ -222,6 +223,7 @@ public class CaptureModule implements CameraModule, PhotoController,
             new CaptureRequest.Key<>("org.codeaurora.qcamera3.saturation.use_saturation", Integer.class);
     public static final CaptureRequest.Key<Byte> histMode =
             new CaptureRequest.Key<>("org.codeaurora.qcamera3.histogram.enable", byte.class);
+
     public static CameraCharacteristics.Key<Integer> buckets =
             new CameraCharacteristics.Key<>("org.codeaurora.qcamera3.histogram.buckets", Integer.class);
     public static CameraCharacteristics.Key<Integer> maxCount =
@@ -3260,6 +3262,7 @@ public class CaptureModule implements CameraModule, PhotoController,
                         mCaptureSession[cameraId] = cameraCaptureSession;
                         try {
                             setUpVideoCaptureRequestBuilder(mVideoRequestBuilder, cameraId);
+
                             mCurrentSession.setRepeatingRequest(mVideoRequestBuilder.build(),
                                     mCaptureCallback, mCameraHandler);
                         } catch (CameraAccessException e) {
@@ -3325,6 +3328,7 @@ public class CaptureModule implements CameraModule, PhotoController,
         applyVideoFlash(builder);
         applyFaceDetection(builder);
         applyZoom(builder, cameraId);
+        applyVideoEncoderProfile(builder);
     }
 
     private void updateVideoFlash() {
@@ -3366,6 +3370,25 @@ public class CaptureModule implements CameraModule, PhotoController,
             builder.set(CaptureRequest.CONTROL_VIDEO_STABILIZATION_MODE, CaptureRequest
                     .CONTROL_VIDEO_STABILIZATION_MODE_OFF);
         }
+    }
+
+    private void applyVideoEncoderProfile(CaptureRequest.Builder builder) {
+        int profile = SettingTranslation.getVideoEncoderProfile(
+                mSettingsManager.getValue(SettingsManager.KEY_VIDEO_ENCODER_PROFILE));
+        int mode = 0;
+        switch(profile) {
+            case MediaCodecInfo.CodecProfileLevel.HEVCProfileMain10:
+                mode = 1;
+                break;
+            case MediaCodecInfo.CodecProfileLevel.HEVCProfileMain10HDR10:
+                mode = 2;
+                break;
+        }
+        VendorTagUtil.setHDRVideoMode(builder, (byte)mode);
+    }
+
+    private boolean isVideoEncoderProfileSupported() {
+        return !mSettingsManager.getValue(SettingsManager.KEY_VIDEO_ENCODER_PROFILE).equals("off");
     }
 
     private long getTimeLapseVideoLength(long deltaMs) {
@@ -3631,6 +3654,15 @@ public class CaptureModule implements CameraModule, PhotoController,
                 mProfile.fileFormat = MediaRecorder.OutputFormat.THREE_GPP;
             }
         }
+
+        if ( isVideoEncoderProfileSupported()
+                && VendorTagUtil.isHDRVideoModeSupported(mCameraDevice[cameraId])) {
+            int videoEncoderProfile = SettingTranslation.getVideoEncoderProfile(
+                    mSettingsManager.getValue(SettingsManager.KEY_VIDEO_ENCODER_PROFILE));
+            mMediaRecorder.setVideoEncodingProfileLevel(videoEncoderProfile,
+                    MediaCodecInfo.CodecProfileLevel.HEVCMainTierLevel1);
+        }
+
         mMediaRecorder.setVideoSource(MediaRecorder.VideoSource.SURFACE);
 
         mMediaRecorder.setOutputFormat(mProfile.fileFormat);

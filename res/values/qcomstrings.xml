@@ -1182,5 +1182,8 @@
     <string name="pref_camera2_zsl_entryvalue_app_zsl" translatable="false">app-zsl</string>
     <string name="pref_camera2_zsl_entryvalue_hal_zsl" translatable="false">hal-zsl</string>
 
+    <string name="pref_camera2_videoencoderprofile_title" translatable="true">EncoderProfile</string>
+    <string name="pref_camera2_videoencoderprofile_default">off</string>
+
 </resources>
 

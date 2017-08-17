@@ -131,5 +131,12 @@
   {
     "on":{"pref_camera2_longshot_key":"off"},
     "off":{}
+  },
+  "pref_camera2_videoencoder_key":
+  {
+    "mpeg-4-sp":{"pref_camera2_videoencoderprofile_key":"off"},
+    "h263":{"pref_camera2_videoencoderprofile_key":"off"},
+    "h264":{"pref_camera2_videoencoderprofile_key":"off"},
+    "h265":{}
   }
 }
