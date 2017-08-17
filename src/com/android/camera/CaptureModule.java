@@ -3171,9 +3171,12 @@ public class CaptureModule implements CameraModule, PhotoController,
     }
 
     private void updateVideoSnapshotSize() {
-        mVideoSnapshotSize = mVideoSize;
-        if (is4kSize(mVideoSize) && is4kSize(mVideoSnapshotSize)) {
-            mVideoSnapshotSize = getMaxPictureSizeLessThan4k();
+        updateHFRSetting();
+        mVideoSnapshotSize = mPictureSize;
+        mVideoSnapshotSize = getMaxPictureSizeForLiveShot();
+        // if video High FrameRate > 60fps, the mVideoSnapshotSize = mVideoSize
+        if (mHighSpeedCapture && ((int)mHighSpeedFPSRange.getUpper() > NORMAL_SESSION_MAX_FPS))  {
+            mVideoSnapshotSize = mVideoSize;
         }
         Size[] thumbSizes = mSettingsManager.getSupportedThumbnailSizes(getMainCameraId());
         mVideoSnapshotThumbSize = getOptimalPreviewSize(mVideoSnapshotSize, thumbSizes); // get largest thumb size
@@ -3407,6 +3410,9 @@ public class CaptureModule implements CameraModule, PhotoController,
             String mode = value.substring(0, 3);
             mHighSpeedRecordingMode = mode.equals("hsr");
             mHighSpeedCaptureRate = Integer.parseInt(value.substring(3));
+        }
+        if (mHighSpeedCapture) {
+            mHighSpeedFPSRange = new Range(mHighSpeedCaptureRate, mHighSpeedCaptureRate);
         }
     }
 
@@ -4677,6 +4683,57 @@ public class CaptureModule implements CameraModule, PhotoController,
 
         int optimalPickIndex = CameraUtil.getOptimalPreviewSize(mActivity, points, targetRatio);
         return (optimalPickIndex == -1) ? null : prevSizes[optimalPickIndex];
+    }
+
+    private Size getMaxPictureSizeForLiveShot() {
+        Size[] sizes = mSettingsManager.getSupportedOutputSize(getMainCameraId(), ImageFormat.JPEG);
+        float ratio = (float) mVideoSize.getWidth() / mVideoSize.getHeight();
+        Size optimalSize = null;
+        double minDiff = Double.MAX_VALUE;
+        for (Size size : sizes) {
+            // if video quality set 1080p, the mVideoSnapshotSize is biggest is 16M(16:9 and 4:3)
+            if (mVideoSize.getHeight() == 1080 && mVideoSize.getWidth() == 1920) {
+                if (size.getHeight() > 3456 || size.getWidth() > 5312) continue;
+             // if video quality set 4K dci or  UHD, the mVideoSnapshotSize is biggest is 12M
+            } else if ((mVideoSize.getHeight() == 2160 && mVideoSize.getWidth() == 4096) ||
+                    (mVideoSize.getHeight() == 2160 && mVideoSize.getWidth() == 3840)){
+                if (size.getHeight() > 3000 || size.getWidth() > 4000) continue;
+            }
+
+            float pictureRatio = (float) size.getWidth() / size.getHeight();
+            if (Math.abs(pictureRatio - ratio) > 0.01) continue;
+
+            double heightDiff = Math.abs(size.getHeight() - mPictureSize.getHeight());
+            if (heightDiff < minDiff) {
+                optimalSize = size;
+                minDiff = Math.abs(size.getHeight() - mPictureSize.getHeight());
+            } else if (heightDiff == minDiff) {
+                // Prefer resolutions smaller-than-display when an equally close
+                // larger-than-display resolution is available
+                if (size.getHeight() < mPictureSize.getHeight()) {
+                    optimalSize = size;
+                    minDiff = heightDiff;
+                }
+            }
+        }
+
+        // Cannot find one that matches the aspect ratio. This should not happen.
+        // Ignore the requirement.
+        if (optimalSize == null) {
+            Log.w(TAG, "No picture size match the aspect ratio");
+            for (Size size : sizes) {
+                if (mVideoSize.getHeight() == 1080 && mVideoSize.getWidth() == 1920) {
+                    if (size.getHeight() >= 3456 || size.getWidth() >= 4608) continue;
+                } else if ((mVideoSize.getHeight() == 2160 && mVideoSize.getWidth() == 4096) ||
+                        (mVideoSize.getHeight() == 2160 && mVideoSize.getWidth() == 3840)) {
+                    if (size.getHeight() >= 3000 || size.getWidth() >= 4000) continue;
+                }
+                if (optimalSize == null || size.getWidth() > optimalSize.getWidth()) {
+                    optimalSize = size;
+                }
+            }
+        }
+        return optimalSize;
     }
 
     private Size getMaxPictureSizeLessThan4k() {
