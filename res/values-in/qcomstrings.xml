@@ -154,6 +154,7 @@
   <!-- Settings menu, redeye reduction choices -->
   <string name="pref_camera_redeyereduction_entry_enable">Hidup</string>
   <string name="pref_camera_redeyereduction_entry_disable">Mati</string>
+  <string name="pref_camera_selfiemirror_title" translatable="true">Cermin Selfie</string>
   <string name="pref_camera_selfiemirror_entry_enable">Hidup</string>
   <string name="pref_camera_selfiemirror_entry_disable">Mati</string>
   <string name="pref_camera_shuttersound_title" translatable="true">Suara rana</string>
@@ -180,9 +181,13 @@
   <string name="pref_camera_ae_bracket_hdr_entry_ae_bracket">Pendekapan Dedahan Automatik</string>
   <string name="pref_camera_ae_bracket_hdr_title">Pendekapan Dedahan Automatik</string>
   <string name="pref_camera_ae_bracket_hdr_entry_on">Hidup</string>
+  <string name="err_app_unsupport_ae_bracket_code">AE Bracketing belum didukung</string>
   <!-- The messsage shown if user selects a snapshot resolution lower than the current video size. -->
+  <string name="snapshot_lower_than_video">Ukuran video snapshot lebih rendah dari ukuran video, membatasi ukuran video. Silakan pilih resolusi yang lebih tinggi atau sama dengan ukuran video saat ini.</string>
   <!-- The messsage shown if user selects a snapshot resolution in low power mode. -->
+  <string name="snapshotsize_low_powermode">Pengubahan ukuran gambar tidak didukung dalam mode Daya Rendah, ukuran video snapshot yang akan dipakai. Silakan pilih mode Daya Normal untuk memungkinkan mengubah ukuran gambar.</string>
   <!-- The messsage shown if user tries to take snapshot during D1/QCIF resolution. -->
+  <string name="snapshot_qcif_and_d1">Hanya ukuran video snapshot yang didukung untuk resolusi ini.</string>
   <!-- Default hfr setting. Do not translate. -->
   <!-- Settings screen, Select hfr title -->
   <string name="pref_camera_hfr_title">Perekaman framerate tinggi</string>
@@ -382,6 +387,7 @@
   <string name="advance_feature_enable_msg">Bidikan terus menerus tidak didukung pada saat tampilan canggih diaktifkan</string>
   <!-- The alas of CameraActivity for gesture operation -->
   <string name="camera_gesture_title">Luncurkan Kamera</string>
+  <string name="pref_camera_tsmakeup_title">Kecantikan</string>
   <string name="pref_camera_tsmakeup_entry_on">Hidup</string>
   <string name="pref_camera_tsmakeup_entry_off">Tidak aktif</string>
   <string name="pref_camera_tsmakeup_entry_low">Rendah</string>
@@ -390,21 +396,29 @@
   <string name="pref_camera_tsmakeup_level_whiten">Putihkan</string>
   <string name="pref_camera_tsmakeup_level_clean">Perhalus</string>
   <string name="text_tsmakeup_alert_title">Peringatan</string>
+  <string name="text_tsmakeup_alert_msg">Deteksi wajah harus diaktifkan untuk menggunakan fitur kecantikan. Apakah Anda ingin melanjutkan?</string>
   <string name="text_tsmakeup_alert_continue">Lanjutkan</string>
   <string name="text_tsmakeup_alert_quit">Batalkan</string>
+  <string name="text_tsmakeup_beautify_toast">Percantik</string>
   <string name="all_in_focus">Semua dalam fokus</string>
   <string name="refocus_toast">Untuk fokus kembali pada foto yang terakhir, tekan di sini</string>
   <string name="refocus_prompt_message">Dengan UbiFocus, kamera akan mengambil lima foto, setiap kali Anda menekan tombol rana. Kelima foto tersebut akan digabungkan menjadi satu foto, yang semuanya dalam fokus. Anda bisa memfokuskan ulang, setelah mengambil foto.</string>
   <string name="camera_thermal_shutdown">Telepon terlalu panas, menutup kamera.</string>
   <string name="camera_server_died">Server media mati, menutup kamera.</string>
   <string name="camera_unknown_error">Terjadi kesalahan, menutup kamera.</string>
+  <string name="mute_button_desc">Tombol diam</string>
   <!-- Help menu strings -->
   <string name="help_menu_ok">OKE</string>
   <string name="help_menu_scene_mode_1">Pilih</string>
   <string name="help_menu_scene_mode_2">Mode pemotretan</string>
   <string name="help_menu_scene_mode_3">untuk foto yang lebih bagus</string>
+  <string name="help_menu_color_filter_1">Menerapkan warna</string>
+  <string name="help_menu_color_filter_2">menyaring</string>
   <string name="help_menu_color_filter_3">ke</string>
+  <string name="help_menu_color_filter_4">meningkatkan kualitas foto</string>
+  <string name="help_menu_beautify_1">Meningkatkan potret</string>
   <string name="help_menu_beautify_2">dengan</string>
+  <string name="help_menu_beautify_3">Fitur mempercantik</string>
   <string name="help_menu_switcher_2">antara</string>
   <string name="help_menu_switcher_3">kamera, video, dan panorama</string>
   <string name="pref_camera2_camera2_title">Mode Camera2</string>
@@ -426,8 +440,10 @@
   <string name="pref_camera2_noise_reduction_entry_off">Tidak aktif</string>
   <string name="pref_camera2_noise_reduction_entry_fast">Cepat</string>
   <string name="pref_camera2_noise_reduction_entry_high_quality">Kualitas tinggi</string>
+  <string name="pref_camera2_videosnap_title">Ukuran snapshot otomatis</string>
   <string name="pref_camera2_videosnap_entry_enable">Hidup</string>
   <string name="pref_camera2_videosnap_entry_disable">Mati</string>
+  <string name="pref_camera2_trackingfocus_title">Fokus pelacakan</string>
   <string name="pref_camera_scenemode_entry_bestpicture">Gambar terbaik</string>
   <string name="bestpicture_done">SELESAI</string>
   <string name="bestpicture_at_least_one_picture">Setidaknya satu gambar harus dipilih.</string>
