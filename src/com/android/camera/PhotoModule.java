@@ -2161,7 +2161,12 @@ public class PhotoModule extends BaseModule<PhotoUI> implements
                 mCameraId, CameraHolder.instance().getCameraInfo());
         mPreferenceGroup = settings.getPreferenceGroup(R.xml.camera_preferences);
 
-        int numOfCams = Camera.getNumberOfCameras();
+        int numOfCams = mActivity.getNumOfSupportedCameras(Camera.getNumberOfCameras());
+        if (numOfCams <= 0) {
+            Log.w(TAG, "No camera devices supported.");
+            mActivity.finish();
+            return;
+        }
 
         Log.e(TAG,"loadCameraPreferences() updating camera_id pref");
 
