@@ -2666,6 +2666,7 @@ public class CaptureModule implements CameraModule, PhotoController,
         CameraManager manager = (CameraManager) mActivity.getSystemService(Context.CAMERA_SERVICE);
         try {
             String[] cameraIdList = manager.getCameraIdList();
+            int cameraIdListLength = cameraIdList.length;
             //inti heifWriter and get input surface
             if (mSettingsManager.getSavePictureFormat() == SettingsManager.HEIF_FORMAT) {
                 String tmpPath = mActivity.getCacheDir().getPath() + "/" + "heif.tmp";
@@ -2675,7 +2676,16 @@ public class CaptureModule implements CameraModule, PhotoController,
                 mInitHeifWriter = createHEIFEncoder(tmpPath, mPictureSize.getWidth(),
                         mPictureSize.getHeight(), 0,1, 85);
             }
-            for (int i = 0; i < cameraIdList.length; i++) {
+
+            if (cameraIdListLength > MAX_NUM_CAM)
+                Log.w(TAG, "Number of available cameras (" + cameraIdListLength + ") exceeds "
+                        + "max supported cameras (" + MAX_NUM_CAM + ")");
+
+            for (int i = 0; i < cameraIdListLength; i++) {
+                if (i >= MAX_NUM_CAM) {
+                    Log.w(TAG, "Skipping set up for camera with id " + i);
+                    break;
+                }
                 String cameraId = cameraIdList[i];
 
                 CameraCharacteristics characteristics = manager.getCameraCharacteristics(cameraId);
