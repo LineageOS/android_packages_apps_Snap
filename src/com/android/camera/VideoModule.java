@@ -722,9 +722,12 @@ public class VideoModule extends BaseModule<VideoUI> implements
         mPreferenceGroup = filterPreferenceScreenByIntent(
                 settings.getPreferenceGroup(R.xml.video_preferences));
 
-        int numOfCams = Camera.getNumberOfCameras();
-
-        //TODO: If numOfCams > 2 then corresponding entries needs to be added to the media_profiles.xml
+        int numOfCams = mActivity.getNumOfSupportedCameras(Camera.getNumberOfCameras());
+        if (numOfCams <= 0) {
+            Log.w(TAG, "No camera devices supported.");
+            mActivity.finish();
+            return;
+        }
 
         Log.e(TAG,"loadCameraPreferences() updating camera_id pref");
 
