@@ -1349,7 +1349,16 @@ public class CaptureModule extends BaseModule<CaptureUI> implements PhotoControl
         CameraManager manager = (CameraManager) mActivity.getSystemService(Context.CAMERA_SERVICE);
         try {
             String[] cameraIdList = manager.getCameraIdList();
-            for (int i = 0; i < cameraIdList.length; i++) {
+            int cameraIdListLength = cameraIdList.length;
+
+            if (cameraIdListLength > MAX_NUM_CAM)
+                Log.w(TAG, "Number of available cameras (" + cameraIdListLength + ") is higher than number of max supported cameras (" + MAX_NUM_CAM + ")");
+
+            for (int i = 0; i < cameraIdListLength; i++) {
+                if (i >= MAX_NUM_CAM) {
+                    Log.w(TAG, "Skipping camera with number " + (i + 1));
+                    break;
+                }
                 String cameraId = cameraIdList[i];
 
                 CameraCharacteristics characteristics = manager.getCameraCharacteristics(cameraId);
