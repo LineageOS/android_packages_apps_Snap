@@ -985,9 +985,10 @@ public class CaptureModule extends BaseModule<CaptureUI> implements PhotoControl
             return;
         }
 
-        mNumOfCams = mCameraIdList.length;
+        mNumOfCams = mActivity.getNumOfSupportedCameras(mCameraIdList.length);
         if (mNumOfCams <= 0) {
-            Log.w(TAG, "No camera devices available.");
+            Log.w(TAG, "No camera devices supported.");
+            mActivity.finish();
             return;
         }
 
