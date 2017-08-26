@@ -297,6 +297,7 @@ public class CameraSettings {
     private final Parameters mParameters;
     private final CameraHolder.CameraInfo[] mCameraInfo;
     private final int mCameraId;
+    private final int mNumberOfSupportedCameras;
 
     public static String mKeyIso = null;
     public static String mKeyIsoValues = null;
@@ -479,6 +480,10 @@ public class CameraSettings {
 
         // Bokeh mode
         mSupportBokehMode = mContext.getResources().getBoolean(R.bool.support_bokeh_mode);
+
+        // Number of supported cameras
+        mNumberOfSupportedCameras = mContext.getResources().getInteger(
+                R.integer.number_of_supported_cameras);
     }
 
     public PreferenceGroup getPreferenceGroup(int preferenceRes) {
@@ -1322,6 +1327,10 @@ public class CameraSettings {
             if (numOfCameras > 2) {
                 numOfCameras = 2;
             }
+        }
+
+        if (mNumberOfSupportedCameras != -1) {
+            numOfCameras = mNumberOfSupportedCameras;
         }
 
         CharSequence[] entryValues = new CharSequence[numOfCameras];

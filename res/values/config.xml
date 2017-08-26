@@ -17,6 +17,11 @@
 <!-- Camera app resources that may need to be customized
      for different hardware or product builds. -->
 <resources>
+    <!-- Number of supported cameras.
+         Helpful when a HAL reports more devices than it should.
+         A value of -1 enables support for all available cameras reported by HAL -->
+    <integer name="number_of_supported_cameras">-1</integer>
+
     <!-- Maximum recording length in milliseconds. 0 means unlimited. -->
     <integer name="max_video_recording_length">0</integer>
 
