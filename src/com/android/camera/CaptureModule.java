@@ -121,7 +121,7 @@ public class CaptureModule extends BaseModule<CaptureUI> implements PhotoControl
     private static final int CANCEL_TOUCH_FOCUS_DELAY = 3000;
     private static final int OPEN_CAMERA = 0;
     private static final int CANCEL_TOUCH_FOCUS = 1;
-    private static final int MAX_NUM_CAM = 3;
+
     private static final MeteringRectangle[] ZERO_WEIGHT_3A_REGION = new MeteringRectangle[]{
             new MeteringRectangle(0, 0, 0, 0, 0)};
     /**
@@ -159,8 +159,8 @@ public class CaptureModule extends BaseModule<CaptureUI> implements PhotoControl
     // we can change it based on memory status or other requirements.
     private static final int LONGSHOT_CANCEL_THRESHOLD = 40 * 1024 * 1024;
 
-    MeteringRectangle[][] mAFRegions = new MeteringRectangle[MAX_NUM_CAM][];
-    MeteringRectangle[][] mAERegions = new MeteringRectangle[MAX_NUM_CAM][];
+    MeteringRectangle[][] mAFRegions;
+    MeteringRectangle[][] mAERegions;
     CaptureRequest.Key<Byte> BayerMonoLinkEnableKey =
             new CaptureRequest.Key<>("org.codeaurora.qcamera3.dualcam_link_meta_data.enable",
                     Byte.class);
@@ -184,10 +184,14 @@ public class CaptureModule extends BaseModule<CaptureUI> implements PhotoControl
     public static CameraCharacteristics.Key<Byte> MetaDataMonoOnlyKey =
             new CameraCharacteristics.Key<>("org.codeaurora.qcamera3.sensor_meta_data.is_mono_only",
                     Byte.class);
-    private boolean[] mTakingPicture = new boolean[MAX_NUM_CAM];
+
+    private String[] mCameraIdList;
+    private int mNumOfCams = 0;
+    private CameraManager mCameraManager;
+    private boolean[] mTakingPicture;
     private int mControlAFMode = CameraMetadata.CONTROL_AF_MODE_CONTINUOUS_PICTURE;
     private int mLastResultAFState = -1;
-    private Rect[] mCropRegion = new Rect[MAX_NUM_CAM];
+    private Rect[] mCropRegion;
     private boolean mAutoFocusRegionSupported;
     private boolean mAutoExposureRegionSupported;
     // The degrees of the device rotated clockwise from its natural orientation.
@@ -198,11 +202,11 @@ public class CaptureModule extends BaseModule<CaptureUI> implements PhotoControl
     private long mCaptureStartTime;
     private boolean mPaused = true;
     private boolean mSurfaceReady = false;
-    private boolean[] mCameraOpened = new boolean[MAX_NUM_CAM];
-    private CameraDevice[] mCameraDevice = new CameraDevice[MAX_NUM_CAM];
-    private String[] mCameraId = new String[MAX_NUM_CAM];
+    private boolean[] mCameraOpened;
+    private CameraDevice[] mCameraDevice;
+    private String[] mCameraId;
     private CameraActivity mActivity;
-    private List<Integer> mCameraIdList;
+    private List<Integer> mCameraIdModeList;
     private float mZoomValue = 1f;
     private FocusStateListener mFocusStateListener;
     private LocationManager mLocationManager;
@@ -217,7 +221,7 @@ public class CaptureModule extends BaseModule<CaptureUI> implements PhotoControl
     /**
      * A {@link CameraCaptureSession } for camera preview.
      */
-    private CameraCaptureSession[] mCaptureSession = new CameraCaptureSession[MAX_NUM_CAM];
+    private CameraCaptureSession[] mCaptureSession;
     /**
      * An additional thread for running tasks that shouldn't block the UI.
      */
@@ -243,14 +247,14 @@ public class CaptureModule extends BaseModule<CaptureUI> implements PhotoControl
     /**
      * An {@link ImageReader} that handles still image capture.
      */
-    private ImageReader[] mImageReader = new ImageReader[MAX_NUM_CAM];
+    private ImageReader[] mImageReader;
     private NamedImages mNamedImages;
     private ContentResolver mContentResolver;
     private byte[] mLastJpegData;
     private int mJpegFileSizeEstimation;
     private boolean mFirstPreviewLoaded;
-    private int[] mPrecaptureRequestHashCode = new int[MAX_NUM_CAM];
-    private int[] mLockRequestHashCode = new int[MAX_NUM_CAM];
+    private int[] mPrecaptureRequestHashCode;
+    private int[] mLockRequestHashCode;
     private final Handler mHandler = new MainHandler();
     private CameraCaptureSession mCurrentSession;
     private Size mPreviewSize;
@@ -387,13 +391,13 @@ public class CaptureModule extends BaseModule<CaptureUI> implements PhotoControl
     /**
      * {@link CaptureRequest.Builder} for the camera preview
      */
-    private CaptureRequest.Builder[] mPreviewRequestBuilder = new CaptureRequest.Builder[MAX_NUM_CAM];
+    private CaptureRequest.Builder[] mPreviewRequestBuilder;
     /**
      * The current state of camera state for taking pictures.
      *
      * @see #mCaptureCallback
      */
-    private int[] mState = new int[MAX_NUM_CAM];
+    private int[] mState;
     /**
      * A {@link Semaphore} make sure the camera open callback happens first before closing the
      * camera.
@@ -492,7 +496,7 @@ public class CaptureModule extends BaseModule<CaptureUI> implements PhotoControl
                 mActivity.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        mUI.onCameraOpened(mCameraIdList);
+                        mUI.onCameraOpened(mCameraIdModeList);
                     }
                 });
                 createSessions();
@@ -969,17 +973,45 @@ public class CaptureModule extends BaseModule<CaptureUI> implements PhotoControl
         mSettingsManager = activity.getSettingsManager();
         mSettingsManager.registerListener(this);
         mSettingsManager.init();
+        mCameraManager = (CameraManager) mActivity.getSystemService(Context.CAMERA_SERVICE);
+
         mFirstPreviewLoaded = false;
         Log.d(TAG, "init");
-        for (int i = 0; i < MAX_NUM_CAM; i++) {
+
+        try {
+            mCameraIdList = mCameraManager.getCameraIdList();
+        } catch (CameraAccessException e) {
+            e.printStackTrace();
+            return;
+        }
+
+        mNumOfCams = mCameraIdList.length;
+        if (mNumOfCams <= 0) {
+            Log.w(TAG, "No camera devices available.");
+            return;
+        }
+
+        mAFRegions = new MeteringRectangle[mNumOfCams][];
+        mAERegions = new MeteringRectangle[mNumOfCams][];
+        mTakingPicture = new boolean[mNumOfCams];
+        mCropRegion = new Rect[mNumOfCams];
+        mCameraOpened = new boolean[mNumOfCams];
+        mCameraDevice = new CameraDevice[mNumOfCams];
+        mCameraId = new String[mNumOfCams];
+        mPreviewRequestBuilder = new CaptureRequest.Builder[mNumOfCams];
+        mCaptureSession = new CameraCaptureSession[mNumOfCams];
+        mImageReader = new ImageReader[mNumOfCams];
+        mPrecaptureRequestHashCode = new int[mNumOfCams];
+        mLockRequestHashCode = new int[mNumOfCams];
+        mState = new int[mNumOfCams];
+
+        for (int i = 0; i < mNumOfCams; i++) {
             mCameraOpened[i] = false;
             mTakingPicture[i] = false;
-        }
-        mSurfaceReady = false;
-
-        for (int i = 0; i < MAX_NUM_CAM; i++) {
             mState[i] = STATE_PREVIEW;
         }
+
+        mSurfaceReady = false;
 
         mPostProcessor = new PostProcessor(mActivity, this);
         mFrameProcessor = new FrameProcessor(mActivity, this);
@@ -1346,37 +1378,30 @@ public class CaptureModule extends BaseModule<CaptureUI> implements PhotoControl
         int imageFormat = ImageFormat.JPEG;
 
         Log.d(TAG, "setUpCameraOutputs");
-        CameraManager manager = (CameraManager) mActivity.getSystemService(Context.CAMERA_SERVICE);
+
         try {
-            String[] cameraIdList = manager.getCameraIdList();
-            int cameraIdListLength = cameraIdList.length;
+            for (int i = 0; i < mNumOfCams; i++) {
+                String cameraId = mCameraIdList[i];
 
-            if (cameraIdListLength > MAX_NUM_CAM)
-                Log.w(TAG, "Number of available cameras (" + cameraIdListLength + ") exceeds "
-                        + "max supported cameras (" + MAX_NUM_CAM + ")");
-
-            for (int i = 0; i < cameraIdListLength; i++) {
-                if (i >= MAX_NUM_CAM) {
-                    Log.w(TAG, "Skipping set up for camera with id " + i);
-                    break;
-                }
-                String cameraId = cameraIdList[i];
-
-                CameraCharacteristics characteristics = manager.getCameraCharacteristics(cameraId);
+                CameraCharacteristics characteristics = mCameraManager.getCameraCharacteristics(cameraId);
                 int [] capabilities = characteristics.get(CameraCharacteristics.REQUEST_AVAILABLE_CAPABILITIES);
 
                 if (isInMode(i))
-                    mCameraIdList.add(i);
-                if(i == getMainCameraId()) {
+                    mCameraIdModeList.add(i);
+
+                if (i == getMainCameraId()) {
                     mBayerCameraRegion = characteristics.get(CameraCharacteristics
                             .SENSOR_INFO_ACTIVE_ARRAY_SIZE);
                     mMainCameraCharacteristics = characteristics;
                 }
+
                 StreamConfigurationMap map = characteristics.get(
                         CameraCharacteristics.SCALER_STREAM_CONFIGURATION_MAP);
+
                 if (map == null) {
                     continue;
                 }
+
                 mCameraId[i] = cameraId;
 
                 // Set ImageFormat for ZSL
@@ -1446,8 +1471,8 @@ public class CaptureModule extends BaseModule<CaptureUI> implements PhotoControl
                 }
             }
             mMediaRecorder = new MediaRecorder();
-            mAutoFocusRegionSupported = mSettingsManager.isAutoFocusRegionSupported(mCameraIdList);
-            mAutoExposureRegionSupported = mSettingsManager.isAutoExposureRegionSupported(mCameraIdList);
+            mAutoFocusRegionSupported = mSettingsManager.isAutoFocusRegionSupported(mCameraIdModeList);
+            mAutoExposureRegionSupported = mSettingsManager.isAutoExposureRegionSupported(mCameraIdModeList);
         } catch (CameraAccessException e) {
             e.printStackTrace();
         }
@@ -1555,7 +1580,7 @@ public class CaptureModule extends BaseModule<CaptureUI> implements PhotoControl
 
         try {
             // Close camera starting with AUX first
-            for (int i = MAX_NUM_CAM-1; i >= 0; i--) {
+            for (int i = mNumOfCams-1; i >= 0; i--) {
                 if (null != mCameraDevice[i]) {
                     if (!mCameraOpenCloseLock.tryAcquire(2000, TimeUnit.MILLISECONDS)) {
                         Log.d(TAG, "Time out waiting to lock camera closing.");
@@ -1736,15 +1761,14 @@ public class CaptureModule extends BaseModule<CaptureUI> implements PhotoControl
             return;
         }
         Log.d(TAG, "openCamera " + id);
-        CameraManager manager;
+
         try {
-            manager = (CameraManager) mActivity.getSystemService(Context.CAMERA_SERVICE);
-            mCameraId[id] = manager.getCameraIdList()[id];
+            mCameraId[id] = mCameraIdList[id];
             if (!mCameraOpenCloseLock.tryAcquire(5000, TimeUnit.MILLISECONDS)) {
                 Log.d(TAG, "Time out waiting to lock camera opening.");
                 throw new RuntimeException("Time out waiting to lock camera opening");
             }
-            manager.openCamera(mCameraId[id], mStateCallback, mCameraHandler);
+            mCameraManager.openCamera(mCameraId[id], mStateCallback, mCameraHandler);
         } catch (CameraAccessException e) {
             e.printStackTrace();
         } catch (InterruptedException e) {
@@ -1787,11 +1811,9 @@ public class CaptureModule extends BaseModule<CaptureUI> implements PhotoControl
     @Override
     public void onResumeBeforeSuper() {
         mPaused = false;
-        for (int i = 0; i < MAX_NUM_CAM; i++) {
+        for (int i = 0; i < mNumOfCams; i++) {
             mCameraOpened[i] = false;
             mTakingPicture[i] = false;
-        }
-        for (int i = 0; i < MAX_NUM_CAM; i++) {
             mState[i] = STATE_PREVIEW;
         }
         mLongshotActive = false;
@@ -1896,7 +1918,7 @@ public class CaptureModule extends BaseModule<CaptureUI> implements PhotoControl
         updatePreviewSize();
         mUI.showSurfaceView();
         mUI.setSwitcherIndex();
-        mCameraIdList = new ArrayList<>();
+        mCameraIdModeList = new ArrayList<>();
         int cameraId = getMainCameraId();
 
         if (mSound == null) {
