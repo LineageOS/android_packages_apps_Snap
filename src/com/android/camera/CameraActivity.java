@@ -198,6 +198,7 @@ public class CameraActivity extends Activity
     private LocalDataAdapter mWrappedDataAdapter;
 
     private Context mContext;
+    private int mNumOfSupportedCams = -1;
     private PanoramaStitchingManager mPanoramaManager;
     private PlaceholderManager mPlaceholderManager;
     private int mCurrentModuleIndex = -1;
@@ -1428,6 +1429,7 @@ public class CameraActivity extends Activity
         }
 
         mContext = getApplicationContext();
+        mNumOfSupportedCams = mContext.getResources().getInteger(R.integer.num_of_supported_cameras);
 
         // Check if this is in the secure camera mode.
         Intent intent = getIntent();
@@ -2434,6 +2436,15 @@ public class CameraActivity extends Activity
     public boolean isRecording() {
         return (mCurrentModule instanceof VideoModule) ?
                 ((VideoModule) mCurrentModule).isRecording() : false;
+    }
+
+    public int getNumOfSupportedCameras(int numOfCameras) {
+        if (mNumOfSupportedCams > 0 && mNumOfSupportedCams < numOfCameras) {
+            Log.d(TAG, "Number of available cameras: " + numOfCameras);
+            Log.d(TAG, "Number of supported cameras: " + mNumOfSupportedCams);
+            return mNumOfSupportedCams;
+        }
+        return numOfCameras;
     }
 
     public CameraOpenErrorCallback getCameraOpenErrorCallback() {
