@@ -391,6 +391,7 @@ public class PostProcessor{
         public void onCaptureCompleted(CameraCaptureSession session,
                                        CaptureRequest request,
                                        TotalCaptureResult result) {
+            Log.d(TAG, "onCaptureCompleted");
             if(mTotalCaptureResultList.size() <= PostProcessor.MAX_REQUIRED_IMAGE_NUM) {
                 mTotalCaptureResultList.add(result);
             }
@@ -405,11 +406,13 @@ public class PostProcessor{
         public void onCaptureFailed(CameraCaptureSession session,
                                     CaptureRequest request,
                                     CaptureFailure result) {
+            Log.d(TAG, "onCaptureFailed");
         }
 
         @Override
         public void onCaptureSequenceCompleted(CameraCaptureSession session, int
                 sequenceId, long frameNumber) {
+            Log.d(TAG, "onCaptureSequenceCompleted");
             if(!isFilterOn()) {
                 mController.unlockFocus(mController.getMainCameraId());
             }
@@ -561,17 +564,20 @@ public class PostProcessor{
                     public void onCaptureCompleted(CameraCaptureSession session,
                                                    CaptureRequest request,
                                                    TotalCaptureResult result) {
+                        Log.d(TAG, "reprocessImage onCaptureCompleted");
                     }
 
                     @Override
                     public void onCaptureFailed(CameraCaptureSession session,
                                                 CaptureRequest request,
                                                 CaptureFailure result) {
+                        Log.d(TAG, "reprocessImage onCaptureFailed");
                     }
 
                     @Override
                     public void onCaptureSequenceCompleted(CameraCaptureSession session, int
                             sequenceId, long frameNumber) {
+                        Log.d(TAG, "reprocessImage onCaptureSequenceCompleted");
                     }
                 }, mHandler);
             } catch (CameraAccessException e) {
@@ -672,6 +678,7 @@ public class PostProcessor{
         mImageHandlerTask = new ImageHandlerTask();
         mSaveRaw = isSaveRaw;
         if(setFilter(postFilterId) || isFlashModeOn || isTrackingFocusOn || isMakeupOn || isSelfieMirrorOn
+                || PersistUtil.getCameraZSLDisabled()
                 || !SettingsManager.getInstance().isZSLInAppEnabled()
                 || "enable".equals(
                          SettingsManager.getInstance().getValue(SettingsManager.KEY_AUTO_HDR))
@@ -1091,8 +1098,7 @@ public class PostProcessor{
                             if (mController.isQuickCapture()) {
                                 mController.onCaptureDone();
                             } else {
-                                mController.showCapturedReview(
-                                        bytes, mOrientation, isSelfieMirrorOn());
+                                mController.showCapturedReview(bytes, mOrientation);
                             }
                         }
                         mActivity.getMediaSaveService().addImage(
@@ -1166,8 +1172,7 @@ public class PostProcessor{
                         if (mController.isQuickCapture()) {
                             mController.onCaptureDone();
                         } else {
-                            mController.showCapturedReview(bytes,
-                                            orientation, isSelfieMirrorOn());
+                            mController.showCapturedReview(bytes, orientation);
                         }
                     } else {
                         mActivity.getMediaSaveService().addImage(
@@ -1204,7 +1209,7 @@ public class PostProcessor{
         return quality;
     }
 
-    public static class BitmapOutputStream extends ByteArrayOutputStream {
+    private class BitmapOutputStream extends ByteArrayOutputStream {
         public BitmapOutputStream(int size) {
             super(size);
         }
