@@ -1181,7 +1181,10 @@ public class SettingsManager implements ListMenu.SettingsListener {
     public int getHighSpeedVideoEncoderBitRate(CamcorderProfile profile, int targetRate) {
         int bitRate;
         String key = profile.videoFrameWidth+"x"+profile.videoFrameHeight+":"+targetRate;
-        if (CameraSettings.VIDEO_ENCODER_BITRATE.containsKey(key)) {
+        String resolutionFpsEncoder = key + ":" + profile.videoCodec;
+        if (CameraSettings.VIDEO_ENCODER_BITRATE.containsKey(resolutionFpsEncoder)) {
+            bitRate = CameraSettings.VIDEO_ENCODER_BITRATE.get(resolutionFpsEncoder);
+        } else if (CameraSettings.VIDEO_ENCODER_BITRATE.containsKey(key) ) {
             bitRate = CameraSettings.VIDEO_ENCODER_BITRATE.get(key);
         } else {
             Log.i(TAG, "No pre-defined bitrate for "+key);
@@ -1394,7 +1397,9 @@ public class SettingsManager implements ListMenu.SettingsListener {
                 modes.add("" + i);
             }
         } catch(NullPointerException e) {
+            Log.w(TAG, "Supported instant aec modes is null.");
         } catch(IllegalArgumentException e) {
+            Log.w(TAG, "Supported instant aec modes is null.");
         }
 
         return  modes;
