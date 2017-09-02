@@ -2991,13 +2991,13 @@ public class PhotoModule extends BaseModule<PhotoUI> implements
 
         // Reset camera state after taking a picture
         if (mCameraState != PREVIEW_STOPPED && mCameraState != INIT) {
-            setCameraState(IDLE);
-        }
-
-        // Preview needs to be stopped when changing resolution
-        if (mRestartPreview && mCameraState != PREVIEW_STOPPED && mCameraState != INIT) {
-            stopPreview();
-            mRestartPreview = false;
+            if (needRestart()) {
+                // Preview needs to be stopped when changing zsl mode
+                stopPreview();
+                mRestartPreview = false;
+            } else {
+                setCameraState(IDLE);
+            }
         }
 
         if (mFocusManager == null) initializeFocusManager();
@@ -4781,7 +4781,7 @@ public class PhotoModule extends BaseModule<PhotoUI> implements
         boolean recordLocation = RecordLocationPreference.get(mPreferences,
                 CameraSettings.KEY_RECORD_LOCATION);
         mLocationManager.recordLocation(recordLocation);
-        if(needRestart()){
+        if(mRestartPreview){
             Log.v(TAG, "Restarting Preview... Camera Mode Changed");
             setCameraParameters(UPDATE_PARAM_PREFERENCE);
             stopPreview();
