@@ -2991,13 +2991,13 @@ public class PhotoModule extends BaseModule<PhotoUI> implements
 
         // Reset camera state after taking a picture
         if (mCameraState != PREVIEW_STOPPED && mCameraState != INIT) {
-            setCameraState(IDLE);
-        }
-
-        // Preview needs to be stopped when changing resolution
-        if (mRestartPreview && mCameraState != PREVIEW_STOPPED && mCameraState != INIT) {
-            stopPreview();
-            mRestartPreview = false;
+            if (mRestartPreview) {
+                // Preview needs to be stopped when changing resolution
+                stopPreview();
+                mRestartPreview = false;
+            } else {
+                setCameraState(IDLE);
+            }
         }
 
         if (mFocusManager == null) initializeFocusManager();
