@@ -306,10 +306,8 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
         mMakeupSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progresValue, boolean fromUser) {
-                if ( progresValue != 0 ) {
-                    int value = 10 + 9 * progresValue / 10;
-                    mSettingsManager.setValue(SettingsManager.KEY_MAKEUP, value + "");
-                }
+                int value = progresValue/10*10;
+                mSettingsManager.setValue(SettingsManager.KEY_MAKEUP, value+"");
             }
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
@@ -486,8 +484,8 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
         showFirstTimeHelp();
     }
 
-    protected void showCapturedImageForReview(byte[] jpegData, int orientation) {
-        mDecodeTaskForReview = new CaptureUI.DecodeImageForReview(jpegData, orientation);
+    protected void showCapturedImageForReview(byte[] jpegData, int orientation, boolean mirror) {
+        mDecodeTaskForReview = new CaptureUI.DecodeImageForReview(jpegData, orientation, mirror);
         mDecodeTaskForReview.execute();
         if (getCurrentIntentMode() != CaptureModule.INTENT_MODE_NORMAL) {
             if (mFilterMenuStatus == FILTER_MENU_ON) {
@@ -1739,18 +1737,24 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
     private class DecodeTask extends AsyncTask<Void, Void, Bitmap> {
         private final byte [] mData;
         private int mOrientation;
+        private boolean mMirror;
 
-        public DecodeTask(byte[] data, int orientation) {
+        public DecodeTask(byte[] data, int orientation, boolean mirror) {
             mData = data;
             mOrientation = orientation;
+            mMirror = mirror;
         }
 
         @Override
         protected Bitmap doInBackground(Void... params) {
             Bitmap bitmap = CameraUtil.downSample(mData, mDownSampleFactor);
             // Decode image in background.
-            if ((mOrientation != 0) && (bitmap != null)) {
+            if ((mOrientation != 0 || mMirror) && (bitmap != null)) {
                 Matrix m = new Matrix();
+                if (mMirror) {
+                    // Flip horizontally
+                    m.setScale(-1f, 1f);
+                }
                 m.preRotate(mOrientation);
                 return Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), m,
                         false);
@@ -1764,8 +1768,8 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
     }
 
     private class DecodeImageForReview extends CaptureUI.DecodeTask {
-        public DecodeImageForReview(byte[] data, int orientation) {
-            super(data, orientation);
+        public DecodeImageForReview(byte[] data, int orientation, boolean mirror) {
+            super(data, orientation, mirror);
         }
 
         @Override

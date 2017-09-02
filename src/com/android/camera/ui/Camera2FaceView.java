@@ -151,9 +151,7 @@ public class Camera2FaceView extends FaceView {
                 faceBound.offset(-mCameraBound.left, -mCameraBound.top);
                 mRect.set(faceBound);
                 translateMatrix.mapRect(mRect);
-                if (LOGV) CameraUtil.dumpRect(mRect, "Original rect");
                 mMatrix.mapRect(mRect);
-                if (LOGV) CameraUtil.dumpRect(mRect, "Transformed rect");
                 mPaint.setColor(mColor);
                 mRect.offset(dx, dy);
 

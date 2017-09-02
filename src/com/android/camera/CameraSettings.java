@@ -38,7 +38,6 @@ import android.util.Log;
 import com.android.camera.util.ApiHelper;
 import com.android.camera.util.CameraUtil;
 import com.android.camera.util.GcamHelper;
-import com.android.camera.util.PersistUtil;
 import org.codeaurora.snapcam.R;
 import org.codeaurora.snapcam.wrapper.CamcorderProfileWrapper;
 import org.codeaurora.snapcam.wrapper.ParametersWrapper;
@@ -338,10 +337,6 @@ public class CameraSettings {
         VIDEO_ENCODER_BITRATE.put("1280x720:120",  35000000);
         VIDEO_ENCODER_BITRATE.put("1280x720:240",  72000000);
         VIDEO_ENCODER_BITRATE.put("720:480:120",   5200000);
-
-        //resolution, fps and encoder type
-        VIDEO_ENCODER_BITRATE.put("3840x2160:60:" + MediaRecorder.VideoEncoder.H264,  67200000);
-        VIDEO_ENCODER_BITRATE.put("3840x2160:60:" + MediaRecorder.VideoEncoder.HEVC,  50400000);
 
    }
 
@@ -982,8 +977,6 @@ public class CameraSettings {
                         supportedAdvancedFeatures)) {
                 removePreference(group, chromaFlash.getKey());
             }
-            //remove chromaFlash
-            removePreference(group, chromaFlash.getKey());
         }
 
         if (sceneMode != null) {
@@ -1044,7 +1037,7 @@ public class CameraSettings {
             removePreference(group, cameraHdrPlus.getKey());
         }
 
-        if (PersistUtil.isSaveInSdEnabled()) {
+        if (SystemProperties.getBoolean("persist.env.camera.saveinsd", false)) {
             final String CAMERA_SAVEPATH_SDCARD = "1";
             final int CAMERA_SAVEPATH_SDCARD_IDX = 1;
             final int CAMERA_SAVEPATH_PHONE_IDX = 0;

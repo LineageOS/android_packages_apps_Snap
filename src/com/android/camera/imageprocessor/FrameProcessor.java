@@ -401,11 +401,7 @@ public class FrameProcessor {
                             }
                         } else {
                             filter.init(mSize.getWidth(), mSize.getHeight(), stride, stride);
-                            if (filter instanceof BeautificationFilter) {
-                                filter.addImage(bY, bVU, 0, new Boolean(false));
-                            } else {
-                                filter.addImage(bY, bVU, 0, new Boolean(true));
-                            }
+                            filter.addImage(bY, bVU, 0, new Boolean(true));
                             needToFeedSurface = true;
                         }
                         bY.rewind();
@@ -489,11 +485,7 @@ public class FrameProcessor {
                 mBY.rewind();
                 mBVU.rewind();
                 mFilter.init(mWidth, mHeight, mStride, mStride);
-                if (mFilter instanceof BeautificationFilter) {
-                    mFilter.addImage(mBY, mBVU, 0, new Boolean(false));
-                } else {
-                    mFilter.addImage(mBY, mBVU, 0, new Boolean(true));
-                }
+                mFilter.addImage(mBY, mBVU, 0, new Boolean(true));
                 mMutureLock.release();
             } catch (InterruptedException e) {
             }

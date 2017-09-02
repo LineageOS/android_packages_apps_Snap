@@ -41,7 +41,6 @@ import com.android.camera.exif.ExifInterface;
 import com.android.camera.mpo.MpoData;
 import com.android.camera.mpo.MpoImageData;
 import com.android.camera.mpo.MpoInterface;
-import com.android.camera.util.PersistUtil;
 import com.android.camera.util.XmpUtil;
 
 import org.codeaurora.snapcam.filter.GDepth;
@@ -59,8 +58,7 @@ public class MediaSaveService extends Service {
 
     // The memory limit for unsaved image is 50MB.
     private static final int SAVE_TASK_MEMORY_LIMIT_IN_MB =
-                                   PersistUtil.getSaveTaskMemoryLimitInMb();
-
+                                   android.os.SystemProperties.getInt("persist.camera.perf.memlimit", 60);
     private static final int SAVE_TASK_MEMORY_LIMIT = SAVE_TASK_MEMORY_LIMIT_IN_MB * 1024 * 1024;
     private static final String TAG = "CAM_" + MediaSaveService.class.getSimpleName();
 
