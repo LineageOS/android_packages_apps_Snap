@@ -39,6 +39,7 @@ import android.hardware.camera2.CameraManager;
 import android.hardware.camera2.CameraMetadata;
 import android.hardware.camera2.params.StreamConfigurationMap;
 import android.media.MediaRecorder;
+import android.media.CamcorderProfile;
 import android.util.Log;
 import android.util.Range;
 import android.util.Rational;
@@ -925,6 +926,18 @@ public class SettingsManager implements ListMenu.SettingsListener {
         StreamConfigurationMap map = mCharacteristics.get(cameraId).get(
                 CameraCharacteristics.SCALER_STREAM_CONFIGURATION_MAP);
         return map.getHighSpeedVideoFpsRangesFor(videoSize);
+    }
+
+    public int getHighSpeedVideoEncoderBitRate(CamcorderProfile profile, int targetRate) {
+        int bitRate;
+        String key = profile.videoFrameWidth+"x"+profile.videoFrameHeight+":"+targetRate;
+        if (CameraSettings.VIDEO_ENCODER_BITRATE.containsKey(key)) {
+            bitRate = CameraSettings.VIDEO_ENCODER_BITRATE.get(key);
+        } else {
+            Log.i(TAG, "No pre-defined bitrate for "+key);
+            bitRate = (profile.videoBitRate * targetRate) / profile.videoFrameRate;
+        }
+        return bitRate;
     }
 
     private List<String> getSupportedRedeyeReduction(int cameraId) {

@@ -276,7 +276,7 @@ public class CaptureModule extends BaseModule<CaptureUI> implements PhotoControl
     private ImageReader mVideoSnapshotImageReader;
     private Range mHighSpeedFPSRange;
     private boolean mHighSpeedCapture = false;
-    private boolean mHighSpeedCaptureSlowMode = false; //HFR
+    private boolean mHighSpeedRecordingMode = false; //HFR
     private int mHighSpeedCaptureRate;
 
     private static final int SELFIE_FLASH_DURATION = 680;
@@ -2497,7 +2497,7 @@ public class CaptureModule extends BaseModule<CaptureUI> implements PhotoControl
         } else {
             mHighSpeedCapture = true;
             String mode = value.substring(0, 3);
-            mHighSpeedCaptureSlowMode = mode.equals("hsr");
+            mHighSpeedRecordingMode = mode.equals("hsr");
             mHighSpeedCaptureRate = Integer.parseInt(value.substring(3));
         }
     }
@@ -2661,7 +2661,7 @@ public class CaptureModule extends BaseModule<CaptureUI> implements PhotoControl
             size = CameraSettings.getTimeLapseQualityFor(size);
         }
         updateHFRSetting();
-        boolean hfr = mHighSpeedCapture && !mHighSpeedCaptureSlowMode;
+        boolean hfr = mHighSpeedCapture && !mHighSpeedRecordingMode;
         mProfile = CamcorderProfile.get(cameraId, size);
 
         int videoEncoder = SettingTranslation
@@ -2669,15 +2669,18 @@ public class CaptureModule extends BaseModule<CaptureUI> implements PhotoControl
         int audioEncoder = SettingTranslation
                 .getAudioEncoder(mSettingsManager.getValue(SettingsManager.KEY_AUDIO_ENCODER));
 
-        int outputFormat = MediaRecorder.OutputFormat.MPEG_4;
-
+        mProfile.videoCodec = videoEncoder;
         if (!mCaptureTimeLapse && !hfr) {
             mMediaRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
+            mProfile.audioCodec = audioEncoder;
+            if (mProfile.audioCodec == MediaRecorder.AudioEncoder.AMR_NB) {
+                mProfile.fileFormat = MediaRecorder.OutputFormat.THREE_GPP;
+            }
         }
         mMediaRecorder.setVideoSource(MediaRecorder.VideoSource.SURFACE);
 
         mMediaRecorder.setOutputFormat(mProfile.fileFormat);
-        String fileName = generateVideoFilename(outputFormat);
+        String fileName = generateVideoFilename(mProfile.fileFormat);
         Log.v(TAG, "New video filename: " + fileName);
         mMediaRecorder.setOutputFile(fileName);
         mMediaRecorder.setVideoFrameRate(mProfile.videoFrameRate);
@@ -2695,6 +2698,9 @@ public class CaptureModule extends BaseModule<CaptureUI> implements PhotoControl
             mMediaRecorder.setAudioEncoder(audioEncoder);
         }
         mMediaRecorder.setMaxDuration(mMaxVideoDurationInMs);
+
+        Log.i(TAG, "Profile video bitrate: "+ mProfile.videoBitRate);
+        Log.i(TAG, "Profile video frame rate: "+ mProfile.videoFrameRate);
         if (mCaptureTimeLapse) {
             double fps = 1000 / (double) mTimeBetweenTimeLapseFrameCaptureMs;
             mMediaRecorder.setCaptureRate(fps);
@@ -2702,14 +2708,11 @@ public class CaptureModule extends BaseModule<CaptureUI> implements PhotoControl
             mHighSpeedFPSRange = new Range(mHighSpeedCaptureRate, mHighSpeedCaptureRate);
             int fps = (int) mHighSpeedFPSRange.getUpper();
             mMediaRecorder.setCaptureRate(fps);
-            if (mHighSpeedCaptureSlowMode) {
-                mMediaRecorder.setVideoFrameRate(30);
-            } else {
-                mMediaRecorder.setVideoFrameRate(fps);
-            }
-
-            int scaledBitrate = mProfile.videoBitRate * fps / mProfile.videoFrameRate;
-            Log.i(TAG, "Scaled Video bitrate : " + scaledBitrate);
+            int targetRate = mHighSpeedRecordingMode ? fps : 30;
+            mMediaRecorder.setVideoFrameRate(targetRate);
+            Log.i(TAG, "Capture rate: "+fps+", Target rate: "+targetRate);
+            int scaledBitrate = mSettingsManager.getHighSpeedVideoEncoderBitRate(mProfile, targetRate);
+            Log.i(TAG, "Scaled video bitrate : " + scaledBitrate);
             mMediaRecorder.setVideoEncodingBitRate(scaledBitrate);
         }
 
