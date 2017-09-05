@@ -16,6 +16,24 @@
       "revId": "8c782a80ce1091fc0cd3870b7c3103631bdda8d2",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ea55a08f_0c3efd6e",
+        "filename": "src/com/android/camera/PhotoModule.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 2995,
+      "author": {
+        "id": 11801
+      },
+      "writtenOn": "2017-09-05T19:22:07Z",
+      "side": 1,
+      "message": "Yeah. I didn\u0027t feel like fixing it, it wasn\u0027t a big deal to me. I\u0027m not sure this patch does anything anyways, I didn\u0027t see it fix any issues for me, but it certainly unbreaks the logic",
+      "parentUuid": "3a88cc11_4d1ee2cb",
+      "revId": "8c782a80ce1091fc0cd3870b7c3103631bdda8d2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
