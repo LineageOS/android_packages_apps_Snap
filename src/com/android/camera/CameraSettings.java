@@ -982,6 +982,8 @@ public class CameraSettings {
                         supportedAdvancedFeatures)) {
                 removePreference(group, chromaFlash.getKey());
             }
+            //remove chromaFlash
+            removePreference(group, chromaFlash.getKey());
         }
 
         if (sceneMode != null) {

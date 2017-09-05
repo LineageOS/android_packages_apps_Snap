@@ -1397,7 +1397,9 @@ public class SettingsManager implements ListMenu.SettingsListener {
                 modes.add("" + i);
             }
         } catch(NullPointerException e) {
+            Log.w(TAG, "Supported instant aec modes is null.");
         } catch(IllegalArgumentException e) {
+            Log.w(TAG, "Supported instant aec modes is null.");
         }
 
         return  modes;
