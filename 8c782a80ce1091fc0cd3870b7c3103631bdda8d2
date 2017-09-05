@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3a88cc11_4d1ee2cb",
+        "filename": "src/com/android/camera/PhotoModule.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 2995,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2017-09-05T19:09:32Z",
+      "side": 1,
+      "message": "This comment is not valid (anymore?), as it\u0027s not only doing this when chaning the resolution",
+      "revId": "8c782a80ce1091fc0cd3870b7c3103631bdda8d2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
