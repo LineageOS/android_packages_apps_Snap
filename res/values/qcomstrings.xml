@@ -1207,5 +1207,15 @@
     <string name="pref_camera2_afmode_value_continuous_video" translatable="false">3</string>
     <string name="pref_camera2_afmode_value_continuous_picture" translatable="false">4</string>
     <string name="pref_camera2_afmode_value_edof" translatable="false">5</string>
+
+    <string name="pref_camera2_exposure_metering_title" translatable="true">ExposureMetering</string>
+    <string name="pref_camera2_exposure_metering_default" translatable="true">0</string>
+    <string name="pref_camera2_exposure_metering_entry_frame_average" translatable="false">FrameAverage</string>
+    <string name="pref_camera2_exposure_metering_entry_center_weighted" translatable="false">CenterWeighted</string>
+    <string name="pref_camera2_exposure_metering_entry_spot_meteting" translatable="false">SpotMeteting</string>
+    <string name="pref_camera2_exposure_metering_entryvalue_frame_average" translatable="false">0</string>
+    <string name="pref_camera2_exposure_metering_entryvalue_center_weighted" translatable="false">1</string>
+    <string name="pref_camera2_exposure_metering_entryvalue_spot_meteting" translatable="false">2</string>
+
 </resources>
 

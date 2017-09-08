@@ -251,6 +251,9 @@ public class CaptureModule implements CameraModule, PhotoController,
     public static final CaptureRequest.Key<Integer> sharpness_control = new CaptureRequest.Key<>(
             "org.codeaurora.qcamera3.sharpness.strength", Integer.class);
 
+    public static final CaptureRequest.Key<Integer> exposure_metering = new CaptureRequest.Key<>(
+            "org.codeaurora.qcamera3.exposure_metering.exposure_metering_mode", Integer.class);
+
     private boolean[] mTakingPicture = new boolean[MAX_NUM_CAM];
     private int mControlAFMode = CameraMetadata.CONTROL_AF_MODE_CONTINUOUS_PICTURE;
     private int mLastResultAFState = -1;
@@ -2128,6 +2131,7 @@ public class CaptureModule implements CameraModule, PhotoController,
         applyAntiBandingLevel(builder);
         applySharpnessControlModes(builder);
         applyAfModes(builder);
+        applyExposureMeteringModes(builder);
         applyHistogram(builder);
     }
 
@@ -4038,6 +4042,14 @@ public class CaptureModule implements CameraModule, PhotoController,
         if (value != null) {
             int intValue = Integer.parseInt(value);
             request.set(CaptureRequest.CONTROL_AF_MODE, intValue);
+        }
+    }
+
+    private void applyExposureMeteringModes(CaptureRequest.Builder request) {
+        String value = mSettingsManager.getValue(SettingsManager.KEY_EXPOSURE_METERING_MODE);
+        if (value != null) {
+            int intValue = Integer.parseInt(value);
+            request.set(CaptureModule.exposure_metering, intValue);
         }
     }
 

@@ -392,5 +392,14 @@
             android:layout="@layout/preference"
             android:summary="%s"
             android:title="@string/pref_camera2_afmode_title" />
+
+        <ListPreference
+            android:defaultValue="@string/pref_camera2_exposure_metering_default"
+            android:entries="@array/pref_camera2_exposure_metering_entries"
+            android:entryValues="@array/pref_camera2_exposure_metering_entryvalues"
+            android:key="pref_camera2_exposure_metering_key"
+            android:layout="@layout/preference"
+            android:summary="%s"
+            android:title="@string/pref_camera2_exposure_metering_title" />
     </PreferenceCategory>
 </PreferenceScreen>
