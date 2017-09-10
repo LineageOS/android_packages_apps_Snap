@@ -1341,7 +1341,14 @@ public class PhotoModule
                     && backCameraRestartPreviewOnPictureTaken && (mCameraState != LONGSHOT))
                     || (info.facing == CameraInfo.CAMERA_FACING_FRONT
                     && frontCameraRestartPreviewOnPictureTaken && (mCameraState != LONGSHOT))) {
-                needRestartPreview = true;
+		    if ( CameraUtil.SCENE_MODE_HDR.equals(mSceneMode)) {
+			    if ( mReceivedSnapNum == mBurstSnapNum ) {
+				    needRestartPreview = true;		    	
+		    	}
+		    } 
+		    else {
+			    needRestartPreview = true;
+		    }
             }
 
             if (needRestartPreview) {
