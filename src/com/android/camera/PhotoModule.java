@@ -1320,7 +1320,7 @@ public class PhotoModule
                     && !mPreviewRestartSupport
                     && (mCameraState != LONGSHOT)
                     && (mSnapshotMode != CameraInfo.CAMERA_SUPPORT_MODE_ZSL)
-                    && ((mReceivedSnapNum == mBurstSnapNum) && (mCameraState != LONGSHOT));
+                    && (mReceivedSnapNum == mBurstSnapNum);
             needRestartPreview |= (isLongshotDone() && !mFocusManager.isZslEnabled());
             needRestartPreview |= ((mReceivedSnapNum == mBurstSnapNum) &&
                                    !mFocusManager.isZslEnabled() &&
@@ -1341,7 +1341,14 @@ public class PhotoModule
                     && backCameraRestartPreviewOnPictureTaken && (mCameraState != LONGSHOT))
                     || (info.facing == CameraInfo.CAMERA_FACING_FRONT
                     && frontCameraRestartPreviewOnPictureTaken && (mCameraState != LONGSHOT))) {
-                needRestartPreview = true;
+		    if ( CameraUtil.SCENE_MODE_HDR.equals(mSceneMode)) {
+			    if ( mReceivedSnapNum == mBurstSnapNum ) {
+				    needRestartPreview = true;		    	
+		    	}
+		    } 
+		    else if ( !CameraUtil.SCENE_MODE_HDR.equals(mSceneMode)) {
+			    needRestartPreview = true;
+		    }
             }
 
             if (needRestartPreview) {
