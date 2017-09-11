@@ -142,6 +142,7 @@ public class WideAnglePanoramaUI extends BaseUI implements
     }
 
     public void onStopCapture() {
+        mCameraControls.showSwitcher();
         mCaptureIndicator.setVisibility(View.INVISIBLE);
         hideTooFastIndication();
         hideDirectionIndicators();
