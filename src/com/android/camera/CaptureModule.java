@@ -2340,6 +2340,8 @@ public class CaptureModule implements CameraModule, PhotoController,
             return PostProcessor.FILTER_SHARPSHOOTER;
         } else if (mode == SettingsManager.SCENE_MODE_BESTPICTURE_INT) {
             return PostProcessor.FILTER_BESTPICTURE;
+        } else if (mode == SettingsManager.SCENE_MODE_DEEPZOOM_INT) {
+            return PostProcessor.FILTER_DEEPZOOM;
         }
         return PostProcessor.FILTER_NONE;
     }
@@ -4630,6 +4632,17 @@ public class CaptureModule implements CameraModule, PhotoController,
         try {
             int mode = Integer.parseInt(value);
             if(mode == SettingsManager.SCENE_MODE_PANORAMA_INT) {
+                return true;
+            }
+        } catch(Exception e) {
+        }
+        return false;
+    }
+
+    private boolean isDeepZoom(String value) {
+        try {
+            int mode = Integer.parseInt(value);
+            if(mode == SettingsManager.SCENE_MODE_DEEPZOOM_INT) {
                 return true;
             }
         } catch(Exception e) {
