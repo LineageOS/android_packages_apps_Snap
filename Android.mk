@@ -46,6 +46,10 @@ else
   LOCAL_REQUIRED_MODULES := libjni_snapmosaic libjni_snaptinyplanet libjni_snapimageutil
 endif
 
+ifeq ($(TARGET_COMPILE_WITH_MSM_KERNEL),true)
+LOCAL_REQUIRED_MODULES += Antibanding
+endif
+
 include $(BUILD_PACKAGE)
 
 include $(call all-makefiles-under, $(LOCAL_PATH))
