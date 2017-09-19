@@ -410,5 +410,12 @@
             android:layout="@layout/preference"
             android:summary="%s"
             android:title="@string/pref_camera2_exposure_metering_title" />
+
+        <ListPreference
+            android:defaultValue="@string/pref_camera2_switch_camera_default"
+            android:key="pref_camera2_switch_camera_key"
+            android:layout="@layout/preference"
+            android:summary="%s"
+            android:title="@string/pref_camera2_switch_camera_title"/>
     </PreferenceCategory>
 </PreferenceScreen>
