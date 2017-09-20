@@ -54,7 +54,6 @@
   <string name="pref_camera_manual_exp_entry_ISO_priority">Priorytet ISO</string>
   <string name="pref_camera_manual_exp_entry_exptime_priority">Priorytet czasu ekspozycji</string>
   <string name="pref_camera_manual_exp_entry_user_setting">Ustawienia użytkownika</string>
-  <string name="pref_camera_manual_exp_entry_off">Wyłączona</string>
   <!-- Manual white balance -->
   <string name="pref_camera_manual_wb_title">Ręczny balans bieli</string>
   <string name="pref_camera_manual_wb_entry_color_temperature">Temperatura barw</string>
@@ -88,7 +87,6 @@
   <string name="pref_camera_ae_bracket_hdr_title">Autobracketing ekspozycji</string>
   <!-- High-framerate recording -->
   <string name="pref_camera_hfr_title">Nagrywanie z dużą liczbą klatek</string>
-  <string name="pref_camera_hfr_entry_off">Wył.</string>
   <string name="pref_camera_hfr_entry_2x">Zwolnione tempo 60 FPS</string>
   <string name="pref_camera_hfr_entry_3x">Zwolnione tempo 90 FPS</string>
   <string name="pref_camera_hfr_entry_4x">Zwolnione tempo 120 FPS</string>
