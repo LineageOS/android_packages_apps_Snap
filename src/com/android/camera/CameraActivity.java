@@ -1457,6 +1457,13 @@ public class CameraActivity extends Activity
     @Override
     public void onCreate(Bundle state) {
         super.onCreate(state);
+        try {
+            //Print version info here
+            String versionName = getPackageManager().getPackageInfo(getPackageName(), 0).versionName;
+            Log.d(TAG, "snapdragoncamera_version: " + versionName);
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
         // Check if this is in the secure camera mode.
         Intent intent = getIntent();
         String action = intent.getAction();

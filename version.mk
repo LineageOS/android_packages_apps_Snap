@@ -34,11 +34,13 @@
 # 2.0.001 - Factory ROM and 0-day OTA 4.4 (KK)
 # 2.0.002 - 4.4 MR1 system image
 
-# Specify the following manually.  Note that base_version_minor must be exactly 1 digit and
-# base_version_build must be exactly 3 digits.
+# Specify the following manually.
+# base_version_major is reserved.
+# base_version_minor is 2 digits and auto-increment for developing FR.
+# base_version_build is 3 digits and auto-increment for fixing CR.
 base_version_major := 2
-base_version_minor := 0
-base_version_build := 002
+base_version_minor := 00
+base_version_build := 000
 
 #####################################################
 #####################################################
