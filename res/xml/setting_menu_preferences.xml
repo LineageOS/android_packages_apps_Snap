@@ -374,5 +374,14 @@
             android:layout="@layout/preference"
             android:summary="%s"
             android:title="@string/pref_camera2_bsgc_title" />
+
+        <ListPreference
+            android:defaultValue="@string/pref_camera2_sharpness_control_default"
+            android:entries="@array/pref_camera2_sharpness_control_entries"
+            android:entryValues="@array/pref_camera2_multilevel_sharpness_entryvalues"
+            android:key="pref_camera2_sharpness_control_key"
+            android:layout="@layout/preference"
+            android:summary="%s"
+            android:title="@string/pref_camera2_sharpness_control_title" />
     </PreferenceCategory>
 </PreferenceScreen>

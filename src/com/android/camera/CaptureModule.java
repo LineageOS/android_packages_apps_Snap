@@ -251,6 +251,8 @@ public class CaptureModule implements CameraModule, PhotoController,
     public static CaptureResult.Key<byte[]> gazeDegree =
             new CaptureResult.Key<>("org.codeaurora.qcamera3.stats.gaze_degree",
                     byte[].class);
+    public static final CaptureRequest.Key<Integer> sharpness_control = new CaptureRequest.Key<>(
+            "org.codeaurora.qcamera3.sharpness.strength", Integer.class);
 
     private boolean[] mTakingPicture = new boolean[MAX_NUM_CAM];
     private int mControlAFMode = CameraMetadata.CONTROL_AF_MODE_CONTINUOUS_PICTURE;
@@ -2127,6 +2129,7 @@ public class CaptureModule implements CameraModule, PhotoController,
         applyInstantAEC(builder);
         applySaturationLevel(builder);
         applyAntiBandingLevel(builder);
+        applySharpnessControlModes(builder);
         applyHistogram(builder);
     }
 
@@ -4021,6 +4024,14 @@ public class CaptureModule implements CameraModule, PhotoController,
         if (value != null) {
             int intValue = Integer.parseInt(value);
             request.set(CaptureRequest.CONTROL_AE_ANTIBANDING_MODE, intValue);
+        }
+    }
+
+    private void applySharpnessControlModes(CaptureRequest.Builder request) {
+        String value = mSettingsManager.getValue(SettingsManager.KEY_SHARPNESS_CONTROL_MODE);
+        if (value != null) {
+            int intValue = Integer.parseInt(value);
+            request.set(CaptureModule.sharpness_control, intValue);
         }
     }
 

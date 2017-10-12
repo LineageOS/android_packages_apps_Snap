@@ -1074,4 +1074,25 @@ for time lapse recording -->
         <item>HEVCProfileMain10</item>
         <item>HEVCProfileMain10HDR10</item>
     </string-array>
+
+    <string-array name="pref_camera2_sharpness_control_entries">
+        <item>@string/pref_camera2_sharpness_control_entry_level0</item>
+        <item>@string/pref_camera2_sharpness_control_entry_level1</item>
+        <item>@string/pref_camera2_sharpness_control_entry_level2</item>
+        <item>@string/pref_camera2_sharpness_control_entry_level3</item>
+        <item>@string/pref_camera2_sharpness_control_entry_level4</item>
+        <item>@string/pref_camera2_sharpness_control_entry_level5</item>
+        <item>@string/pref_camera2_sharpness_control_entry_level6</item>
+    </string-array>
+
+    <!-- Entry Valur array for sharpness -->
+    <string-array name="pref_camera2_multilevel_sharpness_entryvalues">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+    </string-array>
 </resources>

@@ -1185,5 +1185,14 @@
     <string name="pref_camera2_videoencoderprofile_title" translatable="true">EncoderProfile</string>
     <string name="pref_camera2_videoencoderprofile_default">off</string>
 
+    <string name="pref_camera2_sharpness_control_title" translatable="true">SharpnessControl</string>
+    <string name="pref_camera2_sharpness_control_default" translatable="true">2</string>
+    <string name="pref_camera2_sharpness_control_entry_level0" translatable="false">Level 0</string>
+    <string name="pref_camera2_sharpness_control_entry_level1" translatable="false">Level 1</string>
+    <string name="pref_camera2_sharpness_control_entry_level2" translatable="false">Level 2(Default)</string>
+    <string name="pref_camera2_sharpness_control_entry_level3" translatable="false">Level 3</string>
+    <string name="pref_camera2_sharpness_control_entry_level4" translatable="false">Level 4</string>
+    <string name="pref_camera2_sharpness_control_entry_level5" translatable="false">Level 5</string>
+    <string name="pref_camera2_sharpness_control_entry_level6" translatable="false">Level 6</string>
 </resources>
 
