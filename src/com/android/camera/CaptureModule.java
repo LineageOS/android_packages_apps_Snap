@@ -4177,7 +4177,8 @@ public class CaptureModule implements CameraModule, PhotoController,
             return;
         }
         if(getPostProcFilterId(mode) != PostProcessor.FILTER_NONE || mCaptureHDRTestEnable) {
-            request.set(CaptureRequest.CONTROL_MODE, CaptureRequest.CONTROL_MODE_AUTO);
+            request.set(CaptureRequest.CONTROL_MODE, CaptureRequest.CONTROL_MODE_USE_SCENE_MODE);
+            request.set(CaptureRequest.CONTROL_SCENE_MODE, mode);
             return;
         }
         if (mode != CaptureRequest.CONTROL_SCENE_MODE_DISABLED
