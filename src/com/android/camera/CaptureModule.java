@@ -69,7 +69,6 @@ import android.os.Debug;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Looper;
-import android.os.Bundle;
 import android.os.Message;
 import android.os.ParcelFileDescriptor;
 import android.os.SystemClock;
@@ -89,7 +88,6 @@ import android.graphics.Paint;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.util.AttributeSet;
-import android.graphics.Bitmap;
 
 import com.android.camera.exif.ExifInterface;
 import com.android.camera.imageprocessor.filter.BlurbusterFilter;
@@ -128,7 +126,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Set;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
 import java.lang.reflect.Method;
@@ -2130,6 +2127,7 @@ public class CaptureModule implements CameraModule, PhotoController,
         applySaturationLevel(builder);
         applyAntiBandingLevel(builder);
         applySharpnessControlModes(builder);
+        applyAfModes(builder);
         applyHistogram(builder);
     }
 
@@ -4032,6 +4030,14 @@ public class CaptureModule implements CameraModule, PhotoController,
         if (value != null) {
             int intValue = Integer.parseInt(value);
             request.set(CaptureModule.sharpness_control, intValue);
+        }
+    }
+
+    private void applyAfModes(CaptureRequest.Builder request) {
+        String value = mSettingsManager.getValue(SettingsManager.KEY_AF_MODE);
+        if (value != null) {
+            int intValue = Integer.parseInt(value);
+            request.set(CaptureRequest.CONTROL_AF_MODE, intValue);
         }
     }
 

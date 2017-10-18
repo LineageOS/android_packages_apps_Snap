@@ -383,5 +383,14 @@
             android:layout="@layout/preference"
             android:summary="%s"
             android:title="@string/pref_camera2_sharpness_control_title" />
+
+        <ListPreference
+            android:defaultValue="@string/pref_camera2_afmode_default"
+            android:entries="@array/pref_camera2_afmode_entries"
+            android:entryValues="@array/pref_camera2_afmode_entryvalues"
+            android:key="pref_camera2_afmode_key"
+            android:layout="@layout/preference"
+            android:summary="%s"
+            android:title="@string/pref_camera2_afmode_title" />
     </PreferenceCategory>
 </PreferenceScreen>

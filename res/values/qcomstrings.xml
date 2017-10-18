@@ -1194,5 +1194,18 @@
     <string name="pref_camera2_sharpness_control_entry_level4" translatable="false">Level 4</string>
     <string name="pref_camera2_sharpness_control_entry_level5" translatable="false">Level 5</string>
     <string name="pref_camera2_sharpness_control_entry_level6" translatable="false">Level 6</string>
+
+    <string name="pref_camera2_afmode_default" translatable="false">1</string>
+    <string name="pref_camera2_afmode_title">Auto Focus Mode</string>
+    <string name="pref_camera2_afmode_entry_auto">Auto</string>
+    <string name="pref_camera2_afmode_entry_macro">Macro</string>
+    <string name="pref_camera2_afmode_entry_continuous_video">Continuous Video</string>
+    <string name="pref_camera2_afmode_entry_continuous_picture">Continuous Picture</string>
+    <string name="pref_camera2_afmode_entry_edof">EDOF</string>
+    <string name="pref_camera2_afmode_value_auto" translatable="false">1</string>
+    <string name="pref_camera2_afmode_value_macro" translatable="false">2</string>
+    <string name="pref_camera2_afmode_value_continuous_video" translatable="false">3</string>
+    <string name="pref_camera2_afmode_value_continuous_picture" translatable="false">4</string>
+    <string name="pref_camera2_afmode_value_edof" translatable="false">5</string>
 </resources>
 

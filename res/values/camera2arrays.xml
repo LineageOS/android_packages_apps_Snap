@@ -1095,4 +1095,20 @@ for time lapse recording -->
         <item>5</item>
         <item>6</item>
     </string-array>
+
+    <string-array name="pref_camera2_afmode_entries">
+        <item>@string/pref_camera2_afmode_entry_auto</item>
+        <item>@string/pref_camera2_afmode_entry_macro</item>
+        <item>@string/pref_camera2_afmode_entry_continuous_video</item>
+        <item>@string/pref_camera2_afmode_entry_continuous_picture</item>
+        <item>@string/pref_camera2_afmode_entry_edof</item>
+    </string-array>
+
+    <string-array name="pref_camera2_afmode_entryvalues">
+        <item>@string/pref_camera2_afmode_value_auto</item>
+        <item>@string/pref_camera2_afmode_value_macro</item>
+        <item>@string/pref_camera2_afmode_value_continuous_video</item>
+        <item>@string/pref_camera2_afmode_value_continuous_picture</item>
+        <item>@string/pref_camera2_afmode_value_edof</item>
+    </string-array>
 </resources>
