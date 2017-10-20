@@ -26,6 +26,7 @@ import android.content.ActivityNotFoundException;
 import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Configuration;
@@ -220,6 +221,11 @@ public class CaptureModule implements CameraModule, PhotoController,
             new CaptureRequest.Key<>("org.codeaurora.qcamera3.saturation.use_saturation", Integer.class);
     public static final CaptureRequest.Key<Byte> histMode =
             new CaptureRequest.Key<>("org.codeaurora.qcamera3.histogram.enable", byte.class);
+
+    public static CameraCharacteristics.Key<int[]> ISO_AVAILABLE_MODES =
+            new CameraCharacteristics.Key<>("org.codeaurora.qcamera3.iso_exp_priority.iso_available_modes", int[].class);
+    public static CameraCharacteristics.Key<long[]> EXPOSURE_RANGE =
+            new CameraCharacteristics.Key<>("org.codeaurora.qcamera3.iso_exp_priority.exposure_time_range", long[].class);
 
     public static CameraCharacteristics.Key<Integer> buckets =
             new CameraCharacteristics.Key<>("org.codeaurora.qcamera3.histogram.buckets", Integer.class);
@@ -4229,6 +4235,7 @@ public class CaptureModule implements CameraModule, PhotoController,
 
     private void applyIso(CaptureRequest.Builder request) {
         String value = mSettingsManager.getValue(SettingsManager.KEY_ISO);
+        if (applyManualIsoExposure(request)) return;
         if (value == null) return;
         if (value.equals("auto")) {
             VendorTagUtil.setIsoExpPrioritySelectPriority(request, 0);
@@ -4252,6 +4259,75 @@ public class CaptureModule implements CameraModule, PhotoController,
             request.set(CaptureRequest.SENSOR_EXPOSURE_TIME, null);
             request.set(CaptureRequest.SENSOR_SENSITIVITY, null);
         }
+
+    }
+
+    private boolean applyManualIsoExposure(CaptureRequest.Builder request) {
+        boolean result = false;
+        final SharedPreferences pref = mActivity.getSharedPreferences(
+                ComboPreferences.getLocalSharedPreferencesName(mActivity, getMainCameraId()),
+                Context.MODE_PRIVATE);
+        String isoPriority = mActivity.getString(
+                R.string.pref_camera_manual_exp_value_ISO_priority);
+        String expTimePriority = mActivity.getString(
+                R.string.pref_camera_manual_exp_value_exptime_priority);
+        String userSetting = mActivity.getString(
+                R.string.pref_camera_manual_exp_value_user_setting);
+        String manualExposureMode = mSettingsManager.getValue(SettingsManager.KEY_MANUAL_EXPOSURE);
+        if (manualExposureMode.equals(isoPriority)) {
+            long isoValue = Long.parseLong(pref.getString(SettingsManager.KEY_MANUAL_ISO_VALUE,
+                    "100"));
+            VendorTagUtil.setIsoExpPrioritySelectPriority(request, 0);
+            VendorTagUtil.setIsoExpPriority(request, isoValue);
+            if (DEBUG) {
+                Log.v(TAG, "manual ISO value :" + isoValue);
+            }
+            if (request.get(CaptureRequest.SENSOR_EXPOSURE_TIME) != null) {
+                mIsoExposureTime = request.get(CaptureRequest.SENSOR_EXPOSURE_TIME);
+            }
+            if (request.get(CaptureRequest.SENSOR_SENSITIVITY) != null) {
+                mIsoSensitivity = request.get(CaptureRequest.SENSOR_SENSITIVITY);
+            }
+            request.set(CaptureRequest.SENSOR_EXPOSURE_TIME, null);
+            request.set(CaptureRequest.SENSOR_SENSITIVITY, null);
+            result = true;
+        } else if (manualExposureMode.equals(expTimePriority)) {
+            long newExpTime = -1;
+            String expTime = pref.getString(SettingsManager.KEY_MANUAL_EXPOSURE_VALUE, "0");
+            try {
+                newExpTime = Long.parseLong(expTime);
+            } catch (NumberFormatException e) {
+                Log.w(TAG, "Input expTime " + expTime + " is invalid");
+                newExpTime = Long.parseLong(expTime);
+            }
+
+            if (DEBUG) {
+                Log.v(TAG, "manual Exposure value :" + newExpTime);
+            }
+            VendorTagUtil.setIsoExpPrioritySelectPriority(request, 1);
+            VendorTagUtil.setIsoExpPriority(request, newExpTime);
+            request.set(CaptureRequest.SENSOR_SENSITIVITY, null);
+            result = true;
+        } else if (manualExposureMode.equals(userSetting)) {
+            request.set(CaptureRequest.CONTROL_AE_MODE, CaptureRequest.CONTROL_AE_MODE_OFF);
+            int isoValue = Integer.parseInt(pref.getString(SettingsManager.KEY_MANUAL_ISO_VALUE,
+                    "100"));
+            long newExpTime = -1;
+            String expTime = pref.getString(SettingsManager.KEY_MANUAL_EXPOSURE_VALUE, "0");
+            try {
+                newExpTime = Long.parseLong(expTime);
+            } catch (NumberFormatException e) {
+                Log.w(TAG, "Input expTime " + expTime + " is invalid");
+                newExpTime = Long.parseLong(expTime);
+            }
+            if (DEBUG) {
+                Log.v(TAG, "manual ISO value : " + isoValue + ", Exposure value :" + newExpTime);
+            }
+            request.set(CaptureRequest.SENSOR_EXPOSURE_TIME, newExpTime);
+            request.set(CaptureRequest.SENSOR_SENSITIVITY, isoValue);
+            result = true;
+        }
+        return result;
     }
 
     private void applyColorEffect(CaptureRequest.Builder request) {

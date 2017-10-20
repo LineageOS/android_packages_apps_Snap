@@ -149,6 +149,9 @@ public class SettingsManager implements ListMenu.SettingsListener {
     public static final String KEY_SHARPNESS_CONTROL_MODE = "pref_camera2_sharpness_control_key";
     public static final String KEY_AF_MODE = "pref_camera2_afmode_key";
     public static final String KEY_EXPOSURE_METERING_MODE = "pref_camera2_exposure_metering_key";
+    public static final String KEY_MANUAL_EXPOSURE = "pref_camera2_manual_exp_key";
+    public static final String KEY_MANUAL_ISO_VALUE = "pref_camera2_manual_iso_key";
+    public static final String KEY_MANUAL_EXPOSURE_VALUE = "pref_camera2_manual_exposure_key";
 
     public static final HashMap<String, Integer> KEY_ISO_INDEX = new HashMap<String, Integer>();
     public static final String KEY_BSGC_DETECTION = "pref_camera2_bsgc_key";
@@ -185,11 +188,11 @@ public class SettingsManager implements ListMenu.SettingsListener {
         KEY_ISO_INDEX.put("auto", 0);
         KEY_ISO_INDEX.put("deblur", 1);
         KEY_ISO_INDEX.put("100", 2);
-        KEY_ISO_INDEX.put("100", 2);
         KEY_ISO_INDEX.put("200", 3);
         KEY_ISO_INDEX.put("400", 4);
         KEY_ISO_INDEX.put("800", 5);
         KEY_ISO_INDEX.put("1600", 6);
+        KEY_ISO_INDEX.put("3200", 7);
         Set<String> h265 = new HashSet<>();
         h265.add("HEVCProfileMain10");
         h265.add("HEVCProfileMain10HDR10");
@@ -842,6 +845,41 @@ public class SettingsManager implements ListMenu.SettingsListener {
         ListPreference pref = mPreferenceGroup.findPreference(KEY_EXPOSURE);
         if (pref == null) return null;
         return pref.getEntryValues();
+    }
+
+    public long[] getExposureRangeValues(int cameraId) {
+        long[] exposureRange = null;
+        try {
+            exposureRange =  mCharacteristics.get(cameraId).get(
+                    CaptureModule.EXPOSURE_RANGE);
+            if (exposureRange == null) {
+                return null;
+            }
+        } catch(NullPointerException e) {
+            Log.w(TAG, "Supported exposure range modes is null.");
+        } catch(IllegalArgumentException e) {
+            Log.w(TAG, "Supported exposure range modes is null.");
+        }
+        return exposureRange;
+    }
+
+    public int[] getIsoRangeValues(int cameraId) {
+        Range<Integer> range = null;
+        int[] result = new int[2];
+        try {
+            range = mCharacteristics.get(cameraId).get(CameraCharacteristics
+                    .SENSOR_INFO_SENSITIVITY_RANGE);
+            if (range == null) {
+                return null;
+            }
+            result[0] = range.getLower();
+            result[1] = range.getUpper();
+        } catch(NullPointerException e) {
+            Log.w(TAG, "Supported iso range is null.");
+        } catch(IllegalArgumentException e) {
+            Log.w(TAG, "Supported iso range is null.");
+        }
+        return result;
     }
 
     private void buildCameraId() {
