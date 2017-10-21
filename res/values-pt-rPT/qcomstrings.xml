@@ -162,13 +162,13 @@
   <string name="pref_camera_shuttersound_entry_disable">Desativado</string>
   <!-- Default mce setting. Do not translate. -->
   <!-- The message is shown in toast when the app encounters an unsupported selection for HFR/HSR mode -->
-  <string name="error_app_unsupported_hfr_selection">A gravação em alta velocidade não é suportada quando a estabilização, o intervalo de tempo ou o HDR estão ativados.</string>
+  <string name="error_app_unsupported_hfr_selection">A gravação com elevado framerate não é suportada quando a estabilização, o intervalo de tempo ou o HDR estão ativados.</string>
   <!-- The message is shown in dialog when the app encounters an unsupported resolution for HFR mode -->
   <string name="error_app_unsupported_hfr">A câmara lenta não é suportada na resolução de vídeo selecionada. Selecione uma resolução de vídeo inferior</string>
   <!-- The message is shown in toast when the app encounters an unsupported resolution for DIS mode -->
   <string name="error_app_unsupported_dis">A estabilização não é suportada para o tamanho de vídeo selecionado. Selecione um tamanho de vídeo inferior</string>
   <!-- The message is shown in dialog when the app encounters an unsupported resolution for HSR mode -->
-  <string name="error_app_unsupported_hsr">O modo de alta velocidade não é suportado para a resolução de vídeo selecionada. Selecione uma resolução de vídeo inferior</string>
+  <string name="error_app_unsupported_hsr">O modo de elevado framerate não é suportado para a resolução de vídeo selecionada. Selecione uma resolução de vídeo inferior</string>
   <!-- The message is shown in dialog when the app encounters an unsupported video codec for HFR mode -->
   <string name="error_app_unsupported_hfr_codec">Quando o HFR está ativado, apenas a codificação de vídeo H.264 é suportada</string>
   <!-- The message is shown in dialog when the app encounters an unsupported video resolution-->
@@ -181,7 +181,7 @@
   <string name="pref_camera_ae_bracket_hdr_entry_ae_bracket">Exposição Automática por Intervalo (AEB)</string>
   <string name="pref_camera_ae_bracket_hdr_title">Exposição Automática por Intervalo (AEB)</string>
   <string name="pref_camera_ae_bracket_hdr_entry_on">Ligado</string>
-  <string name="err_app_unsupport_ae_bracket_code">Escalonamento AE ainda não é suportado</string>
+  <string name="err_app_unsupport_ae_bracket_code">AEB ainda não é suportado</string>
   <!-- The messsage shown if user selects a snapshot resolution lower than the current video size. -->
   <string name="snapshot_lower_than_video">O tamanho de captura de imagem de vídeo é menor que o tamanho do vídeo, limitado ao tamanho do vídeo. Por favor escolha uma resolução maior ou igual ao tamanho de vídeo atual.</string>
   <!-- The messsage shown if user selects a snapshot resolution in low power mode. -->
@@ -193,14 +193,14 @@
   <string name="pref_camera_hfr_title">Câmara lenta</string>
   <!-- Settings screen, hfr radio button choices -->
   <string name="pref_camera_hfr_entry_off">Desligado</string>
-  <string name="pref_camera_hfr_entry_2x">Câmara lenta a 60 FPS</string>
-  <string name="pref_camera_hfr_entry_3x">Câmara lenta a 90 FPS</string>
-  <string name="pref_camera_hfr_entry_4x">Câmara lenta a 120 FPS</string>
-  <string name="pref_camera_hfr_entry_8x">Câmara lenta a 240 FPS</string>
-  <string name="pref_camera_hfr_entry_hsr_60">Alta velocidade a 60 FPS</string>
-  <string name="pref_camera_hfr_entry_hsr_90">Alta velocidade a 90 FPS</string>
-  <string name="pref_camera_hfr_entry_hsr_120">Alta velocidade a 120 FPS</string>
-  <string name="pref_camera_hfr_entry_hsr_240">Alta velocidade a 240 FPS</string>
+  <string name="pref_camera_hfr_entry_2x">Câmara Lenta 60 FPS</string>
+  <string name="pref_camera_hfr_entry_3x">Câmara Lenta 90 FPS</string>
+  <string name="pref_camera_hfr_entry_4x">Câmara Lenta 120 FPS</string>
+  <string name="pref_camera_hfr_entry_8x">Câmara Lenta 240 FPS</string>
+  <string name="pref_camera_hfr_entry_hsr_60">Elevado Framerate 60 FPS</string>
+  <string name="pref_camera_hfr_entry_hsr_90">Elevado Framerate 90 FPS</string>
+  <string name="pref_camera_hfr_entry_hsr_120">Elevado Framerate 120 FPS</string>
+  <string name="pref_camera_hfr_entry_hsr_240">Elevado Framerate 240 FPS</string>
   <!-- HFR entry values. Do not translate. -->
   <!-- Default noise reduction setting. Do not translate. -->
   <!-- Settings screen, Select See More title -->
