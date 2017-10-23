@@ -54,6 +54,9 @@ public class VendorTagUtil {
     private static CaptureRequest.Key<Long> ISO_EXP =
             new CaptureRequest.Key<>("org.codeaurora.qcamera3.iso_exp_priority.use_iso_exp_priority",
                     Long.class);
+    private static CaptureRequest.Key<Integer> USE_ISO_VALUE =
+            new CaptureRequest.Key<>("org.codeaurora.qcamera3.iso_exp_priority.use_iso_value",
+                    Integer.class);
     private static final CaptureRequest.Key<Byte> HDRVideoMode =
             new CaptureRequest.Key<>("org.quic.camera2.streamconfigs.HDRVideoMode", Byte.class);
 
@@ -131,8 +134,17 @@ public class VendorTagUtil {
             builder.set(ISO_EXP, value);
         }
     }
+    public static void setUseIsoValues(CaptureRequest.Builder builder,int value) {
+        if ( isUseIsoValueSupported(builder) ) {
+            builder.set(USE_ISO_VALUE, value);
+        }
+    }
     private static boolean isIsoExpPrioritySupported(CaptureRequest.Builder builder) {
         return isSupported(builder, ISO_EXP);
+    }
+
+    private static boolean isUseIsoValueSupported(CaptureRequest.Builder builder) {
+        return isSupported(builder, USE_ISO_VALUE);
     }
 
     public static void setHDRVideoMode(CaptureRequest.Builder builder, byte mode) {

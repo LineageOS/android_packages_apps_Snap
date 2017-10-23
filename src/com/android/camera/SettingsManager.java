@@ -157,6 +157,7 @@ public class SettingsManager implements ListMenu.SettingsListener {
     public static final String KEY_BSGC_DETECTION = "pref_camera2_bsgc_key";
     public static final String KEY_ZSL = "pref_camera2_zsl_key";
     public static final String KEY_VIDEO_ENCODER_PROFILE = "pref_camera2_videoencoderprofile_key";
+    public static final String MAUNAL_ABSOLUTE_ISO_VALUE = "absolute";
 
     private static final String TAG = "SnapCam_SettingsManager";
 
@@ -193,6 +194,7 @@ public class SettingsManager implements ListMenu.SettingsListener {
         KEY_ISO_INDEX.put("800", 5);
         KEY_ISO_INDEX.put("1600", 6);
         KEY_ISO_INDEX.put("3200", 7);
+        KEY_ISO_INDEX.put(MAUNAL_ABSOLUTE_ISO_VALUE, 8);
         Set<String> h265 = new HashSet<>();
         h265.add("HEVCProfileMain10");
         h265.add("HEVCProfileMain10HDR10");

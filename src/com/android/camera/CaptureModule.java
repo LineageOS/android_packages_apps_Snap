@@ -4275,10 +4275,13 @@ public class CaptureModule implements CameraModule, PhotoController,
                 R.string.pref_camera_manual_exp_value_user_setting);
         String manualExposureMode = mSettingsManager.getValue(SettingsManager.KEY_MANUAL_EXPOSURE);
         if (manualExposureMode.equals(isoPriority)) {
-            long isoValue = Long.parseLong(pref.getString(SettingsManager.KEY_MANUAL_ISO_VALUE,
+            int isoValue = Integer.parseInt(pref.getString(SettingsManager.KEY_MANUAL_ISO_VALUE,
                     "100"));
             VendorTagUtil.setIsoExpPrioritySelectPriority(request, 0);
-            VendorTagUtil.setIsoExpPriority(request, isoValue);
+            long intValue = SettingsManager.KEY_ISO_INDEX.get(
+                    SettingsManager.MAUNAL_ABSOLUTE_ISO_VALUE);
+            VendorTagUtil.setIsoExpPriority(request, intValue);
+            VendorTagUtil.setUseIsoValues(request, isoValue);
             if (DEBUG) {
                 Log.v(TAG, "manual ISO value :" + isoValue);
             }
