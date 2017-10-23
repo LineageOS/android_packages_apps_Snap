@@ -3372,17 +3372,14 @@ public class CaptureModule implements CameraModule, PhotoController,
     }
 
     private void applyVideoEncoderProfile(CaptureRequest.Builder builder) {
-        int profile = SettingTranslation.getVideoEncoderProfile(
-                mSettingsManager.getValue(SettingsManager.KEY_VIDEO_ENCODER_PROFILE));
+        String profile = mSettingsManager.getValue(SettingsManager.KEY_VIDEO_ENCODER_PROFILE);
         int mode = 0;
-        switch(profile) {
-            case MediaCodecInfo.CodecProfileLevel.HEVCProfileMain10:
-                mode = 1;
-                break;
-            case MediaCodecInfo.CodecProfileLevel.HEVCProfileMain10HDR10:
-                mode = 2;
-                break;
+        if (profile.equals("HEVCProfileMain10HDR10")) {
+            mode = 2;
+        } else if (profile.equals("HEVCProfileMain10")) {
+            mode = 1;
         }
+        Log.d(TAG, "setHDRVideoMode: " + mode);
         VendorTagUtil.setHDRVideoMode(builder, (byte)mode);
     }
 
@@ -3658,6 +3655,7 @@ public class CaptureModule implements CameraModule, PhotoController,
                 && VendorTagUtil.isHDRVideoModeSupported(mCameraDevice[cameraId])) {
             int videoEncoderProfile = SettingTranslation.getVideoEncoderProfile(
                     mSettingsManager.getValue(SettingsManager.KEY_VIDEO_ENCODER_PROFILE));
+            Log.d(TAG, "setVideoEncodingProfileLevel: " + videoEncoderProfile + " " + MediaCodecInfo.CodecProfileLevel.HEVCMainTierLevel1);
             mMediaRecorder.setVideoEncodingProfileLevel(videoEncoderProfile,
                     MediaCodecInfo.CodecProfileLevel.HEVCMainTierLevel1);
         }
