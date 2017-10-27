@@ -2063,18 +2063,20 @@ public class CaptureModule implements CameraModule, PhotoController,
     private void applySettingsForCapture(CaptureRequest.Builder builder, int id) {
         builder.set(CaptureRequest.CONTROL_AF_TRIGGER, CaptureRequest.CONTROL_AF_TRIGGER_IDLE);
         applyJpegQuality(builder);
-        applyCommonSettings(builder, id);
         applyFlash(builder, id);
+        applyCommonSettings(builder, id);
     }
 
     private void applySettingsForPrecapture(CaptureRequest.Builder builder, int id) {
         builder.set(CaptureRequest.CONTROL_AE_PRECAPTURE_TRIGGER,
                 CaptureRequest.CONTROL_AE_PRECAPTURE_TRIGGER_START);
-        applyCommonSettings(builder, id);
 
         // For long shot, torch mode is used
-        if (!mLongshotActive)
+        if (!mLongshotActive) {
             applyFlash(builder, id);
+        }
+
+        applyCommonSettings(builder, id);
     }
 
     private void applySettingsForLockExposure(CaptureRequest.Builder builder, int id) {
@@ -3983,8 +3985,8 @@ public class CaptureModule implements CameraModule, PhotoController,
     private void initializePreviewConfiguration(int id) {
         mPreviewRequestBuilder[id].set(CaptureRequest.CONTROL_AF_TRIGGER, CaptureRequest
                 .CONTROL_AF_TRIGGER_IDLE);
-        applyCommonSettings(mPreviewRequestBuilder[id], id);
         applyFlash(mPreviewRequestBuilder[id], id);
+        applyCommonSettings(mPreviewRequestBuilder[id], id);
     }
 
     public float getZoomValue() {
