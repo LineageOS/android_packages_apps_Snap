@@ -269,7 +269,7 @@ public class CaptureModule implements CameraModule, PhotoController,
     // The degrees of the device rotated clockwise from its natural orientation.
     private int mOrientation = OrientationEventListener.ORIENTATION_UNKNOWN;
     /*Histogram variables*/
-    private Camera2GraphView mGraphViewR,mGraphViewGR,mGraphViewGB,mGraphViewB;
+    private Camera2GraphView mGraphViewR,mGraphViewGB,mGraphViewB;
     /*HDR Test*/
     private boolean mCaptureHDRTestEnable = false;
     boolean mHiston = false;
@@ -391,7 +391,8 @@ public class CaptureModule implements CameraModule, PhotoController,
     private int mHighSpeedCaptureRate;
     private CaptureRequest.Builder mVideoRequestBuilder;
 
-    public static int statsdata[] = new int[1024];
+    private static final int STATS_DATA = 768;
+    public static int statsdata[] = new int[STATS_DATA];
 
     private static final int SELFIE_FLASH_DURATION = 680;
 
@@ -596,7 +597,7 @@ public class CaptureModule implements CameraModule, PhotoController,
                     /*The first element in the array stores max hist value . Stats data begin
                     from second value*/
                     synchronized (statsdata) {
-                        System.arraycopy(histogramStats, 0, statsdata, 0, 1024);
+                        System.arraycopy(histogramStats, 0, statsdata, 0, STATS_DATA);
                     }
                     updateGraghView();
                 }
@@ -903,18 +904,13 @@ public class CaptureModule implements CameraModule, PhotoController,
 
         mNamedImages = new NamedImages();
         mGraphViewR = (Camera2GraphView) mRootView.findViewById(R.id.graph_view_r);
-        mGraphViewGR = (Camera2GraphView) mRootView.findViewById(R.id.graph_view_gr);
         mGraphViewGB = (Camera2GraphView) mRootView.findViewById(R.id.graph_view_gb);
         mGraphViewB = (Camera2GraphView) mRootView.findViewById(R.id.graph_view_b);
         mGraphViewR.setDataSection(0,256);
-        mGraphViewGR.setDataSection(256,512);
-        mGraphViewGB.setDataSection(512,768);
-        mGraphViewB.setDataSection(768,1024);
+        mGraphViewGB.setDataSection(256,512);
+        mGraphViewB.setDataSection(512,768);
         if (mGraphViewR != null){
             mGraphViewR.setCaptureModuleObject(this);
-        }
-        if (mGraphViewGR != null){
-            mGraphViewGR.setCaptureModuleObject(this);
         }
         if (mGraphViewGB != null){
             mGraphViewGB.setCaptureModuleObject(this);
@@ -2964,9 +2960,6 @@ public class CaptureModule implements CameraModule, PhotoController,
             if (mGraphViewR != null) {
                 mGraphViewR.setRotation(-mOrientation);
             }
-            if (mGraphViewGR != null) {
-                mGraphViewGR.setRotation(-mOrientation);
-            }
             if (mGraphViewGB != null) {
                 mGraphViewGB.setRotation(-mOrientation);
             }
@@ -2977,22 +2970,15 @@ public class CaptureModule implements CameraModule, PhotoController,
 
         // need to re-initialize mGraphView to show histogram on rotate
         mGraphViewR = (Camera2GraphView) mRootView.findViewById(R.id.graph_view_r);
-        mGraphViewGR = (Camera2GraphView) mRootView.findViewById(R.id.graph_view_gr);
         mGraphViewGB = (Camera2GraphView) mRootView.findViewById(R.id.graph_view_gb);
         mGraphViewB = (Camera2GraphView) mRootView.findViewById(R.id.graph_view_b);
         mGraphViewR.setDataSection(0,256);
-        mGraphViewGR.setDataSection(256,512);
-        mGraphViewGB.setDataSection(512,768);
-        mGraphViewB.setDataSection(768,1024);
+        mGraphViewGB.setDataSection(256,512);
+        mGraphViewB.setDataSection(512,768);
         if(mGraphViewR != null){
             mGraphViewR.setAlpha(0.75f);
             mGraphViewR.setCaptureModuleObject(this);
             mGraphViewR.PreviewChanged();
-        }
-        if(mGraphViewGR != null){
-            mGraphViewGR.setAlpha(0.75f);
-            mGraphViewGR.setCaptureModuleObject(this);
-            mGraphViewGR.PreviewChanged();
         }
         if(mGraphViewGB != null){
             mGraphViewGB.setAlpha(0.75f);
@@ -4083,9 +4069,6 @@ public class CaptureModule implements CameraModule, PhotoController,
                 if(mGraphViewR != null) {
                     mGraphViewR.setVisibility(visibility);
                 }
-                if(mGraphViewGR != null) {
-                    mGraphViewGR.setVisibility(visibility);
-                }
                 if(mGraphViewGB != null) {
                     mGraphViewGB.setVisibility(visibility);
                 }
@@ -4101,9 +4084,6 @@ public class CaptureModule implements CameraModule, PhotoController,
             public void run() {
                 if(mGraphViewR != null) {
                     mGraphViewR.PreviewChanged();
-                }
-                if(mGraphViewGR != null) {
-                    mGraphViewGR.PreviewChanged();
                 }
                 if(mGraphViewGB != null) {
                     mGraphViewGB.PreviewChanged();
