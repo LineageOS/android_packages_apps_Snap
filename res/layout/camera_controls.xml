@@ -23,6 +23,7 @@
         android:background="@drawable/camera_controls_bg_translucent"
         android:layout_width="match_parent"
         android:layout_height="@dimen/preview_top_margin"
+        android:paddingTop="@dimen/camera_controls_top_padding"
         android:gravity="top"
         android:orientation="horizontal">
 
