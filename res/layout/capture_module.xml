@@ -81,6 +81,12 @@
             android:layout_height="100dip"
             android:layout_marginTop="70dip"
             android:layout_marginLeft="230dip" />
+        <com.android.camera.DrawAutoHDR2
+            android:id="@+id/autohdr_view"
+            android:layout_width="200dip"
+            android:layout_height="200dip"
+            android:layout_marginTop="50dip"
+            android:layout_marginLeft="15dip" />
     </FrameLayout>
 
     <com.android.camera.ui.RenderOverlay

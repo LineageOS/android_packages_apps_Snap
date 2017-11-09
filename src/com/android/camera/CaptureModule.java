@@ -271,6 +271,8 @@ public class CaptureModule implements CameraModule, PhotoController,
     private int mOrientation = OrientationEventListener.ORIENTATION_UNKNOWN;
     /*Histogram variables*/
     private Camera2GraphView mGraphViewR,mGraphViewGB,mGraphViewB;
+    private DrawAutoHDR2 mDrawAutoHDR2;
+    public boolean mAutoHdrEnable;
     /*HDR Test*/
     private boolean mCaptureHDRTestEnable = false;
     boolean mHiston = false;
@@ -907,6 +909,7 @@ public class CaptureModule implements CameraModule, PhotoController,
         mGraphViewR = (Camera2GraphView) mRootView.findViewById(R.id.graph_view_r);
         mGraphViewGB = (Camera2GraphView) mRootView.findViewById(R.id.graph_view_gb);
         mGraphViewB = (Camera2GraphView) mRootView.findViewById(R.id.graph_view_b);
+        mDrawAutoHDR2 = (DrawAutoHDR2 )mRootView.findViewById(R.id.autohdr_view);
         mGraphViewR.setDataSection(0,256);
         mGraphViewGB.setDataSection(256,512);
         mGraphViewB.setDataSection(512,768);
@@ -918,6 +921,9 @@ public class CaptureModule implements CameraModule, PhotoController,
         }
         if (mGraphViewB != null){
             mGraphViewB.setCaptureModuleObject(this);
+        }
+        if (mDrawAutoHDR2 != null) {
+            mDrawAutoHDR2.setCaptureModuleObject(this);
         }
         mFirstTimeInitialized = true;
     }
@@ -4195,12 +4201,30 @@ public class CaptureModule implements CameraModule, PhotoController,
         String autoHdr = mSettingsManager.getValue(SettingsManager.KEY_AUTO_HDR);
         if (value == null) return;
         int mode = Integer.parseInt(value);
+        mAutoHdrEnable = false;
         if (autoHdr != null && "enable".equals(autoHdr) && "0".equals(value)) {
             if (mSettingsManager.isHdrScene(getMainCameraId())) {
+                mAutoHdrEnable = true;
                 request.set(CaptureRequest.CONTROL_SCENE_MODE, CaptureRequest.CONTROL_SCENE_MODE_HDR);
                 request.set(CaptureRequest.CONTROL_MODE, CaptureRequest.CONTROL_MODE_USE_SCENE_MODE);
+                mActivity.runOnUiThread(new Runnable() {
+                    public void run() {
+                        if (mDrawAutoHDR2 != null) {
+                            mDrawAutoHDR2.setVisibility(View.VISIBLE);
+                            mDrawAutoHDR2.AutoHDR();
+                        }
+                    }
+                });
             }
             return;
+        } else {
+            mActivity.runOnUiThread( new Runnable() {
+                public void run () {
+                    if (mDrawAutoHDR2 != null) {
+                        mDrawAutoHDR2.setVisibility (View.INVISIBLE);
+                    }
+                }
+            });
         }
         if(getPostProcFilterId(mode) != PostProcessor.FILTER_NONE || mCaptureHDRTestEnable) {
             request.set(CaptureRequest.CONTROL_MODE, CaptureRequest.CONTROL_MODE_USE_SCENE_MODE);
@@ -5194,6 +5218,46 @@ class Camera2GraphView extends View {
     }
 
     public void setCaptureModuleObject(CaptureModule captureModule) {
+        mCaptureModule = captureModule;
+    }
+}
+
+class DrawAutoHDR2 extends View{
+
+    private static final String TAG = "AutoHdrView";
+    private CaptureModule mCaptureModule;
+
+    public DrawAutoHDR2 (Context context, AttributeSet attrs) {
+        super(context,attrs);
+    }
+
+    @Override
+    protected void onDraw (Canvas canvas) {
+        if (mCaptureModule == null)
+            return;
+        if (mCaptureModule.mAutoHdrEnable) {
+            Paint autoHDRPaint = new Paint();
+            autoHDRPaint.setColor(Color.WHITE);
+            autoHDRPaint.setAlpha (0);
+            canvas.drawPaint(autoHDRPaint);
+            autoHDRPaint.setStyle(Paint.Style.STROKE);
+            autoHDRPaint.setColor(Color.MAGENTA);
+            autoHDRPaint.setStrokeWidth(1);
+            autoHDRPaint.setTextSize(32);
+            autoHDRPaint.setAlpha (255);
+            canvas.drawText("HDR On",200,100,autoHDRPaint);
+        }
+        else {
+            super.onDraw(canvas);
+            return;
+        }
+    }
+
+    public void AutoHDR () {
+        invalidate();
+    }
+
+    public void setCaptureModuleObject (CaptureModule captureModule) {
         mCaptureModule = captureModule;
     }
 }
