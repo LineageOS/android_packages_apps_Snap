@@ -262,7 +262,6 @@ public class CaptureModule implements CameraModule, PhotoController,
 
     private boolean[] mTakingPicture = new boolean[MAX_NUM_CAM];
     private int mControlAFMode = CameraMetadata.CONTROL_AF_MODE_CONTINUOUS_PICTURE;
-    private int mLastAFmode = mControlAFMode;
     private int mLastResultAFState = -1;
     private Rect[] mCropRegion = new Rect[MAX_NUM_CAM];
     private boolean mAutoFocusRegionSupported;
@@ -2129,7 +2128,7 @@ public class CaptureModule implements CameraModule, PhotoController,
 
     private void applyCommonSettings(CaptureRequest.Builder builder, int id) {
         builder.set(CaptureRequest.CONTROL_MODE, CaptureRequest.CONTROL_MODE_AUTO);
-        applyAfModes(builder);
+        builder.set(CaptureRequest.CONTROL_AF_MODE, mControlAFMode);
         applyFaceDetection(builder);
         applyWhiteBalance(builder);
         applyExposure(builder);
@@ -2141,6 +2140,7 @@ public class CaptureModule implements CameraModule, PhotoController,
         applySaturationLevel(builder);
         applyAntiBandingLevel(builder);
         applySharpnessControlModes(builder);
+        applyAfModes(builder);
         applyExposureMeteringModes(builder);
         applyHistogram(builder);
     }
@@ -2346,8 +2346,6 @@ public class CaptureModule implements CameraModule, PhotoController,
             return PostProcessor.FILTER_SHARPSHOOTER;
         } else if (mode == SettingsManager.SCENE_MODE_BESTPICTURE_INT) {
             return PostProcessor.FILTER_BESTPICTURE;
-        } else if (mode == SettingsManager.SCENE_MODE_DEEPZOOM_INT) {
-            return PostProcessor.FILTER_DEEPZOOM;
         }
         return PostProcessor.FILTER_NONE;
     }
@@ -4039,19 +4037,10 @@ public class CaptureModule implements CameraModule, PhotoController,
 
     private void applyAfModes(CaptureRequest.Builder request) {
         String value = mSettingsManager.getValue(SettingsManager.KEY_AF_MODE);
-        int intValue = mLastAFmode;
         if (value != null) {
-            intValue = Integer.parseInt(value);
-        }
-        if (mLastAFmode != intValue) {
-            // means afmode value changed manually
+            int intValue = Integer.parseInt(value);
             request.set(CaptureRequest.CONTROL_AF_MODE, intValue);
-            mControlAFMode = intValue;
-        } else {
-            request.set(CaptureRequest.CONTROL_AF_MODE, mControlAFMode);
-            mSettingsManager.setValue(SettingsManager.KEY_AF_MODE, String.valueOf(mControlAFMode));
         }
-        mLastAFmode = mControlAFMode;
     }
 
     private void applyExposureMeteringModes(CaptureRequest.Builder request) {
@@ -4665,17 +4654,6 @@ public class CaptureModule implements CameraModule, PhotoController,
         try {
             int mode = Integer.parseInt(value);
             if(mode == SettingsManager.SCENE_MODE_PANORAMA_INT) {
-                return true;
-            }
-        } catch(Exception e) {
-        }
-        return false;
-    }
-
-    private boolean isDeepZoom(String value) {
-        try {
-            int mode = Integer.parseInt(value);
-            if(mode == SettingsManager.SCENE_MODE_DEEPZOOM_INT) {
                 return true;
             }
         } catch(Exception e) {

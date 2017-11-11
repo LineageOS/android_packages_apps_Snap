@@ -68,7 +68,6 @@ import com.android.camera.imageprocessor.filter.OptizoomFilter;
 import com.android.camera.imageprocessor.filter.SharpshooterFilter;
 import com.android.camera.imageprocessor.filter.StillmoreFilter;
 import com.android.camera.imageprocessor.filter.UbifocusFilter;
-import com.android.camera.imageprocessor.filter.DeepZoomFilter;
 import com.android.camera.ui.RotateTextToast;
 
 import java.io.ByteArrayOutputStream;
@@ -100,8 +99,7 @@ public class PostProcessor{
     public static final int FILTER_BESTPICTURE = 5;
     public static final int FILTER_CHROMAFLASH = 6;
     public static final int FILTER_BLURBUSTER = 7;
-    public static final int FILTER_DEEPZOOM = 8;
-    public static final int FILTER_MAX = 9;
+    public static final int FILTER_MAX = 8;
 
     //BestPicture requires 10 which is the biggest among filters
     private static final int MAX_REQUIRED_IMAGE_NUM = 11;
@@ -876,9 +874,6 @@ public class PostProcessor{
                     break;
                 case FILTER_CHROMAFLASH:
                     mFilter = new ChromaflashFilter(mController);
-                    break;
-                case FILTER_DEEPZOOM:
-                    mFilter = new DeepZoomFilter(mController);
                     break;
             }
         }
