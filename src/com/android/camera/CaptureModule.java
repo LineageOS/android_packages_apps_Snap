@@ -262,6 +262,7 @@ public class CaptureModule implements CameraModule, PhotoController,
 
     private boolean[] mTakingPicture = new boolean[MAX_NUM_CAM];
     private int mControlAFMode = CameraMetadata.CONTROL_AF_MODE_CONTINUOUS_PICTURE;
+    private int mLastAFmode = -1;
     private int mLastResultAFState = -1;
     private Rect[] mCropRegion = new Rect[MAX_NUM_CAM];
     private boolean mAutoFocusRegionSupported;
@@ -1235,6 +1236,10 @@ public class CaptureModule implements CameraModule, PhotoController,
         mSettingsManager = SettingsManager.getInstance();
         mSettingsManager.registerListener(this);
         mSettingsManager.init();
+        String value = mSettingsManager.getValue(SettingsManager.KEY_AF_MODE);
+        if (value != null) {
+            mLastAFmode = Integer.parseInt(value);
+        }
         mFirstPreviewLoaded = false;
         Log.d(TAG, "init");
         for (int i = 0; i < MAX_NUM_CAM; i++) {
@@ -2128,7 +2133,7 @@ public class CaptureModule implements CameraModule, PhotoController,
 
     private void applyCommonSettings(CaptureRequest.Builder builder, int id) {
         builder.set(CaptureRequest.CONTROL_MODE, CaptureRequest.CONTROL_MODE_AUTO);
-        builder.set(CaptureRequest.CONTROL_AF_MODE, mControlAFMode);
+        applyAfModes(builder);
         applyFaceDetection(builder);
         applyWhiteBalance(builder);
         applyExposure(builder);
@@ -2140,7 +2145,6 @@ public class CaptureModule implements CameraModule, PhotoController,
         applySaturationLevel(builder);
         applyAntiBandingLevel(builder);
         applySharpnessControlModes(builder);
-        applyAfModes(builder);
         applyExposureMeteringModes(builder);
         applyHistogram(builder);
     }
@@ -4037,10 +4041,19 @@ public class CaptureModule implements CameraModule, PhotoController,
 
     private void applyAfModes(CaptureRequest.Builder request) {
         String value = mSettingsManager.getValue(SettingsManager.KEY_AF_MODE);
+        int intValue = mLastAFmode;
         if (value != null) {
-            int intValue = Integer.parseInt(value);
-            request.set(CaptureRequest.CONTROL_AF_MODE, intValue);
+            intValue = Integer.parseInt(value);
         }
+        if (mLastAFmode != intValue && -1 != mLastAFmode) {
+            // means afmode value changed manually
+            request.set(CaptureRequest.CONTROL_AF_MODE, intValue);
+            mControlAFMode = intValue;
+        } else {
+            request.set(CaptureRequest.CONTROL_AF_MODE, mControlAFMode);
+            mSettingsManager.setValue(SettingsManager.KEY_AF_MODE, String.valueOf(mControlAFMode));
+        }
+        mLastAFmode = mControlAFMode;
     }
 
     private void applyExposureMeteringModes(CaptureRequest.Builder request) {
