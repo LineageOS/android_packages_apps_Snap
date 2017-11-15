@@ -1757,13 +1757,11 @@ public class CaptureModule implements CameraModule, PhotoController,
                 if (mSaveRaw) {
                     captureBuilder.addTarget(mRawImageReader[id].getSurface());
                 }
+
                 if(mPaused || !mCamerasOpened) {
                     //for avoid occurring crash when click back before capture finished.
                     //CameraDevice was already closed
                     return;
-                }
-                if (!mIsSupportedQcfa) {
-                    mCaptureSession[id].stopRepeating();
                 }
                 if (mLongshotActive) {
                     captureStillPictureForLongshot(captureBuilder, id);
@@ -1786,7 +1784,6 @@ public class CaptureModule implements CameraModule, PhotoController,
         }else{
             captureBuilder.set(CaptureRequest.CONTROL_ENABLE_ZSL, false);
         }
-        
         applySettingsForJpegInformation(captureBuilder, id);
         addPreviewSurface(captureBuilder, null, id);
         VendorTagUtil.setCdsMode(captureBuilder, 2); // CDS 0-OFF, 1-ON, 2-AUTO
@@ -5795,7 +5792,7 @@ public class CaptureModule implements CameraModule, PhotoController,
         }
         mUI.initializeProMode(!mPaused && promode);
     }
-	
+
     boolean checkSessionAndBuilder(CameraCaptureSession session, CaptureRequest.Builder builder) {
         return session != null && builder != null;
     }
