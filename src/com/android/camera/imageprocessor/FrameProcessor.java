@@ -59,7 +59,7 @@ import java.util.concurrent.Semaphore;
 import org.codeaurora.snapcam.R;
 
 public class FrameProcessor {
-
+    private static final String TAG = "FrameProcessor";
     private ImageReader mInputImageReader;
     private Allocation mInputAllocation;
     private Allocation mProcessAllocation;
@@ -326,7 +326,11 @@ public class FrameProcessor {
     public void setOutputSurface(Surface surface) {
         mSurfaceAsItIs = surface;
         if (mFinalFilters.size() != 0) {
-            mOutputAllocation.setSurface(surface);
+            if (surface != null && surface.isValid()) {
+                mOutputAllocation.setSurface(surface);
+            } else {
+                Log.d(TAG,"OutputSurface is not valid");
+            }
         }
     }
 
@@ -352,7 +356,11 @@ public class FrameProcessor {
                     mVideoOutputAllocation = Allocation.createTyped(mRs, rgbTypeBuilder.create(),
                             Allocation.USAGE_SCRIPT | Allocation.USAGE_IO_OUTPUT);
                 }
-                mVideoOutputAllocation.setSurface(surface);
+                if (surface != null && surface.isValid()) {
+                    mVideoOutputAllocation.setSurface(surface);
+                } else {
+                    Log.d(TAG,"Video outputSurface is not valid");
+                }
             }
         }
     }
