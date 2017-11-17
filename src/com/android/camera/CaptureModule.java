@@ -4625,6 +4625,11 @@ public class CaptureModule implements CameraModule, PhotoController,
                     updateVideoFlash();
                     return;
                 case SettingsManager.KEY_FLASH_MODE:
+                    // When enable APP-ZSL, run restartSession
+                    if (SettingsManager.getInstance().isZSLInAppEnabled()) {
+                        if (count == 0) restartSession(false);
+                    }
+                    return;
                 case SettingsManager.KEY_ZSL:
                 case SettingsManager.KEY_AUTO_HDR:
                 case SettingsManager.KEY_SAVERAW:
