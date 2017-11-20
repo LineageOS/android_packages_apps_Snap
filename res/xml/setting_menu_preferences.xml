@@ -426,5 +426,14 @@
             android:layout="@layout/preference"
             android:summary="%s"
             android:title="@string/pref_camera2_switch_camera_title"/>
+
+        <ListPreference
+            android:key="pref_camera2_eis_key"
+            android:defaultValue="@string/pref_camera2_eis_default"
+            android:title="@string/pref_camera2_eis_title"
+            android:entries="@array/pref_camera2_eis_entries"
+            android:entryValues="@array/pref_camera2_eis_entryvalues"
+            android:layout="@layout/preference"
+            android:summary="%s"/>
     </PreferenceCategory>
 </PreferenceScreen>

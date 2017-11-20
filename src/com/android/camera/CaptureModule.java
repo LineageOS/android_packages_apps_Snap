@@ -265,6 +265,8 @@ public class CaptureModule implements CameraModule, PhotoController,
             "org.codeaurora.qcamera3.sharpness.strength", Integer.class);
     public static final CaptureRequest.Key<Integer> exposure_metering = new CaptureRequest.Key<>(
             "org.codeaurora.qcamera3.exposure_metering.exposure_metering_mode", Integer.class);
+    public static final CaptureRequest.Key<Byte> eis_mode =
+            new CaptureRequest.Key<>("org.quic.camera.eis3enable.EISV3Enable", byte.class);
 
     private boolean[] mTakingPicture = new boolean[MAX_NUM_CAM];
     private int mControlAFMode = CameraMetadata.CONTROL_AF_MODE_CONTINUOUS_PICTURE;
@@ -398,6 +400,7 @@ public class CaptureModule implements CameraModule, PhotoController,
     private boolean mHighSpeedCapture = false;
     private boolean mHighSpeedRecordingMode = false; //HFR
     private int mHighSpeedCaptureRate;
+    private boolean mEisEnabled = false;
     private CaptureRequest.Builder mVideoRequestBuilder;
 
     private static final int STATS_DATA = 768;
@@ -3434,6 +3437,7 @@ public class CaptureModule implements CameraModule, PhotoController,
         applyFaceDetection(builder);
         applyZoom(builder, cameraId);
         applyVideoEncoderProfile(builder);
+        applyEIS(builder);
     }
 
     private void updateVideoFlash() {
@@ -3559,6 +3563,15 @@ public class CaptureModule implements CameraModule, PhotoController,
         mMediaRecorderPausing = true;
         mRecordingTotalTime += SystemClock.uptimeMillis() - mRecordingStartTime;
         mMediaRecorder.pause();
+        if (mEisEnabled) {
+            try {
+                if (mCurrentSession != null) {
+                    mCurrentSession.abortCaptures();
+                }
+            } catch (CameraAccessException e) {
+                Log.w(TAG, "pauseVideoRecording " + " Camera access failed");
+            }
+        }
     }
 
     private void resumeVideoRecording() {
@@ -3593,6 +3606,13 @@ public class CaptureModule implements CameraModule, PhotoController,
         boolean shouldAddToMediaStoreNow = false;
         // Stop recording
         checkAndPlayRecordSound(cameraId, false);
+        if (mEisEnabled) {
+            try {
+                mCaptureSession[cameraId].abortCaptures();
+            } catch (CameraAccessException e) {
+                Log.w(TAG, "stopRecordingVideo " + cameraId + " Camera access failed");
+            }
+        }
         mFrameProcessor.setVideoOutputSurface(null);
         mFrameProcessor.onClose();
         closePreviewSession();
@@ -4145,7 +4165,11 @@ public class CaptureModule implements CameraModule, PhotoController,
         String value = mSettingsManager.getValue(SettingsManager.KEY_SHARPNESS_CONTROL_MODE);
         if (value != null) {
             int intValue = Integer.parseInt(value);
-            request.set(CaptureModule.sharpness_control, intValue);
+            try {
+                request.set(CaptureModule.sharpness_control, intValue);
+            } catch (IllegalArgumentException e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -4158,6 +4182,22 @@ public class CaptureModule implements CameraModule, PhotoController,
         if (intValue != CaptureRequest.CONTROL_AF_MODE_OFF
                 && intValue != -1) {
             request.set(CaptureRequest.CONTROL_AF_MODE, intValue);
+        }
+    }
+
+    private void applyEIS(CaptureRequest.Builder request) {
+        if (!mSettingsManager.isDeveloperEnabled()) {
+            return;//don't apply if not in dev mode
+        }
+        String value = mSettingsManager.getValue(SettingsManager.KEY_EIS_VALUE);
+        if (value != null) {
+            mEisEnabled = Boolean.parseBoolean(value);
+            byte byteValue = (byte) (mEisEnabled ? 0x01 : 0x00);
+            try {
+                request.set(CaptureModule.eis_mode, byteValue);
+            } catch (IllegalArgumentException e) {
+                e.printStackTrace();
+            }
         }
     }
 

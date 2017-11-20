@@ -320,6 +320,10 @@ public class SettingsActivity extends PreferenceActivity {
                                 if (privateCounter >= DEVELOPER_MENU_TOUCH_COUNT) {
                                     mDeveloperMenuEnabled = true;
                                     mSharedPreferences.edit().putBoolean(SettingsManager.KEY_DEVELOPER_MENU, true).apply();
+                                    SharedPreferences sp = SettingsActivity.this.getSharedPreferences(
+                                            ComboPreferences.getGlobalSharedPreferencesName(SettingsActivity.this),
+                                            Context.MODE_PRIVATE);
+                                    sp.edit().putBoolean(SettingsManager.KEY_DEVELOPER_MENU, true).apply();
                                     Toast.makeText(SettingsActivity.this, "Camera developer option is enabled now", Toast.LENGTH_SHORT).show();
                                     recreate();
                                 }
