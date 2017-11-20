@@ -3169,31 +3169,7 @@ public class CaptureModule implements CameraModule, PhotoController,
 
         try {
             setUpMediaRecorder(cameraId);
-            try {
-                mMediaRecorder.start(); // Recording is now started
-            } catch (RuntimeException e) {
-                Toast.makeText(mActivity,"Could not start media recorder.\n " +
-                        "Can't start video recording.", Toast.LENGTH_LONG).show();
-                releaseMediaRecorder();
-                releaseAudioFocus();
-                mStartRecPending = false;
-                mIsRecordingVideo = false;
-                return false;
-            }
-            if (mUnsupportedResolution == true ) {
-                Log.v(TAG, "Unsupported Resolution according to target");
-                mStartRecPending = false;
-                mIsRecordingVideo = false;
-                return false;
-            }
-            if (mMediaRecorder == null) {
-                Log.e(TAG, "Fail to initialize media recorder");
-                mStartRecPending = false;
-                mIsRecordingVideo = false;
-                return false;
-            }
 
-            requestAudioFocus();
             mUI.clearFocus();
             mUI.hideUIwhileRecording();
             mCameraHandler.removeMessages(CANCEL_TOUCH_FOCUS, mCameraId[cameraId]);
@@ -3263,6 +3239,13 @@ public class CaptureModule implements CameraModule, PhotoController,
                                         + e.getMessage());
                             e.printStackTrace();
                         }
+                        if (!startMediaRecorder()) {
+                            mUI.showUIafterRecording();
+                            releaseMediaRecorder();
+                            mFrameProcessor.setVideoOutputSurface(null);
+                            restartSession(true);
+                            return;
+                        }
                         mUI.clearFocus();
                         mUI.resetPauseButton();
                         mRecordingTotalTime = 0L;
@@ -3298,6 +3281,14 @@ public class CaptureModule implements CameraModule, PhotoController,
                         } catch (IllegalStateException e) {
                             e.printStackTrace();
                         }
+                        if (!startMediaRecorder()) {
+                            mUI.showUIafterRecording();
+                            releaseMediaRecorder();
+                            mFrameProcessor.setVideoOutputSurface(null);
+                            restartSession(true);
+                            return;
+                        }
+
                         mUI.clearFocus();
                         mUI.resetPauseButton();
                         mRecordingTotalTime = 0L;
@@ -3319,6 +3310,35 @@ public class CaptureModule implements CameraModule, PhotoController,
             e.printStackTrace();
         }
         mStartRecPending = false;
+        return true;
+    }
+
+    private boolean startMediaRecorder() {
+        try {
+            mMediaRecorder.start(); // Recording is now started
+        } catch (RuntimeException e) {
+            Toast.makeText(mActivity,"Could not start media recorder.\n " +
+                    "Can't start video recording.", Toast.LENGTH_LONG).show();
+            releaseMediaRecorder();
+            releaseAudioFocus();
+            mStartRecPending = false;
+            mIsRecordingVideo = false;
+            return false;
+        }
+        if (mUnsupportedResolution == true ) {
+            Log.v(TAG, "Unsupported Resolution according to target");
+            mStartRecPending = false;
+            mIsRecordingVideo = false;
+            return false;
+        }
+        if (mMediaRecorder == null) {
+            Log.e(TAG, "Fail to initialize media recorder");
+            mStartRecPending = false;
+            mIsRecordingVideo = false;
+            return false;
+        }
+
+        requestAudioFocus();
         return true;
     }
 
