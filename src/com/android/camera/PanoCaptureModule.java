@@ -114,6 +114,7 @@ public class PanoCaptureModule implements CameraModule, PhotoController {
     private Object mSessionLock = new Object();
     public static final float TARGET_RATIO = 4f/3f;
     private static final int STATE_WAITING_LOCK = 1;
+    private static final int STATE_AF_ERROR = 2;
     private Semaphore mFocusLockSemaphore = new Semaphore(1);
     private boolean mIsLockFocusAttempted = false;
     private int mCameraSensorOrientation;
@@ -123,13 +124,20 @@ public class PanoCaptureModule implements CameraModule, PhotoController {
 
         private void process(CaptureResult result) {
             switch (mState) {
-                case STATE_PREVIEW: {
+                case STATE_AF_ERROR:
+                case STATE_PREVIEW:
+                {
                     break;
                 }
                 case STATE_WAITING_LOCK: {
                     Integer afState = result.get(CaptureResult.CONTROL_AF_STATE);
                     Integer aeState = result.get(CaptureResult.CONTROL_AE_STATE);
                     Log.d(TAG, "STATE_WAITING_LOCK afState:" + afState + " aeState:" + aeState);
+                    if (afState == null) {
+                        mState = STATE_AF_ERROR;
+                        Toast.makeText(mActivity, "AF state is null, can't take panorama.", Toast.LENGTH_SHORT).show();
+                        break;
+                    }
                     if (CaptureResult.CONTROL_AF_STATE_FOCUSED_LOCKED == afState ||
                             CaptureResult.CONTROL_AF_STATE_NOT_FOCUSED_LOCKED == afState) {
                         changePanoStatus(true, false);
