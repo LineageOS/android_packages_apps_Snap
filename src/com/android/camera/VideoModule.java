@@ -210,9 +210,6 @@ public class VideoModule extends BaseModule<VideoUI> implements
     private int mPendingSwitchCameraId;
     private final Handler mHandler = new MainHandler();
     private CameraProxy mCameraDevice;
-    private static final String KEY_PREVIEW_FORMAT = "preview-format";
-    private static final String FORMAT_NV12_VENUS = "nv12-venus";
-    private static final String FORMAT_NV21 = "yuv420sp";
 
     // The degrees of the device rotated clockwise from its natural orientation.
     private int mOrientation = OrientationEventListener.ORIENTATION_UNKNOWN;
@@ -2462,9 +2459,6 @@ public class VideoModule extends BaseModule<VideoUI> implements
         }
         Log.d(TAG, "antiBanding value = " + mParameters.getAntibanding());
 
-        mUnsupportedHFRVideoSize = false;
-        mUnsupportedHFRVideoCodec = false;
-        mUnsupportedHSRVideoSize = false;
         // To set preview format as YV12 , run command
         // "adb shell setprop "debug.camera.yv12" true"
         String yv12formatset = SystemProperties.get("debug.camera.yv12");
@@ -2473,10 +2467,10 @@ public class VideoModule extends BaseModule<VideoUI> implements
             mParameters.setPreviewFormat (ImageFormat.YV12);
         }
 
-        mParameters.set(KEY_PREVIEW_FORMAT, FORMAT_NV21);
-        Log.v(TAG, "preview format set to NV21");
-
         // Set High Frame Rate.
+        mUnsupportedHFRVideoSize = false;
+        mUnsupportedHFRVideoCodec = false;
+        mUnsupportedHSRVideoSize = false;
         String HighFrameRate = mPreferences.getString(
             CameraSettings.KEY_VIDEO_HIGH_FRAME_RATE,
             mActivity. getString(R.string.pref_camera_hfr_default));
