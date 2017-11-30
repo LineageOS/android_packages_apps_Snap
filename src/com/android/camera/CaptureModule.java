@@ -103,6 +103,7 @@ import com.android.camera.PhotoModule.NamedImages.NamedEntity;
 import com.android.camera.imageprocessor.filter.SharpshooterFilter;
 import com.android.camera.imageprocessor.filter.StillmoreFilter;
 import com.android.camera.imageprocessor.filter.UbifocusFilter;
+import com.android.camera.mpo.MpoInterface;
 import com.android.camera.ui.CountDownView;
 import com.android.camera.ui.ModuleSwitcher;
 import com.android.camera.ui.RotateTextToast;
@@ -117,6 +118,8 @@ import com.android.internal.util.MemInfoReader;
 
 import org.codeaurora.snapcam.R;
 import org.codeaurora.snapcam.filter.ClearSightImageProcessor;
+import org.codeaurora.snapcam.filter.GDepth;
+import org.codeaurora.snapcam.filter.GImage;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -666,7 +669,7 @@ public class CaptureModule implements CameraModule, PhotoController,
             @Override
             public void run() {
                 if (mUI.getBokehTipView() != null) {
-                    if (!mDepthSuccess) {
+                    if (!mDepthSuccess && mBokehEnabled) {
                         mUI.getBokehTipRct().setVisibility(View.VISIBLE);
                         mUI.getBokehTipView().setVisibility(View.VISIBLE);
                         mUI.getBokehTipView().setText(tip);
@@ -1897,7 +1900,7 @@ public class CaptureModule implements CameraModule, PhotoController,
                         ImageAvailableListener listener = new ImageAvailableListener(i) {
                             @Override
                             public void onImageAvailable(ImageReader reader) {
-                                if (mIsSupportedQcfa) {
+                                if (mIsSupportedQcfa || mBokehEnabled) {
                                     mHandler.post(new Runnable() {
                                         @Override
                                         public void run() {
@@ -1935,9 +1938,19 @@ public class CaptureModule implements CameraModule, PhotoController,
                                                 onCaptureDone();
                                             }
                                         } else {
-                                            mActivity.getMediaSaveService().addImage(bytes, title, date,
-                                                    null, image.getWidth(), image.getHeight(), orientation, null,
-                                                    mOnMediaSavedListener, mContentResolver, "jpeg");
+                                            ArrayList<byte[]> bokehBytes = MpoInterface.generateXmpFromMpo(bytes);
+                                            if (mBokehEnabled && bokehBytes != null && bokehBytes.size() > 2) {
+                                                GImage gImage = new GImage(bokehBytes.get(1), "image/jpeg");
+                                                GDepth gDepth = GDepth.createGDepth(bokehBytes.get(bokehBytes.size()-1));
+                                                gDepth.setRoi(new Rect(0, 0, image.getWidth(), image.getHeight()));
+                                                mActivity.getMediaSaveService().addXmpImage(bokehBytes.get(0), gImage,
+                                                        gDepth, title, date, null, image.getWidth(), image.getHeight(),
+                                                        orientation, exif, mOnMediaSavedListener, mContentResolver, "jpeg");
+                                            } else {
+                                                mActivity.getMediaSaveService().addImage(bytes, title, date,
+                                                        null, image.getWidth(), image.getHeight(), orientation, null,
+                                                        mOnMediaSavedListener, mContentResolver, "jpeg");
+                                            }
 
                                             if (mLongshotActive) {
                                                 mLastJpegData = bytes;
@@ -2037,7 +2050,7 @@ public class CaptureModule implements CameraModule, PhotoController,
                     @Override
                     public void run() {
                         mUI.stopSelfieFlash();
-                        if (!mIsSupportedQcfa) {
+                        if (!mIsSupportedQcfa && !mBokehEnabled) {
                             mUI.enableShutter(true);
                         }
                         mUI.enableVideo(true);
@@ -4350,6 +4363,19 @@ public class CaptureModule implements CameraModule, PhotoController,
                 && mode != SettingsManager.SCENE_MODE_PROMODE_INT
                 && mode != SettingsManager.SCENE_MODE_BOKEH_INT) {
             request.set(CaptureRequest.CONTROL_SCENE_MODE, mode);
+            request.set(CaptureRequest.CONTROL_MODE, CaptureRequest.CONTROL_MODE_USE_SCENE_MODE);
+        } else if (mode == SettingsManager.SCENE_MODE_BOKEH_INT){
+            setSceneModeForBokeh(request);
+        } else {
+            request.set(CaptureRequest.CONTROL_MODE, CaptureRequest.CONTROL_MODE_AUTO);
+        }
+    }
+
+    private void setSceneModeForBokeh(CaptureRequest.Builder request) {
+        String fdValue = mSettingsManager.getValue(SettingsManager.KEY_FACE_DETECTION);
+        if (fdValue != null && fdValue.equals("on")) {
+            request.set(CaptureRequest.CONTROL_SCENE_MODE,
+                    CaptureRequest.CONTROL_SCENE_MODE_FACE_PRIORITY);
             request.set(CaptureRequest.CONTROL_MODE, CaptureRequest.CONTROL_MODE_USE_SCENE_MODE);
         } else {
             request.set(CaptureRequest.CONTROL_MODE, CaptureRequest.CONTROL_MODE_AUTO);

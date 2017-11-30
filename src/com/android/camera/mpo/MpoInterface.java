@@ -19,11 +19,17 @@
 
 package com.android.camera.mpo;
 
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.util.ArrayList;
 
+import android.app.Activity;
+import android.content.Context;
 import android.util.Log;
 
 import com.android.camera.exif.ExifInterface;
@@ -139,5 +145,107 @@ public class MpoInterface {
             Log.w(TAG, "File not found");
         }
         return out;
+    }
+
+    private static short getShort(byte[] b, int index) {
+        return (short) (((b[index] << 8) | b[index + 1] & 0xff));
+    }
+
+    private static byte[] openNewStream(ByteArrayOutputStream stream) {
+        byte[] bytes = stream.toByteArray();
+        stream.reset();
+        return bytes;
+    }
+
+    /**
+     * generate XMP from a MPO file
+     * @param mpoFilePath file path of MPO file which need decoded
+     * @return byte[] list. first is mainImageBytes. second is bayerBytes.
+     * last is gdepthBytes
+     */
+    public static ArrayList<byte[]> generateXmpFromMpo(String mpoFilePath) {
+        File mpoFile = new File(mpoFilePath);
+        ArrayList<byte[]> bytes = new ArrayList<>();
+        int readedCount;
+        byte[] readBuffer = new byte[1024];
+        int eoiNumber = 0;
+        int i;
+        int index = 0;
+        boolean endByFF = false;
+        int startIndex;
+        FileInputStream sourceStream = null;
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        try {
+            sourceStream = new FileInputStream(mpoFile);
+            while ((readedCount = sourceStream.read(readBuffer)) != -1) {
+                if (endByFF && readBuffer[0] == (byte)0xd9 && ++eoiNumber == 2) {
+                    eoiNumber = 0;
+                    outputStream.write((byte)0xd9);
+                    index = 1;
+                    if (readedCount == 1) {
+                        break;
+                    }
+                    bytes.add(openNewStream(outputStream));
+                }
+                endByFF = false;
+                for (i = 0; i < readedCount - 1; i++) {
+                    if (getShort(readBuffer, i) != (short) 0xFFD9) {
+                        continue;
+                    }
+                    if (++eoiNumber == 2) {
+                        startIndex = index;
+                        index = i + 2;
+                        outputStream.write(readBuffer, startIndex, index - startIndex);
+                        bytes.add(openNewStream(outputStream));
+                        eoiNumber = 0;
+                    }
+                }
+                endByFF = readBuffer[readedCount - 1] == (byte)0xff;
+                if (index < readedCount) {
+                    outputStream.write(readBuffer, index, readedCount - index);
+                }
+                index = 0;
+            }
+            sourceStream.close();
+            outputStream.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return bytes;
+    }
+
+    /**
+     * generate XMP from MPO byte[]
+     * @param mpoSourceBytes byte array of source mpo file
+     * @return byte[] list. first is mainImageBytes. second is bayerBytes.
+     * last is gdepthBytes
+     */
+    public static ArrayList<byte[]> generateXmpFromMpo(byte[] mpoSourceBytes) {
+        ArrayList<byte[]> bytes = new ArrayList<>();
+        int i;
+        int eoiNumber = 0;
+        int index = 0;
+        int startIndex;
+        boolean isFirstImage = true;
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        try {
+            for (i = 0; i < mpoSourceBytes.length - 1; i++) {
+                if (getShort(mpoSourceBytes, i) != (short) 0xFFD9) {
+                    continue;
+                }
+                if (++eoiNumber == 2 || !isFirstImage) {
+                    startIndex = index;
+                    index = i + 2;
+                    outputStream.write(mpoSourceBytes, startIndex, index - startIndex);
+                    bytes.add(openNewStream(outputStream));
+                    eoiNumber = 0;
+                    isFirstImage = false;
+                }
+            }
+            outputStream.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return bytes;
     }
 }

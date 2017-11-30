@@ -709,6 +709,16 @@ public class SettingsManager implements ListMenu.SettingsListener {
             }
         }
 
+        if (pictureSize != null) {
+            if (filterUnsupportedOptions(pictureSize, getSupportedPictureSize(cameraId))) {
+                mFilteredKeys.add(pictureSize.getKey());
+            } else {
+                if (filterSimilarPictureSize(mPreferenceGroup, pictureSize)) {
+                    mFilteredKeys.add(pictureSize.getKey());
+                }
+            }
+        }
+
         if (sceneMode != null) {
             if (filterUnsupportedOptions(sceneMode, getSupportedSceneModes(cameraId))) {
                 mFilteredKeys.add(sceneMode.getKey());
@@ -723,16 +733,6 @@ public class SettingsManager implements ListMenu.SettingsListener {
         }
 
         if (cameraIdPref != null) buildCameraId();
-
-        if (pictureSize != null) {
-            if (filterUnsupportedOptions(pictureSize, getSupportedPictureSize(cameraId))) {
-                mFilteredKeys.add(pictureSize.getKey());
-            } else {
-                if (filterSimilarPictureSize(mPreferenceGroup, pictureSize)) {
-                    mFilteredKeys.add(pictureSize.getKey());
-                }
-            }
-        }
 
         if (exposure != null) buildExposureCompensation(cameraId);
 
@@ -1251,6 +1251,7 @@ public class SettingsManager implements ListMenu.SettingsListener {
     private List<String> getSupportedSceneModes(int cameraId) {
         int[] sceneModes = mCharacteristics.get(cameraId).get(CameraCharacteristics
                 .CONTROL_AVAILABLE_SCENE_MODES);
+        ListPreference pictureSize = mPreferenceGroup.findPreference(KEY_PICTURE_SIZE);
         List<String> modes = new ArrayList<>();
         modes.add("0"); // need special case handle for auto scene mode
         if (mIsMonoCameraPresent) modes.add(SCENE_MODE_DUAL_STRING); // need special case handle for dual mode
@@ -1263,9 +1264,11 @@ public class SettingsManager implements ListMenu.SettingsListener {
         if (SharpshooterFilter.isSupportedStatic()) modes.add(SCENE_MODE_SHARPSHOOTER_INT + "");
         if (TrackingFocusFrameListener.isSupportedStatic()) modes.add(SCENE_MODE_TRACKINGFOCUS_INT + "");
         modes.add("" + SCENE_MODE_PROMODE_INT);
-        modes.add("" + SCENE_MODE_BOKEH_INT);
+        if (pictureSize != null && pictureSize.getValue().equals("4000x3000")) {
+            modes.add(String.valueOf(SCENE_MODE_BOKEH_INT));
+        }
         for (int mode : sceneModes) {
-            modes.add("" + mode);
+            modes.add(String.valueOf(mode));
         }
         return modes;
     }
