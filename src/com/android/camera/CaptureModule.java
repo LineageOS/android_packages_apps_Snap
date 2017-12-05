@@ -3354,6 +3354,7 @@ public class CaptureModule implements CameraModule, PhotoController,
     private boolean startMediaRecorder() {
         try {
             mMediaRecorder.start(); // Recording is now started
+            Log.d(TAG, "StartRecordingVideo done.");
         } catch (RuntimeException e) {
             Toast.makeText(mActivity,"Could not start media recorder.\n " +
                     "Can't start video recording.", Toast.LENGTH_LONG).show();
@@ -3581,6 +3582,7 @@ public class CaptureModule implements CameraModule, PhotoController,
             mMediaRecorder.setOnInfoListener(null);
             mMediaRecorder.stop();
             shouldAddToMediaStoreNow = true;
+            Log.d(TAG, "stopRecordingVideo done.");
             AccessibilityUtils.makeAnnouncement(mUI.getVideoButton(),
                     mActivity.getString(R.string.video_recording_stopped));
         } catch (RuntimeException e) {
