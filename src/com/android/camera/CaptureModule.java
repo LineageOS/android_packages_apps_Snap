@@ -2415,9 +2415,15 @@ public class CaptureModule implements CameraModule, PhotoController,
     private void openProcessors() {
         String scene = mSettingsManager.getValue(SettingsManager.KEY_SCENE_MODE);
         mIsSupportedQcfa = mSettingsManager.getQcfaPrefEnabled() &&
-            mSettingsManager.getIsSupportedQcfa(getMainCameraId()) &&
-            mPictureSize.toString().equals(mSettingsManager.getSupportedQcfaDimension(
-                getMainCameraId()));
+                mSettingsManager.getIsSupportedQcfa(getMainCameraId());
+        // add the judgement condition for special qcfa
+        if (mIsSupportedQcfa) {
+            Size qcfaSize = mSettingsManager.getQcfaSupportSize();
+            if (mPictureSize.getWidth() <= qcfaSize.getWidth() / 2 &&
+                    mPictureSize.getHeight() <= qcfaSize.getHeight() / 2) {
+                mIsSupportedQcfa = false;
+            }
+        }
         boolean isFlashOn = false;
         boolean isMakeupOn = false;
         boolean isSelfieMirrorOn = false;

@@ -1534,7 +1534,7 @@ public class SettingsManager implements ListMenu.SettingsListener {
         int[] qcfaDimension = mCharacteristics.get(cameraId).get(
                 CaptureModule.QCFA_SUPPORT_DIMENSION);
         if (qcfaDimension == null) {
-            return null;
+            return "";
         }
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < qcfaDimension.length; i ++) {
@@ -1546,6 +1546,13 @@ public class SettingsManager implements ListMenu.SettingsListener {
         return  sb.toString();
     }
 
+    public Size getQcfaSupportSize() {
+        String qcfaSize = getSupportedQcfaDimension(mCameraId);
+        if (qcfaSize != null) {
+            return parseSize(getSupportedQcfaDimension(mCameraId));
+        }
+        return new Size(0, 0);
+    }
 
     public List<String> getSupportedSaturationLevelAvailableModes(int cameraId) {
         int[] saturationLevelAvailableModes = {0,1,2,3,4,5,6,7,8,9,10};
