@@ -191,7 +191,7 @@ public class CaptureModule implements CameraModule, PhotoController,
     // we can change it based on memory status or other requirements.
     private static final int LONGSHOT_CANCEL_THRESHOLD = 40 * 1024 * 1024;
 
-    private static final int NORMAL_SESSION_MAX_FPS = 60;
+    private static final int NORMAL_SESSION_MAX_FPS = 30;
 
     private static final int SCREEN_DELAY = 2 * 60 * 1000;
 
@@ -257,9 +257,11 @@ public class CaptureModule implements CameraModule, PhotoController,
     public static CaptureResult.Key<byte[]> gazeDegree =
             new CaptureResult.Key<>("org.codeaurora.qcamera3.stats.gaze_degree",
                     byte[].class);
+    public static final CameraCharacteristics.Key<int[]> hfrFpsTable =
+            new CameraCharacteristics.Key<>("org.quic.camera2.customhfrfps.info.CustomHFRFpsTable", int[].class);
+
     public static final CaptureRequest.Key<Integer> sharpness_control = new CaptureRequest.Key<>(
             "org.codeaurora.qcamera3.sharpness.strength", Integer.class);
-
     public static final CaptureRequest.Key<Integer> exposure_metering = new CaptureRequest.Key<>(
             "org.codeaurora.qcamera3.exposure_metering.exposure_metering_mode", Integer.class);
 
