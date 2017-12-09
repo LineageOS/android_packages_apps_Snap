@@ -2131,6 +2131,12 @@ public class CaptureModule implements CameraModule, PhotoController,
         }
     }
 
+    private void resetAudioMute() {
+        if (isAudioMute()) {
+            setMute(false, true);
+        }
+    }
+
     /**
      * Closes the current {@link CameraDevice}.
      */
@@ -2401,6 +2407,7 @@ public class CaptureModule implements CameraModule, PhotoController,
             ClearSightImageProcessor.getInstance().close();
         }
         closeCamera();
+        resetAudioMute();
         mUI.showPreviewCover();
         mUI.hideSurfaceView();
         mFirstPreviewLoaded = false;
