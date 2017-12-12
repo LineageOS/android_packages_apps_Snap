@@ -393,6 +393,7 @@
   <string name="pref_camera_tsmakeup_entry_low">Rendah</string>
   <string name="pref_camera_tsmakeup_entry_mid">Sedang</string>
   <string name="pref_camera_tsmakeup_entry_high">Tinggi</string>
+  <string name="pref_camera_tsmakeup_custom">Kustom</string>
   <string name="pref_camera_tsmakeup_level_whiten">Putihkan</string>
   <string name="pref_camera_tsmakeup_level_clean">Perhalus</string>
   <string name="text_tsmakeup_alert_title">Peringatan</string>
