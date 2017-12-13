@@ -844,6 +844,9 @@ public class CaptureModule implements CameraModule, PhotoController,
     }
 
     private void checkAfAeStatesAndCapture(int id) {
+        if(mPaused || !mCamerasOpened) {
+            return;
+        }
         if(isBackCamera() && getCameraMode() == DUAL_MODE) {
             mState[id] = STATE_AF_AE_LOCKED;
             try {
@@ -1636,6 +1639,11 @@ public class CaptureModule implements CameraModule, PhotoController,
                 if (mSaveRaw) {
                     captureBuilder.addTarget(mRawImageReader[id].getSurface());
                 }
+                if(mPaused || !mCamerasOpened) {
+                    //for avoid occurring crash when click back before capture finished.
+                    //CameraDevice was already closed
+                    return;
+                }
                 if (!mIsSupportedQcfa) {
                     mCaptureSession[id].stopRepeating();
                 }
@@ -1667,6 +1675,11 @@ public class CaptureModule implements CameraModule, PhotoController,
         applySettingsForCapture(captureBuilder, id);
         applySettingsForLockExposure(captureBuilder, id);
         checkAndPlayShutterSound(id);
+        if(mPaused || !mCamerasOpened) {
+            //for avoid occurring crash when click back before capture finished.
+            //CameraDevice was already closed
+            return;
+        }
         ClearSightImageProcessor.getInstance().capture(
                 id==BAYER_ID, mCaptureSession[id], captureBuilder, mCaptureCallbackHandler);
     }
@@ -1674,6 +1687,11 @@ public class CaptureModule implements CameraModule, PhotoController,
     private void captureStillPictureForFilter(CaptureRequest.Builder captureBuilder, int id) throws CameraAccessException{
         applySettingsForLockExposure(captureBuilder, id);
         checkAndPlayShutterSound(id);
+        if(mPaused || !mCamerasOpened) {
+            //for avoid occurring crash when click back before capture finished.
+            //CameraDevice was already closed
+            return;
+        }
         mCaptureSession[id].stopRepeating();
         captureBuilder.addTarget(mImageReader[id].getSurface());
         if (mSaveRaw) {
