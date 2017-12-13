@@ -334,6 +334,7 @@ public class CaptureModule implements CameraModule, PhotoController,
     private boolean mQuickCapture;
     private byte[] mJpegImageData;
     private boolean mSaveRaw = false;
+    private boolean mSupportZoomCapture = true;
 
     /**
      * A {@link CameraCaptureSession } for camera preview.
@@ -1652,6 +1653,7 @@ public class CaptureModule implements CameraModule, PhotoController,
         Log.d(TAG, "captureStillPicture " + id);
         mJpegImageData = null;
         mIsRefocus = false;
+        if (isDeepZoom()) mSupportZoomCapture = false;
         try {
             if (null == mActivity || null == mCameraDevice[id]) {
                 warningToast("Camera is not ready yet to take a picture.");
@@ -1671,7 +1673,7 @@ public class CaptureModule implements CameraModule, PhotoController,
             applySettingsForJpegInformation(captureBuilder, id);
             applyAFRegions(captureBuilder, id);
             applyAERegions(captureBuilder, id);
-            if (!mIsSupportedQcfa) {
+            if (!mIsSupportedQcfa || !isDeepZoom()) {
                 addPreviewSurface(captureBuilder, null, id);
             }
             VendorTagUtil.setCdsMode(captureBuilder, 2);// CDS 0-OFF, 1-ON, 2-AUTO
@@ -1682,6 +1684,7 @@ public class CaptureModule implements CameraModule, PhotoController,
                 captureBuilder.set(CaptureRequest.CONTROL_MODE, CaptureRequest.CONTROL_MODE_OFF);
             }
 
+            if (isDeepZoom()) mSupportZoomCapture = true;
             if(isClearSightOn()) {
                 captureStillPictureForClearSight(id);
             } else if(id == getMainCameraId() && mPostProcessor.isFilterOn()) { // Case of post filtering
@@ -1744,7 +1747,9 @@ public class CaptureModule implements CameraModule, PhotoController,
             //CameraDevice was already closed
             return;
         }
-        mCaptureSession[id].stopRepeating();
+        if (!isDeepZoom()) {
+            mCaptureSession[id].stopRepeating();
+        }
         captureBuilder.addTarget(mImageReader[id].getSurface());
         if (mSaveRaw) {
             captureBuilder.addTarget(mRawImageReader[id].getSurface());
@@ -2585,6 +2590,8 @@ public class CaptureModule implements CameraModule, PhotoController,
             return PostProcessor.FILTER_SHARPSHOOTER;
         } else if (mode == SettingsManager.SCENE_MODE_BESTPICTURE_INT) {
             return PostProcessor.FILTER_BESTPICTURE;
+        } else if (mode == SettingsManager.SCENE_MODE_DEEPZOOM_INT) {
+            return PostProcessor.FILTER_DEEPZOOM;
         }
         return PostProcessor.FILTER_NONE;
     }
@@ -2842,28 +2849,7 @@ public class CaptureModule implements CameraModule, PhotoController,
     @Override
     public void onZoomChanged(float requestedZoom) {
         mZoomValue = requestedZoom;
-
-        if (isBackCamera()) {
-            switch (getCameraMode()) {
-                case DUAL_MODE:
-                    applyZoomAndUpdate(BAYER_ID);
-                    applyZoomAndUpdate(MONO_ID);
-                    break;
-                case BAYER_MODE:
-                    applyZoomAndUpdate(BAYER_ID);
-                    break;
-                case MONO_MODE:
-                    applyZoomAndUpdate(MONO_ID);
-                    break;
-                case SWITCH_MODE:
-                    applyZoomAndUpdate(SWITCH_ID);
-                    break;
-            }
-        } else {
-            int cameraId = SWITCH_ID == -1? FRONT_ID : SWITCH_ID;
-            applyZoomAndUpdate(cameraId);
-        }
-        mUI.updateFaceViewCameraBound(mCropRegion[getMainCameraId()]);
+        applyZoomAndUpdate();
     }
 
     private boolean isInMode(int cameraId) {
@@ -3403,6 +3389,35 @@ public class CaptureModule implements CameraModule, PhotoController,
         }
     }
 
+    public void updateDeepZoomIndex(float zoom) {
+        mZoomValue = zoom;
+        applyZoomAndUpdate();
+    }
+
+    private void applyZoomAndUpdate() {
+        if (isBackCamera()) {
+            switch (getCameraMode()) {
+                case DUAL_MODE:
+                    applyZoomAndUpdate(BAYER_ID);
+                    applyZoomAndUpdate(MONO_ID);
+                    break;
+                case BAYER_MODE:
+                    applyZoomAndUpdate(BAYER_ID);
+                    break;
+                case MONO_MODE:
+                    applyZoomAndUpdate(MONO_ID);
+                    break;
+                case SWITCH_MODE:
+                    applyZoomAndUpdate(SWITCH_ID);
+                    break;
+            }
+        } else {
+            int cameraId = SWITCH_ID == -1 ? FRONT_ID : SWITCH_ID;
+            applyZoomAndUpdate(cameraId);
+        }
+        mUI.updateFaceViewCameraBound(mCropRegion[getMainCameraId()]);
+    }
+
     private void updateZoom() {
         String zoomStr = mSettingsManager.getValue(SettingsManager.KEY_ZOOM);
         int zoom = Integer.parseInt(zoomStr);
@@ -3410,6 +3425,9 @@ public class CaptureModule implements CameraModule, PhotoController,
             mZoomValue = (float)zoom;
         }else{
             mZoomValue = 1.0f;
+        }
+        if (isDeepZoom()) {
+            mZoomValue = mUI.getDeepZoomValue();
         }
     }
 
@@ -4459,6 +4477,7 @@ public class CaptureModule implements CameraModule, PhotoController,
     }
 
     private void applyZoom(CaptureRequest.Builder request, int id) {
+        if (!mSupportZoomCapture) return;
         request.set(CaptureRequest.SCALER_CROP_REGION, cropRegionForZoom(id));
     }
 
@@ -5224,6 +5243,18 @@ public class CaptureModule implements CameraModule, PhotoController,
         try {
             int mode = Integer.parseInt(value);
             if(mode == SettingsManager.SCENE_MODE_PANORAMA_INT) {
+                return true;
+            }
+        } catch(Exception e) {
+        }
+        return false;
+    }
+
+    public boolean isDeepZoom() {
+        String value = mSettingsManager.getValue(SettingsManager.KEY_SCENE_MODE);
+        try {
+            int mode = Integer.parseInt(value);
+            if(mode == SettingsManager.SCENE_MODE_DEEPZOOM_INT) {
                 return true;
             }
         } catch(Exception e) {
