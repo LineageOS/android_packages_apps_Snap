@@ -3367,6 +3367,17 @@ public class CaptureModule implements CameraModule, PhotoController,
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
+        } catch (IllegalArgumentException e) {
+            //surface of mediaRecorder is not valid
+            Toast.makeText(mActivity,"Could not start media recorder.\n " +
+                    "Can't start video recording.", Toast.LENGTH_LONG).show();
+            releaseMediaRecorder();
+            releaseAudioFocus();
+            mStartRecPending = false;
+            mIsRecordingVideo = false;
+            mUI.showUIafterRecording();
+            mFrameProcessor.setVideoOutputSurface(null);
+            restartSession(true);
         }
         mStartRecPending = false;
         return true;
