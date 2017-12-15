@@ -46,14 +46,16 @@ public class ModuleSwitcher extends RotateImageView {
     public static final int PHOTO_MODULE_INDEX = 0;
     public static final int VIDEO_MODULE_INDEX = 1;
     public static final int WIDE_ANGLE_PANO_MODULE_INDEX = 2;
-    public static final int LIGHTCYCLE_MODULE_INDEX = 3;
-    public static final int GCAM_MODULE_INDEX = 4;
-    public static final int CAPTURE_MODULE_INDEX = 5;
+    public static final int QR_MODULE_INDEX = 3;
+    public static final int LIGHTCYCLE_MODULE_INDEX = 4;
+    public static final int GCAM_MODULE_INDEX = 5;
+    public static final int CAPTURE_MODULE_INDEX = 6;
 
     private static final int[][] DRAW_AND_DESC_IDS = {
         { R.drawable.ic_switch_camera, R.string.accessibility_switch_to_camera },
         { R.drawable.ic_switch_video, R.string.accessibility_switch_to_video },
         { R.drawable.ic_switch_pan, R.string.accessibility_switch_to_panorama },
+        { R.drawable.ic_cam_switcher_qr, R.string.accessibility_switch_to_qr },
         { R.drawable.ic_switch_photosphere, R.string.accessibility_switch_to_photo_sphere },
         { R.drawable.ic_switch_gcam, R.string.accessibility_switch_to_gcam }
     };
