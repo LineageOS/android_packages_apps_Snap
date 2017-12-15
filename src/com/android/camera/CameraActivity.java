@@ -121,6 +121,8 @@ import com.bumptech.glide.load.engine.executor.FifoPriorityThreadPoolExecutor;
 
 import org.codeaurora.snapcam.R;
 
+import org.lineageos.quickreader.ScannerActivity;
+
 import java.io.File;
 import java.io.IOException;
 
@@ -2056,6 +2058,11 @@ public class CameraActivity extends Activity
 
     @Override
     public void onModuleSelected(int moduleIndex, final Point hotspot) {
+        if (moduleIndex == ModuleSwitcher.QR_MODULE_INDEX) {
+            startActivity(new Intent(this, ScannerActivity.class));
+            return;
+        }
+
         mForceReleaseCamera = moduleIndex == ModuleSwitcher.CAPTURE_MODULE_INDEX ||
                 (mCamera2enabled && moduleIndex == ModuleSwitcher.PHOTO_MODULE_INDEX);
         if (mForceReleaseCamera) {
