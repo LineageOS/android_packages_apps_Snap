@@ -16,6 +16,9 @@
 <resources>
     <string name="quick_reader_name" translatable="false">QReader</string>
 
+    <!-- QuickReader: switcher item for qr -->
+    <string name="accessibility_switch_to_qr">QR reader</string>
+
     <!-- QuickReader: dismiss button for dialogs -->
     <string name="quick_reader_action_dismiss">Dismiss</string>
     <!-- QuickReader: toast shown when there's no app installed to open the qr code content -->
