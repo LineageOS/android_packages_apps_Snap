@@ -121,6 +121,8 @@ import com.android.camera.util.PhotoSphereHelper.PanoramaViewHelper;
 import com.android.camera.util.UsageStatistics;
 import org.codeaurora.snapcam.R;
 
+import org.lineageos.quickreader.ScannerActivity;
+
 import java.io.File;
 import java.io.IOException;
 
@@ -2184,6 +2186,12 @@ public class CameraActivity extends Activity
 
     @Override
     public void onModuleSelected(int moduleIndex) {
+        if (moduleIndex == ModuleSwitcher.QR_MODULE_INDEX) {
+            startActivity(new Intent(this, ScannerActivity.class));
+            finish();
+            return;
+        }
+
         mForceReleaseCamera = moduleIndex == ModuleSwitcher.CAPTURE_MODULE_INDEX ||
                 (mCamera2enabled && moduleIndex == ModuleSwitcher.PHOTO_MODULE_INDEX);
         if (mForceReleaseCamera) {
