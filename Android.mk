@@ -8,22 +8,31 @@ LOCAL_STATIC_JAVA_LIBRARIES := \
     android-support-v13        \
     android-support-v4         \
     glide                      \
-    xmp_toolkit
+    xmp_toolkit                \
+    zxing-core
 
 LOCAL_SRC_FILES := \
     $(call all-java-files-under, src) \
     $(call all-java-files-under, src_pd) \
     $(call all-java-files-under, src_pd_gcam) \
     $(call all-renderscript-files-under, rs) \
+    $(call all-java-files-under, quickReader/src) \
 
 LOCAL_RESOURCE_DIR := \
-    $(LOCAL_PATH)/res
+    $(LOCAL_PATH)/res \
+    $(LOCAL_PATH)/quickReader/res
+
+LOCAL_STATIC_JAVA_AAR_LIBRARIES += \
+    qreader-core \
+    qreader-zxing
 
 include $(LOCAL_PATH)/version.mk
 LOCAL_AAPT_FLAGS := \
     --auto-add-overlay \
     --version-name "$(version_name_package)" \
     --version-code $(version_code_package) \
+    --extra-packages me.dm7.barcodescanner.core \
+    --extra-packages me.dm7.barcodescanner.zxing
 
 LOCAL_PACKAGE_NAME := Snap
 LOCAL_PRIVILEGED_MODULE := true
@@ -47,5 +56,14 @@ else
 endif
 
 include $(BUILD_PACKAGE)
+
+include $(CLEAR_VARS)
+
+LOCAL_PREBUILT_STATIC_JAVA_LIBRARIES += \
+    qreader-core:quickReader/libs/core-1.9.3.aar \
+    qreader-zxing:quickReader/libs/zxing-1.9.3.aar \
+    zxing-core:quickReader/libs/zxing-core-g-2.3.1.jar
+
+include $(BUILD_MULTI_PREBUILT)
 
 include $(call all-makefiles-under, $(LOCAL_PATH))
