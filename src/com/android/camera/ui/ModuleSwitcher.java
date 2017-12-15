@@ -51,11 +51,12 @@ public class ModuleSwitcher extends RotateImageView
     public static final int PHOTO_MODULE_INDEX = 0;
     public static final int VIDEO_MODULE_INDEX = 1;
     public static final int WIDE_ANGLE_PANO_MODULE_INDEX = 2;
-    public static final int LIGHTCYCLE_MODULE_INDEX = 3;
-    public static final int GCAM_MODULE_INDEX = 4;
-    public static final int CAPTURE_MODULE_INDEX = 5;
-    public static final int MULTIE_CAMERA_MODULE_INDEX = 6;
-    public static final int PANOCAPTURE_MODULE_INDEX = 7;
+    public static final int QR_MODULE_INDEX = 3;
+    public static final int LIGHTCYCLE_MODULE_INDEX = 4;
+    public static final int GCAM_MODULE_INDEX = 5;
+    public static final int CAPTURE_MODULE_INDEX = 6;
+    public static final int MULTIE_CAMERA_MODULE_INDEX = 7;
+    public static final int PANOCAPTURE_MODULE_INDEX = 8;
 
     private boolean mTouchEnabled = true;
     private boolean mIsVisible = true;
@@ -64,6 +65,7 @@ public class ModuleSwitcher extends RotateImageView
             R.drawable.ic_switch_camera,
             R.drawable.ic_switch_video,
             R.drawable.ic_switch_pan,
+            R.drawable.ic_cam_switcher_qr,
             R.drawable.ic_switch_photosphere,
             R.drawable.ic_switch_gcam,
     };
@@ -231,6 +233,10 @@ public class ModuleSwitcher extends RotateImageView
                 case R.drawable.ic_switch_pan:
                     item.setContentDescription(getContext().getResources().getString(
                             R.string.accessibility_switch_to_panorama));
+                    break;
+                case R.drawable.ic_cam_switcher_qr:
+                    item.setContentDescription(getContext().getResources().getString(
+                            R.string.accessibility_switch_to_qr));
                     break;
                 case R.drawable.ic_switch_photosphere:
                     item.setContentDescription(getContext().getResources().getString(
