@@ -15,15 +15,22 @@ LOCAL_SRC_FILES := \
     $(call all-java-files-under, src_pd) \
     $(call all-java-files-under, src_pd_gcam) \
     $(call all-renderscript-files-under, rs) \
+    $(call all-java-files-under, quickReader/src) \
 
 LOCAL_RESOURCE_DIR := \
-    $(LOCAL_PATH)/res
+    $(LOCAL_PATH)/res \
+    $(LOCAL_PATH)/quickReader/res
+
+LOCAL_STATIC_JAVA_AAR_LIBRARIES += \
+    qreader-core \
+    qreader-zxing
 
 include $(LOCAL_PATH)/version.mk
 LOCAL_AAPT_FLAGS := \
     --auto-add-overlay \
     --version-name "$(version_name_package)" \
     --version-code $(version_code_package) \
+    --extra-packages me.dm7.barcodescanner.core
 
 LOCAL_PACKAGE_NAME := Snap
 LOCAL_PRIVILEGED_MODULE := true
@@ -36,6 +43,10 @@ LOCAL_RENDERSCRIPT_TARGET_API := 23
 LOCAL_OVERRIDES_PACKAGES := Camera2
 
 LOCAL_PROGUARD_FLAG_FILES := proguard.flags
+
+LOCAL_PREBUILT_STATIC_JAVA_LIBRARIES += \
+    qreader-core:quickReader/lib/core-1.9.8.aar \
+    qreader-zxing:quickReader/lib/zxing-1.9.8.aar
 
 # If this is an unbundled build (to install separately) then include
 # the libraries in the APK, otherwise just put them in /system/lib and
