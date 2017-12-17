@@ -226,6 +226,9 @@ public class ScannerActivity extends Activity implements ZXingScannerView.Result
         private static final String ID_VCARD = "BEGIN:VCARD";
         private static final String ID_VEVENT = "BEGIN:VEVENT";
         private static final String ID_MECARD = "MECARD:";
+        private static final String ID_MEBKM = "MEBKM:";
+
+        private static final String MEBKM_URL = "URL:";
 
         @Override
         protected Integer doInBackground(String... params) {
@@ -262,6 +265,18 @@ public class ScannerActivity extends Activity implements ZXingScannerView.Result
             } else if (content.startsWith(ID_VCARD)) {
                 sHelper.setContactIntent(content, true);
                 icon = R.drawable.ic_contact;
+            } else if (content.startsWith(ID_MEBKM)) {
+                String url = getMebkmUrl(content.replace(ID_MEBKM, ""));
+                String properContent = smartUrlFilter(url);
+
+                if (TextUtils.isEmpty(properContent)) {
+                    // Fallback to plain text
+                    sHelper.setText(content);
+                    return R.drawable.ic_text;
+                }
+
+                sHelper.setUriIntent(properContent);
+                icon = R.drawable.ic_http;
             } else {
                 String properContent = smartUrlFilter(content);
 
@@ -308,6 +323,17 @@ public class ScannerActivity extends Activity implements ZXingScannerView.Result
             if (!hasSpace && Patterns.WEB_URL.matcher(inUrl).matches()) {
                 return URLUtil.guessUrl(inUrl);
             }
+            return null;
+        }
+
+        private String getMebkmUrl(String text) {
+            String[] data = text.split(";");
+            for (String item : data) {
+                if (item.startsWith(MEBKM_URL)) {
+                    return item.replace(MEBKM_URL, "");
+                }
+            }
+
             return null;
         }
     }
