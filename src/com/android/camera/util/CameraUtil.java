@@ -617,6 +617,71 @@ public class CameraUtil {
         return optimalSizeIndex;
     }
 
+    public static Size getOptimalVideoPreviewSize(Activity currentActivity,
+            List<Size> sizes, android.util.Size targetSize) {
+
+        Point[] points = new Point[sizes.size()];
+
+        int index = 0;
+        for (Size s : sizes) {
+            points[index++] = new Point(s.width, s.height);
+        }
+
+        int optimalPickIndex = getOptimalVideoPreviewSize(currentActivity, points, targetSize);
+        return (optimalPickIndex == -1) ? null : sizes.get(optimalPickIndex);
+    }
+
+    public static int getOptimalVideoPreviewSize(Activity currentActivity,
+            Point[] sizes, android.util.Size targetSize) {
+        // Use a very small tolerance because we want an exact match.
+        final double ASPECT_TOLERANCE = 0.01;
+        double targetRatio = (double) targetSize.getWidth() / targetSize.getHeight();
+        if (sizes == null) return -1;
+
+        int optimalSizeIndex = -1;
+        double minDiff = Double.MAX_VALUE;
+
+        // we want the video preview size is not bigger than 1080p
+        // This point is for 1080p
+        Point point = new Point(1920, 1080);
+        int targetHeight = Math.min(point.x, point.y);
+        // we want the video preview size is not bigger than video size
+        int videoMiniHeight = Math.min(targetSize.getWidth(), targetSize.getHeight());
+        // Try to find an size match aspect ratio and size
+        for (int i = 0; i < sizes.length; i++) {
+            Point size = sizes[i];
+            double ratio = (double) size.x / size.y;
+            if (Math.abs(ratio - targetRatio) > ASPECT_TOLERANCE) continue;
+
+            double heightDiff = Math.abs(size.y - targetHeight);
+            if (heightDiff < minDiff && size.y <= videoMiniHeight) {
+                optimalSizeIndex = i;
+                minDiff = Math.abs(size.y - targetHeight);
+            } else if (heightDiff == minDiff) {
+                // Prefer resolutions smaller-than-display when an equally close
+                // larger-than-display resolution is available
+                if (size.y < targetHeight && size.y <= videoMiniHeight) {
+                    optimalSizeIndex = i;
+                    minDiff = heightDiff;
+                }
+            }
+        }
+        // Cannot find the one match the aspect ratio. This should not happen.
+        // Ignore the requirement.
+        if (optimalSizeIndex == -1) {
+            Log.w(TAG, "No preview size match the aspect ratio");
+            minDiff = Double.MAX_VALUE;
+            for (int i = 0; i < sizes.length; i++) {
+                Point size = sizes[i];
+                if (Math.abs(size.y - targetHeight) < minDiff) {
+                    optimalSizeIndex = i;
+                    minDiff = Math.abs(size.y - targetHeight);
+                }
+            }
+        }
+        return optimalSizeIndex;
+    }
+
     // Returns the largest picture size which matches the given aspect ratio.
     public static Size getOptimalVideoSnapshotPictureSize(
             List<Size> sizes, double targetRatio) {

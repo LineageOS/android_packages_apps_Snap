@@ -3160,13 +3160,13 @@ public class CaptureModule implements CameraModule, PhotoController,
         mVideoSize = parsePictureSize(videoSize);
         Size[] prevSizes = mSettingsManager.getSupportedOutputSize(getMainCameraId(),
                 MediaRecorder.class);
-        mVideoPreviewSize = getOptimalPreviewSize(mVideoSize, prevSizes);
+        mVideoPreviewSize = getOptimalVideoPreviewSize(mVideoSize, prevSizes);
 
         Point previewSize = PersistUtil.getCameraPreviewSize();
         if (previewSize != null) {
             mVideoPreviewSize = new Size(previewSize.x, previewSize.y);
         }
-        Log.d(TAG, "updatePreviewSize final preview size = " + mVideoPreviewSize.getWidth()
+        Log.d(TAG, "updateVideoPreviewSize final video Preview size = " + mVideoPreviewSize.getWidth()
                 + ", " + mVideoPreviewSize.getHeight());
     }
 
@@ -4886,6 +4886,18 @@ public class CaptureModule implements CameraModule, PhotoController,
         }
 
         int optimalPickIndex = CameraUtil.getOptimalPreviewSize(mActivity, points, targetRatio);
+        return (optimalPickIndex == -1) ? null : prevSizes[optimalPickIndex];
+    }
+
+    private Size getOptimalVideoPreviewSize(Size VideoSize, Size[] prevSizes) {
+        Point[] points = new Point[prevSizes.length];
+
+        int index = 0;
+        for (Size s : prevSizes) {
+            points[index++] = new Point(s.getWidth(), s.getHeight());
+        }
+
+        int optimalPickIndex = CameraUtil.getOptimalVideoPreviewSize(mActivity, points, VideoSize);
         return (optimalPickIndex == -1) ? null : prevSizes[optimalPickIndex];
     }
 
