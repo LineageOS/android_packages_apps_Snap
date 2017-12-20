@@ -3353,6 +3353,14 @@ public class CaptureModule implements CameraModule, PhotoController,
         String videoSize = mSettingsManager.getValue(SettingsManager.KEY_VIDEO_QUALITY);
         if (videoSize == null) return;
         mVideoSize = parsePictureSize(videoSize);
+        Point videoSize2 = PersistUtil.getCameraVideoSize();
+        if (videoSize2 != null) {
+            mVideoSize = new Size(videoSize2.x, videoSize2.y);
+        }
+        if (DEBUG) {
+            Log.v(TAG, "updateVideoSize mVideoSize = " + mVideoSize +
+                    ", videoSize :" + videoSize);
+        }
         Size[] prevSizes = mSettingsManager.getSupportedOutputSize(getMainCameraId(),
                 MediaRecorder.class);
         mVideoPreviewSize = getOptimalVideoPreviewSize(mVideoSize, prevSizes);
