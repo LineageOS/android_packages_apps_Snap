@@ -155,6 +155,7 @@ public class SettingsManager implements ListMenu.SettingsListener {
     public static final String KEY_MANUAL_ISO_VALUE = "pref_camera2_manual_iso_key";
     public static final String KEY_MANUAL_EXPOSURE_VALUE = "pref_camera2_manual_exposure_key";
     public static final String KEY_QCFA = "pref_camera2_qcfa_key";
+    public static final String KEY_EIS_VALUE = "pref_camera2_eis_key";
 
     public static final HashMap<String, Integer> KEY_ISO_INDEX = new HashMap<String, Integer>();
     public static final String KEY_BSGC_DETECTION = "pref_camera2_bsgc_key";
@@ -1744,6 +1745,13 @@ public class SettingsManager implements ListMenu.SettingsListener {
         editor.clear();
         editor.putBoolean(CameraSettings.KEY_REQUEST_PERMISSION, requestPermission);
         editor.commit();
+    }
+
+    public boolean isDeveloperEnabled() {
+        SharedPreferences sp = mContext.getSharedPreferences(
+                ComboPreferences.getGlobalSharedPreferencesName(mContext),
+                Context.MODE_PRIVATE);
+        return sp.getBoolean(SettingsManager.KEY_DEVELOPER_MENU, false);
     }
 
 }
