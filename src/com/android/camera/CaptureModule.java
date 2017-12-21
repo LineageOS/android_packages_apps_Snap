@@ -1007,10 +1007,13 @@ public class CaptureModule implements CameraModule, PhotoController,
         return builder;
     }
 
-    private void waitForPreviewSurfaceReady() {
+    private boolean waitForPreviewSurfaceReady() {
         try {
             if (!mSurfaceReady) {
                 if (!mSurfaceReadyLock.tryAcquire(2000, TimeUnit.MILLISECONDS)) {
+                    if (mPaused) {
+                        return true;// camera has closed, don'r create session
+                    }
                     Log.d(TAG, "Time out waiting for surface.");
                     throw new RuntimeException("Time out waiting for surface.");
                 }
@@ -1019,6 +1022,7 @@ public class CaptureModule implements CameraModule, PhotoController,
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+        return false;
     }
 
     private void updatePreviewSurfaceReadyState(boolean rdy) {
@@ -1118,7 +1122,9 @@ public class CaptureModule implements CameraModule, PhotoController,
                             Log.d(TAG, "cameracapturesession - onClosed");
                         }
                     };
-            waitForPreviewSurfaceReady();
+            if (waitForPreviewSurfaceReady()) {
+                return;//if camera closed, don't create session
+            }
             Surface surface = getPreviewSurfaceForSession(id);
 
             if(id == getMainCameraId()) {
