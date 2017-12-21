@@ -3256,7 +3256,6 @@ public class CaptureModule implements CameraModule, PhotoController,
         }
         Log.d(TAG, "StartRecordingVideo " + cameraId);
         mStartRecPending = true;
-        mIsRecordingVideo = true;
         mMediaRecorderPausing = false;
 
         checkAndPlayRecordSound(cameraId, true);
@@ -3421,13 +3420,14 @@ public class CaptureModule implements CameraModule, PhotoController,
             mFrameProcessor.setVideoOutputSurface(null);
             restartSession(true);
         }
-        mStartRecPending = false;
         return true;
     }
 
     private boolean startMediaRecorder() {
         try {
             mMediaRecorder.start(); // Recording is now started
+            mIsRecordingVideo = true;
+            mStartRecPending = false;
             Log.d(TAG, "StartRecordingVideo done.");
         } catch (RuntimeException e) {
             Toast.makeText(mActivity,"Could not start media recorder.\n " +
@@ -3645,10 +3645,14 @@ public class CaptureModule implements CameraModule, PhotoController,
     }
 
     public void onButtonPause() {
+        if (!isRecorderReady())
+            return;
         pauseVideoRecording();
     }
 
     public void onButtonContinue() {
+        if (!isRecorderReady())
+            return;
         resumeVideoRecording();
     }
 
