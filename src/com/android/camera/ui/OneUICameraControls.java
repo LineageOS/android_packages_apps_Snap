@@ -558,6 +558,10 @@ public class OneUICameraControls extends RotatableLayout {
         resetProModeIcons();
     }
 
+    public int getPromode() {
+        return mProMode != null ? mProMode.getMode() : -99;
+    }
+
     private void resetProModeIcons() {
         mExposureText.setSelected(false);
         mManualText.setSelected(false);

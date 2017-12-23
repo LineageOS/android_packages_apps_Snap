@@ -103,6 +103,7 @@ import com.android.camera.imageprocessor.filter.StillmoreFilter;
 import com.android.camera.imageprocessor.filter.UbifocusFilter;
 import com.android.camera.ui.CountDownView;
 import com.android.camera.ui.ModuleSwitcher;
+import com.android.camera.ui.ProMode;
 import com.android.camera.ui.RotateTextToast;
 import com.android.camera.ui.TrackingFocusRenderer;
 import com.android.camera.util.ApiHelper;
@@ -1966,7 +1967,8 @@ public class CaptureModule implements CameraModule, PhotoController,
             mControlAFMode = CaptureRequest.CONTROL_AF_MODE_CONTINUOUS_PICTURE;
             applyFlash(mPreviewRequestBuilder[id], id);
             applySettingsForUnlockExposure(mPreviewRequestBuilder[id], id);
-            setAFModeToPreview(id, mControlAFMode);
+            setAFModeToPreview(id, mUI.getCurrentProMode() == ProMode.MANUAL_MODE ?
+                    CaptureRequest.CONTROL_AF_MODE_OFF : mControlAFMode);
             mTakingPicture[id] = false;
             if (id == getMainCameraId()) {
                 mActivity.runOnUiThread(new Runnable() {

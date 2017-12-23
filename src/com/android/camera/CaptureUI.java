@@ -1786,4 +1786,8 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
         return mVideoButton;
     }
 
+    public int getCurrentProMode() {
+        return mCameraControls.getPromode();
+    }
+
 }
