@@ -274,6 +274,7 @@ public class CaptureModule implements CameraModule, PhotoController,
     private int mControlAFMode = CameraMetadata.CONTROL_AF_MODE_CONTINUOUS_PICTURE;
     private int mLastResultAFState = -1;
     private Rect[] mCropRegion = new Rect[MAX_NUM_CAM];
+    private Rect[] mOriginalCropRegion = new Rect[MAX_NUM_CAM];
     private boolean mAutoFocusRegionSupported;
     private boolean mAutoExposureRegionSupported;
     // The degrees of the device rotated clockwise from its natural orientation.
@@ -4190,6 +4191,9 @@ public class CaptureModule implements CameraModule, PhotoController,
         int xDelta = (int) (activeRegion.width() / (2 * mZoomValue));
         int yDelta = (int) (activeRegion.height() / (2 * mZoomValue));
         cropRegion.set(xCenter - xDelta, yCenter - yDelta, xCenter + xDelta, yCenter + yDelta);
+        if (mZoomValue == 1f) {
+            mOriginalCropRegion[id] = cropRegion;
+        }
         mCropRegion[id] = cropRegion;
         return mCropRegion[id];
     }
@@ -4701,8 +4705,8 @@ public class CaptureModule implements CameraModule, PhotoController,
         Point p = mUI.getSurfaceViewSize();
         int width = p.x;
         int height = p.y;
-        mAFRegions[id] = afaeRectangle(x, y, width, height, 1f, mCropRegion[id]);
-        mAERegions[id] = afaeRectangle(x, y, width, height, 1.5f, mCropRegion[id]);
+        mAFRegions[id] = afaeRectangle(x, y, width, height, 1f, mCropRegion[id], id);
+        mAERegions[id] = afaeRectangle(x, y, width, height, 1.5f, mCropRegion[id], id);
         mCameraHandler.removeMessages(CANCEL_TOUCH_FOCUS, mCameraId[id]);
         autoFocusTrigger(id);
     }
@@ -4720,7 +4724,7 @@ public class CaptureModule implements CameraModule, PhotoController,
     }
 
     private MeteringRectangle[] afaeRectangle(float x, float y, int width, int height,
-                                              float multiple, Rect cropRegion) {
+                                              float multiple, Rect cropRegion, int id) {
         int side = (int) (Math.max(width, height) / 8 * multiple);
         RectF meteringRegionF = new RectF(x - side / 2, y - side / 2, x + side / 2, y + side / 2);
 
@@ -4732,12 +4736,23 @@ public class CaptureModule implements CameraModule, PhotoController,
 
         // inverse of matrix2 will translate from (-1000 to 1000) to camera 2 coordinates
         Matrix matrix2 = new Matrix();
-        matrix2.preTranslate(-cropRegion.width() / 2f, -cropRegion.height() / 2f);
-        matrix2.postScale(2000f / cropRegion.width(), 2000f / cropRegion.height());
+        matrix2.preTranslate(-mOriginalCropRegion[id].width() / 2f,
+                -mOriginalCropRegion[id].height() / 2f);
+        matrix2.postScale(2000f / mOriginalCropRegion[id].width(),
+                2000f / mOriginalCropRegion[id].height());
         matrix2.invert(matrix2);
 
         matrix1.mapRect(meteringRegionF);
         matrix2.mapRect(meteringRegionF);
+
+        meteringRegionF.left = meteringRegionF.left * cropRegion.width()
+                / mOriginalCropRegion[id].width() + cropRegion.left;
+        meteringRegionF.top = meteringRegionF.top * cropRegion.height()
+                / mOriginalCropRegion[id].height() + cropRegion.top;
+        meteringRegionF.right = meteringRegionF.right * cropRegion.width()
+                / mOriginalCropRegion[id].width() + cropRegion.left;
+        meteringRegionF.bottom = meteringRegionF.bottom * cropRegion.height()
+                / mOriginalCropRegion[id].height() + cropRegion.top;
 
         Rect meteringRegion = new Rect((int) meteringRegionF.left, (int) meteringRegionF.top,
                 (int) meteringRegionF.right, (int) meteringRegionF.bottom);
