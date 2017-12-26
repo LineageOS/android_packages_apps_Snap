@@ -1549,6 +1549,8 @@ public class CaptureModule implements CameraModule, PhotoController,
             }
 
             applySettingsForJpegInformation(captureBuilder, id);
+            applyAFRegions(captureBuilder, id);
+            applyAERegions(captureBuilder, id);
             if (!mIsSupportedQcfa) {
                 addPreviewSurface(captureBuilder, null, id);
             }
