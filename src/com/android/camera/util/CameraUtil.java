@@ -573,7 +573,6 @@ public class CameraUtil {
         if (sizes == null) return -1;
 
         int optimalSizeIndex = -1;
-        double minDiff = Double.MAX_VALUE;
 
         // Because of bugs of overlay and layout, we sometimes will try to
         // layout the viewfinder in the portrait orientation and thus get the
@@ -582,6 +581,7 @@ public class CameraUtil {
         // an exception. For now, just get the screen size.
         Point point = getDefaultDisplaySize(currentActivity, new Point());
         int targetHeight = Math.min(point.x, point.y);
+        double minDiff = targetHeight;
         // Try to find an size match aspect ratio and size
         for (int i = 0; i < sizes.length; i++) {
             Point size = sizes[i];
