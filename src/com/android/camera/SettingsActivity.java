@@ -193,7 +193,7 @@ public class SettingsActivity extends PreferenceActivity {
             alert.show();
         } else if (manualExposureMode.equals(expTimePriority)) {
             alert.setMessage("Enter exposure time in the range of " + exposureRange[0]
-                    + "ms to " + exposureRange[1] + "ms");
+                    + "ns to " + exposureRange[1] + "ns");
             linear.addView(ExpTimeInput);
             linear.addView(ExpTimeText);
             alert.setView(linear);
@@ -225,7 +225,7 @@ public class SettingsActivity extends PreferenceActivity {
             final TextView ExpTimeRangeText = new TextView(this);
             ISORangeText.setText("Enter ISO in the range of " + isoRange[0] + " to " + isoRange[1]);
             ExpTimeRangeText.setText("Enter exposure time in the range of " + exposureRange[0]
-                    + "ms to " + exposureRange[1] + "ms");
+                    + "ns to " + exposureRange[1] + "ns");
             linear.addView(ISORangeText);
             linear.addView(ISOinput);
             linear.addView(ISOtext);
