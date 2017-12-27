@@ -4503,6 +4503,7 @@ public class CaptureModule implements CameraModule, PhotoController,
         String userSetting = mActivity.getString(
                 R.string.pref_camera_manual_exp_value_user_setting);
         String manualExposureMode = mSettingsManager.getValue(SettingsManager.KEY_MANUAL_EXPOSURE);
+        if (manualExposureMode == null) return result;
         if (manualExposureMode.equals(isoPriority)) {
             int isoValue = Integer.parseInt(pref.getString(SettingsManager.KEY_MANUAL_ISO_VALUE,
                     "100"));
