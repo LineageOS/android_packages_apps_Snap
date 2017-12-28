@@ -1495,6 +1495,7 @@ public class CaptureModule implements CameraModule, PhotoController,
             mControlAFMode = CaptureRequest.CONTROL_AF_MODE_AUTO;
             applySettingsForAutoFocus(builder, id);
             mState[id] = STATE_WAITING_TOUCH_FOCUS;
+            applyFlashForUIChange(builder, id);//apply flash mode and AEmode for this temp builder
             mCaptureSession[id].capture(builder.build(), mCaptureCallback, mCameraHandler);
             setAFModeToPreview(id, mControlAFMode);
             Message message = mCameraHandler.obtainMessage(CANCEL_TOUCH_FOCUS, mCameraId[id]);
@@ -4613,6 +4614,7 @@ public class CaptureModule implements CameraModule, PhotoController,
         }
     }
 
+    //response to switch flash mode options in UI, repeat request as soon as switching
     private void applyFlashForUIChange(CaptureRequest.Builder request, int id) {
         if (!checkSessionAndBuilder(mCaptureSession[id], request)) {
             return;
