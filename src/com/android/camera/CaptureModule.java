@@ -1496,6 +1496,7 @@ public class CaptureModule implements CameraModule, PhotoController,
             mControlAFMode = CaptureRequest.CONTROL_AF_MODE_AUTO;
             applySettingsForAutoFocus(builder, id);
             mState[id] = STATE_WAITING_TOUCH_FOCUS;
+            applyFlashForUIChange(builder, id);//apply flash mode and AEmode for this temp builder
             mCaptureSession[id].capture(builder.build(), mCaptureCallback, mCameraHandler);
             setAFModeToPreview(id, mControlAFMode);
             Message message = mCameraHandler.obtainMessage(CANCEL_TOUCH_FOCUS, mCameraId[id]);
@@ -4617,6 +4618,43 @@ public class CaptureModule implements CameraModule, PhotoController,
         }
     }
 
+    //response to switch flash mode options in UI, repeat request as soon as switching
+    private void applyFlashForUIChange(CaptureRequest.Builder request, int id) {
+        if (!checkSessionAndBuilder(mCaptureSession[id], request)) {
+            return;
+        }
+        String redeye = mSettingsManager.getValue(SettingsManager.KEY_REDEYE_REDUCTION);
+        if (redeye != null && redeye.equals("on") && !mLongshotActive) {
+            Log.w(TAG, "redeye mode is on, can't set android.flash.mode");
+            return;
+        }
+        if (!mSettingsManager.isFlashSupported(id)) {
+            Log.w(TAG, "flash not supported, can't set android.flash.mode");
+            return;
+        }
+        String value = mSettingsManager.getValue(SettingsManager.KEY_FLASH_MODE);
+        switch (value) {
+            case "on":
+                request.set(CaptureRequest.CONTROL_AE_MODE, CaptureRequest.CONTROL_AE_MODE_ON_ALWAYS_FLASH);
+                request.set(CaptureRequest.FLASH_MODE, CaptureRequest.FLASH_MODE_SINGLE);
+                break;
+            case "auto":
+                request.set(CaptureRequest.CONTROL_AE_MODE, CaptureRequest.CONTROL_AE_MODE_ON_AUTO_FLASH);
+                request.set(CaptureRequest.FLASH_MODE, CaptureRequest.FLASH_MODE_SINGLE);
+                break;
+            case "off":
+                request.set(CaptureRequest.CONTROL_AE_MODE, CaptureRequest.CONTROL_AE_MODE_ON);
+                request.set(CaptureRequest.FLASH_MODE, CaptureRequest.FLASH_MODE_OFF);
+                break;
+        }
+        try {
+            mCaptureSession[id].setRepeatingRequest(request
+                    .build(), mCaptureCallback, mCameraHandler);
+        } catch (CameraAccessException e) {
+            Log.e(TAG, "Camera Access Exception in applyFlashForUIChange, apply failed");
+        }
+    }
+
     private void applyFaceDetection(CaptureRequest.Builder request) {
         String value = mSettingsManager.getValue(SettingsManager.KEY_FACE_DETECTION);
         if (value != null && value.equals("on")) {
@@ -4840,6 +4878,8 @@ public class CaptureModule implements CameraModule, PhotoController,
                     updateVideoFlash();
                     return;
                 case SettingsManager.KEY_FLASH_MODE:
+                    applyFlashForUIChange(mPreviewRequestBuilder[getMainCameraId()],
+                            getMainCameraId());
                     // When enable APP-ZSL, run restartSession
                     if (SettingsManager.getInstance().isZSLInAppEnabled()) {
                         if (count == 0) restartSession(false);
