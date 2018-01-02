@@ -3223,15 +3223,18 @@ public class CaptureModule implements CameraModule, PhotoController,
 
     private void updateVideoSnapshotSize() {
         mVideoSnapshotSize = mVideoSize;
-        if (is4kSize(mVideoSize) && is4kSize(mVideoSnapshotSize)) {
-            mVideoSnapshotSize = getMaxPictureSizeLessThan4k();
+        if (isVideoSize1080P(mVideoSnapshotSize)) {
+            // if video is 1080p encode, VideoSnapShotSize set 16M(5312x2988)
+            mVideoSnapshotSize = new Size(5312, 2988);
         }
+        Log.d(TAG, "updateVideoSnapshotSize final video snapShot size = " +
+                mVideoSnapshotSize.getWidth() + ", " + mVideoSnapshotSize.getHeight());
         Size[] thumbSizes = mSettingsManager.getSupportedThumbnailSizes(getMainCameraId());
         mVideoSnapshotThumbSize = getOptimalPreviewSize(mVideoSnapshotSize, thumbSizes); // get largest thumb size
     }
 
-    private boolean is4kSize(Size size) {
-        return (size.getHeight() >= 2160 || size.getWidth() >= 3840);
+    private boolean isVideoSize1080P(Size size) {
+        return (size.getHeight() == 1080 && size.getWidth() == 1920);
     }
 
     private void updateMaxVideoDuration() {
@@ -5059,33 +5062,6 @@ public class CaptureModule implements CameraModule, PhotoController,
 
         int optimalPickIndex = CameraUtil.getOptimalVideoPreviewSize(mActivity, points, VideoSize);
         return (optimalPickIndex == -1) ? null : prevSizes[optimalPickIndex];
-    }
-
-    private Size getMaxPictureSizeLessThan4k() {
-        Size[] sizes = mSettingsManager.getSupportedOutputSize(getMainCameraId(), ImageFormat.JPEG);
-        float ratio = (float) mVideoSize.getWidth() / mVideoSize.getHeight();
-        Size optimalSize = null;
-        for (Size size : sizes) {
-            if (is4kSize(size)) continue;
-            float pictureRatio = (float) size.getWidth() / size.getHeight();
-            if (Math.abs(pictureRatio - ratio) > 0.01) continue;
-            if (optimalSize == null || size.getWidth() > optimalSize.getWidth()) {
-                optimalSize = size;
-            }
-        }
-
-        // Cannot find one that matches the aspect ratio. This should not happen.
-        // Ignore the requirement.
-        if (optimalSize == null) {
-            Log.w(TAG, "No picture size match the aspect ratio");
-            for (Size size : sizes) {
-                if (is4kSize(size)) continue;
-                if (optimalSize == null || size.getWidth() > optimalSize.getWidth()) {
-                    optimalSize = size;
-                }
-            }
-        }
-        return optimalSize;
     }
 
     public TrackingFocusRenderer getTrackingForcusRenderer() {
