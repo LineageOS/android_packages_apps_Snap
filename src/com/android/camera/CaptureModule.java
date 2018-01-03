@@ -271,6 +271,8 @@ public class CaptureModule implements CameraModule, PhotoController,
             "org.codeaurora.qcamera3.exposure_metering.exposure_metering_mode", Integer.class);
     public static final CaptureRequest.Key<Byte> eis_mode =
             new CaptureRequest.Key<>("org.quic.camera.eis3enable.EISV3Enable", byte.class);
+    public static final CaptureRequest.Key<Byte> recording_end_stream =
+            new CaptureRequest.Key<>("org.quic.camera.recording.endOfStream", byte.class);
 
     private boolean[] mTakingPicture = new boolean[MAX_NUM_CAM];
     private int mControlAFMode = CameraMetadata.CONTROL_AF_MODE_CONTINUOUS_PICTURE;
@@ -407,6 +409,7 @@ public class CaptureModule implements CameraModule, PhotoController,
     private int mHighSpeedCaptureRate;
     private boolean mEisEnabled = false;
     private CaptureRequest.Builder mVideoRequestBuilder;
+    private CaptureRequest.Builder mVideoPausePreviewRequestBuilder;
 
     private static final int STATS_DATA = 768;
     public static int statsdata[] = new int[STATS_DATA];
@@ -1072,6 +1075,7 @@ public class CaptureModule implements CameraModule, PhotoController,
             if (!mSurfaceReady) {
                 if (!mSurfaceReadyLock.tryAcquire(2000, TimeUnit.MILLISECONDS)) {
                     if (mPaused) {
+                        mSurfaceReadyLock.release();
                         return true;// camera has closed, don'r create session
                     }
                     Log.d(TAG, "Time out waiting for surface.");
@@ -3431,6 +3435,7 @@ public class CaptureModule implements CameraModule, PhotoController,
             List<Surface> surfaces = new ArrayList<>();
 
             Surface surface = getPreviewSurfaceForSession(cameraId);
+            setUpVideoPreviewRequestBuilder(surface, cameraId);
             mFrameProcessor.onOpen(getFrameProcFilterId(),mVideoSize);
             if(mFrameProcessor.isFrameFilterEnabled()) {
                 mActivity.runOnUiThread(new Runnable() {
@@ -3613,9 +3618,27 @@ public class CaptureModule implements CameraModule, PhotoController,
     }
 
     private void setUpVideoCaptureRequestBuilder(CaptureRequest.Builder builder,int cameraId) {
-        builder.set(CaptureRequest.CONTROL_MODE, CaptureRequest.CONTROL_MODE_AUTO);
         builder.set(CaptureRequest.CONTROL_AF_MODE, CaptureRequest
                 .CONTROL_AF_MODE_CONTINUOUS_VIDEO);
+        applyVideoCommentSettings(builder, cameraId);
+    }
+
+    private void setUpVideoPreviewRequestBuilder(Surface surface, int cameraId) {
+        try {
+            mVideoPausePreviewRequestBuilder =
+                    mCameraDevice[cameraId].createCaptureRequest(CameraDevice.TEMPLATE_PREVIEW);
+        } catch (CameraAccessException e) {
+            Log.w(TAG, "setUpVideoPreviewRequestBuilder, Camera access failed");
+            return;
+        }
+        mVideoPausePreviewRequestBuilder.setTag(cameraId);
+        mVideoPausePreviewRequestBuilder.addTarget(surface);
+        mVideoPausePreviewRequestBuilder.set(CaptureRequest.CONTROL_AF_MODE, mControlAFMode);
+        applyVideoCommentSettings(mVideoPausePreviewRequestBuilder, cameraId);
+    }
+
+    private void applyVideoCommentSettings(CaptureRequest.Builder builder, int cameraId) {
+        builder.set(CaptureRequest.CONTROL_MODE, CaptureRequest.CONTROL_MODE_AUTO);
         builder.set(CaptureRequest.CONTROL_AE_MODE, CaptureRequest.CONTROL_AE_MODE_ON);
         applyVideoStabilization(builder);
         applyNoiseReduction(builder);
@@ -3630,9 +3653,15 @@ public class CaptureModule implements CameraModule, PhotoController,
     private void updateVideoFlash() {
         if (!mIsRecordingVideo || mHighSpeedCapture) return;
         applyVideoFlash(mVideoRequestBuilder);
+        applyVideoFlash(mVideoPausePreviewRequestBuilder);
         try {
-            mCurrentSession.setRepeatingRequest(mVideoRequestBuilder.build(), mCaptureCallback,
-                    mCameraHandler);
+            if (mMediaRecorderPausing) {
+                mCurrentSession.setRepeatingRequest(mVideoPausePreviewRequestBuilder.build(),
+                        mCaptureCallback, mCameraHandler);
+            } else {
+                mCurrentSession.setRepeatingRequest(mVideoRequestBuilder.build(), mCaptureCallback,
+                        mCameraHandler);
+            }
         } catch (CameraAccessException e) {
             e.printStackTrace();
         }
@@ -3749,15 +3778,10 @@ public class CaptureModule implements CameraModule, PhotoController,
         Log.v(TAG, "pauseVideoRecording");
         mMediaRecorderPausing = true;
         mRecordingTotalTime += SystemClock.uptimeMillis() - mRecordingStartTime;
-        mMediaRecorder.pause();
         if (mEisEnabled) {
-            try {
-                if (mCurrentSession != null) {
-                    mCurrentSession.abortCaptures();
-                }
-            } catch (CameraAccessException e) {
-                Log.w(TAG, "pauseVideoRecording " + " Camera access failed");
-            }
+            setEndOfStreamForEIS(false, false);
+        } else {
+            mMediaRecorder.pause();
         }
     }
 
@@ -3766,6 +3790,7 @@ public class CaptureModule implements CameraModule, PhotoController,
         mMediaRecorderPausing = false;
         mRecordingStartTime = SystemClock.uptimeMillis();
         updateRecordingTime();
+        setEndOfStreamForEIS(true, false);
         if (!ApiHelper.HAS_RESUME_SUPPORTED){
             mMediaRecorder.start();
         } else {
@@ -3774,6 +3799,62 @@ public class CaptureModule implements CameraModule, PhotoController,
                 resumeRec.invoke(mMediaRecorder);
             } catch (Exception e) {
                 Log.v(TAG, "resume method not implemented");
+            }
+        }
+    }
+
+    private void setEndOfStreamForEIS(boolean isResume, boolean isStopRecord) {
+        if (!mEisEnabled) {
+            return;
+        }
+        try {
+            if (isResume) {
+                mVideoRequestBuilder.set(CaptureModule.recording_end_stream, (byte) 0x00);
+                mCurrentSession.setRepeatingRequest(mVideoRequestBuilder.build(),
+                        mCaptureCallback, mCameraHandler);
+            } else {
+                // is pause or stopRecord
+                if (!(mMediaRecorderPausing && mStopRecPending)) {
+                    mCurrentSession.stopRepeating();
+                    CaptureRequest.Builder builder =
+                            mCameraDevice[getMainCameraId()].createCaptureRequest(CameraDevice.TEMPLATE_RECORD);
+                    builder.setTag(getMainCameraId());
+                    addPreviewSurface(builder, null, getMainCameraId());
+                    builder.set(CaptureModule.recording_end_stream, (byte) 0x01);
+                    mCurrentSession.capture(builder.build(), mCaptureCallback, mCameraHandler);
+                }
+                if (!isStopRecord) {
+                    //is pause record
+                    mMediaRecorder.pause();
+                    if (mVideoPausePreviewRequestBuilder != null) {
+                        mCurrentSession.setRepeatingRequest(mVideoPausePreviewRequestBuilder.build(),
+                                mCaptureCallback, mCameraHandler);
+                    } else {
+                        //if failed to set up preview builder, stop recording
+                        stopRecordingVideo(getMainCameraId());
+                    }
+                }
+            }
+        } catch (CameraAccessException | IllegalArgumentException e) {
+            if (e instanceof CameraAccessException) {
+                Log.w(TAG, "setEndOfStreamForEIS, Camera access failed");
+            }
+            if (e instanceof IllegalArgumentException) {
+                Log.w(TAG, "can not find vendor tag: org.quic.camera.recording.endOfStream");
+            }
+            if (!isStopRecord && !isResume) {
+                mMediaRecorder.pause();
+                try {
+                    if (mVideoPausePreviewRequestBuilder != null) {
+                        mCurrentSession.setRepeatingRequest(mVideoPausePreviewRequestBuilder.build(),
+                                mCaptureCallback, mCameraHandler);
+                    } else {
+                        //if failed to set up preview builder, stop recording
+                        stopRecordingVideo(getMainCameraId());
+                    }
+                } catch (CameraAccessException exception) {
+                    Log.w(TAG, "setEndOfStreamForEIS, Camera access failed");
+                }
             }
         }
     }
@@ -3797,13 +3878,7 @@ public class CaptureModule implements CameraModule, PhotoController,
         boolean shouldAddToMediaStoreNow = false;
         // Stop recording
         checkAndPlayRecordSound(cameraId, false);
-        if (mEisEnabled) {
-            try {
-                mCaptureSession[cameraId].abortCaptures();
-            } catch (CameraAccessException e) {
-                Log.w(TAG, "stopRecordingVideo " + cameraId + " Camera access failed");
-            }
-        }
+        setEndOfStreamForEIS(false, true);
         mFrameProcessor.setVideoOutputSurface(null);
         mFrameProcessor.onClose();
         closePreviewSession();
