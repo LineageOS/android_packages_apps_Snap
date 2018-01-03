@@ -76,10 +76,12 @@ public class UbifocusFilter implements ImageFilter {
     private Object mClosingLock = new Object();
     private PostProcessor mPostProcessor;
     private ImageFilter.ResultImage mUbifocusResultImage;
+    private ImageFilter.ResultImage mOriginImage;
     final String[] NAMES = {"00.jpg", "01.jpg", "02.jpg", "03.jpg",
             "04.jpg", "DepthMapImage.y", "AllFocusImage.jpg"};
 
     private int mSavedCount = 0;
+    private boolean mRegistSuccess = true;
 
     private static void Log(String msg) {
         if (DEBUG) {
@@ -136,11 +138,13 @@ public class UbifocusFilter implements ImageFilter {
             mModule.setRefocusLastTaken(false);
             mOrientation = CameraUtil.getJpegRotation(mModule.getMainCameraId(), mModule.getDisplayOrientation());
             mSavedCount = 0;
+            mRegistSuccess = true;
         }
         int yActualSize = bY.remaining();
         int vuActualSize = bVU.remaining();
         if(nativeAddImage(bY, bVU, yActualSize, vuActualSize, imageNum) < 0) {
             Log.e(TAG, "Fail to add image");
+            mRegistSuccess = false;
         }
         new Thread() {
             public void run() {
@@ -149,6 +153,8 @@ public class UbifocusFilter implements ImageFilter {
                         return;
                     }
                     byte[] bytes = getYUVBytes(bY, bVU, imageNum);
+                    if (imageNum == 0)
+                        mOriginImage = mUbifocusResultImage;
                     saveToPrivateFile(imageNum, bytes);
                     mSavedCount++;
                 }
@@ -162,7 +168,7 @@ public class UbifocusFilter implements ImageFilter {
         int[] roi = new int[4];
         int[] depthMapSize = new int[2];
         int status = nativeProcessImage(mOutBuf.array(), roi, depthMapSize);
-        if(status < 0) { //In failure case, library will return the first image as it is.
+        if(status < 0 || !mRegistSuccess) { //In failure case, library will return the first image as it is.
             Log.w(TAG, "Fail to process the "+getStringName());
         } else {
             byte[] depthMapBuf = new byte[depthMapSize[0] * depthMapSize[1] + META_BYTES_SIZE];
@@ -177,7 +183,12 @@ public class UbifocusFilter implements ImageFilter {
             } catch (Exception e) {
             }
         }
-        ResultImage result = new ResultImage(mOutBuf, new Rect(roi[0], roi[1], roi[0]+roi[2], roi[1] + roi[3]), mWidth, mHeight, mStrideY);
+        ResultImage result;
+        if (!mRegistSuccess) {
+            result = mOriginImage;
+        } else {
+            result = new ResultImage(mOutBuf, new Rect(roi[0], roi[1], roi[0]+roi[2], roi[1] + roi[3]), mWidth, mHeight, mStrideY);
+        }
         Log("processImage done");
         return result;
     }
