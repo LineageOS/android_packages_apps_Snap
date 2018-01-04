@@ -4067,6 +4067,8 @@ public class CaptureModule implements CameraModule, PhotoController,
     }
 
     private void applyInstantAEC(CaptureRequest.Builder request) {
+        if (!VendorTagUtil.isSupported(request, CaptureModule.INSTANT_AEC_MODE))
+            return;
         String value = mSettingsManager.getValue(SettingsManager.KEY_INSTANT_AEC);
         if (value == null || value.equals("0"))
             return;
@@ -4075,6 +4077,8 @@ public class CaptureModule implements CameraModule, PhotoController,
     }
 
     private void applySaturationLevel(CaptureRequest.Builder request) {
+        if (!VendorTagUtil.isSupported(request, CaptureModule.SATURATION))
+            return;
         String value = mSettingsManager.getValue(SettingsManager.KEY_SATURATION_LEVEL);
         if (value != null) {
             int intValue = Integer.parseInt(value);
@@ -4091,6 +4095,8 @@ public class CaptureModule implements CameraModule, PhotoController,
     }
 
     private void applyHistogram(CaptureRequest.Builder request) {
+        if (!VendorTagUtil.isSupported(request, CaptureModule.histMode))
+            return;
         String value = mSettingsManager.getValue(SettingsManager.KEY_HISTOGRAM);
         if (value != null ) {
             if (value.equals("enable")){
