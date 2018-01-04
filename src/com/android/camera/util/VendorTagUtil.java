@@ -75,7 +75,7 @@ public class VendorTagUtil {
     private static final int MANUAL_WB_CCT_MODE = 1;
     private static final int MANUAL_WB_GAINS_MODE = 2;
 
-    private static boolean isSupported(CaptureRequest.Builder builder,
+    public static boolean isSupported(CaptureRequest.Builder builder,
                                        CaptureRequest.Key<?> key) {
         boolean supported = true;
         try {
