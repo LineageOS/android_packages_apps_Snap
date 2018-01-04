@@ -54,7 +54,7 @@ public class VendorTagUtil {
                     Long.class);
 
 
-    private static boolean isSupported(CaptureRequest.Builder builder,
+    public static boolean isSupported(CaptureRequest.Builder builder,
                                        CaptureRequest.Key<?> key) {
         boolean supported = true;
         try {
