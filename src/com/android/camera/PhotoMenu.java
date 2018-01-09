@@ -238,7 +238,6 @@ public class PhotoMenu extends MenuController
                 CameraSettings.KEY_DENOISE,
                 CameraSettings.KEY_AUTO_HDR,
                 CameraSettings.KEY_HDR_MODE,
-                CameraSettings.KEY_HDR_NEED_1X,
                 CameraSettings.KEY_CDS_MODE,
                 CameraSettings.KEY_TNR_MODE,
                 CameraSettings.KEY_HISTOGRAM,
