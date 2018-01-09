@@ -119,7 +119,6 @@ public class CameraSettings {
     public static final String KEY_AE_BRACKET_HDR = "pref_camera_ae_bracket_hdr_key";
     public static final String KEY_ADVANCED_FEATURES = "pref_camera_advanced_features_key";
     public static final String KEY_HDR_MODE = "pref_camera_hdr_mode_key";
-    public static final String KEY_HDR_NEED_1X = "pref_camera_hdr_need_1x_key";
     public static final String KEY_DEVELOPER_MENU = "pref_developer_menu_key";
 
     public static final String KEY_VIDEO_SNAPSHOT_SIZE = "pref_camera_videosnapsize_key";
@@ -161,7 +160,6 @@ public class CameraSettings {
     private static final String KEY_QC_SUPPORTED_VIDEO_TNR_MODES = "video-tnr-mode-values";
     private static final String KEY_QC_SUPPORTED_FACE_DETECTION = "face-detection-values";
     private static final String KEY_SNAPCAM_SUPPORTED_HDR_MODES = "hdr-mode-values";
-    private static final String KEY_SNAPCAM_SUPPORTED_HDR_NEED_1X = "hdr-need-1x-values";
     public static final String KEY_SNAPCAM_SHUTTER_SPEED = "shutter-speed";
     public static final String KEY_SNAPCAM_SHUTTER_SPEED_MODES = "shutter-speed-values";
     public static final String KEY_QC_AE_BRACKETING = "ae-bracket-hdr";
@@ -182,7 +180,6 @@ public class CameraSettings {
     public static final String KEY_QC_TNR_MODE = "tnr-mode";
     public static final String KEY_QC_VIDEO_TNR_MODE = "video-tnr-mode";
     public static final String KEY_SNAPCAM_HDR_MODE = "hdr-mode";
-    public static final String KEY_SNAPCAM_HDR_NEED_1X = "hdr-need-1x";
     public static final String KEY_VIDEO_HSR = "video-hsr";
     public static final String KEY_QC_SEE_MORE_MODE = "see-more";
     public static final String KEY_QC_NOISE_REDUCTION_MODE = "noise-reduction-mode";
@@ -705,14 +702,6 @@ public class CameraSettings {
         return split(str);
     }
 
-    public static List<String> getSupportedHDRNeed1x(Parameters params) {
-        String str = params.get(KEY_SNAPCAM_SUPPORTED_HDR_NEED_1X);
-        if (str == null) {
-            return null;
-        }
-        return split(str);
-    }
-
     public List<String> getSupportedAdvancedFeatures(Parameters params) {
         String str = params.get(KEY_QC_SUPPORTED_AF_BRACKETING_MODES);
         str += ',' + params.get(KEY_QC_SUPPORTED_CF_MODES);
@@ -890,7 +879,6 @@ public class CameraSettings {
         ListPreference longShot = group.findPreference(KEY_LONGSHOT);
         ListPreference auto_hdr = group.findPreference(KEY_AUTO_HDR);
         ListPreference hdr_mode = group.findPreference(KEY_HDR_MODE);
-        ListPreference hdr_need_1x = group.findPreference(KEY_HDR_NEED_1X);
         ListPreference cds_mode = group.findPreference(KEY_CDS_MODE);
         ListPreference video_cds_mode = group.findPreference(KEY_VIDEO_CDS_MODE);
         ListPreference tnr_mode = group.findPreference(KEY_TNR_MODE);
@@ -928,11 +916,6 @@ public class CameraSettings {
             if (!isBokehMPOSupported(mParameters)) {
                 removePreference(group, bokehMpo.getKey());
             }
-        }
-
-        if (hdr_need_1x != null) {
-            filterUnsupportedOptions(group,
-                    hdr_need_1x, getSupportedHDRNeed1x(mParameters));
         }
 
         if (hdr_mode != null) {
