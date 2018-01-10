@@ -2450,6 +2450,12 @@ public class CaptureModule implements CameraModule, PhotoController,
 
     @Override
     public void onResumeBeforeSuper() {
+        // must change cameraId before "mPaused = false;"
+        int intentCameraId = CameraUtil.getCameraFacingIntentExtras(mActivity);
+        if (intentCameraId != -1) {
+            mSettingsManager.setValue(SettingsManager.KEY_CAMERA_ID,
+                    String.valueOf(intentCameraId));
+        }
         mPaused = false;
         for (int i = 0; i < MAX_NUM_CAM; i++) {
             mCameraOpened[i] = false;
@@ -3970,8 +3976,12 @@ public class CaptureModule implements CameraModule, PhotoController,
                     // invalid uri
                     Log.e(TAG, ex.toString());
                 }
+                mMediaRecorder.setOutputFile(mVideoFileDescriptor.getFileDescriptor());
+            } else {
+                String fileName = generateVideoFilename(mProfile.fileFormat);
+                Log.v(TAG, "New video filename: " + fileName);
+                mMediaRecorder.setOutputFile(fileName);
             }
-            mMediaRecorder.setOutputFile(mVideoFileDescriptor.getFileDescriptor());
         } else {
             String fileName = generateVideoFilename(mProfile.fileFormat);
             Log.v(TAG, "New video filename: " + fileName);
