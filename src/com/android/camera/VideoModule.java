@@ -2437,9 +2437,12 @@ public class VideoModule implements CameraModule,
         //value: 1 - FLIP_MODE_H
         //value: 2 - FLIP_MODE_V
         //value: 3 - FLIP_MODE_VH
-        int preview_flip_value = PersistUtil.getPreviewFlip();
-        int video_flip_value = PersistUtil.getVideoFlip();
-        int picture_flip_value = PersistUtil.getPictureFlip();
+
+        PersistUtil myUtil     = new PersistUtil();
+        int preview_flip_value = myUtil.getPreviewFlip();
+        int video_flip_value   = myUtil.getVideoFlip();
+        int picture_flip_value = myUtil.getPictureFlip();
+
         int rotation = CameraUtil.getJpegRotation(mCameraId, mOrientation);
         mParameters.setRotation(rotation);
         if (rotation == 90 || rotation == 270) {

@@ -107,11 +107,11 @@ public class PersistUtil {
             SystemProperties.getBoolean("persist.vendor.camera.cs.dumpdepth", false);
     private static final boolean PERSIST_DISABLE_QCOM_MISC_SETTING =
             SystemProperties.getBoolean("persist.vendor.camera.qcom.misc.disable", false);
-    private static final int PREVIEW_FLIP_VALUE =
+    private final int PREVIEW_FLIP_VALUE =
             SystemProperties.getInt("persist.vendor.debug.camera.preview.flip", 0);
-    private static final int PERSIST_VIDEO_FLIP_VALUE =
+    private final int PERSIST_VIDEO_FLIP_VALUE =
             SystemProperties.getInt("persist.vendor.debug.camera.video.flip", 0);
-    private static final int PERSIST_PICTURE_FLIP_VALUE =
+    private final int PERSIST_PICTURE_FLIP_VALUE =
             SystemProperties.getInt("persist.vendor.debug.camera.picture.flip", 0);
     private static final boolean PERSIST_YV_12_FORMAT_ENABLED =
             SystemProperties.getBoolean("persist.vendor.camera.debug.camera.yv12", false);
@@ -268,15 +268,15 @@ public class PersistUtil {
         return PERSIST_DISABLE_QCOM_MISC_SETTING;
     }
 
-    public static int getPreviewFlip() {
+    public int getPreviewFlip() {
         return PREVIEW_FLIP_VALUE;
     }
 
-    public static int getVideoFlip() {
+    public int getVideoFlip() {
         return PERSIST_VIDEO_FLIP_VALUE;
     }
 
-    public static int getPictureFlip() {
+    public int getPictureFlip() {
         return PERSIST_PICTURE_FLIP_VALUE;
     }
 
