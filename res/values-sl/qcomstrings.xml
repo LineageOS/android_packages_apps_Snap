@@ -384,7 +384,7 @@
   <!-- Continuous shot enable message -->
   <string name="longshot_enable_message">Napredne značilnosti niso podprte v neprekinjenem fotografiranju</string>
   <!-- Advanced features enable message -->
-  <string name="advance_feature_enable_msg">Neprekinjeno fotografiranje ni možno z omogočenimi naprednimi značilnostmi</string>
+  <string name="advance_feature_enable_msg">Neprekinjeno fotografiranje ni mogoče z omogočenimi naprednimi značilnostmi</string>
   <!-- The alas of CameraActivity for gesture operation -->
   <string name="camera_gesture_title">Zaženi fotoaparat</string>
   <string name="pref_camera_tsmakeup_title">Polepšava</string>
