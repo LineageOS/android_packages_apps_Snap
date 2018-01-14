@@ -240,12 +240,12 @@
         <item>0</item>
         <item>0</item>
         <item>0</item>
-        <item>0</item>
-        <item>0</item>
-        <item>0</item>
-        <item>0</item>
-        <item>0</item>
-        <item>0</item>
+        <item>@drawable/thumb_filter_washed</item>
+        <item>@drawable/thumb_filter_vintage_warm</item>
+        <item>@drawable/thumb_filter_vintage_cold</item>
+        <item>@drawable/thumb_filter_point_green</item>
+        <item>@drawable/thumb_filter_point_blue</item>
+        <item>@drawable/thumb_filter_point_red_yellow</item>
         <item>0</item>
     </array>
 
