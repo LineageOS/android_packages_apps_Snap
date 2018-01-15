@@ -117,6 +117,14 @@ public class Camera2FaceView extends FaceView {
                 rw = rh;
                 rh = temp;
             }
+            if (rw * mCameraBound.width() != mCameraBound.height() * rh) {
+                if (rw >= getWidth()) {
+                    rh = getWidth() * mCameraBound.width() / mCameraBound.height();
+                }
+                if (rh >= getHeight()) {
+                    rw = getHeight() * mCameraBound.height() / mCameraBound.width();
+                }
+            }
             CameraUtil.prepareMatrix(mMatrix, mMirror, mDisplayOrientation, rw, rh);
 
             // mMatrix assumes that the face coordinates are from -1000 to 1000.
@@ -131,8 +139,10 @@ public class Camera2FaceView extends FaceView {
             bsgcTranslateMatrix.postScale(2000f / mCameraBound.width(),
                     2000f / mCameraBound.height());
 
-            int dx = (getWidth() - rw) / 2;
-            int dy = (getHeight() - rh) / 2;
+            int dx = (getWidth() - mUncroppedWidth) / 2;
+            dx -= (rw - mUncroppedWidth) / 2;
+            int dy = (getHeight() - mUncroppedHeight) / 2;
+            dy -= (rh - mUncroppedHeight) / 2;
 
             // Focus indicator is directional. Rotate the matrix and the canvas
             // so it looks correctly in all orientations.
