@@ -37,6 +37,7 @@ import android.graphics.Path;
 import android.graphics.PathMeasure;
 import android.graphics.Point;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -375,4 +376,14 @@ public class ProMode extends View {
         }
     }
 
+    public void resetEVandWB(){
+        if (mSettingsManager != null) {
+            String defaultEV = getResources().getString(
+                    R.string.pref_exposure_default);
+            String defualtWB = getResources().getString(
+                    R.string.pref_camera2_whitebalance_default);
+            mSettingsManager.setValue(SettingsManager.KEY_EXPOSURE,defaultEV);
+            mSettingsManager.setValue(SettingsManager.KEY_WHITE_BALANCE,defualtWB);
+        }
+    }
 }
