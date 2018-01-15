@@ -238,8 +238,8 @@ public class CaptureModule implements CameraModule, PhotoController,
             new CameraCharacteristics.Key<>("org.codeaurora.qcamera3.histogram.max_count", Integer.class);
     public static CaptureResult.Key<int[]> histogramStats =
             new CaptureResult.Key<>("org.codeaurora.qcamera3.histogram.stats", int[].class);
-    public static CameraCharacteristics.Key<Integer> isHdrScene =
-            new CameraCharacteristics.Key<>("org.codeaurora.qcamera3.stats.is_hdr_scene", Integer.class);
+    public static CaptureResult.Key<Byte> isHdr =
+            new CaptureResult.Key<>("org.codeaurora.qcamera3.stats.is_hdr_scene", Byte.class);
     public static CameraCharacteristics.Key<Byte> IS_SUPPORT_QCFA_SENSOR =
             new CameraCharacteristics.Key<>("org.codeaurora.qcamera3.quadra_cfa.is_qcfa_sensor", Byte.class);
     public static CameraCharacteristics.Key<int[]> QCFA_SUPPORT_DIMENSION =
@@ -548,6 +548,35 @@ public class CaptureModule implements CameraModule, PhotoController,
         return mBayerCameraRegion;
     }
 
+    private void detectHDRMode(CaptureResult result, int id) {
+        String value = mSettingsManager.getValue(SettingsManager.KEY_SCENE_MODE);
+        String autoHdr = mSettingsManager.getValue(SettingsManager.KEY_AUTO_HDR);
+        Byte hdrScene = result.get(CaptureModule.isHdr);
+        if (value == null || hdrScene == null) return;
+        mAutoHdrEnable = false;
+        Log.d(TAG, "detectHDRMode: autoHdr is " + autoHdr + ",hdrScene is " + hdrScene);
+        if (autoHdr != null && "enable".equals(autoHdr) && "0".equals(value) && hdrScene == 1) {
+            mAutoHdrEnable = true;
+            mActivity.runOnUiThread(new Runnable() {
+                public void run() {
+                    if (mDrawAutoHDR2 != null) {
+                        mDrawAutoHDR2.setVisibility(View.VISIBLE);
+                        mDrawAutoHDR2.AutoHDR();
+                    }
+                }
+            });
+            return;
+        } else {
+            mActivity.runOnUiThread( new Runnable() {
+                public void run () {
+                    if (mDrawAutoHDR2 != null) {
+                        mDrawAutoHDR2.setVisibility (View.INVISIBLE);
+                    }
+                }
+            });
+        }
+    }
+
     /**
      * A {@link CameraCaptureSession.CaptureCallback} that handles events related to JPEG capture.
      */
@@ -613,6 +642,7 @@ public class CaptureModule implements CameraModule, PhotoController,
                     updateGraghView();
                 }
             }
+            detectHDRMode(result, id);
             processCaptureResult(result);
             mPostProcessor.onMetaAvailable(result);
         }
@@ -4516,30 +4546,9 @@ public class CaptureModule implements CameraModule, PhotoController,
         String autoHdr = mSettingsManager.getValue(SettingsManager.KEY_AUTO_HDR);
         if (value == null) return;
         int mode = Integer.parseInt(value);
-        mAutoHdrEnable = false;
         if (autoHdr != null && "enable".equals(autoHdr) && "0".equals(value)) {
-            if (mSettingsManager.isHdrScene(getMainCameraId())) {
-                mAutoHdrEnable = true;
                 request.set(CaptureRequest.CONTROL_SCENE_MODE, CaptureRequest.CONTROL_SCENE_MODE_HDR);
                 request.set(CaptureRequest.CONTROL_MODE, CaptureRequest.CONTROL_MODE_USE_SCENE_MODE);
-                mActivity.runOnUiThread(new Runnable() {
-                    public void run() {
-                        if (mDrawAutoHDR2 != null) {
-                            mDrawAutoHDR2.setVisibility(View.VISIBLE);
-                            mDrawAutoHDR2.AutoHDR();
-                        }
-                    }
-                });
-            }
-            return;
-        } else {
-            mActivity.runOnUiThread( new Runnable() {
-                public void run () {
-                    if (mDrawAutoHDR2 != null) {
-                        mDrawAutoHDR2.setVisibility (View.INVISIBLE);
-                    }
-                }
-            });
         }
         if(getPostProcFilterId(mode) != PostProcessor.FILTER_NONE || mCaptureHDRTestEnable) {
             request.set(CaptureRequest.CONTROL_MODE, CaptureRequest.CONTROL_MODE_USE_SCENE_MODE);
