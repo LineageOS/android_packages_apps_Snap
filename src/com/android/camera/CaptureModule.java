@@ -5083,7 +5083,9 @@ public class CaptureModule implements CameraModule, PhotoController,
                     return;
             }
 
-            if (isBackCamera()) {
+            if (SWITCH_ID != -1) {
+                updatePreviewLogical = applyPreferenceToPreview(SWITCH_ID,key,value);
+            } else if (isBackCamera()) {
                 switch (getCameraMode()) {
                     case BAYER_MODE:
                         updatePreviewBayer |= applyPreferenceToPreview(BAYER_ID, key, value);
@@ -5096,11 +5098,9 @@ public class CaptureModule implements CameraModule, PhotoController,
                         updatePreviewMono |= applyPreferenceToPreview(MONO_ID, key, value);
                         break;
                     case SWITCH_MODE:
-                        updatePreviewMono |= applyPreferenceToPreview(SWITCH_ID, key, value);
+                        updatePreviewLogical |= applyPreferenceToPreview(SWITCH_ID, key, value);
                         break;
                 }
-            } else if (SWITCH_ID != -1) {
-                updatePreviewLogical = applyPreferenceToPreview(SWITCH_ID,key,value);
             }else {
                 updatePreviewFront |= applyPreferenceToPreview(FRONT_ID, key, value);
             }
