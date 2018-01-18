@@ -127,7 +127,7 @@ public class SettingsActivity extends PreferenceActivity {
 
     private void UpdateManualExposureSettings() {
         //dismiss all popups first, because we need to show edit dialog
-        int cameraId = Integer.parseInt(mSettingsManager.getValue(SettingsManager.KEY_CAMERA_ID));
+        int cameraId = mSettingsManager.getCurrentCameraId();
         final SharedPreferences pref = SettingsActivity.this.getSharedPreferences(
                 ComboPreferences.getLocalSharedPreferencesName(SettingsActivity.this,
                         cameraId),
