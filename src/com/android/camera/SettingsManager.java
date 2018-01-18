@@ -1494,7 +1494,8 @@ public class SettingsManager implements ListMenu.SettingsListener {
     }
 
     public boolean getQcfaPrefEnabled() {
-        String qcfa = getValue(KEY_QCFA);
+        ListPreference qcfaPref = mPreferenceGroup.findPreference(KEY_QCFA);
+        String qcfa = qcfaPref.getValue();
         if(qcfa != null && qcfa.equals("enable")) {
             return true;
         }
