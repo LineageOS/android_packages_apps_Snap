@@ -1411,7 +1411,11 @@ public class CaptureModule implements CameraModule, PhotoController,
                         if (takeZSLPicture(BAYER_ID)) {
                             return;
                         }
-                        lockFocus(BAYER_ID);
+                        if (mUI.getCurrentProMode() == ProMode.MANUAL_MODE) {
+                            captureStillPicture(BAYER_ID);
+                        } else {
+                            lockFocus(BAYER_ID);
+                        }
                         break;
                     case MONO_MODE:
                         lockFocus(MONO_ID);
@@ -1651,7 +1655,8 @@ public class CaptureModule implements CameraModule, PhotoController,
             }
 
             CaptureRequest.Builder captureBuilder =
-                    mCameraDevice[id].createCaptureRequest(CameraDevice.TEMPLATE_STILL_CAPTURE);
+                    mCameraDevice[id].createCaptureRequest(mUI.getCurrentProMode() == ProMode.MANUAL_MODE ?
+                                    CameraDevice.TEMPLATE_MANUAL : CameraDevice.TEMPLATE_STILL_CAPTURE);
 
             if(mSettingsManager.isZSLInHALEnabled()) {
                 captureBuilder.set(CaptureRequest.CONTROL_ENABLE_ZSL, true);
@@ -1667,6 +1672,11 @@ public class CaptureModule implements CameraModule, PhotoController,
             }
             VendorTagUtil.setCdsMode(captureBuilder, 2);// CDS 0-OFF, 1-ON, 2-AUTO
             applySettingsForCapture(captureBuilder, id);
+            if (mUI.getCurrentProMode() == ProMode.MANUAL_MODE) {
+                float value = mSettingsManager.getFocusValue(SettingsManager.KEY_FOCUS_DISTANCE);
+                applyFocusDistance(captureBuilder, String.valueOf(value));
+                captureBuilder.set(CaptureRequest.CONTROL_MODE, CaptureRequest.CONTROL_MODE_OFF);
+            }
 
             if(isClearSightOn()) {
                 captureStillPictureForClearSight(id);
