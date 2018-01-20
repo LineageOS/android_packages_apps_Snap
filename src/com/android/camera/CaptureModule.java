@@ -1575,12 +1575,6 @@ public class CaptureModule implements CameraModule, PhotoController,
                         Log.d(TAG, "captureStillPictureForLongshot onCaptureCompleted: " + id);
                         if (mLongshotActive) {
                             checkAndPlayShutterSound(id);
-                            mActivity.runOnUiThread(new Runnable() {
-                                @Override
-                                public void run() {
-                                    mUI.doShutterAnimation();
-                                }
-                            });
                         }
                     }
 
@@ -1589,14 +1583,6 @@ public class CaptureModule implements CameraModule, PhotoController,
                                                 CaptureRequest request,
                                                 CaptureFailure result) {
                         Log.d(TAG, "captureStillPictureForLongshot onCaptureFailed: " + id);
-                        if (mLongshotActive) {
-                            mActivity.runOnUiThread(new Runnable() {
-                                @Override
-                                public void run() {
-                                    mUI.doShutterAnimation();
-                                }
-                            });
-                        }
                     }
 
                     @Override
