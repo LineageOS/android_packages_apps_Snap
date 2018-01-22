@@ -253,6 +253,10 @@ public class CaptureModule implements CameraModule, PhotoController,
             new CameraCharacteristics.Key<>("org.codeaurora.qcamera3.quadra_cfa.qcfa_dimension", int[].class);
     public static CameraCharacteristics.Key<Byte> bsgcAvailable =
             new CameraCharacteristics.Key<>("org.codeaurora.qcamera3.stats.bsgc_available", Byte.class);
+    public static CameraCharacteristics.Key<int[]> support_video_hdr_modes =
+            new CameraCharacteristics.Key<>("org.codeaurora.qcamera3.available_video_hdr_modes.video_hdr_modes", int[].class);
+    public static CaptureRequest.Key<Integer> support_video_hdr_values =
+            new CaptureRequest.Key<>("org.codeaurora.qcamera3.available_video_hdr_modes.video_hdr_values", Integer.class);
     public static CaptureResult.Key<byte[]> blinkDetected =
             new CaptureResult.Key<>("org.codeaurora.qcamera3.stats.blink_detected", byte[].class);
     public static CaptureResult.Key<byte[]> blinkDegree =
@@ -3657,15 +3661,8 @@ public class CaptureModule implements CameraModule, PhotoController,
                     }
                 }, null);
             } else {
-                int index = getSensorTableHFRRange();
-                if (index != -1) {
-                    if (DEBUG) {
-                        Log.v(TAG, "setVendorStreamConfigMode index :" + index);
-                    }
-                    mCameraDevice[cameraId].setVendorStreamConfigMode(index);
-                }
                 surfaces.add(mVideoSnapshotImageReader.getSurface());
-
+                setOpModeForVideoStream(cameraId);
                 String value = mSettingsManager.getValue(SettingsManager.KEY_FOVC_VALUE);
                 if (value != null && Boolean.parseBoolean(value)) {
                     mStreamConfigOptMode = mStreamConfigOptMode | STREAM_CONFIG_MODE_FOVC;
@@ -3796,6 +3793,32 @@ public class CaptureModule implements CameraModule, PhotoController,
         applyZoom(builder, cameraId);
         applyVideoEncoderProfile(builder);
         applyVideoEIS(builder);
+        applyVideoHDR(builder);
+    }
+
+    private void applyVideoHDR(CaptureRequest.Builder builder) {
+        String value = mSettingsManager.getValue(SettingsManager.KEY_VIDEO_HDR_VALUE);
+        if (value != null) {
+            try {
+                builder.set(CaptureModule.support_video_hdr_values, Integer.parseInt(value));
+            } catch (IllegalArgumentException e) {
+                Log.w(TAG, "cannot find vendor tag: " + support_video_hdr_values.toString());
+            }
+        }
+    }
+
+    private void setOpModeForVideoStream(int cameraId) {
+        int index = getSensorTableHFRRange();
+        if (index != -1) {
+            if (DEBUG) {
+                Log.v(TAG, "setOpModeForVideoStream index :" + index);
+            }
+            try {
+                mCameraDevice[cameraId].setVendorStreamConfigMode(index);
+            } catch (CameraAccessException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     private void updateVideoFlash() {

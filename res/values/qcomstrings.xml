@@ -1246,5 +1246,12 @@
     <string name="pref_camera2_fovc_entry_disable" translatable="false">Disable</string>
     <string name="pref_camera2_fovc_entry_value_enable" translatable="false">true</string>
     <string name="pref_camera2_fovc_entry_value_disable" translatable="false">false</string>
+
+    <string name="pref_camera2_video_hdr_title" translatable="true">Video HDR</string>
+    <string name="pref_camera2_video_hdr_default" translatable="false">0</string>
+    <string name="pref_camera2_video_hdr_entry_enable" translatable="true">enable</string>
+    <string name="pref_camera2_video_hdr_entry_disable" translatable="true">disable</string>
+    <string name="pref_camera2_video_hdr_entry_value_enable" translatable="false">1</string>
+    <string name="pref_camera2_video_hdr_entry_value_disable" translatable="false">0</string>
 </resources>
 

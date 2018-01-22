@@ -121,6 +121,19 @@ public class SettingsActivity extends PreferenceActivity {
                     mSettingsManager.updateQcfaPictureSize();
                     updatePreference(SettingsManager.KEY_PICTURE_SIZE);
                 }
+
+                if ( pref.getKey().equals(SettingsManager.KEY_VIDEO_HDR_VALUE) ) {
+                    ListPreference autoHdrPref = (ListPreference) findPreference(
+                            mSettingsManager.KEY_AUTO_HDR);
+                    if (pref.getSummary().equals("enable")) {
+                        // when enable the Video HDR, app will disable the AUTO HDR.
+                        autoHdrPref.setEnabled(false);
+                        autoHdrPref.setValue("disable");
+                        mSettingsManager.setValue(mSettingsManager.KEY_AUTO_HDR, "disable");
+                    } else {
+                        autoHdrPref.setEnabled(true);
+                    }
+                }
             }
         }
     };
@@ -396,6 +409,7 @@ public class SettingsActivity extends PreferenceActivity {
         updatePreference(SettingsManager.KEY_ZOOM);
         updatePreference(SettingsManager.KEY_SWITCH_CAMERA);
         updatePictureSizePreferenceButton();
+        updateVideoHDRPreference();
 
         Map<String, SettingsManager.Values> map = mSettingsManager.getValuesMap();
         Set<Map.Entry<String, SettingsManager.Values>> set = map.entrySet();
@@ -428,6 +442,14 @@ public class SettingsActivity extends PreferenceActivity {
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
         }
+    }
+
+    private void updateVideoHDRPreference() {
+        ListPreference pref = (ListPreference)findPreference(SettingsManager.KEY_VIDEO_HDR_VALUE);
+        if (pref == null) {
+            return;
+        }
+        pref.setEnabled(mSettingsManager.isZZHDRSupported());
     }
 
     private void updatePreferenceButton(String key) {
