@@ -23,14 +23,14 @@
     <color name="green">#4CAF50</color>
     <color name="blue">#2196F3</color>
 
-    <color name="pic">@color/white</color>
-    <color name="pic_pressed">@color/grey</color>
+    <color name="shutter">@color/white</color>
+    <color name="shutter_pressed">@color/grey</color>
+
+    <color name="photo">@color/blue</color>
 
     <color name="video">@color/red</color>
-    <color name="video_pressed">#D32F2F</color>
     <color name="video_stop">#E57373</color>
 
     <color name="pano">@color/green</color>
-    <color name="pano_pressed">#388E3C</color>
     <color name="pano_stop">#81C784</color>
 </resources>
