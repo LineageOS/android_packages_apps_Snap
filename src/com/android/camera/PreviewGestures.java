@@ -101,9 +101,8 @@ public class PreviewGestures
                 if (mCaptureUI != null)
                     mCaptureUI.openSettingsMenu();
                 return true;
-            } else {
-                return onSingleTapUp(e2);
             }
+            return false;
         }
 
         private boolean isLeftSwipe(int orientation, int deltaX, int deltaY) {
