@@ -109,9 +109,9 @@ public class SettingsActivity extends PreferenceActivity {
                 SettingsManager.Values values = map.get(state.key);
                 boolean enabled = values.overriddenValue == null;
                 Preference pref = findPreference(state.key);
-                if (pref != null) {
-                    pref.setEnabled(enabled);
-                }
+                if ( pref == null ) return;
+
+                pref.setEnabled(enabled);
 
                 if ( pref.getKey().equals(SettingsManager.KEY_MANUAL_EXPOSURE) ) {
                     UpdateManualExposureSettings();
