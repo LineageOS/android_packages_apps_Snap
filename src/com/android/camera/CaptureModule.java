@@ -4953,6 +4953,17 @@ public class CaptureModule implements CameraModule, PhotoController,
         Point p = mUI.getSurfaceViewSize();
         int width = p.x;
         int height = p.y;
+        if (width * mCropRegion[id].width() != height * mCropRegion[id].height()) {
+            Point displayPoint = mUI.getDisplaySize();
+            if (width >= displayPoint.x) {
+                height = width * mCropRegion[id].width() / mCropRegion[id].height();
+            }
+            if (height >= displayPoint.y) {
+                width = height * mCropRegion[id].height() / mCropRegion[id].width();
+            }
+        }
+        x += (width - p.x) / 2;
+        y += (height - p.y) / 2;
         mAFRegions[id] = afaeRectangle(x, y, width, height, 1f, mCropRegion[id], id);
         mAERegions[id] = afaeRectangle(x, y, width, height, 1.5f, mCropRegion[id], id);
         mCameraHandler.removeMessages(CANCEL_TOUCH_FOCUS, mCameraId[id]);
