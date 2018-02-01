@@ -183,6 +183,13 @@
         camera:singleIcon="@drawable/ic_settings_countdowntimer"
         camera:title="@string/pref_camera_timer_title"/>
 
+    <IconListPreference
+        camera:key="pref_camera_voiceshutter_key"
+        camera:defaultValue="@string/pref_camera_voiceshutter_default"
+        camera:title="@string/pref_camera_voiceshutter_title"
+        camera:singleIcon="@drawable/ic_settings_voiceshutter"
+        camera:entries="@array/pref_camera_voiceshutter_entries" />
+
     <ListPreference
         camera:defaultValue="0"
         camera:key="pref_camera2_initial_camera_key"
