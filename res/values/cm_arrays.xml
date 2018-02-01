@@ -106,4 +106,37 @@
         <item>auto</item>
         <item>continuous-video</item>
     </string-array>
+
+    <!-- Voice shutter -->
+    <string-array name="pref_camera_voiceshutter_entries" translatable="false">
+        <item>@string/setting_off</item>
+        <item>@string/setting_on</item>
+    </string-array>
+
+    <string-array name="pref_camera_voiceshutter_entryvalues" translatable="false">
+        <item>@string/setting_off</item>
+        <item>@string/setting_on</item>
+    </string-array>
+
+    <string-array name="pref_camera_voiceshutter_triggerwords" translatable="false">
+        <item>balaclava</item>
+        <item>burrito</item>
+        <item>cheese</item>
+        <item>cider</item>
+        <item>derp</item>
+        <item>groot</item>
+        <item>harry</item>
+        <item>karma</item>
+        <item>lineage</item>
+        <item>octopus</item>
+        <item>ponderosa<item>
+        <item>rashed</item>
+        <item>skol</item>
+        <item>smile</item>
+        <item>squid</item>
+        <item>vodka</item>
+        <item>volte</item>
+        <item>whisky</item>
+        <item>whiskey</item>
+    </string-array>
 </resources>
