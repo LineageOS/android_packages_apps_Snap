@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f930b563_04256963",
+        "filename": "res/values/cm_arrays.xml",
+        "patchSetId": 10
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 11801
+      },
+      "writtenOn": "2018-02-01T20:04:21Z",
+      "side": 1,
+      "message": "done",
+      "parentUuid": "7194af4d_d637da64",
+      "range": {
+        "startLine": 128,
+        "startChar": 14,
+        "endLine": 128,
+        "endChar": 19
+      },
+      "revId": "d1ebd99cfbc038c94849b86f9a0215cbd839c2c1",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "88a53d66_3afaa76a",
         "filename": "res/values/cm_arrays.xml",
         "patchSetId": 10
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "3e749e92_54ffb2d3",
+        "filename": "res/values/cm_arrays.xml",
+        "patchSetId": 10
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 11801
+      },
+      "writtenOn": "2018-02-01T20:04:21Z",
+      "side": 1,
+      "message": "done",
+      "parentUuid": "88a53d66_3afaa76a",
+      "range": {
+        "startLine": 133,
+        "startChar": 14,
+        "endLine": 133,
+        "endChar": 20
+      },
+      "revId": "d1ebd99cfbc038c94849b86f9a0215cbd839c2c1",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "59c3181c_27e79d17",
         "filename": "res/values/cm_arrays.xml",
         "patchSetId": 10
@@ -59,6 +107,30 @@
       "writtenOn": "2018-02-01T20:00:50Z",
       "side": 1,
       "message": "dupe",
+      "range": {
+        "startLine": 139,
+        "startChar": 14,
+        "endLine": 139,
+        "endChar": 20
+      },
+      "revId": "d1ebd99cfbc038c94849b86f9a0215cbd839c2c1",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d58cf8da_cce5d12d",
+        "filename": "res/values/cm_arrays.xml",
+        "patchSetId": 10
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 11801
+      },
+      "writtenOn": "2018-02-01T20:04:21Z",
+      "side": 1,
+      "message": "nope",
+      "parentUuid": "59c3181c_27e79d17",
       "range": {
         "startLine": 139,
         "startChar": 14,
