@@ -74,6 +74,7 @@ public class CameraSettings {
     public static final String KEY_EXPOSURE = "pref_camera_exposure_key";
     public static final String KEY_TIMER = "pref_camera_timer_key";
     public static final String KEY_TIMER_SOUND_EFFECTS = "pref_camera_timer_sound_key";
+    public static final String KEY_VOICE_SHUTTER = "pref_camera_voiceshutter_key";
     public static final String KEY_VIDEO_EFFECT = "pref_video_effect_key";
     public static final String KEY_CAMERA_ID = "pref_camera_id_key";
     public static final String KEY_CAMERA_HDR = "pref_camera_hdr_key";
