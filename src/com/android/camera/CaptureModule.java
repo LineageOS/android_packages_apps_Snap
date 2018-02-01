@@ -57,12 +57,17 @@ import android.media.MediaActionSound;
 import android.media.MediaMetadataRetriever;
 import android.media.MediaRecorder;
 import android.net.Uri;
+import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.os.Debug;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Looper;
 import android.os.Message;
 import android.provider.MediaStore;
+import android.speech.RecognitionListener;
+import android.speech.RecognizerIntent;
+import android.speech.SpeechRecognizer;
 import android.util.Log;
 import android.util.Range;
 import android.util.Size;
@@ -283,6 +288,91 @@ public class CaptureModule extends BaseModule<CaptureUI> implements PhotoControl
     private static final long EXPOSURE_TIME_DEFAULT = 1000000000L/30;
 
     private MediaActionSound mSound;
+
+    private SpeechRecognizer mSpeechRecognizer;
+    private Intent mSpeechRecognizerIntent;
+    private String[] mShutterWords;
+    private boolean mSpeechActive;
+    private boolean mIsCountDownOn;
+    private AudioManager mAudioManager;
+
+    protected CountDownTimer mNoSpeechCountDown = new CountDownTimer(5000, 5000) {
+        @Override
+        public void onTick(long millisUntilFinished) {
+        }
+
+        @Override
+        public void onFinish() {
+            mIsCountDownOn = false;
+            /* Timed out, but still enabled. Re-arm */
+            if (mSpeechActive) {
+                enableSpeechRecognition(false);
+                enableSpeechRecognition(true);
+            }
+        }
+    };
+
+    class ShutterVoice implements RecognitionListener {
+        public void onReadyForSpeech(Bundle params) {
+            mIsCountDownOn = true;
+            mNoSpeechCountDown.start();
+        }
+
+        public void onBeginningOfSpeech() {
+            if (mIsCountDownOn) {
+                mIsCountDownOn = false;
+                mNoSpeechCountDown.cancel();
+            }
+        }
+
+        public void onBufferReceived(byte[] buffer) {
+        }
+
+        public void onEndOfSpeech() {
+        }
+
+        public void onRmsChanged(float rms) {
+        }
+
+        public void onError(int error) {
+            if (mIsCountDownOn) {
+                mIsCountDownOn = false;
+                mNoSpeechCountDown.cancel();
+            }
+            enableSpeechRecognition(true);
+        }
+
+        public void onResults(Bundle results) {
+            onPartialResults(results);
+            /* If after processing the full results there's still no answer, re-arm */
+            if (mSpeechActive) {
+                enableSpeechRecognition(true);
+            }
+        }
+
+        public void onPartialResults(Bundle partialResults) {
+            if (!mSpeechActive) return;
+
+            String str = new String();
+            ArrayList<String> data = partialResults.getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION);
+            for (String result : data) {
+                String[] resultWords = result.split(" ");
+                for (String shutterWord : mShutterWords) {
+                    for (String resultWord : resultWords) {
+                        if (shutterWord.equalsIgnoreCase(resultWord)) {
+                            checkSelfieFlashAndTakePicture();
+                            mSpeechActive = false;
+                            enableSpeechRecognition(false);
+                        }
+                    }
+                }
+                str += result;
+            }
+        }
+
+        public void onEvent(int eventType, Bundle params) {
+        }
+    }
 
     private class SelfieThread extends Thread {
         public void run() {
@@ -963,6 +1053,25 @@ public class CaptureModule extends BaseModule<CaptureUI> implements PhotoControl
         return RecordLocationPreference.VALUE_ON.equals(value);
     }
 
+    private void enableSpeechRecognition(boolean enable) {
+        if (enable) {
+            boolean isStreamMute = mAudioManager.isStreamMute(AudioManager.STREAM_SYSTEM);
+            if (!isStreamMute) {
+                mAudioManager.adjustStreamVolume(AudioManager.STREAM_SYSTEM,
+                        AudioManager.ADJUST_MUTE, 0);
+            }
+            mSpeechActive = true;
+            mSpeechRecognizer.startListening(mSpeechRecognizerIntent);
+            if (!isStreamMute) {
+                mAudioManager.adjustStreamVolume(AudioManager.STREAM_SYSTEM,
+                        AudioManager.ADJUST_UNMUTE, 0);
+            }
+        } else {
+            mSpeechActive = false;
+            mSpeechRecognizer.cancel();
+        }
+    }
+
     @Override
     public void init(CameraActivity activity, View parent) {
         mActivity = activity;
@@ -993,6 +1102,26 @@ public class CaptureModule extends BaseModule<CaptureUI> implements PhotoControl
         mLocationManager = new LocationManager(mActivity, this);
         Storage.setSaveSDCard(mSettingsManager.getValue(SettingsManager
                 .KEY_CAMERA_SAVEPATH).equals("1"));
+
+        /* Voice Shutter */
+        mSpeechRecognizer = SpeechRecognizer.createSpeechRecognizer(activity);
+        mSpeechRecognizer.setRecognitionListener(new ShutterVoice());
+
+        mSpeechRecognizerIntent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
+        mSpeechRecognizerIntent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,
+                                         RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
+        mSpeechRecognizerIntent.putExtra(RecognizerIntent.EXTRA_CALLING_PACKAGE,
+                                         "org.lineageos.voiceshutter");
+        mSpeechRecognizerIntent.putExtra(RecognizerIntent.EXTRA_MAX_RESULTS, 10);
+        mSpeechRecognizerIntent.putExtra(RecognizerIntent.EXTRA_PARTIAL_RESULTS, true);
+
+        mShutterWords = activity.getResources().getStringArray(
+                    R.array.pref_camera_voiceshutter_triggerwords);
+
+        mAudioManager = (AudioManager) activity.getSystemService(Context.AUDIO_SERVICE);
+
+        enableSpeechRecognition(mSettingsManager.getValue(
+                SettingsManager.KEY_VOICE_SHUTTER).equalsIgnoreCase("on"));
     }
 
     /**
@@ -1001,6 +1130,7 @@ public class CaptureModule extends BaseModule<CaptureUI> implements PhotoControl
     private void takePicture() {
         Log.d(TAG, "takePicture");
         mUI.enableShutter(false);
+        enableSpeechRecognition(false);
         if (isBackCamera()) {
             switch (getCameraMode()) {
                 case DUAL_MODE:
@@ -1029,6 +1159,8 @@ public class CaptureModule extends BaseModule<CaptureUI> implements PhotoControl
         if(mPostProcessor.isZSLEnabled() && mPostProcessor.takeZSLPicture(mCameraDevice[cameraId], mCaptureSession[cameraId], mImageReader[cameraId])) {
             checkAndPlayShutterSound(cameraId);
             mUI.enableShutter(true);
+            enableSpeechRecognition(mSettingsManager.getValue(
+                    SettingsManager.KEY_VOICE_SHUTTER).equalsIgnoreCase("on"));
             return true;
         }
         return false;
@@ -1519,6 +1651,8 @@ public class CaptureModule extends BaseModule<CaptureUI> implements PhotoControl
                     public void run() {
                         mUI.stopSelfieFlash();
                         mUI.enableShutter(true);
+                        enableSpeechRecognition(mSettingsManager.getValue(
+                                SettingsManager.KEY_VOICE_SHUTTER).equalsIgnoreCase("on"));
                     }
                 });
             }
@@ -1782,6 +1916,7 @@ public class CaptureModule extends BaseModule<CaptureUI> implements PhotoControl
         mFirstPreviewLoaded = false;
         stopBackgroundThread();
         mLastJpegData = null;
+        enableSpeechRecognition(false);
     }
 
     @Override
@@ -1948,6 +2083,8 @@ public class CaptureModule extends BaseModule<CaptureUI> implements PhotoControl
             }
         });
         mUI.enableShutter(true);
+        enableSpeechRecognition(mSettingsManager.getValue(
+                SettingsManager.KEY_VOICE_SHUTTER).equalsIgnoreCase("on"));
     }
 
     @Override
@@ -2308,8 +2445,7 @@ public class CaptureModule extends BaseModule<CaptureUI> implements PhotoControl
     }
 
     public void setMute(boolean enable, boolean isValue) {
-        AudioManager am = (AudioManager) mActivity.getSystemService(Context.AUDIO_SERVICE);
-        am.setMicrophoneMute(enable);
+        mAudioManager.setMicrophoneMute(enable);
         if (isValue) {
             mIsMute = enable;
         }
@@ -3128,6 +3264,8 @@ public class CaptureModule extends BaseModule<CaptureUI> implements PhotoControl
             @Override
             public void run() {
                 mUI.enableShutter(!full);
+                enableSpeechRecognition(!full ? mSettingsManager.getValue(
+                        SettingsManager.KEY_VOICE_SHUTTER).equalsIgnoreCase("on") : false);
             }
         });
     }
@@ -3250,6 +3388,9 @@ public class CaptureModule extends BaseModule<CaptureUI> implements PhotoControl
                     continue;
                 case SettingsManager.KEY_JPEG_QUALITY:
                     estimateJpegFileSize();
+                    continue;
+                case SettingsManager.KEY_VOICE_SHUTTER:
+                    enableSpeechRecognition(value.equalsIgnoreCase("on"));
                     continue;
                 case SettingsManager.KEY_VIDEO_DURATION:
                     updateMaxVideoDuration();
