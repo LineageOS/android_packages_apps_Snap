@@ -106,4 +106,26 @@
         <item>auto</item>
         <item>continuous-video</item>
     </string-array>
+
+    <!-- Voice shutter -->
+    <string-array name="pref_camera_voiceshutter_entries" translatable="false">
+        <item>@string/setting_off</item>
+        <item>@string/setting_on</item>
+    </string-array>
+
+    <string-array name="pref_camera_voiceshutter_triggerwords" translatable="false">
+        <item>cheese</item>
+        <item>cider</item>
+        <item>derp</item>
+        <item>harry</item>
+        <item>lineage</item>
+        <item>octopus</item>
+        <item>rashed</item>
+        <item>smile</item>
+        <item>squid</item>
+        <item>vodka</item>
+        <item>volte</item>
+        <item>whisky</item>
+        <item>whiskey</item>
+    </string-array>
 </resources>
