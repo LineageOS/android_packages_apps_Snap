@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b0fbf812_d1ae505f",
+        "filename": "src/com/android/camera/CaptureModule.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 11801
+      },
+      "writtenOn": "2018-02-02T16:45:46Z",
+      "side": 1,
+      "message": "to rearm the recognition after a hotword was detected",
+      "parentUuid": "b83ab571_80df949c",
+      "range": {
+        "startLine": 318,
+        "startChar": 38,
+        "endLine": 320,
+        "endChar": 42
+      },
+      "revId": "b30c1715c4ae465cedc6d890041469473152912b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8560c163_98c2b9b9",
         "filename": "src/com/android/camera/CaptureModule.java",
         "patchSetId": 15
