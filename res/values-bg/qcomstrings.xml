@@ -160,8 +160,6 @@
   <string name="pref_camera_shuttersound_title" translatable="true">Зкук на затвора</string>
   <string name="pref_camera_shuttersound_entry_enable">Вкл.</string>
   <string name="pref_camera_shuttersound_entry_disable">Изкл.</string>
-  <!-- Default mce setting. Do not translate. -->
-  <string name="pref_camera_mce_default">активирано</string>
   <!-- The message is shown in toast when the app encounters an unsupported selection for HFR/HSR mode -->
   <string name="error_app_unsupported_hfr_selection">Запис на бавно движение не се поддържа при използване на Стабилизация/Изтичащо време/HDR.</string>
   <!-- The message is shown in dialog when the app encounters an unsupported resolution for HFR mode -->
@@ -365,11 +363,6 @@
   <string name="pref_camera_hdr_mode_entry_sensor">Сензор HDR</string>
   <string name="pref_camera_hdr_mode_entry_multi_frame">Рамка HDR</string>
   <!-- HDR mode entry values. Do not translate. -->
-  <!-- Settings screen, Selectable HDR need 1x frame default value -->
-  <!-- Settings screen, Selectable HDR need 1x frame title -->
-  <string name="pref_camera_hdr_need_1x_title">HDR необходима е 1 x рамка</string>
-  <!-- Settings screen, Selectable HDR need 1x frame radio button choices -->
-  <!-- HDR need 1x frame entry values. Do not translate. -->
   <!--Default video rotation setting-->
   <!--Settings screen, video rotation title-->
   <string name="pref_camera_video_rotation_title">Видео завъртане</string>
@@ -428,6 +421,7 @@
   <string name="pref_camera2_camera2_entry_enable">Разрешено</string>
   <string name="pref_camera2_camera2_entry_disable">Деактивирай</string>
   <string name="pref_camera2_mono_only_title">Моно само</string>
+  <string name="pref_camera2_mono_only_entry_off">Изкл.</string>
   <string name="pref_camera2_mono_preview_title">Моно визуализация</string>
   <string name="pref_camera2_mono_preview_entry_on">Включване</string>
   <string name="pref_camera2_mono_preview_entry_off">Изкл.</string>
@@ -439,6 +433,7 @@
   <string name="pref_camera2_mpo_entry_on">Вкл.</string>
   <string name="pref_camera2_mpo_entry_off">Изкл.</string>
   <string name="pref_camera2_makeup_title">Грим</string>
+  <string name="pref_camera2_makeup_entry_off">Изкл.</string>
   <string name="pref_camera2_noise_reduction_title">Намаляване на шума</string>
   <string name="pref_camera2_noise_reduction_entry_off">Изкл.</string>
   <string name="pref_camera2_noise_reduction_entry_fast">Бързо</string>
@@ -447,10 +442,12 @@
   <string name="pref_camera2_videosnap_entry_enable">Разрешено</string>
   <string name="pref_camera2_videosnap_entry_disable">Деактивирай</string>
   <string name="pref_camera2_trackingfocus_title">Проследяващ фокус</string>
+  <string name="pref_camera2_trackingfocus_entry_off">Изкл.</string>
   <string name="pref_camera_scenemode_entry_bestpicture">Най-добра снимка</string>
   <string name="bestpicture_done">ГОТОВО</string>
   <string name="bestpicture_at_least_one_picture">Най-малко една снимка трябва да бъде избрана.</string>
   <string name="pref_camera2_shutter_sound_entry_on">Вкл.</string>
   <string name="pref_camera2_shutter_sound_entry_off">Изкл.</string>
   <string name="pref_camera2_shutter_sound_title">Зкук на затвора</string>
+  <string name="pref_camera2_initial_camera_entry_mono">Моно</string>
 </resources>

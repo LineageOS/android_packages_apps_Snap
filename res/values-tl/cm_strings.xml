@@ -29,8 +29,6 @@
   <!-- Power shutter -->
   <!-- Max brightness -->
   <!-- Touch focus duration -->
-  <string name="pref_camera_focustime_entry_0">0e</string>
-  <string name="pref_camera_focustime_entry_10">10e</string>
   <!-- Shutter speed -->
   <!-- Advanced options -->
 </resources>

@@ -131,7 +131,6 @@
   <!-- Settings screen, Select Redeye Reduction -->
   <string name="pref_camera_redeyereduction_title">ନାଲି ଆଖି ହ୍ରାସ</string>
   <!-- Settings menu, redeye reduction choices -->
-  <!-- Default mce setting. Do not translate. -->
   <!-- The message is shown in toast when the app encounters an unsupported selection for HFR/HSR mode -->
   <string name="error_app_unsupported_hfr_selection">ଷ୍ଟାବିଲାଇଜେସନ୍‍/ଟାଇମ୍‍ ଲାପ୍ସ/HDR ବ୍ୟବହାର ସମୟରେ ଅଧିକ ଫ୍ରେମ୍‍ହାର ଥିବା ରେକର୍ଡିଂ ସମଥନ କରେ ନାହିଁ।</string>
   <!-- The message is shown in dialog when the app encounters an unsupported resolution for HFR mode -->
@@ -310,11 +309,6 @@
   <string name="pref_camera_hdr_mode_entry_sensor">ସେନ୍‍ସର୍‍ HDR</string>
   <string name="pref_camera_hdr_mode_entry_multi_frame">ମଲ୍ଟି-ଫ୍ରେମ୍‍ HDR</string>
   <!-- HDR mode entry values. Do not translate. -->
-  <!-- Settings screen, Selectable HDR need 1x frame default value -->
-  <!-- Settings screen, Selectable HDR need 1x frame title -->
-  <string name="pref_camera_hdr_need_1x_title">HDR ଆବ୍ଶ୍ୟକ କରେ 1x frame</string>
-  <!-- Settings screen, Selectable HDR need 1x frame radio button choices -->
-  <!-- HDR need 1x frame entry values. Do not translate. -->
   <!--Default video rotation setting-->
   <!--Settings screen, video rotation title-->
   <string name="pref_camera_video_rotation_title">ଭିଡିଓ ଘୂର୍ଣ୍ଣନ</string>
@@ -336,9 +330,13 @@
   <string name="all_in_focus">ଫୋକସ୍‍ରେ ସମସ୍ତ</string>
   <string name="refocus_toast">ଶେଷ ଫଟୋ ରି-ଫୋକସ୍‍ କରିବା ପାଇଁ, ଏଠାରେ ସ୍ପର୍ଶ କରନ୍ତୁ</string>
   <!-- Help menu strings -->
+  <string name="pref_camera2_mono_only_entry_off">ଅଫ୍</string>
   <string name="pref_camera2_mono_preview_entry_off">ଅଫ୍</string>
   <string name="pref_camera2_clearsight_entry_off">ଅଫ୍</string>
   <string name="pref_camera2_mpo_entry_off">ଅଫ୍</string>
+  <string name="pref_camera2_makeup_entry_off">ଅଫ୍</string>
   <string name="pref_camera2_noise_reduction_entry_off">ଅଫ୍</string>
+  <string name="pref_camera2_trackingfocus_entry_off">ଅଫ୍</string>
   <string name="pref_camera2_shutter_sound_entry_off">ଅଫ୍</string>
+  <string name="pref_camera2_initial_camera_entry_mono">ମୋନୋ</string>
 </resources>

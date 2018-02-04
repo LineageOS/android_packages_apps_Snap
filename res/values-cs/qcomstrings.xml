@@ -160,7 +160,6 @@
   <string name="pref_camera_shuttersound_title" translatable="true">Zvuk závěrky</string>
   <string name="pref_camera_shuttersound_entry_enable">Povoleno</string>
   <string name="pref_camera_shuttersound_entry_disable">Zakázáno</string>
-  <!-- Default mce setting. Do not translate. -->
   <!-- The message is shown in toast when the app encounters an unsupported selection for HFR/HSR mode -->
   <string name="error_app_unsupported_hfr_selection">Vysoká rychlost snímání (zpomalený pohyb) nelze použít pro stabilizátor / časosběr / HDR.</string>
   <!-- The message is shown in dialog when the app encounters an unsupported resolution for HFR mode -->
@@ -364,11 +363,6 @@
   <string name="pref_camera_hdr_mode_entry_sensor">Senzor HDR</string>
   <string name="pref_camera_hdr_mode_entry_multi_frame">Vícepolíčkové HDR</string>
   <!-- HDR mode entry values. Do not translate. -->
-  <!-- Settings screen, Selectable HDR need 1x frame default value -->
-  <!-- Settings screen, Selectable HDR need 1x frame title -->
-  <string name="pref_camera_hdr_need_1x_title">HDR vyžaduje 1x políčko</string>
-  <!-- Settings screen, Selectable HDR need 1x frame radio button choices -->
-  <!-- HDR need 1x frame entry values. Do not translate. -->
   <!--Default video rotation setting-->
   <!--Settings screen, video rotation title-->
   <string name="pref_camera_video_rotation_title">Rotace video</string>
@@ -427,6 +421,7 @@
   <string name="pref_camera2_camera2_entry_enable">Použít</string>
   <string name="pref_camera2_camera2_entry_disable">Nepoužít</string>
   <string name="pref_camera2_mono_only_title">Pouze Mono</string>
+  <string name="pref_camera2_mono_only_entry_off">Vypnuto</string>
   <string name="pref_camera2_mono_preview_title">Náhled Mono</string>
   <string name="pref_camera2_mono_preview_entry_on">Zapnout</string>
   <string name="pref_camera2_mono_preview_entry_off">Vypnuto</string>
@@ -438,6 +433,7 @@
   <string name="pref_camera2_mpo_entry_on">Zapnout</string>
   <string name="pref_camera2_mpo_entry_off">Vypnuto</string>
   <string name="pref_camera2_makeup_title">Makeup</string>
+  <string name="pref_camera2_makeup_entry_off">Vypnuto</string>
   <string name="pref_camera2_noise_reduction_title">Redukce šumu</string>
   <string name="pref_camera2_noise_reduction_entry_off">Vypnuto</string>
   <string name="pref_camera2_noise_reduction_entry_fast">Rychle</string>
@@ -446,10 +442,12 @@
   <string name="pref_camera2_videosnap_entry_enable">Použít</string>
   <string name="pref_camera2_videosnap_entry_disable">Zakázat</string>
   <string name="pref_camera2_trackingfocus_title">Sledování zaostření</string>
+  <string name="pref_camera2_trackingfocus_entry_off">Vypnuto</string>
   <string name="pref_camera_scenemode_entry_bestpicture">Nejlepší obraz</string>
   <string name="bestpicture_done">HOTOVO</string>
   <string name="bestpicture_at_least_one_picture">Musí být vybrán alespoň jeden obrázek.</string>
   <string name="pref_camera2_shutter_sound_entry_on">Zapnuto</string>
   <string name="pref_camera2_shutter_sound_entry_off">Vypnuto</string>
   <string name="pref_camera2_shutter_sound_title">Zvuk závěrky</string>
+  <string name="pref_camera2_initial_camera_entry_mono">Černobílý</string>
 </resources>

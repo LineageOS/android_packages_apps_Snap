@@ -160,8 +160,6 @@
   <string name="pref_camera_shuttersound_title" translatable="true">Sunet obturator</string>
   <string name="pref_camera_shuttersound_entry_enable">Activat</string>
   <string name="pref_camera_shuttersound_entry_disable">Dezactivat</string>
-  <!-- Default mce setting. Do not translate. -->
-  <string name="pref_camera_mce_default">activați</string>
   <!-- The message is shown in toast when the app encounters an unsupported selection for HFR/HSR mode -->
   <string name="error_app_unsupported_hfr_selection">Înregistrarea cu frecvenţă mare de cadre nu este suportată atunci când utilizaţi Stabilizare/Time lapse/HDR.</string>
   <!-- The message is shown in dialog when the app encounters an unsupported resolution for HFR mode -->
@@ -365,11 +363,6 @@
   <string name="pref_camera_hdr_mode_entry_sensor">Senzor HDR</string>
   <string name="pref_camera_hdr_mode_entry_multi_frame">HDR multi-cadru</string>
   <!-- HDR mode entry values. Do not translate. -->
-  <!-- Settings screen, Selectable HDR need 1x frame default value -->
-  <!-- Settings screen, Selectable HDR need 1x frame title -->
-  <string name="pref_camera_hdr_need_1x_title">HDR are nevoie de 1x cadru</string>
-  <!-- Settings screen, Selectable HDR need 1x frame radio button choices -->
-  <!-- HDR need 1x frame entry values. Do not translate. -->
   <!--Default video rotation setting-->
   <!--Settings screen, video rotation title-->
   <string name="pref_camera_video_rotation_title">Rotire video</string>
@@ -428,6 +421,7 @@
   <string name="pref_camera2_camera2_entry_enable">Activați</string>
   <string name="pref_camera2_camera2_entry_disable">Dezactivați</string>
   <string name="pref_camera2_mono_only_title">Doar mono</string>
+  <string name="pref_camera2_mono_only_entry_off">Oprit</string>
   <string name="pref_camera2_mono_preview_title">Previzualizare mono</string>
   <string name="pref_camera2_mono_preview_entry_on">Activat</string>
   <string name="pref_camera2_mono_preview_entry_off">Oprit</string>
@@ -439,6 +433,7 @@
   <string name="pref_camera2_mpo_entry_on">Activat</string>
   <string name="pref_camera2_mpo_entry_off">Oprit</string>
   <string name="pref_camera2_makeup_title">Machiaj</string>
+  <string name="pref_camera2_makeup_entry_off">Oprit</string>
   <string name="pref_camera2_noise_reduction_title">Reducere zgomot</string>
   <string name="pref_camera2_noise_reduction_entry_off">Oprit</string>
   <string name="pref_camera2_noise_reduction_entry_fast">Rapid</string>
@@ -447,10 +442,12 @@
   <string name="pref_camera2_videosnap_entry_enable">Activați</string>
   <string name="pref_camera2_videosnap_entry_disable">Dezactivați</string>
   <string name="pref_camera2_trackingfocus_title">Urmărire focalizare</string>
+  <string name="pref_camera2_trackingfocus_entry_off">Oprit</string>
   <string name="pref_camera_scenemode_entry_bestpicture">Cea mai bună fotografie</string>
   <string name="bestpicture_done">EFECTUAT</string>
   <string name="bestpicture_at_least_one_picture">Trebuie aleasă măcar o fotografie.</string>
   <string name="pref_camera2_shutter_sound_entry_on">Activat</string>
   <string name="pref_camera2_shutter_sound_entry_off">Oprit</string>
   <string name="pref_camera2_shutter_sound_title">Sunet obturator</string>
+  <string name="pref_camera2_initial_camera_entry_mono">Mono</string>
 </resources>

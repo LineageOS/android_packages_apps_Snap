@@ -131,7 +131,6 @@
   <!-- Settings screen, Select Redeye Reduction -->
   <string name="pref_camera_redeyereduction_title">રેડ આઇ રિડક્શન</string>
   <!-- Settings menu, redeye reduction choices -->
-  <!-- Default mce setting. Do not translate. -->
   <!-- The message is shown in toast when the app encounters an unsupported selection for HFR/HSR mode -->
   <string name="error_app_unsupported_hfr_selection">જ્યારે સ્થિરિકરણ/ટાઇમ લૅપ્સ/HDRનો ઉપયોગ કરો ત્યારે ઉચ્ચ ફ્રેમરેટ રેકૉર્ડિંગને સમર્થન નથી.</string>
   <!-- The message is shown in dialog when the app encounters an unsupported resolution for HFR mode -->
@@ -310,11 +309,6 @@
   <string name="pref_camera_hdr_mode_entry_sensor">સેન્સર HDR</string>
   <string name="pref_camera_hdr_mode_entry_multi_frame">મલ્ટિ-ફ્રેમ HDR</string>
   <!-- HDR mode entry values. Do not translate. -->
-  <!-- Settings screen, Selectable HDR need 1x frame default value -->
-  <!-- Settings screen, Selectable HDR need 1x frame title -->
-  <string name="pref_camera_hdr_need_1x_title">HDR માટે જરૂરી છે 1x ફ્રેમ</string>
-  <!-- Settings screen, Selectable HDR need 1x frame radio button choices -->
-  <!-- HDR need 1x frame entry values. Do not translate. -->
   <!--Default video rotation setting-->
   <!--Settings screen, video rotation title-->
   <string name="pref_camera_video_rotation_title">વિડિયો રોટેશન</string>
@@ -336,9 +330,13 @@
   <string name="all_in_focus">તમામ ફોકસમાં</string>
   <string name="refocus_toast">છેલ્લો ફોટો ફરી ફોકસ કરવા અહીં ટૅપ કરો</string>
   <!-- Help menu strings -->
+  <string name="pref_camera2_mono_only_entry_off">બંધ</string>
   <string name="pref_camera2_mono_preview_entry_off">બંધ</string>
   <string name="pref_camera2_clearsight_entry_off">બંધ</string>
   <string name="pref_camera2_mpo_entry_off">બંધ</string>
+  <string name="pref_camera2_makeup_entry_off">બંધ</string>
   <string name="pref_camera2_noise_reduction_entry_off">બંધ</string>
+  <string name="pref_camera2_trackingfocus_entry_off">બંધ</string>
   <string name="pref_camera2_shutter_sound_entry_off">બંધ</string>
+  <string name="pref_camera2_initial_camera_entry_mono">મોનો</string>
 </resources>

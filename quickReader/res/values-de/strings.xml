@@ -24,7 +24,7 @@
   <!-- QuickReader: permission error dialog title -->
   <string name="quick_reader_permission_error_title">Berechtigungsfehler</string>
   <!-- QuickReader: permission error dialog message when permission can be asked again -->
-  <string name="quick_reader_permission_rationale_message">Kamera-Zugriff wird zum scannen des Barcodes benötigt</string>
+  <string name="quick_reader_permission_rationale_message">Kamera-Zugriff wird zum Scannen des Barcodes benötigt</string>
   <!-- QuickReader: permission error dialog positive action when permission can be asked again -->
   <string name="quick_reader_permission_rationale_positive">Erneut nachfragen</string>
   <!-- QuickReader: permission error dialog message when permission can't be asked again -->

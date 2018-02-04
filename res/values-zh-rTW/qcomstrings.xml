@@ -160,8 +160,6 @@
   <string name="pref_camera_shuttersound_title" translatable="true">快門音效</string>
   <string name="pref_camera_shuttersound_entry_enable">已啟用</string>
   <string name="pref_camera_shuttersound_entry_disable">已停用</string>
-  <!-- Default mce setting. Do not translate. -->
-  <string name="pref_camera_mce_default">啟用</string>
   <!-- The message is shown in toast when the app encounters an unsupported selection for HFR/HSR mode -->
   <string name="error_app_unsupported_hfr_selection">當使用穩定化/縮時/ HDR 時不支援高影格率拍攝</string>
   <!-- The message is shown in dialog when the app encounters an unsupported resolution for HFR mode -->
@@ -365,11 +363,6 @@
   <string name="pref_camera_hdr_mode_entry_sensor">感應器 HDR</string>
   <string name="pref_camera_hdr_mode_entry_multi_frame">多影格 HDR</string>
   <!-- HDR mode entry values. Do not translate. -->
-  <!-- Settings screen, Selectable HDR need 1x frame default value -->
-  <!-- Settings screen, Selectable HDR need 1x frame title -->
-  <string name="pref_camera_hdr_need_1x_title">HDR 需要 1x 影格</string>
-  <!-- Settings screen, Selectable HDR need 1x frame radio button choices -->
-  <!-- HDR need 1x frame entry values. Do not translate. -->
   <!--Default video rotation setting-->
   <!--Settings screen, video rotation title-->
   <string name="pref_camera_video_rotation_title">影片旋轉</string>
@@ -428,6 +421,7 @@
   <string name="pref_camera2_camera2_entry_enable">啟用</string>
   <string name="pref_camera2_camera2_entry_disable">停用</string>
   <string name="pref_camera2_mono_only_title">僅單色</string>
+  <string name="pref_camera2_mono_only_entry_off">關</string>
   <string name="pref_camera2_mono_preview_title">單色預覽</string>
   <string name="pref_camera2_mono_preview_entry_on">開</string>
   <string name="pref_camera2_mono_preview_entry_off">關</string>
@@ -439,6 +433,7 @@
   <string name="pref_camera2_mpo_entry_on">開</string>
   <string name="pref_camera2_mpo_entry_off">關</string>
   <string name="pref_camera2_makeup_title">美顏模式</string>
+  <string name="pref_camera2_makeup_entry_off">關</string>
   <string name="pref_camera2_noise_reduction_title">降噪</string>
   <string name="pref_camera2_noise_reduction_entry_off">關</string>
   <string name="pref_camera2_noise_reduction_entry_fast">快速</string>
@@ -447,10 +442,12 @@
   <string name="pref_camera2_videosnap_entry_enable">啟用</string>
   <string name="pref_camera2_videosnap_entry_disable">停用</string>
   <string name="pref_camera2_trackingfocus_title">追蹤對焦</string>
+  <string name="pref_camera2_trackingfocus_entry_off">關</string>
   <string name="pref_camera_scenemode_entry_bestpicture">最佳相片</string>
   <string name="bestpicture_done">完成</string>
   <string name="bestpicture_at_least_one_picture">至少需要一張圖片可供選擇。</string>
   <string name="pref_camera2_shutter_sound_entry_on">開</string>
   <string name="pref_camera2_shutter_sound_entry_off">關</string>
   <string name="pref_camera2_shutter_sound_title">快門音效</string>
+  <string name="pref_camera2_initial_camera_entry_mono">單色</string>
 </resources>

@@ -160,7 +160,6 @@
   <string name="pref_camera_shuttersound_title" translatable="true">Sluitergeluid</string>
   <string name="pref_camera_shuttersound_entry_enable">Ingeschakeld</string>
   <string name="pref_camera_shuttersound_entry_disable">Uitgeschakeld</string>
-  <!-- Default mce setting. Do not translate. -->
   <!-- The message is shown in toast when the app encounters an unsupported selection for HFR/HSR mode -->
   <string name="error_app_unsupported_hfr_selection">Opname met hoge beeldsnelheid wordt niet ondersteund bij digitale beeldstabilisatie, time-lapse of HDR.</string>
   <!-- The message is shown in dialog when the app encounters an unsupported resolution for HFR mode -->
@@ -364,11 +363,6 @@
   <string name="pref_camera_hdr_mode_entry_sensor">Sensor HDR</string>
   <string name="pref_camera_hdr_mode_entry_multi_frame">Multi-frame HDR</string>
   <!-- HDR mode entry values. Do not translate. -->
-  <!-- Settings screen, Selectable HDR need 1x frame default value -->
-  <!-- Settings screen, Selectable HDR need 1x frame title -->
-  <string name="pref_camera_hdr_need_1x_title">HDR heeft 1x beeld nodig</string>
-  <!-- Settings screen, Selectable HDR need 1x frame radio button choices -->
-  <!-- HDR need 1x frame entry values. Do not translate. -->
   <!--Default video rotation setting-->
   <!--Settings screen, video rotation title-->
   <string name="pref_camera_video_rotation_title">Videorotatie</string>
@@ -427,6 +421,7 @@
   <string name="pref_camera2_camera2_entry_enable">Inschakelen</string>
   <string name="pref_camera2_camera2_entry_disable">Uitschakelen</string>
   <string name="pref_camera2_mono_only_title">Alleen mono</string>
+  <string name="pref_camera2_mono_only_entry_off">Uit</string>
   <string name="pref_camera2_mono_preview_title">Mono preview</string>
   <string name="pref_camera2_mono_preview_entry_on">Aan</string>
   <string name="pref_camera2_mono_preview_entry_off">Uit</string>
@@ -438,6 +433,7 @@
   <string name="pref_camera2_mpo_entry_on">Aan</string>
   <string name="pref_camera2_mpo_entry_off">Uit</string>
   <string name="pref_camera2_makeup_title">Make-up</string>
+  <string name="pref_camera2_makeup_entry_off">Uit</string>
   <string name="pref_camera2_noise_reduction_title">Ruisonderdrukking</string>
   <string name="pref_camera2_noise_reduction_entry_off">Uit</string>
   <string name="pref_camera2_noise_reduction_entry_fast">Snel</string>
@@ -446,10 +442,12 @@
   <string name="pref_camera2_videosnap_entry_enable">Inschakelen</string>
   <string name="pref_camera2_videosnap_entry_disable">Uitschakelen</string>
   <string name="pref_camera2_trackingfocus_title">Focus volgt object</string>
+  <string name="pref_camera2_trackingfocus_entry_off">Uit</string>
   <string name="pref_camera_scenemode_entry_bestpicture">Beste foto</string>
   <string name="bestpicture_done">KLAAR</string>
   <string name="bestpicture_at_least_one_picture">Er moet ten minste één foto worden gekozen.</string>
   <string name="pref_camera2_shutter_sound_entry_on">Aan</string>
   <string name="pref_camera2_shutter_sound_entry_off">Uit</string>
   <string name="pref_camera2_shutter_sound_title">Sluitergeluid</string>
+  <string name="pref_camera2_initial_camera_entry_mono">Monochroom</string>
 </resources>

@@ -131,7 +131,6 @@
   <!-- Settings screen, Select Redeye Reduction -->
   <string name="pref_camera_redeyereduction_title">ఎరుపు నేత్ర తగ్గింపు</string>
   <!-- Settings menu, redeye reduction choices -->
-  <!-- Default mce setting. Do not translate. -->
   <!-- The message is shown in toast when the app encounters an unsupported selection for HFR/HSR mode -->
   <string name="error_app_unsupported_hfr_selection">స్థిరీకరణ/టైం లాప్స్/HDR ఉపయోగిస్తున్నప్పుడు హై-ఫ్రేంరేట్ రికార్డింగ్ కు మద్దతు లేదు</string>
   <!-- The message is shown in dialog when the app encounters an unsupported resolution for HFR mode -->
@@ -310,11 +309,6 @@
   <string name="pref_camera_hdr_mode_entry_sensor">సెన్సర్ HDR</string>
   <string name="pref_camera_hdr_mode_entry_multi_frame">మల్టి-ఫ్రేం HDR</string>
   <!-- HDR mode entry values. Do not translate. -->
-  <!-- Settings screen, Selectable HDR need 1x frame default value -->
-  <!-- Settings screen, Selectable HDR need 1x frame title -->
-  <string name="pref_camera_hdr_need_1x_title">HDR కు 1x  ఫ్రేం అవసరం</string>
-  <!-- Settings screen, Selectable HDR need 1x frame radio button choices -->
-  <!-- HDR need 1x frame entry values. Do not translate. -->
   <!--Default video rotation setting-->
   <!--Settings screen, video rotation title-->
   <string name="pref_camera_video_rotation_title">వీడియో పరిభ్రమణం</string>
@@ -336,9 +330,13 @@
   <string name="all_in_focus">అన్నీ ఫోకస్ లో ఉన్నాయి</string>
   <string name="refocus_toast">చివరి ఫోటోను రీ-ఫోకస్ చేయడానికి, ఇక్కడ ట్యాప్ చేయండి</string>
   <!-- Help menu strings -->
+  <string name="pref_camera2_mono_only_entry_off">ఆఫ్‌లో ఉంది</string>
   <string name="pref_camera2_mono_preview_entry_off">ఆఫ్‌లో ఉంది</string>
   <string name="pref_camera2_clearsight_entry_off">ఆఫ్‌లో ఉంది</string>
   <string name="pref_camera2_mpo_entry_off">ఆఫ్‌లో ఉంది</string>
+  <string name="pref_camera2_makeup_entry_off">ఆఫ్‌లో ఉంది</string>
   <string name="pref_camera2_noise_reduction_entry_off">ఆఫ్‌లో ఉంది</string>
+  <string name="pref_camera2_trackingfocus_entry_off">ఆఫ్‌లో ఉంది</string>
   <string name="pref_camera2_shutter_sound_entry_off">ఆఫ్‌లో ఉంది</string>
+  <string name="pref_camera2_initial_camera_entry_mono">మోనో</string>
 </resources>

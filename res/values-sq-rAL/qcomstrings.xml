@@ -125,7 +125,6 @@
   <string name="pref_camera_shuttersound_title" translatable="true">Tingulli i shkrepjes</string>
   <string name="pref_camera_shuttersound_entry_enable">E aktivizuar</string>
   <string name="pref_camera_shuttersound_entry_disable">E çaktivizuar</string>
-  <!-- Default mce setting. Do not translate. -->
   <!-- The message is shown in toast when the app encounters an unsupported selection for HFR/HSR mode -->
   <!-- The message is shown in dialog when the app encounters an unsupported resolution for HFR mode -->
   <!-- The message is shown in toast when the app encounters an unsupported resolution for DIS mode -->
@@ -263,10 +262,6 @@
   <!-- Settings screen, Selectable HDR mode title -->
   <!-- Settings screen, Selectable HDR mode radio button choices -->
   <!-- HDR mode entry values. Do not translate. -->
-  <!-- Settings screen, Selectable HDR need 1x frame default value -->
-  <!-- Settings screen, Selectable HDR need 1x frame title -->
-  <!-- Settings screen, Selectable HDR need 1x frame radio button choices -->
-  <!-- HDR need 1x frame entry values. Do not translate. -->
   <!--Default video rotation setting-->
   <!--Settings screen, video rotation title-->
   <string name="pref_camera_video_rotation_title">Rrotullimi i videos</string>
@@ -320,6 +315,7 @@
   <string name="pref_camera2_camera2_entry_enable">Aktivizo</string>
   <string name="pref_camera2_camera2_entry_disable">Çaktivizo</string>
   <string name="pref_camera2_mono_only_title">Vetëm mono</string>
+  <string name="pref_camera2_mono_only_entry_off">Inaktiv</string>
   <string name="pref_camera2_mono_preview_title">Shikim paraprak Monokromatik</string>
   <string name="pref_camera2_mono_preview_entry_on">Aktiv</string>
   <string name="pref_camera2_mono_preview_entry_off">Inaktiv</string>
@@ -331,6 +327,7 @@
   <string name="pref_camera2_mpo_entry_on">Aktiv</string>
   <string name="pref_camera2_mpo_entry_off">Inaktiv</string>
   <string name="pref_camera2_makeup_title">Makijazhi</string>
+  <string name="pref_camera2_makeup_entry_off">Inaktiv</string>
   <string name="pref_camera2_noise_reduction_title">Reduktimi i zhurmave</string>
   <string name="pref_camera2_noise_reduction_entry_off">Inaktiv</string>
   <string name="pref_camera2_noise_reduction_entry_fast">I shpejtë</string>
@@ -339,10 +336,12 @@
   <string name="pref_camera2_videosnap_entry_enable">Aktivizo</string>
   <string name="pref_camera2_videosnap_entry_disable">Çaktivizo</string>
   <string name="pref_camera2_trackingfocus_title">Ndjekja e fokusit</string>
+  <string name="pref_camera2_trackingfocus_entry_off">Inaktiv</string>
   <string name="pref_camera_scenemode_entry_bestpicture">Fotoja më e mirë</string>
   <string name="bestpicture_done">U KRYE</string>
   <string name="bestpicture_at_least_one_picture">Duhet zgjedhur të paktën një foto.</string>
   <string name="pref_camera2_shutter_sound_entry_on">Aktiv</string>
   <string name="pref_camera2_shutter_sound_entry_off">Inaktiv</string>
   <string name="pref_camera2_shutter_sound_title">Tingulli i shkrepjes</string>
+  <string name="pref_camera2_initial_camera_entry_mono">Mono</string>
 </resources>

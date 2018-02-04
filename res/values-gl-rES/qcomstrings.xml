@@ -160,8 +160,6 @@
   <string name="pref_camera_shuttersound_title" translatable="true">So do obturador</string>
   <string name="pref_camera_shuttersound_entry_enable">Activado</string>
   <string name="pref_camera_shuttersound_entry_disable">Desactivado</string>
-  <!-- Default mce setting. Do not translate. -->
-  <string name="pref_camera_mce_default">activar</string>
   <!-- The message is shown in toast when the app encounters an unsupported selection for HFR/HSR mode -->
   <string name="error_app_unsupported_hfr_selection">Os modos Gran velocidade/Cámara lenta non son compatíbeis con DIS e TimeLapse</string>
   <!-- The message is shown in dialog when the app encounters an unsupported resolution for HFR mode -->
@@ -365,11 +363,6 @@
   <string name="pref_camera_hdr_mode_entry_sensor">Sensor HDR</string>
   <string name="pref_camera_hdr_mode_entry_multi_frame">Multicadro HDR</string>
   <!-- HDR mode entry values. Do not translate. -->
-  <!-- Settings screen, Selectable HDR need 1x frame default value -->
-  <!-- Settings screen, Selectable HDR need 1x frame title -->
-  <string name="pref_camera_hdr_need_1x_title">O HDR necesita 1x cadro</string>
-  <!-- Settings screen, Selectable HDR need 1x frame radio button choices -->
-  <!-- HDR need 1x frame entry values. Do not translate. -->
   <!--Default video rotation setting-->
   <!--Settings screen, video rotation title-->
   <string name="pref_camera_video_rotation_title">Rotación de vídeo</string>
@@ -428,6 +421,7 @@
   <string name="pref_camera2_camera2_entry_enable">Activado</string>
   <string name="pref_camera2_camera2_entry_disable">Desactivado</string>
   <string name="pref_camera2_mono_only_title">Solo mono</string>
+  <string name="pref_camera2_mono_only_entry_off">Apagado</string>
   <string name="pref_camera2_mono_preview_title">Mono Preview</string>
   <string name="pref_camera2_mono_preview_entry_on">Encendido</string>
   <string name="pref_camera2_mono_preview_entry_off">Apagado</string>
@@ -439,6 +433,7 @@
   <string name="pref_camera2_mpo_entry_on">Encendido</string>
   <string name="pref_camera2_mpo_entry_off">Apagado</string>
   <string name="pref_camera2_makeup_title">Maquillage</string>
+  <string name="pref_camera2_makeup_entry_off">Apagado</string>
   <string name="pref_camera2_noise_reduction_title">Redución do ruído</string>
   <string name="pref_camera2_noise_reduction_entry_off">Apagado</string>
   <string name="pref_camera2_noise_reduction_entry_fast">Rápido</string>
@@ -447,10 +442,12 @@
   <string name="pref_camera2_videosnap_entry_enable">Activado</string>
   <string name="pref_camera2_videosnap_entry_disable">Desactivado</string>
   <string name="pref_camera2_trackingfocus_title">Enfoque do seguimiento</string>
+  <string name="pref_camera2_trackingfocus_entry_off">Apagado</string>
   <string name="pref_camera_scenemode_entry_bestpicture">Mellor foto</string>
   <string name="bestpicture_done">FEITO</string>
   <string name="bestpicture_at_least_one_picture">Tes que elegirse ao menos unha imaxen.</string>
   <string name="pref_camera2_shutter_sound_entry_on">Acender</string>
   <string name="pref_camera2_shutter_sound_entry_off">Apagado</string>
   <string name="pref_camera2_shutter_sound_title">So do obturador</string>
+  <string name="pref_camera2_initial_camera_entry_mono">Mono</string>
 </resources>

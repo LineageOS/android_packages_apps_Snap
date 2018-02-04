@@ -160,7 +160,6 @@
   <string name="pref_camera_shuttersound_title" translatable="true">Звук затвору</string>
   <string name="pref_camera_shuttersound_entry_enable">Увімкнено</string>
   <string name="pref_camera_shuttersound_entry_disable">Вимкнено</string>
-  <!-- Default mce setting. Do not translate. -->
   <!-- The message is shown in toast when the app encounters an unsupported selection for HFR/HSR mode -->
   <string name="error_app_unsupported_hfr_selection">Запис із високою частотою кадрів не підтримується при використанні стабілізації/Time lapse/HDR.</string>
   <!-- The message is shown in dialog when the app encounters an unsupported resolution for HFR mode -->
@@ -364,11 +363,6 @@
   <string name="pref_camera_hdr_mode_entry_sensor">Датчик HDR</string>
   <string name="pref_camera_hdr_mode_entry_multi_frame">Мультикадровий HDR</string>
   <!-- HDR mode entry values. Do not translate. -->
-  <!-- Settings screen, Selectable HDR need 1x frame default value -->
-  <!-- Settings screen, Selectable HDR need 1x frame title -->
-  <string name="pref_camera_hdr_need_1x_title">HDR потребує 1x кадр</string>
-  <!-- Settings screen, Selectable HDR need 1x frame radio button choices -->
-  <!-- HDR need 1x frame entry values. Do not translate. -->
   <!--Default video rotation setting-->
   <!--Settings screen, video rotation title-->
   <string name="pref_camera_video_rotation_title">Обертання відео</string>
@@ -427,6 +421,7 @@
   <string name="pref_camera2_camera2_entry_enable">Увімкнути</string>
   <string name="pref_camera2_camera2_entry_disable">Вимкнути</string>
   <string name="pref_camera2_mono_only_title">Тільки моно</string>
+  <string name="pref_camera2_mono_only_entry_off">Вимкнено</string>
   <string name="pref_camera2_mono_preview_title">Попередній перегляд моно</string>
   <string name="pref_camera2_mono_preview_entry_on">Увімк</string>
   <string name="pref_camera2_mono_preview_entry_off">Вимкнено</string>
@@ -438,6 +433,7 @@
   <string name="pref_camera2_mpo_entry_on">Увімк</string>
   <string name="pref_camera2_mpo_entry_off">Вимкнено</string>
   <string name="pref_camera2_makeup_title">Макіяж</string>
+  <string name="pref_camera2_makeup_entry_off">Вимкнено</string>
   <string name="pref_camera2_noise_reduction_title">Зниження шумів</string>
   <string name="pref_camera2_noise_reduction_entry_off">Вимкнено</string>
   <string name="pref_camera2_noise_reduction_entry_fast">Швидко</string>
@@ -446,10 +442,12 @@
   <string name="pref_camera2_videosnap_entry_enable">Увімкнути</string>
   <string name="pref_camera2_videosnap_entry_disable">Вимкнути</string>
   <string name="pref_camera2_trackingfocus_title">Фокус відстеження</string>
+  <string name="pref_camera2_trackingfocus_entry_off">Вимкнено</string>
   <string name="pref_camera_scenemode_entry_bestpicture">Найкращий знімок</string>
   <string name="bestpicture_done">Готово</string>
   <string name="bestpicture_at_least_one_picture">Потрібно вибрати хоча б один знімок.</string>
   <string name="pref_camera2_shutter_sound_entry_on">Увімк</string>
   <string name="pref_camera2_shutter_sound_entry_off">Вимкнено</string>
   <string name="pref_camera2_shutter_sound_title">Звук затвору</string>
+  <string name="pref_camera2_initial_camera_entry_mono">Монохром</string>
 </resources>

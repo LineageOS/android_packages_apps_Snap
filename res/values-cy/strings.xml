@@ -18,6 +18,7 @@
   <!-- The name of the Android Camera application. [CHAR LIMIT=16] -->
   <!-- The label for the Video Camera activity. [CHAR LIMIT=16] -->
   <!-- Used to format short video duration in Details dialog. minutes:seconds e.g. 00:30 -->
+  <string name="details_ms">%1$02d:%2$02d</string>
   <!-- Used to format video duration in Details dialog. hours:minutes:seconds e.g. 0:21:30 -->
   <!-- Displayed in the title of the dialog for things to do with a picture
              that is to be "set as" (e.g. set as contact photo or set as wallpaper) -->
@@ -83,6 +84,7 @@
   <!-- Screen display message during image capture to indicate that the capture is in progress, like during HDR+. [CHAR LIMIT=20] -->
   <!-- Settings screen, camera selection dialog title. Users can select a camera from the phone (front-facing or back-facing). [CHAR LIMIT=20] -->
   <!-- In select camera setting, back facing camera. [CHAR LIMIT=14] -->
+  <string name="pref_camera_id_entry_back">Nôl</string>
   <!-- In select camera setting, front-facing camera. [CHAR LIMIT=14] -->
   <!-- Settings screen, setting title text -->
   <!--  Label for record location preference [CHAR LIMIT=50] -->
@@ -151,6 +153,7 @@
   <!-- Settings menu countdown timer 1 second [CHAR LIMIT=50] -->
   <!-- Settings menu countdown timer 3 seconds [CHAR LIMIT=50] -->
   <!-- Settings menu countdown timer 10 seconds [CHAR LIMIT=50] -->
+  <string name="pref_camera_countdown_label_ten">10 EILIAD</string>
   <!-- Settings menu countdown timer 15 seconds [CHAR LIMIT=50] -->
   <!-- Toast after trying to select a setting that is not allowed to change in scene mode [CHAR LIMIT=NONE] -->
   <!-- Toast after enable HDR function to inform Continuous Shot has disabled -->
@@ -170,6 +173,7 @@
   <!-- switch camera label back [CHAR LIMIT=60] -->
   <!-- switch camera label front [CHAR LIMIT=60] -->
   <!-- Dialog "OK" button. Dismisses dialog. -->
+  <string name="dialog_ok">Iawn</string>
   <!-- Low-memory dialog message [CHAR LIMIT=NONE] -->
   <!-- Camera format string for new image files. Passed to java.text.SimpleDateFormat. -->
   <!-- Video Camera format string for new video files. Passed to java.text.SimpleDateFormat. -->
@@ -202,6 +206,7 @@
   <!-- A button in effect setting popup to clear the effect. [CHAR LIMIT=26] -->
   <!-- Title of category for silly face effects. [CHAR LIMIT=26] -->
   <!-- Title of category for background replacement effects. [CHAR LIMIT=26] -->
+  <string name="effect_background">CEFNDIR</string>
   <!-- The shutter button. [CHAR LIMIT = NONE] -->
   <!-- The menu button. [CHAR LIMIT = NONE] -->
   <!-- The mode picker to switch between camera, video and panorama. [CHAR LIMIT = NONE] -->
@@ -219,6 +224,10 @@ CHAR LIMIT = NONE] -->
   <!-- Default text for a button that can be toggled on and off. -->
   <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
   <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
+  <string name="pref_video_time_lapse_frame_interval_500">0.5 eiliad</string>
+  <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
+  <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
+  <string name="pref_video_time_lapse_frame_interval_1500">1.5 eiliad</string>
   <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
   <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
   <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
@@ -226,6 +235,17 @@ CHAR LIMIT = NONE] -->
   <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
   <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
   <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
+  <string name="pref_video_time_lapse_frame_interval_10000">10 eiliad</string>
+  <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
+  <string name="pref_video_time_lapse_frame_interval_12000">12 eiliad</string>
+  <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
+  <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
+  <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
+  <string name="pref_video_time_lapse_frame_interval_30000">0.5 munud</string>
+  <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
+  <string name="pref_video_time_lapse_frame_interval_60000">1 munud</string>
+  <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
+  <string name="pref_video_time_lapse_frame_interval_90000">1.5 munud</string>
   <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
   <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
   <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
@@ -233,6 +253,17 @@ CHAR LIMIT = NONE] -->
   <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
   <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
   <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
+  <string name="pref_video_time_lapse_frame_interval_600000">10 munud</string>
+  <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
+  <string name="pref_video_time_lapse_frame_interval_720000">12 munud</string>
+  <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
+  <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
+  <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
+  <string name="pref_video_time_lapse_frame_interval_1800000">0.5 awr</string>
+  <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
+  <string name="pref_video_time_lapse_frame_interval_3600000">1 awr</string>
+  <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
+  <string name="pref_video_time_lapse_frame_interval_5400000">1.5 awr</string>
   <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
   <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
   <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
@@ -240,21 +271,9 @@ CHAR LIMIT = NONE] -->
   <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
   <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
   <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
+  <string name="pref_video_time_lapse_frame_interval_36000000">10 awr</string>
   <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
-  <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
-  <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
-  <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
-  <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
-  <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
-  <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
-  <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
-  <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
-  <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
-  <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
-  <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
-  <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
-  <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
-  <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
+  <string name="pref_video_time_lapse_frame_interval_43200000">12 awr</string>
   <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
   <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
   <!-- Seconds: a unit of time for time lapse intervals. [CHAR LIMIT = 20] -->

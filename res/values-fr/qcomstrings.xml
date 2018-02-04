@@ -160,7 +160,6 @@
   <string name="pref_camera_shuttersound_title" translatable="true">Son de l\'obturateur</string>
   <string name="pref_camera_shuttersound_entry_enable">Activé</string>
   <string name="pref_camera_shuttersound_entry_disable">Désactivé</string>
-  <!-- Default mce setting. Do not translate. -->
   <!-- The message is shown in toast when the app encounters an unsupported selection for HFR/HSR mode -->
   <string name="error_app_unsupported_hfr_selection">Haute vitesse/ralenti non pris en charge lors de l\'utilisation de la stabilisation, du ralenti et du HDR.</string>
   <!-- The message is shown in dialog when the app encounters an unsupported resolution for HFR mode -->
@@ -364,11 +363,6 @@
   <string name="pref_camera_hdr_mode_entry_sensor">Capteur HDR</string>
   <string name="pref_camera_hdr_mode_entry_multi_frame">Multi-couche HDR</string>
   <!-- HDR mode entry values. Do not translate. -->
-  <!-- Settings screen, Selectable HDR need 1x frame default value -->
-  <!-- Settings screen, Selectable HDR need 1x frame title -->
-  <string name="pref_camera_hdr_need_1x_title">HDR requiert 1x couche</string>
-  <!-- Settings screen, Selectable HDR need 1x frame radio button choices -->
-  <!-- HDR need 1x frame entry values. Do not translate. -->
   <!--Default video rotation setting-->
   <!--Settings screen, video rotation title-->
   <string name="pref_camera_video_rotation_title">Rotation vidéo</string>
@@ -427,6 +421,7 @@
   <string name="pref_camera2_camera2_entry_enable">Activer</string>
   <string name="pref_camera2_camera2_entry_disable">Désactiver</string>
   <string name="pref_camera2_mono_only_title">Mono uniquement</string>
+  <string name="pref_camera2_mono_only_entry_off">Désactivé</string>
   <string name="pref_camera2_mono_preview_title">Aperçu mono</string>
   <string name="pref_camera2_mono_preview_entry_on">Activé</string>
   <string name="pref_camera2_mono_preview_entry_off">Désactivé</string>
@@ -438,6 +433,7 @@
   <string name="pref_camera2_mpo_entry_on">Activé</string>
   <string name="pref_camera2_mpo_entry_off">Désactivé</string>
   <string name="pref_camera2_makeup_title">Maquillage</string>
+  <string name="pref_camera2_makeup_entry_off">Désactivé</string>
   <string name="pref_camera2_noise_reduction_title">Réduction du bruit</string>
   <string name="pref_camera2_noise_reduction_entry_off">Désactivé</string>
   <string name="pref_camera2_noise_reduction_entry_fast">Rapide</string>
@@ -446,10 +442,12 @@
   <string name="pref_camera2_videosnap_entry_enable">Activer</string>
   <string name="pref_camera2_videosnap_entry_disable">Désactiver</string>
   <string name="pref_camera2_trackingfocus_title">Mise au point automatique par suivi du sujet</string>
+  <string name="pref_camera2_trackingfocus_entry_off">Désactivé</string>
   <string name="pref_camera_scenemode_entry_bestpicture">Image optimale</string>
   <string name="bestpicture_done">TERMINÉ</string>
   <string name="bestpicture_at_least_one_picture">Vous devez choisir au moins une photo.</string>
   <string name="pref_camera2_shutter_sound_entry_on">Activé</string>
   <string name="pref_camera2_shutter_sound_entry_off">Désactivé</string>
   <string name="pref_camera2_shutter_sound_title">Son de l\'obturateur</string>
+  <string name="pref_camera2_initial_camera_entry_mono">Mono</string>
 </resources>

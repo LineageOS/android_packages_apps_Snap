@@ -145,7 +145,6 @@
   <string name="pref_camera_selfiemirror_title" translatable="true">Espeyu d\'autoretratu</string>
   <string name="pref_camera_selfiemirror_entry_enable">Habilitar</string>
   <string name="pref_camera_selfiemirror_entry_disable">Deshabilitar</string>
-  <!-- Default mce setting. Do not translate. -->
   <!-- The message is shown in toast when the app encounters an unsupported selection for HFR/HSR mode -->
   <!-- The message is shown in dialog when the app encounters an unsupported resolution for HFR mode -->
   <!-- The message is shown in toast when the app encounters an unsupported resolution for DIS mode -->
@@ -299,10 +298,6 @@
   <!-- Settings screen, Selectable HDR mode radio button choices -->
   <string name="pref_camera_hdr_mode_entry_sensor">Sensor HDR</string>
   <!-- HDR mode entry values. Do not translate. -->
-  <!-- Settings screen, Selectable HDR need 1x frame default value -->
-  <!-- Settings screen, Selectable HDR need 1x frame title -->
-  <!-- Settings screen, Selectable HDR need 1x frame radio button choices -->
-  <!-- HDR need 1x frame entry values. Do not translate. -->
   <!--Default video rotation setting-->
   <!--Settings screen, video rotation title-->
   <string name="pref_camera_video_rotation_title">Voltéu de videu</string>
@@ -345,6 +340,7 @@
   <string name="pref_camera2_camera2_title">Mou Camera2</string>
   <string name="pref_camera2_camera2_entry_enable">Habilitar</string>
   <string name="pref_camera2_mono_only_title">Namái mono</string>
+  <string name="pref_camera2_mono_only_entry_off">Non</string>
   <string name="pref_camera2_mono_preview_title">Previsualización mono</string>
   <string name="pref_camera2_mono_preview_entry_on">Sí</string>
   <string name="pref_camera2_mono_preview_entry_off">Non</string>
@@ -354,10 +350,12 @@
   <string name="pref_camera2_mpo_title">Formatu MPO</string>
   <string name="pref_camera2_mpo_entry_on">Sí</string>
   <string name="pref_camera2_mpo_entry_off">Non</string>
+  <string name="pref_camera2_makeup_entry_off">Non</string>
   <string name="pref_camera2_noise_reduction_title">Reducción de ruíu</string>
   <string name="pref_camera2_noise_reduction_entry_off">Non</string>
   <string name="pref_camera2_noise_reduction_entry_high_quality">Calidá alta</string>
   <string name="pref_camera2_videosnap_entry_enable">Habilitar</string>
+  <string name="pref_camera2_trackingfocus_entry_off">Non</string>
   <string name="pref_camera_scenemode_entry_bestpicture">La meyor semeya</string>
   <string name="bestpicture_done">FECHO</string>
   <string name="bestpicture_at_least_one_picture">Tien d\'esbillase polo menos una semeya.</string>
