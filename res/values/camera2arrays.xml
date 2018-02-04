@@ -39,8 +39,8 @@
     </string-array>
 
     <string-array name="pref_camera2_mono_only_entries" translatable="true">
-        <item>On</item>
-        <item>Off</item>
+        <item>@string/pref_camera2_mono_only_entry_on</item>
+        <item>@string/pref_camera2_mono_only_entry_off</item>
     </string-array>
 
     <string-array name="pref_camera2_mono_only_entryvalues" translatable="false">
@@ -49,9 +49,9 @@
     </string-array>
 
     <string-array name="pref_camera2_initial_camera_entries" translatable="true">
-        <item>Bayer</item>
-        <item>Mono</item>
-        <item>Front</item>
+        <item>@string/pref_camera2_initial_camera_entry_bayer</item>
+        <item>@string/pref_camera2_initial_camera_entry_mono</item>
+        <item>@string/pref_camera2_initial_camera_entry_front</item>
     </string-array>
 
     <string-array name="pref_camera2_initial_camera_entryvalues" translatable="false">
@@ -89,8 +89,8 @@
     </string-array>
 
     <string-array name="pref_camera2_trackingfocus_entries" translatable="true">
-        <item>On</item>
-        <item>Off</item>
+        <item>@string/pref_camera2_trackingfocus_entry_on</item>
+        <item>@string/pref_camera2_trackingfocus_entry_off</item>
     </string-array>
 
     <string-array name="pref_camera2_trackingfocus_entryvalues" translatable="false">
