@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "50274a0b_a0825809",
+        "filename": "res/values/qcomstrings.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 1022,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2018-02-04T12:51:28Z",
+      "side": 1,
+      "message": "Improves",
+      "range": {
+        "startLine": 1022,
+        "startChar": 132,
+        "endLine": 1022,
+        "endChar": 141
+      },
+      "revId": "780e630aed8ff40015d60f05b031cd8bc4113fde",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2123aea2_1c3cedb0",
+        "filename": "res/values/qcomstrings.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 1026,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2018-02-04T12:51:28Z",
+      "side": 1,
+      "message": "should be \"Photo\"",
+      "range": {
+        "startLine": 1026,
+        "startChar": 83,
+        "endLine": 1026,
+        "endChar": 87
+      },
+      "revId": "780e630aed8ff40015d60f05b031cd8bc4113fde",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
