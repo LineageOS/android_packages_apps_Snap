@@ -421,6 +421,7 @@
   <string name="pref_camera2_camera2_entry_enable">Activar</string>
   <string name="pref_camera2_camera2_entry_disable">Desactivar</string>
   <string name="pref_camera2_mono_only_title">Sólo monocromo</string>
+  <string name="pref_camera2_mono_only_entry_on">Encendido</string>
   <string name="pref_camera2_mono_only_entry_off">Desactivada</string>
   <string name="pref_camera2_mono_preview_title">Vista previa monocromática</string>
   <string name="pref_camera2_mono_preview_entry_on">Activado</string>
@@ -433,6 +434,7 @@
   <string name="pref_camera2_mpo_entry_on">Activado</string>
   <string name="pref_camera2_mpo_entry_off">Desactivada</string>
   <string name="pref_camera2_makeup_title">Maquillaje</string>
+  <string name="pref_camera2_makeup_entry_on">Encendido</string>
   <string name="pref_camera2_makeup_entry_off">Desactivada</string>
   <string name="pref_camera2_noise_reduction_title">Reducción de ruido</string>
   <string name="pref_camera2_noise_reduction_entry_off">Desactivada</string>
@@ -442,6 +444,7 @@
   <string name="pref_camera2_videosnap_entry_enable">Activar</string>
   <string name="pref_camera2_videosnap_entry_disable">Desactivar</string>
   <string name="pref_camera2_trackingfocus_title">Seguimiento del enfoque</string>
+  <string name="pref_camera2_trackingfocus_entry_on">Encendido</string>
   <string name="pref_camera2_trackingfocus_entry_off">Desactivada</string>
   <string name="pref_camera_scenemode_entry_bestpicture">Mejor imagen</string>
   <string name="bestpicture_done">HECHO</string>
@@ -449,5 +452,7 @@
   <string name="pref_camera2_shutter_sound_entry_on">Activado</string>
   <string name="pref_camera2_shutter_sound_entry_off">Desactivada</string>
   <string name="pref_camera2_shutter_sound_title">Sonido del obturador</string>
+  <string name="pref_camera2_initial_camera_entry_bayer">Bayer</string>
   <string name="pref_camera2_initial_camera_entry_mono">Mono</string>
+  <string name="pref_camera2_initial_camera_entry_front">Frontal</string>
 </resources>
