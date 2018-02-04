@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f50c6863_43ee60d7",
+        "filename": "res/values/camera2arrays.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2018-02-04T12:34:05Z",
+      "side": 1,
+      "message": "false",
+      "range": {
+        "startLine": 41,
+        "startChar": 70,
+        "endLine": 41,
+        "endChar": 74
+      },
+      "revId": "3643627b38475b5493f55c81ef3e2fafae828835",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bcdb962e_339705d2",
+        "filename": "res/values/camera2arrays.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2018-02-04T12:34:05Z",
+      "side": 1,
+      "message": "false",
+      "range": {
+        "startLine": 51,
+        "startChar": 75,
+        "endLine": 51,
+        "endChar": 79
+      },
+      "revId": "3643627b38475b5493f55c81ef3e2fafae828835",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f90737a1_a7568fda",
+        "filename": "res/values/camera2arrays.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2018-02-04T12:34:05Z",
+      "side": 1,
+      "message": "false",
+      "range": {
+        "startLine": 91,
+        "startChar": 74,
+        "endLine": 91,
+        "endChar": 78
+      },
+      "revId": "3643627b38475b5493f55c81ef3e2fafae828835",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "839239f4_9496c6a0",
+        "filename": "res/values/camera2arrays.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2018-02-04T12:34:05Z",
+      "side": 1,
+      "message": "false",
+      "range": {
+        "startLine": 101,
+        "startChar": 73,
+        "endLine": 101,
+        "endChar": 77
+      },
+      "revId": "3643627b38475b5493f55c81ef3e2fafae828835",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
