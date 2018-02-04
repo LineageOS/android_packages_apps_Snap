@@ -248,9 +248,6 @@
     <!-- Video quality setting entry.
     Videos will be recorded in 4k UHD quality. [CHAR LIMIT=24] -->
     <string name="pref_video_quality_entry_2160p" translatable="false">4k UHD</string>
-    <!-- Video quality setting entry.
-    Videos will be recorded in 4k UHD quality. [CHAR LIMIT=24] -->
-    <string name="pref_video_quality_entry_4kuhd" translatable="false">4k UHD</string>
     <!-- Video quality setting entry. Videos will be recorded in 1080p quality. [CHAR LIMIT=24] -->
     <string name="pref_video_quality_entry_1080p" translatable="false">HD 1080p</string>
     <!-- Video quality setting entry. Videos will be recorded in 720p quality. [CHAR LIMIT=24] -->
@@ -299,8 +296,6 @@
 
     <!-- Settings screen, Flash mode title -->
     <string name="pref_camera_flashmode_title">Flash</string>
-    <!-- flash label [CHAR LIMIT=50] -->
-    <string name="pref_camera_flashmode_label">FLASH</string>
 
     <!-- Settings screen, Flash mode 'auto'. [CHAR LIMIT=12] -->
     <string name="pref_camera_flashmode_entry_auto">Auto</string>
@@ -368,8 +363,8 @@
     <!-- Scene mode optimized for taking indoor low-lights pictures. [CHAR LIMIT=16] -->
     <string name="pref_camera_scenemode_entry_party">Party</string>
     <!-- Scene mode for refocus feature [CHAR LIMIT=16] -->
-    <string name="pref_camera_scenemode_entry_refocus">UbiFocus</string>
-    <string name="pref_camera_scenemode_entry_optizoom">OptiZoom</string>
+    <string name="pref_camera_scenemode_entry_refocus" translatable="false">UbiFocus</string>
+    <string name="pref_camera_scenemode_entry_optizoom" translatable="false">OptiZoom</string>
 
     <!-- Settings menu, scene mode labels [CHAR LIMIT=50] -->
     <string name="pref_camera_scenemode_label_auto">NONE</string>
@@ -397,23 +392,22 @@
     <string name="not_selectable_in_scene_mode">Not selectable in scene mode.</string>
 
     <!-- Toast after enable HDR function to inform Continuous Shot has disabled -->
-    <string name="HDR_disable_continuous_shot">Enable HDR will disable Continuous Shot.</string>
-
+    <string name="HDR_disable_continuous_shot">HDR will disable continuous shot.</string>
 
     <!-- Toast after enable Advanced Capture function to inform Continuous Shot has disabled -->
-    <string name="advanced_capture_disable_continuous_shot">Enable Advanced Capture will disable Continuous Shot.</string>
+    <string name="advanced_capture_disable_continuous_shot">Advanced capture will disable continuous shot.</string>
 
     <!-- Toast after enable 2k4k video quality to inform IS has disabled -->
-    <string name="video_quality_4k_disable_IS">Enable 4k video quality will disable Image Stabilization.</string>
+    <string name="video_quality_4k_disable_IS">4k video quality will disable image stabilization.</string>
 
     <!-- Toast after 2k4k video is enabled to inform SeeMore has been disabled -->
     <string name="video_quality_4k_disable_SeeMore">SeeMore cannot be enabled during 4k video.</string>
 
     <!-- Toast after High Quality Noise Reduction has been enabled to show CDS is disabled -->
-    <string name="disable_CDS_during_HighQualityNoiseReduction">High Quality Noise Reduction will disable CDS.</string>
+    <string name="disable_CDS_during_HighQualityNoiseReduction">High quality noise reduction will disable CDS.</string>
 
     <!-- Toast after High Quality Noise Reduction has been enabled to show TNR is disabled -->
-    <string name="disable_TNR_during_HighQualityNoiseReduction">High Quality Noise Reduction will disable TNR.</string>
+    <string name="disable_TNR_during_HighQualityNoiseReduction">High quality noise reduction will disable TNR.</string>
 
     <!-- Toast after SeeMore has been enabled to show CDS is disabled -->
     <string name="disable_CDS_during_SeeMore">SeeMore will disable CDS.</string>
@@ -422,7 +416,7 @@
     <string name="disable_TNR_during_SeeMore">SeeMore will disable TNR.</string>
 
     <!-- Toast after SeeMore has been enabled to show NR is disabled -->
-    <string name="disable_NR_during_SeeMore">SeeMore will disable Noise Reduction.</string>
+    <string name="disable_NR_during_SeeMore">SeeMore will disable noise reduction.</string>
 
     <!-- Exposure settings in preference -->
     <string name="pref_exposure_title">Exposure</string>
@@ -700,7 +694,6 @@ CHAR LIMIT = NONE] -->
     <!--  String shown when setting the homepage wallpaper in the background [CHAR LIMIT=NONE] -->
     <string name="setting_wallpaper">Setting wallpaper</string>
 
-
     <!-- Menu, Video rotation labels [CHAR LIMIT=50] -->
     <string name="pref_camera_video_rotation_label_0">0</string>
     <string name="pref_camera_video_rotation_label_90">90</string>
@@ -720,7 +713,7 @@ CHAR LIMIT = NONE] -->
         <item quantity="other">%1$d of 10 images will be saved and the rest will be deleted</item>
     </plurals>
 
-    <string name="save_best_dialog_title">Save select images ?</string>
+    <string name="save_best_dialog_title">Save selected images?</string>
     <string name="save_best_dialog_positive_bt">OK</string>
     <string name="save_best_dialog_native_bt">Cancel</string>
 
@@ -730,21 +723,16 @@ CHAR LIMIT = NONE] -->
     </plurals>
 
     <string name="dialog_do_not_show">Do not show again</string>
-    <string name="delete_best_dialog_title">Delete All ?</string>
-    <string name="delete_best_dialog_content">Are you sure to delete all 10 pictures taken?</string>
+    <string name="delete_best_dialog_title">Delete all?</string>
+    <string name="delete_best_dialog_content">Are you sure you want to delete all 10 pictures taken?</string>
     <string name="delete_best_dialog_native_bt">Cancel</string>
     <string name="delete_best_dialog_positive_bt">Delete</string>
-    <string name="delete_all_best_dialog_title">Delete All ?</string>
-    <string name="delete_all_best_dialog_content">Are you sure to delete all images?</string>
+    <string name="delete_all_best_dialog_title">Delete all?</string>
+    <string name="delete_all_best_dialog_content">Are you sure you want to delete all images?</string>
     <string name="delete_all_best_dialog_native_bt">Cancel</string>
-    <string name="delete_all_best_dialog_positive_bt">Delete All</string>
-    <string name="overflow_best_item1">Save All</string>
-    <string name="overflow_best_item2">Delete All</string>
+    <string name="delete_all_best_dialog_positive_bt">Delete all</string>
+    <string name="overflow_best_item1">Save all</string>
+    <string name="overflow_best_item2">Delete all</string>
 
     <string name="settings_title">Settings</string>
-    <string name="camera_default_mode">Default</string>
-    <string name="camera_bokeh_mode">Bokeh</string>
-    <string name="camera_sat_mode">SAT</string>
-    <string name="camera_pano_mode">Panorama</string>
-    <string name="camera_pro_mode">ProMode</string>
  </resources>
