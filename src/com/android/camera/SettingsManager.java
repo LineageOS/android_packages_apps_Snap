@@ -591,9 +591,11 @@ public class SettingsManager implements ListMenu.SettingsListener {
     }
 
     public CharSequence[] getEntries(String key) {
-        ListPreference pref = mPreferenceGroup.findPreference(key);
-        if (pref != null) {
-            return pref.getEntries();
+        if ( mPreferenceGroup != null ) {
+            ListPreference pref = mPreferenceGroup.findPreference(key);
+            if (pref != null) {
+                return pref.getEntries();
+            }
         }
         return null;
     }

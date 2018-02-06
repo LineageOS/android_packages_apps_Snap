@@ -348,9 +348,11 @@ public class SettingsActivity extends PreferenceActivity {
         String[] categories = {"photo", "video", "general", "developer"};
         Set<String> set = mSettingsManager.getFilteredKeys();
         if (!mDeveloperMenuEnabled) {
-            set.add(SettingsManager.KEY_MONO_PREVIEW);
-            set.add(SettingsManager.KEY_MONO_ONLY);
-            set.add(SettingsManager.KEY_CLEARSIGHT);
+            if (set != null) {
+                set.add(SettingsManager.KEY_MONO_PREVIEW);
+                set.add(SettingsManager.KEY_MONO_ONLY);
+                set.add(SettingsManager.KEY_CLEARSIGHT);
+            }
 
             PreferenceGroup developer = (PreferenceGroup) findPreference("developer");
             //Before restore settings,if current is not developer mode,the developer
@@ -364,7 +366,7 @@ public class SettingsActivity extends PreferenceActivity {
 
         CharSequence[] entries = mSettingsManager.getEntries(SettingsManager.KEY_SCENE_MODE);
         List<CharSequence> list = Arrays.asList(entries);
-        if (mDeveloperMenuEnabled && !list.contains("HDR")){
+        if (mDeveloperMenuEnabled && list != null && !list.contains("HDR")){
             Preference p = findPreference("pref_camera2_hdr_key");
             if (p != null){
                 PreferenceGroup developer = (PreferenceGroup)findPreference("developer");
@@ -372,13 +374,15 @@ public class SettingsActivity extends PreferenceActivity {
             }
         }
 
-        for (String key : set) {
-            Preference p = findPreference(key);
-            if (p == null) continue;
+        if (set != null) {
+            for (String key : set) {
+                Preference p = findPreference(key);
+                if (p == null) continue;
 
-            for (int i = 0; i < categories.length; i++) {
-                PreferenceGroup group = (PreferenceGroup) findPreference(categories[i]);
-                if (group.removePreference(p)) break;
+                for (int i = 0; i < categories.length; i++) {
+                    PreferenceGroup group = (PreferenceGroup) findPreference(categories[i]);
+                    if (group.removePreference(p)) break;
+                }
             }
         }
     }
