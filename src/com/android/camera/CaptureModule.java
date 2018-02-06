@@ -407,7 +407,6 @@ public class CaptureModule implements CameraModule, PhotoController,
     private boolean mHighSpeedCapture = false;
     private boolean mHighSpeedRecordingMode = false; //HFR
     private int mHighSpeedCaptureRate;
-    private boolean mEisEnabled = false;
     private CaptureRequest.Builder mVideoRequestBuilder;
     private CaptureRequest.Builder mVideoPausePreviewRequestBuilder;
 
@@ -3660,7 +3659,13 @@ public class CaptureModule implements CameraModule, PhotoController,
         mVideoPausePreviewRequestBuilder.setTag(cameraId);
         mVideoPausePreviewRequestBuilder.addTarget(surface);
         mVideoPausePreviewRequestBuilder.set(CaptureRequest.CONTROL_AF_MODE, mControlAFMode);
-        applyVideoCommentSettings(mVideoPausePreviewRequestBuilder, cameraId);
+        if (mHighSpeedCapture) {
+            mVideoRequestBuilder.set(CaptureRequest.CONTROL_AE_TARGET_FPS_RANGE,
+                    mHighSpeedFPSRange);
+        }
+        if (!mHighSpeedCapture || !((int)mHighSpeedFPSRange.getUpper() > NORMAL_SESSION_MAX_FPS)) {
+            applyVideoCommentSettings(mVideoPausePreviewRequestBuilder, cameraId);
+        }
     }
 
     private void applyVideoCommentSettings(CaptureRequest.Builder builder, int cameraId) {
@@ -3804,11 +3809,7 @@ public class CaptureModule implements CameraModule, PhotoController,
         Log.v(TAG, "pauseVideoRecording");
         mMediaRecorderPausing = true;
         mRecordingTotalTime += SystemClock.uptimeMillis() - mRecordingStartTime;
-        if (mEisEnabled) {
-            setEndOfStreamForEIS(false, false);
-        } else {
-            mMediaRecorder.pause();
-        }
+        setEndOfStream(false, false);
     }
 
     private void resumeVideoRecording() {
@@ -3816,7 +3817,7 @@ public class CaptureModule implements CameraModule, PhotoController,
         mMediaRecorderPausing = false;
         mRecordingStartTime = SystemClock.uptimeMillis();
         updateRecordingTime();
-        setEndOfStreamForEIS(true, false);
+        setEndOfStream(true, false);
         if (!ApiHelper.HAS_RESUME_SUPPORTED){
             mMediaRecorder.start();
         } else {
@@ -3829,15 +3830,19 @@ public class CaptureModule implements CameraModule, PhotoController,
         }
     }
 
-    private void setEndOfStreamForEIS(boolean isResume, boolean isStopRecord) {
-        if (!mEisEnabled) {
-            return;
-        }
+    private void setEndOfStream(boolean isResume, boolean isStopRecord) {
         try {
             if (isResume) {
                 mVideoRequestBuilder.set(CaptureModule.recording_end_stream, (byte) 0x00);
-                mCurrentSession.setRepeatingRequest(mVideoRequestBuilder.build(),
-                        mCaptureCallback, mCameraHandler);
+                if (mCurrentSession instanceof CameraConstrainedHighSpeedCaptureSession) {
+                    List requestList = CameraUtil.createHighSpeedRequestList(
+                            mVideoRequestBuilder.build(), getMainCameraId());
+                    mCurrentSession.setRepeatingBurst(requestList,
+                            mCaptureCallback, mCameraHandler);
+                } else {
+                    mCurrentSession.setRepeatingRequest(mVideoRequestBuilder.build(),
+                            mCaptureCallback, mCameraHandler);
+                }
             } else {
                 // is pause or stopRecord
                 if (!(mMediaRecorderPausing && mStopRecPending)) {
@@ -3847,14 +3852,28 @@ public class CaptureModule implements CameraModule, PhotoController,
                     builder.setTag(getMainCameraId());
                     addPreviewSurface(builder, null, getMainCameraId());
                     builder.set(CaptureModule.recording_end_stream, (byte) 0x01);
-                    mCurrentSession.capture(builder.build(), mCaptureCallback, mCameraHandler);
+                    if (mCurrentSession instanceof CameraConstrainedHighSpeedCaptureSession) {
+                        List requestList = CameraUtil.
+                                createHighSpeedRequestList(builder.build(), getMainCameraId());
+                        mCurrentSession.captureBurst(requestList, mCaptureCallback, mCameraHandler);
+                    } else {
+                        mCurrentSession.capture(builder.build(), mCaptureCallback, mCameraHandler);
+                    }
                 }
                 if (!isStopRecord) {
                     //is pause record
                     mMediaRecorder.pause();
                     if (mVideoPausePreviewRequestBuilder != null) {
-                        mCurrentSession.setRepeatingRequest(mVideoPausePreviewRequestBuilder.build(),
-                                mCaptureCallback, mCameraHandler);
+                        if (mCurrentSession instanceof CameraConstrainedHighSpeedCaptureSession) {
+                            List requestList = CameraUtil.createHighSpeedRequestList(
+                                    mVideoPausePreviewRequestBuilder.build(), getMainCameraId());
+                            mCurrentSession.setRepeatingBurst(requestList,
+                                    mCaptureCallback, mCameraHandler);
+                        } else {
+                            mCurrentSession.setRepeatingRequest(
+                                    mVideoPausePreviewRequestBuilder.build(),
+                                    mCaptureCallback, mCameraHandler);
+                        }
                     } else {
                         //if failed to set up preview builder, stop recording
                         stopRecordingVideo(getMainCameraId());
@@ -3863,7 +3882,7 @@ public class CaptureModule implements CameraModule, PhotoController,
             }
         } catch (CameraAccessException | IllegalArgumentException e) {
             if (e instanceof CameraAccessException) {
-                Log.w(TAG, "setEndOfStreamForEIS, Camera access failed");
+                Log.w(TAG, "setEndOfStream, Camera access failed");
             }
             if (e instanceof IllegalArgumentException) {
                 Log.w(TAG, "can not find vendor tag: org.quic.camera.recording.endOfStream");
@@ -3872,14 +3891,21 @@ public class CaptureModule implements CameraModule, PhotoController,
                 mMediaRecorder.pause();
                 try {
                     if (mVideoPausePreviewRequestBuilder != null) {
-                        mCurrentSession.setRepeatingRequest(mVideoPausePreviewRequestBuilder.build(),
-                                mCaptureCallback, mCameraHandler);
+                        if (mCurrentSession instanceof CameraConstrainedHighSpeedCaptureSession) {
+                            List requestList = CameraUtil.createHighSpeedRequestList(
+                                    mVideoPausePreviewRequestBuilder.build(), getMainCameraId());
+                            mCurrentSession.setRepeatingBurst(requestList,
+                                    mCaptureCallback, mCameraHandler);
+                        } else {
+                            mCurrentSession.setRepeatingRequest(mVideoPausePreviewRequestBuilder
+                                    .build(), mCaptureCallback, mCameraHandler);
+                        }
                     } else {
                         //if failed to set up preview builder, stop recording
                         stopRecordingVideo(getMainCameraId());
                     }
                 } catch (CameraAccessException exception) {
-                    Log.w(TAG, "setEndOfStreamForEIS, Camera access failed");
+                    Log.w(TAG, "setEndOfStream, Camera access failed");
                 }
             }
         }
@@ -3904,7 +3930,7 @@ public class CaptureModule implements CameraModule, PhotoController,
         boolean shouldAddToMediaStoreNow = false;
         // Stop recording
         checkAndPlayRecordSound(cameraId, false);
-        setEndOfStreamForEIS(false, true);
+        setEndOfStream(false, true);
         mFrameProcessor.setVideoOutputSurface(null);
         mFrameProcessor.onClose();
         closePreviewSession();
@@ -4490,8 +4516,7 @@ public class CaptureModule implements CameraModule, PhotoController,
         }
         String value = mSettingsManager.getValue(SettingsManager.KEY_EIS_VALUE);
         if (value != null) {
-            mEisEnabled = Boolean.parseBoolean(value);
-            byte byteValue = (byte) (mEisEnabled ? 0x01 : 0x00);
+            byte byteValue = (byte) (Boolean.parseBoolean(value) ? 0x01 : 0x00);
             try {
                 request.set(CaptureModule.eis_mode, byteValue);
             } catch (IllegalArgumentException e) {
