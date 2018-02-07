@@ -1072,14 +1072,10 @@ public class CaptureModule implements CameraModule, PhotoController,
         return builder;
     }
 
-    private boolean waitForPreviewSurfaceReady() {
+    private void waitForPreviewSurfaceReady() {
         try {
             if (!mSurfaceReady) {
                 if (!mSurfaceReadyLock.tryAcquire(2000, TimeUnit.MILLISECONDS)) {
-                    if (mPaused) {
-                        mSurfaceReadyLock.release();
-                        return true;// camera has closed, don'r create session
-                    }
                     Log.d(TAG, "Time out waiting for surface.");
                     throw new RuntimeException("Time out waiting for surface.");
                 }
@@ -1088,7 +1084,6 @@ public class CaptureModule implements CameraModule, PhotoController,
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        return false;
     }
 
     private void updatePreviewSurfaceReadyState(boolean rdy) {
@@ -1188,9 +1183,7 @@ public class CaptureModule implements CameraModule, PhotoController,
                             Log.d(TAG, "cameracapturesession - onClosed");
                         }
                     };
-            if (waitForPreviewSurfaceReady()) {
-                return;//if camera closed, don't create session
-            }
+            waitForPreviewSurfaceReady();
             Surface surface = getPreviewSurfaceForSession(id);
 
             if(id == getMainCameraId()) {
@@ -1400,7 +1393,9 @@ public class CaptureModule implements CameraModule, PhotoController,
     private void takePicture() {
         Log.d(TAG, "takePicture");
         mUI.enableShutter(false);
-        if (mSettingsManager.isZSLInHALEnabled()) {
+        if (mSettingsManager.isZSLInHALEnabled()&&
+                mPreviewCaptureResult.get(CaptureResult.CONTROL_AE_STATE) !=
+                        CameraMetadata.CONTROL_AE_STATE_FLASH_REQUIRED) {
             takeZSLPictureInHAL();
         } else {
             if (isBackCamera()) {
@@ -1612,7 +1607,7 @@ public class CaptureModule implements CameraModule, PhotoController,
             mControlAFMode = CaptureRequest.CONTROL_AF_MODE_AUTO;
             applySettingsForAutoFocus(builder, id);
             mState[id] = STATE_WAITING_TOUCH_FOCUS;
-            applyFlashForUIChange(builder, id);//apply flash mode and AEmode for this temp builder
+            applyFlash(builder, id);//apply flash mode and AEmode for this temp builder
             mCaptureSession[id].capture(builder.build(), mCaptureCallback, mCameraHandler);
             setAFModeToPreview(id, mControlAFMode);
             Message message =
@@ -3300,6 +3295,13 @@ public class CaptureModule implements CameraModule, PhotoController,
             Log.d(TAG, "Longshot button up");
             mLongshotActive = false;
             mPostProcessor.stopLongShot();
+            try {
+                int id = getMainCameraId();
+                mCaptureSession[id].stopRepeating();
+                mCaptureSession[id].abortCaptures();
+            } catch (CameraAccessException e) {
+                Log.w(TAG, "Burst Session is already closed");
+            }
         }
     }
 
@@ -4842,6 +4844,7 @@ public class CaptureModule implements CameraModule, PhotoController,
     }
 
     private void applyFlash(CaptureRequest.Builder request, String value) {
+        if(DEBUG) Log.d(TAG, "applyFlash: " + value);
         String redeye = mSettingsManager.getValue(SettingsManager.KEY_REDEYE_REDUCTION);
         if (redeye != null && redeye.equals("on") && !mLongshotActive) {
             request.set(CaptureRequest.CONTROL_AE_MODE,
