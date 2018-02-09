@@ -62,6 +62,7 @@ float** db_AllocStrengthImage_f(float **im,int w,int h)
 
 void db_FreeStrengthImage_f(float *im,float **img,int h)
 {
+    (void)h;
     delete [] im;
     delete [] img;
 }
@@ -1333,7 +1334,9 @@ inline void db_MaxSuppressFilterChunk_5x5_Aligned16_f(float **sf,float **s,int l
                                       /*temp should point to at least
                                       6*132 floats of 16-byte-aligned allocated memory*/
                                       float *temp)
+
 {
+    (void)temp;
 #ifdef DB_USE_SIMD
     int i,lm2;
     float *two[4];

@@ -40,8 +40,6 @@ char buffer[1024];
 
 const int MAX_FRAMES = 100;
 
-static double mTx;
-
 int tWidth[NR];
 int tHeight[NR];
 
@@ -165,7 +163,6 @@ void GenerateQuarterResImagePlanar(ImageType im, int input_w, int input_h,
 
 int AddFrame(int mID, int k, float* trs1d)
 {
-    double  t0, t1, time_c;
     double trs[3][3];
 
     int ret_code = mosaic[mID]->addFrame(tImage[mID][k]);
@@ -241,7 +238,6 @@ void YUV420toYVU24_NEW(ImageType yvu24, ImageType yuv420sp, int width,
 {
     int frameSize = width * height;
 
-    ImageType oyp = yvu24;
     ImageType ovp = yvu24 + frameSize;
     ImageType oup = yvu24 + frameSize + frameSize;
 
@@ -277,6 +273,8 @@ void YUV420toYVU24_NEW(ImageType yvu24, ImageType yuv420sp, int width,
 JNIEXPORT void JNICALL Java_com_android_camera_Mosaic_allocateMosaicMemory(
         JNIEnv* env, jobject thiz, jint width, jint height)
 {
+    (void)env;
+    (void)thiz;
     tWidth[HR] = width;
     tHeight[HR] = height;
     tWidth[LR] = int(width / H2L_FACTOR);
@@ -296,6 +294,8 @@ JNIEXPORT void JNICALL Java_com_android_camera_Mosaic_allocateMosaicMemory(
 JNIEXPORT void JNICALL Java_com_android_camera_Mosaic_freeMosaicMemory(
         JNIEnv* env, jobject thiz)
 {
+    (void)env;
+    (void)thiz;
     for(int i = 0; i < MAX_FRAMES; i++)
     {
         ImageUtils::freeImage(tImage[LR][i]);
@@ -342,8 +342,6 @@ void decodeYUV444SP(unsigned char* rgb, unsigned char* yuv420sp, int width,
     }
 }
 
-static int count = 0;
-
 void ConvertYVUAiToPlanarYVU(unsigned char *planar, unsigned char *in, int width,
         int height)
 {
@@ -364,14 +362,13 @@ void ConvertYVUAiToPlanarYVU(unsigned char *planar, unsigned char *in, int width
 JNIEXPORT jfloatArray JNICALL Java_com_android_camera_Mosaic_setSourceImageFromGPU(
         JNIEnv* env, jobject thiz)
 {
-    double  t0, t1, time_c;
+    (void)thiz;
+    double  t0;
     t0 = now_ms();
     int ret_code = Mosaic::MOSAIC_RET_OK;
 
     if(frame_number_HR<MAX_FRAMES && frame_number_LR<MAX_FRAMES)
     {
-        double last_tx = mTx;
-
         sem_wait(&gPreviewImage_semaphore);
         ConvertYVUAiToPlanarYVU(tImage[LR][frame_number_LR], gPreviewImage[LR],
                 tWidth[LR], tHeight[LR]);
@@ -416,7 +413,8 @@ JNIEXPORT jfloatArray JNICALL Java_com_android_camera_Mosaic_setSourceImageFromG
 JNIEXPORT jfloatArray JNICALL Java_com_android_camera_Mosaic_setSourceImage(
         JNIEnv* env, jobject thiz, jbyteArray photo_data)
 {
-    double  t0, t1, time_c;
+    (void)thiz;
+    double  t0;
     t0 = now_ms();
 
     int ret_code = Mosaic::MOSAIC_RET_OK;
@@ -429,8 +427,6 @@ JNIEXPORT jfloatArray JNICALL Java_com_android_camera_Mosaic_setSourceImage(
                 tWidth[HR], tHeight[HR]);
 
         env->ReleaseByteArrayElements(photo_data, pixels, 0);
-
-        double last_tx = mTx;
 
         t0 = now_ms();
         GenerateQuarterResImagePlanar(tImage[HR][frame_number_HR], tWidth[HR],
@@ -473,18 +469,24 @@ JNIEXPORT jfloatArray JNICALL Java_com_android_camera_Mosaic_setSourceImage(
 JNIEXPORT void JNICALL Java_com_android_camera_Mosaic_setBlendingType(
         JNIEnv* env, jobject thiz, jint type)
 {
+    (void)env;
+    (void)thiz;
     blendingType = int(type);
 }
 
 JNIEXPORT void JNICALL Java_com_android_camera_Mosaic_setStripType(
         JNIEnv* env, jobject thiz, jint type)
 {
+    (void)env;
+    (void)thiz;
     stripType = int(type);
 }
 
 JNIEXPORT void JNICALL Java_com_android_camera_Mosaic_reset(
         JNIEnv* env, jobject thiz)
 {
+    (void)env;
+    (void)thiz;
     frame_number_HR = 0;
     frame_number_LR = 0;
 
@@ -500,6 +502,8 @@ JNIEXPORT void JNICALL Java_com_android_camera_Mosaic_reset(
 JNIEXPORT jint JNICALL Java_com_android_camera_Mosaic_reportProgress(
         JNIEnv* env, jobject thiz, jboolean hires, jboolean cancel_computation)
 {
+    (void)env;
+    (void)thiz;
     if(bool(hires))
         gCancelComputation[HR] = cancel_computation;
     else
@@ -514,6 +518,8 @@ JNIEXPORT jint JNICALL Java_com_android_camera_Mosaic_reportProgress(
 JNIEXPORT jint JNICALL Java_com_android_camera_Mosaic_createMosaic(
         JNIEnv* env, jobject thiz, jboolean value)
 {
+    (void)env;
+    (void)thiz;
     high_res = bool(value);
 
     int ret;
@@ -571,6 +577,7 @@ JNIEXPORT jint JNICALL Java_com_android_camera_Mosaic_createMosaic(
 JNIEXPORT jintArray JNICALL Java_com_android_camera_Mosaic_getFinalMosaic(
         JNIEnv* env, jobject thiz)
 {
+    (void)thiz;
     int y,x;
     int width = mosaicWidth;
     int height = mosaicHeight;
@@ -616,7 +623,7 @@ JNIEXPORT jintArray JNICALL Java_com_android_camera_Mosaic_getFinalMosaic(
 JNIEXPORT jbyteArray JNICALL Java_com_android_camera_Mosaic_getFinalMosaicNV21(
         JNIEnv* env, jobject thiz)
 {
-    int y,x;
+    (void)thiz;
     int width;
     int height;
 

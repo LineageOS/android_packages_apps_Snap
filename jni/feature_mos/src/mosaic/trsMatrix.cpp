@@ -40,8 +40,6 @@ void mult33d(double a[3][3], double b[3][3], double c[3][3])
 // return: result if successful
 int normProjMat33d(double m[3][3])
 {
-    double m22;
-
     if(m[2][2] == 0.0)
         {
         return 0;

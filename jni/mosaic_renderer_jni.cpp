@@ -176,10 +176,12 @@ float g_dIdent3x3[] = {
 
 const int GL_TEXTURE_EXTERNAL_OES_ENUM = 0x8D65;
 
+/*
 static void printGLString(const char *name, GLenum s) {
     const char *v = (const char *) glGetString(s);
     LOGI("GL %s = %s", name, v);
 }
+*/
 
 void checkFramebufferStatus(const char* name) {
     GLenum status = glCheckFramebufferStatus(GL_FRAMEBUFFER);
@@ -508,6 +510,8 @@ extern "C"
 
 JNIEXPORT jint JNICALL JNI_OnLoad(JavaVM* vm, void* reserved)
 {
+    (void)vm;
+    (void)reserved;
     sem_init(&gPreviewImage_semaphore, 0, 1);
 
     return JNI_VERSION_1_4;
@@ -516,11 +520,15 @@ JNIEXPORT jint JNICALL JNI_OnLoad(JavaVM* vm, void* reserved)
 
 JNIEXPORT void JNICALL JNI_OnUnload(JavaVM* vm, void* reserved)
 {
+    (void)vm;
+    (void)reserved;
     sem_destroy(&gPreviewImage_semaphore);
 }
 JNIEXPORT jint JNICALL Java_com_android_camera_MosaicRenderer_init(
         JNIEnv * env, jobject obj, jboolean mEnableWarpedPanoPreview)
 {
+    (void)env;
+    (void)obj;
     gEnableWarpedPanoPreview = mEnableWarpedPanoPreview;
     gSurfTexRenderer[LR].InitializeGLProgram();
     gSurfTexRenderer[HR].InitializeGLProgram();
@@ -596,6 +604,8 @@ JNIEXPORT void JNICALL Java_com_android_camera_MosaicRenderer_reset(
         JNIEnv * env, jobject obj,  jint width, jint height,
         jboolean isLandscapeOrientation, jint orientation)
 {
+    (void)env;
+    (void)obj;
     gIsLandscapeOrientation = isLandscapeOrientation;
     gOrientation = orientation;
     calculateUILayoutScaling(gPreviewFBOWidth, gPreviewFBOHeight, gIsLandscapeOrientation);
@@ -719,6 +729,7 @@ JNIEXPORT void JNICALL Java_com_android_camera_MosaicRenderer_reset(
 JNIEXPORT void JNICALL Java_com_android_camera_MosaicRenderer_preprocess(
         JNIEnv * env, jobject obj, jfloatArray stMatrix)
 {
+    (void)obj;
     jfloat *stmat = env->GetFloatArrayElements(stMatrix, 0);
 
     gSurfTexRenderer[LR].SetSTMatrix((float*) stmat);
@@ -748,7 +759,9 @@ now_ms(void)
 JNIEXPORT void JNICALL Java_com_android_camera_MosaicRenderer_transferGPUtoCPU(
         JNIEnv * env, jobject obj)
 {
-    double t0, t1, time_c;
+    (void)env;
+    (void)obj;
+    double t0;
 
     gYVURenderer[LR].DrawTexture();
     gYVURenderer[HR].DrawTexture();
@@ -786,6 +799,8 @@ JNIEXPORT void JNICALL Java_com_android_camera_MosaicRenderer_transferGPUtoCPU(
 JNIEXPORT void JNICALL Java_com_android_camera_MosaicRenderer_step(
         JNIEnv * env, jobject obj)
 {
+    (void)env;
+    (void)obj;
     if(!gWarpImage) // ViewFinder
     {
         if (gIsLandscapeOrientation) {
@@ -825,6 +840,8 @@ JNIEXPORT void JNICALL Java_com_android_camera_MosaicRenderer_step(
 JNIEXPORT void JNICALL Java_com_android_camera_MosaicRenderer_setWarping(
         JNIEnv * env, jobject obj, jboolean flag)
 {
+    (void)env;
+    (void)obj;
     // TODO: Review this logic
     if(gWarpImage != (bool) flag) //switching from viewfinder to capture or vice-versa
     {
@@ -859,6 +876,8 @@ JNIEXPORT void JNICALL Java_com_android_camera_MosaicRenderer_setWarping(
 JNIEXPORT void JNICALL Java_com_android_camera_MosaicRenderer_updateMatrix(
         JNIEnv * env, jobject obj)
 {
+    (void)env;
+    (void)obj;
     for(int i=0; i<16; i++)
     {
         g_dAffinetransGL[i] = g_dAffinetrans[i];
@@ -870,5 +889,7 @@ JNIEXPORT void JNICALL Java_com_android_camera_MosaicRenderer_updateMatrix(
 JNIEXPORT void JNICALL Java_com_android_camera_MosaicRenderer_setPreviewBackground(
         JNIEnv * env, jobject obj, jboolean flag)
 {
+    (void)env;
+    (void)obj;
     gPreviewBackgroundImage = (bool)flag;
 }

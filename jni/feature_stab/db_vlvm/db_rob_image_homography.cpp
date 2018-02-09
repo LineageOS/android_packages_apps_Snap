@@ -342,6 +342,7 @@ inline void db_RobImageHomographyJH_JR(double **JE_dx_ref,int j,double H[9])
 
 inline void db_RobImageHomographyJH_Jt(double **JE_dx_ref,int j,int k,double H[9])
 {
+    (void)H;
     JE_dx_ref[0][j]=0;
     JE_dx_ref[1][j]=0;
     JE_dx_ref[2][j]=1.0;

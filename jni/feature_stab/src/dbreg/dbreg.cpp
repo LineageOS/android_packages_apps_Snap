@@ -162,6 +162,7 @@ void db_FrameToReferenceRegistration::Init(int width, int height,
                        int    cd_nr_vert_blocks
                        )
 {
+  (void)scale;
   Clean();
 
   m_reference_update_period = reference_update_period;
@@ -514,6 +515,7 @@ int db_FrameToReferenceRegistration::AddFrame(const unsigned char * const * im, 
 //void db_FrameToReferenceRegistration::ComputeInliers(double H[9],std::vector<int> &inlier_indices)
 void db_FrameToReferenceRegistration::ComputeInliers(double H[9])
 {
+  (void)H;
   double totnummatches = m_nr_matches;
   int inliercount=0;
 
@@ -530,7 +532,7 @@ void db_FrameToReferenceRegistration::ComputeInliers(double H[9])
     }
 
   m_num_inlier_indices = inliercount;
-  double frac=inliercount/totnummatches;
+//  double frac=inliercount/totnummatches;
 }
 
 //void db_FrameToReferenceRegistration::Polish(std::vector<int> &inlier_indices)

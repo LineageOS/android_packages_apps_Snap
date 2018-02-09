@@ -627,7 +627,6 @@ inline void db_SignedSquareNormCorr21x21_PreAlign_u(short *patch,const unsigned 
 {
     float den;
     int f2sum,fsum;
-    int xm_f=x_f-10;
     short f;
 
     int xwi;
@@ -1139,6 +1138,7 @@ inline void db_SignedSquareNormCorr11x11_PreAlign_AffinePatchWarp_u(short *patch
                                                                     int xi,int yi,float *sum,float *recip,
                                                                     const double Hinv[9],int affine)
 {
+    (void)Hinv;
     float den;
     short f;
     int f2sum,fsum;

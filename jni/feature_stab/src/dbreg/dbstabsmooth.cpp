@@ -21,8 +21,8 @@
 #define vp_copy_motion_no_id vp_copy_motion
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-static bool vpmotion_add(VP_MOTION *in1, VP_MOTION *in2, VP_MOTION *out);
-static bool vpmotion_multiply(VP_MOTION *in1, double factor, VP_MOTION *out);
+//static bool vpmotion_add(VP_MOTION *in1, VP_MOTION *in2, VP_MOTION *out);
+//static bool vpmotion_multiply(VP_MOTION *in1, double factor, VP_MOTION *out);
 
 db_StabilizationSmoother::db_StabilizationSmoother()
 {
@@ -136,7 +136,7 @@ bool db_StabilizationSmoother::smoothMotionAdaptive(/*VP_BIMG *bimg,*/int hsize,
             smoothFactor = minSmoothFactor;
 
         // Find the amount of motion that must be compensated so that no "border" pixels are seen in the stable video
-        for (smoothFactor = smoothFactor; smoothFactor >= minSmoothFactor; smoothFactor -= 0.01) {
+        for (; smoothFactor >= minSmoothFactor; smoothFactor -= 0.01) {
             // Compute the smoothed motion
             if(!smoothMotion(inmot, &tmpMotion, smoothFactor))
                 break;
@@ -303,7 +303,7 @@ bool db_StabilizationSmoother::is_point_in_rect(double px, double py, double rx,
 }
 
 
-
+/*
 static bool vpmotion_add(VP_MOTION *in1, VP_MOTION *in2, VP_MOTION *out)
 {
     int i;
@@ -327,4 +327,4 @@ static bool vpmotion_multiply(VP_MOTION *in1, double factor, VP_MOTION *out)
 
     return true;
 }
-
+*/

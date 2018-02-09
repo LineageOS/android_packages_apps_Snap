@@ -40,6 +40,7 @@ inline void db_SetupMatrixRefs(double **ar,long rows,long cols,double *a)
 
 inline void db_SymmetricExtendUpperToLower(double **A,int rows,int cols)
 {
+    (void)cols;
     int i,j;
     for(i=1;i<rows;i++) for(j=0;j<i;j++) A[i][j]=A[j][i];
 }
