@@ -117,8 +117,7 @@ void ImageUtils::rgb2yvu(ImageType out, ImageType in, int width, int height)
 
 ImageType ImageUtils::rgb2gray(ImageType in, int width, int height)
 {
-  int r,g,b, nr, ng, nb, val;
-  ImageType gray = NULL;
+  int r,g,b;
   ImageType image = in;
   ImageType out = ImageUtils::allocateImage(width, height, 1);
   ImageType outCopy = out;
@@ -147,8 +146,7 @@ ImageType ImageUtils::rgb2gray(ImageType in, int width, int height)
 
 ImageType ImageUtils::rgb2gray(ImageType out, ImageType in, int width, int height)
 {
-  int r,g,b, nr, ng, nb, val;
-  ImageType gray = out;
+  int r,g,b;
   ImageType image = in;
   ImageType outCopy = out;
 
@@ -334,6 +332,7 @@ void ImageUtils::writeBinaryPPM(ImageType image, const char *filename, int width
 
 ImageType ImageUtils::allocateImage(int width, int height, int numChannels, short int border)
 {
+  (void)border;
   int overallocation = 256;
  return (ImageType) calloc(width*height*numChannels+overallocation, sizeof(ImageTypeBase));
 }

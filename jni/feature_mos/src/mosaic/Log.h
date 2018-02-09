@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 #ifndef LOG_H_
-#define LOG_H
+#define LOG_H_
 
 #include <android/log.h>
 #define LOGV(...) __android_log_print(ANDROID_LOG_SILENT, LOG_TAG, __VA_ARGS__)

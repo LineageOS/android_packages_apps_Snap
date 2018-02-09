@@ -4,6 +4,7 @@
 -dontwarn android.view.inputmethod.InputMethodManager
 -dontwarn android.content.res.Resources
 -dontwarn com.android.internal.widget.ViewInfoStore$InfoRecord
+-dontwarn com.android.internal.util.function.pooled.PooledLambdaImpl$Pool
 
 # ctors of subclasses of CameraPreference are called with Java reflection.
 -keep class * extends com.android.camera.CameraPreference {

@@ -69,12 +69,14 @@ unsigned char** db_AllocImage_u(int w,int h,int over_allocation)
 
 void db_FreeImage_f(float **img,int h)
 {
+    (void)h;
     delete [] (img[0]);
     delete [] img;
 }
 
 void db_FreeImage_u(unsigned char **img,int h)
 {
+    (void)h;
     delete [] (img[0]);
     delete [] img;
 }

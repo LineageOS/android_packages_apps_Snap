@@ -122,6 +122,7 @@ jint JNICALL Java_com_android_camera_imageprocessor_FrameProcessor_nativeRotateN
         JNIEnv* env, jobject thiz, jobjectArray inBuf,
         jint imageWidth, jint imageHeight, jint degree, jobjectArray outBuf)
 {
+    (void)thiz;
     uint8_t *in_buf = (uint8_t *)env->GetDirectBufferAddress(inBuf);
     uint8_t *out_buf = (uint8_t *)env->GetDirectBufferAddress(outBuf);
     rotateBufAndMerge(in_buf, imageWidth, imageHeight, degree, out_buf);
@@ -132,6 +133,7 @@ jint JNICALL Java_com_android_camera_imageprocessor_FrameProcessor_nativeRotateN
 jint JNICALL Java_com_android_camera_imageprocessor_FrameProcessor_nativeNV21toRgb(
         JNIEnv* env, jobject thiz, jobjectArray yvuBuf, jobjectArray rgbBuf, jint width, jint height)
 {
+    (void)thiz;
     uint8_t *in_buf = (uint8_t *)env->GetDirectBufferAddress(yvuBuf);
     uint8_t *rgb_buf = (uint8_t *)env->GetDirectBufferAddress(rgbBuf);
     int ysize = width * height;
@@ -161,6 +163,7 @@ jint JNICALL Java_com_android_camera_imageprocessor_FrameProcessor_nativeNV21toR
 jint JNICALL Java_com_android_camera_imageprocessor_PostProcessor_nativeFlipNV21(
         JNIEnv* env, jobject thiz, jbyteArray yvuBytes, jint stride, jint height, jint gap, jboolean isVertical)
 {
+    (void)thiz;
     jbyte* imageDataNV21Array = env->GetByteArrayElements(yvuBytes, NULL);
     uint8_t *buf = (uint8_t *)imageDataNV21Array;
     int ysize = stride * height;
@@ -211,6 +214,7 @@ jint JNICALL Java_com_android_camera_imageprocessor_PostProcessor_nativeFlipNV21
 
 jint JNICALL Java_com_android_camera_imageprocessor_PostProcessor_nativeNV21Split(
         JNIEnv* env, jobject thiz, jbyteArray srcYVU, jobjectArray yBuf, jobjectArray vuBuf, jint width, jint height, jint srcStride, jint dstStride) {
+    (void)thiz;
     uint8_t *old_buf = (uint8_t *) env->GetByteArrayElements(srcYVU, NULL);
     uint8_t *y_buf = (uint8_t *)env->GetDirectBufferAddress(yBuf);
     uint8_t *vu_buf = (uint8_t *)env->GetDirectBufferAddress(vuBuf);
@@ -231,6 +235,7 @@ jint JNICALL Java_com_android_camera_imageprocessor_PostProcessor_nativeNV21Spli
 
 jint JNICALL Java_com_android_camera_imageprocessor_PostProcessor_nativeResizeImage(
         JNIEnv* env, jobject thiz, jbyteArray oldBuf, jbyteArray newBuf, jint oldWidth, jint oldHeight, jint oldStride, jint newWidth, jint newHeight) {
+    (void)thiz;
     uint8_t *old_buf = (uint8_t *) env->GetByteArrayElements(oldBuf, NULL);
     uint8_t *new_buf = (uint8_t *) env->GetByteArrayElements(newBuf, NULL);
     int adjustedOldWidth = oldWidth;

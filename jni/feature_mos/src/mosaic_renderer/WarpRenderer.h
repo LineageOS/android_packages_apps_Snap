@@ -28,9 +28,9 @@ class WarpRenderer: public Renderer {
     const char* VertexShaderSource() const;
     const char* FragmentShaderSource() const;
 
-    GLuint mTexHandle;                  // Handle to s_texture.
-    GLuint mTexCoordHandle;             // Handle to a_texCoord.
-    GLuint mTriangleVerticesHandle;     // Handle to vPosition.
+    //GLuint mTexHandle;                  // Handle to s_texture.
+    //GLuint mTexCoordHandle;             // Handle to a_texCoord.
+    //GLuint mTriangleVerticesHandle;     // Handle to vPosition.
 
     // Attribute locations
     GLint  mPositionLoc;

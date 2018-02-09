@@ -142,10 +142,7 @@ int Blend::runBlend(MosaicFrame **oframes, MosaicFrame **rframes,
     global_rect.lft = global_rect.bot = 2e30; // min values
     global_rect.rgt = global_rect.top = -2e30; // max values
     MosaicFrame *mb = NULL;
-    double halfwidth = width / 2.0;
-    double halfheight = height / 2.0;
-
-    double z, x0, y0, x1, y1, x2, y2, x3, y3;
+    double x0, y0, x1, y1, x2, y2, x3, y3;
 
     // Corners of the left-most and right-most frames respectively in the
     // mosaic coordinate system.
@@ -380,6 +377,9 @@ int Blend::DoMergeAndBlend(MosaicFrame **frames, int nsite,
              int width, int height, YUVinfo &imgMos, MosaicRect &rect,
              MosaicRect &cropping_rect, float &progress, bool &cancelComputation)
 {
+    (void)frames;
+    (void)width;
+    (void)height;
     m_pMosaicYPyr = NULL;
     m_pMosaicUPyr = NULL;
     m_pMosaicVPyr = NULL;
@@ -655,9 +655,6 @@ int Blend::PerformFinalBlending(YUVinfo &imgMos, MosaicRect &cropping_rect)
     ImageType uimg;
     ImageType vimg;
 
-    int cx = (int)imgMos.Y.width/2;
-    int cy = (int)imgMos.Y.height/2;
-
     // 2D boolean array that contains true wherever the mosaic image data is
     // invalid (i.e. in the gray border).
     bool **b = new bool*[imgMos.Y.height];
@@ -807,7 +804,7 @@ int Blend::PerformFinalBlending(YUVinfo &imgMos, MosaicRect &cropping_rect)
         delete b[j];
     }
 
-    delete b;
+    delete[] b;
 
     return BLEND_RET_OK;
 }
@@ -826,7 +823,6 @@ void Blend::ComputeMask(CSite *csite, BlendRect &vcrect, BlendRect &brect, Mosai
 {
     PyramidShort *dptr = m_pMosaicYPyr;
 
-    int nC = m_wb.nlevsC;
     int l = (int) ((vcrect.lft - rect.left));
     int b = (int) ((vcrect.bot - rect.top));
     int r = (int) ((vcrect.rgt - rect.left));
@@ -872,7 +868,6 @@ void Blend::ComputeMask(CSite *csite, BlendRect &vcrect, BlendRect &brect, Mosai
                 continue;
 
             // scan the neighbors to see if this is a valid position
-            unsigned char mask = (unsigned char) 255;
             SEdgeVector *ce;
             int ecnt;
             for (ce = csite->getNeighbor(), ecnt = csite->getNumNeighbors(); ecnt--; ce++)
@@ -894,6 +889,7 @@ void Blend::ComputeMask(CSite *csite, BlendRect &vcrect, BlendRect &brect, Mosai
 
 void Blend::ProcessPyramidForThisFrame(CSite *csite, BlendRect &vcrect, BlendRect &brect, MosaicRect &rect, YUVinfo &imgMos, double trs[3][3], int site_idx)
 {
+    (void)csite;
     // Put the Region of interest (for all levels) into m_pMosaicYPyr
     double inv_trs[3][3];
     inv33d(trs, inv_trs);
@@ -1221,8 +1217,6 @@ void Blend::SelectRelevantFrames(MosaicFrame **frames, int frames_size,
     MosaicFrame *last = frames[frames_size-1];
     MosaicFrame *mb;
 
-    double fxpos = first->trs[0][2], fypos = first->trs[1][2];
-
     double midX = last->width / 2.0;
     double midY = last->height / 2.0;
     double z = ProjZ(first->trs, midX, midY, 1.0);
@@ -1242,7 +1236,6 @@ void Blend::SelectRelevantFrames(MosaicFrame **frames, int frames_size,
         currY = ProjY(mb->trs, midX, midY, z, 1.0);
         double deltaX = currX - prevX;
         double deltaY = currY - prevY;
-        double center2centerDist = sqrt(deltaY * deltaY + deltaX * deltaX);
 
         if (fabs(deltaX) > STRIP_SEPARATION_THRESHOLD_PXLS ||
                 fabs(deltaY) > STRIP_SEPARATION_THRESHOLD_PXLS)
@@ -1329,7 +1322,7 @@ void Blend::ComputeBlendParameters(MosaicFrame **frames, int frames_size, int is
         double dy = prevY - firstY;
 
         // If the mosaic was captured by sweeping horizontally
-        if (abs(lxpos - fxpos) > abs(lypos - fypos))
+        if (fabs(lxpos - fxpos) > fabs(lypos - fypos))
         {
             m_wb.horizontal = 1;
             // Calculate radius position to make ends exactly the same Y offset

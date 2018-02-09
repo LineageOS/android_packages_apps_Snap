@@ -323,6 +323,7 @@ inline void db_DerivativeCauchyInhomRotationReprojection(double Jf_dx[6],double 
 */
 inline int db_RemoveOutliers_Homography(const double H[9], double *x_i,double *xp_i, double *wp,double *im, double *im_p, double *im_r, double *im_raw,double *im_raw_p,int point_count,double scale, double thresh=DB_OUTLIER_THRESHOLD)
 {
+    (void)scale;
     double temp_valueE, t2;
     int c;
     int k1=0;

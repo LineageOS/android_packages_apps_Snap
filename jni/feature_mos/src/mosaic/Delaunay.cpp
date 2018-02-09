@@ -492,8 +492,6 @@ int CDelaunay::incircle(SitePointer a, SitePointer b, SitePointer c, SitePointer
 // TRUE iff A, B, C form a counterclockwise oriented triangle
 int CDelaunay::ccw(SitePointer a, SitePointer b, SitePointer c)
 {
-  int result;
-
   double ax = sa[a].X();
   double bx = sa[b].X();
   double cx = sa[c].X();
