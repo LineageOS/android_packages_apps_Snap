@@ -56,8 +56,6 @@ public class PersistUtil {
             SystemProperties.getBoolean("persist.vendor.camera.camera2", true);
     private static final boolean PERSIST_CAMERA_ZSL =
             SystemProperties.getBoolean("persist.vendor.camera.zsl.disabled", false);
-    private static final int PERSIST_CAMERA2_DEBUG =
-            SystemProperties.getInt("persist.vendor.camera2.debug", 0);
     private static final int PERSIST_CAMERA_CANCEL_TOUCHFOCUS_DELAY =
             SystemProperties.getInt("persist.vendor.camera.focus_delay", 5000);
     private static final int PERSIST_CAMERA_DEBUG =

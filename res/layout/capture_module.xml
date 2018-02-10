@@ -116,6 +116,29 @@
     <include
         layout="@layout/scene_mode_label"/>
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="90dp"
+        android:gravity="left">
+        <com.android.camera.ui.RotateLayout
+            android:id="@+id/deepzoom_set_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone">
+            <TextView
+                android:id="@+id/deepzoom_set"
+                style="@style/OnViewfinderSceneLabel"
+                android:clickable="true"
+                android:singleLine="true"
+                android:textColor="@android:color/white"
+                android:background="#90000000"
+                android:padding="6dp"
+                android:textSize="16dp" />
+        </com.android.camera.ui.RotateLayout>
+    </LinearLayout>
+
     <include
         style="@style/CameraControls"
         layout="@layout/one_ui_layout"
