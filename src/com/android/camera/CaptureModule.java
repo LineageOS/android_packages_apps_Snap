@@ -52,6 +52,7 @@ import android.hardware.camera2.params.Face;
 import android.hardware.camera2.params.InputConfiguration;
 import android.hardware.camera2.params.MeteringRectangle;
 import android.hardware.camera2.params.StreamConfigurationMap;
+import android.hardware.camera2.params.OutputConfiguration;
 import android.location.Location;
 import android.media.AudioManager;
 import android.media.CamcorderProfile;
@@ -199,6 +200,12 @@ public class CaptureModule implements CameraModule, PhotoController,
     private static final int NORMAL_SESSION_MAX_FPS = 60;
 
     private static final int SCREEN_DELAY = 2 * 60 * 1000;
+
+    /** Add for EIS and FOVC Configuration */
+    private int mStreamConfigOptMode = 0;
+    private static final int STREAM_CONFIG_MODE_QTIEIS_REALTIME = 0xF004;
+    private static final int STREAM_CONFIG_MODE_QTIEIS_LOOKAHEAD = 0xF008;
+    private static final int STREAM_CONFIG_MODE_FOVC = 0xF010;
 
     public static final boolean DEBUG =
             (PersistUtil.getCamera2Debug() == PersistUtil.CAMERA2_DEBUG_DUMP_LOG) ||
@@ -3487,6 +3494,47 @@ public class CaptureModule implements CameraModule, PhotoController,
         }
     }
 
+    private final CameraCaptureSession.StateCallback mCCSSateCallback = new CameraCaptureSession
+            .StateCallback() {
+        @Override
+        public void onConfigured(CameraCaptureSession cameraCaptureSession) {
+            Log.d(TAG, "StartRecordingVideo session onConfigured");
+            int cameraId = getMainCameraId();
+            mCurrentSession = cameraCaptureSession;
+            mCaptureSession[cameraId] = cameraCaptureSession;
+            try {
+                setUpVideoCaptureRequestBuilder(mVideoRequestBuilder, cameraId);
+
+                mCurrentSession.setRepeatingRequest(mVideoRequestBuilder.build(),
+                        mCaptureCallback, mCameraHandler);
+            } catch (CameraAccessException e) {
+                e.printStackTrace();
+            } catch (IllegalStateException e) {
+                e.printStackTrace();
+            }
+            if (!startMediaRecorder()) {
+                mUI.showUIafterRecording();
+                releaseMediaRecorder();
+                mFrameProcessor.setVideoOutputSurface(null);
+                restartSession(true);
+                return;
+            }
+
+            mUI.clearFocus();
+            mUI.resetPauseButton();
+            mRecordingTotalTime = 0L;
+            mRecordingStartTime = SystemClock.uptimeMillis();
+            mUI.showRecordingUI(true, false);
+            updateRecordingTime();
+            keepScreenOn();
+        }
+
+        @Override
+        public void onConfigureFailed(CameraCaptureSession cameraCaptureSession) {
+            Toast.makeText(mActivity, "Video Failed", Toast.LENGTH_SHORT).show();
+        }
+    };
+
     private boolean startRecordingVideo(final int cameraId) {
         if (null == mCameraDevice[cameraId]) {
             return false;
@@ -3610,46 +3658,25 @@ public class CaptureModule implements CameraModule, PhotoController,
                     mCameraDevice[cameraId].setVendorStreamConfigMode(index);
                 }
                 surfaces.add(mVideoSnapshotImageReader.getSurface());
-                mCameraDevice[cameraId].createCaptureSession(surfaces, new CameraCaptureSession
-                        .StateCallback() {
 
-                    @Override
-                    public void onConfigured(CameraCaptureSession cameraCaptureSession) {
-                        Log.d(TAG, "StartRecordingVideo session onConfigured");
-                        mCurrentSession = cameraCaptureSession;
-                        mCaptureSession[cameraId] = cameraCaptureSession;
-                        try {
-                            setUpVideoCaptureRequestBuilder(mVideoRequestBuilder, cameraId);
-
-                            mCurrentSession.setRepeatingRequest(mVideoRequestBuilder.build(),
-                                    mCaptureCallback, mCameraHandler);
-                        } catch (CameraAccessException e) {
-                            e.printStackTrace();
-                        } catch (IllegalStateException e) {
-                            e.printStackTrace();
-                        }
-                        if (!startMediaRecorder()) {
-                            mUI.showUIafterRecording();
-                            releaseMediaRecorder();
-                            mFrameProcessor.setVideoOutputSurface(null);
-                            restartSession(true);
-                            return;
-                        }
-
-                        mUI.clearFocus();
-                        mUI.resetPauseButton();
-                        mRecordingTotalTime = 0L;
-                        mRecordingStartTime = SystemClock.uptimeMillis();
-                        mUI.showRecordingUI(true, false);
-                        updateRecordingTime();
-                        keepScreenOn();
+                String value = mSettingsManager.getValue(SettingsManager.KEY_FOVC_VALUE);
+                if (value != null && Boolean.parseBoolean(value)) {
+                    mStreamConfigOptMode = mStreamConfigOptMode | STREAM_CONFIG_MODE_FOVC;
+                }
+                if (DEBUG) {
+                    Log.v(TAG, "createCustomCaptureSession mStreamConfigOptMode :"
+                            + mStreamConfigOptMode);
+                }
+                if(mStreamConfigOptMode == 0) {
+                    mCameraDevice[cameraId].createCaptureSession(surfaces, mCCSSateCallback, null);
+                } else {
+                    List<OutputConfiguration> outConfigurations = new ArrayList<>(surfaces.size());
+                    for (Surface sface : surfaces) {
+                        outConfigurations.add(new OutputConfiguration(sface));
                     }
-
-                    @Override
-                    public void onConfigureFailed(CameraCaptureSession cameraCaptureSession) {
-                        Toast.makeText(mActivity, "Video Failed", Toast.LENGTH_SHORT).show();
-                    }
-                }, null);
+                    mCameraDevice[cameraId].createCustomCaptureSession(null, outConfigurations,
+                            mStreamConfigOptMode, mCCSSateCallback, null);
+                }
             }
         } catch (CameraAccessException e) {
             e.printStackTrace();
@@ -3761,7 +3788,7 @@ public class CaptureModule implements CameraModule, PhotoController,
         applyFaceDetection(builder);
         applyZoom(builder, cameraId);
         applyVideoEncoderProfile(builder);
-        applyEIS(builder);
+        applyVideoEIS(builder);
     }
 
     private void updateVideoFlash() {
@@ -4594,13 +4621,23 @@ public class CaptureModule implements CameraModule, PhotoController,
         }
     }
 
-    private void applyEIS(CaptureRequest.Builder request) {
+    private void applyVideoEIS(CaptureRequest.Builder request) {
         if (!mSettingsManager.isDeveloperEnabled()) {
             return;//don't apply if not in dev mode
         }
         String value = mSettingsManager.getValue(SettingsManager.KEY_EIS_VALUE);
+
+        if (DEBUG) {
+            Log.d(TAG, "applyVideoEIS EISV select: " + value);
+        }
+        mStreamConfigOptMode = 0;
         if (value != null) {
-            byte byteValue = (byte) (Boolean.parseBoolean(value) ? 0x01 : 0x00);
+            if (value.equals("V2")) {
+                mStreamConfigOptMode = STREAM_CONFIG_MODE_QTIEIS_REALTIME;
+            } else if (value.equals("V3")) {
+                mStreamConfigOptMode = STREAM_CONFIG_MODE_QTIEIS_LOOKAHEAD;
+            }
+            byte byteValue = (byte) (value.equals("disable") ? 0x00 : 0x01);
             try {
                 request.set(CaptureModule.eis_mode, byteValue);
             } catch (IllegalArgumentException e) {

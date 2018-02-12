@@ -435,5 +435,14 @@
             android:entryValues="@array/pref_camera2_eis_entryvalues"
             android:layout="@layout/preference"
             android:summary="%s"/>
+
+        <ListPreference
+            android:key="pref_camera2_fovc_key"
+            android:defaultValue="@string/pref_camera2_fovc_default"
+            android:title="@string/pref_camera2_fovc_title"
+            android:entries="@array/pref_camera2_fovc_entries"
+            android:entryValues="@array/pref_camera2_fovc_entryvalues"
+            android:layout="@layout/preference"
+            android:summary="%s"/>
     </PreferenceCategory>
 </PreferenceScreen>

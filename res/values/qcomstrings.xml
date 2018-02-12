@@ -1232,10 +1232,19 @@
     <string name="pref_camera_qcfa_value_enable">enable</string>
 
     <string name="pref_camera2_eis_title" translatable="true">Video EIS</string>
-    <string name="pref_camera2_eis_default" translatable="false">false</string>
-    <string name="pref_camera2_eis_entry_enable" translatable="true">Enable</string>
-    <string name="pref_camera2_eis_entry_disable" translatable="true">Disable</string>
-    <string name="pref_camera2_eis_entry_value_enable" translatable="false">true</string>
-    <string name="pref_camera2_eis_entry_value_disable" translatable="false">false</string>
+    <string name="pref_camera2_eis_default" translatable="false">disable</string>
+    <string name="pref_camera2_eis_entry_v2enable" translatable="false">V2</string>
+    <string name="pref_camera2_eis_entry_v3enable" translatable="false">V3</string>
+    <string name="pref_camera2_eis_entry_disable" translatable="false">disable</string>
+    <string name="pref_camera2_eis_entry_value_v2enable" translatable="false">V2</string>
+    <string name="pref_camera2_eis_entry_value_v3enable" translatable="false">V3</string>
+    <string name="pref_camera2_eis_entry_value_disable" translatable="false">disable</string>
+
+    <string name="pref_camera2_fovc_title" translatable="true">Video FOVC</string>
+    <string name="pref_camera2_fovc_default" translatable="false">false</string>
+    <string name="pref_camera2_fovc_entry_enable" translatable="false">Enable</string>
+    <string name="pref_camera2_fovc_entry_disable" translatable="false">Disable</string>
+    <string name="pref_camera2_fovc_entry_value_enable" translatable="false">true</string>
+    <string name="pref_camera2_fovc_entry_value_disable" translatable="false">false</string>
 </resources>
 
