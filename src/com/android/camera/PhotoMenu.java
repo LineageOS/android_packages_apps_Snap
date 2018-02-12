@@ -1430,7 +1430,7 @@ public class PhotoMenu extends MenuController
         } else if (notSame(pref,CameraSettings.KEY_FLASH_MODE,"Off")) {
             ListPreference aePref =
                       mPreferenceGroup.findPreference(CameraSettings.KEY_AE_BRACKET_HDR);
-            if (notSame(aePref,CameraSettings.KEY_AE_BRACKET_HDR,"Off")) {
+            if (aePref != null && notSame(aePref,CameraSettings.KEY_AE_BRACKET_HDR,"Off")) {
                RotateTextToast.makeText(mActivity,
                               R.string.flash_aebracket_message,Toast.LENGTH_SHORT).show();
             }
