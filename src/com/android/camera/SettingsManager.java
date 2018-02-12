@@ -487,6 +487,16 @@ public class SettingsManager implements ListMenu.SettingsListener {
         }
     }
 
+    public int[] getSensorModeTable(final int cameraId) {
+        int[] sensorModeTable = null;
+        try {
+            sensorModeTable = mCharacteristics.get(cameraId).get(CaptureModule.sensorModeTable);
+        } catch (IllegalArgumentException exception) {
+            exception.printStackTrace();
+        }
+        return sensorModeTable;
+    }
+
     public void registerListener(Listener listener) {
         mListeners.add(listener);
     }

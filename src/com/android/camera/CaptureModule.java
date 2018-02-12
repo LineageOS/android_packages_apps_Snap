@@ -196,7 +196,7 @@ public class CaptureModule implements CameraModule, PhotoController,
     // we can change it based on memory status or other requirements.
     private static final int LONGSHOT_CANCEL_THRESHOLD = 40 * 1024 * 1024;
 
-    private static final int NORMAL_SESSION_MAX_FPS = 30;
+    private static final int NORMAL_SESSION_MAX_FPS = 60;
 
     private static final int SCREEN_DELAY = 2 * 60 * 1000;
 
@@ -264,6 +264,8 @@ public class CaptureModule implements CameraModule, PhotoController,
                     byte[].class);
     public static final CameraCharacteristics.Key<int[]> hfrFpsTable =
             new CameraCharacteristics.Key<>("org.quic.camera2.customhfrfps.info.CustomHFRFpsTable", int[].class);
+    public static final CameraCharacteristics.Key<int[]> sensorModeTable  =
+            new CameraCharacteristics.Key<>("org.quic.camera2.sensormode.info.SensorModeTable", int[].class);
 
     public static final CaptureRequest.Key<Integer> sharpness_control = new CaptureRequest.Key<>(
             "org.codeaurora.qcamera3.sharpness.strength", Integer.class);
@@ -1236,6 +1238,58 @@ public class CaptureModule implements CameraModule, PhotoController,
             }
         } catch (CameraAccessException e) {
         }
+    }
+
+    private int getSensorTableHFRRange() {
+        int optimalSizeIndex = -1;
+        int[] table = mSettingsManager.getSensorModeTable(getMainCameraId());
+        if (table == null) {
+            Log.w(TAG, "Sensor table hfr array got is null");
+            return optimalSizeIndex;
+        }
+        String videoSizeString = mSettingsManager.getValue(SettingsManager.KEY_VIDEO_QUALITY);
+        if (videoSizeString == null) {
+            Log.w(TAG, "KEY_VIDEO_QUALITY is null");
+            return optimalSizeIndex;
+        }
+        Size videoSize = parsePictureSize(videoSizeString);
+        String rateValue = mSettingsManager.getValue(SettingsManager.KEY_VIDEO_HIGH_FRAME_RATE);
+        if (rateValue == null || rateValue.substring(0, 3).equals("off")) {
+            Log.w(TAG, "KEY_VIDEO_HIGH_FRAME_RATE is null");
+            return optimalSizeIndex;
+        }
+        int frameRate = Integer.parseInt(rateValue.substring(3));
+        for (int i = 2; i < table.length; i += table[1]) {
+            if (table[i] == videoSize.getWidth()
+                    && table[i + 1] == videoSize.getHeight()
+                    && table[i + 2] == frameRate) {
+                if (i != table.length) {
+                    return (i - 2) / table[1] + 1;
+                }
+            }
+        }
+
+        // if does not query the index from (widthxheight, fps),
+        // app will find the  closest to set the index according to fps
+        int minDiff = Integer.MAX_VALUE;
+        Point point = new Point(videoSize.getWidth(), videoSize.getHeight());
+        int targetHeight = Math.min(point.x, point.y);
+        // Try to find an size match aspect ratio and size
+        for (int i = 2; i < table.length; i += table[1]) {
+            if (table[i + 2] == frameRate) {
+                Point size = new Point(table[i], table[i+1]);
+                int miniSize = Math.min(size.x, size.y);
+                int heightDiff = Math.abs(miniSize - targetHeight);
+                if (heightDiff < minDiff) {
+                    if (i != table.length) {
+                        optimalSizeIndex = (i - 2) / table[1] + 1;
+                    }
+                    minDiff = Math.abs(miniSize - targetHeight);
+                }
+            }
+        }
+
+        return optimalSizeIndex;
     }
 
     public void setAFModeToPreview(int id, int afMode) {
@@ -3493,8 +3547,10 @@ public class CaptureModule implements CameraModule, PhotoController,
             mFrameProcessor.setVideoOutputSurface(mMediaRecorder.getSurface());
             addPreviewSurface(mVideoRequestBuilder, surfaces, cameraId);
 
-            if (mHighSpeedCapture)
-                mVideoRequestBuilder.set(CaptureRequest.CONTROL_AE_TARGET_FPS_RANGE, mHighSpeedFPSRange);
+            if (mHighSpeedCapture) {
+                mVideoRequestBuilder.set(CaptureRequest.CONTROL_AE_TARGET_FPS_RANGE,
+                        mHighSpeedFPSRange);
+            }
 
             if (mHighSpeedCapture && ((int)mHighSpeedFPSRange.getUpper() > NORMAL_SESSION_MAX_FPS)) {
                 mCameraDevice[cameraId].createConstrainedHighSpeedCaptureSession(surfaces, new
@@ -3546,6 +3602,13 @@ public class CaptureModule implements CameraModule, PhotoController,
                     }
                 }, null);
             } else {
+                int index = getSensorTableHFRRange();
+                if (index != -1) {
+                    if (DEBUG) {
+                        Log.v(TAG, "setVendorStreamConfigMode index :" + index);
+                    }
+                    mCameraDevice[cameraId].setVendorStreamConfigMode(index);
+                }
                 surfaces.add(mVideoSnapshotImageReader.getSurface());
                 mCameraDevice[cameraId].createCaptureSession(surfaces, new CameraCaptureSession
                         .StateCallback() {
