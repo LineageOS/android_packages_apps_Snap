@@ -2206,7 +2206,7 @@ public class CameraActivity extends Activity
         }
     }
 
-    private View selectModule(int moduleIndex) {
+    private void selectModule(int moduleIndex) {
         mCameraPhotoModuleRootView.setVisibility(View.GONE);
         mCameraVideoModuleRootView.setVisibility(View.GONE);
         mCameraPanoModuleRootView.setVisibility(View.GONE);

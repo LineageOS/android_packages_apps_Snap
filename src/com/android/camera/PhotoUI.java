@@ -95,7 +95,7 @@ public class PhotoUI implements PieListener,
     private PhotoController mController;
     private PreviewGestures mGestures;
 
-    private View mRootView;
+    private CameraRootView mRootView;
     private SurfaceHolder mSurfaceHolder;
 
     private PopupWindow mPopup;
@@ -232,7 +232,7 @@ public class PhotoUI implements PieListener,
     public PhotoUI(CameraActivity activity, PhotoController controller, View parent) {
         mActivity = activity;
         mController = controller;
-        mRootView = parent;
+        mRootView = (CameraRootView) parent;
         mActivity.getLayoutInflater().inflate(R.layout.photo_module,
                 (ViewGroup) mRootView, true);
         mPreviewCover = mRootView.findViewById(R.id.preview_cover);

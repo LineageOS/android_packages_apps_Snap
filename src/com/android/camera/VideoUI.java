@@ -75,7 +75,7 @@ public class VideoUI implements PieRenderer.PieListener,
     private static final String TAG = "CAM_VideoUI";
     // module fields
     private CameraActivity mActivity;
-    private View mRootView;
+    private CameraRootView mRootView;
     private SurfaceHolder mSurfaceHolder;
     // An review image having same size as preview. It is displayed when
     // recording is stopped in capture intent.
@@ -197,7 +197,7 @@ public class VideoUI implements PieRenderer.PieListener,
     public VideoUI(CameraActivity activity, VideoController controller, View parent) {
         mActivity = activity;
         mController = controller;
-        mRootView = parent;
+        mRootView = (CameraRootView)parent;
         mActivity.getLayoutInflater().inflate(R.layout.video_module,
                 (ViewGroup) mRootView, true);
         mPreviewCover = mRootView.findViewById(R.id.preview_cover);

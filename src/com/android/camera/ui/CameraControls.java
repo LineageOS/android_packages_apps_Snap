@@ -345,18 +345,6 @@ public class CameraControls extends RotatableLayout {
         r -= mInsets.right;
         b -= mInsets.bottom;
 
-        ViewGroup.LayoutParams lpTop = mTopBar.getLayoutParams();
-        lpTop.height = mTopMargin;
-        mTopBar.setLayoutParams(lpTop);
-        mTopBar.layout(l, t, r, mTopMargin);
-
-        ViewGroup.LayoutParams lpBottom = mBottomBar.getLayoutParams();
-        lpBottom.width = r - l + mInsets.right;
-        lpBottom.height = mBottomMargin + mInsets.bottom;
-        mBottomBar.setLayoutParams(lpBottom);
-        mBottomBar.setPadding(0, 0, mInsets.right, mInsets.bottom);
-        mBottomBar.layout(l, b - mBottomMargin, r + mInsets.right, b + mInsets.bottom);
-
         int orientation = getResources().getConfiguration().orientation;
         int size = getResources().getDimensionPixelSize(R.dimen.camera_controls_size);
         int rotation = getUnifiedRotation();
