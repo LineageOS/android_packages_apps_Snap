@@ -1198,7 +1198,11 @@ public class CaptureModule extends BaseModule<CaptureUI> implements PhotoControl
             addPreviewSurface(captureBuilder, null, id);
             captureBuilder.set(CaptureRequest.CONTROL_AF_MODE, mControlAFMode);
             captureBuilder.set(CaptureRequest.CONTROL_AF_TRIGGER, CaptureRequest.CONTROL_AF_TRIGGER_IDLE);
-            captureBuilder.set(CdsModeKey, 2); // CDS 0-OFF, 1-ON, 2-AUTO
+            try {
+                captureBuilder.set(CdsModeKey, 2); // CDS 0-OFF, 1-ON, 2-AUTO
+            } catch (IllegalArgumentException e) {
+                Log.d(TAG, "captureStillPicture: camera HAL doesn't support CDS");
+            }
             applySettingsForLockExposure(captureBuilder, id);
             applySettingsForCapture(captureBuilder, id);
 
