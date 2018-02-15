@@ -33,4 +33,7 @@
 
     <color name="pano">@color/green</color>
     <color name="pano_stop">#81C784</color>
+
+    <color name="selected_icon">@color/blue</color>
+    <color name="settings_icon">#333333</color>
 </resources>
