@@ -421,6 +421,7 @@
   <string name="pref_camera2_camera2_entry_enable">Omogoči</string>
   <string name="pref_camera2_camera2_entry_disable">Onemogoči</string>
   <string name="pref_camera2_mono_only_title">Samo mono</string>
+  <string name="pref_camera2_mono_only_entry_on">Vklopljeno</string>
   <string name="pref_camera2_mono_only_entry_off">Izklopljeno</string>
   <string name="pref_camera2_mono_preview_title">Predogled mono</string>
   <string name="pref_camera2_mono_preview_entry_on">Vklopljeno</string>
@@ -433,6 +434,7 @@
   <string name="pref_camera2_mpo_entry_on">Vklopljeno</string>
   <string name="pref_camera2_mpo_entry_off">Izklopljeno</string>
   <string name="pref_camera2_makeup_title">Ličilo</string>
+  <string name="pref_camera2_makeup_entry_on">Vklopljeno</string>
   <string name="pref_camera2_makeup_entry_off">Izklopljeno</string>
   <string name="pref_camera2_noise_reduction_title">Zmanjševanje šuma</string>
   <string name="pref_camera2_noise_reduction_entry_off">Izklopljeno</string>
@@ -442,6 +444,7 @@
   <string name="pref_camera2_videosnap_entry_enable">Omogoči</string>
   <string name="pref_camera2_videosnap_entry_disable">Onemogoči</string>
   <string name="pref_camera2_trackingfocus_title">Ostrenje s sledenjem</string>
+  <string name="pref_camera2_trackingfocus_entry_on">Vklopljeno</string>
   <string name="pref_camera2_trackingfocus_entry_off">Izklopljeno</string>
   <string name="pref_camera_scenemode_entry_bestpicture">Najboljša slika</string>
   <string name="bestpicture_done">OPRAVLJENO</string>
@@ -449,5 +452,7 @@
   <string name="pref_camera2_shutter_sound_entry_on">Vklopljeno</string>
   <string name="pref_camera2_shutter_sound_entry_off">Izklopljeno</string>
   <string name="pref_camera2_shutter_sound_title">Zvok sprožilca</string>
+  <string name="pref_camera2_initial_camera_entry_bayer">Bayer</string>
   <string name="pref_camera2_initial_camera_entry_mono">Mono</string>
+  <string name="pref_camera2_initial_camera_entry_front">Sprednja</string>
 </resources>

@@ -421,6 +421,7 @@
   <string name="pref_camera2_camera2_entry_enable">啟用</string>
   <string name="pref_camera2_camera2_entry_disable">停用</string>
   <string name="pref_camera2_mono_only_title">僅單色</string>
+  <string name="pref_camera2_mono_only_entry_on">開</string>
   <string name="pref_camera2_mono_only_entry_off">關</string>
   <string name="pref_camera2_mono_preview_title">單色預覽</string>
   <string name="pref_camera2_mono_preview_entry_on">開</string>
@@ -433,6 +434,7 @@
   <string name="pref_camera2_mpo_entry_on">開</string>
   <string name="pref_camera2_mpo_entry_off">關</string>
   <string name="pref_camera2_makeup_title">美顏模式</string>
+  <string name="pref_camera2_makeup_entry_on">開</string>
   <string name="pref_camera2_makeup_entry_off">關</string>
   <string name="pref_camera2_noise_reduction_title">降噪</string>
   <string name="pref_camera2_noise_reduction_entry_off">關</string>
@@ -442,6 +444,7 @@
   <string name="pref_camera2_videosnap_entry_enable">啟用</string>
   <string name="pref_camera2_videosnap_entry_disable">停用</string>
   <string name="pref_camera2_trackingfocus_title">追蹤對焦</string>
+  <string name="pref_camera2_trackingfocus_entry_on">開</string>
   <string name="pref_camera2_trackingfocus_entry_off">關</string>
   <string name="pref_camera_scenemode_entry_bestpicture">最佳相片</string>
   <string name="bestpicture_done">完成</string>
@@ -449,5 +452,7 @@
   <string name="pref_camera2_shutter_sound_entry_on">開</string>
   <string name="pref_camera2_shutter_sound_entry_off">關</string>
   <string name="pref_camera2_shutter_sound_title">快門音效</string>
+  <string name="pref_camera2_initial_camera_entry_bayer">Bayer</string>
   <string name="pref_camera2_initial_camera_entry_mono">單色</string>
+  <string name="pref_camera2_initial_camera_entry_front">前面</string>
 </resources>

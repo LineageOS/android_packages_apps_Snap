@@ -421,6 +421,7 @@
   <string name="pref_camera2_camera2_entry_enable">Attiva</string>
   <string name="pref_camera2_camera2_entry_disable">Disattiva</string>
   <string name="pref_camera2_mono_only_title">Solo mono</string>
+  <string name="pref_camera2_mono_only_entry_on">On</string>
   <string name="pref_camera2_mono_only_entry_off">Off</string>
   <string name="pref_camera2_mono_preview_title">Anteprima mono</string>
   <string name="pref_camera2_mono_preview_entry_on">On</string>
@@ -433,6 +434,7 @@
   <string name="pref_camera2_mpo_entry_on">On</string>
   <string name="pref_camera2_mpo_entry_off">Off</string>
   <string name="pref_camera2_makeup_title">Makeup</string>
+  <string name="pref_camera2_makeup_entry_on">On</string>
   <string name="pref_camera2_makeup_entry_off">Off</string>
   <string name="pref_camera2_noise_reduction_title">Riduzione rumore</string>
   <string name="pref_camera2_noise_reduction_entry_off">Off</string>
@@ -442,6 +444,7 @@
   <string name="pref_camera2_videosnap_entry_enable">Attiva</string>
   <string name="pref_camera2_videosnap_entry_disable">Disattiva</string>
   <string name="pref_camera2_trackingfocus_title">Traccia il fuoco</string>
+  <string name="pref_camera2_trackingfocus_entry_on">On</string>
   <string name="pref_camera2_trackingfocus_entry_off">Off</string>
   <string name="pref_camera_scenemode_entry_bestpicture">Immagine migliore</string>
   <string name="bestpicture_done">FATTO</string>
@@ -449,5 +452,7 @@
   <string name="pref_camera2_shutter_sound_entry_on">On</string>
   <string name="pref_camera2_shutter_sound_entry_off">Off</string>
   <string name="pref_camera2_shutter_sound_title">Suono otturatore</string>
+  <string name="pref_camera2_initial_camera_entry_bayer">Bayer</string>
   <string name="pref_camera2_initial_camera_entry_mono">Mono</string>
+  <string name="pref_camera2_initial_camera_entry_front">Davanti</string>
 </resources>

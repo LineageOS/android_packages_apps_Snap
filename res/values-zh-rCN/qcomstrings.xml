@@ -344,7 +344,7 @@
   <!-- Scene detection set to on - supports backlight and snow cloudy detection. -->
   <string name="pref_camera_scenedetect_entry_on">开启</string>
   <!-- Toast showing error if invalid size selected for  time lapse  [CHAR LIMIT=65] -->
-  <string name="time_lapse_error">延时录像的视频尺寸无效。</string>
+  <string name="time_lapse_error">延时摄影的视频尺寸无效。</string>
   <!-- longshot value -->
   <string name="pref_camera_longshot_title">连拍</string>
   <string name="msg_cancel_longshot_for_limited_memory">内存消耗殆尽，正在取消连拍模式</string>
@@ -421,6 +421,7 @@
   <string name="pref_camera2_camera2_entry_enable">启用</string>
   <string name="pref_camera2_camera2_entry_disable">禁用</string>
   <string name="pref_camera2_mono_only_title">仅单色</string>
+  <string name="pref_camera2_mono_only_entry_on">开</string>
   <string name="pref_camera2_mono_only_entry_off">关闭</string>
   <string name="pref_camera2_mono_preview_title">单色预览</string>
   <string name="pref_camera2_mono_preview_entry_on">开</string>
@@ -433,6 +434,7 @@
   <string name="pref_camera2_mpo_entry_on">开</string>
   <string name="pref_camera2_mpo_entry_off">关闭</string>
   <string name="pref_camera2_makeup_title">美颜</string>
+  <string name="pref_camera2_makeup_entry_on">开</string>
   <string name="pref_camera2_makeup_entry_off">关闭</string>
   <string name="pref_camera2_noise_reduction_title">降噪</string>
   <string name="pref_camera2_noise_reduction_entry_off">关闭</string>
@@ -442,6 +444,7 @@
   <string name="pref_camera2_videosnap_entry_enable">启用</string>
   <string name="pref_camera2_videosnap_entry_disable">禁用</string>
   <string name="pref_camera2_trackingfocus_title">焦点跟踪</string>
+  <string name="pref_camera2_trackingfocus_entry_on">开</string>
   <string name="pref_camera2_trackingfocus_entry_off">关闭</string>
   <string name="pref_camera_scenemode_entry_bestpicture">最佳图片</string>
   <string name="bestpicture_done">完成</string>
@@ -449,5 +452,7 @@
   <string name="pref_camera2_shutter_sound_entry_on">开启</string>
   <string name="pref_camera2_shutter_sound_entry_off">关闭</string>
   <string name="pref_camera2_shutter_sound_title">快门声音</string>
+  <string name="pref_camera2_initial_camera_entry_bayer">Bayer</string>
   <string name="pref_camera2_initial_camera_entry_mono">黑白</string>
+  <string name="pref_camera2_initial_camera_entry_front">前</string>
 </resources>
