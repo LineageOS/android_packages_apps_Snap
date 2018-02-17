@@ -710,7 +710,11 @@ CHAR LIMIT = NONE] -->
     <string name="pref_camera2_restore_default">Restore defaults</string>
     <string name="pref_camera2_restore_default_hint">Camera settings will be restored to default settings</string>
 
-    <string name="save_best_dialog_content">%1$d of 10 images will be saved and the rest will deleted.</string>
+    <plurals name="save_best_dialog_content">
+        <item quantity="one">%1$d of 10 images will be saved and the rest will be deleted</item>
+        <item quantity="other">%1$d of 10 images will be saved and the rest will be deleted</item>
+    </plurals>
+
     <string name="save_best_dialog_title">Save selected images?</string>
     <string name="save_best_dialog_positive_bt">OK</string>
     <string name="save_best_dialog_native_bt">Cancel</string>

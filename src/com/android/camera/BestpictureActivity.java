@@ -411,7 +411,8 @@ public class BestpictureActivity extends FragmentActivity {
 
             @Override
             public String getContentString() {
-                return getResources().getString(R.string.save_best_dialog_content, choosenCount);
+                return getResources().getQuantityString(R.string.save_best_dialog_content,
+                    choosenCount, choosenCount);
             }
 
             @Override
