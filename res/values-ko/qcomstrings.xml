@@ -421,6 +421,7 @@
   <string name="pref_camera2_camera2_entry_enable">사용</string>
   <string name="pref_camera2_camera2_entry_disable">사용 안 함</string>
   <string name="pref_camera2_mono_only_title">흑백만 사용</string>
+  <string name="pref_camera2_mono_only_entry_on">켜짐</string>
   <string name="pref_camera2_mono_only_entry_off">끄기</string>
   <string name="pref_camera2_mono_preview_title">흑백으로 미리보기</string>
   <string name="pref_camera2_mono_preview_entry_on">켜짐</string>
@@ -433,6 +434,7 @@
   <string name="pref_camera2_mpo_entry_on">켜짐</string>
   <string name="pref_camera2_mpo_entry_off">끄기</string>
   <string name="pref_camera2_makeup_title">메이크업</string>
+  <string name="pref_camera2_makeup_entry_on">켜짐</string>
   <string name="pref_camera2_makeup_entry_off">끄기</string>
   <string name="pref_camera2_noise_reduction_title">노이즈 감소</string>
   <string name="pref_camera2_noise_reduction_entry_off">끄기</string>
@@ -442,6 +444,7 @@
   <string name="pref_camera2_videosnap_entry_enable">사용</string>
   <string name="pref_camera2_videosnap_entry_disable">사용 안 함</string>
   <string name="pref_camera2_trackingfocus_title">초점 추적</string>
+  <string name="pref_camera2_trackingfocus_entry_on">켜짐</string>
   <string name="pref_camera2_trackingfocus_entry_off">끄기</string>
   <string name="pref_camera_scenemode_entry_bestpicture">잘 찍은 사진</string>
   <string name="bestpicture_done">완료</string>
@@ -449,5 +452,7 @@
   <string name="pref_camera2_shutter_sound_entry_on">켜짐</string>
   <string name="pref_camera2_shutter_sound_entry_off">끄기</string>
   <string name="pref_camera2_shutter_sound_title">촬영음</string>
+  <string name="pref_camera2_initial_camera_entry_bayer">Bayer</string>
   <string name="pref_camera2_initial_camera_entry_mono">모노</string>
+  <string name="pref_camera2_initial_camera_entry_front">전면</string>
 </resources>

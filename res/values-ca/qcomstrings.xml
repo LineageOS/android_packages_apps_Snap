@@ -421,6 +421,7 @@
   <string name="pref_camera2_camera2_entry_enable">Habilita</string>
   <string name="pref_camera2_camera2_entry_disable">Deshabilita</string>
   <string name="pref_camera2_mono_only_title">Només Mono</string>
+  <string name="pref_camera2_mono_only_entry_on">Sí</string>
   <string name="pref_camera2_mono_only_entry_off">Desactivat</string>
   <string name="pref_camera2_mono_preview_title">Vista prèvia Mono</string>
   <string name="pref_camera2_mono_preview_entry_on">Sí</string>
@@ -433,6 +434,7 @@
   <string name="pref_camera2_mpo_entry_on">Sí</string>
   <string name="pref_camera2_mpo_entry_off">Desactivat</string>
   <string name="pref_camera2_makeup_title">Maquillatge</string>
+  <string name="pref_camera2_makeup_entry_on">Sí</string>
   <string name="pref_camera2_makeup_entry_off">Desactivat</string>
   <string name="pref_camera2_noise_reduction_title">Reducció de soroll</string>
   <string name="pref_camera2_noise_reduction_entry_off">Desactivat</string>
@@ -442,6 +444,7 @@
   <string name="pref_camera2_videosnap_entry_enable">Habilita</string>
   <string name="pref_camera2_videosnap_entry_disable">Deshabilita</string>
   <string name="pref_camera2_trackingfocus_title">Seguiment del focus</string>
+  <string name="pref_camera2_trackingfocus_entry_on">Sí</string>
   <string name="pref_camera2_trackingfocus_entry_off">Desactivat</string>
   <string name="pref_camera_scenemode_entry_bestpicture">Millor fotografia</string>
   <string name="bestpicture_done">FET</string>
@@ -449,5 +452,7 @@
   <string name="pref_camera2_shutter_sound_entry_on">Sí</string>
   <string name="pref_camera2_shutter_sound_entry_off">Desactivat</string>
   <string name="pref_camera2_shutter_sound_title">So de l\'obturador</string>
+  <string name="pref_camera2_initial_camera_entry_bayer">Bayer</string>
   <string name="pref_camera2_initial_camera_entry_mono">Mono</string>
+  <string name="pref_camera2_initial_camera_entry_front">Frontal</string>
 </resources>

@@ -421,6 +421,7 @@
   <string name="pref_camera2_camera2_entry_enable">Разрешено</string>
   <string name="pref_camera2_camera2_entry_disable">Деактивирай</string>
   <string name="pref_camera2_mono_only_title">Моно само</string>
+  <string name="pref_camera2_mono_only_entry_on">Включено</string>
   <string name="pref_camera2_mono_only_entry_off">Изкл.</string>
   <string name="pref_camera2_mono_preview_title">Моно визуализация</string>
   <string name="pref_camera2_mono_preview_entry_on">Включване</string>
@@ -433,6 +434,7 @@
   <string name="pref_camera2_mpo_entry_on">Вкл.</string>
   <string name="pref_camera2_mpo_entry_off">Изкл.</string>
   <string name="pref_camera2_makeup_title">Грим</string>
+  <string name="pref_camera2_makeup_entry_on">Вкл.</string>
   <string name="pref_camera2_makeup_entry_off">Изкл.</string>
   <string name="pref_camera2_noise_reduction_title">Намаляване на шума</string>
   <string name="pref_camera2_noise_reduction_entry_off">Изкл.</string>
@@ -442,6 +444,7 @@
   <string name="pref_camera2_videosnap_entry_enable">Разрешено</string>
   <string name="pref_camera2_videosnap_entry_disable">Деактивирай</string>
   <string name="pref_camera2_trackingfocus_title">Проследяващ фокус</string>
+  <string name="pref_camera2_trackingfocus_entry_on">Вкл.</string>
   <string name="pref_camera2_trackingfocus_entry_off">Изкл.</string>
   <string name="pref_camera_scenemode_entry_bestpicture">Най-добра снимка</string>
   <string name="bestpicture_done">ГОТОВО</string>
@@ -449,5 +452,7 @@
   <string name="pref_camera2_shutter_sound_entry_on">Вкл.</string>
   <string name="pref_camera2_shutter_sound_entry_off">Изкл.</string>
   <string name="pref_camera2_shutter_sound_title">Зкук на затвора</string>
+  <string name="pref_camera2_initial_camera_entry_bayer">Bayer</string>
   <string name="pref_camera2_initial_camera_entry_mono">Моно</string>
+  <string name="pref_camera2_initial_camera_entry_front">Предна</string>
 </resources>

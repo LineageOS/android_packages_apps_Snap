@@ -38,7 +38,7 @@
   <!-- Settings screen, auto exposure dialog radio button choices -->
   <string name="pref_camera_autoexposure_entry_frameaverage">Fotogramaren batezbestekoa</string>
   <string name="pref_camera_autoexposure_entry_centerweighted">Erdialdean haztatua</string>
-  <string name="pref_camera_autoexposure_entry_spotmetering">Puntuala</string>
+  <string name="pref_camera_autoexposure_entry_spotmetering">Neurketa puntuala</string>
   <!-- Auto exposure entry values. Do not translate. -->
   <!-- Settings screen, Video encoder title -->
   <string name="pref_camera_videoencoder_title">Bideo kodeka</string>
@@ -65,7 +65,7 @@
   <string name="pref_camera_selectablezoneaf_title">Fokatze automatiko modua</string>
   <!-- Settings screen, Selectable Zone Af dialog radio button choices -->
   <string name="pref_camera_selectablezoneaf_entry_auto">Automatikoa</string>
-  <string name="pref_camera_selectablezoneaf_entry_spotmetering">Puntuala</string>
+  <string name="pref_camera_selectablezoneaf_entry_spotmetering">Neurketa puntuala</string>
   <string name="pref_camera_selectablezoneaf_entry_centerweighted">Erdialdean haztatua</string>
   <string name="pref_camera_selectablezoneaf_entry_frameaverage">Fotogramaren batezbestekoa</string>
   <!-- Auto exposure entry values. Do not translate. -->
@@ -395,7 +395,7 @@
   <string name="text_tsmakeup_alert_continue">Jarraitu</string>
   <string name="text_tsmakeup_alert_quit">Utzi</string>
   <string name="text_tsmakeup_beautify_toast">Edertu</string>
-  <string name="all_in_focus">Dena fokatuta</string>
+  <string name="all_in_focus">Dena fokuan</string>
   <string name="refocus_toast">Azken argazkia birfokatzeko, sakatu hemen</string>
   <string name="refocus_prompt_message">UbiFocus erabilita zure kamerak 5 argazki aterako ditu botoia zapaltzen duzun bakoitzean. 5 argazkiak bakarrean batuko dira, dena ongi enfokatuta egon dadin. Argazkia atera eta gero fokua aldatu dezakezu.</string>
   <string name="camera_thermal_shutdown">Telefonoa beroegi dago, kamara itzaltzen.</string>
@@ -421,6 +421,7 @@
   <string name="pref_camera2_camera2_entry_enable">Gaitu</string>
   <string name="pref_camera2_camera2_entry_disable">Desgaitu</string>
   <string name="pref_camera2_mono_only_title">Mono besterik ez</string>
+  <string name="pref_camera2_mono_only_entry_on">Bai</string>
   <string name="pref_camera2_mono_only_entry_off">Ez</string>
   <string name="pref_camera2_mono_preview_title">Mono aurrebista</string>
   <string name="pref_camera2_mono_preview_entry_on">Bai</string>
@@ -433,6 +434,7 @@
   <string name="pref_camera2_mpo_entry_on">Bai</string>
   <string name="pref_camera2_mpo_entry_off">Ez</string>
   <string name="pref_camera2_makeup_title">Makillajea</string>
+  <string name="pref_camera2_makeup_entry_on">Bai</string>
   <string name="pref_camera2_makeup_entry_off">Ez</string>
   <string name="pref_camera2_noise_reduction_title">Zarata murrizketa</string>
   <string name="pref_camera2_noise_reduction_entry_off">Ez</string>
@@ -442,6 +444,7 @@
   <string name="pref_camera2_videosnap_entry_enable">Gaitu</string>
   <string name="pref_camera2_videosnap_entry_disable">Desgaitu</string>
   <string name="pref_camera2_trackingfocus_title">Fokua jarraitzen</string>
+  <string name="pref_camera2_trackingfocus_entry_on">Bai</string>
   <string name="pref_camera2_trackingfocus_entry_off">Ez</string>
   <string name="pref_camera_scenemode_entry_bestpicture">Argazkirik onena</string>
   <string name="bestpicture_done">EGINDA</string>
@@ -449,5 +452,7 @@
   <string name="pref_camera2_shutter_sound_entry_on">Bai</string>
   <string name="pref_camera2_shutter_sound_entry_off">Ez</string>
   <string name="pref_camera2_shutter_sound_title">Obturadorearen soinua</string>
+  <string name="pref_camera2_initial_camera_entry_bayer">Bayer</string>
   <string name="pref_camera2_initial_camera_entry_mono">Mono</string>
+  <string name="pref_camera2_initial_camera_entry_front">Aurrekoa</string>
 </resources>

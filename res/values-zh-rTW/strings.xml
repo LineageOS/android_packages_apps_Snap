@@ -30,7 +30,7 @@
   <string name="delete">刪除</string>
   <!-- String Delete the selected media item(s) [CHAR LIMIT=50] -->
   <plurals name="delete_selection">
-    <item quantity="other">刪除已選取的項目？</item>
+    <item quantity="other">刪除已選擇的項目？</item>
   </plurals>
   <string name="share">分享</string>
   <string name="share_panorama">分享全景</string>
@@ -44,17 +44,17 @@
   <!-- String indicating how many media item(s) is(are) selected
             eg. 1 selected [CHAR LIMIT=30] -->
   <plurals name="number_of_items_selected">
-    <item quantity="other">已選取 %1$d 個</item>
+    <item quantity="other">已選擇 %1$d 個</item>
   </plurals>
   <!-- String indicating how many media album(s) is(are) selected
             eg. 1 selected [CHAR LIMIT=30] -->
   <plurals name="number_of_albums_selected">
-    <item quantity="other">已選取 %1$d 本</item>
+    <item quantity="other">已選擇 %1$d 本</item>
   </plurals>
   <!-- String indicating how many media group(s) is(are) selected
             eg. 1 selected [CHAR LIMIT=30] -->
   <plurals name="number_of_groups_selected">
-    <item quantity="other">已選取 %1$d 個</item>
+    <item quantity="other">已選擇 %1$d 個</item>
   </plurals>
   <!-- String indicating timestamp of photo or video -->
   <string name="show_on_map">在地圖上顯示</string>

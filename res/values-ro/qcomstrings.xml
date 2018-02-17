@@ -421,6 +421,7 @@
   <string name="pref_camera2_camera2_entry_enable">Activați</string>
   <string name="pref_camera2_camera2_entry_disable">Dezactivați</string>
   <string name="pref_camera2_mono_only_title">Doar mono</string>
+  <string name="pref_camera2_mono_only_entry_on">Activat</string>
   <string name="pref_camera2_mono_only_entry_off">Oprit</string>
   <string name="pref_camera2_mono_preview_title">Previzualizare mono</string>
   <string name="pref_camera2_mono_preview_entry_on">Activat</string>
@@ -433,6 +434,7 @@
   <string name="pref_camera2_mpo_entry_on">Activat</string>
   <string name="pref_camera2_mpo_entry_off">Oprit</string>
   <string name="pref_camera2_makeup_title">Machiaj</string>
+  <string name="pref_camera2_makeup_entry_on">Activat</string>
   <string name="pref_camera2_makeup_entry_off">Oprit</string>
   <string name="pref_camera2_noise_reduction_title">Reducere zgomot</string>
   <string name="pref_camera2_noise_reduction_entry_off">Oprit</string>
@@ -442,6 +444,7 @@
   <string name="pref_camera2_videosnap_entry_enable">Activați</string>
   <string name="pref_camera2_videosnap_entry_disable">Dezactivați</string>
   <string name="pref_camera2_trackingfocus_title">Urmărire focalizare</string>
+  <string name="pref_camera2_trackingfocus_entry_on">Activat</string>
   <string name="pref_camera2_trackingfocus_entry_off">Oprit</string>
   <string name="pref_camera_scenemode_entry_bestpicture">Cea mai bună fotografie</string>
   <string name="bestpicture_done">EFECTUAT</string>
@@ -449,5 +452,7 @@
   <string name="pref_camera2_shutter_sound_entry_on">Activat</string>
   <string name="pref_camera2_shutter_sound_entry_off">Oprit</string>
   <string name="pref_camera2_shutter_sound_title">Sunet obturator</string>
+  <string name="pref_camera2_initial_camera_entry_bayer">Bayer</string>
   <string name="pref_camera2_initial_camera_entry_mono">Mono</string>
+  <string name="pref_camera2_initial_camera_entry_front">Frontal</string>
 </resources>

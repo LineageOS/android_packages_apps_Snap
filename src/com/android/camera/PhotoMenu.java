@@ -1231,19 +1231,13 @@ public class PhotoMenu extends MenuController
             if (mPrivateCounter >= DEVELOPER_MENU_TOUCH_COUNT) {
                 SharedPreferences prefs = PreferenceManager
                         .getDefaultSharedPreferences(mActivity);
-                if (!mActivity.isDeveloperMenuEnabled()) {
-                    mActivity.enableDeveloperMenu();
-                    prefs.edit().putBoolean(CameraSettings.KEY_DEVELOPER_MENU, true).apply();
-                    closeAllView();
-                    RotateTextToast.makeText(mActivity,
-                            R.string.developer_menu_enabled, Toast.LENGTH_SHORT).show();
-                } else {
-                    mActivity.disableDeveloperMenu();
-                    prefs.edit().putBoolean(CameraSettings.KEY_DEVELOPER_MENU, false).apply();
-                    closeAllView();
-                    RotateTextToast.makeText(mActivity,
-                            R.string.developer_menu_disabled, Toast.LENGTH_SHORT).show();
-                }
+                boolean isEnabled = mActivity.isDeveloperMenuEnabled();
+                mActivity.enableDeveloperMenu(!isEnabled);
+                prefs.edit().putBoolean(CameraSettings.KEY_DEVELOPER_MENU, !isEnabled).apply();
+                closeAllView();
+                RotateTextToast.makeText(mActivity, !isEnabled ?
+                        R.string.developer_menu_enabled : R.string.developer_menu_disabled,
+                        Toast.LENGTH_SHORT).show();
                 mPrivateCounter = 0;
             }
         } else {

@@ -404,6 +404,10 @@ public class CameraActivity extends Activity
         mDeveloperMenuEnabled = true;
     }
 
+    public void enableDeveloperMenu(boolean enable) {
+        mDeveloperMenuEnabled = enable;
+    }
+
     public void disableDeveloperMenu() {
         mDeveloperMenuEnabled = false;
     }

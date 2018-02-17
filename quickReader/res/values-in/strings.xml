@@ -19,6 +19,7 @@
   <!-- QuickReader: dismiss button for dialogs -->
   <string name="quick_reader_action_dismiss">Tutup</string>
   <!-- QuickReader: toast shown when there's no app installed to open the qr code content -->
+  <string name="quick_reader_no_activity_found">Tidak ada aplikasi yang terpasang untuk membuka konten ini</string>
   <!-- QuickReader: permission error dialog title -->
   <string name="quick_reader_permission_error_title">Kesalahan perizinan</string>
   <!-- QuickReader: permission error dialog message when permission can be asked again -->
@@ -26,11 +27,13 @@
   <!-- QuickReader: permission error dialog message when permission can't be asked again -->
   <!-- QuickReader: permission error dialog positive action when permission can't be asked again -->
   <!-- QuickReader: scanned text dialog title -->
+  <string name="quick_reader_scanned_text_title">Teks pindaian</string>
   <!-- QuickReader: scanned text dialog positive button (copy to clipboard) -->
   <string name="quick_reader_scanned_text_positive">Salin</string>
   <!-- QuickReader: scanned text dialog negative button (share) -->
   <string name="quick_reader_scanned_text_negative">Bagikan</string>
   <!-- QuickReader: scanned text shared activity selector title -->
+  <string name="quick_reader_share_title">Berbagi dengan\u2026</string>
   <!-- QuickReader: toast shown when the scanned text has been copied to the clipboard -->
   <string name="quick_reader_copied_message">Disalin ke clipboard</string>
 </resources>
