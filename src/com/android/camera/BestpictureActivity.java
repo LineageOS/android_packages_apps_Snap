@@ -411,7 +411,8 @@ public class BestpictureActivity extends FragmentActivity {
 
             @Override
             public String getContentString() {
-                return getResources().getString(R.string.save_best_dialog_content, choosenCount);
+                return getResources().getQuantityString(R.plurals.save_best_dialog_content,
+                    choosenCount, choosenCount);
             }
 
             @Override
@@ -496,8 +497,8 @@ public class BestpictureActivity extends FragmentActivity {
                 }
             }
         }
-        String toastString = getResources().getString(R.string.save_best_image_toast,
-        toSaveCount);
+        String toastString = getResources().getQuantityString(R.plurals.save_best_image_toast,
+                toSaveCount, toSaveCount);
         Toast.makeText(BestpictureActivity.this, toastString, Toast.LENGTH_SHORT).show();
         backToViewfinder();
     }
