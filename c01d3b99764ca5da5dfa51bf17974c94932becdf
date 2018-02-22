@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "062f8c04_0724a0ed",
+        "filename": "src/com/android/camera/BestpictureActivity.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 414,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2018-02-22T00:53:42Z",
+      "side": 1,
+      "message": "plurals",
+      "range": {
+        "startLine": 414,
+        "startChar": 58,
+        "endLine": 414,
+        "endChar": 64
+      },
+      "revId": "c01d3b99764ca5da5dfa51bf17974c94932becdf",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6d634009_3b2309de",
+        "filename": "src/com/android/camera/BestpictureActivity.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 500,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2018-02-22T00:53:42Z",
+      "side": 1,
+      "message": "plurals",
+      "range": {
+        "startLine": 500,
+        "startChar": 64,
+        "endLine": 500,
+        "endChar": 70
+      },
+      "revId": "c01d3b99764ca5da5dfa51bf17974c94932becdf",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
