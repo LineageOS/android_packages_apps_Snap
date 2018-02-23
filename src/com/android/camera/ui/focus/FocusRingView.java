@@ -169,7 +169,7 @@ public class FocusRingView extends View implements Invalidator, FocusRing {
         }
 
         if (mPreviewSize != null) {
-            canvas.clipRect(mPreviewSize, Region.Op.REPLACE);
+            canvas.clipRect(mPreviewSize);
         }
 
         mAnimator.draw(canvas);
