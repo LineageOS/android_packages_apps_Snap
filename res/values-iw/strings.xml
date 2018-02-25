@@ -564,9 +564,21 @@ CHAR LIMIT = NONE] -->
   <string name="pref_camera2_category_system">מערכת</string>
   <string name="pref_camera2_restore_default">שחזר ברירות מחדל</string>
   <string name="pref_camera2_restore_default_hint">הגדרות המצלמה ישוחזרו לברירת המחדל</string>
+  <plurals name="save_best_dialog_content">
+    <item quantity="one">תמונה אחת מתוך 10 התמונות תשמר והשאר ימחקו</item>
+    <item quantity="two">%1$d מתוך 10 התמונות ישמרו והשאר ימחקו</item>
+    <item quantity="many">%1$d מתוך 10 התמונות ישמרו והשאר ימחקו</item>
+    <item quantity="other">%1$d מתוך 10 התמונות ישמרו והשאר ימחקו</item>
+  </plurals>
   <string name="save_best_dialog_title">לשמור את התמונות שנבחרו?</string>
   <string name="save_best_dialog_positive_bt">אישור</string>
   <string name="save_best_dialog_native_bt">בטל</string>
+  <plurals name="save_best_image_toast">
+    <item quantity="one">תמונה אחת נשמרה.</item>
+    <item quantity="two">%1$d מתוך 10 תמונות נשמרו.</item>
+    <item quantity="many">%1$d מתוך 10 תמונות נשמרו.</item>
+    <item quantity="other">%1$d מתוך 10 תמונות נשמרו.</item>
+  </plurals>
   <string name="dialog_do_not_show">אל תציג שוב</string>
   <string name="delete_best_dialog_title">למחוק הכול?</string>
   <string name="delete_best_dialog_content">למחוק את כל העשרה תמונות שצולמו?</string>

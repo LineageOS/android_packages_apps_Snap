@@ -554,9 +554,15 @@ CHAR LIMIT = NONE] -->
   <string name="pref_camera2_category_system">系统</string>
   <string name="pref_camera2_restore_default">恢复默认值</string>
   <string name="pref_camera2_restore_default_hint">相机设置将恢复为默认值</string>
+  <plurals name="save_best_dialog_content">
+    <item quantity="other">10 张图像中的 %1$d 张将被保存，其余的会被删除</item>
+  </plurals>
   <string name="save_best_dialog_title">是否保存已选择的图像？</string>
   <string name="save_best_dialog_positive_bt">确定</string>
   <string name="save_best_dialog_native_bt">返回</string>
+  <plurals name="save_best_image_toast">
+    <item quantity="other">已保存 10 张图像中的 %1$d 张。</item>
+  </plurals>
   <string name="dialog_do_not_show">不再显示</string>
   <string name="delete_best_dialog_title">删除所有？</string>
   <string name="delete_best_dialog_content">是否确定要删除所拍的所有10张照片？</string>

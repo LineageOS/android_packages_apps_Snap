@@ -395,6 +395,7 @@ Elementua gailuan gorde da eta konexiorik gabe erabili daiteke.</string>
   <!-- The shutter button. [CHAR LIMIT = NONE] -->
   <string name="accessibility_shutter_button">Obturadorea</string>
   <!-- The exit best photo mode button. [CHAR LIMIT = NONE] -->
+  <string name="accessibility_exit_best_mode_button">Irten argazki onena modutik</string>
   <!-- The menu button. [CHAR LIMIT = NONE] -->
   <string name="accessibility_menu_button">Menu botoia</string>
   <!-- The mode picker to switch between camera, video and panorama. [CHAR LIMIT = NONE] -->
@@ -552,6 +553,30 @@ CHAR LIMIT = NONE] -->
   <!-- Menu, Video rotation labels [CHAR LIMIT=50] -->
   <string name="remaining_photos_format">%d geratzen dira</string>
   <string name="makeup_video_size_limit">Makillaje moduak VGA tamainako bideo grabaketan soilik funtzionatzen du.</string>
+  <string name="pref_camera2_category_system">Sistema</string>
+  <string name="pref_camera2_restore_default">Berrezarri balio lehenetsiak</string>
+  <string name="pref_camera2_restore_default_hint">Kameraren ezarpenak lehenetsitako ezarpenetara berrezarriko dira</string>
+  <plurals name="save_best_dialog_content">
+    <item quantity="one">10etik irudi %1$d gordeko da, besteak ezabatuko dira</item>
+    <item quantity="other">10etik %1$d irudi gordeko dira, besteak ezabatuko dira</item>
+  </plurals>
+  <string name="save_best_dialog_title">Gorde hautatutako irudiak?</string>
   <string name="save_best_dialog_positive_bt">ADOS</string>
+  <string name="save_best_dialog_native_bt">Utzi</string>
+  <plurals name="save_best_image_toast">
+    <item quantity="one">10etik irudi %1$d gorde da.</item>
+    <item quantity="other">10etik %1$d irudi gorde dira.</item>
+  </plurals>
+  <string name="dialog_do_not_show">Ez erakutsi berriro</string>
+  <string name="delete_best_dialog_title">Ezabatu guztiak?</string>
+  <string name="delete_best_dialog_content">Ziur hartutako 10 irudiak ezabatu nahi dituzula?</string>
+  <string name="delete_best_dialog_native_bt">Utzi</string>
   <string name="delete_best_dialog_positive_bt">Ezabatu</string>
+  <string name="delete_all_best_dialog_title">Ezabatu guztiak?</string>
+  <string name="delete_all_best_dialog_content">Ziur irudi guztiak ezabatu nahi dituzula?</string>
+  <string name="delete_all_best_dialog_native_bt">Utzi</string>
+  <string name="delete_all_best_dialog_positive_bt">Ezabatu guztiak</string>
+  <string name="overflow_best_item1">Gorde denak</string>
+  <string name="overflow_best_item2">Ezabatu guztiak</string>
+  <string name="settings_title">Ezarpenak</string>
 </resources>

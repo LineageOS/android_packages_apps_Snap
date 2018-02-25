@@ -550,9 +550,15 @@ CHAR LIMIT = NONE] -->
   <string name="pref_camera2_category_system">Hệ thống</string>
   <string name="pref_camera2_restore_default">Khôi phục mặc định</string>
   <string name="pref_camera2_restore_default_hint">Cài đặt máy ảnh sẽ được khôi phục về cài đặt mặc định</string>
+  <plurals name="save_best_dialog_content">
+    <item quantity="other">%1$d trong 10 hình ảnh sẽ được lưu và phần còn lại sẽ bị xóa</item>
+  </plurals>
   <string name="save_best_dialog_title">Lưu hình ảnh được chọn?</string>
   <string name="save_best_dialog_positive_bt">OK</string>
   <string name="save_best_dialog_native_bt">Hủy</string>
+  <plurals name="save_best_image_toast">
+    <item quantity="other">%1$d trong số 10 hình ảnh đã lưu.</item>
+  </plurals>
   <string name="dialog_do_not_show">Không hiện lại</string>
   <string name="delete_best_dialog_title">Xoá tất cả?</string>
   <string name="delete_best_dialog_content">Bạn có chắc chắn muốn xóa tất cả 10 ảnh đã chụp?</string>

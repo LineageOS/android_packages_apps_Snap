@@ -566,9 +566,21 @@ CHAR LIMIT = NONE] -->
   <string name="pref_camera2_category_system">Sistem</string>
   <string name="pref_camera2_restore_default">Obnovi privzete</string>
   <string name="pref_camera2_restore_default_hint">Nastavitve fotoaparata bodo obnovljene na privzete nastavitve</string>
+  <plurals name="save_best_dialog_content">
+    <item quantity="one">%1$d od 10 fotografij bo shranjena, ostale bodo izbrisane</item>
+    <item quantity="two">%1$d od 10 fotografij bosta shranjeni, ostale bodo izbrisane</item>
+    <item quantity="few">%1$d od 10 fotografij bodo shranjene, ostale bodo izbrisane</item>
+    <item quantity="other">%1$d od 10 fotografij bo shranjenih, ostale bodo izbrisane</item>
+  </plurals>
   <string name="save_best_dialog_title">Shrani izbrane slike?</string>
   <string name="save_best_dialog_positive_bt">V redu</string>
   <string name="save_best_dialog_native_bt">Prekliči</string>
+  <plurals name="save_best_image_toast">
+    <item quantity="one">%1$d od 10 fotografij shranjena.</item>
+    <item quantity="two">%1$d od 10 fotografij shranjeni.</item>
+    <item quantity="few">%1$d od 10 fotografij shranjene.</item>
+    <item quantity="other">%1$d od 10 fotografij shranjenih.</item>
+  </plurals>
   <string name="dialog_do_not_show">Ne prikaži ponovno</string>
   <string name="delete_best_dialog_title">Izbriši vse?</string>
   <string name="delete_best_dialog_content">Ali ste prepričani, da želite izbrisati vseh 10 posnetih fotografij?</string>

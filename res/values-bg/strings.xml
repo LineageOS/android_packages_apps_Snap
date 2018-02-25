@@ -558,9 +558,17 @@ CHAR LIMIT = NONE] -->
   <string name="pref_camera2_category_system">Система</string>
   <string name="pref_camera2_restore_default">Възстанови по подразбиране</string>
   <string name="pref_camera2_restore_default_hint">Настройките на камерата ще бъдат възстановени до първоначалните настройки</string>
+  <plurals name="save_best_dialog_content">
+    <item quantity="one">%1$d от 10 изображения ще бъдат записани а останалите ще бъдат изтрити</item>
+    <item quantity="other">%1$d от 10 снимки ще бъдат записани а останалите ще бъдат изтрити</item>
+  </plurals>
   <string name="save_best_dialog_title">Да запиша ли избраните изображения?</string>
   <string name="save_best_dialog_positive_bt">Добре</string>
   <string name="save_best_dialog_native_bt">Отказ</string>
+  <plurals name="save_best_image_toast">
+    <item quantity="one">%1$d от 10 снимки записани.</item>
+    <item quantity="other">%1$d от 10 снимки записани.</item>
+  </plurals>
   <string name="dialog_do_not_show">Не показвай отново</string>
   <string name="delete_best_dialog_title">Да изтрия ли всички?</string>
   <string name="delete_best_dialog_content">Наистина ли искате да изтриете всички 10 снимки?</string>

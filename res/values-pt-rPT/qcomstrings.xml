@@ -484,6 +484,7 @@
   <string name="pref_camera2_scene_mode_sharp_photo_instructional_content">A foto nítida reduz a desfocagem derivada do movimento da cena ou do movimento da mão.</string>
   <string name="pref_camera2_scene_mode_tracking_focus_instructional_content">Permite que foque e siga uma pessoa ou objeto selecionados enquanto fotografa ou grava vídeos. Para iniciar, posicione o retângulo de focagem na pessoa ou objeto que quer seguir.</string>
   <string name="pref_camera2_scene_mode_time_lapse_instructional_content">Com o intervalo de tempo, pode converter uma gravação de vídeo longa em poucos segundos de vídeo. Este efeito aplica-se a vídeos mas não a fotos.</string>
+  <string name="pref_camera2_scene_mode_panorama_instructional_content">Permite que vire para a esquerda ou direita para tirar uma fotografia panorâmica. Também pode virar para cima ou para baixo para tirar fotos em altura.</string>
   <string name="pref_camera2_scene_mode_blur_buster_instructional_content">O BlurBuster reduz a desfocagem derivada do movimento das mãos. Pode ser útil quando tirar fotografias em sítios difíceis.</string>
   <string name="pref_camera2_scene_mode_pro_instructional_content">Com o Modo Pro, pode controlar manualmente parâmetros como o ISO, a exposição, o equilíbrio dos brancos e a focagem. Terá acesso simplificado a todas estas funcionalidades avançadas</string>
   <string name="pref_camera2_not_show_again">Não mostrar novamente</string>
@@ -548,6 +549,7 @@
   <string name="pref_camera2_zsl_entry_hal_zsl">ZSL por hardware</string>
   <!-- QCFA Title -->
   <!-- QCFA choices -->
+  <string name="pref_camera2_switch_camera_title">Alterar câmara pelo ID</string>
   <string name="pref_camera2_initial_camera_entry_bayer">Bayer</string>
   <string name="pref_camera2_initial_camera_entry_mono">Monocromático</string>
   <string name="pref_camera2_initial_camera_entry_front">Frontal</string>

@@ -484,6 +484,7 @@
   <string name="pref_camera2_scene_mode_sharp_photo_instructional_content">Sharp photo намалява замъгляването, което се дължи на движението в сцената или на ръчното движение.</string>
   <string name="pref_camera2_scene_mode_tracking_focus_instructional_content">Позволява ви да следите и фокусирате избран човек или обект, докато правите снимки или видеоклипове. За да започнете, поставете правоъгълника на фокуса върху човек или обект, който искате да проследите.</string>
   <string name="pref_camera2_scene_mode_time_lapse_instructional_content">С Time lapse можете да превърнете дълъг видеозапис в няколко секунди от видеоклипа. Този ефект се отнася за видеоклипове, но не за снимки.</string>
+  <string name="pref_camera2_scene_mode_panorama_instructional_content">Позволява ви да превъртите наляво или надясно, за да направите широка пейзажна снимка. Можете да използвате панорамиране нагоре или надолу, за да заснемате по-високи изображения.</string>
   <string name="pref_camera2_scene_mode_blur_buster_instructional_content">BlurBuster намалява размазването от нестабилни ръце. Тя може да бъде полезна, когато правите снимки при тежки условия.</string>
   <string name="pref_camera2_scene_mode_pro_instructional_content">При Професионален режим можете ръчно да управлявате настройките за ISO, експонация, баланс на бялото и фокус. Ще имате лесен достъп до всички тези разширени настройки</string>
   <string name="pref_camera2_not_show_again">Не показвай отново</string>
@@ -548,6 +549,7 @@
   <string name="pref_camera2_zsl_entry_hal_zsl">Хардуер ZSL</string>
   <!-- QCFA Title -->
   <!-- QCFA choices -->
+  <string name="pref_camera2_switch_camera_title">Превключване на камера чрез ID</string>
   <string name="pref_camera2_initial_camera_entry_bayer">Bayer</string>
   <string name="pref_camera2_initial_camera_entry_mono">Моно</string>
   <string name="pref_camera2_initial_camera_entry_front">Предна</string>

@@ -558,9 +558,17 @@ CHAR LIMIT = NONE] -->
   <string name="pref_camera2_category_system">Sistema</string>
   <string name="pref_camera2_restore_default">Restaura els valors predeterminats</string>
   <string name="pref_camera2_restore_default_hint">La configuració de la càmera es restaurarà a la configuració per defecte</string>
+  <plurals name="save_best_dialog_content">
+    <item quantity="one">Es desarà %1$d de 10 imatges i la resta s\'eliminarà</item>
+    <item quantity="other">Es desaran %1$d de 10 imatges i la resta s\'eliminarà</item>
+  </plurals>
   <string name="save_best_dialog_title">Vols desar les imatges seleccionades?</string>
   <string name="save_best_dialog_positive_bt">D\'ACORD</string>
   <string name="save_best_dialog_native_bt">Cancel·la</string>
+  <plurals name="save_best_image_toast">
+    <item quantity="one">S\'ha desat %1$d de 10 imatges.</item>
+    <item quantity="other">S\'han desat %1$d de 10 imatges.</item>
+  </plurals>
   <string name="dialog_do_not_show">No ho tornis a mostrar</string>
   <string name="delete_best_dialog_title">Esborrar-ho tot?</string>
   <string name="delete_best_dialog_content">Estàs segur que vols suprimir les 10 imatges fetes?</string>

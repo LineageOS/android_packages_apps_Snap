@@ -484,6 +484,7 @@
   <string name="pref_camera2_scene_mode_sharp_photo_instructional_content">锐化照片将会减少由于运动或者挥手引起的模糊。</string>
   <string name="pref_camera2_scene_mode_tracking_focus_instructional_content">允许您跟踪并保持聚焦在您所选择的人或物件上以拍摄照片或视频。在要跟踪的人或物件上聚焦即可开始。</string>
   <string name="pref_camera2_scene_mode_time_lapse_instructional_content">在延时摄影模式下，您可以将一段长时间的视频转换为只有几秒钟的视频。此效果仅限视频，对于照片无效。</string>
+  <string name="pref_camera2_scene_mode_panorama_instructional_content">允许您从左到右拍摄一幅风景照片。您也可以从上到下拍摄一幅长条形的照片。</string>
   <string name="pref_camera2_scene_mode_blur_buster_instructional_content">模糊抵消器将会抵消由于拍摄时手部抖动造成的模糊，这会协助您在困难环境的拍摄。</string>
   <string name="pref_camera2_scene_mode_pro_instructional_content">在专业模式下，您可以手动控制ISO，曝光，白平衡和对焦。 您将可以轻松访问这些高级设置</string>
   <string name="pref_camera2_not_show_again">不再显示</string>
@@ -548,6 +549,7 @@
   <string name="pref_camera2_zsl_entry_hal_zsl">硬件零延迟快门</string>
   <!-- QCFA Title -->
   <!-- QCFA choices -->
+  <string name="pref_camera2_switch_camera_title">通过 ID 切换相机</string>
   <string name="pref_camera2_initial_camera_entry_bayer">Bayer</string>
   <string name="pref_camera2_initial_camera_entry_mono">黑白</string>
   <string name="pref_camera2_initial_camera_entry_front">前</string>

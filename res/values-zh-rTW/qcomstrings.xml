@@ -484,6 +484,7 @@
   <string name="pref_camera2_scene_mode_sharp_photo_instructional_content">使用銳化照片可減少由於場景中的運動或由於手動造成的模糊。</string>
   <string name="pref_camera2_scene_mode_tracking_focus_instructional_content">允許您在拍攝照片或錄影時追蹤和對焦選定的人物或物體。 要開始，將焦點矩形放置在要追蹤的人物或物體上。</string>
   <string name="pref_camera2_scene_mode_time_lapse_instructional_content">使用縮時，您可以將長時間的影片錄製轉換為幾秒鐘的影片。此效果適用於影片，但不適用於照片。</string>
+  <string name="pref_camera2_scene_mode_panorama_instructional_content">允許您向左或向右平移拍攝寬闊的風景照片。 您也可以向上或向下平移拍攝高的照片。</string>
   <string name="pref_camera2_scene_mode_blur_buster_instructional_content">使用模糊剋星可減輕抖動的模糊。在困難的地方拍照時可能會有所幫助。</string>
   <string name="pref_camera2_scene_mode_pro_instructional_content">使用專業模式，您可以手動控制 ISO、曝光、白平衡和對焦的設定。 您可以輕鬆存取所有這些進階設定</string>
   <string name="pref_camera2_not_show_again">不再顯示</string>
@@ -548,6 +549,7 @@
   <string name="pref_camera2_zsl_entry_hal_zsl">硬體 ZSL</string>
   <!-- QCFA Title -->
   <!-- QCFA choices -->
+  <string name="pref_camera2_switch_camera_title">透過 ID 切換相機</string>
   <string name="pref_camera2_initial_camera_entry_bayer">Bayer</string>
   <string name="pref_camera2_initial_camera_entry_mono">單色</string>
   <string name="pref_camera2_initial_camera_entry_front">前面</string>

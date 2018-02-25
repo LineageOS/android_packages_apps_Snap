@@ -484,6 +484,7 @@
   <string name="pref_camera2_scene_mode_sharp_photo_instructional_content">חידוד תמונה מפחית את הטשטוש מתנועת ידיים או תנועה בצילום.</string>
   <string name="pref_camera2_scene_mode_tracking_focus_instructional_content">מאפשר מעקב פוקוס אחר אדם או חפץ תוך כדי צילום תמונות או סרטונים. להפעלה, התמקד על האדם או החפץ למעקב.</string>
   <string name="pref_camera2_scene_mode_time_lapse_instructional_content">עם כיווץ זמן, אפשר לכווץ סרטון ארוך לכמה שניות. האפקט חל על סרטונים בלבד כמובן.</string>
+  <string name="pref_camera2_scene_mode_panorama_instructional_content">מאפשר להזיז ימינה או שמאלה לצילום תמונה ארוכה יותר. אפשר גם להזיז למעלה או למטה.</string>
   <string name="pref_camera2_scene_mode_blur_buster_instructional_content">BlurBuster מפחית את הטשטוש הנגרם מידיים רועדות. זה יכול להיות שימושי כשמצלמים תמונות במקומות קשים.</string>
   <string name="pref_camera2_scene_mode_pro_instructional_content">עם מצב מתקדם, תוכל להתאים אישית את זמן החשיפה, ISO, איזון לבן והמיקוד. תהיה לך גישה קלה לכל ההגדרות המתקדמות הללו</string>
   <string name="pref_camera2_not_show_again">אל תציג שוב</string>
@@ -548,6 +549,7 @@
   <string name="pref_camera2_zsl_entry_hal_zsl">ZSL (צילום ללא שהייה) חומרתי</string>
   <!-- QCFA Title -->
   <!-- QCFA choices -->
+  <string name="pref_camera2_switch_camera_title">החלף למצלמה על ידי מזהה</string>
   <string name="pref_camera2_initial_camera_entry_bayer">באייר</string>
   <string name="pref_camera2_initial_camera_entry_mono">מונוכרום</string>
   <string name="pref_camera2_initial_camera_entry_front">קדמית</string>

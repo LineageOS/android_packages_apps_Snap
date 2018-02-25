@@ -393,6 +393,7 @@
   <!-- The shutter button. [CHAR LIMIT = NONE] -->
   <string name="accessibility_shutter_button">Otturatore</string>
   <!-- The exit best photo mode button. [CHAR LIMIT = NONE] -->
+  <string name="accessibility_exit_best_mode_button">Esci dalla modalità foto migliori</string>
   <!-- The menu button. [CHAR LIMIT = NONE] -->
   <string name="accessibility_menu_button">Pulsante Menu</string>
   <!-- The mode picker to switch between camera, video and panorama. [CHAR LIMIT = NONE] -->
@@ -554,6 +555,30 @@ CHAR LIMIT = NONE] -->
   <string name="remaining_photos_format">Ancora %d</string>
   <string name="initial_recording_seconds">00:00</string>
   <string name="makeup_video_size_limit">Abbellimento funziona solo con la risoluzione VGA per le registrazioni video.</string>
+  <string name="pref_camera2_category_system">Sistema</string>
+  <string name="pref_camera2_restore_default">Ripristina predefinite</string>
+  <string name="pref_camera2_restore_default_hint">Le impostazioni della fotocamera verranno ripristinate alle impostazioni predefinite</string>
+  <plurals name="save_best_dialog_content">
+    <item quantity="one">%1$d delle 10 immagini verranno salvate, il resto eliminate</item>
+    <item quantity="other">%1$d delle 10 immagini verranno salvate, il resto eliminate</item>
+  </plurals>
+  <string name="save_best_dialog_title">Salvare le immagini selezionate?</string>
   <string name="save_best_dialog_positive_bt">OK</string>
+  <string name="save_best_dialog_native_bt">Annulla</string>
+  <plurals name="save_best_image_toast">
+    <item quantity="one">%1$d di 10 immagini salvate.</item>
+    <item quantity="other">%1$d di 10 immagini salvate.</item>
+  </plurals>
+  <string name="dialog_do_not_show">Non mostrare più</string>
+  <string name="delete_best_dialog_title">Eliminare tutto?</string>
+  <string name="delete_best_dialog_content">Sei sicuro di voler eliminare tutte le 10 foto scattate?</string>
+  <string name="delete_best_dialog_native_bt">Annulla</string>
   <string name="delete_best_dialog_positive_bt">Elimina</string>
+  <string name="delete_all_best_dialog_title">Eliminare tutto?</string>
+  <string name="delete_all_best_dialog_content">Sei sicuro di voler eliminare tutte le immagini?</string>
+  <string name="delete_all_best_dialog_native_bt">Annulla</string>
+  <string name="delete_all_best_dialog_positive_bt">Elimina tutto</string>
+  <string name="overflow_best_item1">Salva tutto</string>
+  <string name="overflow_best_item2">Elimina tutto</string>
+  <string name="settings_title">Impostazioni</string>
 </resources>

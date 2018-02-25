@@ -27,17 +27,17 @@
              that is to be "set as" (e.g. set as contact photo or set as wallpaper) -->
   <string name="set_image">Definir imagem como:</string>
   <!-- Details dialog "OK" button. Dismisses dialog. -->
-  <string name="delete">Eliminar</string>
+  <string name="delete">Apagar</string>
   <!-- String Delete the selected media item(s) [CHAR LIMIT=50] -->
   <plurals name="delete_selection">
-    <item quantity="one">Eliminar o item selecionado?</item>
-    <item quantity="other">Eliminar os itens selecionados?</item>
+    <item quantity="one">Apagar o item selecionado?</item>
+    <item quantity="other">Apagar os itens selecionados?</item>
   </plurals>
   <string name="share">Partilhar</string>
   <string name="share_panorama">Partilhar panorama</string>
   <string name="share_as_photo">Partilhar como fotografia</string>
   <!-- The label shown after an image is deleted [CHAR LIMIT=16] -->
-  <string name="deleted">Eliminada</string>
+  <string name="deleted">Apagada</string>
   <!-- The label on the button which when clicked will undo a deletion of image [CHAR LIMIT=16]-->
   <string name="undo">ANULAR</string>
   <string name="details">Detalhes</string>
@@ -331,7 +331,7 @@
   <!-- Dialog "OK" button. Dismisses dialog. -->
   <string name="dialog_ok">OK</string>
   <!-- Low-memory dialog message [CHAR LIMIT=NONE] -->
-  <string name="spaceIsLow_content" product="default">Está a ficar sem espaço no cartão SD. Altere as definições de qualidade ou elimine algumas imagens ou outros ficheiros.</string>
+  <string name="spaceIsLow_content" product="default">Está a ficar sem espaço no cartão SD. Altere as definições de qualidade ou apague algumas imagens ou outros ficheiros.</string>
   <!-- Camera format string for new image files. Passed to java.text.SimpleDateFormat. -->
   <!-- Video Camera format string for new video files. Passed to java.text.SimpleDateFormat. -->
   <!-- Filename prefix for panorama output. -->
@@ -554,16 +554,24 @@ CHAR LIMIT = NONE] -->
   <string name="pref_camera2_category_system">Sistema</string>
   <string name="pref_camera2_restore_default">Repor predefinições</string>
   <string name="pref_camera2_restore_default_hint">As definições da câmara serão restauradas para as definições predefinidas</string>
+  <plurals name="save_best_dialog_content">
+    <item quantity="one">%1$d de 10 imagens será guardada e as restantes serão apagadas</item>
+    <item quantity="other">%1$d de 10 imagens serão guardadas e as restantes serão apagadas</item>
+  </plurals>
   <string name="save_best_dialog_title">Guardar as imagens selecionadas?</string>
   <string name="save_best_dialog_positive_bt">OK</string>
   <string name="save_best_dialog_native_bt">Cancelar</string>
+  <plurals name="save_best_image_toast">
+    <item quantity="one">%1$d de 10 imagens guardada.</item>
+    <item quantity="other">%1$d de 10 imagens guardadas.</item>
+  </plurals>
   <string name="dialog_do_not_show">Não mostrar novamente</string>
   <string name="delete_best_dialog_title">Apagar todas?</string>
   <string name="delete_best_dialog_content">Tem a certeza de que quer apagar todas as 10 fotos tiradas?</string>
   <string name="delete_best_dialog_native_bt">Cancelar</string>
-  <string name="delete_best_dialog_positive_bt">Eliminar</string>
+  <string name="delete_best_dialog_positive_bt">Apagar</string>
   <string name="delete_all_best_dialog_title">Apagar todas?</string>
-  <string name="delete_all_best_dialog_content">Tem a certeza de que pretende eliminar todas as imagens?</string>
+  <string name="delete_all_best_dialog_content">Tem a certeza de que pretende apagar todas as imagens?</string>
   <string name="delete_all_best_dialog_native_bt">Cancelar</string>
   <string name="delete_all_best_dialog_positive_bt">Apagar todas</string>
   <string name="overflow_best_item1">Guardar todas</string>

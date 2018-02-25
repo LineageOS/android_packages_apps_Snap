@@ -484,6 +484,7 @@
   <string name="pref_camera2_scene_mode_sharp_photo_instructional_content">Sharp Photo znižuje rozmazanie, ktoré je spôsobené pohybom v scéne alebo pohybom rúk.</string>
   <string name="pref_camera2_scene_mode_tracking_focus_instructional_content">Umožňuje sledovať a zaostriť vybranú osobu alebo objekt pri fotografovaní alebo videu. Ak chcete začať, umiestnite ohniskový obdĺžnik na osobu alebo objekt, ktorý chcete zachytiť.</string>
   <string name="pref_camera2_scene_mode_time_lapse_instructional_content">S časozberným nahrávaním môžete premeniť dlhé video na niekoľko-sekundové. Tento efekt platí pre videá, nie pre fotografie.</string>
+  <string name="pref_camera2_scene_mode_panorama_instructional_content">Umožňuje posunúť doľava alebo doprava, aby ste získali širokú krajinnú fotografiu. Môžete tiež posunúť nahor alebo nadol pre zachytenie vysokých snímok.</string>
   <string name="pref_camera2_scene_mode_blur_buster_instructional_content">BlurBuster znižuje rozmazanie z trasúcich sa rúk. Môže byť užitočné pri fotografovaní v ťažkých podmienkach.</string>
   <string name="pref_camera2_scene_mode_pro_instructional_content">V režime Pro môžete ručne ovládať nastavenia pre ISO, expozíciu, vyváženie bielej a zaostrenie. Budete mať ľahký prístup ku všetkým týmto pokročilým nastaveniam</string>
   <string name="pref_camera2_not_show_again">Nabudúce nezobrazovať</string>
@@ -548,6 +549,7 @@
   <string name="pref_camera2_zsl_entry_hal_zsl">Harvérové ZSL</string>
   <!-- QCFA Title -->
   <!-- QCFA choices -->
+  <string name="pref_camera2_switch_camera_title">Prepínanie fotoaparátu pomocou ID</string>
   <string name="pref_camera2_initial_camera_entry_bayer">Bayer</string>
   <string name="pref_camera2_initial_camera_entry_mono">Čiernobiely</string>
   <string name="pref_camera2_initial_camera_entry_front">Predná</string>

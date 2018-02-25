@@ -452,6 +452,7 @@
   <string name="pref_camera_scenemode_entry_bestpicture">Image optimale</string>
   <string name="pref_camera_scenemode_entry_trackingfocus">Mise au point automatique par suivi du sujet</string>
   <string name="pref_camera_scenemode_entry_panorama">Panorama</string>
+  <string name="pref_camera_scenemode_entry_promode">Mode Pro</string>
   <string name="bestpicture_done">TERMINÉ</string>
   <string name="bestpicture_at_least_one_picture">Vous devez choisir au moins une photo.</string>
   <string name="pref_camera2_shutter_sound_entry_on">Activé</string>
@@ -463,6 +464,9 @@
   <string name="pref_camera2_timer_entry_10sec">10 secondes</string>
   <string name="makeup_ui_ok_button">OK</string>
   <string name="perf_camera2_version_info">Informations de version</string>
+  <string name="perf_camera2_preferences_category_general">Générale</string>
+  <string name="perf_camera2_preferences_category_photo">Appareil photo</string>
+  <string name="perf_camera2_preferences_category_video">Caméra vidéo</string>
   <string name="perf_camera2_preferences_category_system">Système</string>
   <string name="pref_camera2_not_show_again">Ne plus afficher</string>
   <string name="pref_camera2_scene_mode_instructional_ok">OK</string>

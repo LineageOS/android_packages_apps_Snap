@@ -484,6 +484,7 @@
   <string name="pref_camera2_scene_mode_sharp_photo_instructional_content">Ảnh sắc nét làm giảm mờ do chuyển động trong hiện trường hoặc do chuyển động bằng tay.</string>
   <string name="pref_camera2_scene_mode_tracking_focus_instructional_content">Cho phép bạn theo dõi và tập trung lựa chọn cá nhân hoặc đối tượng trong khi chụp ảnh hoặc video. Để bắt đầu, vị trí hình chữ nhật tập trung vào một người hoặc đối tượng bạn muốn theo dõi.</string>
   <string name="pref_camera2_scene_mode_time_lapse_instructional_content">Với Time lapse, bạn có thể chuyển đổi một ghi âm dài video vào một vài giây của video. Này có hiệu lực áp dụng cho video, nhưng không có hình ảnh.</string>
+  <string name="pref_camera2_scene_mode_panorama_instructional_content">Cho phép bạn xoay trái hoặc phải để chụp ảnh phong cảnh rộng. Bạn cũng có thể xoay lên hoặc xuống để chụp ảnh cao.</string>
   <string name="pref_camera2_scene_mode_blur_buster_instructional_content">BlurBuster giảm mờ từ bàn tay run rẩy. Nó có thể hữu ích khi chụp ảnh ở những nơi khó khăn.</string>
   <string name="pref_camera2_scene_mode_pro_instructional_content">Với Chế độ chuyên nghiệp, bạn có thể tự kiểm soát cài đặt cho ISO, phơi ảnh, cân bằng trắng, và lấy nét. Bạn sẽ dễ dàng truy cập vào tất cả các cài đặt nâng cao này</string>
   <string name="pref_camera2_not_show_again">Không hiện lại</string>
@@ -548,6 +549,7 @@
   <string name="pref_camera2_zsl_entry_hal_zsl">Phần cứng ZSL</string>
   <!-- QCFA Title -->
   <!-- QCFA choices -->
+  <string name="pref_camera2_switch_camera_title">Chuyển máy ảnh bằng ID</string>
   <string name="pref_camera2_initial_camera_entry_bayer">Bayer</string>
   <string name="pref_camera2_initial_camera_entry_mono">Đơn sắc</string>
   <string name="pref_camera2_initial_camera_entry_front">Trước</string>
