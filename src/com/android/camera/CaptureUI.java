@@ -177,6 +177,7 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
     private Allocation mMonoDummyAllocation;
     private Allocation mMonoDummyOutputAllocation;
     private boolean mIsMonoDummyAllocationEverUsed = false;
+    private boolean mIsTouchAF = false;
 
     private int mScreenRatio = CameraUtil.RATIO_UNKNOWN;
     private int mTopMargin = 0;
@@ -1430,7 +1431,8 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
             return mTrackingFocusRenderer;
         }
 
-        return (mFaceView != null && mFaceView.faceExists()) ? mFaceView : mPieRenderer;
+        return (mFaceView != null && mFaceView.faceExists() && !mIsTouchAF) ?
+                mFaceView : mPieRenderer;
     }
 
     @Override
@@ -1446,11 +1448,13 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
     public void clearFocus() {
         FocusIndicator indicator = getFocusIndicator();
         if (indicator != null) indicator.clear();
+        mIsTouchAF = false;
     }
 
     @Override
     public void setFocusPosition(int x, int y) {
         mPieRenderer.setFocus(x, y);
+        mIsTouchAF = true;
     }
 
     @Override

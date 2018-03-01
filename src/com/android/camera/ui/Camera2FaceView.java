@@ -106,6 +106,11 @@ public class Camera2FaceView extends FaceView {
     }
 
     @Override
+    public boolean faceExists() {
+        return (mFaces != null && mFaces.length > 0);
+    }
+
+    @Override
     protected void onDraw(Canvas canvas) {
         if (!mBlocked && (mFaces != null) && (mFaces.length > 0) && mCameraBound != null) {
             int rw, rh;
