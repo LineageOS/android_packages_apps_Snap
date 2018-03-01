@@ -45,13 +45,16 @@ public class FlashToggleButton extends RotateImageView {
     private int[] videoFlashIcon = {R.drawable.flash_off, R.drawable.flash};
     private int mIndex;
     private boolean mIsVideoFlash;
+    private Context mContext;
 
     public FlashToggleButton(Context context) {
         super(context);
+        mContext = context;
     }
 
     public FlashToggleButton(Context context, AttributeSet attrs) {
         super(context, attrs);
+        mContext = context;
     }
 
     public void init(boolean videoFlash) {
@@ -65,7 +68,11 @@ public class FlashToggleButton extends RotateImageView {
         mSettingsManager = SettingsManager.getInstance();
         mIndex = mSettingsManager.getValueIndex(key);
         String redeye = mSettingsManager.getValue(SettingsManager.KEY_REDEYE_REDUCTION);
-        if (mIndex == -1 || (redeye != null && redeye.equals("on"))) {
+        String userSetting = mContext.getString(
+                R.string.pref_camera_manual_exp_value_user_setting);
+        String manualExposureMode = mSettingsManager.getValue(SettingsManager.KEY_MANUAL_EXPOSURE);
+        if (mIndex == -1 || (redeye != null && redeye.equals("on")) ||
+                manualExposureMode.equals(userSetting)) {
             setVisibility(GONE);
             return;
         } else {
