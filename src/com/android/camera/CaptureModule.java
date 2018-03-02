@@ -1322,8 +1322,16 @@ public class CaptureModule implements CameraModule, PhotoController,
         applyAERegions(mPreviewRequestBuilder[id], id);
         mPreviewRequestBuilder[id].setTag(id);
         try {
-            mCaptureSession[id].setRepeatingRequest(mPreviewRequestBuilder[id]
-                    .build(), mCaptureCallback, mCameraHandler);
+            if (mCaptureSession[id] instanceof CameraConstrainedHighSpeedCaptureSession) {
+                CameraConstrainedHighSpeedCaptureSession session =
+                        (CameraConstrainedHighSpeedCaptureSession) mCaptureSession[id];
+                List requestList = session.createHighSpeedRequestList(
+                        mPreviewRequestBuilder[id].build());
+                session.setRepeatingBurst(requestList, mCaptureCallback, mCameraHandler);
+            } else {
+                mCaptureSession[id].setRepeatingRequest(mPreviewRequestBuilder[id]
+                        .build(), mCaptureCallback, mCameraHandler);
+            }
         } catch (CameraAccessException | IllegalStateException e) {
             e.printStackTrace();
         }
