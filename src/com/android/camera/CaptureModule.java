@@ -3433,8 +3433,13 @@ public class CaptureModule implements CameraModule, PhotoController,
     private void updateVideoSnapshotSize() {
         mVideoSnapshotSize = mVideoSize;
         if (isVideoSize1080P(mVideoSnapshotSize)) {
-            // if video is 1080p encode, VideoSnapShotSize set 16M(5312x2988)
-            mVideoSnapshotSize = new Size(5312, 2988);
+            updateHFRSetting();
+            mHighSpeedFPSRange = new Range(mHighSpeedCaptureRate, mHighSpeedCaptureRate);
+            boolean is60FPS = ((int)mHighSpeedFPSRange.getUpper() == 60);
+            // if video is 1080p encode except 60fps, VideoSnapShotSize set 16M(5312x2988)
+            if (!is60FPS) {
+                mVideoSnapshotSize = new Size(5312, 2988);
+            }
         }
         Log.d(TAG, "updateVideoSnapshotSize final video snapShot size = " +
                 mVideoSnapshotSize.getWidth() + ", " + mVideoSnapshotSize.getHeight());
@@ -3743,6 +3748,7 @@ public class CaptureModule implements CameraModule, PhotoController,
         if (value == null) return;
         if (value.equals("off")) {
             mHighSpeedCapture = false;
+            mHighSpeedCaptureRate = 0;
         } else {
             mHighSpeedCapture = true;
             String mode = value.substring(0, 3);
