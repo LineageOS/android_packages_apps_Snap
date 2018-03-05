@@ -52,6 +52,7 @@ public class Camera2FaceView extends FaceView {
     private Face[] mPendingFaces;
     private ExtendedFace[] mPendingExFaces;
     private Rect mCameraBound;
+    private Rect mOriginalCameraBound;
     private float mZoom = 1.0f;
     private Handler mHandler = new Handler() {
         @Override
@@ -73,6 +74,10 @@ public class Camera2FaceView extends FaceView {
 
     public void setCameraBound(Rect cameraBound) {
         mCameraBound = cameraBound;
+    }
+
+    public void setOriginalCameraBound(Rect originalCameraBound) {
+        mOriginalCameraBound = originalCameraBound;
     }
 
     public void setZoom(float zoom) {
@@ -122,6 +127,13 @@ public class Camera2FaceView extends FaceView {
                 rw = rh;
                 rh = temp;
             }
+            if (rw * mCameraBound.width() != mCameraBound.height() * rh) {
+                if (rw == rh || (rh * 288 == rw * 352) || (rh * 480 == rw * 800)) {
+                    rh = rw * mCameraBound.width() / mCameraBound.height();
+                } else {
+                    rw = rh * mCameraBound.height() / mCameraBound.width();
+                }
+            }
             CameraUtil.prepareMatrix(mMatrix, mMirror, mDisplayOrientation, rw, rh);
 
             // mMatrix assumes that the face coordinates are from -1000 to 1000.
@@ -136,8 +148,10 @@ public class Camera2FaceView extends FaceView {
             bsgcTranslateMatrix.postScale(2000f / mCameraBound.width(),
                     2000f / mCameraBound.height());
 
-            int dx = (getWidth() - rw) / 2;
-            int dy = (getHeight() - rh) / 2;
+            int dx = (getWidth() - mUncroppedWidth) / 2;
+            dx -= (rw - mUncroppedWidth) / 2;
+            int dy = (getHeight() - mUncroppedHeight) / 2;
+            dy -= (rh - mUncroppedHeight) / 2;
 
             // Focus indicator is directional. Rotate the matrix and the canvas
             // so it looks correctly in all orientations.
@@ -153,8 +167,14 @@ public class Camera2FaceView extends FaceView {
             for (int i = 0; i < mFaces.length; i++) {
                 if (mFaces[i].getScore() < 50) continue;
                 Rect faceBound = mFaces[i].getBounds();
-                faceBound.offset(-mCameraBound.left, -mCameraBound.top);
+                faceBound.offset(-mOriginalCameraBound.left, -mOriginalCameraBound.top);
                 mRect.set(faceBound);
+                if (mZoom != 1.0f) {
+                    mRect.left = mRect.left - mCameraBound.left;
+                    mRect.right = mRect.right - mCameraBound.left;
+                    mRect.top = mRect.top - mCameraBound.top;
+                    mRect.bottom = mRect.bottom - mCameraBound.top;
+                }
                 translateMatrix.mapRect(mRect);
                 if (LOGV) CameraUtil.dumpRect(mRect, "Original rect");
                 mMatrix.mapRect(mRect);

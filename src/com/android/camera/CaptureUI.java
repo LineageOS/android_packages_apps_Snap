@@ -1604,6 +1604,7 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
         mFaceView.setDisplayOrientation(orientation);
         mFaceView.setMirror(mirror);
         mFaceView.setCameraBound(cameraBound);
+        mFaceView.setOriginalCameraBound(cameraBound);
         mFaceView.setZoom(mModule.getZoomValue());
         mFaceView.resume();
     }
