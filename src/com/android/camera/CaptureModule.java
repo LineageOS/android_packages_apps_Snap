@@ -3373,8 +3373,8 @@ public class CaptureModule implements CameraModule, PhotoController,
                         CameraConstrainedHighSpeedCaptureSession session =
                                     (CameraConstrainedHighSpeedCaptureSession) mCurrentSession;
                         try {
-                            List list = CameraUtil
-                                 .createHighSpeedRequestList(mVideoRequestBuilder.build(),cameraId);
+                            List list = session 
+                                    .createHighSpeedRequestList(mVideoRequestBuilder.build());
                             session.setRepeatingBurst(list, mCaptureCallback, mCameraHandler);
                         } catch (CameraAccessException e) {
                             Log.e(TAG, "Failed to start high speed video recording "
@@ -4292,8 +4292,8 @@ public class CaptureModule implements CameraModule, PhotoController,
             } else {
                 CameraCaptureSession session = mCaptureSession[id];
                 if (session instanceof CameraConstrainedHighSpeedCaptureSession) {
-                    List list = CameraUtil
-                            .createHighSpeedRequestList(mPreviewRequestBuilder[id].build(),id);
+                    List list = ((CameraConstrainedHighSpeedCaptureSession)session)
+                            .createHighSpeedRequestList(mPreviewRequestBuilder[id].build());
                     ((CameraConstrainedHighSpeedCaptureSession) session).setRepeatingBurst(list
                             , mCaptureCallback, mCameraHandler);
                 } else {
