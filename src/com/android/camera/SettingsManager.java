@@ -1284,11 +1284,6 @@ public class SettingsManager implements ListMenu.SettingsListener {
         return mCharacteristics.get(cameraId).get(CameraCharacteristics.FLASH_INFO_AVAILABLE);
     }
 
-    public StreamConfigurationMap getStreamConfigurationMap(int cameraId){
-        return mCharacteristics.get(cameraId)
-                .get(CameraCharacteristics.SCALER_STREAM_CONFIGURATION_MAP);
-    }
-
     public List<String> getSupportedColorEffects(int cameraId) {
         int[] flashModes = mCharacteristics.get(cameraId).get(CameraCharacteristics
                 .CONTROL_AVAILABLE_EFFECTS);
