@@ -556,6 +556,12 @@ CHAR LIMIT = NONE] -->
   <!-- Menu, Video rotation labels [CHAR LIMIT=50] -->
   <string name="remaining_photos_format">Преостало: %d</string>
   <string name="makeup_video_size_limit">Функција „Шминка“ ради само при снимању видеа у формату VGA.</string>
+  <string name="pref_camera2_category_system">Систем</string>
   <string name="save_best_dialog_positive_bt">У реду</string>
+  <string name="save_best_dialog_native_bt">Откажи</string>
+  <string name="delete_best_dialog_title">Обриши све?</string>
+  <string name="delete_best_dialog_native_bt">Откажи</string>
   <string name="delete_best_dialog_positive_bt">Обриши</string>
+  <string name="delete_all_best_dialog_native_bt">Откажи</string>
+  <string name="overflow_best_item1">Сачувај све</string>
 </resources>

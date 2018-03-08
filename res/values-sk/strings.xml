@@ -29,6 +29,12 @@
   <!-- Details dialog "OK" button. Dismisses dialog. -->
   <string name="delete">Odstrániť</string>
   <!-- String Delete the selected media item(s) [CHAR LIMIT=50] -->
+  <plurals name="delete_selection">
+    <item quantity="one">Vymazať vybranú položku?</item>
+    <item quantity="few">Odstrániť vybrané položky?</item>
+    <item quantity="many">Odstrániť vybrané položky?</item>
+    <item quantity="other">Odstrániť vybrané položky?</item>
+  </plurals>
   <string name="share">Zdieľať</string>
   <string name="share_panorama">Zdieľať panorámu</string>
   <string name="share_as_photo">Zdieľať ako fotografiu</string>
@@ -40,10 +46,28 @@
   <string name="close">Zavrieť</string>
   <!-- String indicating how many media item(s) is(are) selected
             eg. 1 selected [CHAR LIMIT=30] -->
+  <plurals name="number_of_items_selected">
+    <item quantity="one">%1$d vybraná</item>
+    <item quantity="few">%1$d vybrané</item>
+    <item quantity="many">%1$d vybraných</item>
+    <item quantity="other">%1$d vybraných</item>
+  </plurals>
   <!-- String indicating how many media album(s) is(are) selected
             eg. 1 selected [CHAR LIMIT=30] -->
+  <plurals name="number_of_albums_selected">
+    <item quantity="one">%1$d vybraná</item>
+    <item quantity="few">%1$d vybrané</item>
+    <item quantity="many">%1$d vybraných</item>
+    <item quantity="other">%1$d vybraných</item>
+  </plurals>
   <!-- String indicating how many media group(s) is(are) selected
             eg. 1 selected [CHAR LIMIT=30] -->
+  <plurals name="number_of_groups_selected">
+    <item quantity="one">%1$d vybraná</item>
+    <item quantity="few">%1$d vybrané</item>
+    <item quantity="many">%1$d vybraných</item>
+    <item quantity="other">%1$d vybraných</item>
+  </plurals>
   <!-- String indicating timestamp of photo or video -->
   <string name="show_on_map">Zobraziť na mape</string>
   <string name="rotate_left">Otočiť doľava</string>
@@ -155,6 +179,12 @@
   <!-- Title for countdown timer on camera settings screen [CHAR LIMIT=30]-->
   <string name="pref_camera_timer_title">Časovač odpočítavania</string>
   <!-- Entry for countdown timer setting. e.g. 1 second, 10 seconds, etc. [CHAR LIMIT=30]-->
+  <plurals name="pref_camera_timer_entry">
+    <item quantity="one">1 sekunda</item>
+    <item quantity="few">%d sekundy</item>
+    <item quantity="many">%d sekúnd</item>
+    <item quantity="other">%d sekúnd</item>
+  </plurals>
   <!-- Text followed by a checkbox to turn on/off sound effects during the countdown. [CHAR LIMIT = 24]-->
   <string name="pref_camera_timer_sound_title">Zvuk odpočítavania</string>
   <!-- Entry of camera save path -->
@@ -538,9 +568,21 @@ CHAR LIMIT = NONE] -->
   <string name="pref_camera2_category_system">Systém</string>
   <string name="pref_camera2_restore_default">Obnoviť predvolené</string>
   <string name="pref_camera2_restore_default_hint">Nastavenie fotoaparátu bude obnovené na predvolené nastavenia</string>
+  <plurals name="save_best_dialog_content">
+    <item quantity="one">%1$d z 10 obrázkov bude uložených a zbytok bude odstránený</item>
+    <item quantity="few">%1$d z 10 obrázkov bude uložených a zbytok bude odstránený</item>
+    <item quantity="many">%1$d z 10 obrázkov bude uložených a zbytok bude odstránený</item>
+    <item quantity="other">%1$d z 10 obrázkov bude uložených a zbytok bude odstránený</item>
+  </plurals>
   <string name="save_best_dialog_title">Uložiť vybrané obrázky?</string>
   <string name="save_best_dialog_positive_bt">OK</string>
   <string name="save_best_dialog_native_bt">Zrušiť</string>
+  <plurals name="save_best_image_toast">
+    <item quantity="one">%1$d z 10 obrázkov bolo uložených.</item>
+    <item quantity="few">%1$d z 10 obrázkov bolo uložených.</item>
+    <item quantity="many">%1$d z 10 obrázkov bolo uložených.</item>
+    <item quantity="other">%1$d z 10 obrázkov bolo uložených.</item>
+  </plurals>
   <string name="dialog_do_not_show">Nabudúce nezobrazovať</string>
   <string name="delete_best_dialog_title">Vymazať všetko?</string>
   <string name="delete_best_dialog_content">Naozaj chcete odstrániť všetkých 10 fotografií?</string>

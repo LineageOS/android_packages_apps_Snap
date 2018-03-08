@@ -424,6 +424,7 @@
   <string name="pref_camera2_camera2_entry_enable">Омогући</string>
   <string name="pref_camera2_camera2_entry_disable">Онемогући</string>
   <string name="pref_camera2_mono_only_title">Само монохроматски</string>
+  <string name="pref_camera2_mono_only_entry_on">Укљ</string>
   <string name="pref_camera2_mono_only_entry_off">Искључено</string>
   <string name="pref_camera2_mono_preview_title">Монохроматски преглед</string>
   <string name="pref_camera2_mono_preview_entry_on">Укључено</string>
@@ -436,6 +437,7 @@
   <string name="pref_camera2_mpo_entry_on">Укључено</string>
   <string name="pref_camera2_mpo_entry_off">Искључено</string>
   <string name="pref_camera2_makeup_title">Шминка</string>
+  <string name="pref_camera2_makeup_entry_on">Укљ</string>
   <string name="pref_camera2_makeup_entry_off">Искључено</string>
   <string name="pref_camera2_noise_reduction_title">Смањивање шума</string>
   <string name="pref_camera2_noise_reduction_entry_off">Искључено</string>
@@ -445,6 +447,7 @@
   <string name="pref_camera2_videosnap_entry_enable">Омогући</string>
   <string name="pref_camera2_videosnap_entry_disable">Онемогући</string>
   <string name="pref_camera2_trackingfocus_title">Пратећи фокус</string>
+  <string name="pref_camera2_trackingfocus_entry_on">Укљ</string>
   <string name="pref_camera2_trackingfocus_entry_off">Искључено</string>
   <string name="pref_camera_scenemode_entry_bestpicture">Најбоља слика</string>
   <string name="pref_camera_scenemode_entry_trackingfocus">Пратећи фокус</string>
@@ -454,7 +457,12 @@
   <string name="pref_camera2_shutter_sound_entry_off">Искључено</string>
   <string name="pref_camera2_shutter_sound_title">Звук затварача</string>
   <string name="pref_camera2_timer_entry_off">Искључено</string>
+  <string name="pref_camera2_timer_entry_2sec">2 секунде</string>
+  <string name="pref_camera2_timer_entry_5sec">5 секунди</string>
+  <string name="pref_camera2_timer_entry_10sec">10 секунди</string>
   <string name="makeup_ui_ok_button">У реду</string>
+  <string name="perf_camera2_preferences_category_video">Видео камера</string>
+  <string name="perf_camera2_preferences_category_system">Систем</string>
   <string name="pref_camera2_scene_mode_instructional_ok">У реду</string>
   <string name="pref_camera2_instant_aec_entry_disable">Онемогући</string>
   <string name="pref_camera2_instant_aec_entry_aggressive">Агресивни AEC</string>
@@ -491,11 +499,23 @@
   <!-- Default Zoom setting. -->
   <!-- Settings menu, Zoom choices -->
   <string name="pref_camera_zoom_entry_off">Искључено</string>
+  <string name="pref_camera_zoom_entry_1x">1x</string>
+  <string name="pref_camera_zoom_entry_2x">2x</string>
+  <string name="pref_camera_zoom_entry_3x">3x</string>
+  <string name="pref_camera_zoom_entry_4x">4x</string>
+  <string name="pref_camera_zoom_entry_5x">5x</string>
+  <string name="pref_camera_zoom_entry_6x">6x</string>
+  <string name="pref_camera_zoom_entry_7x">7x</string>
+  <string name="pref_camera_zoom_entry_8x">8x</string>
+  <string name="pref_camera_zoom_entry_9x">9x</string>
+  <string name="pref_camera_zoom_entry_10x">10x</string>
   <string name="pref_camera2_bsgc_entry_enable">Омогући</string>
   <string name="pref_camera2_bsgc_entry_disable">Онемогући</string>
   <string name="pref_camera2_zsl_title">Нулто кашњење окидача</string>
   <string name="pref_camera2_zsl_entry_disable">Искључено</string>
   <!-- QCFA Title -->
   <!-- QCFA choices -->
+  <string name="pref_camera2_initial_camera_entry_bayer">Bayer</string>
   <string name="pref_camera2_initial_camera_entry_mono">Моно</string>
+  <string name="pref_camera2_initial_camera_entry_front">Предња</string>
 </resources>

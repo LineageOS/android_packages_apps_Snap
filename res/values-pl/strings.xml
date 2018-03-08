@@ -373,6 +373,7 @@
   <!-- The shutter button. [CHAR LIMIT = NONE] -->
   <string name="accessibility_shutter_button">Migawka</string>
   <!-- The exit best photo mode button. [CHAR LIMIT = NONE] -->
+  <string name="accessibility_exit_best_mode_button">Wyjście z trybu najlepszego zdjęcia</string>
   <!-- The menu button. [CHAR LIMIT = NONE] -->
   <string name="accessibility_menu_button">Przycisk menu</string>
   <!-- The mode picker to switch between camera, video and panorama. [CHAR LIMIT = NONE] -->
@@ -530,9 +531,33 @@ CHAR LIMIT = NONE] -->
   <!-- Menu, Video rotation labels [CHAR LIMIT=50] -->
   <string name="remaining_photos_format">Pozostało %d</string>
   <string name="makeup_video_size_limit">\"Makijaż\" działa tylko w rozmiarze wideo VGA.</string>
+  <string name="pref_camera2_restore_default">Przywróć domyślne ustawienia</string>
+  <string name="pref_camera2_restore_default_hint">Ustawienia aparatu zostaną przywrócone do ustawień domyślnych</string>
+  <plurals name="save_best_dialog_content">
+    <item quantity="one">%1$d z 10 zdjęć zostanie zapisane, a reszta zostanie usunięta</item>
+    <item quantity="few">%1$d z 10 zdjęć zostanie zapisanych, a reszta zostanie usunięta</item>
+    <item quantity="many">%1$d z 10 zdjęć zostanie zapisanych, a reszta zostanie usunięta</item>
+    <item quantity="other">%1$d z 10 zdjęć zostanie zapisane, a reszta zostanie usunięta</item>
+  </plurals>
+  <string name="save_best_dialog_title">Zapisać wybrane zdjęcia?</string>
   <string name="save_best_dialog_positive_bt">OK</string>
+  <string name="save_best_dialog_native_bt">Anuluj</string>
+  <plurals name="save_best_image_toast">
+    <item quantity="one">zapisano %1$d z 10 zdjęć.</item>
+    <item quantity="few">zapisano %1$d z 10 zdjęć.</item>
+    <item quantity="many">zapisano %1$d z 10 zdjęć.</item>
+    <item quantity="other">zapisano %1$d z 10 zdjęć.</item>
+  </plurals>
   <string name="dialog_do_not_show">Nie pokazuj ponownie</string>
+  <string name="delete_best_dialog_title">Usunąć wszystkie?</string>
+  <string name="delete_best_dialog_content">Czy jesteś pewien, że chcesz usunąć wszystkie 10 zdjęć?</string>
+  <string name="delete_best_dialog_native_bt">Anuluj</string>
   <string name="delete_best_dialog_positive_bt">Usuń</string>
+  <string name="delete_all_best_dialog_title">Usunąć wszystkie?</string>
+  <string name="delete_all_best_dialog_content">Na pewno chcesz usunąć wszystkie zdjęcia?</string>
   <string name="delete_all_best_dialog_native_bt">Anuluj</string>
+  <string name="delete_all_best_dialog_positive_bt">Usuń wszystkie</string>
+  <string name="overflow_best_item1">Zapisz wszystkie</string>
+  <string name="overflow_best_item2">Usuń wszystkie</string>
   <string name="settings_title">Ustawienia</string>
 </resources>

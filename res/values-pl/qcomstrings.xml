@@ -424,6 +424,7 @@
   <string name="pref_camera2_camera2_entry_enable">Włącz</string>
   <string name="pref_camera2_camera2_entry_disable">Wyłącz</string>
   <string name="pref_camera2_mono_only_title">Tylko monochromatyczny</string>
+  <string name="pref_camera2_mono_only_entry_on">Włączone</string>
   <string name="pref_camera2_mono_only_entry_off">Wyłączone</string>
   <string name="pref_camera2_mono_preview_title">Podgląd monochromatyczny</string>
   <string name="pref_camera2_mono_preview_entry_on">Włączone</string>
@@ -436,6 +437,7 @@
   <string name="pref_camera2_mpo_entry_on">Włączone</string>
   <string name="pref_camera2_mpo_entry_off">Wyłączone</string>
   <string name="pref_camera2_makeup_title">Makijaż</string>
+  <string name="pref_camera2_makeup_entry_on">Włączone</string>
   <string name="pref_camera2_makeup_entry_off">Wyłączone</string>
   <string name="pref_camera2_noise_reduction_title">Redukcja szumów</string>
   <string name="pref_camera2_noise_reduction_entry_off">Wyłączone</string>
@@ -445,9 +447,13 @@
   <string name="pref_camera2_videosnap_entry_enable">Wł.</string>
   <string name="pref_camera2_videosnap_entry_disable">Wył.</string>
   <string name="pref_camera2_trackingfocus_title">Śledzenie ostrości</string>
+  <string name="pref_camera2_trackingfocus_entry_on">Włączone</string>
   <string name="pref_camera2_trackingfocus_entry_off">Wyłączone</string>
   <string name="pref_camera_scenemode_entry_bestpicture">Najlepsze zdjęcie</string>
+  <string name="pref_camera_scenemode_entry_sharpshooter">Wyostrz zdjęcie</string>
   <string name="pref_camera_scenemode_entry_trackingfocus">Śledzenie ostrości</string>
+  <string name="pref_camera_scenemode_entry_panorama">Panorama</string>
+  <string name="pref_camera_scenemode_entry_promode">Tryb Pro</string>
   <string name="bestpicture_done">GOTOWE</string>
   <string name="bestpicture_at_least_one_picture">Musisz wybrać przynajmniej jedno zdjęcie.</string>
   <string name="pref_camera2_shutter_sound_entry_on">Włączone</string>
@@ -457,8 +463,28 @@
   <string name="pref_camera2_timer_entry_2sec">2 sekundy</string>
   <string name="pref_camera2_timer_entry_5sec">5 sekund</string>
   <string name="pref_camera2_timer_entry_10sec">10 sekund</string>
+  <string name="pref_camera2_saveraw_title">Zapisz w formacie RAW</string>
+  <string name="panocapture_direction_is_not_determined">Poruszaj się stale w jednym kierunku.</string>
+  <string name="panocapture_intro">Naciśnij przycisk aparatu, aby rozpocząć.</string>
+  <string name="makeup_ui_title">Wybierz siłę upiększenia.</string>
   <string name="makeup_ui_ok_button">OK</string>
+  <string name="perf_camera2_version_info">Informacja o wersji</string>
+  <string name="perf_camera2_preferences_category_general">Ogólne</string>
+  <string name="perf_camera2_preferences_category_video">Kamera wideo</string>
+  <string name="perf_camera2_preferences_category_system">System</string>
+  <string name="pref_camera2_scene_mode_dual_camera_instructional_content">W trybie podwójnego aparatu, twoje zdjęcia będą lepsze. Można również zastosować efekty tła poprzez edycję zdjęć wykonanych trybem podwójnego aparatu w Galerii.</string>
+  <string name="pref_camera2_scene_mode_ubi_focus_instructional_content">W trybie UbiFocus aparat zrobi 5 zdjęć z których utworzy jedno najbardziej ostre. Możesz cofnąć wyostrzenie po wykonaniu zdjęcia.</string>
+  <string name="pref_camera2_scene_mode_sports_instructional_content">Tryb sportowy pomaga zrobić dokładniejsze zdjęcia w ruchu.\n\nPoprawi twoje zdjęcia, ale nie zadziała podczas kręcenia filmów.</string>
+  <string name="pref_camera2_scene_mode_hdr_instructional_content">Gdy jesteś w pomieszczeniu słabo oświetlonym włącz HDR, aby uzyskać możliwie najlepsze zdjęcia.</string>
+  <string name="pref_camera2_scene_mode_best_photo_instructional_content">Pozwala na wykonanie serii 10 zdjęć, z których można wybrać najlepsze.</string>
+  <string name="pref_camera2_scene_mode_chroma_flash_instructional_content">Za pomocą ChromaFlash oświetlenie na zdjęciach wykonanych z lampą błyskową, zostanie zoptymalizowane dla wszystkich ludzi i obiektów na twoich fotografiach. Ta funkcja działa tylko z tylnym aparatem.</string>
+  <string name="pref_camera2_scene_mode_sharp_photo_instructional_content">Ostre zdjęcie zmniejsza rozmycie spowodowane ruchem sceny lub ruchem ręki.</string>
+  <string name="pref_camera2_scene_mode_tracking_focus_instructional_content">Umożliwia śledzenie i ustawianie ostrości wybranej osoby lub obiektu podczas robienia zdjęć lub filmów. Aby rozpocząć, ustaw prostokąt ostrości na osobie lub obiekcie, który chcesz śledzić.</string>
+  <string name="pref_camera2_scene_mode_panorama_instructional_content">Pozwala przesuwać w lewo lub w prawo, aby zrobić zdjęcie krajobrazowe. Możesz przesuwać w górę lub w dół, aby zrobić duże zdjęcia.</string>
+  <string name="pref_camera2_scene_mode_pro_instructional_content">W trybie Pro można ręcznie sterować ustawieniami ISO, ekspozycji, balansu bieli i ostrości. Będziesz mieć łatwy dostęp do wszystkich tych zaawansowanych ustawień</string>
+  <string name="pref_camera2_not_show_again">Nie pokazuj ponownie</string>
   <string name="pref_camera2_scene_mode_instructional_ok">OK</string>
+  <string name="pref_camera2_instant_aec_title">Natychmiastowy AEC</string>
   <string name="pref_camera2_instant_aec_entry_disable">Wyłącz</string>
   <string name="pref_camera2_instant_aec_entry_aggressive">Agresywne AEC</string>
   <string name="pref_camera2_instant_aec_entry_fast">Szybkie AEC</string>
@@ -482,29 +508,44 @@
   <string name="pref_camera2_histogram_title">Histogram</string>
   <string name="pref_camera2_histogram_entry_enable">Włącz</string>
   <string name="pref_camera2_histogram_entry_disable">Wyłącz</string>
+  <string name="pref_camera2_hdr_title">HDR</string>
   <string name="pref_camera2_hdr_entry_enable">Włącz</string>
   <string name="pref_camera2_hdr_entry_disable">Wyłącz</string>
   <string name="pref_camera2_auto_hdr_title">Auto HDR</string>
   <string name="pref_camera2_auto_hdr_entry_enable">Włącz</string>
   <string name="pref_camera2_auto_hdr_entry_disable">Wyłącz</string>
+  <string name="pref_camera_bokeh_mode_title">Tryb Bokeh</string>
   <string name="pref_camera_bokeh_mode_entry_enable">Włącz</string>
   <string name="pref_camera_bokeh_mode_entry_disable">Wyłącz</string>
+  <string name="pref_camera_bokeh_mpo_title">Tryb Bokeh MPO</string>
   <string name="pref_camera_bokeh_mpo_entry_enable">Włącz</string>
   <string name="pref_camera_bokeh_mpo_entry_disable">Wyłącz</string>
+  <string name="pref_camera_bokeh_blur_degree_title">Wartość rozmycia Bokeh</string>
   <!-- Default Zoom setting. -->
+  <string name="pref_camera_zoom_title">Powiększenie</string>
   <!-- Settings menu, Zoom choices -->
   <string name="pref_camera_zoom_entry_off">Wyłączone</string>
   <string name="pref_camera_zoom_entry_1x">1x</string>
+  <string name="pref_camera_zoom_entry_2x">2x</string>
   <string name="pref_camera_zoom_entry_3x">3x</string>
   <string name="pref_camera_zoom_entry_4x">4x</string>
   <string name="pref_camera_zoom_entry_5x">5x</string>
   <string name="pref_camera_zoom_entry_6x">6x</string>
   <string name="pref_camera_zoom_entry_7x">7x</string>
+  <string name="pref_camera_zoom_entry_8x">8x</string>
+  <string name="pref_camera_zoom_entry_9x">9x</string>
+  <string name="pref_camera_zoom_entry_10x">10x</string>
+  <string name="pref_camera2_bsgc_title">Wykrywanie uśmiechu / mrugnięcia / spojrzenia</string>
   <string name="pref_camera2_bsgc_entry_enable">Włącz</string>
   <string name="pref_camera2_bsgc_entry_disable">Wyłącz</string>
   <string name="pref_camera2_zsl_title">Brak opóźnienia migawki</string>
   <string name="pref_camera2_zsl_entry_disable">Wyłączone</string>
+  <string name="pref_camera2_zsl_entry_app_zsl">Programowe ZSL</string>
+  <string name="pref_camera2_zsl_entry_hal_zsl">Sprzętowe ZSL</string>
   <!-- QCFA Title -->
   <!-- QCFA choices -->
+  <string name="pref_camera2_switch_camera_title">Przełączenie kamery na podstawie ID</string>
+  <string name="pref_camera2_initial_camera_entry_bayer">Filtr Bayera</string>
   <string name="pref_camera2_initial_camera_entry_mono">Monochromatyczny</string>
+  <string name="pref_camera2_initial_camera_entry_front">Przód</string>
 </resources>

@@ -567,6 +567,6 @@ CHAR LIMIT = NONE] -->
   <string name="delete_all_best_dialog_native_bt">Annuler</string>
   <string name="delete_all_best_dialog_positive_bt">Les supprimer toutes</string>
   <string name="overflow_best_item1">Les enregistrer toutes</string>
-  <string name="overflow_best_item2">Les supprimer toutes</string>
+  <string name="overflow_best_item2">Tout supprimer</string>
   <string name="settings_title">Paramètres</string>
 </resources>
