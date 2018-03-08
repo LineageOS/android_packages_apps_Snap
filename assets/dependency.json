@@ -108,7 +108,8 @@
     ,
     "110":
     {"pref_camera2_coloreffect_key":"0",
-      "pref_camera2_longshot_key":"off"}
+      "pref_camera2_longshot_key":"off",
+      "pref_camera2_picturesize_key":"3840x2160"}
   },
   "pref_camera2_clearsight_key":
   {
