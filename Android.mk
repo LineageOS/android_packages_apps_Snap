@@ -1,3 +1,4 @@
+ifneq ($(USE_CAMERA_STUB), true)
 LOCAL_PATH:= $(call my-dir)
 
 include $(CLEAR_VARS)
@@ -45,3 +46,4 @@ endif
 include $(BUILD_PACKAGE)
 
 include $(call all-makefiles-under, $(LOCAL_PATH))
+endif
