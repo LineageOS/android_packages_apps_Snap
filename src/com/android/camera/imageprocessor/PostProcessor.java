@@ -30,6 +30,8 @@ package com.android.camera.imageprocessor;
 
 import android.content.ContentResolver;
 import android.content.Context;
+import android.content.SharedPreferences;
+import android.graphics.Bitmap;
 import android.graphics.ImageFormat;
 import android.graphics.Rect;
 import android.graphics.YuvImage;
@@ -50,6 +52,7 @@ import android.media.ImageWriter;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Looper;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -59,11 +62,13 @@ import com.android.camera.Exif;
 import com.android.camera.MediaSaveService;
 import com.android.camera.PhotoModule;
 import com.android.camera.SettingsManager;
+import com.android.camera.deepportrait.DPImage;
 import com.android.camera.exif.ExifInterface;
 import com.android.camera.exif.Rational;
 import com.android.camera.imageprocessor.filter.BestpictureFilter;
 import com.android.camera.imageprocessor.filter.BlurbusterFilter;
 import com.android.camera.imageprocessor.filter.ChromaflashFilter;
+import com.android.camera.imageprocessor.filter.DeepPortraitFilter;
 import com.android.camera.imageprocessor.filter.OptizoomFilter;
 import com.android.camera.imageprocessor.filter.SharpshooterFilter;
 import com.android.camera.imageprocessor.filter.StillmoreFilter;
@@ -148,6 +153,7 @@ public class PostProcessor{
     private LinkedList<ZSLQueue.ImageItem> mFallOffImages = new LinkedList<ZSLQueue.ImageItem>();
     private int mPendingContinuousRequestCount = 0;
     public int mMaxRequiredImageNum;
+    private boolean mIsDeepPortrait = false;
 
     public int getMaxRequiredImageNum() {
         return mMaxRequiredImageNum;
@@ -439,6 +445,12 @@ public class PostProcessor{
             mZSLReprocessImageReader = ImageReader.newInstance(pictureSize.getWidth(), pictureSize.getHeight(), ImageFormat.JPEG, mMaxRequiredImageNum);
             mZSLReprocessImageReader.setOnImageAvailableListener(processedImageAvailableListener, mHandler);
         }
+        if (mIsDeepPortrait) {
+            ImageFilter imageFilter = mController.getFrameFilters().get(0);
+            DeepPortraitFilter deepPortraitFilter =
+                    (DeepPortraitFilter) imageFilter;
+            deepPortraitFilter.initSnapshot(pictureSize.getWidth(),pictureSize.getHeight());
+        }
     }
 
     public boolean takeZSLPicture() {
@@ -678,9 +690,10 @@ public class PostProcessor{
 
     public void onOpen(int postFilterId, boolean isFlashModeOn, boolean isTrackingFocusOn,
                        boolean isMakeupOn, boolean isSelfieMirrorOn, boolean isSaveRaw,
-                       boolean isSupportedQcfa) {
+                       boolean isSupportedQcfa, boolean isDeepPortrait) {
         mImageHandlerTask = new ImageHandlerTask();
         mSaveRaw = isSaveRaw;
+        mIsDeepPortrait = isDeepPortrait;
         if(setFilter(postFilterId) || isFlashModeOn || isTrackingFocusOn || isMakeupOn || isSelfieMirrorOn
                 || PersistUtil.getCameraZSLDisabled()
                 || !SettingsManager.getInstance().isZSLInAppEnabled()
@@ -690,7 +703,7 @@ public class PostProcessor{
                 || "18".equals(SettingsManager.getInstance().getValue(
                                   SettingsManager.KEY_SCENE_MODE))
                 || mController.getCameraMode() == CaptureModule.DUAL_MODE
-                || isSupportedQcfa) {
+                || isSupportedQcfa || isDeepPortrait) {
             mUseZSL = false;
         } else {
             mUseZSL = true;
@@ -949,6 +962,17 @@ public class PostProcessor{
             }
             mOrientation = CameraUtil.getJpegRotation(mController.getMainCameraId(), mController.getDisplayOrientation());
         }
+        if (mIsDeepPortrait) {
+            ImageFilter imageFilter = mController.getFrameFilters().get(0);
+            DeepPortraitFilter deepPortraitFilter =
+                    (DeepPortraitFilter) imageFilter;
+            if (!deepPortraitFilter.getDPStillInit()) {
+                mStatus = STATUS.BUSY;
+                if(mWatchdog != null) {
+                    mWatchdog.startMonitor();
+                }
+            }
+        }
         if(mFilter != null && mCurrentNumImage >= mFilter.getNumRequiredImage()) {
             return;
         }
@@ -967,10 +991,78 @@ public class PostProcessor{
                         ByteBuffer vuBuf = image.getPlanes()[2].getBuffer();
 
                         if(mFilter == null) {
-                            mDefaultResultImage = new ImageFilter.ResultImage(ByteBuffer.allocateDirect(mStride * mHeight*3/2),
-                                                                    new Rect(0, 0, mWidth, mHeight), mWidth, mHeight, mStride);
-                            yBuf.get(mDefaultResultImage.outBuffer.array(), 0, yBuf.remaining());
-                            vuBuf.get(mDefaultResultImage.outBuffer.array(), mStride*mHeight, vuBuf.remaining());
+                            if (mIsDeepPortrait) {
+                                ImageFilter imageFilter = mController.getFrameFilters().get(0);
+                                DeepPortraitFilter deepPortraitFilter =
+                                        (DeepPortraitFilter) imageFilter;
+                                DPImage dpImage = new DPImage(image,0);
+                                long current = System.currentTimeMillis();
+                                deepPortraitFilter.addImage(null,null,0,dpImage);
+                                if (DEBUG_DUMP_FILTER_IMG) {
+                                    ImageFilter.ResultImage debugResultImage = new
+                                            ImageFilter.ResultImage(ByteBuffer.allocateDirect(
+                                            mStride * mHeight * 3 / 2), new Rect(0, 0, mWidth,
+                                            mHeight), mWidth, mHeight, mStride);
+                                    yBuf.get(debugResultImage.outBuffer.array(), 0, yBuf.remaining());
+                                    vuBuf.get(debugResultImage.outBuffer.array(), mStride * mHeight,
+                                            vuBuf.remaining());
+                                    yBuf.rewind();
+                                    vuBuf.rewind();
+
+                                    byte[] bytes = nv21ToJpeg(debugResultImage, mOrientation, null);
+                                    mActivity.getMediaSaveService().addImage(
+                                            bytes, "Debug_beforeApplyingFilter" + numImage, 0L, null,
+                                            debugResultImage.outRoi.width(),
+                                            debugResultImage.outRoi.height(),
+                                            mOrientation, null, mController.getMediaSavedListener(),
+                                            mActivity.getContentResolver(), "jpeg");
+
+                                    if (dpImage.mMask != null) {
+                                        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                                        Bitmap mask = DeepPortraitFilter.DpMaskToImage(
+                                                dpImage.mMask, dpImage.mMaskWidth,dpImage.mMaskHeight);
+                                        mask.compress(Bitmap.CompressFormat.JPEG, 75, baos);
+                                        byte[] data = baos.toByteArray();
+                                        mActivity.getMediaSaveService().addImage(
+                                                data, "DPmask" + System.currentTimeMillis(), 0L, null,
+                                                dpImage.mMaskWidth,
+                                                dpImage.mMaskHeight,
+                                                mOrientation, null, mController.getMediaSavedListener(),
+                                                mActivity.getContentResolver(), "jpeg");
+                                    }
+                                }
+                                if (dpImage.mMask == null) {
+                                    Log.d(TAG,"can't generate deepportrait mask");
+                                    mDefaultResultImage = new ImageFilter.ResultImage(
+                                            ByteBuffer.allocateDirect(mStride * mHeight*3/2),
+                                            new Rect(0, 0, mWidth, mHeight), mWidth, mHeight, mStride);
+                                    yBuf.get(mDefaultResultImage.outBuffer.array(), 0, yBuf.remaining());
+                                    vuBuf.get(mDefaultResultImage.outBuffer.array(), mStride*mHeight, vuBuf.remaining());
+                                } else {
+                                    ByteBuffer dstY = ByteBuffer.allocateDirect(yBuf.capacity());
+                                    ByteBuffer dstVU = ByteBuffer.allocateDirect(vuBuf.capacity());
+                                    final SharedPreferences prefs =
+                                            PreferenceManager.getDefaultSharedPreferences(mActivity);
+                                    int level = prefs.getInt(SettingsManager.KEY_DEEPPORTRAIT_VALUE
+                                            ,50);
+                                    deepPortraitFilter.renderDeepportraitImage(
+                                            dpImage,dstY,dstVU,0, level/100f);
+                                    Log.d(TAG,"process Dp snapshot cost time "+ (System.currentTimeMillis() - current));
+                                    mDefaultResultImage = new ImageFilter.ResultImage(
+                                            ByteBuffer.allocateDirect(mStride * mHeight*3/2),
+                                            new Rect(0, 0, mWidth, mHeight), mWidth, mHeight, mStride);
+                                    dstY.get(mDefaultResultImage.outBuffer.array(), 0,
+                                            dstY.remaining());
+                                    dstVU.get(mDefaultResultImage.outBuffer.array(), mStride*mHeight,
+                                            dstVU.remaining());
+                                }
+                            } else {
+                                mDefaultResultImage = new ImageFilter.ResultImage(
+                                        ByteBuffer.allocateDirect(mStride * mHeight*3/2),
+                                        new Rect(0, 0, mWidth, mHeight), mWidth, mHeight, mStride);
+                                yBuf.get(mDefaultResultImage.outBuffer.array(), 0, yBuf.remaining());
+                                vuBuf.get(mDefaultResultImage.outBuffer.array(), mStride*mHeight, vuBuf.remaining());
+                            }
                             image.close();
                         } else {
                             if (DEBUG_DUMP_FILTER_IMG) {
@@ -1070,9 +1162,12 @@ public class PostProcessor{
                     }
                     if(resultImage != null) {
                         //Start processing FrameProcessor filter as well
-                        for (ImageFilter filter : mController.getFrameFilters()) {
-                            filter.init(resultImage.width, resultImage.height, resultImage.stride, resultImage.stride);
-                            filter.addImage(resultImage.outBuffer, null, 0, new Boolean(false));
+                        if (!mIsDeepPortrait) {
+                            for (ImageFilter filter : mController.getFrameFilters()) {
+                                filter.init(resultImage.width, resultImage.height,
+                                        resultImage.stride, resultImage.stride);
+                                filter.addImage(resultImage.outBuffer, null, 0, new Boolean(false));
+                            }
                         }
 
                         if(isSelfieMirrorOn() && !mController.isBackCamera()) {
@@ -1194,7 +1289,7 @@ public class PostProcessor{
         }
     };
 
-    private byte[] nv21ToJpeg(ImageFilter.ResultImage resultImage, int orientation, TotalCaptureResult result) {
+    public byte[] nv21ToJpeg(ImageFilter.ResultImage resultImage, int orientation, TotalCaptureResult result) {
         BitmapOutputStream bos = new BitmapOutputStream(1024);
         YuvImage im = new YuvImage(resultImage.outBuffer.array(), ImageFormat.NV21,
                                     resultImage.width, resultImage.height, new int[]{resultImage.stride, resultImage.stride});

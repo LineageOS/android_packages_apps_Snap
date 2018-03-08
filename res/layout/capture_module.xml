@@ -32,6 +32,7 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:id="@+id/mdp_preivew_frame"
         android:layout_gravity="center_vertical|center_horizontal">
         <com.android.camera.ui.AutoFitSurfaceView
             android:id="@+id/mdp_preview_content"
@@ -41,9 +42,15 @@
         <com.android.camera.ui.AutoFitSurfaceView
             android:layout_width="300dp"
             android:layout_height="300dp"
-	    android:id="@+id/mdp_preview_content_mono"
+	        android:id="@+id/mdp_preview_content_mono"
             android:visibility="gone"/>
     </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/camera_glpreview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_vertical|center_horizontal" />
 
     <View
         android:id="@+id/preview_cover"
