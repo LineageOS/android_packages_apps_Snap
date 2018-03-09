@@ -2767,17 +2767,20 @@ public class CaptureModule implements CameraModule, PhotoController,
             }
 
             mSaveRaw = isRawCaptureOn();
+            int filterMode = PostProcessor.FILTER_NONE;
             if (scene != null) {
                 int mode = Integer.parseInt(scene);
-                Log.d(TAG, "Chosen postproc filter id : " + getPostProcFilterId(mode));
-                mPostProcessor.onOpen(getPostProcFilterId(mode), isFlashOn,
-                        isTrackingFocusSettingOn(), isMakeupOn, isSelfieMirrorOn,
-                        mSaveRaw, mIsSupportedQcfa, mDeepPortraitMode);
-            } else {
-                mPostProcessor.onOpen(PostProcessor.FILTER_NONE, isFlashOn,
-                        isTrackingFocusSettingOn(), isMakeupOn, isSelfieMirrorOn,
-                        mSaveRaw, mIsSupportedQcfa, mDeepPortraitMode);
+                filterMode = getPostProcFilterId(mode);
+                Log.d(TAG, "Chosen postproc filter id : " + filterMode);
+                if (mode == SettingsManager.SCENE_MODE_DEEPZOOM_INT) {
+                    String maxSize = mSettingsManager.getEntryValues(
+                            SettingsManager.KEY_PICTURE_SIZE)[0].toString();
+                    mSettingsManager.setValue(SettingsManager.KEY_PICTURE_SIZE, maxSize);
+                }
             }
+            mPostProcessor.onOpen(filterMode, isFlashOn,
+                    isTrackingFocusSettingOn(), isMakeupOn, isSelfieMirrorOn,
+                    mSaveRaw, mIsSupportedQcfa, mDeepPortraitMode);
         }
         if(mFrameProcessor != null) {
             mFrameProcessor.onOpen(getFrameProcFilterId(), mPreviewSize);
