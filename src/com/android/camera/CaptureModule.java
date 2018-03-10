@@ -977,6 +977,9 @@ public class CaptureModule implements CameraModule, PhotoController,
     }
 
     public static int getQualityNumber(String jpegQuality) {
+        if (jpegQuality == null) {
+            return 85;
+        }
         try {
             int qualityPercentile = Integer.parseInt(jpegQuality);
             if (qualityPercentile >= 0 && qualityPercentile <= 100)
@@ -4109,12 +4112,15 @@ public class CaptureModule implements CameraModule, PhotoController,
                     }
                 }
             }
-        } catch (CameraAccessException | IllegalArgumentException e) {
+        } catch (CameraAccessException | IllegalArgumentException | IllegalStateException e) {
             if (e instanceof CameraAccessException) {
                 Log.w(TAG, "setEndOfStream, Camera access failed");
             }
             if (e instanceof IllegalArgumentException) {
                 Log.w(TAG, "can not find vendor tag: org.quic.camera.recording.endOfStream");
+            }
+            if (e instanceof IllegalStateException) {
+                Log.w(TAG, "setEndOfStream, CameraDevice was already closed");
             }
             if (!isStopRecord && !isResume) {
                 mMediaRecorder.pause();
