@@ -3882,10 +3882,17 @@ public class CaptureModule implements CameraModule, PhotoController,
             if (DEBUG) {
                 Log.v(TAG, "setOpModeForVideoStream index :" + index);
             }
+
+            Method method_setVendorStreamConfigMode = null;
             try {
-                mCameraDevice[cameraId].setVendorStreamConfigMode(index);
-            } catch (CameraAccessException e) {
-                e.printStackTrace();
+                if (method_setVendorStreamConfigMode == null) {
+                    method_setVendorStreamConfigMode = CameraDevice.class.getDeclaredMethod(
+                            "setVendorStreamConfigMode", int.class);
+                }
+                method_setVendorStreamConfigMode.invoke(mCameraDevice[cameraId], index);
+            } catch (Exception exception) {
+                Log.w(TAG, "setOpModeForVideoStream method is not exist");
+                exception.printStackTrace();
             }
         }
     }
