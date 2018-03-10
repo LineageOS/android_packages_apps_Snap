@@ -1163,6 +1163,7 @@ public class CaptureModule implements CameraModule, PhotoController,
                             if (mPaused || null == mCameraDevice[id]) {
                                 return;
                             }
+                            Log.i(TAG, "cameracapturesession - onConfigured "+ id);
                             // When the session is ready, we start displaying the preview.
                             mCaptureSession[id] = cameraCaptureSession;
                             if(id == getMainCameraId()) {
@@ -3646,12 +3647,7 @@ public class CaptureModule implements CameraModule, PhotoController,
             if (mHighSpeedCapture) {
                 preview = mVideoSize;
             }
-            boolean changed = mUI.setPreviewSize(preview.getWidth(),
-                    preview.getHeight());
-            if (changed) {
-                mUI.hideSurfaceView();
-                mUI.showSurfaceView();
-            }
+            mUI.setPreviewSize(preview.getWidth(), preview.getHeight());
             mUI.resetTrackingFocus();
 
             createVideoSnapshotImageReader();
