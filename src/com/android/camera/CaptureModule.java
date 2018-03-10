@@ -85,6 +85,7 @@ import android.view.OrientationEventListener;
 import android.view.Surface;
 import android.view.SurfaceHolder;
 import android.view.View;
+import android.view.ViewTreeObserver;
 import android.view.WindowManager;
 import android.widget.Toast;
 import android.graphics.Paint;
@@ -1162,6 +1163,38 @@ public class CaptureModule implements CameraModule, PhotoController,
             }
         }
     }
+
+    public class DetachClickListener implements DialogInterface.OnClickListener {
+
+        private DialogInterface.OnClickListener mDelegate;
+
+        public DetachClickListener(DialogInterface.OnClickListener delegate) {
+            this.mDelegate = delegate;
+        }
+
+        @Override
+        public void onClick(DialogInterface dialog, int which) {
+            if (mDelegate != null) {
+                mDelegate.onClick(dialog, which);
+            }
+        }
+
+        public void clearOnDetach(AlertDialog dialog) {
+            dialog.getWindow()
+                    .getDecorView()
+                    .getViewTreeObserver()
+                    .addOnWindowAttachListener(new ViewTreeObserver.OnWindowAttachListener() {
+                        @Override
+                        public void onWindowAttached() {
+                        }
+
+                        @Override
+                        public void onWindowDetached() {
+                            mDelegate = null;
+                        }
+                    });
+        }
+    }
     private void createSession(final int id) {
         if (mPaused || !mCameraOpened[id]) return;
         Log.d(TAG, "createSession " + id);
@@ -1224,18 +1257,22 @@ public class CaptureModule implements CameraModule, PhotoController,
                             if (mActivity.isFinishing()) {
                                 return;
                             }
-                            new AlertDialog.Builder(mActivity)
-                                    .setTitle("Camera Initialization Failed")
-                                    .setMessage("Closing SnapdragonCamera")
-                                    .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                            DetachClickListener detachClickListener = new DetachClickListener(
+                                    new DialogInterface.OnClickListener() {
                                         public void onClick(DialogInterface dialog, int which) {
                                             closeCamera();
                                             mActivity.finish();
                                         }
-                                    })
+                                    }
+                            );
+                            AlertDialog dialog = new AlertDialog.Builder(mActivity)
+                                    .setTitle("Camera Initialization Failed")
+                                    .setMessage("Closing SnapdragonCamera")
+                                    .setPositiveButton(android.R.string.yes, detachClickListener)
                                     .setCancelable(false)
                                     .setIcon(android.R.drawable.ic_dialog_alert)
                                     .show();
+                            detachClickListener.clearOnDetach(dialog);
                         }
 
                         @Override
