@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f0a044d3_fc4339b4",
+        "filename": "src/com/android/camera/util/CameraUtil.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 18945
+      },
+      "writtenOn": "2018-03-11T22:21:54Z",
+      "side": 1,
+      "message": "This opens up a possible race condition that throws an ArrayIndexOutOfBoundsException, should use cameraIds[0] instead.",
+      "revId": "d600a3b51b1f2e74b30a286f90bbbf16da69262e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
