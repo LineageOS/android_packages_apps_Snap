@@ -3633,7 +3633,6 @@ public class CaptureModule implements CameraModule, PhotoController,
 
         try {
             setUpMediaRecorder(cameraId);
-
             mUI.clearFocus();
             mUI.hideUIwhileRecording();
             mCameraHandler.removeMessages(CANCEL_TOUCH_FOCUS, mCameraId[cameraId]);
@@ -4298,13 +4297,9 @@ public class CaptureModule implements CameraModule, PhotoController,
         if (CamcorderProfile.hasProfile(cameraId, size)) {
             mProfile = CamcorderProfile.get(cameraId, size);
         } else {
-            if (!"-1".equals(mSettingsManager.getValue(SettingsManager.KEY_SWITCH_CAMERA))) {
-                mProfile = CamcorderProfile.get(CamcorderProfile.QUALITY_HIGH);
-            } else {
-                RotateTextToast.makeText(mActivity, R.string.error_app_unsupported_profile,
-                        Toast.LENGTH_LONG).show();
-                return;
-            }
+            RotateTextToast.makeText(mActivity, R.string.error_app_unsupported_profile,
+                    Toast.LENGTH_LONG).show();
+            throw new IllegalArgumentException("error_app_unsupported_profile");
         }
 
         int videoWidth = mProfile.videoFrameWidth;
