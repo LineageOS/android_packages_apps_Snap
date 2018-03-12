@@ -416,7 +416,7 @@ public class CameraUtil {
             String[] cameraIds = manager.getCameraIdList();
 
             if (cameraIds != null && cameraIds.length > 0) {
-                CameraCharacteristics characteristics = manager.getCameraCharacteristics(manager.getCameraIdList()[0]);
+                CameraCharacteristics characteristics = manager.getCameraCharacteristics(cameraIds[0]);
                 int deviceLevel = characteristics.get(CameraCharacteristics.INFO_SUPPORTED_HARDWARE_LEVEL);
 
                 switch (deviceLevel) {
