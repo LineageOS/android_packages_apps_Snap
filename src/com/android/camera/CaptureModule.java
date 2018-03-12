@@ -1524,7 +1524,11 @@ public class CaptureModule implements CameraModule, PhotoController,
                         if (mUI.getCurrentProMode() == ProMode.MANUAL_MODE) {
                             captureStillPicture(BAYER_ID);
                         } else {
-                            lockFocus(BAYER_ID);
+                            if (mLongshotActive) {
+                                parallelLockFocusExposure(BAYER_ID);
+                            } else {
+                                lockFocus(BAYER_ID);
+                            }
                         }
                         break;
                     case MONO_MODE:
@@ -3430,13 +3434,6 @@ public class CaptureModule implements CameraModule, PhotoController,
             Log.d(TAG, "Longshot button up");
             mLongshotActive = false;
             mPostProcessor.stopLongShot();
-            try {
-                int id = getMainCameraId();
-                mCaptureSession[id].stopRepeating();
-                mCaptureSession[id].abortCaptures();
-            } catch (CameraAccessException e) {
-                Log.w(TAG, "Burst Session is already closed");
-            }
         }
     }
 
@@ -4562,7 +4559,9 @@ public class CaptureModule implements CameraModule, PhotoController,
 
             Log.d(TAG, "Start Longshot");
             mLongshotActive = true;
-            parallelLockFocusExposure(getMainCameraId());
+            takePicture();
+        } else {
+            RotateTextToast.makeText(mActivity, "Long shot not support", Toast.LENGTH_SHORT).show();
         }
     }
 

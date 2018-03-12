@@ -54,13 +54,15 @@
       {"pref_camera2_coloreffect_key":"0"}
     ,
     "102":
-    {"pref_camera2_coloreffect_key":"0"}
+    {"pref_camera2_coloreffect_key":"0",
+      "pref_camera2_longshot_key":"off"}
     ,
     "101":
     {"pref_camera2_coloreffect_key":"0"}
    ,
     "3":
-    {"pref_camera2_coloreffect_key":"0"}
+    {"pref_camera2_coloreffect_key":"0",
+      "pref_camera2_longshot_key":"off"}
     ,
     "4":
     {"pref_camera2_coloreffect_key":"0"}
@@ -75,7 +77,8 @@
     {"pref_camera2_coloreffect_key":"0"}
     ,
     "5":
-    {"pref_camera2_coloreffect_key":"0"}
+    {"pref_camera2_coloreffect_key":"0",
+      "pref_camera2_longshot_key":"off"}
     ,
     "8":
     {"pref_camera2_coloreffect_key":"0"}
@@ -95,13 +98,16 @@
       "pref_camera2_longshot_key":"off"}
     ,
     "106":
-    {"pref_camera2_coloreffect_key":"0"}
+    {"pref_camera2_coloreffect_key":"0",
+      "pref_camera2_longshot_key":"off"}
     ,
     "107":
-    {"pref_camera2_coloreffect_key":"0"}
+    {"pref_camera2_coloreffect_key":"0",
+      "pref_camera2_longshot_key":"off"}
     ,
     "108":
-    {"pref_camera2_coloreffect_key":"0"}
+    {"pref_camera2_coloreffect_key":"0",
+      "pref_camera2_longshot_key":"off"}
     ,
     "109":
     {"pref_camera2_coloreffect_key":"0"}
