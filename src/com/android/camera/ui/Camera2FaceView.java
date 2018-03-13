@@ -110,6 +110,11 @@ public class Camera2FaceView extends FaceView {
         }
     }
 
+    private boolean isFDRectOutOfBound(Rect faceRect) {
+        return mCameraBound.left > faceRect.left || mCameraBound.top > faceRect.top ||
+                faceRect.right > mCameraBound.right || faceRect.bottom > mCameraBound.bottom;
+    }
+
     @Override
     public boolean faceExists() {
         return (mFaces != null && mFaces.length > 0);
@@ -168,6 +173,7 @@ public class Camera2FaceView extends FaceView {
                 if (mFaces[i].getScore() < 50) continue;
                 Rect faceBound = mFaces[i].getBounds();
                 faceBound.offset(-mOriginalCameraBound.left, -mOriginalCameraBound.top);
+                if (isFDRectOutOfBound(faceBound)) continue;
                 mRect.set(faceBound);
                 if (mZoom != 1.0f) {
                     mRect.left = mRect.left - mCameraBound.left;
