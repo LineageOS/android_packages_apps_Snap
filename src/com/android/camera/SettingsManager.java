@@ -103,6 +103,8 @@ public class SettingsManager implements ListMenu.SettingsListener {
     public static final int SCENE_MODE_DEEPZOOM_INT = SCENE_MODE_CUSTOM_START + 10;
 	public static final int SCENE_MODE_DEEPPORTRAIT_INT = SCENE_MODE_CUSTOM_START + 11;
     public static final String SCENE_MODE_DUAL_STRING = "100";
+    public static final String SCENE_MODE_SUNSET_STRING = "10";
+    public static final String SCENE_MODE_LANDSCAPE_STRING = "4";
     public static final String KEY_CAMERA_SAVEPATH = "pref_camera2_savepath_key";
     public static final String KEY_RECORD_LOCATION = "pref_camera2_recordlocation_key";
     public static final String KEY_JPEG_QUALITY = "pref_camera2_jpegquality_key";
@@ -1647,7 +1649,11 @@ public class SettingsManager implements ListMenu.SettingsListener {
     public boolean isZSLInAppEnabled(){
         String value = getValue(KEY_ZSL);
         String appZSLValue = mContext.getString(R.string.pref_camera2_zsl_entryvalue_app_zsl);
-        if ( value != null && value.equals(appZSLValue) ){
+        if ( (value != null && value.equals(appZSLValue)) ||
+                SettingsManager.SCENE_MODE_SUNSET_STRING.equals(
+                        SettingsManager.getInstance().getValue(SettingsManager.KEY_SCENE_MODE)) ||
+                SettingsManager.SCENE_MODE_LANDSCAPE_STRING.equals(
+                        SettingsManager.getInstance().getValue(SettingsManager.KEY_SCENE_MODE))){
             return true;
         }else{
             return false;
