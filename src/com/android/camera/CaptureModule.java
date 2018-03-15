@@ -844,6 +844,14 @@ public class CaptureModule implements CameraModule, PhotoController,
                 Integer aeState = result.get(CaptureResult.CONTROL_AE_STATE);
                 Log.d(TAG, "STATE_WAITING_AF_AE_LOCK id: " + id + " afState: " + afState +
                         " aeState:" + aeState);
+
+                if ((aeState == null || aeState == CaptureResult.CONTROL_AE_STATE_CONVERGED)) {
+                    if (isFlashOn(id)) {
+                        // if flash is on and AE state is CONVERGED then lock AE
+                        lockExposure(id);
+                    }
+                }
+
                 if (CaptureResult.CONTROL_AF_STATE_FOCUSED_LOCKED == afState &&
                         (aeState == null || aeState == CaptureResult.CONTROL_AE_STATE_LOCKED)) {
                     checkAfAeStatesAndCapture(id);
@@ -1641,10 +1649,13 @@ public class CaptureModule implements CameraModule, PhotoController,
             mLockRequestHashCode[id] = request.hashCode();
             mCaptureSession[id].capture(request, mCaptureCallback, mCameraHandler);
 
-            // lock AE
-            applySettingsForLockExposure(mPreviewRequestBuilder[id], id);
-            mCaptureSession[id].setRepeatingRequest(mPreviewRequestBuilder[id].build(),
-                    mCaptureCallback, mCameraHandler);
+            // if flash is on, does not lock AE until the AE state is CONTROL_AE_STATE_CONVERGED.
+            // if flash is off, lock AE now.
+            if (!isFlashOn(id)) {
+                applySettingsForLockExposure(mPreviewRequestBuilder[id], id);
+                mCaptureSession[id].setRepeatingRequest(mPreviewRequestBuilder[id].build(),
+                        mCaptureCallback, mCameraHandler);
+            }
 
             if(mHiston) {
                 updateGraghViewVisibility(View.INVISIBLE);
