@@ -1841,7 +1841,7 @@ public class CaptureModule implements CameraModule, PhotoController,
             applySettingsForJpegInformation(captureBuilder, id);
             applyAFRegions(captureBuilder, id);
             applyAERegions(captureBuilder, id);
-            if (!mIsSupportedQcfa || !isDeepZoom()) {
+            if (!(mIsSupportedQcfa || isDeepZoom())) {
                 addPreviewSurface(captureBuilder, null, id);
             }
             VendorTagUtil.setCdsMode(captureBuilder, 2);// CDS 0-OFF, 1-ON, 2-AUTO
