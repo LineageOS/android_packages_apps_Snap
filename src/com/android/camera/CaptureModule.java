@@ -1412,8 +1412,7 @@ public class CaptureModule implements CameraModule, PhotoController,
             if (mCaptureSession[id] instanceof CameraConstrainedHighSpeedCaptureSession) {
                 CameraConstrainedHighSpeedCaptureSession session =
                         (CameraConstrainedHighSpeedCaptureSession) mCaptureSession[id];
-                List requestList = session.createHighSpeedRequestList(
-                        mPreviewRequestBuilder[id].build());
+                List requestList = CameraUtil.createHighSpeedRequestList(mVideoRequestBuilder.build());
                 session.setRepeatingBurst(requestList, mCaptureCallback, mCameraHandler);
             } else {
                 mCaptureSession[id].setRepeatingRequest(mPreviewRequestBuilder[id]
@@ -3743,7 +3742,7 @@ public class CaptureModule implements CameraModule, PhotoController,
                         CameraConstrainedHighSpeedCaptureSession session =
                                     (CameraConstrainedHighSpeedCaptureSession) mCurrentSession;
                         try {
-                            List list = session 
+                            List list = CameraUtil
                                     .createHighSpeedRequestList(mVideoRequestBuilder.build());
                             session.setRepeatingBurst(list, mCaptureCallback, mCameraHandler);
                         } catch (CameraAccessException e) {
@@ -3896,7 +3895,7 @@ public class CaptureModule implements CameraModule, PhotoController,
         mVideoPausePreviewRequestBuilder.addTarget(surface);
         mVideoPausePreviewRequestBuilder.set(CaptureRequest.CONTROL_AF_MODE, mControlAFMode);
         if (mHighSpeedCapture) {
-            mVideoRequestBuilder.set(CaptureRequest.CONTROL_AE_TARGET_FPS_RANGE,
+            mVideoPausePreviewRequestBuilder.set(CaptureRequest.CONTROL_AE_TARGET_FPS_RANGE,
                     mHighSpeedFPSRange);
         }
         if (!mHighSpeedCapture || !((int)mHighSpeedFPSRange.getUpper() > NORMAL_SESSION_MAX_FPS)) {
@@ -4100,17 +4099,14 @@ public class CaptureModule implements CameraModule, PhotoController,
     }
 
     private void setEndOfStream(boolean isResume, boolean isStopRecord) {
+        CaptureRequest.Builder captureRequestBuilder = null;
         try {
             if (isResume) {
-                mVideoRequestBuilder.set(CaptureModule.recording_end_stream, (byte) 0x00);
-                if (mCurrentSession instanceof CameraConstrainedHighSpeedCaptureSession) {
-                    List requestList = ((CameraConstrainedHighSpeedCaptureSession)mCurrentSession)
-                            .createHighSpeedRequestList(mVideoRequestBuilder.build());
-                    mCurrentSession.setRepeatingBurst(requestList,
-                            mCaptureCallback, mCameraHandler);
-                } else {
-                    mCurrentSession.setRepeatingRequest(mVideoRequestBuilder.build(),
-                            mCaptureCallback, mCameraHandler);
+                captureRequestBuilder = mVideoRequestBuilder;
+                try {
+                    captureRequestBuilder.set(CaptureModule.recording_end_stream, (byte) 0x00);
+                } catch(IllegalArgumentException illegalArgumentException) {
+                    Log.w(TAG, "can not find vendor tag: org.quic.camera.recording.endOfStream");
                 }
             } else {
                 // is pause or stopRecord
@@ -4119,11 +4115,17 @@ public class CaptureModule implements CameraModule, PhotoController,
                     CaptureRequest.Builder builder =
                             mCameraDevice[getMainCameraId()].createCaptureRequest(CameraDevice.TEMPLATE_RECORD);
                     builder.setTag(getMainCameraId());
+                    if (mHighSpeedCapture) {
+                        builder.set(CaptureRequest.CONTROL_AE_TARGET_FPS_RANGE, mHighSpeedFPSRange);
+                    }
                     addPreviewSurface(builder, null, getMainCameraId());
-                    builder.set(CaptureModule.recording_end_stream, (byte) 0x01);
+                    try {
+                        builder.set(CaptureModule.recording_end_stream, (byte) 0x01);
+                    } catch (IllegalArgumentException illegalArgumentException) {
+                        Log.w(TAG, "can not find vendor tag: org.quic.camera.recording.endOfStream");
+                    }
                     if (mCurrentSession instanceof CameraConstrainedHighSpeedCaptureSession) {
-                        List requestList = ((CameraConstrainedHighSpeedCaptureSession)mCurrentSession).
-                                createHighSpeedRequestList(builder.build());
+                        List requestList = CameraUtil.createHighSpeedRequestList(builder.build());
                         mCurrentSession.captureBurst(requestList, mCaptureCallback, mCameraHandler);
                     } else {
                         mCurrentSession.capture(builder.build(), mCaptureCallback, mCameraHandler);
@@ -4132,54 +4134,24 @@ public class CaptureModule implements CameraModule, PhotoController,
                 if (!isStopRecord) {
                     //is pause record
                     mMediaRecorder.pause();
-                    if (mVideoPausePreviewRequestBuilder != null) {
-                        if (mCurrentSession instanceof CameraConstrainedHighSpeedCaptureSession) {
-                            List requestList = ((CameraConstrainedHighSpeedCaptureSession)mCurrentSession)
-                                    .createHighSpeedRequestList(mVideoPausePreviewRequestBuilder.build());
-                            mCurrentSession.setRepeatingBurst(requestList,
-                                    mCaptureCallback, mCameraHandler);
-                        } else {
-                            mCurrentSession.setRepeatingRequest(
-                                    mVideoPausePreviewRequestBuilder.build(),
-                                    mCaptureCallback, mCameraHandler);
-                        }
-                    } else {
-                        //if failed to set up preview builder, stop recording
-                        stopRecordingVideo(getMainCameraId());
-                    }
+                    captureRequestBuilder = mVideoPausePreviewRequestBuilder;
                 }
             }
-        } catch (CameraAccessException | IllegalArgumentException | IllegalStateException e) {
-            if (e instanceof CameraAccessException) {
-                Log.w(TAG, "setEndOfStream, Camera access failed");
-            }
-            if (e instanceof IllegalArgumentException) {
-                Log.w(TAG, "can not find vendor tag: org.quic.camera.recording.endOfStream");
-            }
-            if (e instanceof IllegalStateException) {
-                Log.w(TAG, "setEndOfStream, CameraDevice was already closed");
-            }
-            if (!isStopRecord && !isResume) {
-                mMediaRecorder.pause();
-                try {
-                    if (mVideoPausePreviewRequestBuilder != null) {
-                        if (mCurrentSession instanceof CameraConstrainedHighSpeedCaptureSession) {
-                            List requestList = ((CameraConstrainedHighSpeedCaptureSession)mCurrentSession)
-                                    .createHighSpeedRequestList(mVideoPausePreviewRequestBuilder.build());
-                            mCurrentSession.setRepeatingBurst(requestList,
-                                    mCaptureCallback, mCameraHandler);
-                        } else {
-                            mCurrentSession.setRepeatingRequest(mVideoPausePreviewRequestBuilder
-                                    .build(), mCaptureCallback, mCameraHandler);
-                        }
-                    } else {
-                        //if failed to set up preview builder, stop recording
-                        stopRecordingVideo(getMainCameraId());
-                    }
-                } catch (CameraAccessException exception) {
-                    Log.w(TAG, "setEndOfStream, Camera access failed");
+
+            // set preview
+            if (captureRequestBuilder != null) {
+                if (mCurrentSession instanceof CameraConstrainedHighSpeedCaptureSession) {
+                    List requestList = CameraUtil.createHighSpeedRequestList(captureRequestBuilder.build());
+                    mCurrentSession.setRepeatingBurst(requestList,
+                            mCaptureCallback, mCameraHandler);
+                } else {
+                    mCurrentSession.setRepeatingRequest(captureRequestBuilder.build(),
+                            mCaptureCallback, mCameraHandler);
                 }
             }
+        } catch (CameraAccessException e) {
+            stopRecordingVideo(getMainCameraId());
+            e.printStackTrace();
         }
     }
 
@@ -4912,7 +4884,7 @@ public class CaptureModule implements CameraModule, PhotoController,
             } else {
                 CameraCaptureSession session = mCaptureSession[id];
                 if (session instanceof CameraConstrainedHighSpeedCaptureSession) {
-                    List list = ((CameraConstrainedHighSpeedCaptureSession)session)
+                    List list = CameraUtil
                             .createHighSpeedRequestList(mPreviewRequestBuilder[id].build());
                     ((CameraConstrainedHighSpeedCaptureSession) session).setRepeatingBurst(list
                             , mCaptureCallback, mCameraHandler);
