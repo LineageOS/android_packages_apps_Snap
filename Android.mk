@@ -27,23 +27,20 @@ LOCAL_PRIVILEGED_MODULE := true
 
 #LOCAL_SDK_VERSION := current
 LOCAL_RENDERSCRIPT_TARGET_API := 23
-LOCAL_MULTILIB := 32
 
 #LOCAL_OVERRIDES_PACKAGES := Camera2
 
 LOCAL_PROGUARD_FLAG_FILES := proguard.flags
 
-LOCAL_MULTILIB := 32
-
 # If this is an unbundled build (to install separately) then include
 # the libraries in the APK, otherwise just put them in /system/lib and
 # leave them out of the APK
 
-#ifneq (,$(TARGET_BUILD_APPS))
+ifneq (,$(TARGET_BUILD_APPS))
   LOCAL_JNI_SHARED_LIBRARIES := libjni_snapcammosaic libjni_snapcamtinyplanet libjni_imageutil
-#else
-#  LOCAL_REQUIRED_MODULES := libjni_snapcammosaic libjni_snapcamtinyplanet libjni_imageutil
-#endif
+else
+  LOCAL_REQUIRED_MODULES := libjni_snapcammosaic libjni_snapcamtinyplanet libjni_imageutil
+endif
 
 include $(BUILD_PACKAGE)
 
