@@ -2829,7 +2829,7 @@ public class PhotoModule
                 if (mFocusManager == null) {
                     mFocusManager = new FocusOverlayManager(mPreferences, defaultFocusModes,
                             mInitialParams, this, mMirror,
-                            mActivity.getMainLooper(), mUI != null ? mUI.getFocusRing() : null, mActivity);
+                            mActivity.getMainLooper(), mUI.getFocusRing(), mActivity);
                 }
             }
         }
