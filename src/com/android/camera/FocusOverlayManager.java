@@ -186,6 +186,7 @@ public class FocusOverlayManager {
     public void setPreviewRect(Rect previewRect) {
         if (!mPreviewRect.equals(previewRect)) {
             mPreviewRect.set(previewRect);
+            mFocusRing.configurePreviewDimensions(CameraUtil.rectToRectF(mPreviewRect));
             resetCoordinateTransformer();
             mInitialized = true;
         }
