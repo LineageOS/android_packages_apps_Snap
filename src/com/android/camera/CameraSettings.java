@@ -322,22 +322,10 @@ public class CameraSettings {
         VIDEO_ENCODER_TABLE.put(MediaRecorder.VideoEncoder.MPEG_4_SP, "m4v");
 
         //video qualities
-        if ( CamcorderProfileWrapper.QUALITY_4KDCI != -1 ) {
-            VIDEO_QUALITY_TABLE.put("4096x2160", CamcorderProfileWrapper.QUALITY_4KDCI);
-        }
         VIDEO_QUALITY_TABLE.put("3840x2160", CamcorderProfile.QUALITY_2160P);
-        if ( CamcorderProfileWrapper.QUALITY_QHD != -1 ) {
-            VIDEO_QUALITY_TABLE.put("2560x1440", CamcorderProfileWrapper.QUALITY_QHD);
-        }
-        if ( CamcorderProfileWrapper.QUALITY_2k != -1 ) {
-            VIDEO_QUALITY_TABLE.put("2048x1080", CamcorderProfileWrapper.QUALITY_2k);
-        }
         VIDEO_QUALITY_TABLE.put("1920x1080", CamcorderProfile.QUALITY_1080P);
         VIDEO_QUALITY_TABLE.put("1280x720",  CamcorderProfile.QUALITY_720P);
         VIDEO_QUALITY_TABLE.put("720x480",   CamcorderProfile.QUALITY_480P);
-        if ( CamcorderProfileWrapper.QUALITY_VGA != -1 ) {
-            VIDEO_QUALITY_TABLE.put("640x480", CamcorderProfileWrapper.QUALITY_VGA);
-        }
         VIDEO_QUALITY_TABLE.put("352x288",   CamcorderProfile.QUALITY_CIF);
         VIDEO_QUALITY_TABLE.put("320x240",   CamcorderProfile.QUALITY_QVGA);
         VIDEO_QUALITY_TABLE.put("176x144",   CamcorderProfile.QUALITY_QCIF);
@@ -371,12 +359,6 @@ public class CameraSettings {
         VIDEO_QUALITY_TO_TIMELAPSE.put(CamcorderProfile.QUALITY_1080P, CamcorderProfile.QUALITY_TIME_LAPSE_1080P);
         VIDEO_QUALITY_TO_TIMELAPSE.put(CamcorderProfile.QUALITY_QVGA , CamcorderProfile.QUALITY_TIME_LAPSE_QVGA );
         VIDEO_QUALITY_TO_TIMELAPSE.put(CamcorderProfile.QUALITY_2160P, CamcorderProfile.QUALITY_TIME_LAPSE_2160P);
-       if ( CamcorderProfileWrapper.QUALITY_VGA != -1 ) {
-           VIDEO_QUALITY_TO_TIMELAPSE.put(CamcorderProfileWrapper.QUALITY_VGA, CamcorderProfileWrapper.QUALITY_TIME_LAPSE_VGA);
-       }
-       if ( CamcorderProfileWrapper.QUALITY_4KDCI != -1 ) {
-           VIDEO_QUALITY_TO_TIMELAPSE.put(CamcorderProfileWrapper.QUALITY_4KDCI, CamcorderProfileWrapper.QUALITY_TIME_LAPSE_4KDCI);
-       }
    }
 
    public static int getTimeLapseQualityFor(int quality) {
@@ -395,13 +377,7 @@ public class CameraSettings {
         VIDEO_QUALITY_TO_HIGHSPEED.put(CamcorderProfile.QUALITY_1080P, CamcorderProfile.QUALITY_HIGH_SPEED_1080P);
         VIDEO_QUALITY_TO_HIGHSPEED.put(CamcorderProfile.QUALITY_QVGA , -1 ); // does not exist
         VIDEO_QUALITY_TO_HIGHSPEED.put(CamcorderProfile.QUALITY_2160P, CamcorderProfile.QUALITY_HIGH_SPEED_2160P);
-       if ( CamcorderProfileWrapper.QUALITY_VGA != -1 ) {
-           VIDEO_QUALITY_TO_HIGHSPEED.put(CamcorderProfileWrapper.QUALITY_VGA, CamcorderProfileWrapper.QUALITY_HIGH_SPEED_VGA);
-       }
-       if ( CamcorderProfileWrapper.QUALITY_4KDCI != -1 ) {
-           VIDEO_QUALITY_TO_HIGHSPEED.put(CamcorderProfileWrapper.QUALITY_4KDCI, CamcorderProfileWrapper.QUALITY_HIGH_SPEED_4KDCI);
-       }
-   } 
+   }
 
    public static int getHighSpeedQualityFor(int quality) {
        return VIDEO_QUALITY_TO_HIGHSPEED.get(quality);

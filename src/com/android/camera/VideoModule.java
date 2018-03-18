@@ -1068,8 +1068,7 @@ public class VideoModule implements CameraModule,
 
     public boolean is4KEnabled() {
        if (mProfile.quality == CamcorderProfile.QUALITY_2160P ||
-           mProfile.quality == CamcorderProfile.QUALITY_TIME_LAPSE_2160P ||
-           mProfile.quality == CamcorderProfileWrapper.QUALITY_4KDCI ) {
+           mProfile.quality == CamcorderProfile.QUALITY_TIME_LAPSE_2160P) {
            return true;
        } else {
            return false;
@@ -3065,8 +3064,7 @@ public class VideoModule implements CameraModule,
             String videoQuality = pref.getValue();
             if (CameraSettings.VIDEO_QUALITY_TABLE.containsKey(videoQuality)) {
                 int quality = CameraSettings.VIDEO_QUALITY_TABLE.get(videoQuality);
-                if ((quality == CamcorderProfile.QUALITY_2160P
-                        || quality == CamcorderProfileWrapper.QUALITY_4KDCI)
+                if (quality == CamcorderProfile.QUALITY_2160P
                         && mPreferences != null) {
                     String disDisable = mActivity.getString(R.string.pref_camera_dis_value_disable);
                     if (!disDisable.equals(

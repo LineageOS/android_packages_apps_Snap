@@ -38,22 +38,6 @@ import android.media.CamcorderProfile;
 import android.util.Log;
 
 public class CamcorderProfileWrapper extends Wrapper{
-    public static final int QUALITY_VGA = getFieldValue(
-            getField(CamcorderProfile.class, "QUALITY_VGA"), -1);
-    public final static int QUALITY_4KDCI = getFieldValue(
-            getField(CamcorderProfile.class, "QUALITY_4KDCI"), -1);
-    public final static int QUALITY_TIME_LAPSE_VGA = getFieldValue(
-            getField(CamcorderProfile.class, "QUALITY_TIME_LAPSE_VGA"), -1);
-    public static final int QUALITY_TIME_LAPSE_4KDCI = getFieldValue(
-            getField(CamcorderProfile.class, "QUALITY_TIME_LAPSE_4KDCI"), -1);
     public final static int QUALITY_HIGH_SPEED_CIF = getFieldValue(
             getField(CamcorderProfile.class, "QUALITY_HIGH_SPEED_CIF"), -1);
-        public static final int QUALITY_HIGH_SPEED_VGA = getFieldValue(
-            getField(CamcorderProfile.class, "QUALITY_HIGH_SPEED_VGA"), -1);
-    public final static int QUALITY_HIGH_SPEED_4KDCI = getFieldValue(
-            getField(CamcorderProfile.class, "QUALITY_HIGH_SPEED_4KDCI"), -1);
-    public static final int QUALITY_QHD = getFieldValue(
-            getField(CamcorderProfile.class, "QUALITY_QHD"), -1);
-    public final static int QUALITY_2k = getFieldValue(
-            getField(CamcorderProfile.class, "QUALITY_2k"), -1);
 }
