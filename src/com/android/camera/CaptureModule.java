@@ -3500,7 +3500,8 @@ public class CaptureModule implements CameraModule, PhotoController,
         if (!mIsRecordingVideo || mHighSpeedCapture) return;
         applyVideoFlash(mVideoRequestBuilder);
         try {
-            mCurrentSession.setRepeatingRequest(mVideoRequestBuilder.build(), null, mCameraHandler);
+            mCurrentSession.setRepeatingRequest(mVideoRequestBuilder.build(), mCaptureCallback,
+                    mCameraHandler);
         } catch (CameraAccessException e) {
             e.printStackTrace();
         }
