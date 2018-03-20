@@ -4118,6 +4118,7 @@ public class CaptureModule implements CameraModule, PhotoController,
                     if (mHighSpeedCapture) {
                         builder.set(CaptureRequest.CONTROL_AE_TARGET_FPS_RANGE, mHighSpeedFPSRange);
                     }
+                    applyZoom(builder, getMainCameraId());
                     addPreviewSurface(builder, null, getMainCameraId());
                     try {
                         builder.set(CaptureModule.recording_end_stream, (byte) 0x01);
