@@ -1542,9 +1542,17 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
             }
             return mTrackingFocusRenderer;
         }
+        FocusIndicator focusIndicator;
+        if (mFaceView != null && mFaceView.faceExists() && !mIsTouchAF) {
+            if (mPieRenderer != null) {
+                mPieRenderer.clear();
+            }
+            focusIndicator = mFaceView;
+        } else {
+            focusIndicator = mPieRenderer;
+        }
 
-        return (mFaceView != null && mFaceView.faceExists() && !mIsTouchAF) ?
-                mFaceView : mPieRenderer;
+        return focusIndicator;
     }
 
     @Override
