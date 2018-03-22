@@ -38,6 +38,7 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 
 import com.android.camera.CaptureModule;
+import com.android.camera.SettingsManager;
 import com.android.camera.Storage;
 import com.android.camera.imageprocessor.filter.BeautificationFilter;
 
@@ -556,6 +557,10 @@ public class OneUICameraControls extends RotatableLayout {
         initializeProMode(mProModeOn);
         mProMode.reinit();
         resetProModeIcons();
+    }
+
+    public int getPromode() {
+        return mProMode != null ? mProMode.getMode() : -99;
     }
 
     private void resetProModeIcons() {

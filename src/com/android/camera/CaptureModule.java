@@ -106,6 +106,7 @@ import com.android.camera.imageprocessor.filter.UbifocusFilter;
 import com.android.camera.mpo.MpoInterface;
 import com.android.camera.ui.CountDownView;
 import com.android.camera.ui.ModuleSwitcher;
+import com.android.camera.ui.ProMode;
 import com.android.camera.ui.RotateTextToast;
 import com.android.camera.ui.TrackingFocusRenderer;
 import com.android.camera.util.ApiHelper;
@@ -1087,6 +1088,7 @@ public class CaptureModule implements CameraModule, PhotoController,
     private void applyFocusDistance(CaptureRequest.Builder builder, String value) {
         if (value == null) return;
         float valueF = Float.valueOf(value);
+        if (valueF < 0) return;
         builder.set(CaptureRequest.CONTROL_AF_MODE, CaptureRequest.CONTROL_AF_MODE_OFF);
         builder.set(CaptureRequest.LENS_FOCUS_DISTANCE, valueF);
     }
@@ -2178,18 +2180,21 @@ public class CaptureModule implements CameraModule, PhotoController,
             return;
         }
         try {
-            CaptureRequest.Builder builder = getRequestBuilder(id);
-            builder.setTag(id);
-            addPreviewSurface(builder, null, id);
+            if (mUI.getCurrentProMode() != ProMode.MANUAL_MODE) {
+                CaptureRequest.Builder builder = getRequestBuilder(id);
+                builder.setTag(id);
+                addPreviewSurface(builder, null, id);
+                applySettingsForUnlockFocus(builder, id);
+                mCaptureSession[id].capture(builder.build(), mCaptureCallback, mCameraHandler);
+            }
 
-            applySettingsForUnlockFocus(builder, id);
-            mCaptureSession[id].capture(builder.build(), mCaptureCallback, mCameraHandler);
             mState[id] = STATE_PREVIEW;
             if (id == getMainCameraId()) {
                 mActivity.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        mUI.clearFocus();
+                        if (mUI.getCurrentProMode() != ProMode.MANUAL_MODE)
+                            mUI.clearFocus();
                     }
                 });
             }
@@ -4542,7 +4547,13 @@ public class CaptureModule implements CameraModule, PhotoController,
                 break;
             case SettingsManager.KEY_FOCUS_DISTANCE:
                 updatePreview = true;
-                applyFocusDistance(mPreviewRequestBuilder[cameraId], value);
+                if (mUI.getCurrentProMode() == ProMode.MANUAL_MODE) {
+                    applyFocusDistance(mPreviewRequestBuilder[cameraId], value);
+                } else {
+                    //set AF mode when manual mode is off
+                    mPreviewRequestBuilder[cameraId].set(
+                            CaptureRequest.CONTROL_AF_MODE, mControlAFMode);
+                }
         }
         return updatePreview;
     }
