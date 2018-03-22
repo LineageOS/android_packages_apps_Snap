@@ -2473,11 +2473,7 @@ public class CaptureModule implements CameraModule, PhotoController,
         builder.set(CaptureRequest.CONTROL_AE_PRECAPTURE_TRIGGER,
                 CaptureRequest.CONTROL_AE_PRECAPTURE_TRIGGER_START);
 
-        // For long shot, torch mode is used
-        if (!mLongshotActive) {
-            applyFlash(builder, id);
-        }
-
+        applyFlash(builder, id);
         applyCommonSettings(builder, id);
     }
 
