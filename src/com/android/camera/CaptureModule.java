@@ -581,9 +581,6 @@ public class CaptureModule implements CameraModule, PhotoController,
         Byte hdrScene = result.get(CaptureModule.isHdr);
         if (value == null || hdrScene == null) return;
         mAutoHdrEnable = false;
-        if (DEBUG) {
-            Log.d(TAG, "detectHDRMode: autoHdr is " + autoHdr + ",hdrScene is " + hdrScene);
-        }
         if (autoHdr != null && "enable".equals(autoHdr) && "0".equals(value) && hdrScene == 1) {
             mAutoHdrEnable = true;
             mActivity.runOnUiThread(new Runnable() {
