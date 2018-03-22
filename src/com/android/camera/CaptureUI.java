@@ -77,6 +77,7 @@ import com.android.camera.ui.CountDownView;
 import com.android.camera.ui.FlashToggleButton;
 import com.android.camera.ui.FocusIndicator;
 import com.android.camera.ui.PieRenderer;
+import com.android.camera.ui.ProMode;
 import com.android.camera.ui.RenderOverlay;
 import com.android.camera.ui.RotateImageView;
 import com.android.camera.ui.RotateLayout;
@@ -1842,6 +1843,9 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
                 }
             }else if(state.key.equals(SettingsManager.KEY_FLASH_MODE) ) {
                 enableView(mFlashButton, SettingsManager.KEY_FLASH_MODE);
+            }else if (state.key.equals(SettingsManager.KEY_FOCUS_DISTANCE)) {
+                if (mPieRenderer != null)
+                    mPieRenderer.setVisible(false);
             }
         }
     }

@@ -38,6 +38,7 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 
 import com.android.camera.CaptureModule;
+import com.android.camera.SettingsManager;
 import com.android.camera.Storage;
 import com.android.camera.imageprocessor.filter.BeautificationFilter;
 
