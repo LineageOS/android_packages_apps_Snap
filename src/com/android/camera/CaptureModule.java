@@ -4876,7 +4876,9 @@ public class CaptureModule implements CameraModule, PhotoController,
         if (!checkSessionAndBuilder(mCaptureSession[id], mPreviewRequestBuilder[id])) {
             return;
         }
-        cancelTouchFocus(id);
+        if (mState[id] == STATE_PREVIEW) {
+            cancelTouchFocus(id);
+        }
         applyZoom(mPreviewRequestBuilder[id], id);
         try {
             if(id == MONO_ID && !canStartMonoPreview()) {
