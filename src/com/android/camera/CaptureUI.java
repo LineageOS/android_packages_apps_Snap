@@ -1542,9 +1542,17 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
             }
             return mTrackingFocusRenderer;
         }
+        FocusIndicator focusIndicator;
+        if (mFaceView != null && mFaceView.faceExists() && !mIsTouchAF) {
+            if (mPieRenderer != null) {
+                mPieRenderer.clear();
+            }
+            focusIndicator = mFaceView;
+        } else {
+            focusIndicator = mPieRenderer;
+        }
 
-        return (mFaceView != null && mFaceView.faceExists() && !mIsTouchAF) ?
-                mFaceView : mPieRenderer;
+        return focusIndicator;
     }
 
     @Override
@@ -1597,14 +1605,15 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
     public void resumeFaceDetection() {
     }
 
-    public void onStartFaceDetection(int orientation, boolean mirror, Rect cameraBound) {
+    public void onStartFaceDetection(int orientation, boolean mirror, Rect cameraBound,
+                                     Rect originalCameraBound) {
         mFaceView.setBlockDraw(false);
         mFaceView.clear();
         mFaceView.setVisibility(View.VISIBLE);
         mFaceView.setDisplayOrientation(orientation);
         mFaceView.setMirror(mirror);
         mFaceView.setCameraBound(cameraBound);
-        mFaceView.setOriginalCameraBound(cameraBound);
+        mFaceView.setOriginalCameraBound(originalCameraBound);
         mFaceView.setZoom(mModule.getZoomValue());
         mFaceView.resume();
     }
