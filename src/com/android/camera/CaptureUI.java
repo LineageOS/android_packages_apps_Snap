@@ -1037,6 +1037,7 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
         mFilterModeSwitcher.setVisibility(View.VISIBLE);
         mSceneModeSwitcher.setVisibility(View.VISIBLE);
         mMakeupButton.setVisibility(View.VISIBLE);
+        mDeepportraitSwitcher.setVisibility(View.VISIBLE);
         mIsVideoUI = false;
         mPauseButton.setVisibility(View.INVISIBLE);
         //exit recording mode needs to refresh scene mode label.
