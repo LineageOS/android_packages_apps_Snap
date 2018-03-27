@@ -1337,6 +1337,8 @@ public class CaptureModule implements CameraModule, PhotoController,
         } catch (CameraAccessException e) {
         } catch (IllegalStateException e) {
             Log.v(TAG, "createSession: mPaused status occur Time out waiting for surface ");
+        } catch (NullPointerException e) {
+
         }
     }
 
@@ -4154,6 +4156,8 @@ public class CaptureModule implements CameraModule, PhotoController,
             }
         } catch (CameraAccessException e) {
             stopRecordingVideo(getMainCameraId());
+            e.printStackTrace();
+        } catch (IllegalStateException e) {
             e.printStackTrace();
         }
     }
