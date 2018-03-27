@@ -2008,7 +2008,11 @@ public class CaptureModule implements CameraModule, PhotoController,
                 public void onCaptureSequenceCompleted(CameraCaptureSession session, int
                         sequenceId, long frameNumber) {
                     Log.d(TAG, "captureStillPictureForCommon onCaptureSequenceCompleted: " + id);
-                    unlockFocus(id);
+                    if (mUI.getCurrentProMode() != ProMode.MANUAL_MODE) {
+                        unlockFocus(id);
+                    } else {
+                        enableShutterAndVideoOnUiThread(id);
+                    }
                 }
             }, mCaptureCallbackHandler);
         }
@@ -2293,20 +2297,24 @@ public class CaptureModule implements CameraModule, PhotoController,
             setAFModeToPreview(id, mUI.getCurrentProMode() == ProMode.MANUAL_MODE ?
                     CaptureRequest.CONTROL_AF_MODE_OFF : mControlAFMode);
             mTakingPicture[id] = false;
-            if (id == getMainCameraId()) {
-                mActivity.runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        mUI.stopSelfieFlash();
-                        if (!mIsSupportedQcfa) {
-                            mUI.enableShutter(true);
-                        }
-                        mUI.enableVideo(true);
-                    }
-                });
-            }
+            enableShutterAndVideoOnUiThread(id);
         } catch (NullPointerException | IllegalStateException | CameraAccessException e) {
             Log.w(TAG, "Session is already closed");
+        }
+    }
+
+    private void enableShutterAndVideoOnUiThread(int id) {
+        if (id == getMainCameraId()) {
+            mActivity.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    mUI.stopSelfieFlash();
+                    if (!mIsSupportedQcfa) {
+                        mUI.enableShutter(true);
+                    }
+                    mUI.enableVideo(true);
+                }
+            });
         }
     }
 

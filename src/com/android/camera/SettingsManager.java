@@ -586,10 +586,10 @@ public class SettingsManager implements ListMenu.SettingsListener {
         }
     }
 
-    public void setFocusDistance(String key, boolean forceNotify,float value, float minFocus) {
+    public void setFocusDistance(String key, boolean forceNotify, float value, float minFocus) {
         boolean isSuccess = false;
         if (value >= 0) {
-            isSuccess = setFocusValue(key, value);
+            isSuccess = setFocusValue(key, value * minFocus);
         }
         if (isSuccess || forceNotify) {
             List<SettingState> list = new ArrayList<>();
