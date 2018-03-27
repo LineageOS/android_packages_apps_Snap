@@ -29,11 +29,6 @@
   <!-- Details dialog "OK" button. Dismisses dialog. -->
   <string name="delete">Usuń</string>
   <!-- String Delete the selected media item(s) [CHAR LIMIT=50] -->
-  <plurals name="delete_selection">
-    <item quantity="one">Usunąć wybrany element?</item>
-    <item quantity="few">Usunąć wybrane elementy?</item>
-    <item quantity="other">Usunąć wybranych elementów?</item>
-  </plurals>
   <string name="share">Udostępnij</string>
   <string name="share_panorama">Udostępnij panoramę</string>
   <string name="share_as_photo">Udostępnij jako zdjęcie</string>
@@ -45,25 +40,10 @@
   <string name="close">Zamknij</string>
   <!-- String indicating how many media item(s) is(are) selected
             eg. 1 selected [CHAR LIMIT=30] -->
-  <plurals name="number_of_items_selected">
-    <item quantity="one">%1$d wybrany</item>
-    <item quantity="few">%1$d wybrane</item>
-    <item quantity="other">%1$d wybranych</item>
-  </plurals>
   <!-- String indicating how many media album(s) is(are) selected
             eg. 1 selected [CHAR LIMIT=30] -->
-  <plurals name="number_of_albums_selected">
-    <item quantity="one">%1$d wybrany</item>
-    <item quantity="few">%1$d wybrane</item>
-    <item quantity="other">%1$d wybranych</item>
-  </plurals>
   <!-- String indicating how many media group(s) is(are) selected
             eg. 1 selected [CHAR LIMIT=30] -->
-  <plurals name="number_of_groups_selected">
-    <item quantity="one">%1$d wybrana</item>
-    <item quantity="few">%1$d wybrane</item>
-    <item quantity="other">%1$d wybranych</item>
-  </plurals>
   <!-- String indicating timestamp of photo or video -->
   <string name="show_on_map">Pokaż na mapie</string>
   <string name="rotate_left">Obróć w lewo</string>
@@ -175,11 +155,6 @@
   <!-- Title for countdown timer on camera settings screen [CHAR LIMIT=30]-->
   <string name="pref_camera_timer_title">Samowyzwalacz</string>
   <!-- Entry for countdown timer setting. e.g. 1 second, 10 seconds, etc. [CHAR LIMIT=30]-->
-  <plurals name="pref_camera_timer_entry">
-    <item quantity="one">1 sekunda</item>
-    <item quantity="few">%d sekundy</item>
-    <item quantity="other">%d sekund</item>
-  </plurals>
   <!-- Text followed by a checkbox to turn on/off sound effects during the countdown. [CHAR LIMIT = 24]-->
   <string name="pref_camera_timer_sound_title">Sygnał odliczania</string>
   <!-- Entry of camera save path -->

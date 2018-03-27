@@ -29,9 +29,6 @@
   <!-- Details dialog "OK" button. Dismisses dialog. -->
   <string name="delete">ئۆچۈر</string>
   <!-- String Delete the selected media item(s) [CHAR LIMIT=50] -->
-  <plurals name="delete_selection">
-    <item quantity="other">تاللىغان تۈرنى ئۆچۈرەمدۇ؟</item>
-  </plurals>
   <string name="share">ھەمبەھىر</string>
   <string name="share_panorama">پۈتۈن مەنزىرە ھەمبەھىر</string>
   <string name="share_as_photo">سۈرەت سۈپىتىدە ھەمبەھىر</string>
@@ -43,19 +40,10 @@
   <string name="close">تاقاش</string>
   <!-- String indicating how many media item(s) is(are) selected
             eg. 1 selected [CHAR LIMIT=30] -->
-  <plurals name="number_of_items_selected">
-    <item quantity="other">%1$d تاللاندى</item>
-  </plurals>
   <!-- String indicating how many media album(s) is(are) selected
             eg. 1 selected [CHAR LIMIT=30] -->
-  <plurals name="number_of_albums_selected">
-    <item quantity="other">%1$d تاللاندى</item>
-  </plurals>
   <!-- String indicating how many media group(s) is(are) selected
             eg. 1 selected [CHAR LIMIT=30] -->
-  <plurals name="number_of_groups_selected">
-    <item quantity="other">%1$d تاللاندى</item>
-  </plurals>
   <!-- String indicating timestamp of photo or video -->
   <string name="show_on_map">خەرىتىدە كۆرسەت</string>
   <string name="rotate_left">سولغا ئايلاندۇرۇش</string>
@@ -164,9 +152,6 @@
   <!-- Title for countdown timer on camera settings screen [CHAR LIMIT=30]-->
   <string name="pref_camera_timer_title">تەتۈر سانىغۇچ ۋاقىت خاتىرىلىگۈچ</string>
   <!-- Entry for countdown timer setting. e.g. 1 second, 10 seconds, etc. [CHAR LIMIT=30]-->
-  <plurals name="pref_camera_timer_entry">
-    <item quantity="other">1 سېكۇنت</item>
-  </plurals>
   <!-- Text followed by a checkbox to turn on/off sound effects during the countdown. [CHAR LIMIT = 24]-->
   <string name="pref_camera_timer_sound_title">تەتۈر ساناۋاتقاندا ئەسكەرتىش ئاۋازى چىقار</string>
   <!-- Entry of camera save path -->

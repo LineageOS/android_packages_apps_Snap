@@ -30,8 +30,9 @@
   <string name="delete">Odstrániť</string>
   <!-- String Delete the selected media item(s) [CHAR LIMIT=50] -->
   <plurals name="delete_selection">
-    <item quantity="one">Odstrániť vybratú položku?</item>
-    <item quantity="few">Odstrániť vybraté položky?</item>
+    <item quantity="one">Vymazať vybranú položku?</item>
+    <item quantity="few">Odstrániť vybrané položky?</item>
+    <item quantity="many">Odstrániť vybrané položky?</item>
     <item quantity="other">Odstrániť vybrané položky?</item>
   </plurals>
   <string name="share">Zdieľať</string>
@@ -48,20 +49,23 @@
   <plurals name="number_of_items_selected">
     <item quantity="one">%1$d vybraná</item>
     <item quantity="few">%1$d vybrané</item>
+    <item quantity="many">%1$d vybraných</item>
     <item quantity="other">%1$d vybraných</item>
   </plurals>
   <!-- String indicating how many media album(s) is(are) selected
             eg. 1 selected [CHAR LIMIT=30] -->
   <plurals name="number_of_albums_selected">
-    <item quantity="one">Počet vybratých položiek: %1$d</item>
-    <item quantity="few">Počet vybratých položiek: %1$d</item>
+    <item quantity="one">%1$d vybraná</item>
+    <item quantity="few">%1$d vybrané</item>
+    <item quantity="many">%1$d vybraných</item>
     <item quantity="other">%1$d vybraných</item>
   </plurals>
   <!-- String indicating how many media group(s) is(are) selected
             eg. 1 selected [CHAR LIMIT=30] -->
   <plurals name="number_of_groups_selected">
-    <item quantity="one">Počet vybratých položiek: %1$d</item>
-    <item quantity="few">Počet vybratých položiek: %1$d</item>
+    <item quantity="one">%1$d vybraná</item>
+    <item quantity="few">%1$d vybrané</item>
+    <item quantity="many">%1$d vybraných</item>
     <item quantity="other">%1$d vybraných</item>
   </plurals>
   <!-- String indicating timestamp of photo or video -->
@@ -178,6 +182,7 @@
   <plurals name="pref_camera_timer_entry">
     <item quantity="one">1 sekunda</item>
     <item quantity="few">%d sekundy</item>
+    <item quantity="many">%d sekúnd</item>
     <item quantity="other">%d sekúnd</item>
   </plurals>
   <!-- Text followed by a checkbox to turn on/off sound effects during the countdown. [CHAR LIMIT = 24]-->

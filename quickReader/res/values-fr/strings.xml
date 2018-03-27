@@ -32,6 +32,7 @@
   <!-- QuickReader: permission error dialog positive action when permission can't be asked again -->
   <string name="quick_reader_permission_fatal_positive">Ouvrir les paramètres</string>
   <!-- QuickReader: scanned text dialog title -->
+  <string name="quick_reader_scanned_text_title">Texte numérisé</string>
   <!-- QuickReader: scanned text dialog positive button (copy to clipboard) -->
   <string name="quick_reader_scanned_text_positive">Copier</string>
   <!-- QuickReader: scanned text dialog negative button (share) -->

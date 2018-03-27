@@ -27,17 +27,17 @@
              that is to be "set as" (e.g. set as contact photo or set as wallpaper) -->
   <string name="set_image">Definir imagem como:</string>
   <!-- Details dialog "OK" button. Dismisses dialog. -->
-  <string name="delete">Eliminar</string>
+  <string name="delete">Apagar</string>
   <!-- String Delete the selected media item(s) [CHAR LIMIT=50] -->
   <plurals name="delete_selection">
-    <item quantity="one">Eliminar o item selecionado?</item>
-    <item quantity="other">Eliminar os itens selecionados?</item>
+    <item quantity="one">Apagar o item selecionado?</item>
+    <item quantity="other">Apagar os itens selecionados?</item>
   </plurals>
   <string name="share">Partilhar</string>
   <string name="share_panorama">Partilhar panorama</string>
   <string name="share_as_photo">Partilhar como fotografia</string>
   <!-- The label shown after an image is deleted [CHAR LIMIT=16] -->
-  <string name="deleted">Eliminada</string>
+  <string name="deleted">Apagada</string>
   <!-- The label on the button which when clicked will undo a deletion of image [CHAR LIMIT=16]-->
   <string name="undo">ANULAR</string>
   <string name="details">Detalhes</string>
@@ -333,7 +333,7 @@
   <!-- Dialog "OK" button. Dismisses dialog. -->
   <string name="dialog_ok">OK</string>
   <!-- Low-memory dialog message [CHAR LIMIT=NONE] -->
-  <string name="spaceIsLow_content" product="default">Está a ficar sem espaço no cartão SD. Altere as definições de qualidade ou elimine algumas imagens ou outros ficheiros.</string>
+  <string name="spaceIsLow_content" product="default">Está a ficar sem espaço no cartão SD. Altere as definições de qualidade ou apague algumas imagens ou outros ficheiros.</string>
   <!-- Camera format string for new image files. Passed to java.text.SimpleDateFormat. -->
   <!-- Video Camera format string for new video files. Passed to java.text.SimpleDateFormat. -->
   <!-- Filename prefix for panorama output. -->

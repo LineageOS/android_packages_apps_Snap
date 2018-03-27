@@ -421,6 +421,7 @@
   <string name="pref_camera2_camera2_entry_enable">אפשר</string>
   <string name="pref_camera2_camera2_entry_disable">השבת</string>
   <string name="pref_camera2_mono_only_title">מונו בלבד</string>
+  <string name="pref_camera2_mono_only_entry_on">דלוק</string>
   <string name="pref_camera2_mono_only_entry_off">כבוי</string>
   <string name="pref_camera2_mono_preview_title">תצוגה מקדימה למונו</string>
   <string name="pref_camera2_mono_preview_entry_on">מופעל</string>
@@ -433,6 +434,7 @@
   <string name="pref_camera2_mpo_entry_on">מופעל</string>
   <string name="pref_camera2_mpo_entry_off">כבוי</string>
   <string name="pref_camera2_makeup_title">איפור (Makeup)</string>
+  <string name="pref_camera2_makeup_entry_on">דלוק</string>
   <string name="pref_camera2_makeup_entry_off">כבוי</string>
   <string name="pref_camera2_noise_reduction_title">הפחתת רעש</string>
   <string name="pref_camera2_noise_reduction_entry_off">כבוי</string>
@@ -442,6 +444,7 @@
   <string name="pref_camera2_videosnap_entry_enable">אפשר</string>
   <string name="pref_camera2_videosnap_entry_disable">השבת</string>
   <string name="pref_camera2_trackingfocus_title">מעקב מיקוד</string>
+  <string name="pref_camera2_trackingfocus_entry_on">דלוק</string>
   <string name="pref_camera2_trackingfocus_entry_off">כבוי</string>
   <string name="pref_camera_scenemode_entry_bestpicture">התמונה הטובה ביותר</string>
   <string name="bestpicture_done">הסתיים</string>
@@ -449,5 +452,7 @@
   <string name="pref_camera2_shutter_sound_entry_on">מופעל</string>
   <string name="pref_camera2_shutter_sound_entry_off">כבוי</string>
   <string name="pref_camera2_shutter_sound_title">צליל תריס</string>
+  <string name="pref_camera2_initial_camera_entry_bayer">באייר</string>
   <string name="pref_camera2_initial_camera_entry_mono">מונוכרום</string>
+  <string name="pref_camera2_initial_camera_entry_front">קדמית</string>
 </resources>

@@ -421,6 +421,7 @@
   <string name="pref_camera2_camera2_entry_enable">Použít</string>
   <string name="pref_camera2_camera2_entry_disable">Nepoužít</string>
   <string name="pref_camera2_mono_only_title">Pouze Mono</string>
+  <string name="pref_camera2_mono_only_entry_on">Zapnuto</string>
   <string name="pref_camera2_mono_only_entry_off">Vypnuto</string>
   <string name="pref_camera2_mono_preview_title">Náhled Mono</string>
   <string name="pref_camera2_mono_preview_entry_on">Zapnout</string>
@@ -433,6 +434,7 @@
   <string name="pref_camera2_mpo_entry_on">Zapnout</string>
   <string name="pref_camera2_mpo_entry_off">Vypnuto</string>
   <string name="pref_camera2_makeup_title">Makeup</string>
+  <string name="pref_camera2_makeup_entry_on">Zapnuto</string>
   <string name="pref_camera2_makeup_entry_off">Vypnuto</string>
   <string name="pref_camera2_noise_reduction_title">Redukce šumu</string>
   <string name="pref_camera2_noise_reduction_entry_off">Vypnuto</string>
@@ -442,6 +444,7 @@
   <string name="pref_camera2_videosnap_entry_enable">Použít</string>
   <string name="pref_camera2_videosnap_entry_disable">Zakázat</string>
   <string name="pref_camera2_trackingfocus_title">Sledování zaostření</string>
+  <string name="pref_camera2_trackingfocus_entry_on">Zapnuto</string>
   <string name="pref_camera2_trackingfocus_entry_off">Vypnuto</string>
   <string name="pref_camera_scenemode_entry_bestpicture">Nejlepší obraz</string>
   <string name="bestpicture_done">HOTOVO</string>
@@ -449,5 +452,7 @@
   <string name="pref_camera2_shutter_sound_entry_on">Zapnuto</string>
   <string name="pref_camera2_shutter_sound_entry_off">Vypnuto</string>
   <string name="pref_camera2_shutter_sound_title">Zvuk závěrky</string>
+  <string name="pref_camera2_initial_camera_entry_bayer">Bayer</string>
   <string name="pref_camera2_initial_camera_entry_mono">Černobílý</string>
+  <string name="pref_camera2_initial_camera_entry_front">Přední</string>
 </resources>

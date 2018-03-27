@@ -421,6 +421,7 @@
   <string name="pref_camera2_camera2_entry_enable">Włącz</string>
   <string name="pref_camera2_camera2_entry_disable">Wyłącz</string>
   <string name="pref_camera2_mono_only_title">Tylko monochromatyczny</string>
+  <string name="pref_camera2_mono_only_entry_on">Włączone</string>
   <string name="pref_camera2_mono_only_entry_off">Wyłączone</string>
   <string name="pref_camera2_mono_preview_title">Podgląd monochromatyczny</string>
   <string name="pref_camera2_mono_preview_entry_on">Włączone</string>
@@ -433,6 +434,7 @@
   <string name="pref_camera2_mpo_entry_on">Włączone</string>
   <string name="pref_camera2_mpo_entry_off">Wyłączone</string>
   <string name="pref_camera2_makeup_title">Makijaż</string>
+  <string name="pref_camera2_makeup_entry_on">Włączone</string>
   <string name="pref_camera2_makeup_entry_off">Wyłączone</string>
   <string name="pref_camera2_noise_reduction_title">Redukcja szumów</string>
   <string name="pref_camera2_noise_reduction_entry_off">Wyłączone</string>
@@ -442,6 +444,7 @@
   <string name="pref_camera2_videosnap_entry_enable">Wł.</string>
   <string name="pref_camera2_videosnap_entry_disable">Wył.</string>
   <string name="pref_camera2_trackingfocus_title">Śledzenie ostrości</string>
+  <string name="pref_camera2_trackingfocus_entry_on">Włączone</string>
   <string name="pref_camera2_trackingfocus_entry_off">Wyłączone</string>
   <string name="pref_camera_scenemode_entry_bestpicture">Najlepsze zdjęcie</string>
   <string name="bestpicture_done">GOTOWE</string>
@@ -449,5 +452,7 @@
   <string name="pref_camera2_shutter_sound_entry_on">Włączone</string>
   <string name="pref_camera2_shutter_sound_entry_off">Wyłączone</string>
   <string name="pref_camera2_shutter_sound_title">Dźwięk migawki</string>
+  <string name="pref_camera2_initial_camera_entry_bayer">Filtr Bayera</string>
   <string name="pref_camera2_initial_camera_entry_mono">Monochromatyczny</string>
+  <string name="pref_camera2_initial_camera_entry_front">Przód</string>
 </resources>

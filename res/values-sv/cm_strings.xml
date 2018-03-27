@@ -102,4 +102,6 @@
   <string name="pref_camera_shutter_speed_title">Slutartid</string>
   <string name="auto_hdr_enabled">Auto HDR aktiverad</string>
   <!-- Advanced options -->
+  <string name="developer_menu_enabled">Du har aktiverat avancerade kameraalternativ</string>
+  <string name="developer_menu_disabled">Du har avaktiverat avancerade kameraalternativ</string>
 </resources>

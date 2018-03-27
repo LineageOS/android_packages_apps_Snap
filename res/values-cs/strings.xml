@@ -29,11 +29,6 @@
   <!-- Details dialog "OK" button. Dismisses dialog. -->
   <string name="delete">Smazat</string>
   <!-- String Delete the selected media item(s) [CHAR LIMIT=50] -->
-  <plurals name="delete_selection">
-    <item quantity="one">Smazat vybranou položku?</item>
-    <item quantity="few">Smazat vybrané položky?</item>
-    <item quantity="other">Smazat vybrané položky?</item>
-  </plurals>
   <string name="share">Sdílet</string>
   <string name="share_panorama">Sdílet panorama</string>
   <string name="share_as_photo">Sdílet jako fotku</string>
@@ -45,25 +40,10 @@
   <string name="close">Zavřít</string>
   <!-- String indicating how many media item(s) is(are) selected
             eg. 1 selected [CHAR LIMIT=30] -->
-  <plurals name="number_of_items_selected">
-    <item quantity="one">%1$d vybrán</item>
-    <item quantity="few">%1$d vybrány</item>
-    <item quantity="other">%1$d vybraných</item>
-  </plurals>
   <!-- String indicating how many media album(s) is(are) selected
             eg. 1 selected [CHAR LIMIT=30] -->
-  <plurals name="number_of_albums_selected">
-    <item quantity="one">%1$d vybráno</item>
-    <item quantity="few">%1$d vybrány</item>
-    <item quantity="other">%1$d vybraných</item>
-  </plurals>
   <!-- String indicating how many media group(s) is(are) selected
             eg. 1 selected [CHAR LIMIT=30] -->
-  <plurals name="number_of_groups_selected">
-    <item quantity="one">%1$d vybrána</item>
-    <item quantity="few">%1$d vybrány</item>
-    <item quantity="other">%1$d vybraných</item>
-  </plurals>
   <!-- String indicating timestamp of photo or video -->
   <string name="show_on_map">Zobrazit na mapě</string>
   <string name="rotate_left">Otočit doleva</string>
@@ -175,11 +155,6 @@
   <!-- Title for countdown timer on camera settings screen [CHAR LIMIT=30]-->
   <string name="pref_camera_timer_title">Časovač odpočítávání</string>
   <!-- Entry for countdown timer setting. e.g. 1 second, 10 seconds, etc. [CHAR LIMIT=30]-->
-  <plurals name="pref_camera_timer_entry">
-    <item quantity="one">1 s</item>
-    <item quantity="few">%d s</item>
-    <item quantity="other">%d s</item>
-  </plurals>
   <!-- Text followed by a checkbox to turn on/off sound effects during the countdown. [CHAR LIMIT = 24]-->
   <string name="pref_camera_timer_sound_title">Zvuk při odpočtu</string>
   <!-- Entry of camera save path -->

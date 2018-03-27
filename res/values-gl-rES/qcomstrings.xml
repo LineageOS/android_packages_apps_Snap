@@ -421,6 +421,7 @@
   <string name="pref_camera2_camera2_entry_enable">Activado</string>
   <string name="pref_camera2_camera2_entry_disable">Desactivado</string>
   <string name="pref_camera2_mono_only_title">Solo mono</string>
+  <string name="pref_camera2_mono_only_entry_on">Activado</string>
   <string name="pref_camera2_mono_only_entry_off">Apagado</string>
   <string name="pref_camera2_mono_preview_title">Mono Preview</string>
   <string name="pref_camera2_mono_preview_entry_on">Encendido</string>
@@ -433,6 +434,7 @@
   <string name="pref_camera2_mpo_entry_on">Encendido</string>
   <string name="pref_camera2_mpo_entry_off">Apagado</string>
   <string name="pref_camera2_makeup_title">Maquillage</string>
+  <string name="pref_camera2_makeup_entry_on">Activado</string>
   <string name="pref_camera2_makeup_entry_off">Apagado</string>
   <string name="pref_camera2_noise_reduction_title">Redución do ruído</string>
   <string name="pref_camera2_noise_reduction_entry_off">Apagado</string>
@@ -442,6 +444,7 @@
   <string name="pref_camera2_videosnap_entry_enable">Activado</string>
   <string name="pref_camera2_videosnap_entry_disable">Desactivado</string>
   <string name="pref_camera2_trackingfocus_title">Enfoque do seguimiento</string>
+  <string name="pref_camera2_trackingfocus_entry_on">Activado</string>
   <string name="pref_camera2_trackingfocus_entry_off">Apagado</string>
   <string name="pref_camera_scenemode_entry_bestpicture">Mellor foto</string>
   <string name="bestpicture_done">FEITO</string>
@@ -449,5 +452,7 @@
   <string name="pref_camera2_shutter_sound_entry_on">Acender</string>
   <string name="pref_camera2_shutter_sound_entry_off">Apagado</string>
   <string name="pref_camera2_shutter_sound_title">So do obturador</string>
+  <string name="pref_camera2_initial_camera_entry_bayer">Bayer</string>
   <string name="pref_camera2_initial_camera_entry_mono">Mono</string>
+  <string name="pref_camera2_initial_camera_entry_front">Frontal</string>
 </resources>
