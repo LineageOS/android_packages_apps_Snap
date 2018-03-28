@@ -275,11 +275,17 @@ public class SettingsActivity extends PreferenceActivity {
     }
 
     private void updatePictureSizePreferenceButton() {
-        Preference picturePref =  findPreference(SettingsManager.KEY_PICTURE_SIZE);
+        ListPreference picturePref = (ListPreference)findPreference(
+                SettingsManager.KEY_PICTURE_SIZE);
         String sceneMode = mSettingsManager.getValue(SettingsManager.KEY_SCENE_MODE);
         if ( sceneMode != null && picturePref != null ){
             int sceneModeInt = Integer.parseInt(sceneMode);
-            picturePref.setEnabled(sceneModeInt != SettingsManager.SCENE_MODE_DUAL_INT);
+            if (sceneModeInt == SettingsManager.SCENE_MODE_BOKEH_INT) {
+                picturePref.setValue("4000x3000");
+                mSettingsManager.setValue(SettingsManager.KEY_PICTURE_SIZE, "4000x3000");
+            }
+            picturePref.setEnabled((sceneModeInt != SettingsManager.SCENE_MODE_DUAL_INT) &&
+                    (sceneModeInt != SettingsManager.SCENE_MODE_BOKEH_INT));
         }
     }
 
