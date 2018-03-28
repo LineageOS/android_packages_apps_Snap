@@ -119,6 +119,7 @@ public class PostProcessor{
     private WatchdogThread mWatchdog;
     private int mOrientation = 0;
     private ImageWriter mImageWriter;
+    private boolean fusionStatus = false;
 
     private static boolean DEBUG_DUMP_FILTER_IMG =
             (PersistUtil.getCamera2Debug() == PersistUtil.CAMERA2_DEBUG_DUMP_IMAGE) ||
@@ -383,6 +384,16 @@ public class PostProcessor{
             mZSLQueue.add(metadata);
         }
         mLatestResultForLongShot = metadata;
+        updateFusionStatus(metadata);
+    }
+
+    private void updateFusionStatus(CaptureResult result) {
+        try {
+            fusionStatus = (result.get(CaptureModule.fusionStatus) != null) &&
+                    (result.get(CaptureModule.fusionStatus) == (byte) 1);
+        } catch (IllegalArgumentException e) {
+            Log.w(TAG, "can't find vendor tag: " + CaptureModule.fusionStatus.toString());
+        }
     }
 
     CameraCaptureSession.CaptureCallback mCaptureCallback = new CameraCaptureSession.CaptureCallback() {
@@ -515,7 +526,9 @@ public class PostProcessor{
             if (DEBUG_ZSL) Log.d(TAG, "reprocess Image request " + image.getTimestamp());
             CaptureRequest.Builder builder = null;
             try {
-                builder = mCameraDevice.createReprocessCaptureRequest(metadata);
+                builder = fusionStatus ? mCameraDevice.createCaptureRequest(
+                        CameraDevice.TEMPLATE_ZERO_SHUTTER_LAG) :
+                        mCameraDevice.createReprocessCaptureRequest(metadata);
                 builder.set(CaptureRequest.JPEG_ORIENTATION,
                             CameraUtil.getJpegRotation(mController.getMainCameraId(), mController.getDisplayOrientation()));
                 builder.set(CaptureRequest.JPEG_THUMBNAIL_SIZE, mController.getThumbSize());
@@ -555,7 +568,9 @@ public class PostProcessor{
 
                 builder.addTarget(mZSLReprocessImageReader.getSurface());
                 try {
-                    mImageWriter.queueInputImage(image);
+                    if (!fusionStatus) {
+                        mImageWriter.queueInputImage(image);
+                    }
                 } catch (IllegalStateException e) {
                     Log.e(TAG, "Queueing more than it can have");
                 }

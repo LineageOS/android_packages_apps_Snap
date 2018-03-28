@@ -254,6 +254,8 @@ public class CaptureModule implements CameraModule, PhotoController,
             new CameraCharacteristics.Key<>("org.codeaurora.qcamera3.stats.bsgc_available", Byte.class);
     public static CameraCharacteristics.Key<Byte> logicalMode =
             new CameraCharacteristics.Key<>("org.codeaurora.qcamera3.logical.mode", Byte.class);
+    public static CaptureResult.Key<Byte> fusionStatus =
+            new CaptureResult.Key<>("org.codeaurora.qcamera3.fusion.status", byte.class);
     public static CaptureResult.Key<byte[]> blinkDetected =
             new CaptureResult.Key<>("org.codeaurora.qcamera3.stats.blink_detected", byte[].class);
     public static CaptureResult.Key<byte[]> blinkDegree =
