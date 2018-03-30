@@ -1427,6 +1427,9 @@ public class CaptureModule implements CameraModule, PhotoController,
                         lockFocus(MONO_ID);
                         break;
                     case SWITCH_MODE:
+                        if (takeZSLPicture(SWITCH_ID)) {
+                            return;
+                        }
                         lockFocus(SWITCH_ID);
                         break;
                 }
