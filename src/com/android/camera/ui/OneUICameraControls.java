@@ -500,8 +500,9 @@ public class OneUICameraControls extends RotatableLayout {
         mOrientation = orientation;
         View[] views = {
                 mSceneModeSwitcher, mFilterModeSwitcher, mFrontBackSwitcher,
-                mTsMakeupSwitcher, mFlashButton, mPreview, mMute, mShutter, mVideoShutter,
-                mMakeupSeekBarLowText, mMakeupSeekBarHighText, mPauseButton, mExitBestPhotpMode
+                mTsMakeupSwitcher, mFlashButton, mDeepportraitSwitcher, mPreview, mMute,
+                mShutter, mVideoShutter, mMakeupSeekBarLowText, mMakeupSeekBarHighText,
+                mPauseButton, mExitBestPhotpMode
         };
 
         for (View v : views) {
