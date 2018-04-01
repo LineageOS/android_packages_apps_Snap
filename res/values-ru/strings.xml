@@ -29,6 +29,12 @@
   <!-- Details dialog "OK" button. Dismisses dialog. -->
   <string name="delete">Удалить</string>
   <!-- String Delete the selected media item(s) [CHAR LIMIT=50] -->
+  <plurals name="delete_selection">
+    <item quantity="one">Удалить выбранный файл?</item>
+    <item quantity="few">Удалить выбранные файлы?</item>
+    <item quantity="many">Удалить выбранные файлы?</item>
+    <item quantity="other">Удалить выбранные файлы?</item>
+  </plurals>
   <string name="share">Отправить</string>
   <string name="share_panorama">Отправить панораму</string>
   <string name="share_as_photo">Отправить фото</string>
@@ -40,10 +46,28 @@
   <string name="close">Закрыть</string>
   <!-- String indicating how many media item(s) is(are) selected
             eg. 1 selected [CHAR LIMIT=30] -->
+  <plurals name="number_of_items_selected">
+    <item quantity="one">Выбрано: %1$d</item>
+    <item quantity="few">Выбрано: %1$d</item>
+    <item quantity="many">Выбрано: %1$d</item>
+    <item quantity="other">Выбрано: %1$d</item>
+  </plurals>
   <!-- String indicating how many media album(s) is(are) selected
             eg. 1 selected [CHAR LIMIT=30] -->
+  <plurals name="number_of_albums_selected">
+    <item quantity="one">Выбрано: %1$d</item>
+    <item quantity="few">Выбрано: %1$d</item>
+    <item quantity="many">Выбрано: %1$d</item>
+    <item quantity="other">Выбрано: %1$d</item>
+  </plurals>
   <!-- String indicating how many media group(s) is(are) selected
             eg. 1 selected [CHAR LIMIT=30] -->
+  <plurals name="number_of_groups_selected">
+    <item quantity="one">Выбрано: %1$d</item>
+    <item quantity="few">Выбрано: %1$d</item>
+    <item quantity="many">Выбрано: %1$d</item>
+    <item quantity="other">Выбрано: %1$d</item>
+  </plurals>
   <!-- String indicating timestamp of photo or video -->
   <string name="show_on_map">Показать на карте</string>
   <string name="rotate_left">Повернуть влево</string>
@@ -157,6 +181,12 @@
   <!-- Title for countdown timer on camera settings screen [CHAR LIMIT=30]-->
   <string name="pref_camera_timer_title">Автоспуск</string>
   <!-- Entry for countdown timer setting. e.g. 1 second, 10 seconds, etc. [CHAR LIMIT=30]-->
+  <plurals name="pref_camera_timer_entry">
+    <item quantity="one">1 секунда</item>
+    <item quantity="few">%d секунды</item>
+    <item quantity="many">%d секунд</item>
+    <item quantity="other">%d секунд</item>
+  </plurals>
   <!-- Text followed by a checkbox to turn on/off sound effects during the countdown. [CHAR LIMIT = 24]-->
   <string name="pref_camera_timer_sound_title">Сигнал</string>
   <!-- Entry of camera save path -->
@@ -540,9 +570,21 @@ CHAR LIMIT = NONE] -->
   <string name="pref_camera2_category_system">Система</string>
   <string name="pref_camera2_restore_default">Восстановить настройки по умолчанию</string>
   <string name="pref_camera2_restore_default_hint">Настройки камеры будут восстановлены по умолчанию!</string>
+  <plurals name="save_best_dialog_content">
+    <item quantity="one">%1$d из 10 изображений будет сохранено, а остальные будут удалены</item>
+    <item quantity="few">%1$d из 10 изображений будут сохранены, а остальные будут удалены</item>
+    <item quantity="many">%1$d из 10 изображений будут сохранены, а остальные будут удалены</item>
+    <item quantity="other">%1$d из 10 изображений будут сохранены, а остальные будут удалены</item>
+  </plurals>
   <string name="save_best_dialog_title">Сохранить выбранные изображения?</string>
   <string name="save_best_dialog_positive_bt">ОК</string>
   <string name="save_best_dialog_native_bt">Отмена</string>
+  <plurals name="save_best_image_toast">
+    <item quantity="one">Сохранено %1$d из 10 изображений.</item>
+    <item quantity="few">Сохранено %1$d из 10 изображений.</item>
+    <item quantity="many">Сохранено %1$d из 10 изображений.</item>
+    <item quantity="other">Сохранено %1$d из 10 изображений.</item>
+  </plurals>
   <string name="dialog_do_not_show">Больше не показывать</string>
   <string name="delete_best_dialog_title">Удалить все?</string>
   <string name="delete_best_dialog_content">Вы действительно хотите удалить все 10 изображений?</string>

@@ -160,21 +160,21 @@
   <string name="pref_camera_shuttersound_entry_enable">Activado</string>
   <string name="pref_camera_shuttersound_entry_disable">Desactivado</string>
   <!-- The message is shown in toast when the app encounters an unsupported selection for HFR/HSR mode -->
-  <string name="error_app_unsupported_hfr_selection">La grabación de alta velocidad de fotogramas no es compatible cuando se usa la estabilización/TimeLapse/HDR.</string>
+  <string name="error_app_unsupported_hfr_selection">La grabación de alta velocidad de fotogramas es incompatible cuando se usa la estabilización/TimeLapse/HDR.</string>
   <!-- The message is shown in dialog when the app encounters an unsupported resolution for HFR mode -->
-  <string name="error_app_unsupported_hfr">El modo de cámara lenta no es compatible con el tamaño del vídeo seleccionado. Selecciona un tamaño de video inferior</string>
+  <string name="error_app_unsupported_hfr">El modo de cámara lenta es incompatible con el tamaño del vídeo seleccionado. Selecciona un tamaño de video inferior</string>
   <!-- The message is shown in toast when the app encounters an unsupported resolution for DIS mode -->
-  <string name="error_app_unsupported_dis">La estabilización no es compatible con el tamaño del vídeo seleccionado. Selecciona un tamaño de video inferior</string>
+  <string name="error_app_unsupported_dis">La estabilización es incompatible con el tamaño del vídeo seleccionado. Selecciona un tamaño de video inferior</string>
   <!-- The message is shown in dialog when the app encounters an unsupported resolution for HSR mode -->
-  <string name="error_app_unsupported_hsr">El modo de alta velocidad no es compatible con el tamaño del vídeo seleccionado. Selecciona un tamaño de video inferior</string>
+  <string name="error_app_unsupported_hsr">El modo de alta velocidad es incompatible con el tamaño del vídeo seleccionado. Selecciona un tamaño de video inferior</string>
   <!-- The message is shown in dialog when the app encounters an unsupported video codec for HFR mode -->
   <string name="error_app_unsupported_hfr_codec">El códec H264 solo está soportado cuando el modo de vídeo de alta velocidad está activado</string>
   <!-- The message is shown in dialog when the app encounters an unsupported video resolution-->
-  <string name="error_app_unsupported">La resolución de vídeo no es compatible con este tipo de códec</string>
+  <string name="error_app_unsupported">La resolución de vídeo es incompatible con este tipo de códec</string>
   <!-- The message is shown in dialog when the app encounters an unsupported video profile-->
   <string name="error_app_unsupported_profile">Perfil de vídeo no soportado</string>
   <!--The message is shown in dialog when the raw snapshot is selected in zsl mode-->
-  <string name="error_app_unsupported_raw">El formato de imagen RAW no es compatible con el retraso de obturador en modo cero. Selecciona JPEG</string>
+  <string name="error_app_unsupported_raw">El formato de imagen RAW es incompatible con el retraso de obturador en modo cero. Selecciona JPEG</string>
   <!-- Settings screen, AE bracketing and HDR location dialog choices -->
   <string name="pref_camera_ae_bracket_hdr_entry_ae_bracket">Bracketing de exposición automática</string>
   <string name="pref_camera_ae_bracket_hdr_title">Bracketing de exposición automática</string>
@@ -367,7 +367,7 @@
   <string name="pref_camera_longshot_title">Disparo continuo</string>
   <string name="msg_cancel_longshot_for_limited_memory">Se está terminando la memoria, cancelando el disparo continuo</string>
   <!-- Toast showing non-supported functionality for flash in AE bracket -->
-  <string name="flash_aebracket_message">El flash no es compatible con el modo AE bracketing</string>
+  <string name="flash_aebracket_message">El flash es incompatible con el modo AE bracketing</string>
   <!-- Settings screen, setting title text for Auto HDR-->
   <string name="pref_camera_auto_hdr_title">HDR Automático</string>
   <!-- Settings screen, Auto HDR location dialog choices -->
@@ -484,6 +484,7 @@
   <string name="pref_camera2_scene_mode_sharp_photo_instructional_content">La fotografía nítida reduce el desenfoque de movimiento causado por la escena o la mano.</string>
   <string name="pref_camera2_scene_mode_tracking_focus_instructional_content">Permite el seguimiento y enfoque de un objeto o persona seleccionada mientras toma fotos o videos. Para iniciar, coloca el rectángulo de enfoque en la persona u objeto que desees seguir.</string>
   <string name="pref_camera2_scene_mode_time_lapse_instructional_content">Con Time lapse, puedes transformar una grabación de video larga en unos segundos de video. Este efecto se aplica a los videos, pero no a las fotos.</string>
+  <string name="pref_camera2_scene_mode_panorama_instructional_content">Te permite hacer panorámicas desplazándote a la izquierda o a la derecha. También puedes hacer panorámicas hacia arriba o hacia abajo para sacar fotos altas.</string>
   <string name="pref_camera2_scene_mode_blur_buster_instructional_content">BlurBuster reduce el desenfoque de las manos temblorosas. Puede ser útil al tomar fotos en lugares difíciles.</string>
   <string name="pref_camera2_scene_mode_pro_instructional_content">Con el modo profesional, puedes controlar manualmente los ajustes de ISO, exposición, balance de blancos y enfoque. Tendrás fácil acceso a todos estos ajustes avanzadosmodo</string>
   <string name="pref_camera2_not_show_again">No mostrar de nuevo</string>

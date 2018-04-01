@@ -551,6 +551,17 @@ CHAR LIMIT = NONE] -->
   <!-- Menu, Video rotation labels [CHAR LIMIT=50] -->
   <string name="remaining_photos_format">%d resterend</string>
   <string name="makeup_video_size_limit">Make-up werkt alleen bij video-opnamen in VGA.</string>
+  <string name="pref_camera2_category_system">Systeem</string>
   <string name="save_best_dialog_positive_bt">OK</string>
+  <string name="save_best_dialog_native_bt">Annuleren</string>
+  <string name="dialog_do_not_show">Niet opnieuw tonen</string>
+  <string name="delete_best_dialog_title">Alles verwijderen?</string>
+  <string name="delete_best_dialog_native_bt">Annuleren</string>
   <string name="delete_best_dialog_positive_bt">Verwijderen</string>
+  <string name="delete_all_best_dialog_title">Alles verwijderen?</string>
+  <string name="delete_all_best_dialog_native_bt">Annuleren</string>
+  <string name="delete_all_best_dialog_positive_bt">Alles verwijderen</string>
+  <string name="overflow_best_item1">Alles opslaan</string>
+  <string name="overflow_best_item2">Alles verwijderen</string>
+  <string name="settings_title">Instellingen</string>
 </resources>

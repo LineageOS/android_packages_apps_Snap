@@ -450,8 +450,10 @@
   <string name="pref_camera2_trackingfocus_entry_on">켜짐</string>
   <string name="pref_camera2_trackingfocus_entry_off">끄기</string>
   <string name="pref_camera_scenemode_entry_bestpicture">잘 찍은 사진</string>
+  <string name="pref_camera_scenemode_entry_sharpshooter">선명한 사진</string>
   <string name="pref_camera_scenemode_entry_trackingfocus">초점 추적</string>
   <string name="pref_camera_scenemode_entry_panorama">파노라마</string>
+  <string name="pref_camera_scenemode_entry_promode">전문가 모드</string>
   <string name="bestpicture_done">완료</string>
   <string name="bestpicture_at_least_one_picture">적어도 하나의 사진은 선택해야 합니다.</string>
   <string name="pref_camera2_shutter_sound_entry_on">켜짐</string>
@@ -461,16 +463,33 @@
   <string name="pref_camera2_timer_entry_2sec">2초</string>
   <string name="pref_camera2_timer_entry_5sec">5초</string>
   <string name="pref_camera2_timer_entry_10sec">10초</string>
+  <string name="pref_camera2_saveraw_title">RAW 형식으로 저장</string>
+  <string name="panocapture_direction_is_not_determined">한 방향으로 계속 움직이세요.</string>
   <string name="panocapture_intro">카메라 버튼을 눌러 시작하세요.</string>
+  <string name="panocapture_direction_is_changed">방향이 바뀌었습니다. 파노라마 캡처를 중지합니다\u2026</string>
+  <string name="makeup_ui_title">피부 보정의 강도를 선택하세요.</string>
   <string name="makeup_ui_ok_button">확인</string>
   <string name="perf_camera2_version_info">버전 정보</string>
   <string name="perf_camera2_preferences_category_general">일반</string>
+  <string name="perf_camera2_preferences_category_photo">스틸 카메라</string>
+  <string name="perf_camera2_preferences_category_video">비디오 카메라</string>
   <string name="perf_camera2_preferences_category_system">시스템</string>
+  <string name="pref_camera2_scene_mode_dual_camera_instructional_content">듀얼 카메라 모드를 사용하면 사진이 더욱 선명해집니다. 갤러리에서 듀얼 카메라로 찍은 사진을 편집하여 배경 효과를 적용할 수도 있습니다.</string>
   <string name="pref_camera2_scene_mode_ubi_focus_instructional_content">UbiFocus를 사용하면 카메라는 다섯 장의 사진을 찍어 모든 곳에 초점이 맞는 하나의 사진으로 만듭니다. 사진을 찍은 후에 초점을 다시 선택할 수 있습니다.</string>
   <string name="pref_camera2_scene_mode_opti_zoom_instructional_content">선명한 사진을 확대/축소하고 싶다면 OptiZoom을 사용하세요. 사진을 찍기 전이나 후에 확대/축소를 할 수 있습니다.</string>
   <string name="pref_camera2_scene_mode_sports_instructional_content">스포츠 모드에서는 더 나은 스포츠 혹은 액션 사진을 찍을 수 있습니다.\n\n더 나은 사진을 찍을 수는 있지만, 비디오 녹화에는 적용되지 않습니다.</string>
+  <string name="pref_camera2_scene_mode_hdr_instructional_content">저조도에 후광같이 조명이 혼합되어 있는 상태에서는 \"HDR\"을 사용하면 최고의 사진을 찍을 수 있습니다.</string>
+  <string name="pref_camera2_scene_mode_best_photo_instructional_content">빠르게 연속으로 10장의 사진을 찍은 뒤 가장 잘 찍힌 사진을 선택할 수 있습니다.</string>
+  <string name="pref_camera2_scene_mode_chroma_flash_instructional_content">ChromaFlash를 사용하면 플래시를 켜고 찍은 사진의 조명이 피사체에 최적화됩니다. 이 기능은 후면 카메라만 사용할 수 있습니다.</string>
+  <string name="pref_camera2_scene_mode_sharp_photo_instructional_content">선명한 사진 모드는 피사체의 움직임이나 손떨림에 의한 흐림 효과를 감소시킵니다.</string>
+  <string name="pref_camera2_scene_mode_tracking_focus_instructional_content">사진이나 동영상을 찍는 동안 선택한 피사체를 추적하여 초점을 맞추세요. 시작하려면 초점 사각형을 피사체에 맞추세요.</string>
+  <string name="pref_camera2_scene_mode_time_lapse_instructional_content">타임랩스를 사용하면 긴 동영상을 짧게 변환할 수 있습니다. 이 효과는 동영상에만 사용할 수 있습니다.</string>
+  <string name="pref_camera2_scene_mode_panorama_instructional_content">좌우 파노라마를 사용하여 넓은 풍경 사진을 찍을 수 있습니다. 위아래로 움직여서 상하로 긴 사진을 찍을 수도 있습니다.</string>
+  <string name="pref_camera2_scene_mode_blur_buster_instructional_content">BlurBuster는 손떨림에 의한 흐림 효과를 감소시킵니다. 사진을 찍기 어려운 장소에서 촬영할 때 도움이 됩니다.</string>
+  <string name="pref_camera2_scene_mode_pro_instructional_content">전문가 모드에서는 ISO, 노출, 화이트밸런스 및 초점 등의 고급 옵션을 직접 조정할 수 있습니다.</string>
   <string name="pref_camera2_not_show_again">다시 보지 않기</string>
   <string name="pref_camera2_scene_mode_instructional_ok">확인</string>
+  <string name="pref_camera2_instant_aec_title">일회성 자동 노출 제어(AEC)</string>
   <string name="pref_camera2_instant_aec_entry_disable">사용 안 함</string>
   <string name="pref_camera2_instant_aec_entry_aggressive">적극적 자동 노출 제어(AEC)</string>
   <string name="pref_camera2_instant_aec_entry_fast">빠른 자동 노출 제어(AEC)</string>
@@ -506,6 +525,7 @@
   <string name="pref_camera_bokeh_mpo_title">보케 모드 MPO</string>
   <string name="pref_camera_bokeh_mpo_entry_enable">사용</string>
   <string name="pref_camera_bokeh_mpo_entry_disable">사용 안 함</string>
+  <string name="pref_camera_bokeh_blur_degree_title">보케 흐림 효과 값</string>
   <!-- Default Zoom setting. -->
   <string name="pref_camera_zoom_title">확대/축소</string>
   <!-- Settings menu, Zoom choices -->
@@ -520,12 +540,16 @@
   <string name="pref_camera_zoom_entry_8x">8x</string>
   <string name="pref_camera_zoom_entry_9x">9x</string>
   <string name="pref_camera_zoom_entry_10x">10x</string>
+  <string name="pref_camera2_bsgc_title">미소/깜박임/시선 감지</string>
   <string name="pref_camera2_bsgc_entry_enable">사용</string>
   <string name="pref_camera2_bsgc_entry_disable">사용 안 함</string>
   <string name="pref_camera2_zsl_title">제로 셔터 랙</string>
   <string name="pref_camera2_zsl_entry_disable">끄기</string>
+  <string name="pref_camera2_zsl_entry_app_zsl">소프트웨어 ZSL</string>
+  <string name="pref_camera2_zsl_entry_hal_zsl">하드웨어 ZSL</string>
   <!-- QCFA Title -->
   <!-- QCFA choices -->
+  <string name="pref_camera2_switch_camera_title">ID로 카메라 전환</string>
   <string name="pref_camera2_initial_camera_entry_bayer">Bayer</string>
   <string name="pref_camera2_initial_camera_entry_mono">모노</string>
   <string name="pref_camera2_initial_camera_entry_front">전면</string>

@@ -451,13 +451,21 @@
   <string name="pref_camera2_trackingfocus_entry_off">Uit</string>
   <string name="pref_camera_scenemode_entry_bestpicture">Beste foto</string>
   <string name="pref_camera_scenemode_entry_trackingfocus">Focus volgt object</string>
+  <string name="pref_camera_scenemode_entry_panorama">Panorama</string>
   <string name="bestpicture_done">KLAAR</string>
   <string name="bestpicture_at_least_one_picture">Er moet ten minste één foto worden gekozen.</string>
   <string name="pref_camera2_shutter_sound_entry_on">Aan</string>
   <string name="pref_camera2_shutter_sound_entry_off">Uit</string>
   <string name="pref_camera2_shutter_sound_title">Sluitergeluid</string>
   <string name="pref_camera2_timer_entry_off">Uit</string>
+  <string name="pref_camera2_timer_entry_2sec">2 seconden</string>
+  <string name="pref_camera2_timer_entry_5sec">5 seconden</string>
+  <string name="pref_camera2_timer_entry_10sec">10 seconden</string>
   <string name="makeup_ui_ok_button">OK</string>
+  <string name="perf_camera2_preferences_category_general">Algemeen</string>
+  <string name="perf_camera2_preferences_category_video">Videocamera</string>
+  <string name="perf_camera2_preferences_category_system">Systeem</string>
+  <string name="pref_camera2_not_show_again">Niet opnieuw tonen</string>
   <string name="pref_camera2_scene_mode_instructional_ok">OK</string>
   <string name="pref_camera2_instant_aec_entry_disable">Uitschakelen</string>
   <string name="pref_camera2_instant_aec_entry_aggressive">Agressieve AEC</string>
@@ -482,6 +490,7 @@
   <string name="pref_camera2_histogram_title">Histogram</string>
   <string name="pref_camera2_histogram_entry_enable">Inschakelen</string>
   <string name="pref_camera2_histogram_entry_disable">Uitschakelen</string>
+  <string name="pref_camera2_hdr_title">HDR</string>
   <string name="pref_camera2_hdr_entry_enable">Inschakelen</string>
   <string name="pref_camera2_hdr_entry_disable">Uitschakelen</string>
   <string name="pref_camera2_auto_hdr_title">Auto-HDR</string>
@@ -494,6 +503,16 @@
   <!-- Default Zoom setting. -->
   <!-- Settings menu, Zoom choices -->
   <string name="pref_camera_zoom_entry_off">Uit</string>
+  <string name="pref_camera_zoom_entry_1x">1x</string>
+  <string name="pref_camera_zoom_entry_2x">2x</string>
+  <string name="pref_camera_zoom_entry_3x">3x</string>
+  <string name="pref_camera_zoom_entry_4x">4x</string>
+  <string name="pref_camera_zoom_entry_5x">5x</string>
+  <string name="pref_camera_zoom_entry_6x">6x</string>
+  <string name="pref_camera_zoom_entry_7x">7 x</string>
+  <string name="pref_camera_zoom_entry_8x">8x</string>
+  <string name="pref_camera_zoom_entry_9x">9x</string>
+  <string name="pref_camera_zoom_entry_10x">10x</string>
   <string name="pref_camera2_bsgc_entry_enable">Inschakelen</string>
   <string name="pref_camera2_bsgc_entry_disable">Uitschakelen</string>
   <string name="pref_camera2_zsl_title">Geen ontspanvertraging (ZSL)</string>

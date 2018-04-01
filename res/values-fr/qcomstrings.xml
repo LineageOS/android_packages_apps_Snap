@@ -450,6 +450,7 @@
   <string name="pref_camera2_trackingfocus_entry_on">Activé</string>
   <string name="pref_camera2_trackingfocus_entry_off">Désactivé</string>
   <string name="pref_camera_scenemode_entry_bestpicture">Image optimale</string>
+  <string name="pref_camera_scenemode_entry_sharpshooter">Photo nette</string>
   <string name="pref_camera_scenemode_entry_trackingfocus">Mise au point automatique par suivi du sujet</string>
   <string name="pref_camera_scenemode_entry_panorama">Panorama</string>
   <string name="pref_camera_scenemode_entry_promode">Mode Pro</string>
@@ -462,14 +463,32 @@
   <string name="pref_camera2_timer_entry_2sec">2 secondes</string>
   <string name="pref_camera2_timer_entry_5sec">5 secondes</string>
   <string name="pref_camera2_timer_entry_10sec">10 secondes</string>
+  <string name="pref_camera2_saveraw_title">Sauvegarde au format RAW</string>
+  <string name="panocapture_direction_is_not_determined">Déplacez-vous de façon constante dans une seule direction.</string>
+  <string name="panocapture_intro">Appuyez sur le bouton de l\'appareil photo pour commencer.</string>
+  <string name="panocapture_direction_is_changed">La direction a changé. Arrêt de la capture panoramique\u2026</string>
+  <string name="makeup_ui_title">Choisissez le niveau d\'embellissement.</string>
   <string name="makeup_ui_ok_button">OK</string>
   <string name="perf_camera2_version_info">Informations de version</string>
   <string name="perf_camera2_preferences_category_general">Générale</string>
   <string name="perf_camera2_preferences_category_photo">Appareil photo</string>
   <string name="perf_camera2_preferences_category_video">Caméra vidéo</string>
   <string name="perf_camera2_preferences_category_system">Système</string>
+  <string name="pref_camera2_scene_mode_dual_camera_instructional_content">En mode double objectif, vos clichés seront plus nets. Vous pouvez appliquer des effets d\'arrière plan, en éditant vos images double objectif dans l \'application Galerie.</string>
+  <string name="pref_camera2_scene_mode_ubi_focus_instructional_content">UbiFocus permet à votre appareil photo de prendre cinq clichés et de les combiner en une seule image où tous les objets sont nets. Vous pouvez modifier la mise au point après avoir pris la photo.</string>
+  <string name="pref_camera2_scene_mode_opti_zoom_instructional_content">Utilisez OptiZoom lorsque vous souhaitez faire un zoom avant pour obtenir une image nette. Vous pouvez zoomer avant de prendre la photo ou après.</string>
+  <string name="pref_camera2_scene_mode_sports_instructional_content">Le mode Sport vous aide à prendre de meilleures photos de sports ou de scènes d\'action.\n\nIl permet d\'augmenter la qualité de vos photos, mais n\'a aucun effet sur les enregistrements vidéo.</string>
+  <string name="pref_camera2_scene_mode_hdr_instructional_content">Lorsque vous êtes dans des conditions d’éclairage mixtes (telles que des conditions de faible luminosité et des scènes rétroéclairées), sélectionnez « HDR » pour un meilleur rendu photographique.</string>
+  <string name="pref_camera2_scene_mode_best_photo_instructional_content">Ce mode vous permet de prendre 10 photos en rafale et de sélectionner celle(s) que vous préférez.</string>
+  <string name="pref_camera2_scene_mode_chroma_flash_instructional_content">ChromaFlash permet d\'optimiser l’éclairage de chaque personne et objet sur la photo lorsque vous utilisez le flash. Cette fonctionnalité s’applique uniquement à l\'appareil photo arrière.</string>
+  <string name="pref_camera2_scene_mode_tracking_focus_instructional_content">Ce mode vous permet d\'effectuer un suivi et la mise au point sur une personne ou un objet spécifique lorsque vous prenez des photos ou des vidéos. Pour démarrer, positionnez le rectangle de mise au point sur la personne ou l\'objet que vous voulez suivre.</string>
+  <string name="pref_camera2_scene_mode_time_lapse_instructional_content">TimeLapse vous permet de transformer un long enregistrement vidéo en une séquence de quelques secondes. Cet effet s\'applique aux vidéos, mais pas aux photos.</string>
+  <string name="pref_camera2_scene_mode_panorama_instructional_content">Ce mode vous permet de faire un panoramique vers la gauche ou la droite pour prendre une photo grand angle. Vous pouvez également effectuer un panoramique vers le haut ou le bas pour obtenir un rendu vertical.</string>
+  <string name="pref_camera2_scene_mode_blur_buster_instructional_content">BlurBuster permet de réduire le flou dû aux tremblements des mains. Ce mode peut être très utile lorsque vous devez prendre des photos dans des conditions difficiles.</string>
+  <string name="pref_camera2_scene_mode_pro_instructional_content">Le mode Pro vous permet de régler manuellement l\'ISO, l\'exposition, la balance des blancs et la mise au point. Vous pourrez accéder facilement à tous ces paramètres avancés.</string>
   <string name="pref_camera2_not_show_again">Ne plus afficher</string>
   <string name="pref_camera2_scene_mode_instructional_ok">OK</string>
+  <string name="pref_camera2_instant_aec_title">Contrôle d\'exposition automatique instantané</string>
   <string name="pref_camera2_instant_aec_entry_disable">Désactiver</string>
   <string name="pref_camera2_instant_aec_entry_aggressive">AEC agressive</string>
   <string name="pref_camera2_instant_aec_entry_fast">AEC rapide</string>
@@ -499,10 +518,13 @@
   <string name="pref_camera2_auto_hdr_title">HDR Automatique</string>
   <string name="pref_camera2_auto_hdr_entry_enable">Activer</string>
   <string name="pref_camera2_auto_hdr_entry_disable">Désactiver</string>
+  <string name="pref_camera_bokeh_mode_title">Mode Bokeh</string>
   <string name="pref_camera_bokeh_mode_entry_enable">Activer</string>
   <string name="pref_camera_bokeh_mode_entry_disable">Désactiver</string>
+  <string name="pref_camera_bokeh_mpo_title">Mode Bokeh MPO</string>
   <string name="pref_camera_bokeh_mpo_entry_enable">Activer</string>
   <string name="pref_camera_bokeh_mpo_entry_disable">Désactiver</string>
+  <string name="pref_camera_bokeh_blur_degree_title">Valeur de flou du mode Bokeh</string>
   <!-- Default Zoom setting. -->
   <string name="pref_camera_zoom_title">Zoom</string>
   <!-- Settings menu, Zoom choices -->
@@ -517,12 +539,16 @@
   <string name="pref_camera_zoom_entry_8x">8x</string>
   <string name="pref_camera_zoom_entry_9x">9x</string>
   <string name="pref_camera_zoom_entry_10x">10x</string>
+  <string name="pref_camera2_bsgc_title">Détection de sourire/clignement/regard</string>
   <string name="pref_camera2_bsgc_entry_enable">Activer</string>
   <string name="pref_camera2_bsgc_entry_disable">Désactiver</string>
   <string name="pref_camera2_zsl_title">Pas de délai de l\'obturateur</string>
   <string name="pref_camera2_zsl_entry_disable">Désactivé</string>
+  <string name="pref_camera2_zsl_entry_app_zsl">Zéro délai d\'obturation logiciel</string>
+  <string name="pref_camera2_zsl_entry_hal_zsl">Zéro délai d\'obturation matériel</string>
   <!-- QCFA Title -->
   <!-- QCFA choices -->
+  <string name="pref_camera2_switch_camera_title">Changer d\'appareil photo par ID</string>
   <string name="pref_camera2_initial_camera_entry_bayer">Bayer</string>
   <string name="pref_camera2_initial_camera_entry_mono">Mono</string>
   <string name="pref_camera2_initial_camera_entry_front">Avant</string>

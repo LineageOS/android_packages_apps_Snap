@@ -465,7 +465,9 @@
   <string name="pref_camera2_timer_entry_10sec">10 Sekunden</string>
   <string name="pref_camera2_saveraw_title">Als Raw-Format speichern</string>
   <string name="panocapture_direction_is_not_determined">Konstant in eine Richtung bewegen.</string>
+  <string name="panocapture_intro">Zum Starten Kamerataste drücken.</string>
   <string name="panocapture_direction_is_changed">Richtung hat sich geändert, Panorama-Aufnahme wird gestoppt\u2026</string>
+  <string name="makeup_ui_title">Wählen Sie die Stärke der Verschönerung.</string>
   <string name="makeup_ui_ok_button">OK</string>
   <string name="perf_camera2_version_info">Versionsinfo</string>
   <string name="perf_camera2_preferences_category_general">Allgemein</string>
@@ -473,10 +475,13 @@
   <string name="perf_camera2_preferences_category_video">Videokamera</string>
   <string name="perf_camera2_preferences_category_system">System</string>
   <string name="pref_camera2_scene_mode_dual_camera_instructional_content">Im Dual-Kamera-Modus werden Ihre Bilder klarer. Sie können auch Hintergrundeffekte anwenden, indem Sie Ihre Dual-Kamera-Bilder in der Galerie bearbeiten.</string>
+  <string name="pref_camera2_scene_mode_opti_zoom_instructional_content">Verwenden Sie OptiZoom, wenn Sie ein klareres, vergrößertes Bild haben möchten. Sie können vor oder nach der Aufnahme das Bild vergrößern.</string>
   <string name="pref_camera2_scene_mode_time_lapse_instructional_content">Mit Zeitraffer verwandeln Sie eine lange Videoaufzeichnung in ein Video von ein paar Sekunden Länge. Dieser Effekt kann auf Videos, aber nicht auf Fotos angewandt werden.</string>
+  <string name="pref_camera2_scene_mode_blur_buster_instructional_content">BlurBuster reduziert durch zitternde Hände verursachte Unschärfe. Es kann hilfreich sein, um in schwierigen Situationen zu fotografieren.</string>
   <string name="pref_camera2_scene_mode_pro_instructional_content">Im Pro-Modus können Sie Einstellungen für ISO, Belichtung, Weißabgleich und Fokus manuell einstellen. Sie haben einfachen Zugriff auf alle erweiterten Einstellungen</string>
   <string name="pref_camera2_not_show_again">Nicht erneut anzeigen</string>
   <string name="pref_camera2_scene_mode_instructional_ok">OK</string>
+  <string name="pref_camera2_instant_aec_title">Sofortige Belichtungsautomatik</string>
   <string name="pref_camera2_instant_aec_entry_disable">Deaktivieren</string>
   <string name="pref_camera2_instant_aec_entry_aggressive">Aggressive Belichtungsautomatik</string>
   <string name="pref_camera2_instant_aec_entry_fast">Schnelle Belichtungsautomatik</string>
@@ -511,6 +516,7 @@
   <string name="pref_camera_bokeh_mode_entry_disable">Deaktivieren</string>
   <string name="pref_camera_bokeh_mpo_entry_enable">Aktivieren</string>
   <string name="pref_camera_bokeh_mpo_entry_disable">Deaktivieren</string>
+  <string name="pref_camera_bokeh_blur_degree_title">Bokeh Unschärfewert</string>
   <!-- Default Zoom setting. -->
   <string name="pref_camera_zoom_title">Zoom</string>
   <!-- Settings menu, Zoom choices -->

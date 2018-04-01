@@ -395,6 +395,7 @@
   <!-- The shutter button. [CHAR LIMIT = NONE] -->
   <string name="accessibility_shutter_button">Suljin</string>
   <!-- The exit best photo mode button. [CHAR LIMIT = NONE] -->
+  <string name="accessibility_exit_best_mode_button">Poistu paras kuva-tilasta</string>
   <!-- The menu button. [CHAR LIMIT = NONE] -->
   <string name="accessibility_menu_button">Valikkopainike</string>
   <!-- The mode picker to switch between camera, video and panorama. [CHAR LIMIT = NONE] -->
@@ -556,6 +557,30 @@ CHAR LIMIT = NONE] -->
   <string name="remaining_photos_format">%d jäljellä</string>
   <string name="initial_recording_seconds">00:00</string>
   <string name="makeup_video_size_limit">Makeup toimii vain VGA-kokoisena videon tallentamisen aikana.</string>
+  <string name="pref_camera2_category_system">Järjestelmä</string>
+  <string name="pref_camera2_restore_default">Palauta oletusarvot</string>
+  <string name="pref_camera2_restore_default_hint">Kameran asetukset palautetaan oletusasetuksiin</string>
+  <plurals name="save_best_dialog_content">
+    <item quantity="one">%1$d / 10 kuvasta tallennetaan ja loput poistetaan</item>
+    <item quantity="other">%1$d / 10 kuvasta tallennetaan ja loput poistetaan</item>
+  </plurals>
+  <string name="save_best_dialog_title">Tallenna valitut kuvat?</string>
   <string name="save_best_dialog_positive_bt">OK</string>
+  <string name="save_best_dialog_native_bt">Peruuta</string>
+  <plurals name="save_best_image_toast">
+    <item quantity="one">%1$d / 10 kuvasta tallennettu.</item>
+    <item quantity="other">%1$d / 10 kuvasta tallennettu.</item>
+  </plurals>
+  <string name="dialog_do_not_show">Älä näytä uudelleen</string>
+  <string name="delete_best_dialog_title">Poista kaikki?</string>
+  <string name="delete_best_dialog_content">Haluatko varmasti poistaa kaikki 10 otettua kuvaa?</string>
+  <string name="delete_best_dialog_native_bt">Peruuta</string>
   <string name="delete_best_dialog_positive_bt">Poista</string>
+  <string name="delete_all_best_dialog_title">Poista kaikki?</string>
+  <string name="delete_all_best_dialog_content">Haluatko varmasti poistaa kaikki kuvat?</string>
+  <string name="delete_all_best_dialog_native_bt">Peruuta</string>
+  <string name="delete_all_best_dialog_positive_bt">Poista kaikki</string>
+  <string name="overflow_best_item1">Tallenna kaikki</string>
+  <string name="overflow_best_item2">Poista kaikki</string>
+  <string name="settings_title">Asetukset</string>
 </resources>

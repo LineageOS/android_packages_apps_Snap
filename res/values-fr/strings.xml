@@ -554,19 +554,27 @@ CHAR LIMIT = NONE] -->
   <string name="pref_camera2_category_system">Système</string>
   <string name="pref_camera2_restore_default">Rétablir les paramètres par défaut</string>
   <string name="pref_camera2_restore_default_hint">Les réglages de l\'appareil photo seront restaurés aux valeurs par défaut</string>
+  <plurals name="save_best_dialog_content">
+    <item quantity="one">%1$d image sur les 10 sera enregistrée et les autres seront supprimées</item>
+    <item quantity="other">%1$d images sur les 10 seront enregistrées et les autres seront supprimées</item>
+  </plurals>
   <string name="save_best_dialog_title">Enregistrer les images sélectionnées ?</string>
   <string name="save_best_dialog_positive_bt">OK</string>
   <string name="save_best_dialog_native_bt">Annuler</string>
+  <plurals name="save_best_image_toast">
+    <item quantity="one">%1$d image sur les 10 a bien été enregistrée.</item>
+    <item quantity="other">%1$d images sur les 10 ont bien été sauvegardées.</item>
+  </plurals>
   <string name="dialog_do_not_show">Ne plus afficher</string>
-  <string name="delete_best_dialog_title">Les supprimer toutes ?</string>
+  <string name="delete_best_dialog_title">Tout supprimer ?</string>
   <string name="delete_best_dialog_content">Êtes-vous sûr de que vouloir supprimer l\'intégralité des 10 photos prises ?</string>
   <string name="delete_best_dialog_native_bt">Annuler</string>
   <string name="delete_best_dialog_positive_bt">Supprimer</string>
   <string name="delete_all_best_dialog_title">Tout supprimer ?</string>
   <string name="delete_all_best_dialog_content">Êtes-vous sûr de vouloir supprimer toutes les images ?</string>
   <string name="delete_all_best_dialog_native_bt">Annuler</string>
-  <string name="delete_all_best_dialog_positive_bt">Les supprimer toutes</string>
-  <string name="overflow_best_item1">Les enregistrer toutes</string>
+  <string name="delete_all_best_dialog_positive_bt">Tout supprimer</string>
+  <string name="overflow_best_item1">Tout enregistrer</string>
   <string name="overflow_best_item2">Tout supprimer</string>
   <string name="settings_title">Paramètres</string>
 </resources>

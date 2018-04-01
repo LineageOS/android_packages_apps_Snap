@@ -546,6 +546,25 @@ CHAR LIMIT = NONE] -->
   <!-- Menu, Video rotation labels [CHAR LIMIT=50] -->
   <string name="remaining_photos_format">%d tersisa</string>
   <string name="makeup_video_size_limit">Makeup hanya bekerja dibawah ukuran VGA di perekam video.</string>
+  <string name="pref_camera2_category_system">Sistem</string>
+  <string name="pref_camera2_restore_default">Kembalikan ke awal</string>
+  <string name="pref_camera2_restore_default_hint">Setelan kamera akan dikembalikan ke setelan awal</string>
+  <plurals name="save_best_dialog_content">
+    <item quantity="other">%1$d dari 10 gambar akan disimpan dan sisanya akan dihapus</item>
+  </plurals>
+  <string name="save_best_dialog_title">Simpan gambar yang dipilih?</string>
   <string name="save_best_dialog_positive_bt">OK</string>
+  <string name="save_best_dialog_native_bt">Batalkan</string>
+  <plurals name="save_best_image_toast">
+    <item quantity="other">%1$d dari 10 gambar telah disimpan.</item>
+  </plurals>
+  <string name="dialog_do_not_show">Jangan tampilkan lagi</string>
+  <string name="delete_best_dialog_title">Hapus semua?</string>
+  <string name="delete_best_dialog_native_bt">Batalkan</string>
   <string name="delete_best_dialog_positive_bt">Hapus</string>
+  <string name="delete_all_best_dialog_title">Hapus semua?</string>
+  <string name="delete_all_best_dialog_positive_bt">Hapus semua</string>
+  <string name="overflow_best_item1">Simpan semua</string>
+  <string name="overflow_best_item2">Hapus semua</string>
+  <string name="settings_title">Setelan</string>
 </resources>

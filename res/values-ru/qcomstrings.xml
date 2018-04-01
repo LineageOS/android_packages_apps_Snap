@@ -484,6 +484,7 @@
   <string name="pref_camera2_scene_mode_sharp_photo_instructional_content">SharpPhoto уменьшает размытие, возникшее вследствие движения объекта или руки.</string>
   <string name="pref_camera2_scene_mode_tracking_focus_instructional_content">Позволяет вам отслеживать и фокусироваться на выбранном человеке или объекте во время фото- или видеосъемки. Чтобы начать, расположите прямоугольник фокуса на человеке или объекте, который вы хотите отслеживать.</string>
   <string name="pref_camera2_scene_mode_time_lapse_instructional_content">В режиме интервальной съемки вы можете преобразовать длинную видеозапись в видео малого размера. Эффект применим только к видео.</string>
+  <string name="pref_camera2_scene_mode_panorama_instructional_content">Позволяет сдвигать окно съёмки влево или вправо для съёмки ландшафтного фото. Вы можете также сдвигать его вверх или вниз, чтобы снимать высокие фотографии.</string>
   <string name="pref_camera2_scene_mode_blur_buster_instructional_content">BlurBuster уменьшает размытие при съемке с трясущимися руками. Может быть полезно при съемке в тяжелых условиях.</string>
   <string name="pref_camera2_scene_mode_pro_instructional_content">В режиме Pro можно вручную управлять параметрами ISO, экспозиции, баланса белого и фокуса. Вы получите легкий доступ ко всем этим дополнительным настройкам</string>
   <string name="pref_camera2_not_show_again">Больше не показывать</string>
@@ -548,6 +549,7 @@
   <string name="pref_camera2_zsl_entry_hal_zsl">Аппаратный ZSL</string>
   <!-- QCFA Title -->
   <!-- QCFA choices -->
+  <string name="pref_camera2_switch_camera_title">Переключить камеру по ID</string>
   <string name="pref_camera2_initial_camera_entry_bayer">Байер</string>
   <string name="pref_camera2_initial_camera_entry_mono">Ч/Б</string>
   <string name="pref_camera2_initial_camera_entry_front">Фронтальная</string>
