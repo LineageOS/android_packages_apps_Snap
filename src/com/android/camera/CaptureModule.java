@@ -214,6 +214,7 @@ public class CaptureModule implements CameraModule, PhotoController,
     private static final int STREAM_CONFIG_MODE_QTIEIS_REALTIME = 0xF004;
     private static final int STREAM_CONFIG_MODE_QTIEIS_LOOKAHEAD = 0xF008;
     private static final int STREAM_CONFIG_MODE_FOVC = 0xF010;
+    private static final int STREAM_CONFIG_MODE_ZZHDR  = 0xF002;
 
     public static final boolean DEBUG =
             (PersistUtil.getCamera2Debug() == PersistUtil.CAMERA2_DEBUG_DUMP_LOG) ||
@@ -3783,10 +3784,18 @@ public class CaptureModule implements CameraModule, PhotoController,
                 }, null);
             } else {
                 surfaces.add(mVideoSnapshotImageReader.getSurface());
-                setOpModeForVideoStream(cameraId);
+                String zzHDR = mSettingsManager.getValue(SettingsManager.KEY_VIDEO_HDR_VALUE);
+                boolean zzHdrStatue = zzHDR.equals("1");
+                // if enable ZZHDR mode, don`t call the setOpModeForVideoStream method.
+                if (!zzHdrStatue) {
+                    setOpModeForVideoStream(cameraId);
+                }
                 String value = mSettingsManager.getValue(SettingsManager.KEY_FOVC_VALUE);
                 if (value != null && Boolean.parseBoolean(value)) {
                     mStreamConfigOptMode = mStreamConfigOptMode | STREAM_CONFIG_MODE_FOVC;
+                }
+                if (zzHdrStatue) {
+                    mStreamConfigOptMode = STREAM_CONFIG_MODE_ZZHDR;
                 }
                 if (DEBUG) {
                     Log.v(TAG, "createCustomCaptureSession mStreamConfigOptMode :"
