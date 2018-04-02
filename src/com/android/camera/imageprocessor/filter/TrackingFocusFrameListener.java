@@ -57,7 +57,7 @@ public class TrackingFocusFrameListener implements ImageFilter {
     private static String TAG = "TrackingFocusFrameListener";
     private static boolean mIsSupported = false;
     private Rect imageRect;
-    public static final long PENDING_REGISTRATION = -1;
+    public static final long PENDING_REGISTRATION = 1;
     public static final int MAX_NUM_TRACKED_OBJECTS = 3;
     private long mTrackedId = PENDING_REGISTRATION;
     private boolean mIsInitialzed = false;
