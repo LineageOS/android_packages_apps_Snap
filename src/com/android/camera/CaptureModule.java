@@ -1188,7 +1188,7 @@ public class CaptureModule implements CameraModule, PhotoController,
         }
     }
     private void createSession(final int id) {
-        if (mPaused || !mCameraOpened[id]) return;
+        if (mPaused || !mCameraOpened[id] || (mCameraDevice[id] == null)) return;
         Log.d(TAG, "createSession " + id);
         List<Surface> list = new LinkedList<Surface>();
         try {
