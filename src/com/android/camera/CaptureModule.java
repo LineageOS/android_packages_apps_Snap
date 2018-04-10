@@ -3506,6 +3506,7 @@ public class CaptureModule implements CameraModule, PhotoController,
             Log.d(TAG, "Longshot button up");
             mLongshotActive = false;
             mPostProcessor.stopLongShot();
+            mUI.enableVideo(!mLongshotActive);
         }
     }
 
@@ -4608,11 +4609,13 @@ public class CaptureModule implements CameraModule, PhotoController,
 
             if (isLongshotNeedCancel()) {
                 mLongshotActive = false;
+                mUI.enableVideo(!mLongshotActive);
                 return;
             }
 
             Log.d(TAG, "Start Longshot");
             mLongshotActive = true;
+            mUI.enableVideo(!mLongshotActive);
             takePicture();
         } else {
             RotateTextToast.makeText(mActivity, "Long shot not support", Toast.LENGTH_SHORT).show();
