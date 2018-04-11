@@ -504,6 +504,17 @@ public class SettingsManager implements ListMenu.SettingsListener {
         return sensorModeTable;
     }
 
+    public int[] getHighSpeedVideoConfigs(final int cameraId) {
+        int[] highSpeedVideoConfigs = null;
+        try {
+            highSpeedVideoConfigs = mCharacteristics.get(cameraId).get(
+                    CaptureModule.highSpeedVideoConfigs);
+        } catch (IllegalArgumentException exception) {
+            exception.printStackTrace();
+        }
+        return highSpeedVideoConfigs;
+    }
+
     public void registerListener(Listener listener) {
         mListeners.add(listener);
     }
