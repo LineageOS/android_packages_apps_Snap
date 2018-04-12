@@ -5063,9 +5063,9 @@ public class CaptureModule implements CameraModule, PhotoController,
             request.set(CaptureRequest.SENSOR_SENSITIVITY, null);
             result = true;
         } else if (manualExposureMode.equals(userSetting)) {
+            mSettingsManager.setValue(SettingsManager.KEY_FLASH_MODE, "off");
             request.set(CaptureRequest.CONTROL_AE_MODE, CaptureRequest.CONTROL_AE_MODE_OFF);
             request.set(CaptureRequest.FLASH_MODE, CaptureRequest.FLASH_MODE_OFF);
-            mSettingsManager.setValue(SettingsManager.KEY_FLASH_MODE, "off");
             int isoValue = Integer.parseInt(pref.getString(SettingsManager.KEY_MANUAL_ISO_VALUE,
                     "100"));
             long newExpTime = -1;

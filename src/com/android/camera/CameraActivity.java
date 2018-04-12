@@ -16,6 +16,7 @@
 
 package com.android.camera;
 
+import android.hardware.camera2.CameraAccessException;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.view.Display;
@@ -1798,6 +1799,11 @@ public class CameraActivity extends Activity
             finish();
             return;
         }
+        if (!cameraConnected()) {
+            super.onResume();
+            Log.v(TAG, "onResume: No camera devices connected.");
+            finish();
+        }
         SettingsManager settingsManager = SettingsManager.getInstance();
         if (settingsManager == null) {
             SettingsManager.createInstance(this);
@@ -1845,6 +1851,17 @@ public class CameraActivity extends Activity
         Intent intent = new Intent("org.codeaurora.snapcam.action.CLOSE_FLASHLIGHT");
         intent.putExtra("camera_led", true);
         sendBroadcast(intent);
+    }
+
+    private boolean cameraConnected() {
+        android.hardware.camera2.CameraManager manager =
+        (android.hardware.camera2.CameraManager) getSystemService(Context.CAMERA_SERVICE);
+        try {
+            return manager.getCameraIdList().length > 0;
+        } catch (CameraAccessException e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 
     @Override
