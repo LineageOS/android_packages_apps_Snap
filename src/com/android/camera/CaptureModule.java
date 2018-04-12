@@ -3974,7 +3974,7 @@ public class CaptureModule implements CameraModule, PhotoController,
     }
 
     private void updateVideoFlash() {
-        if (!mIsRecordingVideo || mHighSpeedCapture) return;
+        if (!mIsRecordingVideo) return;
         applyVideoFlash(mVideoRequestBuilder);
         applyVideoFlash(mVideoPausePreviewRequestBuilder);
         try {
