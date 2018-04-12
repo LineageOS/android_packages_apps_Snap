@@ -573,6 +573,9 @@ public class PostProcessor{
                     }
                 } catch (IllegalStateException e) {
                     Log.e(TAG, "Queueing more than it can have");
+                } catch (RuntimeException e) {
+                    e.printStackTrace();
+                    throw new IllegalStateException("nativeDetachImage failed for image");
                 }
                 mCaptureSession.capture(builder.build(), new CameraCaptureSession.CaptureCallback(){
                     @Override
@@ -596,6 +599,7 @@ public class PostProcessor{
                     }
                 }, mHandler);
             } catch (CameraAccessException e) {
+            } catch (IllegalStateException e) {
             }
         }
     }
