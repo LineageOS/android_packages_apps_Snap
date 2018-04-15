@@ -206,6 +206,7 @@ public class CaptureModule implements CameraModule, PhotoController,
     private static final int LONGSHOT_CANCEL_THRESHOLD = 40 * 1024 * 1024;
 
     private static final int NORMAL_SESSION_MAX_FPS = 60;
+    private static final int HIGH_SESSION_MAX_FPS = 120;
 
     private static final int SCREEN_DELAY = 2 * 60 * 1000;
 
@@ -4089,7 +4090,13 @@ public class CaptureModule implements CameraModule, PhotoController,
         Log.v(TAG, "pauseVideoRecording");
         mMediaRecorderPausing = true;
         mRecordingTotalTime += SystemClock.uptimeMillis() - mRecordingStartTime;
-        setEndOfStream(false, false);
+        // As EIS is not supported for HFR case (>=120 )
+        // and FOVC also currently don’t require this for >=120 case
+        if (mHighSpeedCapture && ((int)mHighSpeedFPSRange.getUpper() >= HIGH_SESSION_MAX_FPS)) {
+            mMediaRecorder.pause();
+        } else {
+            setEndOfStream(false, false);
+        }
     }
 
     private void resumeVideoRecording() {
