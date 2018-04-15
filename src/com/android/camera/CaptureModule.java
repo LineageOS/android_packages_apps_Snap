@@ -2039,6 +2039,17 @@ public class CaptureModule implements CameraModule, PhotoController,
             applyZoom(captureBuilder, id);
 
             captureBuilder.addTarget(mVideoSnapshotImageReader.getSurface());
+            // send snapshot stream together with preview and video stream for snapshot request
+            // stream is the surface for the app
+            Surface surface = getPreviewSurfaceForSession(id);
+            if (getFrameProcFilterId().size() == 1 && getFrameProcFilterId().get(0) ==
+                    FrameProcessor.FILTER_MAKEUP) {
+                captureBuilder.addTarget(mFrameProcessor.getInputSurfaces().get(0));
+            } else {
+                captureBuilder.addTarget(surface);
+            }
+            List<Surface> surfaces = new ArrayList<>();
+            addPreviewSurface(captureBuilder, surfaces, id);
 
             mCurrentSession.capture(captureBuilder.build(),
                     new CameraCaptureSession.CaptureCallback() {
