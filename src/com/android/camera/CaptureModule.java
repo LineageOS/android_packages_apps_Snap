@@ -4131,24 +4131,18 @@ public class CaptureModule implements CameraModule, PhotoController,
                 // is pause or stopRecord
                 if (!(mMediaRecorderPausing && mStopRecPending)) {
                     mCurrentSession.stopRepeating();
-                    CaptureRequest.Builder builder =
-                            mCameraDevice[getMainCameraId()].createCaptureRequest(CameraDevice.TEMPLATE_RECORD);
-                    builder.setTag(getMainCameraId());
-                    if (mHighSpeedCapture) {
-                        builder.set(CaptureRequest.CONTROL_AE_TARGET_FPS_RANGE, mHighSpeedFPSRange);
-                    }
-                    applyZoom(builder, getMainCameraId());
-                    addPreviewSurface(builder, null, getMainCameraId());
                     try {
-                        builder.set(CaptureModule.recording_end_stream, (byte) 0x01);
+                        mVideoRequestBuilder.set(CaptureModule.recording_end_stream, (byte) 0x01);
                     } catch (IllegalArgumentException illegalArgumentException) {
                         Log.w(TAG, "can not find vendor tag: org.quic.camera.recording.endOfStream");
                     }
                     if (mCurrentSession instanceof CameraConstrainedHighSpeedCaptureSession) {
-                        List requestList = CameraUtil.createHighSpeedRequestList(builder.build());
+                        List requestList = CameraUtil.createHighSpeedRequestList(
+                                mVideoRequestBuilder.build());
                         mCurrentSession.captureBurst(requestList, mCaptureCallback, mCameraHandler);
                     } else {
-                        mCurrentSession.capture(builder.build(), mCaptureCallback, mCameraHandler);
+                        mCurrentSession.capture(mVideoRequestBuilder.build(), mCaptureCallback,
+                                mCameraHandler);
                     }
                 }
                 if (!isStopRecord) {
