@@ -348,7 +348,7 @@ public class CaptureModule implements CameraModule, PhotoController,
 
     boolean mUnsupportedResolution = false;
 
-    private static final int SDCARD_SIZE_LIMIT = 4000 * 1024 * 1024;
+    private static final long SDCARD_SIZE_LIMIT = 4000 * 1024 * 1024L;
     private static final String sTempCropFilename = "crop-temp";
     private static final int REQUEST_CROP = 1000;
     private int mIntentMode = INTENT_MODE_NORMAL;
@@ -5119,9 +5119,10 @@ public class CaptureModule implements CameraModule, PhotoController,
             request.set(CaptureRequest.CONTROL_AE_MODE,
                     CaptureRequest.CONTROL_AE_MODE_ON_AUTO_FLASH_REDEYE);
         } else {
+            boolean isCaptureBrust = isCaptureBrustMode();
             switch (value) {
                 case "on":
-                    if (mLongshotActive) {
+                    if (isCaptureBrust) {
                         request.set(CaptureRequest.CONTROL_AE_MODE, CaptureRequest.CONTROL_AE_MODE_ON);
                         request.set(CaptureRequest.FLASH_MODE, CaptureRequest.FLASH_MODE_TORCH);
                     } else {
@@ -5130,7 +5131,7 @@ public class CaptureModule implements CameraModule, PhotoController,
                     }
                     break;
                 case "auto":
-                    if (mLongshotActive) {
+                    if (isCaptureBrust) {
                         // When long shot is active, turn off the flash in auto mode
                         request.set(CaptureRequest.CONTROL_AE_MODE, CaptureRequest.CONTROL_AE_MODE_ON);
                         request.set(CaptureRequest.FLASH_MODE, CaptureRequest.FLASH_MODE_OFF);
@@ -5162,14 +5163,27 @@ public class CaptureModule implements CameraModule, PhotoController,
             return;
         }
         String value = mSettingsManager.getValue(SettingsManager.KEY_FLASH_MODE);
+
+        boolean isCaptureBrust = isCaptureBrustMode();
         switch (value) {
             case "on":
-                request.set(CaptureRequest.CONTROL_AE_MODE, CaptureRequest.CONTROL_AE_MODE_ON_ALWAYS_FLASH);
-                request.set(CaptureRequest.FLASH_MODE, CaptureRequest.FLASH_MODE_SINGLE);
+                if (isCaptureBrust) {
+                    request.set(CaptureRequest.CONTROL_AE_MODE, CaptureRequest.CONTROL_AE_MODE_ON);
+                    request.set(CaptureRequest.FLASH_MODE, CaptureRequest.FLASH_MODE_TORCH);
+                } else {
+                    request.set(CaptureRequest.CONTROL_AE_MODE, CaptureRequest.CONTROL_AE_MODE_ON_ALWAYS_FLASH);
+                    request.set(CaptureRequest.FLASH_MODE, CaptureRequest.FLASH_MODE_SINGLE);
+                }
                 break;
             case "auto":
-                request.set(CaptureRequest.CONTROL_AE_MODE, CaptureRequest.CONTROL_AE_MODE_ON_AUTO_FLASH);
-                request.set(CaptureRequest.FLASH_MODE, CaptureRequest.FLASH_MODE_SINGLE);
+                if (isCaptureBrust) {
+                    // When long shot is active, turn off the flash in auto mode
+                    request.set(CaptureRequest.CONTROL_AE_MODE, CaptureRequest.CONTROL_AE_MODE_ON);
+                    request.set(CaptureRequest.FLASH_MODE, CaptureRequest.FLASH_MODE_OFF);
+                } else {
+                    request.set(CaptureRequest.CONTROL_AE_MODE, CaptureRequest.CONTROL_AE_MODE_ON_AUTO_FLASH);
+                    request.set(CaptureRequest.FLASH_MODE, CaptureRequest.FLASH_MODE_SINGLE);
+                }
                 break;
             case "off":
                 request.set(CaptureRequest.CONTROL_AE_MODE, CaptureRequest.CONTROL_AE_MODE_ON);
@@ -5520,6 +5534,24 @@ public class CaptureModule implements CameraModule, PhotoController,
         } catch(Exception e) {
         }
         return false;
+    }
+
+    private boolean isCaptureBrustMode() {
+        boolean isCaptureBrustMode = false;
+        String value = mSettingsManager.getValue(SettingsManager.KEY_SCENE_MODE);
+        if (value != null) {
+            int mode = Integer.parseInt(value);
+            if(mode == SettingsManager.SCENE_MODE_NIGHT_INT ||
+                    mode == SettingsManager.SCENE_MODE_SHARPSHOOTER_INT ||
+                    mode == SettingsManager.SCENE_MODE_BLURBUSTER_INT ||
+                    mode == SettingsManager.SCENE_MODE_BESTPICTURE_INT ||
+                    mode == SettingsManager.SCENE_MODE_OPTIZOOM_INT ||
+                    mode == SettingsManager.SCENE_MODE_UBIFOCUS_INT) {
+                isCaptureBrustMode = true;
+            }
+        }
+
+        return isCaptureBrustMode || mLongshotActive;
     }
 
     public boolean isDeepZoom() {
