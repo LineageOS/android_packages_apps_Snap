@@ -854,7 +854,8 @@ public class CaptureModule implements CameraModule, PhotoController,
                     }
                 }
 
-                if (CaptureResult.CONTROL_AF_STATE_FOCUSED_LOCKED == afState &&
+                if ((CaptureResult.CONTROL_AF_STATE_FOCUSED_LOCKED == afState ||
+                        CaptureResult.CONTROL_AF_STATE_NOT_FOCUSED_LOCKED == afState) &&
                         (aeState == null || aeState == CaptureResult.CONTROL_AE_STATE_LOCKED)) {
                     checkAfAeStatesAndCapture(id);
                 }
