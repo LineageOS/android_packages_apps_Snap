@@ -434,6 +434,16 @@ public class SettingsActivity extends PreferenceActivity {
             if (disabled) p.setEnabled(false);
         }
 
+        // when enable deepzoom, disable the KEY_PICTURE_SIZE
+        String scene = mSettingsManager.getValue(SettingsManager.KEY_SCENE_MODE);
+        if (scene != null) {
+            int mode = Integer.parseInt(scene);
+            if (mode == SettingsManager.SCENE_MODE_DEEPZOOM_INT) {
+                Preference p = findPreference(SettingsManager.KEY_PICTURE_SIZE);
+                p.setEnabled(false);
+            }
+        }
+
         try {
             String versionName = getPackageManager().getPackageInfo(getPackageName(), 0).versionName;
             int index = versionName.indexOf(' ');
