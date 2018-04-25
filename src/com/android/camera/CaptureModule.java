@@ -966,7 +966,7 @@ public class CaptureModule implements CameraModule, PhotoController,
 
     public boolean isDeepPortraitMode() {
         String value = mSettingsManager.getValue(SettingsManager.KEY_SCENE_MODE);
-        if (value == null) return  false;
+        if (value == null) return false;
         return Integer.valueOf(value) == SettingsManager.SCENE_MODE_DEEPPORTRAIT_INT;
     }
 
@@ -6062,9 +6062,7 @@ public class CaptureModule implements CameraModule, PhotoController,
         updatePreviewSurfaceReadyState(true);
         mUI.initThumbnail();
         if (getFrameFilters().size() == 0) {
-            if (mDeepPortraitMode) {
-                Toast.makeText(mActivity, "DeepPortrait is not supported", Toast.LENGTH_LONG).show();
-            }
+            Log.d(TAG,"DeepPortraitFilter is not in frame filter list.");
             return;
         }
         mRenderer = getGLCameraPreview().getRendererInstance();
