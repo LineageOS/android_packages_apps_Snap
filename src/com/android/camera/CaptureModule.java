@@ -3654,7 +3654,6 @@ public class CaptureModule implements CameraModule, PhotoController,
             mCaptureSession[cameraId] = cameraCaptureSession;
             try {
                 setUpVideoCaptureRequestBuilder(mVideoRequestBuilder, cameraId);
-
                 mCurrentSession.setRepeatingRequest(mVideoRequestBuilder.build(),
                         mCaptureCallback, mCameraHandler);
             } catch (CameraAccessException e) {
@@ -3760,6 +3759,7 @@ public class CaptureModule implements CameraModule, PhotoController,
                         CameraConstrainedHighSpeedCaptureSession session =
                                     (CameraConstrainedHighSpeedCaptureSession) mCurrentSession;
                         try {
+                            setUpVideoCaptureRequestBuilder(mVideoRequestBuilder, cameraId);
                             List list = CameraUtil
                                     .createHighSpeedRequestList(mVideoRequestBuilder.build());
                             session.setRepeatingBurst(list, mCaptureCallback, mCameraHandler);
@@ -3788,7 +3788,7 @@ public class CaptureModule implements CameraModule, PhotoController,
                         mRecordingTotalTime = 0L;
                         mRecordingStartTime = SystemClock.uptimeMillis();
                         mUI.enableShutter(false);
-                        mUI.showRecordingUI(true, true);
+                        mUI.showRecordingUI(true, false);
                         updateRecordingTime();
                         keepScreenOn();
                     }
@@ -3979,12 +3979,20 @@ public class CaptureModule implements CameraModule, PhotoController,
         if (!mIsRecordingVideo) return;
         applyVideoFlash(mVideoRequestBuilder);
         applyVideoFlash(mVideoPausePreviewRequestBuilder);
+        CaptureRequest captureRequest = null;
         try {
             if (mMediaRecorderPausing) {
-                mCurrentSession.setRepeatingRequest(mVideoPausePreviewRequestBuilder.build(),
-                        mCaptureCallback, mCameraHandler);
+                captureRequest = mVideoPausePreviewRequestBuilder.build();
             } else {
-                mCurrentSession.setRepeatingRequest(mVideoRequestBuilder.build(), mCaptureCallback,
+                captureRequest = mVideoRequestBuilder.build();
+            }
+            if (mCurrentSession instanceof CameraConstrainedHighSpeedCaptureSession) {
+                CameraConstrainedHighSpeedCaptureSession session =
+                        (CameraConstrainedHighSpeedCaptureSession) mCurrentSession;
+                List requestList = session.createHighSpeedRequestList(captureRequest);
+                session.setRepeatingBurst(requestList, mCaptureCallback, mCameraHandler);
+            } else {
+                mCurrentSession.setRepeatingRequest(captureRequest, mCaptureCallback,
                         mCameraHandler);
             }
         } catch (CameraAccessException e) {
