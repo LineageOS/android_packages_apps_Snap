@@ -167,6 +167,9 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
         public void surfaceDestroyed(SurfaceHolder holder) {
             Log.v(TAG, "surfaceDestroyed");
             mSurfaceHolder = null;
+            if (mDeepZoomModeRect != null) {
+                mDeepZoomModeRect.setVisibility(View.GONE);
+            }
             previewUIDestroyed();
         }
     };

@@ -2327,7 +2327,11 @@ public class CaptureModule implements CameraModule, PhotoController,
                     if (!mIsSupportedQcfa) {
                         mUI.enableShutter(true);
                     }
-                    mUI.enableVideo(true);
+                    if (mDeepPortraitMode) {
+                        mUI.enableVideo(false);
+                    } else {
+                        mUI.enableVideo(true);
+                    }
                 }
             });
         }
@@ -2914,13 +2918,16 @@ public class CaptureModule implements CameraModule, PhotoController,
             msg.arg1 = cameraId;
             mCameraHandler.sendMessage(msg);
         }
-        if (!mDeepPortraitMode) {
+        if (mDeepPortraitMode) {
+            mUI.startDeepPortraitMode(mPreviewSize);
+            if (mUI.getGLCameraPreview() != null) {
+                mUI.getGLCameraPreview().onResume();
+            }
+            mUI.enableVideo(false);
+        } else {
             mUI.showSurfaceView();
             mUI.stopDeepPortraitMode();
-        } else {
-            mUI.startDeepPortraitMode(mPreviewSize);
-            if (mUI.getGLCameraPreview() != null)
-                mUI.getGLCameraPreview().onResume();
+            mUI.enableVideo(true);
         }
 
         if (!mFirstTimeInitialized) {
@@ -2936,7 +2943,6 @@ public class CaptureModule implements CameraModule, PhotoController,
             }
         });
         mUI.enableShutter(true);
-        mUI.enableVideo(true);
         setProModeVisible();
 
         String scene = mSettingsManager.getValue(SettingsManager.KEY_SCENE_MODE);
@@ -6018,8 +6024,9 @@ public class CaptureModule implements CameraModule, PhotoController,
         updatePreviewSurfaceReadyState(true);
         mUI.initThumbnail();
         if (getFrameFilters().size() == 0) {
-            Toast.makeText(mActivity, "DeepPortrait is not supported",
-                    Toast.LENGTH_LONG).show();
+            if (mDeepPortraitMode) {
+                Toast.makeText(mActivity, "DeepPortrait is not supported", Toast.LENGTH_LONG).show();
+            }
             return;
         }
         mRenderer = getGLCameraPreview().getRendererInstance();
