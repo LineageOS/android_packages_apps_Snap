@@ -626,7 +626,6 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
                 mBokehTipRect.setVisibility(View.INVISIBLE);
             }
             mBokehSeekBar.setVisibility(View.INVISIBLE);
-            mVideoButton.setVisibility(View.VISIBLE);
         }
     }
 
