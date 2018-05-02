@@ -207,6 +207,19 @@ public class ZSLQueue {
         }
     }
 
+    public void clear() {
+        synchronized (mLock) {
+            for (int i = 0; i < mBuffer.length; i++) {
+                if (mBuffer[i] != null) {
+                    mBuffer[i].closeImage();
+                    mBuffer[i].closeMeta();
+                }
+            }
+            mImageHead = 0;
+            mMetaHead = 0;
+        }
+    }
+
     private boolean checkImageRequirement(TotalCaptureResult captureResult) {
         if( (captureResult.get(CaptureResult.LENS_STATE) != null &&
              captureResult.get(CaptureResult.LENS_STATE).intValue() == CaptureResult.LENS_STATE_MOVING)
