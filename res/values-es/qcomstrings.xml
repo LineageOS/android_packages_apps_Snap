@@ -549,6 +549,7 @@
   <string name="pref_camera2_zsl_entry_hal_zsl">Hardware ZSL</string>
   <!-- QCFA Title -->
   <!-- QCFA choices -->
+  <string name="pref_camera2_switch_camera_title">Cambiar cámara por ID</string>
   <string name="pref_camera2_initial_camera_entry_bayer">Bayer</string>
   <string name="pref_camera2_initial_camera_entry_mono">Mono</string>
   <string name="pref_camera2_initial_camera_entry_front">Frontal</string>

@@ -424,6 +424,7 @@
   <string name="pref_camera2_camera2_entry_enable">Aktiver</string>
   <string name="pref_camera2_camera2_entry_disable">Deaktiver</string>
   <string name="pref_camera2_mono_only_title">Bare mono</string>
+  <string name="pref_camera2_mono_only_entry_on">På</string>
   <string name="pref_camera2_mono_only_entry_off">Av</string>
   <string name="pref_camera2_mono_preview_title">Mono forhåndsvisning</string>
   <string name="pref_camera2_mono_preview_entry_on">På</string>
@@ -436,6 +437,7 @@
   <string name="pref_camera2_mpo_entry_on">På</string>
   <string name="pref_camera2_mpo_entry_off">Av</string>
   <string name="pref_camera2_makeup_title">Sminke</string>
+  <string name="pref_camera2_makeup_entry_on">På</string>
   <string name="pref_camera2_makeup_entry_off">Av</string>
   <string name="pref_camera2_noise_reduction_title">Støyreduksjon</string>
   <string name="pref_camera2_noise_reduction_entry_off">Av</string>
@@ -445,6 +447,7 @@
   <string name="pref_camera2_videosnap_entry_enable">Aktiver</string>
   <string name="pref_camera2_videosnap_entry_disable">Deaktiver</string>
   <string name="pref_camera2_trackingfocus_title">Sporer fokus</string>
+  <string name="pref_camera2_trackingfocus_entry_on">På</string>
   <string name="pref_camera2_trackingfocus_entry_off">Av</string>
   <string name="pref_camera_scenemode_entry_bestpicture">Beste bilde</string>
   <string name="pref_camera_scenemode_entry_trackingfocus">Sporer fokus</string>

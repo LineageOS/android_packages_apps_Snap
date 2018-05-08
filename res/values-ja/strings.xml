@@ -388,6 +388,7 @@
   <!-- The shutter button. [CHAR LIMIT = NONE] -->
   <string name="accessibility_shutter_button">シャッター</string>
   <!-- The exit best photo mode button. [CHAR LIMIT = NONE] -->
+  <string name="accessibility_exit_best_mode_button">ベストフォトモードを終了</string>
   <!-- The menu button. [CHAR LIMIT = NONE] -->
   <string name="accessibility_menu_button">メニューボタン</string>
   <!-- The mode picker to switch between camera, video and panorama. [CHAR LIMIT = NONE] -->
@@ -545,6 +546,28 @@ CHAR LIMIT = NONE] -->
   <!-- Menu, Video rotation labels [CHAR LIMIT=50] -->
   <string name="remaining_photos_format">残り%d</string>
   <string name="makeup_video_size_limit">化粧モードは VGA サイズの動画撮影中でのみ動作します。</string>
+  <string name="pref_camera2_category_system">システム</string>
+  <string name="pref_camera2_restore_default">既定に戻す</string>
+  <string name="pref_camera2_restore_default_hint">カメラの設定は既定の設定に復元されます。</string>
+  <plurals name="save_best_dialog_content">
+    <item quantity="other">10枚中%1$d枚の画像が保存され、残りの画像は削除されます。</item>
+  </plurals>
+  <string name="save_best_dialog_title">選択した画像を保存しますか？</string>
   <string name="save_best_dialog_positive_bt">OK</string>
+  <string name="save_best_dialog_native_bt">キャンセル</string>
+  <plurals name="save_best_image_toast">
+    <item quantity="other">10枚中%1$d枚の画像を保存しました</item>
+  </plurals>
+  <string name="dialog_do_not_show">次回から表示しない</string>
+  <string name="delete_best_dialog_title">すべて削除しますか？</string>
+  <string name="delete_best_dialog_content">10枚すべての画像を削除しますか？</string>
+  <string name="delete_best_dialog_native_bt">キャンセル</string>
   <string name="delete_best_dialog_positive_bt">削除</string>
+  <string name="delete_all_best_dialog_title">すべて削除しますか？</string>
+  <string name="delete_all_best_dialog_content">すべての画像を削除します。よろしいですか？</string>
+  <string name="delete_all_best_dialog_native_bt">キャンセル</string>
+  <string name="delete_all_best_dialog_positive_bt">すべて削除</string>
+  <string name="overflow_best_item1">すべて保存</string>
+  <string name="overflow_best_item2">すべて削除</string>
+  <string name="settings_title">設定</string>
 </resources>

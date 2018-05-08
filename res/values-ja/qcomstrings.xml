@@ -424,6 +424,7 @@
   <string name="pref_camera2_camera2_entry_enable">有効</string>
   <string name="pref_camera2_camera2_entry_disable">無効</string>
   <string name="pref_camera2_mono_only_title">モノクロのみ</string>
+  <string name="pref_camera2_mono_only_entry_on">オン</string>
   <string name="pref_camera2_mono_only_entry_off">OFF</string>
   <string name="pref_camera2_mono_preview_title">モノクロプレビュー</string>
   <string name="pref_camera2_mono_preview_entry_on">ON</string>
@@ -436,6 +437,7 @@
   <string name="pref_camera2_mpo_entry_on">ON</string>
   <string name="pref_camera2_mpo_entry_off">OFF</string>
   <string name="pref_camera2_makeup_title">メイクアップ</string>
+  <string name="pref_camera2_makeup_entry_on">オン</string>
   <string name="pref_camera2_makeup_entry_off">OFF</string>
   <string name="pref_camera2_noise_reduction_title">ノイズリダクション</string>
   <string name="pref_camera2_noise_reduction_entry_off">OFF</string>
@@ -445,17 +447,42 @@
   <string name="pref_camera2_videosnap_entry_enable">有効</string>
   <string name="pref_camera2_videosnap_entry_disable">無効</string>
   <string name="pref_camera2_trackingfocus_title">追尾フォーカス</string>
+  <string name="pref_camera2_trackingfocus_entry_on">オン</string>
   <string name="pref_camera2_trackingfocus_entry_off">OFF</string>
   <string name="pref_camera_scenemode_entry_bestpicture">最高の写真</string>
+  <string name="pref_camera_scenemode_entry_sharpshooter">シャープネス</string>
   <string name="pref_camera_scenemode_entry_trackingfocus">追尾フォーカス</string>
+  <string name="pref_camera_scenemode_entry_panorama">パノラマ</string>
+  <string name="pref_camera_scenemode_entry_promode">プロモード</string>
   <string name="bestpicture_done">完了</string>
   <string name="bestpicture_at_least_one_picture">少なくとも1枚の写真を選んでください。</string>
   <string name="pref_camera2_shutter_sound_entry_on">ON</string>
   <string name="pref_camera2_shutter_sound_entry_off">OFF</string>
   <string name="pref_camera2_shutter_sound_title">シャッター音</string>
   <string name="pref_camera2_timer_entry_off">OFF</string>
+  <string name="pref_camera2_timer_entry_2sec">2秒</string>
+  <string name="pref_camera2_timer_entry_5sec">5秒</string>
+  <string name="pref_camera2_timer_entry_10sec">10秒</string>
+  <string name="pref_camera2_saveraw_title">RAW 形式で保存する</string>
+  <string name="panocapture_direction_is_not_determined">常に一方向へ移動してください。</string>
+  <string name="panocapture_intro">開始するにはカメラボタンを押してください。</string>
+  <string name="panocapture_direction_is_changed">方向が変わったため、パノラマ撮影を中止します\u2026</string>
+  <string name="makeup_ui_title">美肌効果の強さを選択</string>
   <string name="makeup_ui_ok_button">OK</string>
+  <string name="perf_camera2_version_info">バージョン情報</string>
+  <string name="perf_camera2_preferences_category_general">全般</string>
+  <string name="perf_camera2_preferences_category_photo">スチールカメラ</string>
+  <string name="perf_camera2_preferences_category_video">ビデオカメラ</string>
+  <string name="perf_camera2_preferences_category_system">システム</string>
+  <string name="pref_camera2_scene_mode_dual_camera_instructional_content">デュアルカメラモードでは撮影した写真がよりクリアに撮影できます。
+また、その写真をギャラリーで編集し背景にボケ味を与えることもできます。</string>
+  <string name="pref_camera2_scene_mode_ubi_focus_instructional_content">UbiFocus は撮影時に同時にフォーカス位置が異なる写真を最大5枚撮影し、
+それらを合成して保存することであとからフォーカス位置を変更できます。</string>
+  <string name="pref_camera2_scene_mode_best_photo_instructional_content">10枚の写真を連写し、ベストな1枚を選べます。</string>
+  <string name="pref_camera2_scene_mode_blur_buster_instructional_content">BlurBuster は手振れによるぼやけを低減します。安定した撮影が困難な場所で写真を撮る際に便利です。</string>
+  <string name="pref_camera2_not_show_again">次回から表示しない</string>
   <string name="pref_camera2_scene_mode_instructional_ok">OK</string>
+  <string name="pref_camera2_instant_aec_title">インスタント AEC</string>
   <string name="pref_camera2_instant_aec_entry_disable">無効</string>
   <string name="pref_camera2_instant_aec_entry_aggressive">アグレッシブ AEC</string>
   <string name="pref_camera2_instant_aec_entry_fast">高速 AEC</string>
@@ -479,23 +506,44 @@
   <string name="pref_camera2_histogram_title">ヒストグラム</string>
   <string name="pref_camera2_histogram_entry_enable">有効</string>
   <string name="pref_camera2_histogram_entry_disable">無効</string>
+  <string name="pref_camera2_hdr_title">HDR</string>
   <string name="pref_camera2_hdr_entry_enable">有効</string>
   <string name="pref_camera2_hdr_entry_disable">無効</string>
   <string name="pref_camera2_auto_hdr_title">オートHDR</string>
   <string name="pref_camera2_auto_hdr_entry_enable">有効</string>
   <string name="pref_camera2_auto_hdr_entry_disable">無効</string>
+  <string name="pref_camera_bokeh_mode_title">ボケモード</string>
   <string name="pref_camera_bokeh_mode_entry_enable">有効</string>
   <string name="pref_camera_bokeh_mode_entry_disable">無効</string>
+  <string name="pref_camera_bokeh_mpo_title">ボケモード MPO</string>
   <string name="pref_camera_bokeh_mpo_entry_enable">有効</string>
   <string name="pref_camera_bokeh_mpo_entry_disable">無効</string>
+  <string name="pref_camera_bokeh_blur_degree_title">ぼかし具合</string>
   <!-- Default Zoom setting. -->
+  <string name="pref_camera_zoom_title">ズーム</string>
   <!-- Settings menu, Zoom choices -->
   <string name="pref_camera_zoom_entry_off">OFF</string>
+  <string name="pref_camera_zoom_entry_1x">等倍</string>
+  <string name="pref_camera_zoom_entry_2x">2倍</string>
+  <string name="pref_camera_zoom_entry_3x">3倍</string>
+  <string name="pref_camera_zoom_entry_4x">4倍</string>
+  <string name="pref_camera_zoom_entry_5x">5倍</string>
+  <string name="pref_camera_zoom_entry_6x">6倍</string>
+  <string name="pref_camera_zoom_entry_7x">7倍</string>
+  <string name="pref_camera_zoom_entry_8x">8倍</string>
+  <string name="pref_camera_zoom_entry_9x">9倍</string>
+  <string name="pref_camera_zoom_entry_10x">10倍</string>
+  <string name="pref_camera2_bsgc_title">笑顔/まばたき/視線検出</string>
   <string name="pref_camera2_bsgc_entry_enable">有効</string>
   <string name="pref_camera2_bsgc_entry_disable">無効</string>
   <string name="pref_camera2_zsl_title">ゼロシャッターラグ</string>
   <string name="pref_camera2_zsl_entry_disable">OFF</string>
+  <string name="pref_camera2_zsl_entry_app_zsl">ソフトウェア ZSL</string>
+  <string name="pref_camera2_zsl_entry_hal_zsl">ハードウェア ZSL</string>
   <!-- QCFA Title -->
   <!-- QCFA choices -->
+  <string name="pref_camera2_switch_camera_title">ID でカメラを切り替え</string>
+  <string name="pref_camera2_initial_camera_entry_bayer">ベイヤー</string>
   <string name="pref_camera2_initial_camera_entry_mono">モノクロ</string>
+  <string name="pref_camera2_initial_camera_entry_front">フロント</string>
 </resources>

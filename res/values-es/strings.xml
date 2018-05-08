@@ -555,9 +555,17 @@ CHAR LIMIT = NONE] -->
   <string name="pref_camera2_category_system">Sistema</string>
   <string name="pref_camera2_restore_default">Restablecer a valores predefinidos</string>
   <string name="pref_camera2_restore_default_hint">Los ajustes de la cámara se restaurarán a los ajustes por defecto</string>
+  <plurals name="save_best_dialog_content">
+    <item quantity="one">%1$d de 10 imágenes se guardarán y el resto se eliminarán</item>
+    <item quantity="other">%1$d de 10 imágenes se guardarán y el resto se eliminarán</item>
+  </plurals>
   <string name="save_best_dialog_title">¿Guardar imágenes seleccionadas?</string>
   <string name="save_best_dialog_positive_bt">Aceptar</string>
   <string name="save_best_dialog_native_bt">Cancelar</string>
+  <plurals name="save_best_image_toast">
+    <item quantity="one">%1$d de 10 imágenes guardadas.</item>
+    <item quantity="other">%1$d de 10 imágenes guardadas.</item>
+  </plurals>
   <string name="dialog_do_not_show">No mostrar de nuevo</string>
   <string name="delete_best_dialog_title">¿Borrar todo?</string>
   <string name="delete_best_dialog_content">¿Desea borrar las 10 fotos tomadas?</string>

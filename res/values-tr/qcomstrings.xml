@@ -453,7 +453,7 @@
   <string name="pref_camera_scenemode_entry_sharpshooter">Keskin fotoğraf</string>
   <string name="pref_camera_scenemode_entry_trackingfocus">Odak izleme</string>
   <string name="pref_camera_scenemode_entry_panorama">Panorama</string>
-  <string name="pref_camera_scenemode_entry_promode">Profesyonel mod</string>
+  <string name="pref_camera_scenemode_entry_promode">Pro mod</string>
   <string name="bestpicture_done">BİTTİ</string>
   <string name="bestpicture_at_least_one_picture">En az bir resim seçilmeli.</string>
   <string name="pref_camera2_shutter_sound_entry_on">Açık</string>
@@ -464,8 +464,8 @@
   <string name="pref_camera2_timer_entry_5sec">5 saniye</string>
   <string name="pref_camera2_timer_entry_10sec">10 saniye</string>
   <string name="pref_camera2_saveraw_title">Raw formatında kaydet</string>
-  <string name="panocapture_direction_is_not_determined">Sürekli olarak bir yönde ilerleyin.</string>
-  <string name="panocapture_intro">Başlamak için kamera düğmesine basın.</string>
+  <string name="panocapture_direction_is_not_determined">Sürekli bir yöne doğru hareket et.</string>
+  <string name="panocapture_intro">Başlamak için kamera tuşuna basın.</string>
   <string name="panocapture_direction_is_changed">Yön değişti, panorama çekimi durduruluyor\u2026</string>
   <string name="makeup_ui_title">Güzelleştirme seviyesini seçin.</string>
   <string name="makeup_ui_ok_button">TAMAM</string>
@@ -475,7 +475,7 @@
   <string name="perf_camera2_preferences_category_video">Video kamera</string>
   <string name="perf_camera2_preferences_category_system">Sistem</string>
   <string name="pref_camera2_scene_mode_dual_camera_instructional_content">Çift kamera modunda resimleriniz daha net görünecektir. Galeri\'deki çift kamera resimlerinizi düzenleyerek arka plan efektleri uygulayabilirsiniz.</string>
-  <string name="pref_camera2_scene_mode_ubi_focus_instructional_content">Ubifocus ile kameranız 5 tane resim çekecek ve bunları her şeyin odaklandığı tek bir resim haline getirecek. Fotoğraf çektikten sonra tekrar odaklanmayı seçebilirsiniz.</string>
+  <string name="pref_camera2_scene_mode_ubi_focus_instructional_content">UbiFocus ile, kameranız beş resim çekecek ve bunları her şeyin odaklandığı tek bir resimde birleştirecektir. Resmi çektikten sonra yeniden odaklamayı seçebilirsiniz.</string>
   <string name="pref_camera2_scene_mode_opti_zoom_instructional_content">Net bir resim elde etmek için yakınlaştırmak istediğinizde OptiZoom kullanın. Daha önce veya resmi çektiğinizde yakınlaştırabilirsiniz.</string>
   <string name="pref_camera2_scene_mode_sports_instructional_content">Spor modu, daha iyi spor veya aksiyon çekimleri yapmanıza yardımcı olur.\n\nFotoğraflarınızı geliştirir, ancak video kaydı üzerinde herhangi bir etkisi yoktur.</string>
   <string name="pref_camera2_scene_mode_hdr_instructional_content">Düşük ışıklı ve arkadan aydınlık sahneler gibi karışık ışık koşullarında olduğunuzda, mümkün olan en iyi fotoğraflar için \"HDR\" yi seçin.</string>

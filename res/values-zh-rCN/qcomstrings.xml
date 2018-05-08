@@ -489,7 +489,7 @@
   <string name="pref_camera2_scene_mode_pro_instructional_content">在专业模式下，您可以手动控制ISO，曝光，白平衡和对焦。 您将可以轻松访问这些高级设置</string>
   <string name="pref_camera2_not_show_again">不再显示</string>
   <string name="pref_camera2_scene_mode_instructional_ok">确定</string>
-  <string name="pref_camera2_instant_aec_title">即时 ACE</string>
+  <string name="pref_camera2_instant_aec_title">即时自动曝光控制 (AEC)</string>
   <string name="pref_camera2_instant_aec_entry_disable">禁用</string>
   <string name="pref_camera2_instant_aec_entry_aggressive">主动 AEC</string>
   <string name="pref_camera2_instant_aec_entry_fast">快速 AEC</string>

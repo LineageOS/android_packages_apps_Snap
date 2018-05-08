@@ -25,7 +25,9 @@
   <!-- QuickReader: permission error dialog positive action when permission can't be asked again -->
   <!-- QuickReader: scanned text dialog title -->
   <!-- QuickReader: scanned text dialog positive button (copy to clipboard) -->
+  <string name="quick_reader_scanned_text_positive">Còpia</string>
   <!-- QuickReader: scanned text dialog negative button (share) -->
+  <string name="quick_reader_scanned_text_negative">Cumpartzi</string>
   <!-- QuickReader: scanned text shared activity selector title -->
   <!-- QuickReader: toast shown when the scanned text has been copied to the clipboard -->
 </resources>
