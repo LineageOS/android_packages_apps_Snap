@@ -828,8 +828,8 @@ public class VideoMenu extends MenuController
         String[] keys = mOtherKeys1;
         if (mActivity.isDeveloperMenuEnabled())
             keys = mOtherKeys2;
-        popup1.initialize(mPreferenceGroup, keys);
-
+        if (keys != null)
+            popup1.initialize(mPreferenceGroup, keys);
         mListMenu = popup1;
 
         overridePreferenceAccessibility();
