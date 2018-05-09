@@ -1956,7 +1956,12 @@ public class CaptureModule implements CameraModule, PhotoController,
                                             if (mBokehEnabled && bokehBytes != null && bokehBytes.size() > 2) {
                                                 GImage gImage = new GImage(bokehBytes.get(1), "image/jpeg");
                                                 GDepth gDepth = GDepth.createGDepth(bokehBytes.get(bokehBytes.size()-1));
-                                                gDepth.setRoi(new Rect(0, 0, image.getWidth(), image.getHeight()));
+                                                try {
+                                                    gDepth.setRoi(new Rect(0, 0, image.getWidth(), image.getHeight()));
+                                                } catch (IllegalStateException e) {
+                                                    e.printStackTrace();
+                                                    return;
+                                                }
                                                 mActivity.getMediaSaveService().addXmpImage(bokehBytes.get(0), gImage,
                                                         gDepth, title, date, null, image.getWidth(), image.getHeight(),
                                                         orientation, exif, mOnMediaSavedListener, mContentResolver, "jpeg");
