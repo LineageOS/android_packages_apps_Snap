@@ -437,6 +437,9 @@ public class PanoCaptureProcessView extends View implements SensorEventListener 
         int a, R, G, B, Y, U, V;
         int index = 0;
 
+        if (mAargbBuffer.length < w * h) {
+            return;
+        }
         bitmap.getPixels(mAargbBuffer, 0, w, 0, 0, w, h);
         for (int j = 0; j < h; j++) {
             for (int i = 0; i < w; i++) {
