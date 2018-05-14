@@ -1400,6 +1400,8 @@ public class CaptureModule implements CameraModule, PhotoController,
         if (!checkSessionAndBuilder(mCaptureSession[id], mPreviewRequestBuilder[id])) {
             return;
         }
+        afMode = (mSettingsManager.isDeveloperEnabled() && getDevAfMode() != -1) ? getDevAfMode()
+                : afMode;
         if (DEBUG) {
             Log.d(TAG, "setAFModeToPreview " + afMode);
         }
@@ -4788,15 +4790,18 @@ public class CaptureModule implements CameraModule, PhotoController,
     }
 
     private void applyAfModes(CaptureRequest.Builder request) {
+        if (getDevAfMode() != -1) {
+            request.set(CaptureRequest.CONTROL_AF_MODE, getDevAfMode());
+        }
+    }
+
+    private int getDevAfMode() {
         String value = mSettingsManager.getValue(SettingsManager.KEY_AF_MODE);
         int intValue = -1;
         if (value != null) {
             intValue = Integer.parseInt(value);
         }
-        if (intValue != CaptureRequest.CONTROL_AF_MODE_OFF
-                && intValue != -1) {
-            request.set(CaptureRequest.CONTROL_AF_MODE, intValue);
-        }
+        return intValue;
     }
 
     private void applyVideoEIS(CaptureRequest.Builder request) {
