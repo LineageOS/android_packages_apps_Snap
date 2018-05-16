@@ -205,6 +205,7 @@
         camera:title="@string/pref_camera2_makeup_title"/>
 
     <IconListPreference
+        camera:defaultValue="@string/pref_camera2_video_quality_default"
         camera:entries="@array/pref_camera2_video_quality_entries"
         camera:entryValues="@array/pref_camera2_video_quality_entryvalues"
         camera:key="pref_camera2_video_quality_key"
