@@ -1248,6 +1248,8 @@ public class CaptureModule implements CameraModule, PhotoController,
                                 e.printStackTrace();
                             } catch(IllegalStateException e) {
                                 e.printStackTrace();
+                            } catch (IllegalArgumentException e) {
+                                e.printStackTrace();
                             }
                         }
 
