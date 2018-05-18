@@ -51,7 +51,7 @@ public class PersistUtil {
     private static final String PERSIST_CAMERA_PREVIEW_SIZE =
             SystemProperties.get("persist.vendor.camera.preview.size", "");
     private static final boolean PERSIST_CAMERA_CAMERA2 =
-            SystemProperties.getBoolean("persist.vendor.camera.camera2", false);
+            SystemProperties.getBoolean("persist.vendor.camera.camera2", true);
     private static final boolean PERSIST_CAMERA_ZSL =
             SystemProperties.getBoolean("persist.vendor.camera.zsl.disabled", false);
     private static final int PERSIST_CAMERA2_DEBUG =
