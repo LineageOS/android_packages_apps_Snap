@@ -79,7 +79,7 @@ public class LocationManager {
     }
 
     private boolean hasLoationPermission() {
-        return mContext.checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION)
+        return mContext.checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION)
                 == PackageManager.PERMISSION_GRANTED;
     }
 
