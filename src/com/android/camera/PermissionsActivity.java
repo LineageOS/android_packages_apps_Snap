@@ -79,7 +79,7 @@ public class PermissionsActivity extends Activity {
             mFlagHasStoragePermission = true;
         }
 
-        if (checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION)
+        if (checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION)
                 != PackageManager.PERMISSION_GRANTED) {
             mNumPermissionsToRequest++;
             mShouldRequestLocationPermission = true;
@@ -119,7 +119,7 @@ public class PermissionsActivity extends Activity {
         }
         if (mShouldRequestLocationPermission) {
             permissionsToRequest[permissionsRequestIndex] =
-                    Manifest.permission.ACCESS_COARSE_LOCATION;
+                    Manifest.permission.ACCESS_FINE_LOCATION;
             mIndexPermissionRequestLocation = permissionsRequestIndex;
         }
         requestPermissions(permissionsToRequest, PERMISSION_REQUEST_CODE);
