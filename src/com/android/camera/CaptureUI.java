@@ -375,20 +375,13 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
 
         mMuteButton = (RotateImageView)mRootView.findViewById(R.id.mute_button);
         mMuteButton.setVisibility(View.VISIBLE);
-        if(!mModule.isAudioMute()) {
-            mMuteButton.setImageResource(R.drawable.ic_unmuted_button);
-        } else {
-            mMuteButton.setImageResource(R.drawable.ic_muted_button);
-        }
+        setMuteButtonResource(!mModule.isAudioMute());
         mMuteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 boolean isEnabled = !mModule.isAudioMute();
                 mModule.setMute(isEnabled, true);
-                if (!isEnabled)
-                    mMuteButton.setImageResource(R.drawable.ic_unmuted_button);
-                else
-                    mMuteButton.setImageResource(R.drawable.ic_muted_button);
+                setMuteButtonResource(!isEnabled);
             }
         });
 
@@ -802,12 +795,21 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
             mRecordingTimeView.setText("");
             mRecordingTimeRect.setVisibility(View.VISIBLE);
             mMuteButton.setVisibility(View.VISIBLE);
+            setMuteButtonResource(!mModule.isAudioMute());
         } else {
             mFlashButton.setVisibility(View.VISIBLE);
             mFlashButton.init(false);
             mVideoButton.setImageResource(R.drawable.video_capture);
             mRecordingTimeRect.setVisibility(View.GONE);
             mMuteButton.setVisibility(View.INVISIBLE);
+        }
+    }
+
+    private void setMuteButtonResource(boolean isUnMute) {
+        if(isUnMute) {
+            mMuteButton.setImageResource(R.drawable.ic_unmuted_button);
+        } else {
+            mMuteButton.setImageResource(R.drawable.ic_muted_button);
         }
     }
 
