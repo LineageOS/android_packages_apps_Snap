@@ -2678,6 +2678,7 @@ public class CaptureModule implements CameraModule, PhotoController,
             ClearSightImageProcessor.getInstance().close();
         }
         closeCamera();
+        resetAudioMute();
         mUI.showPreviewCover();
         if (mUI.getGLCameraPreview() != null)
             mUI.getGLCameraPreview().onPause();
