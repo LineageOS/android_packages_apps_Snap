@@ -108,6 +108,7 @@ public class WideAnglePanoramaUI implements
     private RotateLayout mWaitingDialog;
     private RotateLayout mPanoFailedDialog;
     private Button mPanoFailedButton;
+    private boolean mConfigChange = false;
 
     /** Constructor. */
     public WideAnglePanoramaUI(
@@ -289,7 +290,7 @@ public class WideAnglePanoramaUI implements
     @Override
     public void onSurfaceTextureUpdated(SurfaceTexture surfaceTexture) {
         // Make sure preview cover is hidden if preview data is available.
-        if (mPreviewCover.getVisibility() != View.GONE) {
+        if (mPreviewCover.getVisibility() != View.GONE && !mConfigChange) {
             mPreviewCover.setVisibility(View.GONE);
         }
     }
@@ -339,6 +340,17 @@ public class WideAnglePanoramaUI implements
 
     public void onConfigurationChanged(
             Configuration newConfig, boolean threadRunning) {
+        if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            showPreviewCover();
+            mConfigChange = true;
+        } else {
+            mPreviewCover.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    mConfigChange = false;
+                }
+            }, 300);
+        }
         Drawable lowResReview = null;
         if (threadRunning) lowResReview = mReview.getDrawable();
 
