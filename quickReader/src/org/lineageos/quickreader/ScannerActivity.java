@@ -27,6 +27,8 @@ import android.provider.Settings;
 import android.text.TextUtils;
 import android.util.Log;
 import android.util.Patterns;
+import android.view.Window;
+import android.view.WindowManager;
 import android.webkit.URLUtil;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -54,6 +56,8 @@ public class ScannerActivity extends Activity implements ZXingScannerView.Result
                     "(.*)"
     );
 
+    public static final String SECURE_CAMERA_EXTRA = "secure_camera";
+
     private static ScannerIntentHelper sHelper;
 
     private AnalyzeTask task;
@@ -68,6 +72,15 @@ public class ScannerActivity extends Activity implements ZXingScannerView.Result
     @Override
     protected void onCreate(Bundle savedInstance) {
         super.onCreate(savedInstance);
+
+        Intent intent = getIntent();
+        if (intent.getBooleanExtra(SECURE_CAMERA_EXTRA, false)) {
+            // Change the window flags so that secure camera can show when locked
+            Window win = getWindow();
+            WindowManager.LayoutParams params = win.getAttributes();
+            params.flags |= WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED;
+            win.setAttributes(params);
+        }
 
         setContentView(R.layout.activity_scanner);
 
