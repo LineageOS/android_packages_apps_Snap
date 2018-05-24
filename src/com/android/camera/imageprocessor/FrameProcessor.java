@@ -92,6 +92,7 @@ public class FrameProcessor {
     public static final int LISTENER_TRACKING_FOCUS = 2;
     private CaptureModule mModule;
     private boolean mIsVideoOn = false;
+    private boolean mIsFirstIn = true;
 
     public FrameProcessor(Activity activity, CaptureModule module) {
         mActivity = activity;
@@ -343,6 +344,7 @@ public class FrameProcessor {
         }
         mVideoSurfaceAsItIs = surface;
         mIsVideoOn = true;
+        mIsFirstIn = true;
         if (mFinalFilters.size() != 0) {
             synchronized (mAllocationLock) {
                 if (mVideoOutputAllocation == null) {
@@ -410,6 +412,10 @@ public class FrameProcessor {
                         }
                         bY.rewind();
                         bVU.rewind();
+                    }
+                    if (mIsFirstIn && mIsVideoOn && isFrameListnerEnabled()) {
+                        mIsFirstIn = false;
+                        mModule.startMediaRecording();
                     }
                     //End processing yvu buf
                     if (needToFeedSurface) {
