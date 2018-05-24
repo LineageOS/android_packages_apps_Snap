@@ -2187,8 +2187,9 @@ public class CameraActivity extends Activity
     @Override
     public void onModuleSelected(int moduleIndex) {
         if (moduleIndex == ModuleSwitcher.QR_MODULE_INDEX) {
-            startActivity(new Intent(this, ScannerActivity.class));
-            finish();
+            Intent intent = new Intent(this, ScannerActivity.class);
+            intent.putExtra(SECURE_CAMERA_EXTRA, mSecureCamera);
+            startActivity(intent);
             return;
         }
 
