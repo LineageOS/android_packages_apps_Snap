@@ -3144,6 +3144,9 @@ public class VideoModule implements CameraModule,
 
     @Override
     public void onPreviewUIDestroyed() {
+        if (mMediaRecorderRecording) {
+            onStopVideoRecording();
+        }
         stopPreview();
     }
 
