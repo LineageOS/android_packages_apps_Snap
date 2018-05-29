@@ -3852,6 +3852,8 @@ public class CaptureModule implements CameraModule, PhotoController,
             mUI.showUIafterRecording();
             mFrameProcessor.setVideoOutputSurface(null);
             restartSession(true);
+        } catch (IllegalStateException e) {
+            e.printStackTrace();
         }
         return true;
     }
