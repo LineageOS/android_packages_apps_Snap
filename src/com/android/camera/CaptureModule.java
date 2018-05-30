@@ -164,6 +164,7 @@ public class CaptureModule implements CameraModule, PhotoController,
     private static final int OPEN_CAMERA = 0;
     private static final int CANCEL_TOUCH_FOCUS = 1;
     private static final int MAX_NUM_CAM = 6;
+    private String DEPTH_CAM_ID;
     private static final MeteringRectangle[] ZERO_WEIGHT_3A_REGION = new MeteringRectangle[]{
             new MeteringRectangle(0, 0, 0, 0, 0)};
     private static final String EXTRA_QUICK_CAPTURE =
@@ -2126,6 +2127,20 @@ public class CaptureModule implements CameraModule, PhotoController,
                 String cameraId = cameraIdList[i];
 
                 CameraCharacteristics characteristics = manager.getCameraCharacteristics(cameraId);
+                int[] capabilities = characteristics.get(CameraCharacteristics.REQUEST_AVAILABLE_CAPABILITIES);
+
+                boolean foundDepth = false;
+                for (int capability : capabilities) {
+                    if (capability == CameraCharacteristics.REQUEST_AVAILABLE_CAPABILITIES_DEPTH_OUTPUT) {
+                        DEPTH_CAM_ID = cameraId;
+                        Log.d(TAG, "Found depth camera with id " + cameraId);
+                        foundDepth = true;
+                    }
+                }
+
+                if(foundDepth) {
+                    continue;
+                }
                 if (isInMode(i))
                     mCameraIdList.add(i);
                 if(i == getMainCameraId()) {
