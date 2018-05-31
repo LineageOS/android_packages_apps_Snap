@@ -2062,6 +2062,7 @@ public class CameraActivity extends Activity
             Intent intent = new Intent(this, ScannerActivity.class);
             intent.putExtra(SECURE_CAMERA_EXTRA, mSecureCamera);
             startActivity(intent);
+            overridePendingTransition(0, 0);
             return;
         }
 

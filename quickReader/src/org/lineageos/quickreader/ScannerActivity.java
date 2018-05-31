@@ -131,6 +131,12 @@ public class ScannerActivity extends Activity implements ZXingScannerView.Result
     }
 
     @Override
+    public void finish() {
+        super.finish();
+        overridePendingTransition(0, 0);
+    }
+
+    @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions,
             int[] grantResults) {
         if (requestCode != REQUEST_CAMERA || permissions.length == 0 || grantResults.length == 0) {
