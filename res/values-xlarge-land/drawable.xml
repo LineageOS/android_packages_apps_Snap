@@ -17,6 +17,4 @@
      the resources listed in this file wouldn't be reloaded when device
      orientation changes. -->
 <resources>
-    <item name="btn_video_shutter_recording_holo" type="drawable">@drawable/btn_video_shutter_recording_holo_xlarge</item>
-    <item name="btn_video_shutter_recording_pressed_holo" type="drawable">@drawable/btn_video_shutter_recording_pressed_holo_xlarge</item>
 </resources>
