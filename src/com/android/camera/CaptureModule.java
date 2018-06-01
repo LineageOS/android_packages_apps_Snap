@@ -299,6 +299,8 @@ public class CaptureModule implements CameraModule, PhotoController,
             new CaptureRequest.Key<>("org.quic.camera.eis3enable.EISV3Enable", byte.class);
     public static final CaptureRequest.Key<Byte> recording_end_stream =
             new CaptureRequest.Key<>("org.quic.camera.recording.endOfStream", byte.class);
+    public static final CaptureRequest.Key<Byte> earlyPCR =
+            new CaptureRequest.Key<>("org.quic.camera.EarlyPCRenable.EarlyPCRenable", byte.class);
 
     private boolean[] mTakingPicture = new boolean[MAX_NUM_CAM];
     private int mControlAFMode = CameraMetadata.CONTROL_AF_MODE_CONTINUOUS_PICTURE;
@@ -2581,6 +2583,7 @@ public class CaptureModule implements CameraModule, PhotoController,
         applySharpnessControlModes(builder);
         applyExposureMeteringModes(builder);
         applyHistogram(builder);
+        applyEarlyPCR(builder);
     }
 
     /**
@@ -3967,6 +3970,7 @@ public class CaptureModule implements CameraModule, PhotoController,
         applyVideoEncoderProfile(builder);
         applyVideoEIS(builder);
         applyVideoHDR(builder);
+        applyEarlyPCR(builder);
     }
 
     private void applyVideoHDR(CaptureRequest.Builder builder) {
@@ -4840,6 +4844,20 @@ public class CaptureModule implements CameraModule, PhotoController,
             byte byteValue = (byte) (value.equals("disable") ? 0x00 : 0x01);
             try {
                 request.set(CaptureModule.eis_mode, byteValue);
+            } catch (IllegalArgumentException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private void applyEarlyPCR(CaptureRequest.Builder request) {
+        if (!mSettingsManager.isDeveloperEnabled()) {
+            return;//don't apply if not in dev mode
+        }
+        String value = mSettingsManager.getValue(SettingsManager.KEY_EARLY_PCR_VALUE);
+        if(value != null) {
+            try {
+                request.set(CaptureModule.earlyPCR, (byte) (value.equals("disable") ? 0x00 : 0x01));
             } catch (IllegalArgumentException e) {
                 e.printStackTrace();
             }
