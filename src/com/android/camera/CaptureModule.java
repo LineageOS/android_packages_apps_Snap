@@ -358,6 +358,11 @@ public class CaptureModule implements CameraModule, PhotoController,
     public static final CaptureRequest.Key<Byte> earlyPCR =
             new CaptureRequest.Key<>("org.quic.camera.EarlyPCRenable.EarlyPCRenable", byte.class);
 
+    public static final CaptureRequest.Key<Integer> capture_mfnr_enable =
+            new CaptureRequest.Key<>("org.codeaurora.qcamera3.mfnr_enable", Integer.class);
+    public static final CaptureRequest.Key<Integer> capture_mfsr_enable =
+            new CaptureRequest.Key<>("org.codeaurora.qcamera3.mfsr_enable", Integer.class);
+
     private boolean[] mTakingPicture = new boolean[MAX_NUM_CAM];
     private int mControlAFMode = CameraMetadata.CONTROL_AF_MODE_CONTINUOUS_PICTURE;
     private int mLastResultAFState = -1;
@@ -2022,6 +2027,8 @@ public class CaptureModule implements CameraModule, PhotoController,
             }
             VendorTagUtil.setCdsMode(captureBuilder, 2);// CDS 0-OFF, 1-ON, 2-AUTO
             applySettingsForCapture(captureBuilder, id);
+            applyCaptureMFNR(captureBuilder);
+            applyCaptureMFSR(captureBuilder);
             if (mUI.getCurrentProMode() == ProMode.MANUAL_MODE) {
                 float value = mSettingsManager.getFocusValue(SettingsManager.KEY_FOCUS_DISTANCE);
                 applyFocusDistance(captureBuilder, String.valueOf(value));
@@ -4352,6 +4359,28 @@ public class CaptureModule implements CameraModule, PhotoController,
                 builder.set(CaptureModule.support_video_hdr_values, Integer.parseInt(value));
             } catch (IllegalArgumentException e) {
                 Log.w(TAG, "cannot find vendor tag: " + support_video_hdr_values.toString());
+            }
+        }
+    }
+
+    private void applyCaptureMFNR(CaptureRequest.Builder builder) {
+        String value = mSettingsManager.getValue(SettingsManager.KEY_CAPTURE_MFNR_VALUE);
+        if (value != null) {
+            try {
+                builder.set(CaptureModule.capture_mfnr_enable, Integer.parseInt(value));
+            } catch (IllegalArgumentException e) {
+                Log.w(TAG, "cannot find vendor tag: " + capture_mfnr_enable.toString());
+            }
+        }
+    }
+
+    private void applyCaptureMFSR(CaptureRequest.Builder builder) {
+        String value = mSettingsManager.getValue(SettingsManager.KEY_CAPTURE_MFSR_VALUE);
+        if (value != null) {
+            try {
+                builder.set(CaptureModule.capture_mfsr_enable, Integer.parseInt(value));
+            } catch (IllegalArgumentException e) {
+                Log.w(TAG, "cannot find vendor tag: " + capture_mfsr_enable.toString());
             }
         }
     }
