@@ -538,9 +538,21 @@ CHAR LIMIT = NONE] -->
   <string name="pref_camera2_category_system">Systém</string>
   <string name="pref_camera2_restore_default">Obnovit původní</string>
   <string name="pref_camera2_restore_default_hint">Nastavení fotoaparátu bude obnoveno na výchozí nastavení</string>
+  <plurals name="save_best_dialog_content">
+    <item quantity="one">%1$d z 10 obrázků bude uložen a zbytek odstraněn</item>
+    <item quantity="few">%1$d z 10 obrázků bude uloženo a zbytek odstraněn</item>
+    <item quantity="many">%1$d z 10 obrázků bude uloženo a zbytek odstraněn</item>
+    <item quantity="other">%1$d z 10 obrázků bude uloženo a zbytek odstraněn</item>
+  </plurals>
   <string name="save_best_dialog_title">Uložit vybrané obrázky?</string>
   <string name="save_best_dialog_positive_bt">OK</string>
   <string name="save_best_dialog_native_bt">Zrušit</string>
+  <plurals name="save_best_image_toast">
+    <item quantity="one">%1$d z 10 obrázků uložen.</item>
+    <item quantity="few">%1$d z 10 obrázků uloženy.</item>
+    <item quantity="many">%1$d z 10 obrázků uloženo.</item>
+    <item quantity="other">%1$d z 10 obrázků uloženo.</item>
+  </plurals>
   <string name="dialog_do_not_show">Znovu nezobrazovat</string>
   <string name="delete_best_dialog_title">Odstranit vše?</string>
   <string name="delete_best_dialog_content">Opravdu chcete odstranit všech 10 pořízených snímků?</string>

@@ -475,8 +475,10 @@
   <string name="perf_camera2_preferences_category_video">Videokamera</string>
   <string name="perf_camera2_preferences_category_system">System</string>
   <string name="pref_camera2_scene_mode_dual_camera_instructional_content">Im Dual-Kamera-Modus werden Ihre Bilder klarer. Sie können auch Hintergrundeffekte anwenden, indem Sie Ihre Dual-Kamera-Bilder in der Galerie bearbeiten.</string>
+  <string name="pref_camera2_scene_mode_ubi_focus_instructional_content">Mit UbiFocus nimmt Ihre Kamera fünf Bilder auf und kombiniert sie zu einem Bild, bei dem alles im Fokus ist. Sie können den Fokus neu setzen, nachdem Sie das Bild aufgenommen haben.</string>
   <string name="pref_camera2_scene_mode_opti_zoom_instructional_content">Verwenden Sie OptiZoom, wenn Sie ein klareres, vergrößertes Bild haben möchten. Sie können vor oder nach der Aufnahme das Bild vergrößern.</string>
   <string name="pref_camera2_scene_mode_sports_instructional_content">Der Sportmodus hilft Ihnen, bessere Sport- oder Action-Fotos aufzunehmen.\n\nVerbessert Ihre Fotos, hat aber keine Auswirkung auf Videoaufzeichnungen.</string>
+  <string name="pref_camera2_scene_mode_hdr_instructional_content">Bei gemischten Lichtverhältnissen, wie z.B. bei schlechten Lichtverhältnissen und Gegenlicht, wählen Sie \"HDR\" für bestmögliche Bilder.</string>
   <string name="pref_camera2_scene_mode_best_photo_instructional_content">Ermöglicht es Ihnen eine Reihe von 10 Fotos aufzunehmen und anschließend die Besten auszusuchen.</string>
   <string name="pref_camera2_scene_mode_chroma_flash_instructional_content">Mit Chroma-Flash wird die Beleuchtung in Ihren Biltz-Fotos für alle Personen und Objekte optimiert. Diese Funktion ist nur für die Rückkamera verfügbar.</string>
   <string name="pref_camera2_scene_mode_sharp_photo_instructional_content">SharpPhoto reduziert die Unschärfe, die durch die Bewegung in der Szene oder durch Verwackeln verursacht wird.</string>
@@ -520,6 +522,7 @@
   <string name="pref_camera_bokeh_mode_title">Bokeh-Modus</string>
   <string name="pref_camera_bokeh_mode_entry_enable">Aktivieren</string>
   <string name="pref_camera_bokeh_mode_entry_disable">Deaktivieren</string>
+  <string name="pref_camera_bokeh_mpo_title">Bokeh-Modus MPO</string>
   <string name="pref_camera_bokeh_mpo_entry_enable">Aktivieren</string>
   <string name="pref_camera_bokeh_mpo_entry_disable">Deaktivieren</string>
   <string name="pref_camera_bokeh_blur_degree_title">Bokeh Unschärfewert</string>
@@ -546,6 +549,7 @@
   <string name="pref_camera2_zsl_entry_hal_zsl">Hardware ZSL</string>
   <!-- QCFA Title -->
   <!-- QCFA choices -->
+  <string name="pref_camera2_switch_camera_title">Kamera nach ID wechseln</string>
   <string name="pref_camera2_initial_camera_entry_bayer">Bayer</string>
   <string name="pref_camera2_initial_camera_entry_mono">Schwarzweiß</string>
   <string name="pref_camera2_initial_camera_entry_front">Frontkamera</string>

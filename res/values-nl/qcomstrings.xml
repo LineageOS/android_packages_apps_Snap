@@ -462,6 +462,7 @@
   <string name="pref_camera2_timer_entry_5sec">5 seconden</string>
   <string name="pref_camera2_timer_entry_10sec">10 seconden</string>
   <string name="makeup_ui_ok_button">OK</string>
+  <string name="perf_camera2_version_info">Versie-info</string>
   <string name="perf_camera2_preferences_category_general">Algemeen</string>
   <string name="perf_camera2_preferences_category_video">Videocamera</string>
   <string name="perf_camera2_preferences_category_system">Systeem</string>

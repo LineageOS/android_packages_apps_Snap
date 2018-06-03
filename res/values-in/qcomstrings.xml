@@ -447,8 +447,10 @@
   <string name="pref_camera2_trackingfocus_title">Fokus pelacakan</string>
   <string name="pref_camera2_trackingfocus_entry_off">Tidak aktif</string>
   <string name="pref_camera_scenemode_entry_bestpicture">Gambar terbaik</string>
+  <string name="pref_camera_scenemode_entry_sharpshooter">Foto tajam</string>
   <string name="pref_camera_scenemode_entry_trackingfocus">Fokus pelacakan</string>
   <string name="pref_camera_scenemode_entry_panorama">Panorama</string>
+  <string name="pref_camera_scenemode_entry_promode">Modus Pro</string>
   <string name="bestpicture_done">SELESAI</string>
   <string name="bestpicture_at_least_one_picture">Setidaknya satu gambar harus dipilih.</string>
   <string name="pref_camera2_shutter_sound_entry_on">Hidup</string>
@@ -458,12 +460,15 @@
   <string name="pref_camera2_timer_entry_2sec">2 detik</string>
   <string name="pref_camera2_timer_entry_5sec">5 detik</string>
   <string name="pref_camera2_timer_entry_10sec">10 detik</string>
+  <string name="panocapture_direction_is_not_determined">Bergerak terus-menerus dalam satu arah.</string>
   <string name="panocapture_intro">Tekan tombol kamera untuk memulai.</string>
+  <string name="panocapture_direction_is_changed">Arah telah berubah, berhenti memotret panorama\u2026</string>
   <string name="makeup_ui_ok_button">OKE</string>
   <string name="perf_camera2_version_info">Info versi</string>
   <string name="perf_camera2_preferences_category_general">Umum</string>
   <string name="perf_camera2_preferences_category_video">Kamera video</string>
   <string name="perf_camera2_preferences_category_system">Sistem</string>
+  <string name="pref_camera2_scene_mode_blur_buster_instructional_content">BlurBuster mengurangi kabur dari tangan yang gemetar. Ini bisa sangat membantu saat memotret di tempat yang sulit.</string>
   <string name="pref_camera2_not_show_again">Jangan tampilkan lagi</string>
   <string name="pref_camera2_scene_mode_instructional_ok">OKE</string>
   <string name="pref_camera2_instant_aec_title">Instan AEC</string>
@@ -501,6 +506,7 @@
   <string name="pref_camera_bokeh_mpo_entry_enable">Hidup</string>
   <string name="pref_camera_bokeh_mpo_entry_disable">Mati</string>
   <!-- Default Zoom setting. -->
+  <string name="pref_camera_zoom_title">Perbesar</string>
   <!-- Settings menu, Zoom choices -->
   <string name="pref_camera_zoom_entry_off">Tidak aktif</string>
   <string name="pref_camera_zoom_entry_1x">1x</string>
@@ -513,6 +519,7 @@
   <string name="pref_camera_zoom_entry_8x">8x</string>
   <string name="pref_camera_zoom_entry_9x">9x</string>
   <string name="pref_camera_zoom_entry_10x">10x</string>
+  <string name="pref_camera2_bsgc_title">Deteksi senyum/kedipan/tatapan</string>
   <string name="pref_camera2_bsgc_entry_enable">Hidup</string>
   <string name="pref_camera2_bsgc_entry_disable">Mati</string>
   <string name="pref_camera2_zsl_title">Rana tanpa jeda</string>
