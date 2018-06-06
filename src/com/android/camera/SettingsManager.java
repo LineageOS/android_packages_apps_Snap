@@ -1423,9 +1423,10 @@ public class SettingsManager implements ListMenu.SettingsListener {
         return map.getHighSpeedVideoFpsRangesFor(videoSize);
     }
 
-    public int getHighSpeedVideoEncoderBitRate(CamcorderProfile profile, int targetRate) {
-        int bitRate;
-        String key = profile.videoFrameWidth+"x"+profile.videoFrameHeight+":"+targetRate;
+    public int getHighSpeedVideoEncoderBitRate(CamcorderProfile profile, int targetRate,
+                                               int captureRate) {
+        long bitRate;
+        String key = profile.videoFrameWidth+"x"+profile.videoFrameHeight+":"+captureRate;
         String resolutionFpsEncoder = key + ":" + profile.videoCodec;
         if (CameraSettings.VIDEO_ENCODER_BITRATE.containsKey(resolutionFpsEncoder)) {
             bitRate = CameraSettings.VIDEO_ENCODER_BITRATE.get(resolutionFpsEncoder);
@@ -1434,8 +1435,12 @@ public class SettingsManager implements ListMenu.SettingsListener {
         } else {
             Log.i(TAG, "No pre-defined bitrate for "+key);
             bitRate = (profile.videoBitRate * targetRate) / profile.videoFrameRate;
+            return (int)bitRate;
         }
-        return bitRate;
+        if (targetRate != captureRate) { // HFR use case. Do scaling based on HSR bitrate
+            bitRate = (bitRate * targetRate) / captureRate;
+        }
+        return (int)bitRate;
     }
 
     private List<String> getSupportedRedeyeReduction(int cameraId) {
