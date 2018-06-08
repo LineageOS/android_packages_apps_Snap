@@ -147,5 +147,6 @@
     <!-- Advanced options -->
     <string name="developer_menu_enabled">You have enabled advanced camera options</string>
     <string name="developer_menu_disabled">You have disabled advanced camera options</string>
+    <string name="perf_camera2_preferences_category_developer">DEVELOPER OPTIONS</string>
 
 </resources>
