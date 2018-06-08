@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b6af7b34_66adf1a7",
+        "filename": "res/values/cm_strings.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2018-06-08T11:40:16Z",
+      "side": 1,
+      "message": "derp: probably meant \"pref\"",
+      "range": {
+        "startLine": 150,
+        "startChar": 18,
+        "endLine": 150,
+        "endChar": 61
+      },
+      "revId": "8191592aa304761a5333dbda6fd38a9b69e6ddf7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7a1e4f93_aec0cca6",
+        "filename": "res/xml/setting_menu_preferences.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2018-06-08T11:40:16Z",
+      "side": 1,
+      "message": "would need to fix the \"pref\" suggested before here as well",
+      "range": {
+        "startLine": 270,
+        "startChar": 31,
+        "endLine": 270,
+        "endChar": 74
+      },
+      "revId": "8191592aa304761a5333dbda6fd38a9b69e6ddf7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
