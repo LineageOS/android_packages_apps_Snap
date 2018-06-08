@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c909d1cb_95c9b26b",
+        "filename": "res/values/cm_strings.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 8461
+      },
+      "writtenOn": "2018-06-08T12:11:25Z",
+      "side": 1,
+      "message": "Lowercase",
+      "range": {
+        "startLine": 150,
+        "startChar": 63,
+        "endLine": 150,
+        "endChar": 80
+      },
+      "revId": "3d6e0bf53091b2f10e0e6a7c8bf80ea58d1b7129",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
