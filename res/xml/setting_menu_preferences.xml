@@ -287,7 +287,7 @@
     <PreferenceCategory
         android:key="developer"
         android:layout="@layout/preferences_category"
-        android:title="DEVELOPER OPTIONS">
+        android:title="@string/pref_camera2_preferences_category_developer">
 
         <ListPreference
             android:defaultValue="@string/pref_camera2_instant_aec_default"
