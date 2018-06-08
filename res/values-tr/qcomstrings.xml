@@ -469,11 +469,11 @@
   <string name="panocapture_direction_is_changed">Yön değişti, panorama çekimi durduruluyor\u2026</string>
   <string name="makeup_ui_title">Güzelleştirme seviyesini seçin.</string>
   <string name="makeup_ui_ok_button">TAMAM</string>
-  <string name="perf_camera2_version_info">Sürüm bilgisi</string>
-  <string name="perf_camera2_preferences_category_general">Genel</string>
-  <string name="perf_camera2_preferences_category_photo">Haraketsiz kamera</string>
-  <string name="perf_camera2_preferences_category_video">Video kamera</string>
-  <string name="perf_camera2_preferences_category_system">Sistem</string>
+  <string name="pref_camera2_version_info">Sürüm bilgisi</string>
+  <string name="pref_camera2_preferences_category_general">Genel</string>
+  <string name="pref_camera2_preferences_category_photo">Haraketsiz kamera</string>
+  <string name="pref_camera2_preferences_category_video">Video kamera</string>
+  <string name="pref_camera2_preferences_category_system">Sistem</string>
   <string name="pref_camera2_scene_mode_dual_camera_instructional_content">Çift kamera modunda resimleriniz daha net görünecektir. Galeri\'deki çift kamera resimlerinizi düzenleyerek arka plan efektleri uygulayabilirsiniz.</string>
   <string name="pref_camera2_scene_mode_ubi_focus_instructional_content">UbiFocus ile, kameranız beş resim çekecek ve bunları her şeyin odaklandığı tek bir resimde birleştirecektir. Resmi çektikten sonra yeniden odaklamayı seçebilirsiniz.</string>
   <string name="pref_camera2_scene_mode_opti_zoom_instructional_content">Net bir resim elde etmek için yakınlaştırmak istediğinizde OptiZoom kullanın. Daha önce veya resmi çektiğinizde yakınlaştırabilirsiniz.</string>

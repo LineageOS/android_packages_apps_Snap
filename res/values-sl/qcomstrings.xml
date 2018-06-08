@@ -469,11 +469,11 @@
   <string name="panocapture_direction_is_changed">Smer se je spremenila, ustavljanje zajema panorame \u2026</string>
   <string name="makeup_ui_title">Izberite moč polepšave.</string>
   <string name="makeup_ui_ok_button">V REDU</string>
-  <string name="perf_camera2_version_info">Informacije o različici</string>
-  <string name="perf_camera2_preferences_category_general">Splošno</string>
-  <string name="perf_camera2_preferences_category_photo">Miren fotoaparat</string>
-  <string name="perf_camera2_preferences_category_video">Video kamera</string>
-  <string name="perf_camera2_preferences_category_system">Sistem</string>
+  <string name="pref_camera2_version_info">Informacije o različici</string>
+  <string name="pref_camera2_preferences_category_general">Splošno</string>
+  <string name="pref_camera2_preferences_category_photo">Miren fotoaparat</string>
+  <string name="pref_camera2_preferences_category_video">Video kamera</string>
+  <string name="pref_camera2_preferences_category_system">Sistem</string>
   <string name="pref_camera2_scene_mode_dual_camera_instructional_content">V načinu dvojnega fotoaparata bodo vaše fotografije jasnejše. Uveljavite lahko tudi učinke ozadja z urejanjem vaših fotografij dvojnega fotoaparata v Galeriji.</string>
   <string name="pref_camera2_scene_mode_ubi_focus_instructional_content">Z UbiFocus bo vaš fotoaparat posnel pet fotografij in jih združil v eno izostreno fotografijo. Posneto fotografijo lahko ponovno izostrite.</string>
   <string name="pref_camera2_scene_mode_opti_zoom_instructional_content">Uporabite OptiZoom, ko želite povečavo za jasnejšo fotografijo. Povečate lahko pred ali po posnetku fotografije.</string>

@@ -1010,11 +1010,11 @@
     <string name="makeup_seekbar_low" translatable="false">low</string>
     <string name="makeup_seekbar_high" translatable="false">high</string>
 
-    <string name="perf_camera2_version_info">Version info</string>
-    <string name="perf_camera2_preferences_category_general">General</string>
-    <string name="perf_camera2_preferences_category_photo">Still camera</string>
-    <string name="perf_camera2_preferences_category_video">Video camera</string>
-    <string name="perf_camera2_preferences_category_system">System</string>
+    <string name="pref_camera2_version_info">Version info</string>
+    <string name="pref_camera2_preferences_category_general">General</string>
+    <string name="pref_camera2_preferences_category_photo">Still camera</string>
+    <string name="pref_camera2_preferences_category_video">Video camera</string>
+    <string name="pref_camera2_preferences_category_system">System</string>
 
     <string name="pref_camera2_scene_mode_dual_camera_instructional_content">In dual camera mode, your pictures will be clearer. You can also apply background effects, by editing your dual camera pictures in the Gallery.</string>
     <string name="pref_camera2_scene_mode_ubi_focus_instructional_content">With UbiFocus, your camera will take five pictures and combine them into one picture, where everything is in focus. You can choose to re-focus, after you take the picture.</string>

@@ -469,11 +469,11 @@
   <string name="panocapture_direction_is_changed">הכיוון השתנה, עוצר את צילום הפנורמה\u2026</string>
   <string name="makeup_ui_title">בחר את עוצמת הייפוי.</string>
   <string name="makeup_ui_ok_button">אישור</string>
-  <string name="perf_camera2_version_info">פרטי גרסה</string>
-  <string name="perf_camera2_preferences_category_general">כללי</string>
-  <string name="perf_camera2_preferences_category_photo">מצלמת תמונות</string>
-  <string name="perf_camera2_preferences_category_video">מצלמת וידאו</string>
-  <string name="perf_camera2_preferences_category_system">מערכת</string>
+  <string name="pref_camera2_version_info">פרטי גרסה</string>
+  <string name="pref_camera2_preferences_category_general">כללי</string>
+  <string name="pref_camera2_preferences_category_photo">מצלמת תמונות</string>
+  <string name="pref_camera2_preferences_category_video">מצלמת וידאו</string>
+  <string name="pref_camera2_preferences_category_system">מערכת</string>
   <string name="pref_camera2_scene_mode_dual_camera_instructional_content">במצב מצלמה כפולה, התמונות יהיו נקיות יותר. כמו כן תוכל להחיל אפקטי רקע על ידי עריכת התמונה בגלריה.</string>
   <string name="pref_camera2_scene_mode_ubi_focus_instructional_content">עם UbiFocus, המצלמה שלך תצלם 5 תמונות ותשלב אותם לאחת, שכל הפריטים יהיו מפוקסים. תוכל לשנות את הפוקוס לאחר צילום התמונה.</string>
   <string name="pref_camera2_scene_mode_opti_zoom_instructional_content">השתמש ב־OptiZoom כשתרצה לעשות זום ולקבל תמונה נקיה. תוכל להגדיל פני או אחרי צילום התמונה.</string>

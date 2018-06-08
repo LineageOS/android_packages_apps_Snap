@@ -469,11 +469,11 @@
   <string name="panocapture_direction_is_changed">方向が変わったため、パノラマ撮影を中止します\u2026</string>
   <string name="makeup_ui_title">美肌効果の強さを選択</string>
   <string name="makeup_ui_ok_button">OK</string>
-  <string name="perf_camera2_version_info">バージョン情報</string>
-  <string name="perf_camera2_preferences_category_general">全般</string>
-  <string name="perf_camera2_preferences_category_photo">スチールカメラ</string>
-  <string name="perf_camera2_preferences_category_video">ビデオカメラ</string>
-  <string name="perf_camera2_preferences_category_system">システム</string>
+  <string name="pref_camera2_version_info">バージョン情報</string>
+  <string name="pref_camera2_preferences_category_general">全般</string>
+  <string name="pref_camera2_preferences_category_photo">スチールカメラ</string>
+  <string name="pref_camera2_preferences_category_video">ビデオカメラ</string>
+  <string name="pref_camera2_preferences_category_system">システム</string>
   <string name="pref_camera2_scene_mode_dual_camera_instructional_content">デュアルカメラモードでは撮影した写真がよりクリアに撮影できます。
 また、その写真をギャラリーで編集し背景にボケ味を与えることもできます。</string>
   <string name="pref_camera2_scene_mode_ubi_focus_instructional_content">UbiFocus は撮影時に同時にフォーカス位置が異なる写真を最大5枚撮影し、

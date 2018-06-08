@@ -469,11 +469,11 @@
   <string name="panocapture_direction_is_changed">方向已改变, 停止拍摄全景照片\u2026</string>
   <string name="makeup_ui_title">请选择美化的强度</string>
   <string name="makeup_ui_ok_button">确定</string>
-  <string name="perf_camera2_version_info">版本信息</string>
-  <string name="perf_camera2_preferences_category_general">常规</string>
-  <string name="perf_camera2_preferences_category_photo">静置相机</string>
-  <string name="perf_camera2_preferences_category_video">摄像机</string>
-  <string name="perf_camera2_preferences_category_system">系统</string>
+  <string name="pref_camera2_version_info">版本信息</string>
+  <string name="pref_camera2_preferences_category_general">常规</string>
+  <string name="pref_camera2_preferences_category_photo">静置相机</string>
+  <string name="pref_camera2_preferences_category_video">摄像机</string>
+  <string name="pref_camera2_preferences_category_system">系统</string>
   <string name="pref_camera2_scene_mode_dual_camera_instructional_content">在双摄模式下, 您的照片将更加清晰。还可以通过在相册中编辑双摄相片来应用背景效果。</string>
   <string name="pref_camera2_scene_mode_ubi_focus_instructional_content">使用 UbiFocus ，您的相机键将会拍摄5张位于不同焦点的照片，并合成一张照片。您可以稍后重新选择焦点。</string>
   <string name="pref_camera2_scene_mode_opti_zoom_instructional_content">若放大后仍要获得清晰的照片，请使用 Optizoom ，您可以在拍照前或拍照后缩放。</string>

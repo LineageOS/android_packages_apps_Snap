@@ -461,8 +461,8 @@
   <string name="pref_camera2_timer_entry_5sec">5 секунди</string>
   <string name="pref_camera2_timer_entry_10sec">10 секунди</string>
   <string name="makeup_ui_ok_button">У реду</string>
-  <string name="perf_camera2_preferences_category_video">Видео камера</string>
-  <string name="perf_camera2_preferences_category_system">Систем</string>
+  <string name="pref_camera2_preferences_category_video">Видео камера</string>
+  <string name="pref_camera2_preferences_category_system">Систем</string>
   <string name="pref_camera2_scene_mode_instructional_ok">У реду</string>
   <string name="pref_camera2_instant_aec_entry_disable">Онемогући</string>
   <string name="pref_camera2_instant_aec_entry_aggressive">Агресивни AEC</string>

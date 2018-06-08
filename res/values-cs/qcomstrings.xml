@@ -469,11 +469,11 @@
   <string name="panocapture_direction_is_changed">Směr byl změněn, zastavování panoramatického snímání\u2026</string>
   <string name="makeup_ui_title">Vyberte úroveň zkrášlování.</string>
   <string name="makeup_ui_ok_button">OK</string>
-  <string name="perf_camera2_version_info">Informace o verzi</string>
-  <string name="perf_camera2_preferences_category_general">Hlavní</string>
-  <string name="perf_camera2_preferences_category_photo">Fotoaparát</string>
-  <string name="perf_camera2_preferences_category_video">Videokamera</string>
-  <string name="perf_camera2_preferences_category_system">Systém</string>
+  <string name="pref_camera2_version_info">Informace o verzi</string>
+  <string name="pref_camera2_preferences_category_general">Hlavní</string>
+  <string name="pref_camera2_preferences_category_photo">Fotoaparát</string>
+  <string name="pref_camera2_preferences_category_video">Videokamera</string>
+  <string name="pref_camera2_preferences_category_system">Systém</string>
   <string name="pref_camera2_scene_mode_dual_camera_instructional_content">V režimu duální kamery budou vaše obrázky jasnější. Můžete také použít efekty pozadí úpravou snímků s duálními kamerami v galerii.</string>
   <string name="pref_camera2_scene_mode_ubi_focus_instructional_content">S UbiFocus bude fotoaparát pořizovat pět fotografií a kombinovat je do jednoho snímku, kde je vše zaostřené. Po zachycení obrázku můžete vybrat nové zaostření.</string>
   <string name="pref_camera2_scene_mode_opti_zoom_instructional_content">Použijte OptiZoom pokud chcete přibližovat pro získání ostrého. Přiblížit můžete před nebo po zhotovení snímku.</string>

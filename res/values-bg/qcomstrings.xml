@@ -469,11 +469,11 @@
   <string name="panocapture_direction_is_changed">Посока е променена, спиране на панорамна снимка\u2026</string>
   <string name="makeup_ui_title">Изберете ниво на подобрение.</string>
   <string name="makeup_ui_ok_button">ОK</string>
-  <string name="perf_camera2_version_info">Информация за версията</string>
-  <string name="perf_camera2_preferences_category_general">Общи</string>
-  <string name="perf_camera2_preferences_category_photo">Все още камера</string>
-  <string name="perf_camera2_preferences_category_video">Видео камера</string>
-  <string name="perf_camera2_preferences_category_system">Система</string>
+  <string name="pref_camera2_version_info">Информация за версията</string>
+  <string name="pref_camera2_preferences_category_general">Общи</string>
+  <string name="pref_camera2_preferences_category_photo">Все още камера</string>
+  <string name="pref_camera2_preferences_category_video">Видео камера</string>
+  <string name="pref_camera2_preferences_category_system">Система</string>
   <string name="pref_camera2_scene_mode_dual_camera_instructional_content">В режим на двойна камера вашите снимки ще бъдат по-ясни. Можете също да приложите фонови ефекти, като редактирате вашите снимки в галерията.</string>
   <string name="pref_camera2_scene_mode_ubi_focus_instructional_content">С UbiFocus камерата ви ще направи пет снимки и ще ги комбинира в една снимка, където всичко е на фокус. Можете да изберете да фокусирате отново, след като направите снимката.</string>
   <string name="pref_camera2_scene_mode_opti_zoom_instructional_content">Използвайте OptiZoom, когато искате да увеличите мащаба за ясна снимка. Можете да увеличите мащаба преди или след заснемането на снимката.</string>

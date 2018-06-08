@@ -469,11 +469,11 @@
   <string name="panocapture_direction_is_changed">Η κατεύθυνση άλλαξε, διακοπή λήψης πανοράματος\u2026</string>
   <string name="makeup_ui_title">Επιλέξτε την ποσότητα της ωραιοποίησης.</string>
   <string name="makeup_ui_ok_button">OK</string>
-  <string name="perf_camera2_version_info">Πληροφορίες έκδοσης</string>
-  <string name="perf_camera2_preferences_category_general">Γενικά</string>
-  <string name="perf_camera2_preferences_category_photo">Φωτογραφίες</string>
-  <string name="perf_camera2_preferences_category_video">Βίντεο</string>
-  <string name="perf_camera2_preferences_category_system">Σύστημα</string>
+  <string name="pref_camera2_version_info">Πληροφορίες έκδοσης</string>
+  <string name="pref_camera2_preferences_category_general">Γενικά</string>
+  <string name="pref_camera2_preferences_category_photo">Φωτογραφίες</string>
+  <string name="pref_camera2_preferences_category_video">Βίντεο</string>
+  <string name="pref_camera2_preferences_category_system">Σύστημα</string>
   <string name="pref_camera2_scene_mode_dual_camera_instructional_content">Στον τρόπο της διπλής κάμερας, οι φωτογραφίες σας θα είναι καθαρότερες. Μπορείτε επίσης να εφαρμόσετε εφέ στο παρασκήνιο, με την επεξεργασία των φωτογραφιών της διπλής κάμερας στην Συλλογή.</string>
   <string name="pref_camera2_scene_mode_ubi_focus_instructional_content">Με το UbiFocus, η κάμερα σας θα τραβήξει 5 φωτογραφίες και θα τις ενώσει σε 1 φωτογραφία, όπου τα πάντα είναι εστιασμένα. Μπορείτε να επανεστιάσετε, αφού τραβήξετε τη φωτογραφία.</string>
   <string name="pref_camera2_scene_mode_opti_zoom_instructional_content">Χρησιμοποιήστε το OptiZoom όταν θέλετε να κάνετε μεγέθυνση για μια καθαρή εικόνα. Μπορείτε να κάνετε μεγέθυνση πριν ή μετά τη λήψη της φωτογραφίας.</string>

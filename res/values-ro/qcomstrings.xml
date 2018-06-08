@@ -469,11 +469,11 @@
   <string name="panocapture_direction_is_changed">Direcția s-a schimbat, se oprește panoramarea\u2026</string>
   <string name="makeup_ui_title">Alegeți puterea înfrumusețării.</string>
   <string name="makeup_ui_ok_button">OK</string>
-  <string name="perf_camera2_version_info">Informații versiune</string>
-  <string name="perf_camera2_preferences_category_general">General</string>
-  <string name="perf_camera2_preferences_category_photo">Cameră pe loc</string>
-  <string name="perf_camera2_preferences_category_video">Cameră video</string>
-  <string name="perf_camera2_preferences_category_system">Sistem</string>
+  <string name="pref_camera2_version_info">Informații versiune</string>
+  <string name="pref_camera2_preferences_category_general">General</string>
+  <string name="pref_camera2_preferences_category_photo">Cameră pe loc</string>
+  <string name="pref_camera2_preferences_category_video">Cameră video</string>
+  <string name="pref_camera2_preferences_category_system">Sistem</string>
   <string name="pref_camera2_scene_mode_dual_camera_instructional_content">În modul cameră duală, pozele dvs. vor fi mai clare. De asemenea, puteţi aplica efecte de fundal prin editarea imaginilor cameră duală în Galerie.</string>
   <string name="pref_camera2_scene_mode_ubi_focus_instructional_content">Cu UbiFocus, camera foto va face cinci fotografii şi le va combina într-o singură imagine, unde totul este focalizat. Puteţi alege să re-focalizați după ce ați realizat imaginea.</string>
   <string name="pref_camera2_scene_mode_opti_zoom_instructional_content">Utilizați OptiZoom atunci când doriţi să faceți zoom pentru o imagine mai clară. Puteți mări înainte sau după ce ați făcut poza.</string>

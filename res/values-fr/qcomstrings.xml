@@ -469,11 +469,11 @@
   <string name="panocapture_direction_is_changed">La direction a changé. Arrêt de la capture panoramique\u2026</string>
   <string name="makeup_ui_title">Choisissez le niveau d\'embellissement.</string>
   <string name="makeup_ui_ok_button">OK</string>
-  <string name="perf_camera2_version_info">Informations de version</string>
-  <string name="perf_camera2_preferences_category_general">Générale</string>
-  <string name="perf_camera2_preferences_category_photo">Appareil photo</string>
-  <string name="perf_camera2_preferences_category_video">Caméra vidéo</string>
-  <string name="perf_camera2_preferences_category_system">Système</string>
+  <string name="pref_camera2_version_info">Informations de version</string>
+  <string name="pref_camera2_preferences_category_general">Générale</string>
+  <string name="pref_camera2_preferences_category_photo">Appareil photo</string>
+  <string name="pref_camera2_preferences_category_video">Caméra vidéo</string>
+  <string name="pref_camera2_preferences_category_system">Système</string>
   <string name="pref_camera2_scene_mode_dual_camera_instructional_content">En mode double objectif, vos clichés seront plus nets. Vous pouvez appliquer des effets d\'arrière plan, en éditant vos images double objectif dans l \'application Galerie.</string>
   <string name="pref_camera2_scene_mode_ubi_focus_instructional_content">UbiFocus permet à votre appareil photo de prendre cinq clichés et de les combiner en une seule image où tous les objets sont nets. Vous pouvez modifier la mise au point après avoir pris la photo.</string>
   <string name="pref_camera2_scene_mode_opti_zoom_instructional_content">Utilisez OptiZoom lorsque vous souhaitez faire un zoom avant pour obtenir une image nette. Vous pouvez zoomer avant de prendre la photo ou après.</string>

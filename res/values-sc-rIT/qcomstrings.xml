@@ -257,8 +257,8 @@
   <string name="pref_camera2_timer_entry_5sec">5 segundos</string>
   <string name="pref_camera2_timer_entry_10sec">10 segundos</string>
   <string name="makeup_ui_ok_button">AB</string>
-  <string name="perf_camera2_preferences_category_general">Generales</string>
-  <string name="perf_camera2_preferences_category_system">Sistema</string>
+  <string name="pref_camera2_preferences_category_general">Generales</string>
+  <string name="pref_camera2_preferences_category_system">Sistema</string>
   <string name="pref_camera2_scene_mode_instructional_ok">AB</string>
   <string name="pref_camera2_instant_aec_entry_disable">Disabìlita</string>
   <string name="pref_camera2_saturation_level_title">Saturatzione</string>

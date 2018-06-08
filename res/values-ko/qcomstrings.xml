@@ -469,11 +469,11 @@
   <string name="panocapture_direction_is_changed">방향이 바뀌었습니다. 파노라마 캡처를 중지합니다\u2026</string>
   <string name="makeup_ui_title">피부 보정의 강도를 선택하세요.</string>
   <string name="makeup_ui_ok_button">확인</string>
-  <string name="perf_camera2_version_info">버전 정보</string>
-  <string name="perf_camera2_preferences_category_general">일반</string>
-  <string name="perf_camera2_preferences_category_photo">스틸 카메라</string>
-  <string name="perf_camera2_preferences_category_video">비디오 카메라</string>
-  <string name="perf_camera2_preferences_category_system">시스템</string>
+  <string name="pref_camera2_version_info">버전 정보</string>
+  <string name="pref_camera2_preferences_category_general">일반</string>
+  <string name="pref_camera2_preferences_category_photo">스틸 카메라</string>
+  <string name="pref_camera2_preferences_category_video">비디오 카메라</string>
+  <string name="pref_camera2_preferences_category_system">시스템</string>
   <string name="pref_camera2_scene_mode_dual_camera_instructional_content">듀얼 카메라 모드를 사용하면 사진이 더욱 선명해집니다. 갤러리에서 듀얼 카메라로 찍은 사진을 편집하여 배경 효과를 적용할 수도 있습니다.</string>
   <string name="pref_camera2_scene_mode_ubi_focus_instructional_content">UbiFocus를 사용하면 카메라는 다섯 장의 사진을 찍어 모든 곳에 초점이 맞는 하나의 사진으로 만듭니다. 사진을 찍은 후에 초점을 다시 선택할 수 있습니다.</string>
   <string name="pref_camera2_scene_mode_opti_zoom_instructional_content">선명한 사진을 확대/축소하고 싶다면 OptiZoom을 사용하세요. 사진을 찍기 전이나 후에 확대/축소를 할 수 있습니다.</string>

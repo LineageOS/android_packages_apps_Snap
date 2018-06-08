@@ -345,8 +345,8 @@
   <string name="pref_camera2_timer_entry_2sec">2 sekonda</string>
   <string name="pref_camera2_timer_entry_5sec">5 sekonda</string>
   <string name="makeup_ui_ok_button">OK</string>
-  <string name="perf_camera2_version_info">Të dhëna mbi versionin</string>
-  <string name="perf_camera2_preferences_category_general">Të përgjithshme</string>
+  <string name="pref_camera2_version_info">Të dhëna mbi versionin</string>
+  <string name="pref_camera2_preferences_category_general">Të përgjithshme</string>
   <string name="pref_camera2_scene_mode_instructional_ok">OK</string>
   <string name="pref_camera2_instant_aec_entry_disable">Çaktivizo</string>
   <string name="pref_camera2_instant_aec_entry_aggressive">AEC agresiv</string>

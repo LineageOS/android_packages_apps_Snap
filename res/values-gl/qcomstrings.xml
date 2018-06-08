@@ -469,11 +469,11 @@
   <string name="panocapture_direction_is_changed">A dirección cambiou, detendo a captura panorámica\u2026</string>
   <string name="makeup_ui_title">Escolle o grao de beleza.</string>
   <string name="makeup_ui_ok_button">ACEPTAR</string>
-  <string name="perf_camera2_version_info">Información da versión</string>
-  <string name="perf_camera2_preferences_category_general">Xeral</string>
-  <string name="perf_camera2_preferences_category_photo">Cámara de fotos</string>
-  <string name="perf_camera2_preferences_category_video">Cámara de vídeo</string>
-  <string name="perf_camera2_preferences_category_system">Sistema</string>
+  <string name="pref_camera2_version_info">Información da versión</string>
+  <string name="pref_camera2_preferences_category_general">Xeral</string>
+  <string name="pref_camera2_preferences_category_photo">Cámara de fotos</string>
+  <string name="pref_camera2_preferences_category_video">Cámara de vídeo</string>
+  <string name="pref_camera2_preferences_category_system">Sistema</string>
   <string name="pref_camera2_scene_mode_dual_camera_instructional_content">No modo de cámara dual as imaxes serán máis claras. Tamén podes aplicar efectos de fondo, editando as imaxes da cámara dual na Galería.</string>
   <string name="pref_camera2_scene_mode_ubi_focus_instructional_content">Con UbiFocus, a cámara tirará cinco fotos e as combinará nunha soa, onde todo está enfocado. A podes volver centrar despois de tirar a foto.</string>
   <string name="pref_camera2_scene_mode_opti_zoom_instructional_content">Emprega OptiZoom cando queiras ampliar e obter unha imaxe nítida. Podes facer zoom antes ou despois de tirar a foto.</string>

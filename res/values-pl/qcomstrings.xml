@@ -469,11 +469,11 @@
   <string name="panocapture_direction_is_changed">Zmieniono kierunek, zatrzymywanie przechwytywania panoramy\u2026</string>
   <string name="makeup_ui_title">Wybierz siłę upiększenia.</string>
   <string name="makeup_ui_ok_button">OK</string>
-  <string name="perf_camera2_version_info">Informacja o wersji</string>
-  <string name="perf_camera2_preferences_category_general">Ogólne</string>
-  <string name="perf_camera2_preferences_category_photo">Aparat fotograficzny</string>
-  <string name="perf_camera2_preferences_category_video">Kamera wideo</string>
-  <string name="perf_camera2_preferences_category_system">System</string>
+  <string name="pref_camera2_version_info">Informacja o wersji</string>
+  <string name="pref_camera2_preferences_category_general">Ogólne</string>
+  <string name="pref_camera2_preferences_category_photo">Aparat fotograficzny</string>
+  <string name="pref_camera2_preferences_category_video">Kamera wideo</string>
+  <string name="pref_camera2_preferences_category_system">System</string>
   <string name="pref_camera2_scene_mode_dual_camera_instructional_content">W trybie podwójnego aparatu, twoje zdjęcia będą lepsze. Można również zastosować efekty tła poprzez edycję zdjęć wykonanych trybem podwójnego aparatu w Galerii.</string>
   <string name="pref_camera2_scene_mode_ubi_focus_instructional_content">W trybie UbiFocus aparat zrobi 5 zdjęć z których utworzy jedno najbardziej ostre. Możesz cofnąć wyostrzenie po wykonaniu zdjęcia.</string>
   <string name="pref_camera2_scene_mode_opti_zoom_instructional_content">Użyj OptiZoom, jeżeli chcesz mieć czysty, powiększony obraz. Możesz też powiększyć przed lub po zrobieniu zdjęcia.</string>

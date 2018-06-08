@@ -423,9 +423,9 @@
   <string name="pref_camera2_timer_entry_5sec">5 sekunder</string>
   <string name="pref_camera2_timer_entry_10sec">10 sekunder</string>
   <string name="makeup_ui_ok_button">OK</string>
-  <string name="perf_camera2_preferences_category_photo">Stillbildskamera</string>
-  <string name="perf_camera2_preferences_category_video">Videokamera</string>
-  <string name="perf_camera2_preferences_category_system">System</string>
+  <string name="pref_camera2_preferences_category_photo">Stillbildskamera</string>
+  <string name="pref_camera2_preferences_category_video">Videokamera</string>
+  <string name="pref_camera2_preferences_category_system">System</string>
   <string name="pref_camera2_not_show_again">Visa inte igen</string>
   <string name="pref_camera2_scene_mode_instructional_ok">OK</string>
   <string name="pref_camera2_instant_aec_entry_disable">Avaktivera</string>
