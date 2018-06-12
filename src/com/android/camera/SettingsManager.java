@@ -1140,7 +1140,13 @@ public class SettingsManager implements ListMenu.SettingsListener {
     }
 
     public boolean isFlashSupported(int id) {
-        return mCharacteristics.get(id).get(CameraCharacteristics.FLASH_INFO_AVAILABLE) &&
+        boolean hdrOn = false;
+        String scene = getValue(SettingsManager.KEY_SCENE_MODE);
+        if (scene != null && scene.equals("18")){
+            hdrOn = true;
+        }
+        return !hdrOn &&
+                mCharacteristics.get(id).get(CameraCharacteristics.FLASH_INFO_AVAILABLE) &&
                 mValuesMap.get(KEY_FLASH_MODE) != null;
     }
 
