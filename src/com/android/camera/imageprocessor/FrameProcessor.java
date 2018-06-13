@@ -97,6 +97,7 @@ public class FrameProcessor {
     public static final int FILTER_DEEP_PORTRAIT = 3;
     private CaptureModule mModule;
     private boolean mIsVideoOn = false;
+    private boolean mIsFirstIn = true;
     private boolean mIsDeepPortrait = false;
     private DeepPortraitFilter mDeepPortraitFilter = null;
 
@@ -377,6 +378,7 @@ public class FrameProcessor {
         }
         mVideoSurfaceAsItIs = surface;
         mIsVideoOn = true;
+        mIsFirstIn = true;
         if (mFinalFilters.size() != 0) {
             synchronized (mAllocationLock) {
                 if (mVideoOutputAllocation == null) {
@@ -462,6 +464,10 @@ public class FrameProcessor {
                         }
                         bY.rewind();
                         bVU.rewind();
+                    }
+                    if (mIsFirstIn && mIsVideoOn && isFrameListnerEnabled()) {
+                        mIsFirstIn = false;
+                        mModule.startMediaRecording();
                     }
                     //End processing yvu buf
                     if (needToFeedSurface) {
