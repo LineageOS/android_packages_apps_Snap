@@ -202,11 +202,12 @@ public class SettingsManager implements ListMenu.SettingsListener {
         if (mPreferences == null) {
             mPreferences = new ComboPreferences(mContext);
         }
-        CameraSettings.upgradeGlobalPreferences(mPreferences.getGlobal(), mContext);
+        upgradeGlobalPreferences(mPreferences.getGlobal(), mContext);
 
         CameraManager manager = (CameraManager) mContext.getSystemService(Context.CAMERA_SERVICE);
         try {
             String[] cameraIdList = manager.getCameraIdList();
+            boolean isFirstBackCameraId = true;
             for (int i = 0; i < cameraIdList.length; i++) {
                 String cameraId = cameraIdList[i];
                 CameraCharacteristics characteristics
@@ -225,6 +226,10 @@ public class SettingsManager implements ListMenu.SettingsListener {
                 if (facing == CameraCharacteristics.LENS_FACING_FRONT) {
                     CaptureModule.FRONT_ID = i;
                     mIsFrontCameraPresent = true;
+                } else if (facing == CameraCharacteristics.LENS_FACING_BACK &&
+                        isFirstBackCameraId) {
+                    isFirstBackCameraId = false;
+                    upgradeCameraId(mPreferences.getGlobal(), i);
                 }
                 mCharacteristics.add(i, characteristics);
             }
@@ -250,6 +255,14 @@ public class SettingsManager implements ListMenu.SettingsListener {
         if (sInstance != null) {
             sInstance = null;
         }
+    }
+
+    private void upgradeGlobalPreferences(SharedPreferences pref, Context context) {
+        CameraSettings.upgradeOldVersion(pref, context);
+    }
+
+    private void upgradeCameraId(SharedPreferences pref, int id) {
+        CameraSettings.writePreferredCameraId(pref, id);
     }
 
     public List<String> getDisabledList() {

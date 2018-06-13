@@ -591,7 +591,7 @@ public class VideoModule implements CameraModule,
             }
 
             // Set rotation and gps data.
-            int rotation = CameraUtil.getJpegRotation(mCameraId, mOrientation);
+            int rotation = CameraUtil.getJpegRotationForCamera1(mCameraId, mOrientation);
             mParameters.setRotation(rotation);
             Location loc = mLocationManager.getCurrentLocation();
             CameraUtil.setGpsParameters(mParameters, loc);
@@ -2235,7 +2235,7 @@ public class VideoModule implements CameraModule,
         int preview_flip_value = PersistUtil.getPreviewFlip();
         int video_flip_value = PersistUtil.getVideoFlip();
         int picture_flip_value = PersistUtil.getPictureFlip();
-        int rotation = CameraUtil.getJpegRotation(mCameraId, mOrientation);
+        int rotation = CameraUtil.getJpegRotationForCamera1(mCameraId, mOrientation);
         mParameters.setRotation(rotation);
         if (rotation == 90 || rotation == 270) {
             // in case of 90 or 270 degree, V/H flip should reverse
