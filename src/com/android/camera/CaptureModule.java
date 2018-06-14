@@ -2741,7 +2741,8 @@ public class CaptureModule implements CameraModule, PhotoController,
                 cancelTouchFocus(MONO_ID);
             }
         } else {
-            if (mState[getMainCameraId()] == STATE_WAITING_TOUCH_FOCUS) {
+            if (mState[getMainCameraId()] == STATE_WAITING_TOUCH_FOCUS ||
+                    mState[getMainCameraId()] == STATE_PREVIEW) {
                 cancelTouchFocus(getMainCameraId());
             }
         }
