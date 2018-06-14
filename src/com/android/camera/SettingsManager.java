@@ -1200,8 +1200,8 @@ public class SettingsManager implements ListMenu.SettingsListener {
         List<String> res = new ArrayList<>();
         for (int i = 0; i < sizes.length; i++) {
             if (CameraSettings.VIDEO_QUALITY_TABLE.containsKey(sizes[i].toString())) {
-                Integer profile = CameraSettings.VIDEO_QUALITY_TABLE.get(sizes[i].toString());
-                if (profile != null) {
+                int profile = CameraSettings.VIDEO_QUALITY_TABLE.get(sizes[i].toString());
+                if (CamcorderProfile.hasProfile(cameraId, profile)) {
                     res.add(sizes[i].toString());
                 }
             }
