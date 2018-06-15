@@ -3867,23 +3867,31 @@ public class CaptureModule implements CameraModule, PhotoController,
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
+            quitRecordingWithError("IOException");
         } catch (IllegalArgumentException e) {
-            //surface of mediaRecorder is not valid
-            Toast.makeText(mActivity,"Could not start media recorder.\n " +
-                    "Can't start video recording.", Toast.LENGTH_LONG).show();
-            releaseMediaRecorder();
-            releaseAudioFocus();
-            mStartRecPending = false;
-            mIsRecordingVideo = false;
-            mUI.showUIafterRecording();
-            mFrameProcessor.setVideoOutputSurface(null);
-            restartSession(true);
+            e.printStackTrace();
+            quitRecordingWithError("IllegalArgumentException");
         } catch (IllegalStateException e) {
             e.printStackTrace();
+            quitRecordingWithError("IllegalStateException");
+        } catch (NullPointerException e) {
+            e.printStackTrace();
+            quitRecordingWithError("NullPointException");
         }
         return true;
     }
 
+    private void quitRecordingWithError(String msg) {
+        Toast.makeText(mActivity,"Could not start media recorder.\n " +
+                msg, Toast.LENGTH_LONG).show();
+        releaseMediaRecorder();
+        releaseAudioFocus();
+        mStartRecPending = false;
+        mIsRecordingVideo = false;
+        mUI.showUIafterRecording();
+        mFrameProcessor.setVideoOutputSurface(null);
+        restartSession(true);
+    }
     private boolean startMediaRecorder() {
         if (mUnsupportedResolution == true ) {
             Log.v(TAG, "Unsupported Resolution according to target");
