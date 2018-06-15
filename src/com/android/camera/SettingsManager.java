@@ -348,7 +348,9 @@ public class SettingsManager implements ListMenu.SettingsListener {
         mDependendsOnMap = new HashMap<>();
         mFilteredKeys = new HashSet<>();
         try {
-            mExtendedHFRSize = mCharacteristics.get(cameraId).get(CaptureModule.hfrFpsTable);
+            if (cameraId < mCharacteristics.size() -1) {
+                mExtendedHFRSize = mCharacteristics.get(cameraId).get(CaptureModule.hfrFpsTable);
+            }
         }catch(IllegalArgumentException exception) {
             exception.printStackTrace();
         }
