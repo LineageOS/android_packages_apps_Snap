@@ -5949,7 +5949,6 @@ public class CaptureModule implements CameraModule, PhotoController,
         if (bitmap != null) {
             // MetadataRetriever already rotates the thumbnail. We should rotate
             // it to match the UI orientation (and mirror if it is front-facing camera).
-            Camera.CameraInfo[] info = CameraHolder.instance().getCameraInfo();
             boolean mirror = mPostProcessor.isSelfieMirrorOn();
             bitmap = CameraUtil.rotateAndMirror(bitmap, 0, mirror);
         }

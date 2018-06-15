@@ -1542,6 +1542,7 @@ public class CameraActivity extends Activity
         }
 
         boolean cam2on = PersistUtil.getCamera2Mode();
+        CameraHolder.setCamera2Mode(this, cam2on);
         if (cam2on && (moduleIndex == ModuleSwitcher.PHOTO_MODULE_INDEX ||
                 moduleIndex == ModuleSwitcher.VIDEO_MODULE_INDEX))
             moduleIndex = ModuleSwitcher.CAPTURE_MODULE_INDEX;
