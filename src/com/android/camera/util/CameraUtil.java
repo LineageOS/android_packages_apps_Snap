@@ -36,6 +36,7 @@ import android.hardware.Camera;
 import android.hardware.Camera.CameraInfo;
 import android.hardware.Camera.Parameters;
 import android.hardware.Camera.Size;
+import android.hardware.camera2.CameraCharacteristics;
 import android.location.Location;
 import android.media.MediaRecorder;
 import android.net.Uri;
@@ -900,6 +901,22 @@ public class CameraUtil {
     }
 
     public static int getJpegRotation(int cameraId, int orientation) {
+        int rotation = 0;
+        if (orientation == OrientationEventListener.ORIENTATION_UNKNOWN) {
+            orientation = 0;
+        }
+        CameraCharacteristics info = CameraHolder.instance().getCameraCharacteristics(cameraId);
+        if (info.get(CameraCharacteristics.LENS_FACING) ==
+                CameraCharacteristics.LENS_FACING_FRONT) {
+            rotation = (info.get(CameraCharacteristics.SENSOR_ORIENTATION)
+                    - orientation + 360) % 360;
+        } else {  // back-facing camera
+            rotation = (info.get(CameraCharacteristics.SENSOR_ORIENTATION) + orientation) % 360;
+        }
+        return rotation;
+    }
+
+    public static int getJpegRotationForCamera1(int cameraId, int orientation) {
         // See android.hardware.Camera.Parameters.setRotation for
         // documentation.
         int rotation = 0;
@@ -909,7 +926,7 @@ public class CameraUtil {
         CameraInfo info = CameraHolder.instance().getCameraInfo()[cameraId];
         if (info.facing == CameraInfo.CAMERA_FACING_FRONT) {
             rotation = (info.orientation - orientation + 360) % 360;
-        } else {  // back-facing camera
+        } else { // back-facing camera
             rotation = (info.orientation + orientation) % 360;
         }
         return rotation;
