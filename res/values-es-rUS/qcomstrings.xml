@@ -160,21 +160,21 @@
   <string name="pref_camera_shuttersound_entry_enable">Activado</string>
   <string name="pref_camera_shuttersound_entry_disable">Desactivado</string>
   <!-- The message is shown in toast when the app encounters an unsupported selection for HFR/HSR mode -->
-  <string name="error_app_unsupported_hfr_selection">Alta velocidad/cámara lenta no es compatible con DIS y TimeLapse.</string>
+  <string name="error_app_unsupported_hfr_selection">Alta velocidad/cámara lenta es incompatible con DIS y TimeLapse.</string>
   <!-- The message is shown in dialog when the app encounters an unsupported resolution for HFR mode -->
-  <string name="error_app_unsupported_hfr">Modo de cámara lenta no es compatible con el tamaño del video seleccionado. Seleccionar un tamaño de video inferior</string>
+  <string name="error_app_unsupported_hfr">Modo de cámara lenta es incompatible con el tamaño del video seleccionado. Seleccionar un tamaño de video inferior</string>
   <!-- The message is shown in toast when the app encounters an unsupported resolution for DIS mode -->
-  <string name="error_app_unsupported_dis">Estabilización no es compatible con el tamaño del video seleccionado. Seleccionar un tamaño de video inferior</string>
+  <string name="error_app_unsupported_dis">Estabilización es incompatible con el tamaño del video seleccionado. Seleccionar un tamaño de video inferior</string>
   <!-- The message is shown in dialog when the app encounters an unsupported resolution for HSR mode -->
-  <string name="error_app_unsupported_hsr">La grabación de video en alta velocidad no es compatible con la resolución seleccionada</string>
+  <string name="error_app_unsupported_hsr">La grabación de video en alta velocidad es incompatible con la resolución seleccionada</string>
   <!-- The message is shown in dialog when the app encounters an unsupported video codec for HFR mode -->
-  <string name="error_app_unsupported_hfr_codec">Sólo se admite el códec H264 cuando está activado el modo HFR</string>
+  <string name="error_app_unsupported_hfr_codec">Sólo se admite el códec H264 al activar el modo HFR</string>
   <!-- The message is shown in dialog when the app encounters an unsupported video resolution-->
-  <string name="error_app_unsupported">Resolución de video no compatible con este tipo de códec</string>
+  <string name="error_app_unsupported">Resolución de video incompatible con este tipo de códec</string>
   <!-- The message is shown in dialog when the app encounters an unsupported video profile-->
   <string name="error_app_unsupported_profile">Perfil de vídeo incompatible</string>
   <!--The message is shown in dialog when the raw snapshot is selected in zsl mode-->
-  <string name="error_app_unsupported_raw">Formato de imagen RAW no es compatible en modo cero retraso de obturador. Seleccionar JPEG</string>
+  <string name="error_app_unsupported_raw">Formato de imagen RAW es incompatible en modo cero retraso de obturador. Seleccionar JPEG</string>
   <!-- Settings screen, AE bracketing and HDR location dialog choices -->
   <string name="pref_camera_ae_bracket_hdr_entry_ae_bracket">AE bracketing</string>
   <string name="pref_camera_ae_bracket_hdr_title">AE bracketing</string>
@@ -183,7 +183,7 @@
   <!-- The messsage shown if user selects a snapshot resolution lower than the current video size. -->
   <string name="snapshot_lower_than_video">El tamaño de la captura de vídeo es menor que el tamaño del vídeo, limitando el tamaño de vídeo. Seleccione una resolución mayor o igual que el tamaño del vídeo actual.</string>
   <!-- The messsage shown if user selects a snapshot resolution in low power mode. -->
-  <string name="snapshotsize_low_powermode">La redimensión de la imagen no es compatible en modo de Bajo Consumo, se tomará una captura del tamaño del vídeo. Seleccione el modo de Energía Normal para permitir redimensionar la imagen.</string>
+  <string name="snapshotsize_low_powermode">La redimensión de la imagen es incompatible en modo de Bajo Consumo, se tomará una captura del tamaño del vídeo. Seleccione el modo de Energía Normal para permitir redimensionar la imagen.</string>
   <!-- The messsage shown if user tries to take snapshot during D1/QCIF resolution. -->
   <string name="snapshot_qcif_and_d1">El tamaño de la captura del vídeo, sólo es compatible con esta resolución.</string>
   <!-- Default hfr setting. Do not translate. -->
@@ -367,7 +367,7 @@
   <string name="pref_camera_longshot_title">Disparo continuo</string>
   <string name="msg_cancel_longshot_for_limited_memory">Poca memoria, cancelación de disparo continuo</string>
   <!-- Toast showing non-supported functionality for flash in AE bracket -->
-  <string name="flash_aebracket_message">Flash no es compatible con el modo de bracketing AE</string>
+  <string name="flash_aebracket_message">El flash es incompatible con el modo de horquillado AE</string>
   <!-- Settings screen, setting title text for Auto HDR-->
   <string name="pref_camera_auto_hdr_title">Auto HDR</string>
   <!-- Settings screen, Auto HDR location dialog choices -->
@@ -394,9 +394,9 @@
   <!-- The message is shown in toast when click showOnMap Menu and there is no map app -->
   <string name="map_activity_not_found_err">Sin aplicación de mapas instalada para mostrar la ubicación</string>
   <!-- Continuous shot enable message -->
-  <string name="longshot_enable_message">Las características avanzadas no son compatibles en modo de disparo continuo</string>
+  <string name="longshot_enable_message">Las características avanzadas son incompatibles en modo de disparo continuo</string>
   <!-- Advanced features enable message -->
-  <string name="advance_feature_enable_msg">El disparo continuo no es compatible cuando se activan las características avanzadas</string>
+  <string name="advance_feature_enable_msg">El disparo continuo es incompatible al activar las características avanzadas</string>
   <!-- The alas of CameraActivity for gesture operation -->
   <string name="camera_gesture_title">Iniciar cámara</string>
   <string name="pref_camera_tsmakeup_title">Embellecimiento</string>
@@ -409,7 +409,7 @@
   <string name="pref_camera_tsmakeup_level_whiten">Blanquear</string>
   <string name="pref_camera_tsmakeup_level_clean">Suavizar</string>
   <string name="text_tsmakeup_alert_title">Advertencia</string>
-  <string name="text_tsmakeup_alert_msg">La detección del rostro debe activarse para poder utilizar la función de embellecimiento. ¿Desea continuar?</string>
+  <string name="text_tsmakeup_alert_msg">La detección del rostro debe activarse para poder utilizar la característica de embellecimiento. ¿Continuar?</string>
   <string name="text_tsmakeup_alert_continue">Continuar</string>
   <string name="text_tsmakeup_alert_quit">Cancelar</string>
   <string name="text_tsmakeup_beautify_toast">Embellecer</string>

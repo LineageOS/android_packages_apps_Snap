@@ -389,6 +389,7 @@ Gambar yang dipotong disimpan ke <xliff:g id="folder_name">%s</xliff:g>.</string
   <!-- The shutter button. [CHAR LIMIT = NONE] -->
   <string name="accessibility_shutter_button">Bidik</string>
   <!-- The exit best photo mode button. [CHAR LIMIT = NONE] -->
+  <string name="accessibility_exit_best_mode_button">Keluar dari modus foto terbaik</string>
   <!-- The menu button. [CHAR LIMIT = NONE] -->
   <string name="accessibility_menu_button">Tombol menu</string>
   <!-- The mode picker to switch between camera, video and panorama. [CHAR LIMIT = NONE] -->
@@ -560,6 +561,7 @@ CHAR LIMIT = NONE] -->
   </plurals>
   <string name="dialog_do_not_show">Jangan tampilkan lagi</string>
   <string name="delete_best_dialog_title">Hapus semua?</string>
+  <string name="delete_best_dialog_content">Apakah Anda yakin ingin menghapus 10 foto yang dipotret?</string>
   <string name="delete_best_dialog_native_bt">Batalkan</string>
   <string name="delete_best_dialog_positive_bt">Hapus</string>
   <string name="delete_all_best_dialog_title">Hapus semua?</string>

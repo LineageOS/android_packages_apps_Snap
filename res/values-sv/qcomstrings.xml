@@ -423,11 +423,14 @@
   <string name="pref_camera2_timer_entry_5sec">5 sekunder</string>
   <string name="pref_camera2_timer_entry_10sec">10 sekunder</string>
   <string name="makeup_ui_ok_button">OK</string>
+  <string name="perf_camera2_version_info">Versionsinfo</string>
+  <string name="perf_camera2_preferences_category_general">Allmänt</string>
   <string name="perf_camera2_preferences_category_photo">Stillbildskamera</string>
   <string name="perf_camera2_preferences_category_video">Videokamera</string>
   <string name="perf_camera2_preferences_category_system">System</string>
   <string name="pref_camera2_not_show_again">Visa inte igen</string>
   <string name="pref_camera2_scene_mode_instructional_ok">OK</string>
+  <string name="pref_camera2_instant_aec_title">Direkt AEC</string>
   <string name="pref_camera2_instant_aec_entry_disable">Avaktivera</string>
   <string name="pref_camera2_saturation_level_title">Mättnad</string>
   <string name="pref_camera2_saturation_level_entry_0">Nivå 0</string>
@@ -455,10 +458,13 @@
   <string name="pref_camera2_auto_hdr_title">Auto HDR</string>
   <string name="pref_camera2_auto_hdr_entry_enable">Aktivera</string>
   <string name="pref_camera2_auto_hdr_entry_disable">Avaktivera</string>
+  <string name="pref_camera_bokeh_mode_title">Bokeh-läge</string>
   <string name="pref_camera_bokeh_mode_entry_enable">Aktivera</string>
   <string name="pref_camera_bokeh_mode_entry_disable">Avaktivera</string>
+  <string name="pref_camera_bokeh_mpo_title">Bokeh-läge MPO</string>
   <string name="pref_camera_bokeh_mpo_entry_enable">Aktivera</string>
   <string name="pref_camera_bokeh_mpo_entry_disable">Avaktivera</string>
+  <string name="pref_camera_bokeh_blur_degree_title">Bokeh-oskärpevärde</string>
   <!-- Default Zoom setting. -->
   <string name="pref_camera_zoom_title">Zoom</string>
   <!-- Settings menu, Zoom choices -->
@@ -473,11 +479,15 @@
   <string name="pref_camera_zoom_entry_8x">8x</string>
   <string name="pref_camera_zoom_entry_9x">9x</string>
   <string name="pref_camera_zoom_entry_10x">10x</string>
+  <string name="pref_camera2_bsgc_title">Leende-, blink- och blickigenkänning</string>
   <string name="pref_camera2_bsgc_entry_enable">Aktivera</string>
   <string name="pref_camera2_bsgc_entry_disable">Avaktivera</string>
   <string name="pref_camera2_zsl_title">Ingen slutarfördröjning</string>
   <string name="pref_camera2_zsl_entry_disable">Av</string>
+  <string name="pref_camera2_zsl_entry_app_zsl">Mjukvaru-ZSL</string>
+  <string name="pref_camera2_zsl_entry_hal_zsl">Hårdvaru-ZSL</string>
   <!-- QCFA Title -->
   <!-- QCFA choices -->
+  <string name="pref_camera2_switch_camera_title">Byt kamera beroende på ID</string>
   <string name="pref_camera2_initial_camera_entry_mono">Mono</string>
 </resources>

@@ -552,6 +552,7 @@ CHAR LIMIT = NONE] -->
   <string name="remaining_photos_format">%d resterend</string>
   <string name="makeup_video_size_limit">Make-up werkt alleen bij video-opnamen in VGA.</string>
   <string name="pref_camera2_category_system">Systeem</string>
+  <string name="pref_camera2_restore_default">Standaardinstellingen herstellen</string>
   <string name="save_best_dialog_positive_bt">OK</string>
   <string name="save_best_dialog_native_bt">Annuleren</string>
   <string name="dialog_do_not_show">Niet opnieuw tonen</string>
