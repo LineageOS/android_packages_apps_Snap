@@ -68,7 +68,7 @@ public class CameraHolder {
     private static CameraProxy mMockCamera[];
     private static CameraInfo mMockCameraInfo[];
     private static Context mContext;
-    private static boolean mCam2On = true;
+    private static boolean mCam2On = false;
     private ArrayList<CameraCharacteristics> mCharacteristics = new ArrayList<>();
 
     /* Debug double-open issue */
