@@ -243,12 +243,13 @@ class AndroidCameraManagerImpl implements CameraManager {
                         final int cameraId = msg.arg1;
                         Context context = CameraApp.getContext();
 
-                        CameraInfo info = CameraHolder.instance().getCameraInfo()[cameraId];
+                        CameraHolder.CameraInfo info =
+                                CameraHolder.instance().getCameraInfo()[cameraId];
 
                         final boolean isBackCamera =
-                                info.facing == CameraInfo.CAMERA_FACING_BACK;
+                                info.facing == CameraHolder.CameraInfo.CAMERA_FACING_BACK;
                         final boolean isFrontCamera =
-                                info.facing == CameraInfo.CAMERA_FACING_FRONT;
+                                info.facing == CameraHolder.CameraInfo.CAMERA_FACING_FRONT;
                         final boolean useOpenLegacyForBackCamera = context.getResources()
                                 .getBoolean(R.bool.back_camera_open_legacy);
                         final boolean useOpenLegacyForFrontCamera = context.getResources()

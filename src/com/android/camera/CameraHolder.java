@@ -173,53 +173,47 @@ public class CameraHolder {
         HandlerThread ht = new HandlerThread("CameraHolder");
         ht.start();
         mHandler = new MyHandler(ht.getLooper());
-        if (mCam2On) {
-            android.hardware.camera2.CameraManager manager =
-                    (android.hardware.camera2.CameraManager) mContext.getSystemService(
-                            Context.CAMERA_SERVICE);
-            String[] cameraIdList = null;
-            try {
-                cameraIdList = manager.getCameraIdList();
-                for (int i = 0; i < cameraIdList.length; i++) {
-                    String cameraId = cameraIdList[i];
-                    CameraCharacteristics characteristics
-                            = manager.getCameraCharacteristics(cameraId);
-                    Log.d(TAG,"cameraIdList size ="+cameraIdList.length);
-                    int facing = characteristics.get(CameraCharacteristics.LENS_FACING);
-                    if (facing == CameraCharacteristics.LENS_FACING_FRONT) {
-                        CaptureModule.FRONT_ID = i;
-                        mFrontCameraId = i;
-                    } else if (mBackCameraId != -1) {
-                        mBackCameraId = i;
-                    }
-                    mCharacteristics.add(i, characteristics);
-                }
-            } catch (CameraAccessException e) {
-                e.printStackTrace();
-            }
-            mNumberOfCameras = cameraIdList == null ? 0 : cameraIdList.length;
-        } else {
-            if (mMockCameraInfo != null) {
-                mNumberOfCameras = mMockCameraInfo.length;
-                mInfo = mMockCameraInfo;
-            } else {
-                mNumberOfCameras = android.hardware.Camera.getNumberOfCameras();
-                mInfo = new CameraInfo[mNumberOfCameras];
-                for (int i = 0; i < mNumberOfCameras; i++) {
-                    mInfo[i] = new CameraInfo();
-                    android.hardware.Camera.getCameraInfo(i, mInfo[i]);
-                }
-            }
-            // get the first (smallest) back and first front camera id
-            for (int i = 0; i < mNumberOfCameras; i++) {
-                if (mBackCameraId == -1 && mInfo[i].facing == CameraInfo.CAMERA_FACING_BACK) {
-                    mBackCameraId = i;
-                } else if (mFrontCameraId == -1 &&
-                        mInfo[i].facing == CameraInfo.CAMERA_FACING_FRONT) {
+        android.hardware.camera2.CameraManager manager =
+                (android.hardware.camera2.CameraManager) mContext.getSystemService(
+                        Context.CAMERA_SERVICE);
+        String[] cameraIdList = null;
+        try {
+            cameraIdList = manager.getCameraIdList();
+            mInfo = new CameraInfo[cameraIdList.length];
+            for (int i = 0; i < cameraIdList.length; i++) {
+                String cameraId = cameraIdList[i];
+                CameraCharacteristics characteristics
+                        = manager.getCameraCharacteristics(cameraId);
+                Log.d(TAG,"cameraIdList size ="+cameraIdList.length);
+                int facing = characteristics.get(CameraCharacteristics.LENS_FACING);
+                if (facing == CameraCharacteristics.LENS_FACING_FRONT) {
+                    CaptureModule.FRONT_ID = i;
                     mFrontCameraId = i;
+                } else if (mBackCameraId != -1) {
+                    mBackCameraId = i;
                 }
+                addCameraInfo(i, characteristics);
+                mCharacteristics.add(i, characteristics);
+            }
+        } catch (CameraAccessException e) {
+            e.printStackTrace();
+        }
+        mNumberOfCameras = cameraIdList == null ? 0 : cameraIdList.length;
+        // get the first (smallest) back and first front camera id
+        for (int i = 0; i < mNumberOfCameras; i++) {
+            if (mBackCameraId == -1 && mInfo[i].facing == CameraCharacteristics.LENS_FACING_BACK) {
+                mBackCameraId = i;
+            } else if (mFrontCameraId == -1 &&
+                    mInfo[i].facing == CameraCharacteristics.LENS_FACING_FRONT) {
+                mFrontCameraId = i;
             }
         }
+    }
+
+    private void addCameraInfo(int index, CameraCharacteristics characteristics) {
+        mInfo[index] = new CameraInfo();
+        mInfo[index].facing = characteristics.get(CameraCharacteristics.LENS_FACING);
+        mInfo[index].orientation = characteristics.get(CameraCharacteristics.SENSOR_ORIENTATION);
     }
 
     public CameraCharacteristics getCameraCharacteristics(int id) {
@@ -360,5 +354,12 @@ public class CameraHolder {
 
     public int getFrontCameraId() {
         return mFrontCameraId;
+    }
+
+    public class CameraInfo {
+        public static final int CAMERA_FACING_FRONT = CameraCharacteristics.LENS_FACING_FRONT;
+        public static final int CAMERA_FACING_BACK = CameraCharacteristics.LENS_FACING_BACK;
+        public int facing;
+        public int orientation;
     }
 }

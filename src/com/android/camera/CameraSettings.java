@@ -292,7 +292,7 @@ public class CameraSettings {
 
     private final Context mContext;
     private final Parameters mParameters;
-    private final CameraInfo[] mCameraInfo;
+    private final CameraHolder.CameraInfo[] mCameraInfo;
     private final int mCameraId;
 
     public static String mKeyIso = null;
@@ -472,7 +472,7 @@ public class CameraSettings {
    }
 
     public CameraSettings(Activity activity, Parameters parameters,
-                          int cameraId, CameraInfo[] cameraInfo) {
+                          int cameraId, CameraHolder.CameraInfo[] cameraInfo) {
         mContext = activity;
         mParameters = parameters;
         mCameraId = cameraId;
