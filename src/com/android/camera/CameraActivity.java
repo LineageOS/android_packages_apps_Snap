@@ -1857,6 +1857,8 @@ public class CameraActivity extends Activity
         super.onStop();
         if (mSecureCamera && !hasCriticalPermissions()) {
             return;
+        } else if (mSecureCamera) {
+            finish();
         }
         mPanoramaViewHelper.onStop();
         unbindMediaSaveService();
