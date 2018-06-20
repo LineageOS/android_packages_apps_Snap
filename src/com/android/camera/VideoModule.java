@@ -714,7 +714,7 @@ public class VideoModule implements CameraModule,
         mPreferenceGroup = filterPreferenceScreenByIntent(
                 settings.getPreferenceGroup(R.xml.video_preferences));
 
-        int numOfCams = Camera.getNumberOfCameras();
+        int numOfCams = CameraHolder.instance().getNumberOfCameras();
 
         //TODO: If numOfCams > 2 then corresponding entries needs to be added to the media_profiles.xml
 
@@ -734,8 +734,8 @@ public class VideoModule implements CameraModule,
         int[] largeIconIds = new int[numOfCams];
 
         for(int i=0;i<numOfCams;i++) {
-            CameraInfo info = CameraHolder.instance().getCameraInfo()[i];
-            if(info.facing == CameraInfo.CAMERA_FACING_BACK) {
+            CameraHolder.CameraInfo info = CameraHolder.instance().getCameraInfo()[i];
+            if(info.facing == CameraHolder.CameraInfo.CAMERA_FACING_BACK) {
                 iconIds[i] = R.drawable.ic_switch_back;
                 entries[i] = mActivity.getResources().getString(R.string.pref_camera_id_entry_back);
                 labels[i] = mActivity.getResources().getString(R.string.pref_camera_id_label_back);
@@ -1178,7 +1178,7 @@ public class VideoModule implements CameraModule,
     }
 
     void setPreviewFrameLayoutCameraOrientation(){
-        CameraInfo info = CameraHolder.instance().getCameraInfo()[mCameraId];
+        CameraHolder.CameraInfo info = CameraHolder.instance().getCameraInfo()[mCameraId];
 
         //if camera mount angle is 0 or 180, we want to resize preview
         if (info.orientation % 180 == 0)
@@ -1468,8 +1468,8 @@ public class VideoModule implements CameraModule,
         if (mFocusManager != null) {
             mFocusManager.removeMessages();
         } else {
-            CameraInfo info = CameraHolder.instance().getCameraInfo()[mCameraId];
-            boolean mirror = (info.facing == CameraInfo.CAMERA_FACING_FRONT);
+            CameraHolder.CameraInfo info = CameraHolder.instance().getCameraInfo()[mCameraId];
+            boolean mirror = (info.facing == CameraHolder.CameraInfo.CAMERA_FACING_FRONT);
             String[] defaultFocusModes = mActivity.getResources().getStringArray(
                     R.array.pref_video_focusmode_default_array);
             mFocusManager = new FocusOverlayManager(mPreferences, defaultFocusModes,
@@ -1806,8 +1806,8 @@ public class VideoModule implements CameraModule,
         // which is the orientation the graphics need to rotate in order to render correctly.
         int rotation = 0;
         if (mOrientation != OrientationEventListener.ORIENTATION_UNKNOWN) {
-            CameraInfo info = CameraHolder.instance().getCameraInfo()[mCameraId];
-            if (info.facing == CameraInfo.CAMERA_FACING_FRONT) {
+            CameraHolder.CameraInfo info = CameraHolder.instance().getCameraInfo()[mCameraId];
+            if (info.facing == CameraHolder.CameraInfo.CAMERA_FACING_FRONT) {
                 rotation = (info.orientation - mOrientation - mOrientationOffset + 360) % 360;
             } else {  // back-facing camera
                 rotation = (info.orientation + mOrientation + mOrientationOffset) % 360;
@@ -2120,8 +2120,8 @@ public class VideoModule implements CameraModule,
         if (bitmap != null) {
             // MetadataRetriever already rotates the thumbnail. We should rotate
             // it to match the UI orientation (and mirror if it is front-facing camera).
-            CameraInfo[] info = CameraHolder.instance().getCameraInfo();
-            boolean mirror = (info[mCameraId].facing == CameraInfo.CAMERA_FACING_FRONT);
+            CameraHolder.CameraInfo[] info = CameraHolder.instance().getCameraInfo();
+            boolean mirror = (info[mCameraId].facing == CameraHolder.CameraInfo.CAMERA_FACING_FRONT);
             bitmap = CameraUtil.rotateAndMirror(bitmap, 0, mirror);
         }
         return bitmap;
@@ -3091,8 +3091,8 @@ public class VideoModule implements CameraModule,
         CameraSettings.upgradeLocalPreferences(mPreferences.getLocal());
         openCamera();
 
-        CameraInfo info = CameraHolder.instance().getCameraInfo()[mCameraId];
-        boolean mirror = (info.facing == CameraInfo.CAMERA_FACING_FRONT);
+        CameraHolder.CameraInfo info = CameraHolder.instance().getCameraInfo()[mCameraId];
+        boolean mirror = (info.facing == CameraHolder.CameraInfo.CAMERA_FACING_FRONT);
         mParameters = mCameraDevice.getParameters();
         mFocusManager.setMirror(mirror);
         mFocusManager.setParameters(mParameters);
@@ -3357,9 +3357,9 @@ public class VideoModule implements CameraModule,
                || mFaceDetectionStarted) return;
         if (mParameters.getMaxNumDetectedFaces() > 0) {
             mFaceDetectionStarted = true;
-            CameraInfo info = CameraHolder.instance().getCameraInfo()[mCameraId];
+            CameraHolder.CameraInfo info = CameraHolder.instance().getCameraInfo()[mCameraId];
             mUI.onStartFaceDetection(mCameraDisplayOrientation,
-                    (info.facing == CameraInfo.CAMERA_FACING_FRONT));
+                    (info.facing == CameraHolder.CameraInfo.CAMERA_FACING_FRONT));
             mCameraDevice.setFaceDetectionCallback(mHandler, mUI);
             Log.d(TAG, "start face detection Video "+mParameters.getMaxNumDetectedFaces());
             mCameraDevice.startFaceDetection();
