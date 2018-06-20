@@ -923,8 +923,8 @@ public class CameraUtil {
         if (orientation == OrientationEventListener.ORIENTATION_UNKNOWN) {
             orientation = 0;
         }
-        CameraInfo info = CameraHolder.instance().getCameraInfo()[cameraId];
-        if (info.facing == CameraInfo.CAMERA_FACING_FRONT) {
+        CameraHolder.CameraInfo info = CameraHolder.instance().getCameraInfo()[cameraId];
+        if (info.facing == CameraHolder.CameraInfo.CAMERA_FACING_FRONT) {
             rotation = (info.orientation - orientation + 360) % 360;
         } else { // back-facing camera
             rotation = (info.orientation + orientation) % 360;
