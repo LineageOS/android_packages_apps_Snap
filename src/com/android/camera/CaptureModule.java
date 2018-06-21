@@ -4391,6 +4391,7 @@ public class CaptureModule implements CameraModule, PhotoController,
 
     private void applyJpegQuality(CaptureRequest.Builder request) {
         String value = mSettingsManager.getValue(SettingsManager.KEY_JPEG_QUALITY);
+        if (value == null) return;
         int jpegQuality = getQualityNumber(value);
         request.set(CaptureRequest.JPEG_QUALITY, (byte) jpegQuality);
     }
