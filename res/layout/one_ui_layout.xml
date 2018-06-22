@@ -19,7 +19,9 @@
 <com.android.camera.ui.OneUICameraControls xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/camera_controls"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
 
     <com.android.camera.ui.ProMode
         android:id="@+id/promode_slider"
