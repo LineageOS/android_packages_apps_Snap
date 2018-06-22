@@ -2724,6 +2724,16 @@ public class CaptureModule implements CameraModule, PhotoController,
                     onShutterButtonClick();
                 }
                 return true;
+            case KeyEvent.KEYCODE_DPAD_CENTER:
+                if (mFirstTimeInitialized && event.getRepeatCount() == 0) {
+                    onShutterButtonClick();
+                }
+                return true;
+            case KeyEvent.KEYCODE_MEDIA_RECORD:
+                if (mFirstTimeInitialized && event.getRepeatCount() == 0) {
+                    onVideoButtonClick();
+                }
+                return true;
         }
         return false;
     }
