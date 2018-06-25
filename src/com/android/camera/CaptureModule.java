@@ -164,6 +164,7 @@ public class CaptureModule implements CameraModule, PhotoController,
     private static final int OPEN_CAMERA = 0;
     private static final int CANCEL_TOUCH_FOCUS = 1;
     private static final int MAX_NUM_CAM = 6;
+    private String DEPTH_CAM_ID;
     private static final MeteringRectangle[] ZERO_WEIGHT_3A_REGION = new MeteringRectangle[]{
             new MeteringRectangle(0, 0, 0, 0, 0)};
     private static final String EXTRA_QUICK_CAPTURE =
@@ -298,6 +299,8 @@ public class CaptureModule implements CameraModule, PhotoController,
             new CaptureRequest.Key<>("org.quic.camera.eis3enable.EISV3Enable", byte.class);
     public static final CaptureRequest.Key<Byte> recording_end_stream =
             new CaptureRequest.Key<>("org.quic.camera.recording.endOfStream", byte.class);
+    public static final CaptureRequest.Key<Byte> earlyPCR =
+            new CaptureRequest.Key<>("org.quic.camera.EarlyPCRenable.EarlyPCRenable", byte.class);
 
     private boolean[] mTakingPicture = new boolean[MAX_NUM_CAM];
     private int mControlAFMode = CameraMetadata.CONTROL_AF_MODE_CONTINUOUS_PICTURE;
@@ -963,7 +966,7 @@ public class CaptureModule implements CameraModule, PhotoController,
 
     public boolean isDeepPortraitMode() {
         String value = mSettingsManager.getValue(SettingsManager.KEY_SCENE_MODE);
-        if (value == null) return  false;
+        if (value == null) return false;
         return Integer.valueOf(value) == SettingsManager.SCENE_MODE_DEEPPORTRAIT_INT;
     }
 
@@ -1245,6 +1248,8 @@ public class CaptureModule implements CameraModule, PhotoController,
                                 e.printStackTrace();
                             } catch(IllegalStateException e) {
                                 e.printStackTrace();
+                            } catch (IllegalArgumentException e) {
+                                e.printStackTrace();
                             }
                         }
 
@@ -1400,6 +1405,8 @@ public class CaptureModule implements CameraModule, PhotoController,
         if (!checkSessionAndBuilder(mCaptureSession[id], mPreviewRequestBuilder[id])) {
             return;
         }
+        afMode = (mSettingsManager.isDeveloperEnabled() && getDevAfMode() != -1) ? getDevAfMode()
+                : afMode;
         if (DEBUG) {
             Log.d(TAG, "setAFModeToPreview " + afMode);
         }
@@ -2124,6 +2131,20 @@ public class CaptureModule implements CameraModule, PhotoController,
                 String cameraId = cameraIdList[i];
 
                 CameraCharacteristics characteristics = manager.getCameraCharacteristics(cameraId);
+                int[] capabilities = characteristics.get(CameraCharacteristics.REQUEST_AVAILABLE_CAPABILITIES);
+
+                boolean foundDepth = false;
+                for (int capability : capabilities) {
+                    if (capability == CameraCharacteristics.REQUEST_AVAILABLE_CAPABILITIES_DEPTH_OUTPUT) {
+                        DEPTH_CAM_ID = cameraId;
+                        Log.d(TAG, "Found depth camera with id " + cameraId);
+                        foundDepth = true;
+                    }
+                }
+
+                if(foundDepth) {
+                    continue;
+                }
                 if (isInMode(i))
                     mCameraIdList.add(i);
                 if(i == getMainCameraId()) {
@@ -2564,6 +2585,7 @@ public class CaptureModule implements CameraModule, PhotoController,
         applySharpnessControlModes(builder);
         applyExposureMeteringModes(builder);
         applyHistogram(builder);
+        applyEarlyPCR(builder);
     }
 
     /**
@@ -2678,6 +2700,7 @@ public class CaptureModule implements CameraModule, PhotoController,
             ClearSightImageProcessor.getInstance().close();
         }
         closeCamera();
+        resetAudioMute();
         mUI.showPreviewCover();
         if (mUI.getGLCameraPreview() != null)
             mUI.getGLCameraPreview().onPause();
@@ -2718,7 +2741,8 @@ public class CaptureModule implements CameraModule, PhotoController,
                 cancelTouchFocus(MONO_ID);
             }
         } else {
-            if (mState[getMainCameraId()] == STATE_WAITING_TOUCH_FOCUS) {
+            if (mState[getMainCameraId()] == STATE_WAITING_TOUCH_FOCUS ||
+                    mState[getMainCameraId()] == STATE_PREVIEW) {
                 cancelTouchFocus(getMainCameraId());
             }
         }
@@ -3667,7 +3691,7 @@ public class CaptureModule implements CameraModule, PhotoController,
             } catch (IllegalStateException e) {
                 e.printStackTrace();
             }
-            if (!startMediaRecorder()) {
+            if (!mFrameProcessor.isFrameListnerEnabled() && !startMediaRecorder()) {
                 mUI.showUIafterRecording();
                 releaseMediaRecorder();
                 mFrameProcessor.setVideoOutputSurface(null);
@@ -3782,7 +3806,7 @@ public class CaptureModule implements CameraModule, PhotoController,
                                         + e.getMessage());
                             e.printStackTrace();
                         }
-                        if (!startMediaRecorder()) {
+                        if (!mFrameProcessor.isFrameListnerEnabled() && !startMediaRecorder()) {
                             mUI.showUIafterRecording();
                             releaseMediaRecorder();
                             mFrameProcessor.setVideoOutputSurface(null);
@@ -3849,25 +3873,13 @@ public class CaptureModule implements CameraModule, PhotoController,
             mUI.showUIafterRecording();
             mFrameProcessor.setVideoOutputSurface(null);
             restartSession(true);
+        } catch (IllegalStateException e) {
+            e.printStackTrace();
         }
         return true;
     }
 
     private boolean startMediaRecorder() {
-        try {
-            mMediaRecorder.start(); // Recording is now started
-            mIsRecordingVideo = true;
-            mStartRecPending = false;
-            Log.d(TAG, "StartRecordingVideo done.");
-        } catch (RuntimeException e) {
-            Toast.makeText(mActivity,"Could not start media recorder.\n " +
-                    "Can't start video recording.", Toast.LENGTH_LONG).show();
-            releaseMediaRecorder();
-            releaseAudioFocus();
-            mStartRecPending = false;
-            mIsRecordingVideo = false;
-            return false;
-        }
         if (mUnsupportedResolution == true ) {
             Log.v(TAG, "Unsupported Resolution according to target");
             mStartRecPending = false;
@@ -3882,7 +3894,30 @@ public class CaptureModule implements CameraModule, PhotoController,
         }
 
         requestAudioFocus();
+        try {
+            mMediaRecorder.start(); // Recording is now started
+            mIsRecordingVideo = true;
+            mStartRecPending = false;
+            Log.d(TAG, "StartRecordingVideo done.");
+        } catch (RuntimeException e) {
+            Toast.makeText(mActivity,"Could not start media recorder.\n " +
+                    "Can't start video recording.", Toast.LENGTH_LONG).show();
+            releaseMediaRecorder();
+            releaseAudioFocus();
+            mStartRecPending = false;
+            mIsRecordingVideo = false;
+            return false;
+        }
         return true;
+    }
+
+    public void startMediaRecording() {
+        if (!startMediaRecorder()) {
+            mUI.showUIafterRecording();
+            releaseMediaRecorder();
+            mFrameProcessor.setVideoOutputSurface(null);
+            restartSession(true);
+        }
     }
 
     private void updateTimeLapseSetting() {
@@ -3947,6 +3982,7 @@ public class CaptureModule implements CameraModule, PhotoController,
         applyVideoEncoderProfile(builder);
         applyVideoEIS(builder);
         applyVideoHDR(builder);
+        applyEarlyPCR(builder);
     }
 
     private void applyVideoHDR(CaptureRequest.Builder builder) {
@@ -4787,15 +4823,18 @@ public class CaptureModule implements CameraModule, PhotoController,
     }
 
     private void applyAfModes(CaptureRequest.Builder request) {
+        if (getDevAfMode() != -1) {
+            request.set(CaptureRequest.CONTROL_AF_MODE, getDevAfMode());
+        }
+    }
+
+    private int getDevAfMode() {
         String value = mSettingsManager.getValue(SettingsManager.KEY_AF_MODE);
         int intValue = -1;
         if (value != null) {
             intValue = Integer.parseInt(value);
         }
-        if (intValue != CaptureRequest.CONTROL_AF_MODE_OFF
-                && intValue != -1) {
-            request.set(CaptureRequest.CONTROL_AF_MODE, intValue);
-        }
+        return intValue;
     }
 
     private void applyVideoEIS(CaptureRequest.Builder request) {
@@ -4817,6 +4856,17 @@ public class CaptureModule implements CameraModule, PhotoController,
             byte byteValue = (byte) (value.equals("disable") ? 0x00 : 0x01);
             try {
                 request.set(CaptureModule.eis_mode, byteValue);
+            } catch (IllegalArgumentException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private void applyEarlyPCR(CaptureRequest.Builder request) {
+        String value = mSettingsManager.getValue(SettingsManager.KEY_EARLY_PCR_VALUE);
+        if(value != null) {
+            try {
+                request.set(CaptureModule.earlyPCR, (byte) (value.equals("disable") ? 0x00 : 0x01));
             } catch (IllegalArgumentException e) {
                 e.printStackTrace();
             }
@@ -5900,7 +5950,6 @@ public class CaptureModule implements CameraModule, PhotoController,
         if (bitmap != null) {
             // MetadataRetriever already rotates the thumbnail. We should rotate
             // it to match the UI orientation (and mirror if it is front-facing camera).
-            Camera.CameraInfo[] info = CameraHolder.instance().getCameraInfo();
             boolean mirror = mPostProcessor.isSelfieMirrorOn();
             bitmap = CameraUtil.rotateAndMirror(bitmap, 0, mirror);
         }
@@ -6024,9 +6073,7 @@ public class CaptureModule implements CameraModule, PhotoController,
         updatePreviewSurfaceReadyState(true);
         mUI.initThumbnail();
         if (getFrameFilters().size() == 0) {
-            if (mDeepPortraitMode) {
-                Toast.makeText(mActivity, "DeepPortrait is not supported", Toast.LENGTH_LONG).show();
-            }
+            Log.d(TAG,"DeepPortraitFilter is not in frame filter list.");
             return;
         }
         mRenderer = getGLCameraPreview().getRendererInstance();

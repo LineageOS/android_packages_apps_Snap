@@ -165,6 +165,7 @@ public class SettingsManager implements ListMenu.SettingsListener {
     public static final String KEY_EIS_VALUE = "pref_camera2_eis_key";
     public static final String KEY_FOVC_VALUE = "pref_camera2_fovc_key";
     public static final String KEY_DEEPPORTRAIT_VALUE = "pref_camera2_deepportrait_key";
+    public static final String KEY_EARLY_PCR_VALUE = "pref_camera2_earlypcr_key";
 
     public static final HashMap<String, Integer> KEY_ISO_INDEX = new HashMap<String, Integer>();
     public static final String KEY_BSGC_DETECTION = "pref_camera2_bsgc_key";
@@ -224,11 +225,12 @@ public class SettingsManager implements ListMenu.SettingsListener {
         if (mPreferences == null) {
             mPreferences = new ComboPreferences(mContext);
         }
-        CameraSettings.upgradeGlobalPreferences(mPreferences.getGlobal(), mContext);
+        upgradeGlobalPreferences(mPreferences.getGlobal(), mContext);
 
         CameraManager manager = (CameraManager) mContext.getSystemService(Context.CAMERA_SERVICE);
         try {
             String[] cameraIdList = manager.getCameraIdList();
+            boolean isFirstBackCameraId = true;
             for (int i = 0; i < cameraIdList.length; i++) {
                 String cameraId = cameraIdList[i];
                 CameraCharacteristics characteristics
@@ -247,6 +249,10 @@ public class SettingsManager implements ListMenu.SettingsListener {
                 if (facing == CameraCharacteristics.LENS_FACING_FRONT) {
                     CaptureModule.FRONT_ID = i;
                     mIsFrontCameraPresent = true;
+                } else if (facing == CameraCharacteristics.LENS_FACING_BACK &&
+                        isFirstBackCameraId) {
+                    isFirstBackCameraId = false;
+                    upgradeCameraId(mPreferences.getGlobal(), i);
                 }
                 mCharacteristics.add(i, characteristics);
             }
@@ -272,6 +278,14 @@ public class SettingsManager implements ListMenu.SettingsListener {
         if (sInstance != null) {
             sInstance = null;
         }
+    }
+
+    private void upgradeGlobalPreferences(SharedPreferences pref, Context context) {
+        CameraSettings.upgradeOldVersion(pref, context);
+    }
+
+    private void upgradeCameraId(SharedPreferences pref, int id) {
+        CameraSettings.writePreferredCameraId(pref, id);
     }
 
     public List<String> getDisabledList() {
