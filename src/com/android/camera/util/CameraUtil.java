@@ -589,6 +589,7 @@ public class CameraUtil {
         // new overlay will be created before the old one closed, which causes
         // an exception. For now, just get the screen size.
         Point point = getDefaultDisplaySize(currentActivity, new Point());
+        final double ratio_4_3 = (double)4/3;
         int targetHeight = Math.min(point.x, point.y);
         double minDiff = targetHeight;
         // Try to find an size match aspect ratio and size
@@ -598,7 +599,11 @@ public class CameraUtil {
             if (Math.abs(ratio - targetRatio) > ASPECT_TOLERANCE) continue;
 
             // Count sizes with height <= 1080p to mimic camera1 api behavior.
-            if (size.y > MAX_ASPECT_HEIGHT) continue;
+            if (ratio_4_3 == targetRatio) {
+                if (size.y > minDiff) continue;
+            } else {
+                if (size.y > MAX_ASPECT_HEIGHT) continue;
+            }
 
             double heightDiff = Math.abs(size.y - targetHeight);
             if (heightDiff < minDiff) {
