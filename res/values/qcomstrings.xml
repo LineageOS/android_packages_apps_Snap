@@ -404,10 +404,12 @@
      <string name="pref_camera_hfr_entry_3x">HFR 90</string>
      <string name="pref_camera_hfr_entry_4x">HFR 120</string>
      <string name="pref_camera_hfr_entry_8x">HFR 240</string>
+     <string name="pref_camera_hfr_entry_16x">HFR 480</string>
      <string name="pref_camera_hfr_entry_hsr_60">HSR 60</string>
      <string name="pref_camera_hfr_entry_hsr_90">HSR 90</string>
      <string name="pref_camera_hfr_entry_hsr_120">HSR 120</string>
      <string name="pref_camera_hfr_entry_hsr_240">HSR 240</string>
+     <string name="pref_camera_hfr_entry_hsr_480">HSR 480</string>
 
      <!-- HFR entry values. Do not translate. -->
      <string name="pref_camera_hfr_value_off">off</string>
@@ -415,10 +417,12 @@
      <string name="pref_camera_hfr_value_3x">hfr90</string>
      <string name="pref_camera_hfr_value_4x">hfr120</string>
      <string name="pref_camera_hfr_value_8x">hfr240</string>
+     <string name="pref_camera_hfr_value_16x">hfr480</string>
      <string name="pref_camera_hfr_value_hsr_60">hsr60</string>
      <string name="pref_camera_hfr_value_hsr_90">hsr90</string>
      <string name="pref_camera_hfr_value_hsr_120">hsr120</string>
      <string name="pref_camera_hfr_value_hsr_240">hsr240</string>
+     <string name="pref_camera_hfr_value_hsr_480">hsr480</string>
 
      <!-- Default noise reduction setting. Do not translate. -->
      <string name="pref_camera_noise_reduction_default">off</string>
