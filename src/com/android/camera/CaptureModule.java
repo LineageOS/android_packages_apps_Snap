@@ -1219,7 +1219,10 @@ public class CaptureModule implements CameraModule, PhotoController,
                 if(mFrameProcessor.isFrameFilterEnabled()) {
                     mActivity.runOnUiThread(new Runnable() {
                         public void run() {
-                            mUI.getSurfaceHolder().setFixedSize(mPreviewSize.getHeight(), mPreviewSize.getWidth());
+                            if (mUI.getSurfaceHolder() != null) {
+                                mUI.getSurfaceHolder().setFixedSize(mPreviewSize.getHeight(),
+                                        mPreviewSize.getWidth());
+                            }
                         }
                     });
                 }
