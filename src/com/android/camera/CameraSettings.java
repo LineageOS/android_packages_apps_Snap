@@ -826,10 +826,11 @@ public class CameraSettings {
         ArrayList<String> supported = new ArrayList<String>();
         int zoomMaxIdx = params.getMaxZoom();
         List <Integer>  zoomRatios = params.getZoomRatios();
-        int zoomMax = zoomRatios.get(zoomMaxIdx)/100;
-
-        for (int zoomLevel = 0; zoomLevel <= zoomMax; zoomLevel++) {
-            supported.add(String.valueOf(zoomLevel));
+        if (zoomRatios != null ) {
+            int zoomMax = zoomRatios.get(zoomMaxIdx)/100;
+            for (int zoomLevel = 0; zoomLevel <= zoomMax; zoomLevel++) {
+                supported.add(String.valueOf(zoomLevel));
+            }
         }
         return supported;
     }
