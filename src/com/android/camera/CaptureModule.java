@@ -291,6 +291,21 @@ public class CaptureModule implements CameraModule, PhotoController,
     public static final CameraCharacteristics.Key<int[]> highSpeedVideoConfigs  =
             new CameraCharacteristics.Key<>("android.control.availableHighSpeedVideoConfigurations", int[].class);
 
+    // AWB WarmStart gain and AWB WarmStart CCT
+    public static final CaptureResult.Key<Float> awbFrame_control_rgain =
+            new CaptureResult.Key<>("org.quic.camera2.statsconfigs.AWBFrameControlRGain", Float.class);
+    public static final CaptureResult.Key<Float> awbFrame_control_ggain =
+            new CaptureResult.Key<>("org.quic.camera2.statsconfigs.AWBFrameControlGGain", Float.class);
+    public static final CaptureResult.Key<Float> awbFrame_control_bgain =
+            new CaptureResult.Key<>("org.quic.camera2.statsconfigs.AWBFrameControlBGain", Float.class);
+    public static final CaptureResult.Key<Integer> awbFrame_control_cct =
+            new CaptureResult.Key<>("org.quic.camera2.statsconfigs.AWBFrameControlCCT", Integer.class);
+
+    public static final CaptureRequest.Key<Float[]> awbWarmStart_gain =
+            new CaptureRequest.Key<>("org.quic.camera2.statsconfigs.AWBWarmstartGain", Float[].class);
+    private static final CaptureRequest.Key<Float> awbWarmStart_cct =
+            new CaptureRequest.Key<>("org.quic.camera2.statsconfigs.AWBWarmstartCCT", Float.class);
+
     public static final CaptureRequest.Key<Integer> sharpness_control = new CaptureRequest.Key<>(
             "org.codeaurora.qcamera3.sharpness.strength", Integer.class);
     public static final CaptureRequest.Key<Integer> exposure_metering = new CaptureRequest.Key<>(
@@ -657,6 +672,9 @@ public class CaptureModule implements CameraModule, PhotoController,
             int id = (int) result.getRequest().getTag();
             if (id == getMainCameraId()) {
                 updateFocusStateChange(result);
+                if (mPaused) {
+                    saveAWBCCTAndgains(result);
+                }
                 Face[] faces = result.get(CaptureResult.STATISTICS_FACES);
                 if (faces != null && isBsgcDetecionOn()) {
                     updateFaceView(faces, getBsgcInfo(result, faces.length));
@@ -2586,6 +2604,7 @@ public class CaptureModule implements CameraModule, PhotoController,
         applyExposureMeteringModes(builder);
         applyHistogram(builder);
         applyEarlyPCR(builder);
+        applyAWBCCTAndAgain(builder);
     }
 
     /**
@@ -2702,8 +2721,9 @@ public class CaptureModule implements CameraModule, PhotoController,
         closeCamera();
         resetAudioMute();
         mUI.showPreviewCover();
-        if (mUI.getGLCameraPreview() != null)
+        if (mUI.getGLCameraPreview() != null) {
             mUI.getGLCameraPreview().onPause();
+        }
         mUI.hideSurfaceView();
         mFirstPreviewLoaded = false;
         stopBackgroundThread();
@@ -5175,6 +5195,55 @@ public class CaptureModule implements CameraModule, PhotoController,
             request.set(CaptureRequest.SENSOR_EXPOSURE_TIME, newExpTime);
             request.set(CaptureRequest.SENSOR_SENSITIVITY, isoValue);
             result = true;
+        }
+        return result;
+    }
+
+    private boolean applyAWBCCTAndAgain(CaptureRequest.Builder request) {
+        boolean result = false;
+        final SharedPreferences pref = mActivity.getSharedPreferences(
+                ComboPreferences.getLocalSharedPreferencesName(mActivity, getMainCameraId()),
+                Context.MODE_PRIVATE);
+        float awbDefault = -1f;
+        float rGain = pref.getFloat(SettingsManager.KEY_AWB_RAGIN_VALUE, awbDefault);
+        float gGain = pref.getFloat(SettingsManager.KEY_AWB_GAGIN_VALUE, awbDefault);
+        float bGain = pref.getFloat(SettingsManager.KEY_AWB_BAGIN_VALUE, awbDefault);
+        float cct = pref.getFloat(SettingsManager.KEY_AWB_CCT_VALUE, awbDefault);
+        if (rGain != awbDefault && gGain != awbDefault && gGain != bGain) {
+            Float[] awbGains = {rGain, gGain, bGain};
+            try {
+                request.set(CaptureModule.awbWarmStart_gain, awbGains);
+                if (cct != awbDefault) {
+                    request.set(CaptureModule.awbWarmStart_cct, cct);
+                }
+                result = true;
+            } catch (IllegalArgumentException e) {
+                e.printStackTrace();
+            }
+        }
+        return result;
+    }
+
+    private boolean saveAWBCCTAndgains(CaptureResult awbResult) {
+        boolean result = false;
+        final SharedPreferences pref = mActivity.getSharedPreferences(
+                ComboPreferences.getLocalSharedPreferencesName(mActivity, getMainCameraId()),
+                Context.MODE_PRIVATE);
+        if (awbResult != null) {
+            try {
+                float rGain = awbResult.get(CaptureModule.awbFrame_control_rgain);
+                float gGain = awbResult.get(CaptureModule.awbFrame_control_ggain);
+                float bGain = awbResult.get(CaptureModule.awbFrame_control_bgain);
+                int cct = awbResult.get(CaptureModule.awbFrame_control_cct);
+                SharedPreferences.Editor editor = pref.edit();
+                editor.putFloat(SettingsManager.KEY_AWB_RAGIN_VALUE, rGain);
+                editor.putFloat(SettingsManager.KEY_AWB_GAGIN_VALUE, gGain);
+                editor.putFloat(SettingsManager.KEY_AWB_BAGIN_VALUE, bGain);
+                editor.putFloat(SettingsManager.KEY_AWB_CCT_VALUE, (float)cct);
+                editor.apply();
+            } catch (IllegalArgumentException e) {
+                e.printStackTrace();
+            }
         }
         return result;
     }
