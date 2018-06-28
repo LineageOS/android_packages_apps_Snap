@@ -1298,7 +1298,7 @@ public class CameraActivity extends Activity
     }
 
     private void unbindMediaSaveService() {
-        if (mConnection != null) {
+        if (mConnection != null && mMediaSaveService != null) {
             unbindService(mConnection);
         }
     }
