@@ -315,8 +315,10 @@ public class DeepPortraitFilter implements ImageFilter {
 
     static {
         try {
-            System.loadLibrary("jni_deepportrait");
-            mIsSupported = true;
+            if (mIsSupported) {
+                System.loadLibrary("jni_deepportrait");
+            }
+            mIsSupported = false;
         }catch(UnsatisfiedLinkError e) {
             mIsSupported = false;
             Log.d(TAG,"failed to load jni_deepportrait");
