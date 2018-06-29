@@ -3097,7 +3097,14 @@ public class PhotoModule
         // This will be called again in checkDisplayRotation(), so there
         // should not be any problem even if mUI is null.
         if (mUI != null) {
-            mUI.setDisplayOrientation(mDisplayOrientation);
+            mActivity.runOnUiThread(
+                    new Runnable() {
+                        @Override
+                        public void run() {
+                            mUI.setDisplayOrientation(mDisplayOrientation);
+                        }
+                    }
+            );
         }
         if (mFocusManager != null) {
             mFocusManager.setDisplayOrientation(mDisplayOrientation);
