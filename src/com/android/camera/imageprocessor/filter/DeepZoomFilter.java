@@ -168,8 +168,10 @@ public class DeepZoomFilter implements ImageFilter{
 
     static {
         try {
-            System.loadLibrary("jni_deepzoom");
-            mIsSupported = true;
+            if (mIsSupported) {
+                System.loadLibrary("jni_deepzoom");
+            }
+            mIsSupported = false;
         }catch(UnsatisfiedLinkError e) {
             Log.d(TAG, e.toString());
             mIsSupported = false;
