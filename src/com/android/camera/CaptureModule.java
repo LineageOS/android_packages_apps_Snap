@@ -1624,7 +1624,7 @@ public class CaptureModule implements CameraModule, PhotoController,
             if (!mIsSupportedQcfa) {
                 addPreviewSurface(captureBuilder, null, id);
             }
-            VendorTagUtil.setCdsMode(captureBuilder, 2);// CDS 0-OFF, 1-ON, 2-AUTO
+            VendorTagUtil.setCdsMode(captureBuilder, 0);// CDS 0-OFF, 1-ON, 2-AUTO
             applySettingsForCapture(captureBuilder, id);
 
             if(isClearSightOn()) {
@@ -1663,7 +1663,7 @@ public class CaptureModule implements CameraModule, PhotoController,
         
         applySettingsForJpegInformation(captureBuilder, id);
         addPreviewSurface(captureBuilder, null, id);
-        VendorTagUtil.setCdsMode(captureBuilder, 2); // CDS 0-OFF, 1-ON, 2-AUTO
+        VendorTagUtil.setCdsMode(captureBuilder, 0); // CDS 0-OFF, 1-ON, 2-AUTO
         applySettingsForCapture(captureBuilder, id);
         applySettingsForLockExposure(captureBuilder, id);
         checkAndPlayShutterSound(id);
