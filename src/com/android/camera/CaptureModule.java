@@ -211,6 +211,12 @@ public class CaptureModule implements CameraModule, PhotoController,
 
     private static final int SCREEN_DELAY = 2 * 60 * 1000;
 
+    /** For temporary save warmstart gains and cct value*/
+    private float mRGain = -1.0f;
+    private float mGGain = -1.0f;
+    private float mBGain = -1.0f;
+    private float mCctAWB = -1.0f;
+
     /** Add for EIS and FOVC Configuration */
     private int mStreamConfigOptMode = 0;
     private static final int STREAM_CONFIG_MODE_QTIEIS_REALTIME = 0xF004;
@@ -672,9 +678,7 @@ public class CaptureModule implements CameraModule, PhotoController,
             int id = (int) result.getRequest().getTag();
             if (id == getMainCameraId()) {
                 updateFocusStateChange(result);
-                if (mPaused) {
-                    saveAWBCCTAndgains(result);
-                }
+                updateAWBCCTAndgains(result);
                 Face[] faces = result.get(CaptureResult.STATISTICS_FACES);
                 if (faces != null && isBsgcDetecionOn()) {
                     updateFaceView(faces, getBsgcInfo(result, faces.length));
@@ -2695,6 +2699,7 @@ public class CaptureModule implements CameraModule, PhotoController,
     public void onPauseBeforeSuper() {
         cancelTouchFocus();
         mPaused = true;
+        writeXMLForWarmAwb();
         mToast = null;
         mUI.onPause();
         if (mIsRecordingVideo) {
@@ -5224,28 +5229,32 @@ public class CaptureModule implements CameraModule, PhotoController,
         return result;
     }
 
-    private boolean saveAWBCCTAndgains(CaptureResult awbResult) {
+    private boolean updateAWBCCTAndgains(CaptureResult awbResult) {
         boolean result = false;
-        final SharedPreferences pref = mActivity.getSharedPreferences(
-                ComboPreferences.getLocalSharedPreferencesName(mActivity, getMainCameraId()),
-                Context.MODE_PRIVATE);
         if (awbResult != null) {
             try {
-                float rGain = awbResult.get(CaptureModule.awbFrame_control_rgain);
-                float gGain = awbResult.get(CaptureModule.awbFrame_control_ggain);
-                float bGain = awbResult.get(CaptureModule.awbFrame_control_bgain);
-                int cct = awbResult.get(CaptureModule.awbFrame_control_cct);
-                SharedPreferences.Editor editor = pref.edit();
-                editor.putFloat(SettingsManager.KEY_AWB_RAGIN_VALUE, rGain);
-                editor.putFloat(SettingsManager.KEY_AWB_GAGIN_VALUE, gGain);
-                editor.putFloat(SettingsManager.KEY_AWB_BAGIN_VALUE, bGain);
-                editor.putFloat(SettingsManager.KEY_AWB_CCT_VALUE, (float)cct);
-                editor.apply();
+                mRGain = awbResult.get(CaptureModule.awbFrame_control_rgain);
+                mGGain = awbResult.get(CaptureModule.awbFrame_control_ggain);
+                mBGain = awbResult.get(CaptureModule.awbFrame_control_bgain);
+                mCctAWB = awbResult.get(CaptureModule.awbFrame_control_cct);
+                result = true;
             } catch (IllegalArgumentException e) {
                 e.printStackTrace();
             }
         }
         return result;
+    }
+
+    private void writeXMLForWarmAwb() {
+        final SharedPreferences pref = mActivity.getSharedPreferences(
+                ComboPreferences.getLocalSharedPreferencesName(mActivity, getMainCameraId()),
+                Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = pref.edit();
+        editor.putFloat(SettingsManager.KEY_AWB_RAGIN_VALUE, mRGain);
+        editor.putFloat(SettingsManager.KEY_AWB_GAGIN_VALUE, mGGain);
+        editor.putFloat(SettingsManager.KEY_AWB_BAGIN_VALUE, mBGain);
+        editor.putFloat(SettingsManager.KEY_AWB_CCT_VALUE, mCctAWB);
+        editor.apply();
     }
 
     private void applyColorEffect(CaptureRequest.Builder request) {
