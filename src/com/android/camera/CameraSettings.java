@@ -288,7 +288,7 @@ public class CameraSettings {
 
     private final Context mContext;
     private final Parameters mParameters;
-    private final CameraInfo[] mCameraInfo;
+    private final CameraHolder.CameraInfo[] mCameraInfo;
     private final int mCameraId;
     private static final HashMap<Integer, String>
             VIDEO_ENCODER_TABLE = new HashMap<Integer, String>();
@@ -397,7 +397,7 @@ public class CameraSettings {
    }
 
     public CameraSettings(Activity activity, Parameters parameters,
-                          int cameraId, CameraInfo[] cameraInfo) {
+                          int cameraId, CameraHolder.CameraInfo[] cameraInfo) {
         mContext = activity;
         mParameters = parameters;
         mCameraId = cameraId;
@@ -1210,7 +1210,7 @@ public class CameraSettings {
         upgradeCameraId(pref);
     }
 
-    private static void upgradeOldVersion(SharedPreferences pref, Context context) {
+    public static void upgradeOldVersion(SharedPreferences pref, Context context) {
         int version;
         try {
             version = pref.getInt(KEY_VERSION, 0);

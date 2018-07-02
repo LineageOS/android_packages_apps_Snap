@@ -1535,6 +1535,7 @@ public class CameraActivity extends Activity
         }
 
         boolean cam2on = PersistUtil.getCamera2Mode();
+        CameraHolder.setCamera2Mode(this, cam2on);
         if (cam2on && (moduleIndex == ModuleSwitcher.PHOTO_MODULE_INDEX ||
                 moduleIndex == ModuleSwitcher.VIDEO_MODULE_INDEX))
             moduleIndex = ModuleSwitcher.CAPTURE_MODULE_INDEX;
@@ -1856,6 +1857,8 @@ public class CameraActivity extends Activity
         super.onStop();
         if (mSecureCamera && !hasCriticalPermissions()) {
             return;
+        } else if (mSecureCamera) {
+            finish();
         }
         mPanoramaViewHelper.onStop();
         unbindMediaSaveService();

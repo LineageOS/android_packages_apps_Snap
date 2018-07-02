@@ -394,6 +394,7 @@ public class CaptureModule implements CameraModule, PhotoController,
     // The video duration limit. 0 means no limit.
     private int mMaxVideoDurationInMs;
     private boolean mIsMute = false;
+    private int mVideoEncoder;
     // Default 0. If it is larger than 0, the camcorder is in time lapse mode.
     private int mTimeBetweenTimeLapseFrameCaptureMs = 0;
     private boolean mCaptureTimeLapse = false;
@@ -1219,7 +1220,10 @@ public class CaptureModule implements CameraModule, PhotoController,
                 if(mFrameProcessor.isFrameFilterEnabled()) {
                     mActivity.runOnUiThread(new Runnable() {
                         public void run() {
-                            mUI.getSurfaceHolder().setFixedSize(mPreviewSize.getHeight(), mPreviewSize.getWidth());
+                            if (mUI.getSurfaceHolder() != null) {
+                                mUI.getSurfaceHolder().setFixedSize(mPreviewSize.getHeight(),
+                                        mPreviewSize.getWidth());
+                            }
                         }
                     });
                 }
@@ -1795,6 +1799,17 @@ public class CaptureModule implements CameraModule, PhotoController,
             applyZoom(captureBuilder, id);
 
             captureBuilder.addTarget(mVideoSnapshotImageReader.getSurface());
+            // send snapshot stream together with preview and video stream for snapshot request
+            // stream is the surface for the app
+            Surface surface = getPreviewSurfaceForSession(id);
+            if (getFrameProcFilterId().size() == 1 && getFrameProcFilterId().get(0) ==
+                    FrameProcessor.FILTER_MAKEUP) {
+                captureBuilder.addTarget(mFrameProcessor.getInputSurfaces().get(0));
+            } else {
+                captureBuilder.addTarget(surface);
+            }
+            List<Surface> surfaces = new ArrayList<>();
+            addPreviewSurface(captureBuilder, surfaces, id);
 
             mCurrentSession.capture(captureBuilder.build(),
                     new CameraCaptureSession.CaptureCallback() {
@@ -2713,6 +2728,16 @@ public class CaptureModule implements CameraModule, PhotoController,
                     onShutterButtonClick();
                 }
                 return true;
+            case KeyEvent.KEYCODE_DPAD_CENTER:
+                if (mFirstTimeInitialized && event.getRepeatCount() == 0) {
+                    onShutterButtonClick();
+                }
+                return true;
+            case KeyEvent.KEYCODE_MEDIA_RECORD:
+                if (mFirstTimeInitialized && event.getRepeatCount() == 0) {
+                    onVideoButtonClick();
+                }
+                return true;
         }
         return false;
     }
@@ -3333,6 +3358,16 @@ public class CaptureModule implements CameraModule, PhotoController,
             mIsRecordingVideo = false;
             return false;
         }
+        updateHFRSetting();
+        updateVideoEncoder();
+        if (!isSessionSupportedByEncoder(mVideoSize.getWidth(), mVideoSize.getHeight(),
+                mHighSpeedCaptureRate)) {
+            mStartRecPending = false;
+            mIsRecordingVideo = false;
+            RotateTextToast.makeText(mActivity,R.string.error_app_unsupported_hfr,
+                    Toast.LENGTH_SHORT).show();
+            return false;
+        }
 
         try {
             setUpMediaRecorder(cameraId);
@@ -3477,6 +3512,32 @@ public class CaptureModule implements CameraModule, PhotoController,
         return true;
     }
 
+    private boolean isSessionSupportedByEncoder(int w, int h, int fps) {
+        int expectedMBsPerSec = w * h * fps;
+
+        List<VideoEncoderCap> videoEncoders = EncoderCapabilities.getVideoEncoders();
+        for (VideoEncoderCap videoEncoder: videoEncoders) {
+            if (videoEncoder.mCodec == mVideoEncoder) {
+                int maxMBsPerSec = (videoEncoder.mMaxFrameWidth * videoEncoder.mMaxFrameHeight
+                        * videoEncoder.mMaxFrameRate);
+                if (expectedMBsPerSec > maxMBsPerSec) {
+                    Log.e(TAG,"Selected codec " + mVideoEncoder
+                            + " does not support width(" + w
+                            + ") X height ("+ h
+                            + "@ " + fps +" fps");
+                    Log.e(TAG, "Max capabilities: " +
+                            "MaxFrameWidth = " + videoEncoder.mMaxFrameWidth + " , " +
+                            "MaxFrameHeight = " + videoEncoder.mMaxFrameHeight + " , " +
+                            "MaxFrameRate = " + videoEncoder.mMaxFrameRate);
+                    return false;
+                } else {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
     private void updateTimeLapseSetting() {
         String value = mSettingsManager.getValue(SettingsManager
                 .KEY_VIDEO_TIME_LAPSE_FRAME_INTERVAL);
@@ -3487,11 +3548,18 @@ public class CaptureModule implements CameraModule, PhotoController,
         mUI.showTimeLapseUI(mCaptureTimeLapse);
     }
 
+    private void updateVideoEncoder() {
+        int videoEncoder = SettingTranslation
+                .getVideoEncoder(mSettingsManager.getValue(SettingsManager.KEY_VIDEO_ENCODER));
+        mVideoEncoder = videoEncoder;
+    }
+
     private void updateHFRSetting() {
         String value = mSettingsManager.getValue(SettingsManager.KEY_VIDEO_HIGH_FRAME_RATE);
         if (value == null) return;
         if (value.equals("off")) {
             mHighSpeedCapture = false;
+            mHighSpeedCaptureRate = 0;
         } else {
             mHighSpeedCapture = true;
             String mode = value.substring(0, 3);
@@ -3835,7 +3903,6 @@ public class CaptureModule implements CameraModule, PhotoController,
 
         if (mMediaRecorder == null) mMediaRecorder = new MediaRecorder();
 
-        updateHFRSetting();
         boolean hfr = mHighSpeedCapture && !mHighSpeedRecordingMode;
 
         if (CamcorderProfile.hasProfile(cameraId, size)) {
@@ -3854,12 +3921,10 @@ public class CaptureModule implements CameraModule, PhotoController,
         int videoHeight = mProfile.videoFrameHeight;
         mUnsupportedResolution = false;
 
-        int videoEncoder = SettingTranslation
-                .getVideoEncoder(mSettingsManager.getValue(SettingsManager.KEY_VIDEO_ENCODER));
         int audioEncoder = SettingTranslation
                 .getAudioEncoder(mSettingsManager.getValue(SettingsManager.KEY_AUDIO_ENCODER));
 
-        mProfile.videoCodec = videoEncoder;
+        mProfile.videoCodec = mVideoEncoder;
         if (!mCaptureTimeLapse && !hfr) {
             mMediaRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
             mProfile.audioCodec = audioEncoder;
@@ -3897,7 +3962,7 @@ public class CaptureModule implements CameraModule, PhotoController,
         } else {
             mMediaRecorder.setVideoSize(mProfile.videoFrameWidth, mProfile.videoFrameHeight);
         }
-        mMediaRecorder.setVideoEncoder(videoEncoder);
+        mMediaRecorder.setVideoEncoder(mVideoEncoder);
         if (!mCaptureTimeLapse && !hfr) {
             mMediaRecorder.setAudioEncodingBitRate(mProfile.audioBitRate);
             mMediaRecorder.setAudioChannels(mProfile.audioChannels);
@@ -3930,12 +3995,12 @@ public class CaptureModule implements CameraModule, PhotoController,
         //check if codec supports the resolution, otherwise throw toast
         List<VideoEncoderCap> videoEncoders = EncoderCapabilities.getVideoEncoders();
         for (VideoEncoderCap videoEnc: videoEncoders) {
-            if (videoEnc.mCodec == videoEncoder) {
+            if (videoEnc.mCodec == mVideoEncoder) {
                 if (videoWidth > videoEnc.mMaxFrameWidth ||
                         videoWidth < videoEnc.mMinFrameWidth ||
                         videoHeight > videoEnc.mMaxFrameHeight ||
                         videoHeight < videoEnc.mMinFrameHeight) {
-                    Log.e(TAG, "Selected codec " + videoEncoder +
+                    Log.e(TAG, "Selected codec " + mVideoEncoder +
                             " does not support "+ videoWidth + "x" + videoHeight
                             + " resolution");
                     Log.e(TAG, "Codec capabilities: " +
@@ -4380,6 +4445,7 @@ public class CaptureModule implements CameraModule, PhotoController,
 
     private void applyJpegQuality(CaptureRequest.Builder request) {
         String value = mSettingsManager.getValue(SettingsManager.KEY_JPEG_QUALITY);
+        if (value == null) return;
         int jpegQuality = getQualityNumber(value);
         request.set(CaptureRequest.JPEG_QUALITY, (byte) jpegQuality);
     }
@@ -4602,6 +4668,10 @@ public class CaptureModule implements CameraModule, PhotoController,
     public void triggerFocusAtPoint(float x, float y, int id) {
         if (DEBUG) {
             Log.d(TAG, "triggerFocusAtPoint " + x + " " + y + " " + id);
+        }
+        if (mCropRegion[id] == null) {
+            Log.d(TAG, "crop region is null at " + id);
+            return;
         }
         Point p = mUI.getSurfaceViewSize();
         int width = p.x;
@@ -5157,7 +5227,6 @@ public class CaptureModule implements CameraModule, PhotoController,
         if (bitmap != null) {
             // MetadataRetriever already rotates the thumbnail. We should rotate
             // it to match the UI orientation (and mirror if it is front-facing camera).
-            Camera.CameraInfo[] info = CameraHolder.instance().getCameraInfo();
             boolean mirror = mPostProcessor.isSelfieMirrorOn();
             bitmap = CameraUtil.rotateAndMirror(bitmap, 0, mirror);
         }
