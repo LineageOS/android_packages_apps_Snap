@@ -1950,9 +1950,20 @@ public class CaptureModule implements CameraModule, PhotoController,
                                     String title = (name == null) ? null : name.title;
                                     long date = (name == null) ? -1 : name.date;
 
-                                    byte[] bytes = getJpegData(image);
+                                    byte[] bytes;
+                                    int width = 0,height = 0,format = -1;
+                                    try{
+                                        bytes = getJpegData(image);
+                                        width = image.getWidth();
+                                        height = image.getHeight();
+                                        format = image.getFormat();
+                                        image.close();
+                                    } catch (IllegalStateException e) {
+                                        e.printStackTrace();
+                                        return;
+                                    }
 
-                                    if (image.getFormat() == ImageFormat.RAW10) {
+                                    if (format == ImageFormat.RAW10) {
                                         mActivity.getMediaSaveService().addRawImage(bytes, title,
                                                 "raw");
                                     } else {
@@ -1972,17 +1983,17 @@ public class CaptureModule implements CameraModule, PhotoController,
                                                 GImage gImage = new GImage(bokehBytes.get(1), "image/jpeg");
                                                 GDepth gDepth = GDepth.createGDepth(bokehBytes.get(bokehBytes.size()-1));
                                                 try {
-                                                    gDepth.setRoi(new Rect(0, 0, image.getWidth(), image.getHeight()));
+                                                    gDepth.setRoi(new Rect(0, 0, width, height));
                                                 } catch (IllegalStateException e) {
                                                     e.printStackTrace();
                                                     return;
                                                 }
                                                 mActivity.getMediaSaveService().addXmpImage(bokehBytes.get(0), gImage,
-                                                        gDepth, title, date, null, image.getWidth(), image.getHeight(),
+                                                        gDepth, title, date, null,  width, height,
                                                         orientation, exif, mOnMediaSavedListener, mContentResolver, "jpeg");
                                             } else {
                                                 mActivity.getMediaSaveService().addImage(bytes, title, date,
-                                                        null, image.getWidth(), image.getHeight(), orientation, null,
+                                                        null, width, height, orientation, null,
                                                         mOnMediaSavedListener, mContentResolver, "jpeg");
                                             }
 
@@ -1992,7 +2003,6 @@ public class CaptureModule implements CameraModule, PhotoController,
                                                 mActivity.updateThumbnail(bytes);
                                             }
                                         }
-                                        image.close();
                                     }
                                 }
                             }
