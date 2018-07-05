@@ -114,6 +114,7 @@ public class PanoCaptureModule implements CameraModule, PhotoController {
     private Object mSessionLock = new Object();
     public static final float TARGET_RATIO = 4f/3f;
     private static final int STATE_WAITING_LOCK = 1;
+    private static final int STATE_ERROR = 2;
     private Semaphore mFocusLockSemaphore = new Semaphore(1);
     private boolean mIsLockFocusAttempted = false;
     private int mCameraSensorOrientation;
@@ -123,6 +124,9 @@ public class PanoCaptureModule implements CameraModule, PhotoController {
 
         private void process(CaptureResult result) {
             switch (mState) {
+                case STATE_ERROR: {
+                    break;
+                }
                 case STATE_PREVIEW: {
                     break;
                 }
@@ -712,13 +716,19 @@ public class PanoCaptureModule implements CameraModule, PhotoController {
             mPreviewRequestBuilder.set(CaptureRequest.CONTROL_MODE, CaptureRequest.CONTROL_MODE_AUTO);
             mPreviewRequestBuilder.set(CaptureRequest.CONTROL_AF_MODE, CameraMetadata.CONTROL_AF_MODE_AUTO);
             mPreviewRequestBuilder.set(CaptureRequest.CONTROL_AF_TRIGGER, CaptureRequest.CONTROL_AF_TRIGGER_START);
-            mCaptureSession.setRepeatingRequest(mPreviewRequestBuilder.build(),
-                    mCaptureCallback, mCameraHandler);
-            mState = STATE_WAITING_LOCK;
+            if (mCaptureSession != null) {
+                mCaptureSession.setRepeatingRequest(mPreviewRequestBuilder.build(),
+                        mCaptureCallback, mCameraHandler);
+                mState = STATE_WAITING_LOCK;
+            } else {
+                Toast.makeText(mActivity, "Session is null, can't take panorama.", Toast.LENGTH_SHORT).show();
+                mState = STATE_ERROR;
+            }
             mFocusLockSemaphore.release();
         } catch (CameraAccessException e) {
             e.printStackTrace();
         } catch (InterruptedException e) {
+            e.printStackTrace();
         }
     }
 
