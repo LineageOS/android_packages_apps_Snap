@@ -264,7 +264,7 @@
   <string name="pref_camera_whitebalance_label_cloudy">ПАСМУРНЫЙ ДЕНЬ</string>
   <!-- Default scene mode setting. -->
   <!-- Settings screen, Select Scene mode -->
-  <string name="pref_camera_scenemode_title">Режим съёмки</string>
+  <string name="pref_camera_scenemode_title">Режим съемки</string>
   <!-- Settings menu, scene mode choices [CHAR LIMIT=16] -->
   <string name="pref_camera_scenemode_entry_auto">Авто</string>
   <!-- Scene mode that uses HDR plus (better HDR) [CHAR LIMIT=16] -->
@@ -311,13 +311,13 @@
   <!-- Toast after trying to select a setting that is not allowed to change in scene mode [CHAR LIMIT=NONE] -->
   <string name="not_selectable_in_scene_mode">Недоступно в режиме съемки</string>
   <!-- Toast after enable HDR function to inform Continuous Shot has disabled -->
-  <string name="HDR_disable_continuous_shot">Включение HDR отключит непрерывную съёмку.</string>
+  <string name="HDR_disable_continuous_shot">Включение HDR отключит непрерывную съемку.</string>
   <!-- Toast after enable Advanced Capture function to inform Continuous Shot has disabled -->
-  <string name="advanced_capture_disable_continuous_shot">Включение расширенных функций отключит непрерывную съёмку.</string>
+  <string name="advanced_capture_disable_continuous_shot">Включение расширенных функций отключит непрерывную съемку.</string>
   <!-- Toast after enable 2k4k video quality to inform IS has disabled -->
-  <string name="video_quality_4k_disable_IS">Включение видеосъёмки с разрешением 4K отключит стабилизацию.</string>
+  <string name="video_quality_4k_disable_IS">Включение видеосъемки с разрешением 4K отключит стабилизацию.</string>
   <!-- Toast after 2k4k video is enabled to inform SeeMore has been disabled -->
-  <string name="video_quality_4k_disable_SeeMore">Режим SeeMore не может быть включён во время записи 4К видео.</string>
+  <string name="video_quality_4k_disable_SeeMore">Режим SeeMore не может быть включен во время записи 4К видео.</string>
   <!-- Toast after High Quality Noise Reduction has been enabled to show CDS is disabled -->
   <string name="disable_CDS_during_HighQualityNoiseReduction">Включение высококачественного шумоподавления отключит функцию CDS.</string>
   <!-- Toast after High Quality Noise Reduction has been enabled to show TNR is disabled -->
@@ -358,7 +358,7 @@
   <!-- The text shown on the dialog title in the dialogs for Panorama [CHAR LIMIT=12] -->
   <string name="pano_dialog_title">Панорама</string>
   <!-- The text shown on the top-left corner of the screen to indicate the capturing is on going [CHAR LIMIT=27] -->
-  <string name="pano_capture_indication">Съёмка панорамы</string>
+  <string name="pano_capture_indication">Съемка панорамы</string>
   <!-- The text shown in the progress dialog when waiting for previous panorama finishing [CHAR LIMIT=40] -->
   <string name="pano_dialog_waiting_previous">Обработка предыдущего файла…</string>
   <!-- The text shown on the bottom-left corner of the screen to indicate that the saving is in process [CHAR LIMIT=13] -->
@@ -428,7 +428,7 @@
   <string name="accessibility_review_ok">Готово</string>
   <!-- button in review mode indicate the user want to retake another photo/video for attachment [
 CHAR LIMIT = NONE] -->
-  <string name="accessibility_review_retake">Ещё раз</string>
+  <string name="accessibility_review_retake">Еще раз</string>
   <!-- Default text for a button that can be toggled on and off. -->
   <string name="capital_on">ВКЛ.</string>
   <!-- Default text for a button that can be toggled on and off. -->
@@ -539,7 +539,7 @@ CHAR LIMIT = NONE] -->
   <string name="remember_location_yes">Да</string>
   <!-- Camera menu labels -->
   <!-- more options label [CHAR LIMIT=50] -->
-  <string name="camera_menu_more_label">ЕЩЁ</string>
+  <string name="camera_menu_more_label">ДРУГИЕ ОПЦИИ</string>
   <!-- settings label [CHAR LIMIT=50] -->
   <string name="camera_menu_settings_label">НАСТРОЙКИ</string>
   <!--  Tiny Planet -->

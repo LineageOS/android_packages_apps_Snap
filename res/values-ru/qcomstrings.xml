@@ -36,7 +36,7 @@
   <!-- Settings screen, Select auto exposure title -->
   <string name="pref_camera_autoexposure_title">Автоэкспозиция</string>
   <!-- Settings screen, auto exposure dialog radio button choices -->
-  <string name="pref_camera_autoexposure_entry_frameaverage">Усреднённый</string>
+  <string name="pref_camera_autoexposure_entry_frameaverage">Усредненный</string>
   <string name="pref_camera_autoexposure_entry_centerweighted">По центру кадра</string>
   <string name="pref_camera_autoexposure_entry_spotmetering">Точечный замер</string>
   <!-- Auto exposure entry values. Do not translate. -->
@@ -66,7 +66,7 @@
   <string name="pref_camera_selectablezoneaf_entry_auto">Авто</string>
   <string name="pref_camera_selectablezoneaf_entry_spotmetering">Точечный замер</string>
   <string name="pref_camera_selectablezoneaf_entry_centerweighted">По центру кадра</string>
-  <string name="pref_camera_selectablezoneaf_entry_frameaverage">Усреднённый</string>
+  <string name="pref_camera_selectablezoneaf_entry_frameaverage">Усредненный</string>
   <!-- Auto exposure entry values. Do not translate. -->
   <!-- Settings screen, Selectable advanced features title -->
   <string name="pref_camera_advanced_features_title">Расширенные настройки</string>
@@ -100,7 +100,7 @@
   <string name="pref_camera_zsl_entry_off">Отключить</string>
   <string name="pref_camera_zsl_entry_on">Вкл</string>
   <!-- The message is shown in toast when HDR or scene mode is enabled -->
-  <string name="hdr_enable_message">Включён HDR, поддерживается только режим Авто</string>
+  <string name="hdr_enable_message">Включен HDR, поддерживается только режим Авто</string>
   <string name="scene_enable_message">Функция HDR не поддерживается в режимах, отличных от Авто</string>
   <!-- Settings screen, Video HDR location dialog choices -->
   <string name="pref_camera_video_hdr_entry_off">Отключить</string>
@@ -122,7 +122,7 @@
   <string name="pref_camera_video_tnr_entry_enable">Включить</string>
   <!-- Settings screen, video TNR location dialog choices -->
   <!-- Settings screen, setting title text for Video HDR-->
-  <string name="pref_camera_video_hdr_title">HDR-видеосъёмка</string>
+  <string name="pref_camera_video_hdr_title">HDR-видеосъемка</string>
   <!-- Settings menu, setting title text for cds mode-->
   <string name="pref_camera_cds_title">Режим CDS</string>
   <!-- Settings menu, setting title text for video cds mode-->
@@ -160,45 +160,45 @@
   <string name="pref_camera_shuttersound_entry_enable">Включить</string>
   <string name="pref_camera_shuttersound_entry_disable">Отключить</string>
   <!-- The message is shown in toast when the app encounters an unsupported selection for HFR/HSR mode -->
-  <string name="error_app_unsupported_hfr_selection">Ускоренная съёмка не поддерживается при включённой стабилизации изобр., включённом HDR или в режиме замедленной съёмки.</string>
+  <string name="error_app_unsupported_hfr_selection">Ускоренная съемка не поддерживается при включенной стабилизации изобр., включенном HDR или в режиме замедленной съемки.</string>
   <!-- The message is shown in dialog when the app encounters an unsupported resolution for HFR mode -->
   <string name="error_app_unsupported_hfr">Замедл. движения не поддерживается для текущего разрешения видео. Установите более низкое разрешение</string>
   <!-- The message is shown in toast when the app encounters an unsupported resolution for DIS mode -->
   <string name="error_app_unsupported_dis">Стабилизация изображ. не поддерживается для текущего разрешения видео. Установите более низкое разрешение</string>
   <!-- The message is shown in dialog when the app encounters an unsupported resolution for HSR mode -->
-  <string name="error_app_unsupported_hsr">Ускоренная съёмка не поддерживается для текущего разрешения видео. Установите более низкое разрешение</string>
+  <string name="error_app_unsupported_hsr">Ускоренная съемка не поддерживается для текущего разрешения видео. Установите более низкое разрешение</string>
   <!-- The message is shown in dialog when the app encounters an unsupported video codec for HFR mode -->
-  <string name="error_app_unsupported_hfr_codec">Ускоренная съёмка возможна только с видеокодеком H264</string>
+  <string name="error_app_unsupported_hfr_codec">Ускоренная съемка возможна только с видеокодеком H264</string>
   <!-- The message is shown in dialog when the app encounters an unsupported video resolution-->
   <string name="error_app_unsupported">Видеокодек не поддерживает выбранное разрешение</string>
   <!-- The message is shown in dialog when the app encounters an unsupported video profile-->
   <string name="error_app_unsupported_profile">Неподдерживаемый профиль видео</string>
   <!--The message is shown in dialog when the raw snapshot is selected in zsl mode-->
-  <string name="error_app_unsupported_raw">Съёмка в формате RAW не поддерживается при включённой технологии нулевого запаздывания затвора (ZSL). Выберите формат JPEG</string>
+  <string name="error_app_unsupported_raw">Съемка в формате RAW не поддерживается при включенной технологии нулевого запаздывания затвора (ZSL). Выберите формат JPEG</string>
   <!-- Settings screen, AE bracketing and HDR location dialog choices -->
   <string name="pref_camera_ae_bracket_hdr_entry_ae_bracket">Автобрекетинг</string>
   <string name="pref_camera_ae_bracket_hdr_title">Автобрекетинг</string>
   <string name="pref_camera_ae_bracket_hdr_entry_on">Вкл</string>
   <string name="err_app_unsupport_ae_bracket_code">Автобрекетинг не поддерживается</string>
   <!-- The messsage shown if user selects a snapshot resolution lower than the current video size. -->
-  <string name="snapshot_lower_than_video">Разрешение снимка меньше, чем разрешение видеосъёмки. Выберите разрешение выше или равное разрешению видеосъёмки.</string>
+  <string name="snapshot_lower_than_video">Разрешение снимка меньше, чем разрешение видеосъемки. Выберите разрешение выше или равное разрешению видеосъемки.</string>
   <!-- The messsage shown if user selects a snapshot resolution in low power mode. -->
   <string name="snapshotsize_low_powermode">Изменение разрешения изображения не поддерживается в энергосберегающем режиме. Переключитесь в стандартный режим энергопотребления для использования этой функции.</string>
   <!-- The messsage shown if user tries to take snapshot during D1/QCIF resolution. -->
   <string name="snapshot_qcif_and_d1">Для этого разрешения поддерживается только снимок видеоизображения в этом размере.</string>
   <!-- Default hfr setting. Do not translate. -->
   <!-- Settings screen, Select hfr title -->
-  <string name="pref_camera_hfr_title">Ускоренная съёмка</string>
+  <string name="pref_camera_hfr_title">Ускоренная съемка</string>
   <!-- Settings screen, hfr radio button choices -->
   <string name="pref_camera_hfr_entry_off">Выкл.</string>
   <string name="pref_camera_hfr_entry_2x">Замедл. движ. — 60 к/с</string>
   <string name="pref_camera_hfr_entry_3x">Замедл. движ. — 90 к/с</string>
   <string name="pref_camera_hfr_entry_4x">Замедл. движ. — 120 к/с</string>
   <string name="pref_camera_hfr_entry_8x">Замедл. движ. — 240 к/с</string>
-  <string name="pref_camera_hfr_entry_hsr_60">Ускор. съёмка — 60 к/с</string>
-  <string name="pref_camera_hfr_entry_hsr_90">Ускор. съёмка — 90 к/с</string>
-  <string name="pref_camera_hfr_entry_hsr_120">Ускор. съёмка — 120 к/с</string>
-  <string name="pref_camera_hfr_entry_hsr_240">Ускор. съёмка — 240 к/с</string>
+  <string name="pref_camera_hfr_entry_hsr_60">Ускор. съемка — 60 к/с</string>
+  <string name="pref_camera_hfr_entry_hsr_90">Ускор. съемка — 90 к/с</string>
+  <string name="pref_camera_hfr_entry_hsr_120">Ускор. съемка — 120 к/с</string>
+  <string name="pref_camera_hfr_entry_hsr_240">Ускор. съемка — 240 к/с</string>
   <!-- HFR entry values. Do not translate. -->
   <!-- Default noise reduction setting. Do not translate. -->
   <!-- Settings screen, Select See More title -->
@@ -282,7 +282,7 @@
   <string name="pref_camera_coloreffect_entry_mosaic">Мозаика</string>
   <string name="pref_camera_coloreffect_entry_redtint">Красный оттенок</string>
   <string name="pref_camera_coloreffect_entry_bluetint">Синий оттенок</string>
-  <string name="pref_camera_coloreffect_entry_greentint">Зелёный оттенок</string>
+  <string name="pref_camera_coloreffect_entry_greentint">Зеленый оттенок</string>
   <!-- Select IS title -->
   <string name="pref_camera_dis_title">Стабилизатор изобр.</string>
   <!-- DIS choices -->
@@ -356,16 +356,16 @@
   <!-- Histogram entry values. Do not translate. -->
   <!-- Default auto scene detection setting. -->
   <!-- Settings screen, Select Auto Scene Detection -->
-  <string name="pref_camera_scenedetect_title">Распозн. условий съёмки</string>
+  <string name="pref_camera_scenedetect_title">Распозн. условий съемки</string>
   <!-- Settings menu, auto scene detection choices -->
   <string name="pref_camera_scenedetect_entry_off">Отключить</string>
   <!-- Scene detection set to on - supports backlight and snow cloudy detection. -->
   <string name="pref_camera_scenedetect_entry_on">Вкл</string>
   <!-- Toast showing error if invalid size selected for  time lapse  [CHAR LIMIT=65] -->
-  <string name="time_lapse_error">Неверное разрешение видео для замедленной съёмки.</string>
+  <string name="time_lapse_error">Неверное разрешение видео для замедленной съемки.</string>
   <!-- longshot value -->
-  <string name="pref_camera_longshot_title">Непрерывная съёмка</string>
-  <string name="msg_cancel_longshot_for_limited_memory">Недостаточно памяти. Непрерывная съёмка отменена</string>
+  <string name="pref_camera_longshot_title">Непрерывная съемка</string>
+  <string name="msg_cancel_longshot_for_limited_memory">Недостаточно памяти. Непрерывная съемка отменена</string>
   <!-- Toast showing non-supported functionality for flash in AE bracket -->
   <string name="flash_aebracket_message">Использование вспышки в режиме автобрекетинга невозможно</string>
   <!-- Settings screen, setting title text for Auto HDR-->
@@ -394,9 +394,9 @@
   <!-- The message is shown in toast when click showOnMap Menu and there is no map app -->
   <string name="map_activity_not_found_err">Приложение для работы с картами не установлено. Показ местоположения невозможен.</string>
   <!-- Continuous shot enable message -->
-  <string name="longshot_enable_message">Расширенные функции не поддерживаются в режиме непрерывной съёмки</string>
+  <string name="longshot_enable_message">Расширенные функции не поддерживаются в режиме непрерывной съемки</string>
   <!-- Advanced features enable message -->
-  <string name="advance_feature_enable_msg">Непрерывная съёмка не поддерживается, когда включены расширенные функции</string>
+  <string name="advance_feature_enable_msg">Непрерывная съемка не поддерживается, когда включены расширенные функции</string>
   <!-- The alas of CameraActivity for gesture operation -->
   <string name="camera_gesture_title">Включить камеру</string>
   <string name="pref_camera_tsmakeup_title">Облагораживание</string>
@@ -484,7 +484,7 @@
   <string name="pref_camera2_scene_mode_sharp_photo_instructional_content">SharpPhoto уменьшает размытие, возникшее вследствие движения объекта или руки.</string>
   <string name="pref_camera2_scene_mode_tracking_focus_instructional_content">Позволяет вам отслеживать и фокусироваться на выбранном человеке или объекте во время фото- или видеосъемки. Чтобы начать, расположите прямоугольник фокуса на человеке или объекте, который вы хотите отслеживать.</string>
   <string name="pref_camera2_scene_mode_time_lapse_instructional_content">В режиме интервальной съемки вы можете преобразовать длинную видеозапись в видео малого размера. Эффект применим только к видео.</string>
-  <string name="pref_camera2_scene_mode_panorama_instructional_content">Позволяет сдвигать окно съёмки влево или вправо для съёмки ландшафтного фото. Вы можете также сдвигать его вверх или вниз, чтобы снимать высокие фотографии.</string>
+  <string name="pref_camera2_scene_mode_panorama_instructional_content">Позволяет сдвигать окно съемки влево или вправо для съемки ландшафтного фото. Вы можете также сдвигать его вверх или вниз, чтобы снимать высокие фотографии.</string>
   <string name="pref_camera2_scene_mode_blur_buster_instructional_content">BlurBuster уменьшает размытие при съемке с трясущимися руками. Может быть полезно при съемке в тяжелых условиях.</string>
   <string name="pref_camera2_scene_mode_pro_instructional_content">В режиме Pro можно вручную управлять параметрами ISO, экспозиции, баланса белого и фокуса. Вы получите легкий доступ ко всем этим дополнительным настройкам</string>
   <string name="pref_camera2_not_show_again">Больше не показывать</string>

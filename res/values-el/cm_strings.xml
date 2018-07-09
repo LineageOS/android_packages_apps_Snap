@@ -104,4 +104,5 @@
   <!-- Advanced options -->
   <string name="developer_menu_enabled">Ενεργοποιήσατε τις προηγμένες ρυθμίσεις φωτογρ. μηχανής</string>
   <string name="developer_menu_disabled">Απενεργοποιήσατε τις προηγμένες ρυθμίσεις φωτογρ. μηχανής</string>
+  <string name="pref_camera2_preferences_category_developer">Προηγμένες ρυθμίσεις</string>
 </resources>
