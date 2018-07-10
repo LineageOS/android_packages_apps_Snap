@@ -4901,6 +4901,9 @@ public class CaptureModule implements CameraModule, PhotoController,
     }
 
     private void applyEarlyPCR(CaptureRequest.Builder request) {
+        if (!mSettingsManager.isDeveloperEnabled()) {
+            return;
+        }
         String value = mSettingsManager.getValue(SettingsManager.KEY_EARLY_PCR_VALUE);
         if(value != null) {
             try {
