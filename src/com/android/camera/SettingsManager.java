@@ -1214,12 +1214,17 @@ public class SettingsManager implements ListMenu.SettingsListener {
         Size[] sizes = map.getOutputSizes(MediaRecorder.class);
         List<String> res = new ArrayList<>();
         for (int i = 0; i < sizes.length; i++) {
-            if (CameraSettings.VIDEO_QUALITY_TABLE.containsKey(sizes[i].toString())) {
-                int profile = CameraSettings.VIDEO_QUALITY_TABLE.get(sizes[i].toString());
-                if (CamcorderProfile.hasProfile(cameraId, profile)) {
-                    res.add(sizes[i].toString());
-                }
+            if (!CameraSettings.VIDEO_QUALITY_TABLE.containsKey(sizes[i].toString())) {
+                continue;
             }
+            int profile = CameraSettings.VIDEO_QUALITY_TABLE.get(sizes[i].toString());
+            if (!CamcorderProfile.hasProfile(cameraId, profile)) {
+                continue;
+            }
+            if (getSupportedVideoEncoders(sizes[i]).size() <= 0) {
+                continue;
+            }
+            res.add(sizes[i].toString());
         }
         return res;
     }
@@ -1349,6 +1354,26 @@ public class SettingsManager implements ListMenu.SettingsListener {
         return supportedIso;
     }
 
+    private boolean isVideoResolutionSupportedByEncoder(Size videoSize, VideoEncoderCap encoderCap) {
+        boolean supported = false;
+        if (videoSize == null || encoderCap == null) {
+            return supported;
+        }
+        if (videoSize.getWidth() > encoderCap.mMaxFrameWidth ||
+                videoSize.getWidth() < encoderCap.mMinFrameWidth ||
+                videoSize.getHeight() > encoderCap.mMaxFrameHeight ||
+                videoSize.getHeight() < encoderCap.mMinFrameHeight) {
+            Log.e(TAG, "Codec = " + encoderCap.mCodec + ", capabilities: " +
+                    "mMinFrameWidth = " + encoderCap.mMinFrameWidth + " , " +
+                    "mMinFrameHeight = " + encoderCap.mMinFrameHeight + " , " +
+                    "mMaxFrameWidth = " + encoderCap.mMaxFrameWidth + " , " +
+                    "mMaxFrameHeight = " + encoderCap.mMaxFrameHeight);
+        } else {
+            supported = true;
+        }
+        return supported;
+    }
+
     private boolean isCurrentVideoResolutionSupportedByEncoder(VideoEncoderCap encoderCap) {
         boolean supported = false;
         ListPreference videoQuality = mPreferenceGroup.findPreference(KEY_VIDEO_QUALITY);
@@ -1381,6 +1406,21 @@ public class SettingsManager implements ListMenu.SettingsListener {
             str = SettingTranslation.getVideoEncoder(videoEncoder.mCodec);
             if (str != null) {
                 if (isCurrentVideoResolutionSupportedByEncoder(videoEncoder)) {
+                    supported.add(str);
+                }
+            }
+        }
+        return supported;
+    }
+
+    private List<String> getSupportedVideoEncoders(Size videoSize) {
+        ArrayList<String> supported = new ArrayList<String>();
+        String str = null;
+        List<VideoEncoderCap> videoEncoders = EncoderCapabilities.getVideoEncoders();
+        for (VideoEncoderCap videoEncoder: videoEncoders) {
+            str = SettingTranslation.getVideoEncoder(videoEncoder.mCodec);
+            if (str != null) {
+                if (isVideoResolutionSupportedByEncoder(videoSize, videoEncoder)) {
                     supported.add(str);
                 }
             }
@@ -1608,6 +1648,7 @@ public class SettingsManager implements ListMenu.SettingsListener {
         if (key.equals(KEY_VIDEO_QUALITY)) {
             list = new ArrayList<>();
             list.add(KEY_VIDEO_HIGH_FRAME_RATE);
+            list.add(KEY_VIDEO_ENCODER);
         } else {
             String value = getValue(key);
             JSONObject dependencies = getDependencyList(key, value);
