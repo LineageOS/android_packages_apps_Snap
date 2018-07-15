@@ -104,4 +104,5 @@
   <!-- Advanced options -->
   <string name="developer_menu_enabled">Has activado las opciones avanzadas de la cámara</string>
   <string name="developer_menu_disabled">Has desactivado las opciones avanzadas de la cámara</string>
+  <string name="pref_camera2_preferences_category_developer">Opciones avanzadas</string>
 </resources>

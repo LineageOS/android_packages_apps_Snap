@@ -104,4 +104,5 @@
   <!-- Advanced options -->
   <string name="developer_menu_enabled">הפעלת אפשרויות מצלמה מתקדמות</string>
   <string name="developer_menu_disabled">כיבית אפשרויות מצלמה מתקדמות</string>
+  <string name="pref_camera2_preferences_category_developer">אפשרויות מתקדמות</string>
 </resources>
