@@ -1764,6 +1764,13 @@ public class VideoModule implements CameraModule,
             !mCaptureTimeLapse && !isHFR) {
             mProfile.fileFormat = MediaRecorder.OutputFormat.THREE_GPP;
         }
+
+        // On klte, captureRate > 0 fails saving HSR, it works just setting the profile
+        boolean useProfileForHSR = mActivity.getResources().getBoolean(R.bool.use_profile_for_hsr);
+        if (isHSR && useProfileForHSR) {
+            captureRate = 0;
+        }
+
         // Set params individually for HFR case, as we do not want to encode audio
         if ((isHFR || isHSR) && captureRate > 0) {
             if (isHSR) {
