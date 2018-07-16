@@ -324,13 +324,6 @@
         camera:title="@string/pref_camera2_anti_banding_level_title" />
 
     <ListPreference
-        camera:defaultValue="@string/pref_camera2_histogram_default"
-        camera:entries="@array/pref_camera2_histogram_entries"
-        camera:entryValues="@array/pref_camera2_histogram_entryvalues"
-        camera:key="pref_camera2_histogram_key"
-        camera:title="@string/pref_camera2_histogram_title" />
-
-    <ListPreference
         camera:defaultValue="@string/pref_camera2_auto_hdr_default"
         camera:entries="@array/pref_camera2_auto_hdr_entries"
         camera:entryValues="@array/pref_camera2_auto_hdr_entryvalues"
@@ -446,4 +439,10 @@
         camera:title="@string/pref_camera2_earlypcr_title"
         camera:entries="@array/pref_camera2_earlypcr_entries"
         camera:entryValues="@array/pref_camera2_earlypcr_entryvalues" />
+    <ListPreference
+        camera:key="pref_camera2_stats_visualizer_key"
+        camera:defaultValue="@string/pref_camera2_stats_visualizer_default"
+        camera:title="@string/pref_camera2_stats_visualizer_title"
+        camera:entries="@array/pref_camera2_stats_visualizer_entries"
+        camera:entryValues="@array/pref_camera2_stats_visualizer_entryvalues" />
 </PreferenceGroup>
