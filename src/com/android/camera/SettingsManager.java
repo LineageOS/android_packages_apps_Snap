@@ -171,6 +171,8 @@ public class SettingsManager implements ListMenu.SettingsListener {
     public static final String KEY_AWB_GAGIN_VALUE = "pref_camera2_awb_cct_ggain_key";
     public static final String KEY_AWB_BAGIN_VALUE = "pref_camera2_awb_cct_bgain_key";
     public static final String KEY_AWB_CCT_VALUE = "pref_camera2_awb_cct_key";
+    public static final String KEY_AWB_DECISION_AFTER_TC_0 = "pref_camera2_awb_decision_after_tc_0";
+    public static final String KEY_AWB_DECISION_AFTER_TC_1 = "pref_camera2_awb_decision_after_tc_1";
     public static final String KEY_STATS_VISUALIZER_VALUE = "pref_camera2_stats_visualizer_key";
 
     public static final HashMap<String, Integer> KEY_ISO_INDEX = new HashMap<String, Integer>();
