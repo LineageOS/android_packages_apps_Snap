@@ -75,6 +75,7 @@ import android.os.Looper;
 import android.os.Message;
 import android.os.ParcelFileDescriptor;
 import android.os.SystemClock;
+import android.os.SystemProperties;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.util.Range;
@@ -3794,16 +3795,28 @@ public class CaptureModule implements CameraModule, PhotoController,
         if (isVideoSize1080P(mVideoSnapshotSize)) {
             updateHFRSetting();
             mHighSpeedFPSRange = new Range(mHighSpeedCaptureRate, mHighSpeedCaptureRate);
+            Log.d(TAG,"updateVideoSnapshotSize " + mHighSpeedCaptureRate);
             boolean is60FPS = ((int)mHighSpeedFPSRange.getUpper() == 60);
             // if video is 1080p encode except 60fps, VideoSnapShotSize set 16M(5312x2988)
             if (!is60FPS) {
                 mVideoSnapshotSize = new Size(5312, 2988);
             }
         }
+        String videoSnapshot = getVideoSnapshotSize();
+        String[] sourceStrArray = videoSnapshot.split("x");
+        if (sourceStrArray != null && sourceStrArray.length >= 2) {
+            int width = Integer.parseInt(sourceStrArray[0]);
+            int height = Integer.parseInt(sourceStrArray[1]);
+            mVideoSnapshotSize = new Size(width, height);
+        }
         Log.d(TAG, "updateVideoSnapshotSize final video snapShot size = " +
                 mVideoSnapshotSize.getWidth() + ", " + mVideoSnapshotSize.getHeight());
         Size[] thumbSizes = mSettingsManager.getSupportedThumbnailSizes(getMainCameraId());
         mVideoSnapshotThumbSize = getOptimalPreviewSize(mVideoSnapshotSize, thumbSizes); // get largest thumb size
+    }
+
+    private String getVideoSnapshotSize(){
+        return SystemProperties.get("persist.sys.camera.video.snapshotsize", "");
     }
 
     private boolean isVideoSize1080P(Size size) {
