@@ -844,6 +844,9 @@ public class CaptureModule implements CameraModule, PhotoController,
     }
 
     private void checkAfAeStatesAndCapture(int id) {
+        if(mPaused || !mCamerasOpened) {
+            return;
+        }
         if(isBackCamera() && getCameraMode() == DUAL_MODE) {
             mState[id] = STATE_AF_AE_LOCKED;
             try {
@@ -1261,6 +1264,8 @@ public class CaptureModule implements CameraModule, PhotoController,
         } catch (CameraAccessException e) {
         } catch (IllegalStateException e) {
             Log.v(TAG, "createSession: mPaused status occur Time out waiting for surface ");
+        } catch (NullPointerException e) {
+            Log.e(TAG,"NullPointerException occurred error ="+e.getMessage());
         }
     }
 
@@ -1624,7 +1629,7 @@ public class CaptureModule implements CameraModule, PhotoController,
             if (!mIsSupportedQcfa) {
                 addPreviewSurface(captureBuilder, null, id);
             }
-            VendorTagUtil.setCdsMode(captureBuilder, 2);// CDS 0-OFF, 1-ON, 2-AUTO
+            VendorTagUtil.setCdsMode(captureBuilder, 0);// CDS 0-OFF, 1-ON, 2-AUTO
             applySettingsForCapture(captureBuilder, id);
 
             if(isClearSightOn()) {
@@ -1635,6 +1640,11 @@ public class CaptureModule implements CameraModule, PhotoController,
                 captureBuilder.addTarget(mImageReader[id].getSurface());
                 if (mSaveRaw) {
                     captureBuilder.addTarget(mRawImageReader[id].getSurface());
+                }
+                if(mPaused || !mCamerasOpened) {
+                    //for avoid occurring crash when click back before capture finished.
+                    //CameraDevice was already closed
+                    return;
                 }
                 if (!mIsSupportedQcfa) {
                     mCaptureSession[id].stopRepeating();
@@ -1663,10 +1673,15 @@ public class CaptureModule implements CameraModule, PhotoController,
         
         applySettingsForJpegInformation(captureBuilder, id);
         addPreviewSurface(captureBuilder, null, id);
-        VendorTagUtil.setCdsMode(captureBuilder, 2); // CDS 0-OFF, 1-ON, 2-AUTO
+        VendorTagUtil.setCdsMode(captureBuilder, 0); // CDS 0-OFF, 1-ON, 2-AUTO
         applySettingsForCapture(captureBuilder, id);
         applySettingsForLockExposure(captureBuilder, id);
         checkAndPlayShutterSound(id);
+        if(mPaused || !mCamerasOpened) {
+            //for avoid occurring crash when click back before capture finished.
+            //CameraDevice was already closed
+            return;
+        }
         ClearSightImageProcessor.getInstance().capture(
                 id==BAYER_ID, mCaptureSession[id], captureBuilder, mCaptureCallbackHandler);
     }
@@ -1674,6 +1689,11 @@ public class CaptureModule implements CameraModule, PhotoController,
     private void captureStillPictureForFilter(CaptureRequest.Builder captureBuilder, int id) throws CameraAccessException{
         applySettingsForLockExposure(captureBuilder, id);
         checkAndPlayShutterSound(id);
+        if(mPaused || !mCamerasOpened) {
+            //for avoid occurring crash when click back before capture finished.
+            //CameraDevice was already closed
+            return;
+        }
         mCaptureSession[id].stopRepeating();
         captureBuilder.addTarget(mImageReader[id].getSurface());
         if (mSaveRaw) {
@@ -1950,9 +1970,20 @@ public class CaptureModule implements CameraModule, PhotoController,
                                     String title = (name == null) ? null : name.title;
                                     long date = (name == null) ? -1 : name.date;
 
-                                    byte[] bytes = getJpegData(image);
+                                    byte[] bytes;
+                                    int width = 0,height = 0,format = -1;
+                                    try{
+                                        bytes = getJpegData(image);
+                                        width = image.getWidth();
+                                        height = image.getHeight();
+                                        format = image.getFormat();
+                                        image.close();
+                                    } catch (IllegalStateException e) {
+                                        e.printStackTrace();
+                                        return;
+                                    }
 
-                                    if (image.getFormat() == ImageFormat.RAW10) {
+                                    if (format == ImageFormat.RAW10) {
                                         mActivity.getMediaSaveService().addRawImage(bytes, title,
                                                 "raw");
                                     } else {
@@ -1972,17 +2003,17 @@ public class CaptureModule implements CameraModule, PhotoController,
                                                 GImage gImage = new GImage(bokehBytes.get(1), "image/jpeg");
                                                 GDepth gDepth = GDepth.createGDepth(bokehBytes.get(bokehBytes.size()-1));
                                                 try {
-                                                    gDepth.setRoi(new Rect(0, 0, image.getWidth(), image.getHeight()));
+                                                    gDepth.setRoi(new Rect(0, 0, width, height));
                                                 } catch (IllegalStateException e) {
                                                     e.printStackTrace();
                                                     return;
                                                 }
                                                 mActivity.getMediaSaveService().addXmpImage(bokehBytes.get(0), gImage,
-                                                        gDepth, title, date, null, image.getWidth(), image.getHeight(),
+                                                        gDepth, title, date, null,  width, height,
                                                         orientation, exif, mOnMediaSavedListener, mContentResolver, "jpeg");
                                             } else {
                                                 mActivity.getMediaSaveService().addImage(bytes, title, date,
-                                                        null, image.getWidth(), image.getHeight(), orientation, null,
+                                                        null, width, height, orientation, null,
                                                         mOnMediaSavedListener, mContentResolver, "jpeg");
                                             }
 
@@ -1992,7 +2023,6 @@ public class CaptureModule implements CameraModule, PhotoController,
                                                 mActivity.updateThumbnail(bytes);
                                             }
                                         }
-                                        image.close();
                                     }
                                 }
                             }
@@ -3506,6 +3536,8 @@ public class CaptureModule implements CameraModule, PhotoController,
         } catch (CameraAccessException e) {
             e.printStackTrace();
         } catch (IOException e) {
+            e.printStackTrace();
+        } catch (IllegalStateException e) {
             e.printStackTrace();
         }
         mStartRecPending = false;
