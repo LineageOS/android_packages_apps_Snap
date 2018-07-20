@@ -123,6 +123,11 @@ public class Camera2FaceView extends FaceView {
             // so translate the face coordination to match the assumption.
             Matrix translateMatrix = new Matrix();
             translateMatrix.preTranslate(-mCameraBound.width() / 2f, -mCameraBound.height() / 2f);
+            if ((float)rh/rw == 1.5) {
+                float ativeArrayRatio = (float)mCameraBound.width()/mCameraBound.height();
+                float scale = (float)(1.5/ativeArrayRatio);
+                translateMatrix.postScale(1,scale);
+            }
             translateMatrix.postScale(2000f / mCameraBound.width(), 2000f / mCameraBound.height());
 
             Matrix bsgcTranslateMatrix = new Matrix();
