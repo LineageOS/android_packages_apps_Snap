@@ -5575,6 +5575,8 @@ public class CaptureModule implements CameraModule, PhotoController,
                 R.string.pref_camera_manual_exp_value_exptime_priority);
         String userSetting = mActivity.getString(
                 R.string.pref_camera_manual_exp_value_user_setting);
+        String gainsPriority = mActivity.getString(
+                R.string.pref_camera_manual_exp_value_gains_priority);
         String manualExposureMode = mSettingsManager.getValue(SettingsManager.KEY_MANUAL_EXPOSURE);
         if (manualExposureMode == null) return result;
         if (manualExposureMode.equals(isoPriority)) {
@@ -5633,6 +5635,30 @@ public class CaptureModule implements CameraModule, PhotoController,
             }
             request.set(CaptureRequest.SENSOR_EXPOSURE_TIME, newExpTime);
             request.set(CaptureRequest.SENSOR_SENSITIVITY, isoValue);
+            result = true;
+        } else if (manualExposureMode.equals(gainsPriority)) {
+            float gains = pref.getFloat(SettingsManager.KEY_MANUAL_GAINS_VALUE, 1.0f);
+            int[] isoRange = mSettingsManager.getIsoRangeValues(getMainCameraId());
+            VendorTagUtil.setIsoExpPrioritySelectPriority(request, 0);
+            int isoValue = 100;
+            if (isoRange!= null) {
+                isoValue  = (int) (gains * isoRange[0]);
+            }
+            long intValue = SettingsManager.KEY_ISO_INDEX.get(
+                    SettingsManager.MAUNAL_ABSOLUTE_ISO_VALUE);
+            VendorTagUtil.setIsoExpPriority(request, intValue);
+            VendorTagUtil.setUseIsoValues(request, isoValue);
+            if (DEBUG) {
+                Log.v(TAG, "manual Gain value :" + isoValue);
+            }
+            if (request.get(CaptureRequest.SENSOR_EXPOSURE_TIME) != null) {
+                mIsoExposureTime = request.get(CaptureRequest.SENSOR_EXPOSURE_TIME);
+            }
+            if (request.get(CaptureRequest.SENSOR_SENSITIVITY) != null) {
+                mIsoSensitivity = request.get(CaptureRequest.SENSOR_SENSITIVITY);
+            }
+            request.set(CaptureRequest.SENSOR_EXPOSURE_TIME, null);
+            request.set(CaptureRequest.SENSOR_SENSITIVITY, null);
             result = true;
         }
         return result;
