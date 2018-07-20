@@ -455,20 +455,23 @@ public class CaptureModule implements CameraModule, PhotoController,
         }
 
         public void run() {
-            while (mLongshotActive) {
-                try {
-                    Thread.sleep(10);
-                } catch (InterruptedException e) {
-                }
+            if (mLongshotActive) {
+                mActivity.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (mLastJpegData != null) mActivity.updateThumbnail(mLastJpegData);
+                    }
+                });
+            } else {
+                mActivity.runOnUiThread(new Runnable() {
+                    public void run() {
+                        if (uri != null)
+                            mActivity.notifyNewMedia(uri);
+                        mActivity.updateStorageSpaceAndHint();
+                        if (mLastJpegData != null) mActivity.updateThumbnail(mLastJpegData);
+                    }
+                });
             }
-            mActivity.runOnUiThread(new Runnable() {
-                public void run() {
-                    if (uri != null)
-                        mActivity.notifyNewMedia(uri);
-                    mActivity.updateStorageSpaceAndHint();
-                    if (mLastJpegData != null) mActivity.updateThumbnail(mLastJpegData);
-                }
-            });
             mediaSaveNotifyThread = null;
         }
     }
