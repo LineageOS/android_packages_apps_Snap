@@ -506,6 +506,8 @@ public class CaptureModule implements CameraModule, PhotoController,
 
     // BG stats
     private static final int BGSTATS_DATA = 64*48;
+    public static final int BGSTATS_WIDTH = 480;
+    public static final int BGSTATS_HEIGHT = 640;
     public static int bg_statsdata[]   = new int[BGSTATS_DATA*10*10];
     public static int bg_r_statsdata[] = new int[BGSTATS_DATA];
     public static int bg_g_statsdata[] = new int[BGSTATS_DATA];
@@ -514,6 +516,8 @@ public class CaptureModule implements CameraModule, PhotoController,
 
     // BE stats
     private static final int BESTATS_DATA = 64*48;
+    public static final int BESTATS_WIDTH = 480;
+    public static final int BESTATS_HEIGHT = 640;
     public static int be_statsdata[]   = new int[BESTATS_DATA*10*10];
     public static int be_r_statsdata[] = new int[BESTATS_DATA];
     public static int be_g_statsdata[] = new int[BESTATS_DATA];
@@ -759,10 +763,16 @@ public class CaptureModule implements CameraModule, PhotoController,
 
             // BG stats display
             if (SettingsManager.getInstance().isStatsVisualizerSupport() == 1) {
-                int[] bgRStats = result.get(CaptureModule.bgRStats);
-                int[] bgGStats = result.get(CaptureModule.bgGStats);
-                int[] bgBStats = result.get(CaptureModule.bgBStats);
-
+                int[] bgRStats = null;
+                int[] bgGStats = null;
+                int[] bgBStats = null;
+                try{
+                    bgRStats = result.get(CaptureModule.bgRStats);
+                    bgGStats = result.get(CaptureModule.bgGStats);
+                    bgBStats = result.get(CaptureModule.bgBStats);
+                } catch (IllegalArgumentException e) {
+                    e.printStackTrace();
+                }
                 if (bgRStats != null && bgGStats != null && bgBStats != null && mBGStatson) {
                     synchronized (bg_r_statsdata) {
                         System.arraycopy(bgRStats, 0, bg_r_statsdata, 0, BGSTATS_DATA);
@@ -791,9 +801,16 @@ public class CaptureModule implements CameraModule, PhotoController,
 
             // BE stats display
             if (SettingsManager.getInstance().isStatsVisualizerSupport() == 2) {
-                int[] beRStats = result.get(CaptureModule.beRStats);
-                int[] beGStats = result.get(CaptureModule.beGStats);
-                int[] beBStats = result.get(CaptureModule.beBStats);
+                int[] beRStats = null;
+                int[] beGStats = null;
+                int[] beBStats = null;
+                try{
+                    beRStats = result.get(CaptureModule.beRStats);
+                    beGStats = result.get(CaptureModule.beGStats);
+                    beBStats = result.get(CaptureModule.beBStats);
+                }catch (IllegalArgumentException e) {
+                    e.printStackTrace();
+                }
 
                 if (beRStats != null && beGStats != null && beBStats != null && mBEStatson) {
                     synchronized (be_r_statsdata) {
@@ -2763,7 +2780,6 @@ public class CaptureModule implements CameraModule, PhotoController,
         applyAWBCCTAndAgain(builder);
         applyBGStats(builder);
         applyBEStats(builder);
-        setStatsLayout();
     }
 
     /**
@@ -3680,7 +3696,6 @@ public class CaptureModule implements CameraModule, PhotoController,
             bestats_view.setAlpha(1.0f);
             bestats_view.setCaptureModuleObject(this);
             bestats_view.PreviewChanged();
-            setStatsLayout();
         }
     }
 
@@ -5260,10 +5275,16 @@ public class CaptureModule implements CameraModule, PhotoController,
         if (value != null ) {
             if (value.equals("1")){
                 final byte enable = 1;
-                request.set(CaptureModule.bgStatsMode, enable);
-                mBGStatson = true;
-                updateBGStatsVisibility(View.VISIBLE);
-                updateBGStatsView();
+                try{
+                    request.set(CaptureModule.bgStatsMode, enable);
+                    mBGStatson = true;
+                } catch (IllegalArgumentException e) {
+                    mBGStatson = false;
+                }
+                if (mBGStatson) {
+                    updateBGStatsVisibility(View.VISIBLE);
+                    updateBGStatsView();
+                }
                 return;
             }
         }
@@ -5276,55 +5297,21 @@ public class CaptureModule implements CameraModule, PhotoController,
         if (value != null ) {
             if (value.equals("2")){
                 final byte enable = 1;
-                request.set(CaptureModule.beStatsMode, enable);
-                mBEStatson = true;
-                updateBEStatsVisibility(View.VISIBLE);
-                updateBEStatsView();
+                try{
+                    request.set(CaptureModule.beStatsMode, enable);
+                    mBEStatson = true;
+                }catch (IllegalArgumentException e) {
+                    mBEStatson = false;
+                }
+                if (mBEStatson) {
+                    updateBEStatsVisibility(View.VISIBLE);
+                    updateBEStatsView();
+                }
                 return;
             }
         }
         mBEStatson = false;
         updateBEStatsVisibility(View.GONE);
-    }
-
-    private void setStatsLayout() {
-
-        mActivity.runOnUiThread(new Runnable() {
-            public void run() {
-                // following section is to be expanded once StatsVisualizer becomes a checkbox menu
-                // adjusting the positions of various stats according to their priority
-                FrameLayout.LayoutParams be_param = new FrameLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT,
-                                                                                 FrameLayout.LayoutParams.MATCH_PARENT);
-
-                int screen_height, screen_width, el_width, el_height;
-                int be_lmargin, be_tmargin;
-                int bg_lmargin, bg_tmargin;
-
-                el_width = 480*statsview_scale;
-                el_height = 640*statsview_scale;
-
-                DisplayMetrics displayMetrics = new DisplayMetrics();
-                mActivity.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
-                screen_height = displayMetrics.heightPixels;
-                screen_width  = displayMetrics.widthPixels;
-
-                if (! mHiston) {
-                    be_lmargin = 60;
-                    be_tmargin = 264;
-                }
-                else {
-                    be_lmargin = 60;
-                    be_tmargin = 264+640+20;
-                }
-
-                be_param.setMargins(be_lmargin,
-                                    be_tmargin,
-                                    screen_width-be_lmargin-el_width,
-                                    screen_height-be_tmargin-el_height);
-
-                bestats_view.setLayoutParams(be_param);
-            }
-        });
     }
 
     private void updateGraghViewVisibility(final int visibility) {
@@ -6722,28 +6709,23 @@ class Camera2BGBitMap extends View {
     private Paint   mPaintRect = new Paint();
     private Canvas  mCanvas = new Canvas();
     private float   mScale = (float)3;
-    private float   mWidth;
-    private float   mHeight;
+    private int   mWidth;
+    private int   mHeight;
     private CaptureModule mCaptureModule;
     private static final String TAG = "BGGraphView";
 
 
     public Camera2BGBitMap(Context context, AttributeSet attrs) {
         super(context,attrs);
-
+        mWidth = CaptureModule.BGSTATS_WIDTH;
+        mHeight = CaptureModule.BGSTATS_HEIGHT;
+        mBitmap = Bitmap.createBitmap(mWidth, mHeight, Bitmap.Config.ARGB_8888);
+        mCanvas.setBitmap(mBitmap);
         mPaint.setFlags(Paint.ANTI_ALIAS_FLAG);
         mPaintRect.setColor(0xFFFFFFFF);
         mPaintRect.setStyle(Paint.Style.FILL);
     }
 
-    @Override
-    protected void onSizeChanged(int w, int h, int oldw, int oldh) {
-        mBitmap = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_8888);
-        mCanvas.setBitmap(mBitmap);
-        mWidth = w;
-        mHeight = h;
-        super.onSizeChanged(w, h, oldw, oldh);
-    }
     @Override
     protected void onDraw(Canvas canvas) {
         if(mCaptureModule == null && !mCaptureModule.mBGStatson) {
@@ -6760,6 +6742,16 @@ class Camera2BGBitMap extends View {
             canvas.drawBitmap(mBitmap, 0, 0, null);
         }
     }
+
+    @Override
+    protected void onSizeChanged(int w, int h, int oldw, int oldh) {
+        FrameLayout.LayoutParams params = (FrameLayout.LayoutParams)getLayoutParams();
+        params.width = mWidth;
+        params.height = mHeight;
+        setLayoutParams(params);
+        super.onSizeChanged(w, h, oldw, oldh);
+    }
+
     public void PreviewChanged() {
         invalidate();
     }
@@ -6774,15 +6766,18 @@ class Camera2BEBitMap extends View {
     private Paint   mPaint = new Paint();
     private Paint   mPaintRect = new Paint();
     private Canvas  mCanvas = new Canvas();
-    private float   mWidth;
-    private float   mHeight;
+    private int  mWidth;
+    private int  mHeight;
     private CaptureModule mCaptureModule;
     private static final String TAG = "BGGraphView";
 
 
     public Camera2BEBitMap(Context context, AttributeSet attrs) {
         super(context,attrs);
-
+        mWidth = CaptureModule.BESTATS_WIDTH;
+        mHeight = CaptureModule.BESTATS_HEIGHT;
+        mBitmap = Bitmap.createBitmap(mWidth, mHeight, Bitmap.Config.ARGB_8888);
+        mCanvas.setBitmap(mBitmap);
         mPaint.setFlags(Paint.ANTI_ALIAS_FLAG);
         mPaintRect.setColor(0xFFFFFFFF);
         mPaintRect.setStyle(Paint.Style.FILL);
@@ -6790,12 +6785,13 @@ class Camera2BEBitMap extends View {
 
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
-        mBitmap = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_8888);
-        mCanvas.setBitmap(mBitmap);
-        mWidth = w;
-        mHeight = h;
+        FrameLayout.LayoutParams params = (FrameLayout.LayoutParams)getLayoutParams();
+        params.width = mWidth;
+        params.height = mHeight;
+        setLayoutParams(params);
         super.onSizeChanged(w, h, oldw, oldh);
     }
+
     @Override
     protected void onDraw(Canvas canvas) {
         if(mCaptureModule == null && !mCaptureModule.mBEStatson) {
