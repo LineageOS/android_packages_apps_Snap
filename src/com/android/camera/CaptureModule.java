@@ -2871,12 +2871,7 @@ public class CaptureModule implements CameraModule, PhotoController,
         if(isClearSightOn()) {
             ClearSightImageProcessor.getInstance().close();
         }
-        AsyncTask.THREAD_POOL_EXECUTOR.execute(new Runnable() {
-            @Override
-            public void run() {
-                closeCamera();
-            }
-        });
+        closeCamera();
         resetAudioMute();
         mUI.showPreviewCover();
         if (mUI.getGLCameraPreview() != null) {
