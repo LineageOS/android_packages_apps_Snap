@@ -1123,11 +1123,6 @@
     <string name="pref_camera2_anti_banding_level_entry_60hz" translatable="true">60HZ</string>
     <string name="pref_camera2_anti_banding_level_entry_auto" translatable="true">Auto</string>
 
-    <string name="pref_camera2_histogram_title" translatable="true">Histogram</string>
-    <string name="pref_camera2_histogram_default" translatable="false">disable</string>
-    <string name="pref_camera2_histogram_entry_enable" translatable="true">Enable</string>
-    <string name="pref_camera2_histogram_entry_disable" translatable="true">Disable</string>
-
     <string name="pref_camera2_hdr_title" translatable="true">HDR &amp; Non-HDR</string>
     <string name="pref_camera2_hdr_default" translatable="false">disable</string>
     <string name="pref_camera2_hdr_entry_enable" translatable="true">Enable</string>
@@ -1266,10 +1261,21 @@
     <string name="pref_camera_scenemode_entry_deepportrait" translatable="false">Deepportrait</string>
 
     <string name="pref_camera2_earlypcr_title" translatable="false">Early PCR</string>
-    <string name="pref_camera2_earlypcr_default" translatable="false">enable</string>
+    <string name="pref_camera2_earlypcr_default" translatable="false">disable</string>
     <string name="pref_camera2_earlypcr_entry_enable" translatable="false">enable</string>
     <string name="pref_camera2_earlypcr_entry_disable" translatable="false">disable</string>
     <string name="pref_camera2_earlypcr_entry_value_enable" translatable="false">enable</string>
     <string name="pref_camera2_earlypcr_entry_value_disable" translatable="false">disable</string>
+
+    <string name="pref_camera2_stats_visualizer_title" translatable="true">Stats Visualizer</string>
+    <string name="pref_camera2_stats_visualizer_default" translatable="false">0</string>
+    <string name="pref_camera2_stats_visualizer_entry_disable" translatable="false">Disable All</string>
+    <string name="pref_camera2_stats_visualizer_entry_bg_stats" translatable="false">BG Stats</string>
+    <string name="pref_camera2_stats_visualizer_entry_be_stats" translatable="false">BE Stats</string>
+    <string name="pref_camera2_stats_visualizer_entry_hist_stats" translatable="false">Hist Stats</string>
+    <string name="pref_camera2_stats_visualizer_entry_value_disable" translatable="false">0</string>
+    <string name="pref_camera2_stats_visualizer_entry_value_enable_bg" translatable="false">1</string>
+    <string name="pref_camera2_stats_visualizer_entry_value_enable_be" translatable="false">2</string>
+    <string name="pref_camera2_stats_visualizer_entry_value_enable_hist" translatable="false">3</string>
 </resources>
 

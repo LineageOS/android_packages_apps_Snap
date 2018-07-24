@@ -310,7 +310,6 @@ public class SettingsActivity extends PreferenceActivity {
         }
         mSettingsManager.registerListener(mListener);
         addPreferencesFromResource(R.xml.setting_menu_preferences);
-
         mSharedPreferences = getPreferenceManager().getSharedPreferences();
         mDeveloperMenuEnabled = mSharedPreferences.getBoolean(SettingsManager.KEY_DEVELOPER_MENU, false);
 
@@ -410,6 +409,7 @@ public class SettingsActivity extends PreferenceActivity {
         updatePreference(SettingsManager.KEY_SWITCH_CAMERA);
         updatePictureSizePreferenceButton();
         updateVideoHDRPreference();
+        updateStatsVisualizerPreference();
 
         Map<String, SettingsManager.Values> map = mSettingsManager.getValuesMap();
         Set<Map.Entry<String, SettingsManager.Values>> set = map.entrySet();
@@ -452,6 +452,14 @@ public class SettingsActivity extends PreferenceActivity {
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
         }
+    }
+
+    private void updateStatsVisualizerPreference() {
+        ListPreference pref = (ListPreference)findPreference(SettingsManager.KEY_STATS_VISUALIZER_VALUE);
+        if (pref == null) {
+            return;
+        }
+        pref.setEnabled(true);
     }
 
     private void updateVideoHDRPreference() {
