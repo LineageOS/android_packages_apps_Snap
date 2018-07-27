@@ -1500,7 +1500,7 @@ public class CaptureModule implements CameraModule, PhotoController,
         } catch (IllegalStateException e) {
             Log.v(TAG, "createSession: mPaused status occur Time out waiting for surface ");
         } catch (NullPointerException e) {
-
+        } catch (IllegalArgumentException e) {
         }
     }
 
