@@ -111,6 +111,7 @@ public class CameraSettings {
     public static final String KEY_LENSSHADING = "pref_camera_lensshading_key";
     public static final String KEY_HISTOGRAM = "pref_camera_histogram_key";
     public static final String KEY_DENOISE = "pref_camera_denoise_key";
+    public static final String KEY_VIDEO_DENOISE = "pref_camera_video_denoise_key";
     public static final String KEY_BRIGHTNESS = "pref_camera_brightness_key";
     public static final String KEY_REDEYE_REDUCTION = "pref_camera_redeyereduction_key";
     public static final String KEY_SELFIE_MIRROR = "pref_camera_selfiemirror_key";
@@ -814,6 +815,7 @@ public class CameraSettings {
         ListPreference lensShade = group.findPreference(KEY_LENSSHADING);
         ListPreference histogram = group.findPreference(KEY_HISTOGRAM);
         ListPreference denoise = group.findPreference(KEY_DENOISE);
+        ListPreference videoDenoise = group.findPreference(KEY_VIDEO_DENOISE);
         ListPreference redeyeReduction = group.findPreference(KEY_REDEYE_REDUCTION);
         ListPreference aeBracketing = group.findPreference(KEY_AE_BRACKET_HDR);
         ListPreference advancedFeatures = group.findPreference(KEY_ADVANCED_FEATURES);
@@ -933,6 +935,11 @@ public class CameraSettings {
         if (denoise != null) {
             filterUnsupportedOptions(group,
                     denoise, ParametersWrapper.getSupportedDenoiseModes(mParameters));
+        }
+
+        if (videoDenoise != null) {
+            filterUnsupportedOptions(group,
+                    videoDenoise, ParametersWrapper.getSupportedDenoiseModes(mParameters));
         }
 
         if (videoHdr != null) {

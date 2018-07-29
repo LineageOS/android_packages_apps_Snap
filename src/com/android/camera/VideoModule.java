@@ -953,8 +953,8 @@ public class VideoModule implements CameraModule,
 
         // Set wavelet denoise mode
         if (ParametersWrapper.getSupportedDenoiseModes(mParameters) != null) {
-            String denoise = mPreferences.getString(CameraSettings.KEY_DENOISE,
-                    mActivity.getString(R.string.pref_camera_denoise_default));
+            String denoise = mPreferences.getString(CameraSettings.KEY_VIDEO_DENOISE,
+                    mActivity.getString(R.string.pref_camera_video_denoise_default));
             ParametersWrapper.setDenoise(mParameters, denoise);
         }
    }
