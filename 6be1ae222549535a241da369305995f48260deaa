@@ -22,6 +22,30 @@
       "revId": "6be1ae222549535a241da369305995f48260deaa",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8d729dfc_c5aa9dc4",
+        "filename": "src/com/android/camera/VideoModule.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 1768,
+      "author": {
+        "id": 17216
+      },
+      "writtenOn": "2018-07-29T16:26:46Z",
+      "side": 1,
+      "message": "Agreed",
+      "parentUuid": "80a7e76a_d600a73b",
+      "range": {
+        "startLine": 1768,
+        "startChar": 11,
+        "endLine": 1768,
+        "endChar": 18
+      },
+      "revId": "6be1ae222549535a241da369305995f48260deaa",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
