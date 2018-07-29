@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5eaace2f_d65d8165",
+        "filename": "src/com/android/camera/VideoModule.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 1807,
+      "author": {
+        "id": 17216
+      },
+      "writtenOn": "2018-07-29T23:23:04Z",
+      "side": 1,
+      "message": "Ran another test, actual problem was this line. I think only HFR need a capture rate since that needs to capture frames at a higher rate while encoding at a lower one, HSR and normal videos only need to set the frame rate. setCaptureRate also sets the recording mode to time lapse and disables audio.",
+      "range": {
+        "startLine": 1807,
+        "startChar": 0,
+        "endLine": 1807,
+        "endChar": 55
+      },
+      "revId": "dde0a8a27493e44aea6cd323c6fadaaeb3667df7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
