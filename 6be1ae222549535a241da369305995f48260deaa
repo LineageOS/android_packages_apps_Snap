@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "80a7e76a_d600a73b",
+        "filename": "src/com/android/camera/VideoModule.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 1768,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2018-07-29T16:08:33Z",
+      "side": 1,
+      "message": "I don\u0027t like the mention of a specific device in generic code...",
+      "range": {
+        "startLine": 1768,
+        "startChar": 11,
+        "endLine": 1768,
+        "endChar": 18
+      },
+      "revId": "6be1ae222549535a241da369305995f48260deaa",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
