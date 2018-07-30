@@ -5523,6 +5523,7 @@ public class CaptureModule implements CameraModule, PhotoController,
                 result = true;
             } catch (IllegalArgumentException e) {
                 e.printStackTrace();
+            } catch(NullPointerException e) {
             }
         }
         return result;
