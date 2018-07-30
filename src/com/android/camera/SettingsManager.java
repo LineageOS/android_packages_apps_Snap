@@ -164,7 +164,6 @@ public class SettingsManager implements ListMenu.SettingsListener {
     public static final String KEY_EIS_VALUE = "pref_camera2_eis_key";
     public static final String KEY_FOVC_VALUE = "pref_camera2_fovc_key";
     public static final String KEY_DEEPPORTRAIT_VALUE = "pref_camera2_deepportrait_key";
-    public static final String KEY_EARLY_PCR_VALUE = "pref_camera2_earlypcr_key";
     public static final String KEY_AWB_RAGIN_VALUE = "pref_camera2_awb_cct_rgain_key";
     public static final String KEY_AWB_GAGIN_VALUE = "pref_camera2_awb_cct_ggain_key";
     public static final String KEY_AWB_BAGIN_VALUE = "pref_camera2_awb_cct_bgain_key";

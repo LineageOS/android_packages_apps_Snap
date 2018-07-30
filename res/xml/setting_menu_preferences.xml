@@ -447,15 +447,6 @@
             android:summary="%s"/>
 
         <ListPreference
-            android:key="pref_camera2_earlypcr_key"
-            android:defaultValue="@string/pref_camera2_earlypcr_default"
-            android:title="@string/pref_camera2_earlypcr_title"
-            android:entries="@array/pref_camera2_earlypcr_entries"
-            android:entryValues="@array/pref_camera2_earlypcr_entryvalues"
-            android:layout="@layout/preference"
-            android:summary="%s"/>
-
-        <ListPreference
             android:key="pref_camera2_stats_visualizer_key"
             android:defaultValue="@string/pref_camera2_stats_visualizer_default"
             android:title="@string/pref_camera2_stats_visualizer_title"
