@@ -372,6 +372,8 @@ public class VideoModule implements CameraModule,
 
     private int mVideoEncoder;
     private int mAudioEncoder;
+    private String mVideoBitrate;
+    private String mAudioBitrate;
     private boolean mRestartPreview = false;
     private int videoWidth;
     private int videoHeight;
@@ -930,14 +932,26 @@ public class VideoModule implements CameraModule,
                mActivity.getString(R.string.pref_camera_videoencoder_default));
         mVideoEncoder = VIDEO_ENCODER_TABLE.get(videoEncoder);
 
-        Log.v(TAG, "Video Encoder selected = " +mVideoEncoder);
+        Log.v(TAG, "Video Encoder selected = " + mVideoEncoder);
 
         String audioEncoder = mPreferences.getString(
                CameraSettings.KEY_AUDIO_ENCODER,
                mActivity.getString(R.string.pref_camera_audioencoder_default));
         mAudioEncoder = AUDIO_ENCODER_TABLE.get(audioEncoder);
 
-        Log.v(TAG, "Audio Encoder selected = " +mAudioEncoder);
+        Log.v(TAG, "Audio Encoder selected = " + mAudioEncoder);
+
+        String videoBitrate = mPreferences.getString(
+               CameraSettings.KEY_VIDEO_BITRATE,
+               mActivity.getString(R.string.pref_camera_videobitrate_default));
+        mVideoBitrate = videoBitrate;
+        Log.v(TAG, "Video bitrate selected = " + mVideoBitrate);
+
+        String audioBitrate = mPreferences.getString(
+               CameraSettings.KEY_AUDIO_BITRATE,
+               mActivity.getString(R.string.pref_camera_audiobitrate_default));
+        mAudioBitrate = audioBitrate;
+        Log.v(TAG, "Audio bitrate selected = " + mAudioBitrate);
 
         if(ParametersWrapper.isPowerModeSupported(mParameters)) {
             String powermode = mPreferences.getString(
@@ -1670,6 +1684,50 @@ public class VideoModule implements CameraModule,
         return bitRate;
     }
 
+    // Video bitrate based on user preference
+    private void setVideoBitrate(MediaRecorder recorder, boolean scaling,
+                                int targetFrameRate, boolean isHSR, int captureRate) {
+        switch (mVideoBitrate) {
+            case "profile":
+                Log.i(TAG, "Video bitrate [profile]: " + mProfile.videoBitRate);
+                recorder.setVideoEncodingBitRate(mProfile.videoBitRate);
+                break;
+            default:
+                if (scaling) {
+                    // Profiles advertizes bitrate corresponding to published framerate.
+                    // In case framerate is different, scale the bitrate
+                    int scaledBitrate = getHighSpeedVideoEncoderBitRate(mProfile,
+                                                                targetFrameRate);
+                    Log.i(TAG, "Video bitrate [auto-scaled]: " + scaledBitrate);
+                    if (scaledBitrate > 0) {
+                        recorder.setVideoEncodingBitRate(scaledBitrate);
+                    } else {
+                        Log.e(TAG, "Video bitrate [auto-scaled]: FAIL, using profile");
+                        recorder.setVideoEncodingBitRate(mProfile.videoBitRate);
+                    }
+                } else {
+                    Log.i(TAG, "Video bitrate [auto]: " + mProfile.videoBitRate);
+                    recorder.setVideoEncodingBitRate(mProfile.videoBitRate *
+                                                ((isHSR ? captureRate : 30) / 30));
+                }
+                break;
+        }
+    }
+
+    // Audio bitrate based on user preference
+    private void setAudioBitrate(MediaRecorder recorder) {
+        switch (mAudioBitrate) {
+            case "profile":
+                Log.i(TAG, "Audio bitrate [profile]: " + mProfile.audioBitRate);
+                recorder.setAudioEncodingBitRate(mProfile.audioBitRate);
+                break;
+            default:
+                Log.i(TAG, "Audio bitrate [auto]: " + mProfile.audioBitRate);
+                recorder.setAudioEncodingBitRate(mProfile.audioBitRate);
+                break;
+        }
+    }
+
     // Prepares media recorder.
     private void initializeRecorder() {
         Log.v(TAG, "initializeRecorder");
@@ -1772,12 +1830,11 @@ public class VideoModule implements CameraModule,
             }
             mMediaRecorder.setOutputFormat(mProfile.fileFormat);
             mMediaRecorder.setVideoFrameRate(mProfile.videoFrameRate);
-            mMediaRecorder.setVideoEncodingBitRate(mProfile.videoBitRate *
-                                                ((isHSR ? captureRate : 30) / 30));
+            setVideoBitrate(mMediaRecorder, false, 0, isHSR, captureRate);
             mMediaRecorder.setVideoEncoder(mProfile.videoCodec);
             if (isHSR) {
                 Log.i(TAG, "Configuring audio for HSR");
-                mMediaRecorder.setAudioEncodingBitRate(mProfile.audioBitRate);
+                setAudioBitrate(mMediaRecorder);
                 mMediaRecorder.setAudioChannels(mProfile.audioChannels);
                 mMediaRecorder.setAudioSamplingRate(mProfile.audioSampleRate);
                 mMediaRecorder.setAudioEncoder(mProfile.audioCodec);
@@ -1807,15 +1864,7 @@ public class VideoModule implements CameraModule,
             Log.i(TAG, "Setting target fps = " + targetFrameRate);
             mMediaRecorder.setVideoFrameRate(targetFrameRate);
 
-            // Profiles advertizes bitrate corresponding to published framerate.
-            // In case framerate is different, scale the bitrate
-            int scaledBitrate = getHighSpeedVideoEncoderBitRate(mProfile, targetFrameRate);
-            Log.i(TAG, "Scaled Video bitrate : " + scaledBitrate);
-            if (scaledBitrate > 0) {
-                mMediaRecorder.setVideoEncodingBitRate(scaledBitrate);
-            } else {
-                Log.e(TAG, "Cannot set Video bitrate because its negative");
-            }
+            setVideoBitrate(mMediaRecorder, true, targetFrameRate, isHSR, captureRate);
         }
 
         setRecordLocation();
