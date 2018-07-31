@@ -70,6 +70,22 @@
     <!-- Default video encoder setting. A numerical value. -->
     <string name="pref_camera_videoencoder_default" translatable="false">h264</string>
 
+    <!-- Video Bitrate Strings -->
+    <string name="pref_camera_videobitrate_title">Video bitrate</string>
+    <string name="pref_camera_videobitrate_auto">Auto</string>
+    <string name="pref_camera_videobitrate_profile">Profile</string>
+    <string name="pref_camera_videobitrate_manual">Manual</string>
+    <string name="pref_camera_videobitrate_max">Max</string>
+    <string name="pref_camera_videobitrate_default" translatable="false">auto</string>
+
+    <!-- Audio Bitrate Strings -->
+    <string name="pref_camera_audiobitrate_title">Audio bitrate</string>
+    <string name="pref_camera_audiobitrate_auto">Auto</string>
+    <string name="pref_camera_audiobitrate_profile">Profile</string>
+    <string name="pref_camera_audiobitrate_manual">Manual</string>
+    <string name="pref_camera_audiobitrate_max">Max</string>
+    <string name="pref_camera_audiobitrate_default" translatable="false">auto</string>
+
     <!-- Settings screen, Video encoder dialog title -->
     <string name="pref_camera_videoencoder_dialogtitle">Video codec</string>
 

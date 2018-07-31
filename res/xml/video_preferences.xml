@@ -24,6 +24,20 @@
             camera:singleIcon="@drawable/ic_settings_quality"
             camera:entryValues="@array/pref_video_quality_entryvalues"/>
     <IconListPreference
+            camera:key="pref_camera_videobitrate_key"
+            camera:defaultValue="@string/pref_camera_videobitrate_default"
+            camera:title="@string/pref_camera_videobitrate_title"
+            camera:singleIcon="@drawable/ic_settings_encoder_video"
+            camera:entries="@array/pref_camera_videobitrate_entries"
+            camera:entryValues="@array/pref_camera_videobitrate_entryvalues" />
+    <IconListPreference
+            camera:key="pref_camera_audiobitrate_key"
+            camera:defaultValue="@string/pref_camera_audiobitrate_default"
+            camera:title="@string/pref_camera_audiobitrate_title"
+            camera:singleIcon="@drawable/ic_settings_encoder_audio"
+            camera:entries="@array/pref_camera_audiobitrate_entries"
+            camera:entryValues="@array/pref_camera_audiobitrate_entryvalues" />
+    <IconListPreference
             camera:key="pref_camera_videoencoder_key"
             camera:defaultValue="@string/pref_camera_videoencoder_default"
             camera:title="@string/pref_camera_videoencoder_title"

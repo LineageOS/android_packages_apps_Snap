@@ -600,6 +600,36 @@
         <item>aac</item>
     </string-array>
 
+    <!-- Camera Preferences Video Bitrate dialog box entries -->
+    <string-array name="pref_camera_videobitrate_entries" translatable="false">
+        <item>@string/pref_camera_videobitrate_auto</item>
+        <item>@string/pref_camera_videobitrate_profile</item>
+        <item>@string/pref_camera_videobitrate_manual</item>
+        <item>@string/pref_camera_videobitrate_max</item>
+    </string-array>
+
+    <string-array name="pref_camera_videobitrate_entryvalues" translatable="false">
+        <item>auto</item>
+        <item>profile</item>
+        <item>manual</item>
+        <item>max</item>
+    </string-array>
+
+    <!-- Camera Preferences Audio Bitrate dialog box entries -->
+    <string-array name="pref_camera_audiobitrate_entries" translatable="false">
+        <item>@string/pref_camera_audiobitrate_auto</item>
+        <item>@string/pref_camera_audiobitrate_profile</item>
+        <item>@string/pref_camera_audiobitrate_manual</item>
+        <item>@string/pref_camera_audiobitrate_max</item>
+    </string-array>
+
+    <string-array name="pref_camera_audiobitrate_entryvalues" translatable="false">
+        <item>auto</item>
+        <item>profile</item>
+        <item>manual</item>
+        <item>max</item>
+    </string-array>
+
     <!-- Camera Preferences Skin Tone Enhancement dialog box entries -->
      <string-array name="pref_camera_skinToneEnhancement_entries">
           <item>@string/pref_camera_skinToneEnhancement_entry_enable</item>
