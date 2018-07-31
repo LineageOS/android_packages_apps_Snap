@@ -60,6 +60,17 @@ import android.view.WindowManager;
 import android.widget.Toast;
 import android.media.EncoderCapabilities;
 import android.media.EncoderCapabilities.VideoEncoderCap;
+import android.media.EncoderCapabilities.AudioEncoderCap;
+
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.widget.SeekBar;
+import android.widget.SeekBar.OnSeekBarChangeListener;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import android.util.TypedValue;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 
 import com.android.camera.CameraManager.CameraAFCallback;
 import com.android.camera.CameraManager.CameraPictureCallback;
@@ -372,6 +383,12 @@ public class VideoModule implements CameraModule,
 
     private int mVideoEncoder;
     private int mAudioEncoder;
+    private String mVideoBitrate;
+    private String mAudioBitrate;
+    private VideoEncoderCap mSelectedVEC;
+    private AudioEncoderCap mSelectedAEC;
+    private long manualVideoBitrateValue;
+    private long manualAudioBitrateValue;
     private boolean mRestartPreview = false;
     private int videoWidth;
     private int videoHeight;
@@ -930,14 +947,26 @@ public class VideoModule implements CameraModule,
                mActivity.getString(R.string.pref_camera_videoencoder_default));
         mVideoEncoder = VIDEO_ENCODER_TABLE.get(videoEncoder);
 
-        Log.v(TAG, "Video Encoder selected = " +mVideoEncoder);
+        Log.v(TAG, "Video Encoder selected = " + mVideoEncoder);
 
         String audioEncoder = mPreferences.getString(
                CameraSettings.KEY_AUDIO_ENCODER,
                mActivity.getString(R.string.pref_camera_audioencoder_default));
         mAudioEncoder = AUDIO_ENCODER_TABLE.get(audioEncoder);
 
-        Log.v(TAG, "Audio Encoder selected = " +mAudioEncoder);
+        Log.v(TAG, "Audio Encoder selected = " + mAudioEncoder);
+
+        String videoBitrate = mPreferences.getString(
+               CameraSettings.KEY_VIDEO_BITRATE,
+               mActivity.getString(R.string.pref_camera_videobitrate_default));
+        mVideoBitrate = videoBitrate;
+        Log.v(TAG, "Video bitrate selected = " + mVideoBitrate);
+
+        String audioBitrate = mPreferences.getString(
+               CameraSettings.KEY_AUDIO_BITRATE,
+               mActivity.getString(R.string.pref_camera_audiobitrate_default));
+        mAudioBitrate = audioBitrate;
+        Log.v(TAG, "Audio bitrate selected = " + mAudioBitrate);
 
         if(ParametersWrapper.isPowerModeSupported(mParameters)) {
             String powermode = mPreferences.getString(
@@ -1670,6 +1699,297 @@ public class VideoModule implements CameraModule,
         return bitRate;
     }
 
+    public String getRateString(long v) {
+        if (v >= 1000000) {
+            return String.valueOf((v/1000000)) + " Mbps";
+        }
+        return String.valueOf((v/1000)) + " Kbps";
+    }
+
+    public Long getRateFromProgress(long progress, long minRate, long maxRate) {
+        return (progress * (maxRate - minRate) / 100) + minRate;
+    }
+
+    public Long getProgressFromRate(long bitrate, long minRate, long maxRate) {
+        return ((bitrate - minRate) * 100) / (maxRate - minRate);
+    }
+
+    public void setVEC() {
+        List<VideoEncoderCap> videoEncoders = EncoderCapabilities.getVideoEncoders();
+        for (VideoEncoderCap videoEncoder : videoEncoders) {
+            if (videoEncoder.mCodec == mVideoEncoder) {
+                mSelectedVEC = videoEncoder;
+                break;
+            }
+        }
+    }
+
+    public void setAEC() {
+        List<AudioEncoderCap> audioEncoders = EncoderCapabilities.getAudioEncoders();
+        for (AudioEncoderCap audioEncoder : audioEncoders) {
+            if (audioEncoder.mCodec == mAudioEncoder) {
+                mSelectedAEC = audioEncoder;
+                break;
+            }
+        }
+    }
+
+    // Video bitrate dialog
+    public void showVideoBitrateManualDialog() {
+        mUI.collapseCameraControls();
+
+        setVEC();
+
+        if (manualVideoBitrateValue == 0) {
+            SharedPreferences sharedPref = mActivity.getSharedPreferences("bitratePrefs",
+                Context.MODE_PRIVATE);
+            manualVideoBitrateValue = sharedPref.getLong("manualVideoBitrate-" +
+                mProfile.videoCodec, mProfile.videoBitRate);
+        }
+
+        // when switching codecs fix min/max
+        if (manualVideoBitrateValue > mSelectedVEC.mMaxBitRate) {
+            manualVideoBitrateValue = mSelectedVEC.mMaxBitRate;
+        } else if (manualVideoBitrateValue < mSelectedVEC.mMinBitRate) {
+            manualVideoBitrateValue = mSelectedVEC.mMinBitRate;
+        }
+
+        // build dialog
+        final AlertDialog.Builder alert = new AlertDialog.Builder(mActivity);
+        LinearLayout linear = new LinearLayout(mActivity);
+        linear.setOrientation(1);
+        alert.setTitle("Manual Video Bitrate");
+        alert.setMessage("Set video bitrate with slider:");
+        alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                dialog.cancel();
+            }
+        });
+        alert.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                if ((manualVideoBitrateValue > mSelectedVEC.mMinBitRate) &&
+                    (manualVideoBitrateValue < mSelectedVEC.mMaxBitRate)) {
+                    RotateTextToast.makeText(mActivity, "Set video bitrate to " +
+                        getRateString(manualVideoBitrateValue),
+                        Toast.LENGTH_SHORT).show();
+
+                    // update preference for this encoder
+                    SharedPreferences sharedPref =
+                        mActivity.getSharedPreferences("bitratePrefs",
+                            Context.MODE_PRIVATE);
+                    Editor editor = sharedPref.edit();
+                    editor.putLong("manualVideoBitrate-" + mProfile.videoCodec,
+                        manualVideoBitrateValue);
+                    editor.commit();
+                } else {
+                    RotateTextToast.makeText(mActivity, "Invalid video bitrate",
+                        Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        // padding for elements
+        int x = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,30,
+            mActivity.getResources().getDisplayMetrics());
+
+        // display current selection
+        final TextView bitrateText = new TextView(mActivity);
+        bitrateText.setText(getRateString(manualVideoBitrateValue));
+        bitrateText.setPadding(x,0,0,x);
+
+        // slider
+        final SeekBar bitrateBar = new SeekBar(mActivity);
+        bitrateBar.setPadding(x,0,x,0);
+        bitrateBar.setProgress(getProgressFromRate(manualVideoBitrateValue,
+            mSelectedVEC.mMinBitRate, mSelectedVEC.mMaxBitRate).intValue());
+        bitrateBar.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) { }
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) { }
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                manualVideoBitrateValue = getRateFromProgress(progress,
+                    mSelectedVEC.mMinBitRate, mSelectedVEC.mMaxBitRate);
+                bitrateText.setText(getRateString(manualVideoBitrateValue));
+            }
+        });
+
+        // add to view, show alert
+        linear.addView(bitrateText);
+        linear.addView(bitrateBar);
+        alert.setView(linear);
+        alert.show();
+    }
+
+    // Video bitrate based on user preference
+    private void setVideoBitrate(MediaRecorder recorder, boolean scaling,
+                                int targetFrameRate, boolean isHSR, int captureRate) {
+        // get video encoder
+        List<VideoEncoderCap> videoEncoders = EncoderCapabilities.getVideoEncoders();
+        for (VideoEncoderCap videoEncoder : videoEncoders) {
+            if (videoEncoder.mCodec == mVideoEncoder) {
+                mSelectedVEC = videoEncoder;
+                break;
+            }
+        }
+
+        switch (mVideoBitrate) {
+            case "profile":
+                Log.i(TAG, "Video bitrate [profile]: " + mProfile.videoBitRate);
+                recorder.setVideoEncodingBitRate(mProfile.videoBitRate);
+                break;
+            case "manual":
+                // read from prefs, use default from profile if not found
+                SharedPreferences sharedPref = mActivity.getSharedPreferences("bitratePrefs",
+                        Context.MODE_PRIVATE);
+                long manualSetting = sharedPref.getLong("manualVideoBitrate-" +
+                    mProfile.videoCodec, mProfile.videoBitRate);
+
+                Log.i(TAG, "Video bitrate [manual]: " + (int) manualSetting);
+                recorder.setVideoEncodingBitRate((int) manualSetting);
+                break;
+            case "max":
+                Log.i(TAG, "Video bitrate [max]: " + mSelectedVEC.mMaxBitRate);
+                recorder.setVideoEncodingBitRate(mSelectedVEC.mMaxBitRate);
+                break;
+            default:
+                if (scaling) {
+                    // Profiles advertizes bitrate corresponding to published framerate.
+                    // In case framerate is different, scale the bitrate
+                    int scaledBitrate = getHighSpeedVideoEncoderBitRate(mProfile,
+                                                                targetFrameRate);
+                    Log.i(TAG, "Video bitrate [auto-scaled]: " + scaledBitrate);
+                    if (scaledBitrate > 0) {
+                        recorder.setVideoEncodingBitRate(scaledBitrate);
+                    } else {
+                        Log.e(TAG, "Video bitrate [auto-scaled]: FAIL, using profile");
+                        recorder.setVideoEncodingBitRate(mProfile.videoBitRate);
+                    }
+                } else {
+                    Log.i(TAG, "Video bitrate [auto]: " + mProfile.videoBitRate);
+                    recorder.setVideoEncodingBitRate(mProfile.videoBitRate *
+                                                ((isHSR ? captureRate : 30) / 30));
+                }
+                break;
+        }
+    }
+
+    // Audio bitrate dialog
+    public void showAudioBitrateManualDialog() {
+        mUI.collapseCameraControls();
+
+        setAEC();
+
+        if (manualAudioBitrateValue == 0) {
+            SharedPreferences sharedPref = mActivity.getSharedPreferences("bitratePrefs",
+                Context.MODE_PRIVATE);
+            manualAudioBitrateValue = sharedPref.getLong("manualAudioBitrate-" +
+                mProfile.audioCodec, mProfile.audioBitRate);
+        }
+
+        // when switching codecs fix min/max
+        if (manualAudioBitrateValue > mSelectedAEC.mMaxBitRate) {
+            manualAudioBitrateValue = mSelectedAEC.mMaxBitRate;
+        } else if (manualAudioBitrateValue < mSelectedAEC.mMinBitRate) {
+            manualAudioBitrateValue = mSelectedAEC.mMinBitRate;
+        }
+
+        // build dialog
+        final AlertDialog.Builder alert = new AlertDialog.Builder(mActivity);
+        LinearLayout linear = new LinearLayout(mActivity);
+        linear.setOrientation(1);
+        alert.setTitle("Manual Audio Bitrate");
+        alert.setMessage("Set audio bitrate with slider:");
+        alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                dialog.cancel();
+            }
+        });
+        alert.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                if ((manualAudioBitrateValue > mSelectedAEC.mMinBitRate) &&
+                    (manualAudioBitrateValue < mSelectedAEC.mMaxBitRate)) {
+                    RotateTextToast.makeText(mActivity, "Set audio bitrate to " +
+                        getRateString(manualAudioBitrateValue),
+                        Toast.LENGTH_SHORT).show();
+
+                    // update preference for this encoder
+                    SharedPreferences sharedPref = mActivity.getSharedPreferences("bitratePrefs",
+                        Context.MODE_PRIVATE);
+                    Editor editor = sharedPref.edit();
+                    editor.putLong("manualAudioBitrate-" + mProfile.audioCodec,
+                        manualAudioBitrateValue);
+                    editor.commit();
+                } else {
+                    RotateTextToast.makeText(mActivity, "Invalid audio bitrate",
+                        Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        // padding for elements
+        int x = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,30,
+            mActivity.getResources().getDisplayMetrics());
+
+        // display current selection
+        final TextView bitrateText = new TextView(mActivity);
+        bitrateText.setText(getRateString(manualAudioBitrateValue));
+        bitrateText.setPadding(x,0,0,x);
+
+        // slider
+        final SeekBar bitrateBar = new SeekBar(mActivity);
+        bitrateBar.setPadding(x,0,x,0);
+        bitrateBar.setProgress(getProgressFromRate(manualAudioBitrateValue, mSelectedAEC.mMinBitRate,
+            mSelectedAEC.mMaxBitRate).intValue());
+        bitrateBar.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) { }
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) { }
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                manualAudioBitrateValue = getRateFromProgress(progress, mSelectedAEC.mMinBitRate,
+                    mSelectedAEC.mMaxBitRate);
+                bitrateText.setText(getRateString(manualAudioBitrateValue));
+            }
+        });
+
+        // add to view, show alert
+        linear.addView(bitrateText);
+        linear.addView(bitrateBar);
+        alert.setView(linear);
+        alert.show();
+    }
+
+    // Audio bitrate based on user preference
+    private void setAudioBitrate(MediaRecorder recorder) {
+        switch (mAudioBitrate) {
+            case "profile":
+                Log.i(TAG, "Audio bitrate [profile]: " + mProfile.audioBitRate);
+                recorder.setAudioEncodingBitRate(mProfile.audioBitRate);
+                break;
+            case "manual":
+                // read from prefs, use default from profile if not found
+                SharedPreferences sharedPref = mActivity.getSharedPreferences("bitratePrefs",
+                        Context.MODE_PRIVATE);
+                long manualSetting = sharedPref.getLong("manualAudioBitrate-" +
+                    mProfile.audioCodec, mProfile.audioBitRate);
+
+                Log.i(TAG, "Audio bitrate [manual]: " + (int) manualSetting);
+                recorder.setAudioEncodingBitRate((int) manualSetting);
+                break;
+            case "max":
+                Log.i(TAG, "Audio bitrate [max]: " + mSelectedAEC.mMaxBitRate);
+                recorder.setAudioEncodingBitRate(mSelectedAEC.mMaxBitRate);
+                break;
+            default:
+                Log.i(TAG, "Audio bitrate [auto]: " + mProfile.audioBitRate);
+                recorder.setAudioEncodingBitRate(mProfile.audioBitRate);
+                break;
+        }
+    }
+
     // Prepares media recorder.
     private void initializeRecorder() {
         Log.v(TAG, "initializeRecorder");
@@ -1772,12 +2092,11 @@ public class VideoModule implements CameraModule,
             }
             mMediaRecorder.setOutputFormat(mProfile.fileFormat);
             mMediaRecorder.setVideoFrameRate(mProfile.videoFrameRate);
-            mMediaRecorder.setVideoEncodingBitRate(mProfile.videoBitRate *
-                                                ((isHSR ? captureRate : 30) / 30));
+            setVideoBitrate(mMediaRecorder, false, 0, isHSR, captureRate);
             mMediaRecorder.setVideoEncoder(mProfile.videoCodec);
             if (isHSR) {
                 Log.i(TAG, "Configuring audio for HSR");
-                mMediaRecorder.setAudioEncodingBitRate(mProfile.audioBitRate);
+                setAudioBitrate(mMediaRecorder);
                 mMediaRecorder.setAudioChannels(mProfile.audioChannels);
                 mMediaRecorder.setAudioSamplingRate(mProfile.audioSampleRate);
                 mMediaRecorder.setAudioEncoder(mProfile.audioCodec);
@@ -1807,15 +2126,7 @@ public class VideoModule implements CameraModule,
             Log.i(TAG, "Setting target fps = " + targetFrameRate);
             mMediaRecorder.setVideoFrameRate(targetFrameRate);
 
-            // Profiles advertizes bitrate corresponding to published framerate.
-            // In case framerate is different, scale the bitrate
-            int scaledBitrate = getHighSpeedVideoEncoderBitRate(mProfile, targetFrameRate);
-            Log.i(TAG, "Scaled Video bitrate : " + scaledBitrate);
-            if (scaledBitrate > 0) {
-                mMediaRecorder.setVideoEncodingBitRate(scaledBitrate);
-            } else {
-                Log.e(TAG, "Cannot set Video bitrate because its negative");
-            }
+            setVideoBitrate(mMediaRecorder, true, targetFrameRate, isHSR, captureRate);
         }
 
         setRecordLocation();
@@ -3080,6 +3391,37 @@ public class VideoModule implements CameraModule,
                 }
             }
         }
+
+        // Video Bitrate
+        if (pref != null && CameraSettings.KEY_VIDEO_BITRATE.equals(pref.getKey())) {
+            String bitratePref = pref.getValue();
+            switch (bitratePref) {
+                case "manual":
+                    showVideoBitrateManualDialog();
+                break;
+                case "max":
+                    setVEC();
+                    RotateTextToast.makeText(mActivity, "Set video bitrate to " +
+                        getRateString(mSelectedVEC.mMaxBitRate), Toast.LENGTH_SHORT).show();
+                break;
+            }
+        }
+
+        // Audio Bitrate
+        if (pref != null && CameraSettings.KEY_AUDIO_BITRATE.equals(pref.getKey())) {
+            String bitratePref = pref.getValue();
+            switch (bitratePref) {
+                case "manual":
+                    showAudioBitrateManualDialog();
+                break;
+                case "max":
+                    setAEC();
+                    RotateTextToast.makeText(mActivity, "Set audio bitrate to " +
+                        getRateString(mSelectedAEC.mMaxBitRate), Toast.LENGTH_SHORT).show();
+                break;
+            }
+        }
+
         onSharedPreferenceChanged();
     }
 
