@@ -2052,6 +2052,8 @@ public class CaptureModule implements CameraModule, PhotoController,
         } catch (CameraAccessException e) {
             Log.d(TAG, "Capture still picture has failed");
             e.printStackTrace();
+        } catch (IllegalArgumentException e) {
+            e.printStackTrace();
         }
     }
 
