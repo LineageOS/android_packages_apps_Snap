@@ -91,15 +91,15 @@
         <com.android.camera.Camera2BGBitMap
             android:id="@+id/bg_stats_graph"
             android:visibility="gone"
-            android:layout_width="120dip"
-            android:layout_height="160dip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginTop="68dip"
             android:layout_marginLeft="16dip" />
         <com.android.camera.Camera2BEBitMap
             android:id="@+id/be_stats_graph"
             android:visibility="gone"
-            android:layout_width="120dip"
-            android:layout_height="160dip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginTop="68dip"
             android:layout_marginLeft="16dip" />
         <com.android.camera.DrawAutoHDR2
