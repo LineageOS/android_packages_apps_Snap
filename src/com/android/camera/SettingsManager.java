@@ -159,6 +159,7 @@ public class SettingsManager implements ListMenu.SettingsListener {
     public static final String KEY_EXPOSURE_METERING_MODE = "pref_camera2_exposure_metering_key";
     public static final String KEY_MANUAL_EXPOSURE = "pref_camera2_manual_exp_key";
     public static final String KEY_MANUAL_ISO_VALUE = "pref_camera2_manual_iso_key";
+    public static final String KEY_MANUAL_GAINS_VALUE = "pref_camera2_manual_gains_key";
     public static final String KEY_MANUAL_EXPOSURE_VALUE = "pref_camera2_manual_exposure_key";
     public static final String KEY_QCFA = "pref_camera2_qcfa_key";
     public static final String KEY_EIS_VALUE = "pref_camera2_eis_key";
