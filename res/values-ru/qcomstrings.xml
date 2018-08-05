@@ -417,7 +417,7 @@
   <string name="refocus_toast">Нажмите, чтобы перефокусировать последнее фото</string>
   <string name="refocus_prompt_message">С UbiFocus ваша камера будет делать сразу 5 фотографий за один раз. После этого, 5 фотографий будут объединены в одну, где все объекты будут в фокусе. После объединения вы сможете выбрать место фокусировки на итоговом изображении.</string>
   <string name="camera_thermal_shutdown">Перегрев устройства. Камера будет выключена.</string>
-  <string name="camera_server_died">Сервер медиа неожиданно завершил работу. Камера будет выключена.</string>
+  <string name="camera_server_died">Медиа-сервер недоступен, закрытие камеры.</string>
   <string name="camera_unknown_error">Произошла неизвестная ошибка. Камера будет выключена.</string>
   <string name="mute_button_desc">Кнопка отключения звука</string>
   <string name="pref_camera2_camera2_title">Режим Camera2</string>

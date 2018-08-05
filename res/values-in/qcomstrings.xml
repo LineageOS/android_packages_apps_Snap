@@ -546,6 +546,7 @@
   <string name="pref_camera2_zsl_entry_hal_zsl">Perangkat keras ZSL</string>
   <!-- QCFA Title -->
   <!-- QCFA choices -->
+  <string name="pref_camera2_initial_camera_entry_bayer">Bayer</string>
   <string name="pref_camera2_initial_camera_entry_mono">Satu</string>
   <string name="pref_camera2_initial_camera_entry_front">Depan</string>
 </resources>
