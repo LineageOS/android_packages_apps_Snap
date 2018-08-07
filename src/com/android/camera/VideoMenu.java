@@ -704,6 +704,10 @@ public class VideoMenu extends MenuController
     }
 
     private void overrideMenuForSeeMore() {
+        if (mPreferenceGroup == null) {
+            Log.d(TAG,"overrideMenuForSeeMore mPreferenceGroup is null");
+            return;
+        }
         ListPreference pref_SeeMore = mPreferenceGroup.findPreference(CameraSettings.KEY_SEE_MORE);
         if(pref_SeeMore != null && pref_SeeMore.getValue() != null
                 && pref_SeeMore.getValue().equals("on")) {
@@ -724,7 +728,10 @@ public class VideoMenu extends MenuController
     }
 
     private void overrideMenuForCDSMode() {
-
+        if (mPreferenceGroup == null) {
+            Log.d(TAG,"overrideMenuForCDSMode mPreferenceGroup is null");
+            return;
+        }
         ListPreference pref_tnr = mPreferenceGroup.
                 findPreference(CameraSettings.KEY_VIDEO_TNR_MODE);
         ListPreference pref_cds = mPreferenceGroup.
@@ -763,6 +770,10 @@ public class VideoMenu extends MenuController
     }
 
     private void overrideMenuForVideoHighFrameRate() {
+        if (mPreferenceGroup == null) {
+            Log.d(TAG,"overrideMenuForVideoHighFrameRate mPreferenceGroup is null");
+            return;
+        }
         ListPreference disPref = mPreferenceGroup
                 .findPreference(CameraSettings.KEY_DIS);
         ListPreference frameIntervalPref = mPreferenceGroup
