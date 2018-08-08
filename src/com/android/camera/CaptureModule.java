@@ -4605,7 +4605,7 @@ public class CaptureModule implements CameraModule, PhotoController,
                 }
             } else {
                 // is pause or stopRecord
-                if (!(mMediaRecorderPausing && mStopRecPending)) {
+                if (!(mMediaRecorderPausing && mStopRecPending) && (mCurrentSession != null)) {
                     mCurrentSession.stopRepeating();
                     try {
                         mVideoRequestBuilder.set(CaptureModule.recording_end_stream, (byte) 0x01);
@@ -4629,7 +4629,7 @@ public class CaptureModule implements CameraModule, PhotoController,
             }
 
             // set preview
-            if (captureRequestBuilder != null) {
+            if (captureRequestBuilder != null && (mCurrentSession != null)) {
                 if (mCurrentSession instanceof CameraConstrainedHighSpeedCaptureSession) {
                     List requestList = CameraUtil.createHighSpeedRequestList(captureRequestBuilder.build());
                     mCurrentSession.setRepeatingBurst(requestList,
