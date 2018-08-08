@@ -1181,16 +1181,6 @@ for time lapse recording -->
         <item>@string/pref_camera2_deepportrait_entry_value_enable</item>
     </string-array>
 
-    <string-array name="pref_camera2_earlypcr_entryvalues" translatable="false">
-        <item>@string/pref_camera2_earlypcr_entry_value_disable</item>
-        <item>@string/pref_camera2_earlypcr_entry_value_enable</item>
-    </string-array>
-
-    <string-array name="pref_camera2_earlypcr_entries" translatable="false">
-        <item>@string/pref_camera2_earlypcr_entry_disable</item>
-        <item>@string/pref_camera2_earlypcr_entry_enable</item>
-    </string-array>
-
     <string-array name="pref_camera2_stats_visualizer_entries" translatable="false">
         <item>@string/pref_camera2_stats_visualizer_entry_disable</item>
         <item>@string/pref_camera2_stats_visualizer_entry_bg_stats</item>
@@ -1204,4 +1194,25 @@ for time lapse recording -->
         <item>@string/pref_camera2_stats_visualizer_entry_value_enable_be</item>
         <item>@string/pref_camera2_stats_visualizer_entry_value_enable_hist</item>
     </string-array>
+
+    <string-array name="pref_camera2_capture_mfnr_entries" translatable="false">
+        <item>@string/pref_camera2_capture_mfnr_entry_disable</item>
+        <item>@string/pref_camera2_capture_mfnr_entry_enable</item>
+    </string-array>
+
+    <string-array name="pref_camera2_capture_mfnr_entryvalues" translatable="false">
+        <item>@string/pref_camera2_capture_mfnr_entry_value_disable</item>
+        <item>@string/pref_camera2_capture_mfnr_entry_value_enable</item>
+    </string-array>
+
+    <string-array name="pref_camera2_capture_mfsr_entries" translatable="false">
+        <item>@string/pref_camera2_capture_mfsr_entry_disable</item>
+        <item>@string/pref_camera2_capture_mfsr_entry_enable</item>
+    </string-array>
+
+    <string-array name="pref_camera2_capture_mfsr_entryvalues" translatable="false">
+        <item>@string/pref_camera2_capture_mfsr_entry_value_disable</item>
+        <item>@string/pref_camera2_capture_mfsr_entry_value_enable</item>
+    </string-array>
+
 </resources>

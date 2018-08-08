@@ -54,7 +54,7 @@ public class DeepPortraitFilter implements ImageFilter {
     private static String TAG = "DeepPortraitFilter";
     private static String VIDEO_DLC = "deepportrait_preview.dlce";
     private static String SNAPSHOT_DLC = "deepportrait_snapshot.dlce";
-    private static String SD_ROOT_PATH = Environment.getExternalStorageDirectory().toString();
+    private static String SD_ROOT_PATH;
     private static boolean mIsSupported = false;
     int mWidth;
     int mHeight;
@@ -98,6 +98,11 @@ public class DeepPortraitFilter implements ImageFilter {
         mStrideY = strideY;
         mStrideVU = strideVU;
         mSeqNo = 0;
+        try {
+            SD_ROOT_PATH = Environment.getExternalStorageDirectory().toString();
+        } catch (NullPointerException e) {
+            e.printStackTrace();
+        }
         mDPInitialized = initPreview(width, height);
         if (mDPInitialized) {
             mVideoMaskSize = getMaskBufferSize();
@@ -109,6 +114,8 @@ public class DeepPortraitFilter implements ImageFilter {
     }
 
     public void initSnapshot(int width, int height) {
+        if (SD_ROOT_PATH == null)
+            return;
         String dlcPath = SD_ROOT_PATH + File.separator + SNAPSHOT_DLC;
         File dlc = new File(dlcPath);
         if (!dlc.exists()) {
@@ -122,6 +129,8 @@ public class DeepPortraitFilter implements ImageFilter {
     }
 
     public boolean initPreview(int width, int height) {
+        if (SD_ROOT_PATH == null)
+            return false;
         String dlcPath = SD_ROOT_PATH + File.separator + VIDEO_DLC;
         File dlc = new File(dlcPath);
         if (!dlc.exists()) {

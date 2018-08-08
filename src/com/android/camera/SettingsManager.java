@@ -152,6 +152,8 @@ public class SettingsManager implements ListMenu.SettingsListener {
     public static final String KEY_AUTO_HDR = "pref_camera2_auto_hdr_key";
     public static final String KEY_HDR = "pref_camera2_hdr_key";
     public static final String KEY_VIDEO_HDR_VALUE = "pref_camera2_video_hdr_key";
+    public static final String KEY_CAPTURE_MFNR_VALUE = "pref_camera2_capture_mfnr_key";
+    public static final String KEY_CAPTURE_MFSR_VALUE = "pref_camera2_capture_mfsr_key";
     public static final String KEY_SAVERAW = "pref_camera2_saveraw_key";
     public static final String KEY_ZOOM = "pref_camera2_zoom_key";
     public static final String KEY_SHARPNESS_CONTROL_MODE = "pref_camera2_sharpness_control_key";
@@ -159,12 +161,12 @@ public class SettingsManager implements ListMenu.SettingsListener {
     public static final String KEY_EXPOSURE_METERING_MODE = "pref_camera2_exposure_metering_key";
     public static final String KEY_MANUAL_EXPOSURE = "pref_camera2_manual_exp_key";
     public static final String KEY_MANUAL_ISO_VALUE = "pref_camera2_manual_iso_key";
+    public static final String KEY_MANUAL_GAINS_VALUE = "pref_camera2_manual_gains_key";
     public static final String KEY_MANUAL_EXPOSURE_VALUE = "pref_camera2_manual_exposure_key";
     public static final String KEY_QCFA = "pref_camera2_qcfa_key";
     public static final String KEY_EIS_VALUE = "pref_camera2_eis_key";
     public static final String KEY_FOVC_VALUE = "pref_camera2_fovc_key";
     public static final String KEY_DEEPPORTRAIT_VALUE = "pref_camera2_deepportrait_key";
-    public static final String KEY_EARLY_PCR_VALUE = "pref_camera2_earlypcr_key";
     public static final String KEY_AWB_RAGIN_VALUE = "pref_camera2_awb_cct_rgain_key";
     public static final String KEY_AWB_GAGIN_VALUE = "pref_camera2_awb_cct_ggain_key";
     public static final String KEY_AWB_BAGIN_VALUE = "pref_camera2_awb_cct_bgain_key";

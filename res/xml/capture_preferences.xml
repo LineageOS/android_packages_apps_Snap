@@ -149,6 +149,7 @@
         camera:title="@string/pref_camera_id_title"/>
 
     <IconListPreference
+        camera:defaultValue="@string/pref_camera2_picturesize_default"
         camera:entries="@array/pref_camera2_picturesize_entries"
         camera:entryValues="@array/pref_camera2_picturesize_entryvalues"
         camera:key="pref_camera2_picturesize_key"
@@ -434,15 +435,24 @@
         camera:entryValues="@array/pref_camera2_video_hdr_entryvalues" />
 
     <ListPreference
-        camera:key="pref_camera2_earlypcr_key"
-        camera:defaultValue="@string/pref_camera2_earlypcr_default"
-        camera:title="@string/pref_camera2_earlypcr_title"
-        camera:entries="@array/pref_camera2_earlypcr_entries"
-        camera:entryValues="@array/pref_camera2_earlypcr_entryvalues" />
-    <ListPreference
         camera:key="pref_camera2_stats_visualizer_key"
         camera:defaultValue="@string/pref_camera2_stats_visualizer_default"
         camera:title="@string/pref_camera2_stats_visualizer_title"
         camera:entries="@array/pref_camera2_stats_visualizer_entries"
         camera:entryValues="@array/pref_camera2_stats_visualizer_entryvalues" />
+
+    <ListPreference
+        camera:key="pref_camera2_capture_mfnr_key"
+        camera:defaultValue="@string/pref_camera2_capture_mfnr_default"
+        camera:title="@string/pref_camera2_capture_mfnr_title"
+        camera:entries="@array/pref_camera2_capture_mfnr_entries"
+        camera:entryValues="@array/pref_camera2_capture_mfnr_entryvalues" />
+
+    <ListPreference
+        camera:key="pref_camera2_capture_mfsr_key"
+        camera:defaultValue="@string/pref_camera2_capture_mfsr_default"
+        camera:title="@string/pref_camera2_capture_mfsr_title"
+        camera:entries="@array/pref_camera2_capture_mfsr_entries"
+        camera:entryValues="@array/pref_camera2_capture_mfsr_entryvalues" />
+
 </PreferenceGroup>

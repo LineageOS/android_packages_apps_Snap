@@ -71,4 +71,8 @@ public class ApiHelper {
         return Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT
                 || "KeyLimePie".equals(Build.VERSION.CODENAME);
     }
+
+    public static boolean isAndroidPOrHigher() {
+        return Build.VERSION.SDK_INT >= 28;
+    }
 }
