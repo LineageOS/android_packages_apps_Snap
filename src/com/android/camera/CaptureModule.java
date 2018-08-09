@@ -1165,11 +1165,15 @@ public class CaptureModule implements CameraModule, PhotoController,
                                 // don't set repeating request for mono
                                 if(id == MONO_ID && !canStartMonoPreview()
                                         && getCameraMode() == DUAL_MODE) {
-                                    mCaptureSession[id].capture(mPreviewRequestBuilder[id]
-                                            .build(), mCaptureCallback, mCameraHandler);
+                                    if (mCaptureSession[id] != null) {
+                                        mCaptureSession[id].capture(mPreviewRequestBuilder[id]
+                                                .build(), mCaptureCallback, mCameraHandler);
+                                    }
                                 } else {
-                                    mCaptureSession[id].setRepeatingRequest(mPreviewRequestBuilder[id]
-                                            .build(), mCaptureCallback, mCameraHandler);
+                                    if (mCaptureSession[id] != null) {
+                                        mCaptureSession[id].setRepeatingRequest(mPreviewRequestBuilder[id]
+                                                .build(), mCaptureCallback, mCameraHandler);
+                                    }
                                 }
 
                                 if (isClearSightOn()) {
