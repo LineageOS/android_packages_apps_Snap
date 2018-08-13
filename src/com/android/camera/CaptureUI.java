@@ -417,7 +417,7 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
             mCameraControls.setVideoMode(false);
             mCancelButton.setVisibility(View.VISIBLE);
             mReviewCancelButton = mRootView.findViewById(R.id.preview_btn_cancel);
-            mReviewDoneButton = mRootView.findViewById(R.id.preview_btn_done);
+            mReviewDoneButton = mRootView.findViewById(R.id.done_button);
             mReviewRetakeButton = mRootView.findViewById(R.id.preview_btn_retake);
             mReviewPlayButton = mRootView.findViewById(R.id.preview_play);
             mPreviewLayout = (FrameLayout)mRootView.findViewById(R.id.preview_of_intent);
