@@ -3959,15 +3959,16 @@ public class CaptureModule implements CameraModule, PhotoController,
             // Create slow motion request list
             List<CaptureRequest> slowMoRequests = null;
             try {
+                setUpVideoCaptureRequestBuilder(mVideoRequestBuilder, cameraId);
                 if (mHighSpeedCapture && ((int) mHighSpeedFPSRange.getUpper() > NORMAL_SESSION_MAX_FPS)) {
                     slowMoRequests = ((CameraConstrainedHighSpeedCaptureSession) mCurrentSession).
                             createHighSpeedRequestList(mVideoRequestBuilder.build());
+                    mCurrentSession.setRepeatingBurst(slowMoRequests,
+                            mCaptureCallback, mCameraHandler);
                 } else {
-                    slowMoRequests = new ArrayList<CaptureRequest>();
-                    slowMoRequests.add(mVideoRequestBuilder.build());// Preview + recording.
+                    mCurrentSession.setRepeatingRequest(mVideoRequestBuilder.build(),
+                            mCaptureCallback, mCameraHandler);
                 }
-                setUpVideoCaptureRequestBuilder(mVideoRequestBuilder, cameraId);
-                mCurrentSession.setRepeatingBurst(slowMoRequests, mCaptureCallback, mCameraHandler);
             } catch (CameraAccessException e) {
                 e.printStackTrace();
             } catch (IllegalStateException e) {
