@@ -6463,6 +6463,8 @@ public class CaptureModule implements CameraModule, PhotoController,
         if (what == MediaRecorder.MEDIA_RECORDER_ERROR_UNKNOWN) {
             // We may have run out of space on the sdcard.
             mActivity.updateStorageSpaceAndHint();
+        } else {
+           warningToast("MediaRecorder error. what=" + what + ". extra=" + extra);
         }
     }
 
