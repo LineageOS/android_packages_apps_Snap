@@ -362,12 +362,14 @@ public class CaptureModule implements CameraModule, PhotoController,
             new CaptureRequest.Key<>("org.quic.camera.recording.endOfStream", byte.class);
     public static final CaptureRequest.Key<Byte> earlyPCR =
             new CaptureRequest.Key<>("org.quic.camera.EarlyPCRenable.EarlyPCRenable", byte.class);
-
+    private static final CaptureResult.Key<Byte> is_depth_focus =
+            new CaptureResult.Key<>("org.quic.camera.isDepthFocus.isDepthFocus", byte.class);
     public static final CaptureRequest.Key<Integer> capture_mfnr_enable =
             new CaptureRequest.Key<>("org.codeaurora.qcamera3.mfnr_enable", Integer.class);
     public static final CaptureRequest.Key<Integer> capture_mfsr_enable =
             new CaptureRequest.Key<>("org.codeaurora.qcamera3.mfsr_enable", Integer.class);
 
+    private boolean mIsDepthFocus = false;
     private boolean[] mTakingPicture = new boolean[MAX_NUM_CAM];
     private int mControlAFMode = CameraMetadata.CONTROL_AF_MODE_CONTINUOUS_PICTURE;
     private int mLastResultAFState = -1;
@@ -3463,7 +3465,9 @@ public class CaptureModule implements CameraModule, PhotoController,
         mUI.setFocusPosition(x, y);
         x = newXY[0];
         y = newXY[1];
-        mUI.onFocusStarted();
+        if (!mIsDepthFocus) {
+            mUI.onFocusStarted();
+        }
         if (isBackCamera()) {
             switch (getCameraMode()) {
                 case DUAL_MODE:
@@ -6021,6 +6025,19 @@ public class CaptureModule implements CameraModule, PhotoController,
     private void updateFocusStateChange(CaptureResult result) {
         final Integer resultAFState = result.get(CaptureResult.CONTROL_AF_STATE);
         if (resultAFState == null) return;
+        try {
+            Byte isDepthFocus = result.get(CaptureModule.is_depth_focus);
+            if(DEBUG) Log.d(TAG, "isDepthFocus is " + isDepthFocus);
+            if (isDepthFocus != null && isDepthFocus == 1) {
+                mIsDepthFocus = true;
+                return;
+            } else {
+                mIsDepthFocus = false;
+            }
+        } catch (IllegalArgumentException e) {
+            mIsDepthFocus = false;
+            if (DEBUG) e.printStackTrace();
+        }
 
         // Report state change when AF state has changed.
         if (resultAFState != mLastResultAFState && mFocusStateListener != null) {
