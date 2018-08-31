@@ -4312,7 +4312,12 @@ public class CaptureModule implements CameraModule, PhotoController,
 
     public void startMediaRecording() {
         if (!startMediaRecorder()) {
-            mUI.showUIafterRecording();
+            mActivity.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    mUI.showUIafterRecording();
+                }
+            });
             releaseMediaRecorder();
             mFrameProcessor.setVideoOutputSurface(null);
             restartSession(true);
