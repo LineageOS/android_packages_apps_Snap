@@ -1990,16 +1990,18 @@ public class CameraActivity extends Activity
             message = getString(R.string.spaceIsLow_content);
         }
 
-        if (message != null) {
-            if (mStorageHint == null) {
-                mStorageHint = OnScreenHint.makeText(this, message);
-            } else {
-                mStorageHint.setText(message);
+        if (!isFinishing()) {
+            if (message != null) {
+                if (mStorageHint == null) {
+                    mStorageHint = OnScreenHint.makeText(this, message);
+                } else {
+                    mStorageHint.setText(message);
+                }
+                mStorageHint.show();
+            } else if (mStorageHint != null) {
+                mStorageHint.cancel();
+                mStorageHint = null;
             }
-            mStorageHint.show();
-        } else if (mStorageHint != null) {
-            mStorageHint.cancel();
-            mStorageHint = null;
         }
     }
 

@@ -54,6 +54,8 @@ public class Storage {
     public static final long PREPARING = -2L;
     public static final long UNKNOWN_SIZE = -3L;
     public static final long LOW_STORAGE_THRESHOLD_BYTES = 60 * 1024 * 1024;
+    //only allow to use 90% of the internal storage
+    public static final float SYSTEM_KEPP_STORAGE_PERCENT = 0.1f;
 
     private static boolean sSaveSDCard = false;
 
@@ -268,7 +270,11 @@ public class Storage {
 
         try {
             StatFs stat = new StatFs(DIRECTORY);
-            return stat.getAvailableBlocks() * (long) stat.getBlockSize();
+            long total = stat.getBlockCountLong() * stat.getBlockSizeLong();
+            long systemKeep = (long)(total * SYSTEM_KEPP_STORAGE_PERCENT);
+            long ret = stat.getAvailableBlocks() * (long) stat.getBlockSize() - systemKeep;
+            ret = ret > 0? ret : 0;
+            return ret;
         } catch (Exception e) {
             Log.i(TAG, "Failed to access external storage", e);
         }

@@ -204,14 +204,6 @@ public class SettingsActivity extends PreferenceActivity {
             }
         }
 
-        if (mDeveloperMenuEnabled) {
-            Preference p = findPreference(SettingsManager.KEY_ZSL);
-            if (p != null){
-                PreferenceGroup developer = (PreferenceGroup)findPreference("developer");
-                developer.removePreference(p);
-            }
-        }
-
         for (String key : set) {
             Preference p = findPreference(key);
             if (p == null) continue;
