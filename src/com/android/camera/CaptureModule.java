@@ -5989,7 +5989,17 @@ public class CaptureModule implements CameraModule, PhotoController,
                                               float multiple, Rect cropRegion, int id) {
         int side = (int) (Math.max(width, height) / 8 * multiple);
         RectF meteringRegionF = new RectF(x - side / 2, y - side / 2, x + side / 2, y + side / 2);
-
+        if (cropRegion == null || mOriginalCropRegion[id] == null) {
+            //error status, TAF in center
+            Rect tempRegion = mSettingsManager.getSensorActiveArraySize(id);
+            int xCenter = tempRegion.width() / 2;
+            int yCenter = tempRegion.height() / 2;
+            tempRegion.set(xCenter - side / 2, yCenter - side / 2,
+                    xCenter + side / 2, yCenter + side / 2);
+            MeteringRectangle[] meteringRectangle = new MeteringRectangle[1];
+            meteringRectangle[0] = new MeteringRectangle(tempRegion, 1);
+            return meteringRectangle;
+        }
         // inverse of matrix1 will translate from touch to (-1000 to 1000), which is camera1
         // coordinates, while accounting for orientation and mirror
         Matrix matrix1 = new Matrix();
