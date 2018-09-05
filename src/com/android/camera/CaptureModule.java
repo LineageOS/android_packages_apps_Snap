@@ -269,6 +269,12 @@ public class CaptureModule implements CameraModule, PhotoController,
     public static CameraCharacteristics.Key<long[]> EXPOSURE_RANGE =
             new CameraCharacteristics.Key<>("org.codeaurora.qcamera3.iso_exp_priority.exposure_time_range", long[].class);
 
+    // manual WB color temperature and gains
+    public static CameraCharacteristics.Key<int[]> WB_COLOR_TEMPERATURE_RANGE =
+            new CameraCharacteristics.Key<>("org.codeaurora.qcamera3.manualWB.color_temperature_range", int[].class);
+    public static CameraCharacteristics.Key<float[]> WB_RGB_GAINS_RANGE =
+            new CameraCharacteristics.Key<>("org.codeaurora.qcamera3.manualWB.gains_range", float[].class);
+
     public static CameraCharacteristics.Key<Integer> buckets =
             new CameraCharacteristics.Key<>("org.codeaurora.qcamera3.histogram.buckets", Integer.class);
     public static CameraCharacteristics.Key<Integer> maxCount =
@@ -2799,6 +2805,7 @@ public class CaptureModule implements CameraModule, PhotoController,
         applyAWBCCTAndAgain(builder);
         applyBGStats(builder);
         applyBEStats(builder);
+        applyWbColorTemperature(builder);
     }
 
     /**
@@ -5365,6 +5372,38 @@ public class CaptureModule implements CameraModule, PhotoController,
         }
         mBEStatson = false;
         updateBEStatsVisibility(View.GONE);
+    }
+
+    private void applyWbColorTemperature(CaptureRequest.Builder request) {
+        final SharedPreferences pref = mActivity.getSharedPreferences(
+                ComboPreferences.getLocalSharedPreferencesName(mActivity, getMainCameraId()),
+                Context.MODE_PRIVATE);
+        String manualWBMode = mSettingsManager.getValue(SettingsManager.KEY_MANUAL_WB);
+        String cctMode = mActivity.getString(
+                R.string.pref_camera_manual_wb_value_color_temperature);
+        String gainMode = mActivity.getString(
+                R.string.pref_camera_manual_wb_value_rbgb_gains);
+        Log.v("daming", " >>> 5362 >>> cctMode :" + cctMode);
+        if (manualWBMode.equals(cctMode)) {
+            int colorTempValue = Integer.parseInt(pref.getString(
+                    SettingsManager.KEY_MANUAL_WB_TEMPERATURE_VALUE, "-1"));
+            Log.v("daming", " >>> 5366 >>> colorTempValue :" + colorTempValue);
+            if (colorTempValue != -1) {
+                VendorTagUtil.setWbColorTemperatureValue(request, colorTempValue);
+            }
+        } else if (manualWBMode.equals(gainMode)) {
+            float rGain = pref.getFloat(SettingsManager.KEY_MANUAL_WB_R_GAIN, -1.0f);
+            float gGain = pref.getFloat(SettingsManager.KEY_MANUAL_WB_G_GAIN, -1.0f);
+            float bGain = pref.getFloat(SettingsManager.KEY_MANUAL_WB_B_GAIN, -1.0f);
+            if (rGain != -1.0 && gGain != -1.0 && bGain != -1.0f) {
+                request.set(CaptureRequest.CONTROL_AWB_MODE, CaptureRequest.CONTROL_AWB_MODE_OFF);
+                float[] gains = {rGain, gGain, bGain};
+                Log.v("daming", " >>> 5375 >>> rGain :" + rGain + ", gGain :" + gGain + ", bGain :" + bGain);
+                VendorTagUtil.setMWBGainsValue(request, gains);
+            }
+        } else {
+            VendorTagUtil.setMWBDisableMode(request);
+        }
     }
 
     private void updateGraghViewVisibility(final int visibility) {
