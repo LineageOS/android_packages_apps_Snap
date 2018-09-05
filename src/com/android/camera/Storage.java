@@ -239,6 +239,8 @@ public class Storage {
 
     private static long getSDCardAvailableSpace() {
         if (SDCard.instance().isWriteable()) {
+            String path = SDCard.instance().getDirectory();
+            if (path == null) return UNKNOWN_SIZE;
             File dir = new File(SDCard.instance().getDirectory());
             dir.mkdirs();
             try {
