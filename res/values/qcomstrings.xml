@@ -1268,15 +1268,17 @@
     <string name="pref_camera_scenemode_entry_deepportrait" translatable="false">Deepportrait</string>
 
     <string name="pref_camera2_stats_visualizer_title" translatable="true">Stats Visualizer</string>
-    <string name="pref_camera2_stats_visualizer_default" translatable="false">0</string>
-    <string name="pref_camera2_stats_visualizer_entry_disable" translatable="false">Disable All</string>
+    <string name="pref_camera2_stats_visualizer_default" translatable="false"></string>
     <string name="pref_camera2_stats_visualizer_entry_bg_stats" translatable="false">BG Stats</string>
     <string name="pref_camera2_stats_visualizer_entry_be_stats" translatable="false">BE Stats</string>
     <string name="pref_camera2_stats_visualizer_entry_hist_stats" translatable="false">Hist Stats</string>
-    <string name="pref_camera2_stats_visualizer_entry_value_disable" translatable="false">0</string>
-    <string name="pref_camera2_stats_visualizer_entry_value_enable_bg" translatable="false">1</string>
-    <string name="pref_camera2_stats_visualizer_entry_value_enable_be" translatable="false">2</string>
-    <string name="pref_camera2_stats_visualizer_entry_value_enable_hist" translatable="false">3</string>
+    <string name="pref_camera2_stats_visualizer_entry_awb_info" translatable="false">AWB Info</string>
+    <string name="pref_camera2_stats_visualizer_entry_value_enable_bg" translatable="false">0</string>
+    <string name="pref_camera2_stats_visualizer_entry_value_enable_be" translatable="false">1</string>
+    <string name="pref_camera2_stats_visualizer_entry_value_enable_hist" translatable="false">2</string>
+    <string name="pref_camera2_stats_visualizer_entry_value_enable_awb" translatable="false">3</string>
+    <string name="stats_visualizer_bg_label">BG GraphView</string>
+    <string name="stats_visualizer_be_label">BE GraphView</string>
 
     <string name="pref_camera2_capture_mfnr_title" translatable="true">Capture MFNR</string>
     <string name="pref_camera2_capture_mfnr_default" translatable="false">0</string>

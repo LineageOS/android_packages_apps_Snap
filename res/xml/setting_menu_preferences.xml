@@ -465,14 +465,14 @@
             android:layout="@layout/preference"
             android:summary="%s"/>
 
-        <ListPreference
+        <MultiSelectListPreference
             android:key="pref_camera2_stats_visualizer_key"
-            android:defaultValue="@string/pref_camera2_stats_visualizer_default"
+            android:defaultValue="@array/pref_camera2_stats_visualizer_default"
             android:title="@string/pref_camera2_stats_visualizer_title"
             android:entries="@array/pref_camera2_stats_visualizer_entries"
             android:entryValues="@array/pref_camera2_stats_visualizer_entryvalues"
             android:layout="@layout/preference"
-            android:summary="%s"/>
+            android:summary="Choose stats to display"/>
 
         <ListPreference
             android:key="pref_camera2_capture_mfnr_key"

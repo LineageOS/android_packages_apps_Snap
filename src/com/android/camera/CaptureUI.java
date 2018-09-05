@@ -108,6 +108,7 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
     private static final int ANIMATION_DURATION = 300;
     private static final int CLICK_THRESHOLD = 200;
     private static final int AUTOMATIC_MODE = 0;
+    private static final String[] AWB_INFO_TITLE = {" R gain "," G gain "," B gain "," CCT "};
     private CameraActivity mActivity;
     private View mRootView;
     private View mPreviewCover;
@@ -231,6 +232,12 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
     private ImageView mReviewImage;
     private int mDownSampleFactor = 4;
     private DecodeImageForReview mDecodeTaskForReview = null;
+
+    private View mStatsAwbInfo;
+    private TextView mStatsAwbRText;
+    private TextView mStatsAwbGText;
+    private TextView mStatsAwbBText;
+    private TextView mStatsAwbCcText;
 
     int mPreviewWidth;
     int mPreviewHeight;
@@ -416,6 +423,12 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
         mPauseButton = (PauseButton) mRootView.findViewById(R.id.video_pause);
         mPauseButton.setOnPauseButtonListener(this);
 
+        mStatsAwbInfo = mRootView.findViewById(R.id.stats_awb_info);
+        mStatsAwbRText = mRootView.findViewById(R.id.stats_awb_r_text);
+        mStatsAwbGText = mRootView.findViewById(R.id.stats_awb_g_text);
+        mStatsAwbBText = mRootView.findViewById(R.id.stats_awb_b_text);
+        mStatsAwbCcText = mRootView.findViewById(R.id.stats_awb_cc_text);
+
         mMuteButton = (RotateImageView)mRootView.findViewById(R.id.mute_button);
         mMuteButton.setVisibility(View.VISIBLE);
         setMuteButtonResource(!mModule.isAudioMute());
@@ -581,6 +594,25 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
             CameraUtil.fadeIn(mReviewDoneButton);
             CameraUtil.fadeIn(mReviewRetakeButton);
         }
+    }
+
+    public void updateAwbInfoText(String[] info) {
+        if (info == null || info.length <4)
+            return;
+        mStatsAwbRText.setText(AWB_INFO_TITLE[0]+info[0]);
+        mStatsAwbGText.setText(AWB_INFO_TITLE[1]+info[1]);
+        mStatsAwbBText.setText(AWB_INFO_TITLE[2]+info[2]);
+        mStatsAwbCcText.setText(AWB_INFO_TITLE[3]+info[3]);
+    }
+
+    public void updateAWBInfoVisibility(int visibility) {
+        mActivity.runOnUiThread(new Runnable() {
+            public void run() {
+                if(mStatsAwbInfo != null) {
+                    mStatsAwbInfo.setVisibility(visibility);
+                }
+            }
+        });
     }
 
     private int getCurrentIntentMode() {

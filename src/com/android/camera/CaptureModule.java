@@ -90,6 +90,7 @@ import android.view.SurfaceHolder;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.view.WindowManager;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.LinearLayout;
 import android.widget.FrameLayout;
@@ -392,6 +393,8 @@ public class CaptureModule implements CameraModule, PhotoController,
     private Camera2GraphView mGraphViewR,mGraphViewGB,mGraphViewB;
     private Camera2BGBitMap    bgstats_view;
     private Camera2BEBitMap    bestats_view;
+    private TextView mBgStatsLabel;
+    private TextView mBeStatsLabel;
     private DrawAutoHDR2 mDrawAutoHDR2;
     public boolean mAutoHdrEnable;
     /*HDR Test*/
@@ -544,6 +547,9 @@ public class CaptureModule implements CameraModule, PhotoController,
     public static int be_r_statsdata[] = new int[BESTATS_DATA];
     public static int be_g_statsdata[] = new int[BESTATS_DATA];
     public static int be_b_statsdata[] = new int[BESTATS_DATA];
+
+    // AWB Info
+    public static String[] awbinfo_data = new String[4];
 
     private static final int SELFIE_FLASH_DURATION = 680;
     private static final int SESSION_CONFIGURE_TIMEOUT_MS = 3000;
@@ -759,7 +765,7 @@ public class CaptureModule implements CameraModule, PhotoController,
                                        CaptureRequest request,
                                        TotalCaptureResult result) {
             int id = (int) result.getRequest().getTag();
-            int r, g, b, index;
+
 
             if (id == getMainCameraId()) {
                 updateFocusStateChange(result);
@@ -771,100 +777,133 @@ public class CaptureModule implements CameraModule, PhotoController,
                     updateFaceView(faces, null);
                 }
             }
-            if (SettingsManager.getInstance().isStatsVisualizerSupport() == 3) {
-                int[] histogramStats = result.get(CaptureModule.histogramStats);
-                if (histogramStats != null && mHiston) {
-                    /*The first element in the array stores max hist value . Stats data begin
-                    from second value*/
-                    synchronized (statsdata) {
-                        System.arraycopy(histogramStats, 0, statsdata, 0, STATS_DATA);
-                    }
-                    updateGraghView();
-                }
-            }
-
-            // BG stats display
-            if (SettingsManager.getInstance().isStatsVisualizerSupport() == 1) {
-                int[] bgRStats = null;
-                int[] bgGStats = null;
-                int[] bgBStats = null;
-                try{
-                    bgRStats = result.get(CaptureModule.bgRStats);
-                    bgGStats = result.get(CaptureModule.bgGStats);
-                    bgBStats = result.get(CaptureModule.bgBStats);
-                } catch (IllegalArgumentException e) {
-                    e.printStackTrace();
-                }
-                if (bgRStats != null && bgGStats != null && bgBStats != null && mBGStatson) {
-                    synchronized (bg_r_statsdata) {
-                        System.arraycopy(bgRStats, 0, bg_r_statsdata, 0, BGSTATS_DATA);
-                        System.arraycopy(bgGStats, 0, bg_g_statsdata, 0, BGSTATS_DATA);
-                        System.arraycopy(bgBStats, 0, bg_b_statsdata, 0, BGSTATS_DATA);
-
-                        for (int el = 0; el < 3072; el++)
-                        {
-                            r = bg_r_statsdata[el] >> 6;
-                            g = bg_g_statsdata[el] >> 6;
-                            b = bg_b_statsdata[el] >> 6;
-
-                            for (int hi = 0; hi < 10; hi++)
-                            {
-                                for (int wi = 0; wi < 10; wi++)
-                                {
-                                    index               = 10*(int)(el/64) + 48*10*hi + 48*10*10*(el%64) + wi;
-                                    bg_statsdata[480*(639-(int)(index/480))+(index%480)] = Color.argb(255, r, g, b);
-                                }
-                            }
-                        }
-                    }
-                    updateBGStatsView();
-                }
-            }
-
-            // BE stats display
-            if (SettingsManager.getInstance().isStatsVisualizerSupport() == 2) {
-                int[] beRStats = null;
-                int[] beGStats = null;
-                int[] beBStats = null;
-                try{
-                    beRStats = result.get(CaptureModule.beRStats);
-                    beGStats = result.get(CaptureModule.beGStats);
-                    beBStats = result.get(CaptureModule.beBStats);
-                }catch (IllegalArgumentException e) {
-                    e.printStackTrace();
-                }
-
-                if (beRStats != null && beGStats != null && beBStats != null && mBEStatson) {
-                    synchronized (be_r_statsdata) {
-                        System.arraycopy(beRStats, 0, be_r_statsdata, 0, BESTATS_DATA);
-                        System.arraycopy(beGStats, 0, be_g_statsdata, 0, BESTATS_DATA);
-                        System.arraycopy(beBStats, 0, be_b_statsdata, 0, BESTATS_DATA);
-
-                        for (int el = 0; el < 3072; el++)
-                        {
-                            r = be_r_statsdata[el] >> 6;
-                            g = be_g_statsdata[el] >> 6;
-                            b = be_b_statsdata[el] >> 6;
-
-                            for (int hi = 0; hi < 10; hi++)
-                            {
-                                for (int wi = 0; wi < 10; wi++)
-                                {
-                                    index               = 10*(int)(el/64) + 48*10*hi + 48*10*10*(el%64) + wi;
-                                    be_statsdata[480*(639-(int)(index/480))+(index%480)] = Color.argb(255, r, g, b);
-                                }
-                            }
-                        }
-                    }
-                    updateBEStatsView();
-                }
-            }
 
             detectHDRMode(result, id);
             processCaptureResult(result);
             mPostProcessor.onMetaAvailable(result);
+            String stats_visualizer = mSettingsManager.getValue(
+                    SettingsManager.KEY_STATS_VISUALIZER_VALUE);
+            if (stats_visualizer != null) {
+                updateStatsView(stats_visualizer,result);
+            }
         }
     };
+
+    private void updateStatsView(String stats_visualizer,CaptureResult result) {
+        int r, g, b, index;
+        if (stats_visualizer.contains("2")) {
+            int[] histogramStats = result.get(CaptureModule.histogramStats);
+            if (histogramStats != null && mHiston) {
+                    /*The first element in the array stores max hist value . Stats data begin
+                    from second value*/
+                synchronized (statsdata) {
+                    System.arraycopy(histogramStats, 0, statsdata, 0, STATS_DATA);
+                }
+                updateGraghView();
+            }
+        }
+
+        // BG stats display
+        if (stats_visualizer.contains("0")) {
+            int[] bgRStats = null;
+            int[] bgGStats = null;
+            int[] bgBStats = null;
+            try{
+                bgRStats = result.get(CaptureModule.bgRStats);
+                bgGStats = result.get(CaptureModule.bgGStats);
+                bgBStats = result.get(CaptureModule.bgBStats);
+            } catch (IllegalArgumentException e) {
+                e.printStackTrace();
+            }
+            if (bgRStats != null && bgGStats != null && bgBStats != null && mBGStatson) {
+                synchronized (bg_r_statsdata) {
+                    System.arraycopy(bgRStats, 0, bg_r_statsdata, 0, BGSTATS_DATA);
+                    System.arraycopy(bgGStats, 0, bg_g_statsdata, 0, BGSTATS_DATA);
+                    System.arraycopy(bgBStats, 0, bg_b_statsdata, 0, BGSTATS_DATA);
+
+                    for (int el = 0; el < 3072; el++)
+                    {
+                        r = bg_r_statsdata[el] >> 6;
+                        g = bg_g_statsdata[el] >> 6;
+                        b = bg_b_statsdata[el] >> 6;
+
+                        for (int hi = 0; hi < 10; hi++)
+                        {
+                            for (int wi = 0; wi < 10; wi++)
+                            {
+                                index               = 10*(int)(el/64) + 48*10*hi + 48*10*10*(el%64) + wi;
+                                bg_statsdata[480*(639-(int)(index/480))+(index%480)] = Color.argb(255, r, g, b);
+                            }
+                        }
+                    }
+                }
+                updateBGStatsView();
+            }
+        }
+
+        // BE stats display
+        if (stats_visualizer.contains("1")) {
+            int[] beRStats = null;
+            int[] beGStats = null;
+            int[] beBStats = null;
+            try{
+                beRStats = result.get(CaptureModule.beRStats);
+                beGStats = result.get(CaptureModule.beGStats);
+                beBStats = result.get(CaptureModule.beBStats);
+            }catch (IllegalArgumentException e) {
+                e.printStackTrace();
+            }
+
+            if (beRStats != null && beGStats != null && beBStats != null && mBEStatson) {
+                synchronized (be_r_statsdata) {
+                    System.arraycopy(beRStats, 0, be_r_statsdata, 0, BESTATS_DATA);
+                    System.arraycopy(beGStats, 0, be_g_statsdata, 0, BESTATS_DATA);
+                    System.arraycopy(beBStats, 0, be_b_statsdata, 0, BESTATS_DATA);
+
+                    for (int el = 0; el < 3072; el++)
+                    {
+                        r = be_r_statsdata[el] >> 6;
+                        g = be_g_statsdata[el] >> 6;
+                        b = be_b_statsdata[el] >> 6;
+
+                        for (int hi = 0; hi < 10; hi++)
+                        {
+                            for (int wi = 0; wi < 10; wi++)
+                            {
+                                index               = 10*(int)(el/64) + 48*10*hi + 48*10*10*(el%64) + wi;
+                                be_statsdata[480*(639-(int)(index/480))+(index%480)] = Color.argb(255, r, g, b);
+                            }
+                        }
+                    }
+                }
+                updateBEStatsView();
+            }
+        }
+
+        // AWB Info display
+        if (stats_visualizer.contains("3")) {
+            try{
+                awbinfo_data[0] = Float.toString(mRGain);
+                awbinfo_data[1] = Float.toString(mGGain);
+                awbinfo_data[2] = Float.toString(mBGain);
+                awbinfo_data[3] = Float.toString(mCctAWB);
+                synchronized (awbinfo_data) {
+                    mActivity.runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            mUI.updateAWBInfoVisibility(View.VISIBLE);
+                            mUI.updateAwbInfoText(awbinfo_data);
+                        }
+                    });
+                }
+            } catch (IllegalArgumentException | NullPointerException e) {
+                e.printStackTrace();
+            }
+        } else {
+            mUI.updateAWBInfoVisibility(View.GONE);
+        }
+    }
+
 
     private final CameraDevice.StateCallback mStateCallback = new CameraDevice.StateCallback() {
 
@@ -1230,6 +1269,8 @@ public class CaptureModule implements CameraModule, PhotoController,
         mGraphViewB = (Camera2GraphView) mRootView.findViewById(R.id.graph_view_b);
         bgstats_view = (Camera2BGBitMap) mRootView.findViewById(R.id.bg_stats_graph);
         bestats_view = (Camera2BEBitMap) mRootView.findViewById(R.id.be_stats_graph);
+        mBgStatsLabel = (TextView) mRootView.findViewById(R.id.bg_stats_graph_label);
+        mBeStatsLabel = (TextView) mRootView.findViewById(R.id.be_stats_graph_label);
         mDrawAutoHDR2 = (DrawAutoHDR2 )mRootView.findViewById(R.id.autohdr_view);
         mGraphViewR.setDataSection(0,256);
         mGraphViewGB.setDataSection(256,512);
@@ -5374,7 +5415,7 @@ public class CaptureModule implements CameraModule, PhotoController,
     private void applyHistogram(CaptureRequest.Builder request) {
         String value = mSettingsManager.getValue(SettingsManager.KEY_STATS_VISUALIZER_VALUE);
         if (value != null ) {
-            if (value.equals("3")) {
+            if (value.contains("2")) {
                 final byte enable = 1;
                 request.set(CaptureModule.histMode, enable);
                 mHiston = true;
@@ -5390,7 +5431,7 @@ public class CaptureModule implements CameraModule, PhotoController,
     private void applyBGStats(CaptureRequest.Builder request) {
         String value = mSettingsManager.getValue(SettingsManager.KEY_STATS_VISUALIZER_VALUE);
         if (value != null ) {
-            if (value.equals("1")){
+            if (value.contains("0")){
                 final byte enable = 1;
                 try{
                     request.set(CaptureModule.bgStatsMode, enable);
@@ -5412,7 +5453,7 @@ public class CaptureModule implements CameraModule, PhotoController,
     private void applyBEStats(CaptureRequest.Builder request) {
         String value = mSettingsManager.getValue(SettingsManager.KEY_STATS_VISUALIZER_VALUE);
         if (value != null ) {
-            if (value.equals("2")){
+            if (value.contains("1")){
                 final byte enable = 1;
                 try{
                     request.set(CaptureModule.beStatsMode, enable);
@@ -5501,6 +5542,7 @@ public class CaptureModule implements CameraModule, PhotoController,
             public void run() {
                 if(bgstats_view != null) {
                     bgstats_view.setVisibility(visibility);
+                    mBgStatsLabel.setVisibility(visibility);
                 }
             }
         });
@@ -5522,6 +5564,7 @@ public class CaptureModule implements CameraModule, PhotoController,
             public void run() {
                 if(bestats_view != null) {
                     bestats_view.setVisibility(visibility);
+                    mBeStatsLabel.setVisibility(visibility);
                 }
             }
         });
@@ -6925,11 +6968,11 @@ class Camera2BGBitMap extends View {
     private Paint   mPaint = new Paint();
     private Paint   mPaintRect = new Paint();
     private Canvas  mCanvas = new Canvas();
-    private float   mScale = (float)3;
+    private Paint   mTextPaint = new Paint();
     private int   mWidth;
     private int   mHeight;
     private CaptureModule mCaptureModule;
-    private static final String TAG = "BGGraphView";
+    private static final String TAG = "BG GraphView";
 
 
     public Camera2BGBitMap(Context context, AttributeSet attrs) {
@@ -6986,7 +7029,7 @@ class Camera2BEBitMap extends View {
     private int  mWidth;
     private int  mHeight;
     private CaptureModule mCaptureModule;
-    private static final String TAG = "BGGraphView";
+    private static final String TAG = "BE GraphView";
 
 
     public Camera2BEBitMap(Context context, AttributeSet attrs) {
@@ -7019,7 +7062,6 @@ class Camera2BEBitMap extends View {
         if (mBitmap != null) {
             final Canvas cavas = mCanvas;
             cavas.drawColor(0xFFAAAAAA);
-
             synchronized(CaptureModule.be_statsdata){
             mBitmap.setPixels(CaptureModule.be_statsdata, 0, 48*10, 0, 0, 48*10, 64*10);
             }
