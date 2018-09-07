@@ -469,4 +469,11 @@
         camera:entries="@array/pref_camera2_fs2_entries"
         camera:entryValues="@array/pref_camera2_fs2_entryvalues" />
 
+    <ListPreference
+        camera:key="pref_camera2_abort_captures_key"
+        camera:defaultValue="@string/pref_camera2_abort_captures_default"
+        camera:title="@string/pref_camera2_abort_captures_title"
+        camera:entries="@array/pref_camera2_abort_captures_entries"
+        camera:entryValues="@array/pref_camera2_abort_captures_entryvalues" />
+
 </PreferenceGroup>
