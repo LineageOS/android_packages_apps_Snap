@@ -207,8 +207,12 @@ public class SettingsActivity extends PreferenceActivity {
             });
             alert.show();
         } else if (manualExposureMode.equals(expTimePriority)) {
-            alert.setMessage("Enter exposure time in the range of " + exposureRange[0]
-                    + "ns to " + exposureRange[1] + "ns");
+            if (exposureRange == null) {
+                alert.setMessage("Get Exposure time range is NULL ");
+            } else {
+                alert.setMessage("Enter exposure time in the range of " + exposureRange[0]
+                        + "ns to " + exposureRange[1] + "ns");
+            }
             linear.addView(ExpTimeInput);
             linear.addView(ExpTimeText);
             alert.setView(linear);
@@ -224,7 +228,8 @@ public class SettingsActivity extends PreferenceActivity {
                             newExpTime = Double.parseDouble(expTime) + 1f;
                         }
                     }
-                    if (newExpTime <= exposureRange[1] && newExpTime >= exposureRange[0]) {
+                    if (exposureRange != null &&
+                            newExpTime <= exposureRange[1] && newExpTime >= exposureRange[0]) {
                         editor.putString(SettingsManager.KEY_MANUAL_EXPOSURE_VALUE, expTime);
                         editor.apply();
                     } else {
@@ -239,8 +244,12 @@ public class SettingsActivity extends PreferenceActivity {
             final TextView ISORangeText = new TextView(this);
             final TextView ExpTimeRangeText = new TextView(this);
             ISORangeText.setText("Enter ISO in the range of " + isoRange[0] + " to " + isoRange[1]);
-            ExpTimeRangeText.setText("Enter exposure time in the range of " + exposureRange[0]
-                    + "ns to " + exposureRange[1] + "ns");
+            if (exposureRange == null) {
+                ExpTimeRangeText.setText("Get Exposure time range is NULL ");
+            } else {
+                ExpTimeRangeText.setText("Enter exposure time in the range of " + exposureRange[0]
+                        + "ns to " + exposureRange[1] + "ns");
+            }
             linear.addView(ISORangeText);
             linear.addView(ISOinput);
             linear.addView(ISOtext);
@@ -274,7 +283,8 @@ public class SettingsActivity extends PreferenceActivity {
                             newExpTime = Double.parseDouble(expTime) + 1f;
                         }
                     }
-                    if (newExpTime <= exposureRange[1] && newExpTime >= exposureRange[0]) {
+                    if (exposureRange != null &&
+                            newExpTime <= exposureRange[1] && newExpTime >= exposureRange[0]) {
                         editor.putString(SettingsManager.KEY_MANUAL_EXPOSURE_VALUE, expTime);
                         editor.apply();
                     } else {

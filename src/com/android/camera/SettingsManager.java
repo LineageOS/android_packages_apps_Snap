@@ -945,12 +945,13 @@ public class SettingsManager implements ListMenu.SettingsListener {
             exposureRange =  mCharacteristics.get(cameraId).get(
                     CaptureModule.EXPOSURE_RANGE);
             if (exposureRange == null) {
+                Log.w(TAG, "get exposure range modes is null.");
                 return null;
             }
         } catch(NullPointerException e) {
             Log.w(TAG, "Supported exposure range modes is null.");
         } catch(IllegalArgumentException e) {
-            Log.w(TAG, "Supported exposure range modes is null.");
+            Log.w(TAG, "IllegalArgumentException Supported exposure range modes is null.");
         }
         return exposureRange;
     }
