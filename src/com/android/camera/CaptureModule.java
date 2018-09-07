@@ -4141,7 +4141,10 @@ public class CaptureModule implements CameraModule, PhotoController,
             if (mHighSpeedCapture) {
                 preview = mVideoSize;
             }
-            mUI.setPreviewSize(preview.getWidth(), preview.getHeight());
+            if (mUI.setPreviewSize(preview.getWidth(), preview.getHeight())) {
+                mUI.hideSurfaceView();
+                mUI.showSurfaceView();
+            }
             mUI.resetTrackingFocus();
 
             createVideoSnapshotImageReader();
