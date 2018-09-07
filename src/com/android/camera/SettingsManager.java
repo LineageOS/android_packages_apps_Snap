@@ -1381,13 +1381,17 @@ public class SettingsManager implements ListMenu.SettingsListener {
     }
 
     private List<String> getSupportedWhiteBalanceModes(int cameraId) {
-        int[] whiteBalanceModes = mCharacteristics.get(cameraId).get(CameraCharacteristics
-                .CONTROL_AWB_AVAILABLE_MODES);
-        List<String> modes = new ArrayList<>();
-        for (int mode : whiteBalanceModes) {
-            modes.add("" + mode);
+        try {
+            int[] whiteBalanceModes = mCharacteristics.get(cameraId).get(CameraCharacteristics
+                    .CONTROL_AWB_AVAILABLE_MODES);
+            List<String> modes = new ArrayList<>();
+            for (int mode : whiteBalanceModes) {
+                modes.add("" + mode);
+            }
+            return modes;
+        } catch (IndexOutOfBoundsException e) {
+            return null;
         }
-        return modes;
     }
 
     private List<String> getSupportedSceneModes(int cameraId) {
