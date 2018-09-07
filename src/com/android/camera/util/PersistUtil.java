@@ -95,6 +95,8 @@ public class PersistUtil {
             SystemProperties.getBoolean("persist.sys.camera.perf.skip_memck", false);
     private static final boolean PERSIST_ZZHDR_ENABLED =
             SystemProperties.getBoolean("persist.sys.camera.zzhdr.enable", false);
+    private static final boolean PERSIST_SEND_REQUEST_AFTER_FLUSH =
+            SystemProperties.getBoolean("persist.sys.camera.send_request_after_flush", false);
     private static final int PERSIST_PREVIEW_SIZE =
             SystemProperties.getInt("persist.sys.camera.preview.size", 0);
     private static final long PERSIST_TIMESTAMP_LIMIT =
@@ -255,6 +257,10 @@ public class PersistUtil {
 
     public static boolean isZzhdrEnabled(){
         return PERSIST_ZZHDR_ENABLED;
+    }
+
+    public static boolean isSendRequestAfterFlush() {
+        return PERSIST_SEND_REQUEST_AFTER_FLUSH;
     }
 
     public static int getPreviewSize(){
