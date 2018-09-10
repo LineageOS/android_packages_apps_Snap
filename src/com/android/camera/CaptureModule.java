@@ -269,6 +269,12 @@ public class CaptureModule implements CameraModule, PhotoController,
     public static CameraCharacteristics.Key<long[]> EXPOSURE_RANGE =
             new CameraCharacteristics.Key<>("org.codeaurora.qcamera3.iso_exp_priority.exposure_time_range", long[].class);
 
+    // manual WB color temperature and gains
+    public static CameraCharacteristics.Key<int[]> WB_COLOR_TEMPERATURE_RANGE =
+            new CameraCharacteristics.Key<>("org.codeaurora.qcamera3.manualWB.color_temperature_range", int[].class);
+    public static CameraCharacteristics.Key<float[]> WB_RGB_GAINS_RANGE =
+            new CameraCharacteristics.Key<>("org.codeaurora.qcamera3.manualWB.gains_range", float[].class);
+
     public static CameraCharacteristics.Key<Integer> buckets =
             new CameraCharacteristics.Key<>("org.codeaurora.qcamera3.histogram.buckets", Integer.class);
     public static CameraCharacteristics.Key<Integer> maxCount =
@@ -1487,7 +1493,11 @@ public class CaptureModule implements CameraModule, PhotoController,
                 if(mFrameProcessor.isFrameFilterEnabled() && !mDeepPortraitMode) {
                     mActivity.runOnUiThread(new Runnable() {
                         public void run() {
-                            mUI.getSurfaceHolder().setFixedSize(mPreviewSize.getHeight(), mPreviewSize.getWidth());
+                            SurfaceHolder surfaceHolder = mUI.getSurfaceHolder();
+                            if (surfaceHolder != null) {
+                                surfaceHolder.setFixedSize(
+                                        mPreviewSize.getHeight(), mPreviewSize.getWidth());
+                            }
                         }
                     });
                 }
@@ -2795,6 +2805,7 @@ public class CaptureModule implements CameraModule, PhotoController,
         applyAWBCCTAndAgain(builder);
         applyBGStats(builder);
         applyBEStats(builder);
+        applyWbColorTemperature(builder);
     }
 
     /**
@@ -4138,7 +4149,11 @@ public class CaptureModule implements CameraModule, PhotoController,
             if (mFrameProcessor.isFrameFilterEnabled()) {
                 mActivity.runOnUiThread(new Runnable() {
                     public void run() {
-                        mUI.getSurfaceHolder().setFixedSize(mVideoSize.getHeight(), mVideoSize.getWidth());
+                        SurfaceHolder surfaceHolder = mUI.getSurfaceHolder();
+                        if (surfaceHolder != null) {
+                            surfaceHolder.setFixedSize(
+                                    mVideoSize.getHeight(), mVideoSize.getWidth());
+                        }
                     }
                 });
             }
@@ -4304,7 +4319,12 @@ public class CaptureModule implements CameraModule, PhotoController,
 
     public void startMediaRecording() {
         if (!startMediaRecorder()) {
-            mUI.showUIafterRecording();
+            mActivity.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    mUI.showUIafterRecording();
+                }
+            });
             releaseMediaRecorder();
             mFrameProcessor.setVideoOutputSurface(null);
             restartSession(true);
@@ -4605,7 +4625,7 @@ public class CaptureModule implements CameraModule, PhotoController,
                 }
             } else {
                 // is pause or stopRecord
-                if (!(mMediaRecorderPausing && mStopRecPending)) {
+                if (!(mMediaRecorderPausing && mStopRecPending) && (mCurrentSession != null)) {
                     mCurrentSession.stopRepeating();
                     try {
                         mVideoRequestBuilder.set(CaptureModule.recording_end_stream, (byte) 0x01);
@@ -4629,7 +4649,7 @@ public class CaptureModule implements CameraModule, PhotoController,
             }
 
             // set preview
-            if (captureRequestBuilder != null) {
+            if (captureRequestBuilder != null && (mCurrentSession != null)) {
                 if (mCurrentSession instanceof CameraConstrainedHighSpeedCaptureSession) {
                     List requestList = CameraUtil.createHighSpeedRequestList(captureRequestBuilder.build());
                     mCurrentSession.setRepeatingBurst(requestList,
@@ -4643,6 +4663,8 @@ public class CaptureModule implements CameraModule, PhotoController,
             stopRecordingVideo(getMainCameraId());
             e.printStackTrace();
         } catch (IllegalStateException e) {
+            e.printStackTrace();
+        } catch (NullPointerException e) {
             e.printStackTrace();
         }
     }
@@ -5352,6 +5374,38 @@ public class CaptureModule implements CameraModule, PhotoController,
         updateBEStatsVisibility(View.GONE);
     }
 
+    private void applyWbColorTemperature(CaptureRequest.Builder request) {
+        final SharedPreferences pref = mActivity.getSharedPreferences(
+                ComboPreferences.getLocalSharedPreferencesName(mActivity, getMainCameraId()),
+                Context.MODE_PRIVATE);
+        String manualWBMode = mSettingsManager.getValue(SettingsManager.KEY_MANUAL_WB);
+        String cctMode = mActivity.getString(
+                R.string.pref_camera_manual_wb_value_color_temperature);
+        String gainMode = mActivity.getString(
+                R.string.pref_camera_manual_wb_value_rbgb_gains);
+        Log.v("daming", " >>> 5362 >>> cctMode :" + cctMode);
+        if (manualWBMode.equals(cctMode)) {
+            int colorTempValue = Integer.parseInt(pref.getString(
+                    SettingsManager.KEY_MANUAL_WB_TEMPERATURE_VALUE, "-1"));
+            Log.v("daming", " >>> 5366 >>> colorTempValue :" + colorTempValue);
+            if (colorTempValue != -1) {
+                VendorTagUtil.setWbColorTemperatureValue(request, colorTempValue);
+            }
+        } else if (manualWBMode.equals(gainMode)) {
+            float rGain = pref.getFloat(SettingsManager.KEY_MANUAL_WB_R_GAIN, -1.0f);
+            float gGain = pref.getFloat(SettingsManager.KEY_MANUAL_WB_G_GAIN, -1.0f);
+            float bGain = pref.getFloat(SettingsManager.KEY_MANUAL_WB_B_GAIN, -1.0f);
+            if (rGain != -1.0 && gGain != -1.0 && bGain != -1.0f) {
+                request.set(CaptureRequest.CONTROL_AWB_MODE, CaptureRequest.CONTROL_AWB_MODE_OFF);
+                float[] gains = {rGain, gGain, bGain};
+                Log.v("daming", " >>> 5375 >>> rGain :" + rGain + ", gGain :" + gGain + ", bGain :" + bGain);
+                VendorTagUtil.setMWBGainsValue(request, gains);
+            }
+        } else {
+            VendorTagUtil.setMWBDisableMode(request);
+        }
+    }
+
     private void updateGraghViewVisibility(final int visibility) {
         mActivity.runOnUiThread(new Runnable() {
             public void run() {
@@ -5974,7 +6028,17 @@ public class CaptureModule implements CameraModule, PhotoController,
                                               float multiple, Rect cropRegion, int id) {
         int side = (int) (Math.max(width, height) / 8 * multiple);
         RectF meteringRegionF = new RectF(x - side / 2, y - side / 2, x + side / 2, y + side / 2);
-
+        if (cropRegion == null || mOriginalCropRegion[id] == null) {
+            //error status, TAF in center
+            Rect tempRegion = mSettingsManager.getSensorActiveArraySize(id);
+            int xCenter = tempRegion.width() / 2;
+            int yCenter = tempRegion.height() / 2;
+            tempRegion.set(xCenter - side / 2, yCenter - side / 2,
+                    xCenter + side / 2, yCenter + side / 2);
+            MeteringRectangle[] meteringRectangle = new MeteringRectangle[1];
+            meteringRectangle[0] = new MeteringRectangle(tempRegion, 1);
+            return meteringRectangle;
+        }
         // inverse of matrix1 will translate from touch to (-1000 to 1000), which is camera1
         // coordinates, while accounting for orientation and mirror
         Matrix matrix1 = new Matrix();

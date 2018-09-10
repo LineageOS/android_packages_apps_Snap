@@ -110,7 +110,9 @@ public class ProMode extends View {
         if (key == null) return;
         int index = mSettingsManager.getValueIndex(key);
         CharSequence[] cc = mSettingsManager.getEntries(key);
-        mUI.updateProModeText(mode, cc[index].toString());
+        if (cc != null) {
+            mUI.updateProModeText(mode, cc[index].toString());
+        }
     }
 
     @Override
@@ -231,7 +233,10 @@ public class ProMode extends View {
         } else {
             if (key == null) return;
             CharSequence[] cc = mSettingsManager.getEntries(key);
-            int length = mSettingsManager.getEntryValues(key).length;
+            int length = 0;
+            if (mSettingsManager.getEntryValues(key)!= null ) {
+                length = mSettingsManager.getEntryValues(key).length;
+            }
             int index = mSettingsManager.getValueIndex(key);
             updateSlider(length);
 
@@ -320,18 +325,20 @@ public class ProMode extends View {
 
         mIndex = index;
         String key = currentKey();
-        View v = mAddedViews.get(mIndex);
-        if (v instanceof TextView) {
-            ((TextView) v).setTextColor(BLUE);
-        } else if (v instanceof ImageView) {
-            if (mMode == WHITE_BALANCE_MODE) {
-                ((ImageView) v).setImageResource(wbIconsBlue[mIndex]);
+        if (mIndex > 0) {
+            View v = mAddedViews.get(mIndex);
+            if (v instanceof TextView) {
+                ((TextView) v).setTextColor(BLUE);
+            } else if (v instanceof ImageView) {
+                if (mMode == WHITE_BALANCE_MODE) {
+                    ((ImageView) v).setImageResource(wbIconsBlue[mIndex]);
+                }
             }
+            if (key != null) mSettingsManager.setValueIndex(key, mIndex);
+            CharSequence[] cc = mSettingsManager.getEntries(key);
+            mUI.updateProModeText(mMode, cc[mIndex].toString());
+            invalidate();
         }
-        if (key != null) mSettingsManager.setValueIndex(key, mIndex);
-        CharSequence[] cc = mSettingsManager.getEntries(key);
-        mUI.updateProModeText(mMode, cc[mIndex].toString());
-        invalidate();
     }
 
     private void removeViews() {
