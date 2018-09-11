@@ -1090,13 +1090,17 @@ public class VideoModule implements CameraModule,
     }
 
     void setPreviewFrameLayoutCameraOrientation(){
-        CameraHolder.CameraInfo info = CameraHolder.instance().getCameraInfo()[mCameraId];
+        try {
+            CameraHolder.CameraInfo info = CameraHolder.instance().getCameraInfo()[mCameraId];
 
-        //if camera mount angle is 0 or 180, we want to resize preview
-        if (info.orientation % 180 == 0)
-            mUI.cameraOrientationPreviewResize(true);
-        else
-            mUI.cameraOrientationPreviewResize(false);
+            //if camera mount angle is 0 or 180, we want to resize preview
+            if (info.orientation % 180 == 0)
+                mUI.cameraOrientationPreviewResize(true);
+            else
+                mUI.cameraOrientationPreviewResize(false);
+        } catch (ArrayIndexOutOfBoundsException e) {
+            Log.w(TAG, "getCameraInfo occur ArrayIndexOutOfBoundsException");
+        }
     }
 
     @Override
