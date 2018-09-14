@@ -79,7 +79,7 @@ public class ProMode extends View {
     private int mMode = NO_MODE;
     private Context mContext;
     private ViewGroup mParent;
-    private float minFocus;
+    private float minFocus = -1;
     private OneUICameraControls mUI;
     private int mWidth;
     private int mHeight;
@@ -190,7 +190,13 @@ public class ProMode extends View {
     }
 
     public void setMode(int mode) {
+        int lastMode = mMode;
         mMode = mode;
+        if (lastMode == MANUAL_MODE && mode != MANUAL_MODE) {
+            //set key focus value to notify capture module to reset focus mode
+            mSettingsManager.setFocusDistance(SettingsManager.KEY_FOCUS_DISTANCE, true,
+                    -1f, -1f);
+        }
         removeViews();
         if (mMode == NO_MODE) {
             setVisibility(INVISIBLE);
@@ -204,7 +210,7 @@ public class ProMode extends View {
             minFocus = mSettingsManager
                     .getMinimumFocusDistance(mSettingsManager.getCurrentCameraId());
             float value = mSettingsManager.getFocusValue(SettingsManager.KEY_FOCUS_DISTANCE);
-            setSlider(value);
+            setSlider(value,true);
             int stride = mCurveRight - mCurveLeft;
             for (int i = 0; i < 2; i++) {
                 TextView v = new TextView(mContext);
@@ -290,9 +296,10 @@ public class ProMode extends View {
         invalidate();
     }
 
-    public void setSlider(float slider) {
+    public void setSlider(float slider,boolean forceNotify) {
         mSlider = slider;
-        mSettingsManager.setFocusDistance(SettingsManager.KEY_FOCUS_DISTANCE, mSlider, minFocus);
+        mSettingsManager.setFocusDistance(SettingsManager.KEY_FOCUS_DISTANCE, forceNotify,
+                mSlider, minFocus);
         mUI.updateProModeText(mMode, "Manual");
         invalidate();
     }
@@ -341,7 +348,7 @@ public class ProMode extends View {
         if (mMode == MANUAL_MODE) {
             float slider = getSlider(event.getX(), event.getY());
             if (slider >= 0) {
-                setSlider(slider);
+                setSlider(slider,false);
             }
         } else {
             int idx = findButton(event.getX(), event.getY());
