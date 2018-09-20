@@ -2215,7 +2215,11 @@ public class CaptureModule implements CameraModule, PhotoController,
         }
         if(mChosenImageFormat == ImageFormat.YUV_420_888 || mChosenImageFormat == ImageFormat.PRIVATE) { // Case of ZSL, FrameFilter, SelfieMirror
             mPostProcessor.onStartCapturing();
-            mCaptureSession[id].capture(captureBuilder.build(), mPostProcessor.getCaptureCallback(), mCaptureCallbackHandler);
+            if (mPostProcessor.isZSLEnabled()) {
+                takeZSLPicture(id);
+            } else {
+                mCaptureSession[id].capture(captureBuilder.build(), mPostProcessor.getCaptureCallback(), mCaptureCallbackHandler);
+            }
         } else {
             mCaptureSession[id].capture(captureBuilder.build(), new CameraCaptureSession.CaptureCallback() {
 
