@@ -163,6 +163,23 @@ public class MediaSaveService extends Service {
         t.execute();
     }
 
+    public void addHEIFImageFromJpeg(byte[] data, String title, long date, Location loc,
+                             int width, int height, int orientation, ExifInterface exif,
+                             ContentResolver resolver, OnMediaSavedListener listener,
+                             int qualitiy, String pictureFormat) {
+        if (isQueueFull()) {
+            Log.e(TAG, "Cannot add image when the queue is full");
+            return;
+        }
+        HEIFImageSaveTask t = new HEIFImageSaveTask(data, title, date, loc, width, height, orientation,
+                exif, resolver, listener, qualitiy, pictureFormat);
+        mMemoryUse += data.length;
+        if (isQueueFull()) {
+            onQueueFull();
+        }
+        t.execute();
+    }
+
     public void addClearsightImage(byte[] clearsight, GImage bayer, GDepth.DepthMap depthMap,
                                    String title, long date, Location loc, int width, int height,
                                    int orientation, ExifInterface exif,
@@ -322,6 +339,57 @@ public class MediaSaveService extends Service {
 
         @Override
         protected void onPostExecute(Long l) {
+            boolean previouslyFull = isQueueFull();
+            mMemoryUse -= data.length;
+            if (isQueueFull() != previouslyFull) onQueueAvailable();
+        }
+    }
+
+    private class HEIFImageSaveTask extends AsyncTask<Void, Void, Uri> {
+        private byte[] data;
+        private String title;
+        private long date;
+        private Location loc;
+        private int width, height;
+        private int orientation;
+        private ExifInterface exif;
+        private ContentResolver resolver;
+        private OnMediaSavedListener listener;
+        private int quality;
+        private String pictureFormat;
+
+        public HEIFImageSaveTask(byte[] data, String title, long date, Location loc,
+                                 int width, int height, int orientation, ExifInterface exif,
+                                 ContentResolver resolver, OnMediaSavedListener listener,
+                                 int quality,String pictureFormat) {
+            this.data = data;
+            this.title = title;
+            this.date = date;
+            this.loc = loc;
+            this.width = width;
+            this.height = height;
+            this.orientation = orientation;
+            this.exif = exif;
+            this.resolver = resolver;
+            this.listener = listener;
+            this.quality = quality;
+            this.pictureFormat = pictureFormat;
+        }
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+        }
+
+        @Override
+        protected Uri doInBackground(Void... params) {
+            return Storage.addHeifImage(
+                    resolver,title,date,loc,orientation,exif,data,
+                    width,height,quality,pictureFormat);
+        }
+
+        @Override
+        protected void onPostExecute(Uri uri) {
             boolean previouslyFull = isQueueFull();
             mMemoryUse -= data.length;
             if (isQueueFull() != previouslyFull) onQueueAvailable();

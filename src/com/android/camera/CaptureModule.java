@@ -31,6 +31,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.ImageFormat;
 import android.graphics.Matrix;
 import android.graphics.Point;
@@ -2421,6 +2422,24 @@ public class CaptureModule implements CameraModule, PhotoController,
                                     long date = (name == null) ? -1 : name.date;
 
                                     byte[] bytes = getJpegData(image);
+
+                                    if (mSettingsManager.getSavePictureFormat() ==
+                                            SettingsManager.HEIF_FORMAT) {
+                                        String value = mSettingsManager.getValue(
+                                                SettingsManager.KEY_JPEG_QUALITY);
+                                        int qualityNumber = getQualityNumber(value);
+                                        mActivity.getMediaSaveService().addHEIFImageFromJpeg(bytes,
+                                                title,date,null,image.getWidth(),image.getHeight(),
+                                                0,null,mContentResolver,
+                                                mOnMediaSavedListener,qualityNumber,"heif");
+                                        image.close();
+                                        if (mLongshotActive) {
+                                            mLastJpegData = bytes;
+                                        } else {
+                                            mActivity.updateThumbnail(bytes);
+                                        }
+                                        return;
+                                    }
 
                                     if (image.getFormat() == ImageFormat.RAW10) {
                                         mActivity.getMediaSaveService().addRawImage(bytes, title,
