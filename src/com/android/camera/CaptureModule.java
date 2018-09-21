@@ -137,6 +137,8 @@ import java.io.OutputStream;
 import java.nio.ByteBuffer;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
@@ -3778,7 +3780,9 @@ public class CaptureModule implements CameraModule, PhotoController,
         mPictureSize = parsePictureSize(pictureSize);
         Size[] prevSizes = mSettingsManager.getSupportedOutputSize(getMainCameraId(),
                 SurfaceHolder.class);
-        mSupportedMaxPictureSize = prevSizes[0];
+        List<Size> prevSizeList = Arrays.asList(prevSizes);
+        prevSizeList.sort((o1,o2) -> o2.getWidth()*o2.getHeight() - o1.getWidth()*o1.getHeight());
+        mSupportedMaxPictureSize = prevSizeList.get(0);
         Size[] rawSize = mSettingsManager.getSupportedOutputSize(getMainCameraId(),
                     ImageFormat.RAW10);
         mSupportedRawPictureSize = rawSize[0];
