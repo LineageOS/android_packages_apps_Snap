@@ -459,12 +459,18 @@ public class PostProcessor{
         if(mController.getPreviewCaptureResult() == null ||
                 mController.getPreviewCaptureResult().get(CaptureResult.CONTROL_AE_STATE) == CameraMetadata.CONTROL_AE_STATE_FLASH_REQUIRED) {
             if(DEBUG_ZSL) Log.d(TAG, "Flash required image");
+            if (imageItem != null)
+                imageItem.closeImage();
             imageItem = null;
         }
         if (mController.isSelfieFlash()) {
+            if (imageItem != null)
+                imageItem.closeImage();
             imageItem = null;
         }
         if (mController.isLongShotActive()) {
+            if (imageItem != null)
+                imageItem.closeImage();
             imageItem = null;
         }
         if (imageItem != null) {
