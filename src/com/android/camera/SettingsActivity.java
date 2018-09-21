@@ -35,6 +35,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.graphics.ImageFormat;
 import android.os.Bundle;
 import android.preference.ListPreference;
 import android.preference.Preference;
@@ -47,6 +48,7 @@ import android.preference.SwitchPreference;
 import android.view.Window;
 import android.view.WindowManager;
 import android.util.Log;
+import android.util.Size;
 import android.widget.Toast;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -493,6 +495,15 @@ public class SettingsActivity extends PreferenceActivity {
                 Preference p = findPreference(SettingsManager.KEY_PICTURE_SIZE);
                 p.setEnabled(false);
             }
+        }
+
+        // when get RAW10 size is null, disable the KEY_SAVERAW
+        int cameraId = mSettingsManager.getCurrentCameraId();
+        Size[] rawSize = mSettingsManager.getSupportedOutputSize(cameraId,
+                ImageFormat.RAW10);
+        if (rawSize == null) {
+            Preference p = findPreference(SettingsManager.KEY_SAVERAW);
+            p.setEnabled(false);
         }
 
         try {
