@@ -36,6 +36,7 @@ import android.os.Binder;
 import android.os.IBinder;
 import android.provider.MediaStore.Video;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.android.camera.exif.ExifInterface;
 import com.android.camera.mpo.MpoData;
@@ -279,7 +280,7 @@ public class MediaSaveService extends Service {
             if (f.exists() && f.isFile()) {
                 size = (int) f.length();
             }
-            return Storage.addImage(resolver, title, date, loc, orientation,
+            return Storage.addImage(resolver, title, date, loc, orientation, null,
                     size, path, width, height, pictureFormat);
         }
 

@@ -122,13 +122,13 @@ public class Storage {
         if (f.exists() && f.isFile()) {
             size = (int) f.length();
         }
-        return addImage(resolver, title, date, location, orientation,
+        return addImage(resolver, title, date, location, orientation, exif,
                 size, path, width, height, mimeType);
     }
 
     // Get a ContentValues object for the given photo data
     public static ContentValues getContentValuesForData(String title,
-            long date, Location location, int orientation, int jpegLength,
+            long date, Location location, int orientation, ExifInterface exif, int jpegLength,
             String path, int width, int height, String mimeType) {
         // Insert into MediaStore.
         ContentValues values = new ContentValues(9);
@@ -152,20 +152,37 @@ public class Storage {
         if (location != null) {
             values.put(ImageColumns.LATITUDE, location.getLatitude());
             values.put(ImageColumns.LONGITUDE, location.getLongitude());
+        } else if (exif != null) {
+            double[] latlng = exif.getLatLongAsDoubles();
+            if (latlng != null) {
+                values.put(Images.Media.LATITUDE, latlng[0]);
+                values.put(Images.Media.LONGITUDE, latlng[1]);
+            }
         }
         return values;
     }
 
     // Add the image to media store.
     public static Uri addImage(ContentResolver resolver, String title,
-            long date, Location location, int orientation, int jpegLength,
+            long date, Location location, int orientation, ExifInterface exif,int jpegLength,
             String path, int width, int height, String mimeType) {
         // Insert into MediaStore.
         ContentValues values =
-                getContentValuesForData(title, date, location, orientation, jpegLength, path,
+                getContentValuesForData(title, date, location, orientation, exif, jpegLength, path,
                         width, height, mimeType);
 
          return insertImage(resolver, values);
+    }
+
+    public static Uri addImage(ContentResolver resolver, String title,
+                               long date, Location location, int orientation,int jpegLength,
+                               String path, int width, int height, String mimeType) {
+        // Insert into MediaStore.
+        ContentValues values =
+                getContentValuesForData(title, date, location, orientation, null, jpegLength,
+                        path, width, height, mimeType);
+
+        return insertImage(resolver, values);
     }
 
     public static long addRawImage(String title, byte[] data,
@@ -198,7 +215,7 @@ public class Storage {
             String path, int width, int height, String mimeType) {
 
         ContentValues values =
-                getContentValuesForData(title, date, location, orientation, jpegLength, path,
+                getContentValuesForData(title, date, location, orientation, null, jpegLength, path,
                         width, height, mimeType);
 
         // Update the MediaStore
