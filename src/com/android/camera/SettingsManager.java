@@ -429,7 +429,7 @@ public class SettingsManager implements ListMenu.SettingsListener {
             try {
                 newValue = dependencyList.getString(keyToProcess);
             } catch (JSONException e) {
-                e.printStackTrace();
+                Log.w(TAG, "initializeValueMap JSONException No value for:" + keyToProcess);
                 continue;
             }
             Values values = new Values(getValue(keyToProcess), newValue);
@@ -498,7 +498,7 @@ public class SettingsManager implements ListMenu.SettingsListener {
             try {
                 newValue = dependencyList.getString(keyToTurnOff);
             } catch (JSONException e) {
-                e.printStackTrace();
+                Log.w(TAG, "checkDependencyAndUpdate JSONException No value for:" + keyToTurnOff);
                 continue;
             }
             if (newValue == null) continue;
@@ -603,6 +603,23 @@ public class SettingsManager implements ListMenu.SettingsListener {
         return sharedPreferences.getFloat(key, 0.5f);
     }
 
+    private boolean setIsoPref(String key, int value) {
+        boolean result = false;
+        final SharedPreferences sharedPref = mContext.getSharedPreferences(
+                ComboPreferences.getLocalSharedPreferencesName(mContext, getCurrentCameraId()),
+                Context.MODE_PRIVATE);
+        int prefValue = Integer.parseInt(sharedPref.getString(key, "100"));
+        if (prefValue != value) {
+            ListPreference pref = mPreferenceGroup.findPreference(key);
+            SharedPreferences.Editor editor = sharedPref.edit();
+            editor.putString(key, String.valueOf(value));
+            editor.apply();
+            updateMapAndNotify(pref);
+            result = true;
+        }
+        return result;
+    }
+
     public boolean isOverriden(String key) {
         Values values = mValuesMap.get(key);
         return values.overriddenValue != null;
@@ -640,6 +657,20 @@ public class SettingsManager implements ListMenu.SettingsListener {
             List<SettingState> list = new ArrayList<>();
             Values values = new Values("" + value * minFocus, null);
             SettingState ss = new SettingState(KEY_FOCUS_DISTANCE, values);
+            list.add(ss);
+            notifyListeners(list);
+        }
+    }
+
+    public void setIsoValue(String key, boolean forceNotify, float value, int maxIso) {
+        boolean isSuccess = false;
+        if (value >= 0) {
+            isSuccess = setIsoPref(key, (int)(value * maxIso));
+        }
+        if (isSuccess || forceNotify) {
+            List<SettingState> list = new ArrayList<>();
+            Values values = new Values("" + value * maxIso, null);
+            SettingState ss = new SettingState(KEY_MANUAL_ISO_VALUE, values);
             list.add(ss);
             notifyListeners(list);
         }
@@ -1012,7 +1043,7 @@ public class SettingsManager implements ListMenu.SettingsListener {
         } catch(NullPointerException e) {
             Log.w(TAG, "Supported iso range is null.");
         } catch(IllegalArgumentException e) {
-            Log.w(TAG, "Supported iso range is null.");
+            Log.w(TAG, "IllegalArgumentException Supported iso range is null.");
         }
         return result;
     }
@@ -1847,7 +1878,7 @@ public class SettingsManager implements ListMenu.SettingsListener {
         try {
             return mDependency.getJSONObject(key);
         } catch (JSONException e) {
-            e.printStackTrace();
+            Log.w(TAG, "getDependencyMapForKey JSONException No value for:" + key);
             return null;
         }
     }
@@ -1861,7 +1892,7 @@ public class SettingsManager implements ListMenu.SettingsListener {
         try {
             return dependencyMap.getJSONObject(value);
         } catch (JSONException e) {
-            e.printStackTrace();
+            Log.w(TAG, "getDependencyList JSONException No value for:" + key);
             return null;
         }
     }

@@ -30,6 +30,7 @@
 package com.android.camera.ui;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -45,12 +46,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.android.camera.SettingsManager;
+import com.android.camera.ComboPreferences;
 
 import org.codeaurora.snapcam.R;
 
 import java.util.ArrayList;
 
 public class ProMode extends View {
+    private static final String TAG = "ProMode";
     public static final int NO_MODE = -1;
     public static final int EXPOSURE_MODE = 0;
     public static final int MANUAL_MODE = 1;
@@ -70,6 +73,7 @@ public class ProMode extends View {
     private int mCurveLeft;
     private int mCurveRight;
     private float mSlider = -1;
+    private float mIsoSlider = -1;
     private Paint mPaint = new Paint();
     private int mNums;
     private int mIndex;
@@ -106,11 +110,19 @@ public class ProMode extends View {
     }
 
     private void init(int mode) {
-        String key = getKey(mode);
-        if (key == null) return;
-        int index = mSettingsManager.getValueIndex(key);
-        CharSequence[] cc = mSettingsManager.getEntries(key);
-        mUI.updateProModeText(mode, cc[index].toString());
+        if (mode == ISO_MODE) {
+            final SharedPreferences sharedPref = mContext.getSharedPreferences(
+                    ComboPreferences.getLocalSharedPreferencesName(mContext, mSettingsManager.getCurrentCameraId()),
+                    Context.MODE_PRIVATE);
+            String value = sharedPref.getString(SettingsManager.KEY_MANUAL_ISO_VALUE, "100");
+            mUI.updateProModeText(mode, "Iso" + value);
+        } else {
+            String key = getKey(mode);
+            if (key == null) return;
+            int index = mSettingsManager.getValueIndex(key);
+            CharSequence[] cc = mSettingsManager.getEntries(key);
+            mUI.updateProModeText(mode, cc[index].toString());
+        }
     }
 
     @Override
@@ -130,6 +142,16 @@ public class ProMode extends View {
             mPaint.setColor(BLUE);
             if (mSlider >= 0f) {
                 mCurveMeasure.getPosTan(mCurveMeasure.getLength() * mSlider, curveCoordinate, null);
+                canvas.drawCircle(curveCoordinate[0], curveCoordinate[1], SELECTED_DOT_SIZE,
+                        mPaint);
+            }
+        } else if (mMode == ISO_MODE) {
+            mPaint.setColor(Color.WHITE);
+            canvas.drawCircle(mCurveLeft, mCurveY, DOT_SIZE, mPaint);
+            canvas.drawCircle(mCurveRight, mCurveY, DOT_SIZE, mPaint);
+            mPaint.setColor(BLUE);
+            if (mIsoSlider >= 0) {
+                mCurveMeasure.getPosTan(mCurveMeasure.getLength() * mIsoSlider, curveCoordinate, null);
                 canvas.drawCircle(curveCoordinate[0], curveCoordinate[1], SELECTED_DOT_SIZE,
                         mPaint);
             }
@@ -228,6 +250,30 @@ public class ProMode extends View {
                 mParent.addView(v);
                 mAddedViews.add(v);
             }
+        } else if (mMode == ISO_MODE) {
+            int[] isoRange = mSettingsManager.getIsoRangeValues(mSettingsManager.getCurrentCameraId());
+            int value = Integer.parseInt(mSettingsManager.getValue(SettingsManager.KEY_MANUAL_ISO_VALUE));
+            if (isoRange == null) {
+                Log.v(TAG, "getIsoRangeValues is NULL");
+                return;
+            }
+            setIsoSlider((float)value/isoRange[1],true);
+            int stride = mCurveRight - mCurveLeft;
+            for (int i = 0; i < 2; i++) {
+                TextView v = new TextView(mContext);
+                String s = "" + isoRange[0];
+                if (i == 1) s = "" + isoRange[1];
+                v.setText(s);
+                v.setTextColor(Color.WHITE);
+                v.measure(0, 0);
+                ViewGroup.LayoutParams lp = new ViewGroup.LayoutParams(v.getMeasuredWidth(),
+                        v.getMeasuredHeight());
+                v.setLayoutParams(lp);
+                v.setX(mCurveLeft + i * stride - v.getMeasuredWidth() / 2);
+                v.setY(mCurveY - 2 * v.getMeasuredHeight());
+                mParent.addView(v);
+                mAddedViews.add(v);
+            }
         } else {
             if (key == null) return;
             CharSequence[] cc = mSettingsManager.getEntries(key);
@@ -273,7 +319,7 @@ public class ProMode extends View {
             case WHITE_BALANCE_MODE:
                 return SettingsManager.KEY_WHITE_BALANCE;
             case ISO_MODE:
-                return SettingsManager.KEY_ISO;
+                return SettingsManager.KEY_MANUAL_ISO_VALUE;
         }
         return null;
     }
@@ -302,6 +348,19 @@ public class ProMode extends View {
         mSettingsManager.setFocusDistance(SettingsManager.KEY_FOCUS_DISTANCE, forceNotify,
                 mSlider, minFocus);
         mUI.updateProModeText(mMode, "Manual");
+        invalidate();
+    }
+
+    public void setIsoSlider(float slider, boolean forceNotify) {
+        mIsoSlider = slider;
+        int[] isoRange = mSettingsManager.getIsoRangeValues(mSettingsManager.getCurrentCameraId());
+        int maxIso = 1600;
+        if (isoRange != null) {
+            maxIso = isoRange[1];
+        }
+        mSettingsManager.setIsoValue(SettingsManager.KEY_MANUAL_ISO_VALUE, forceNotify,
+                mIsoSlider, maxIso);
+        mUI.updateProModeText(mMode, "Iso" + (int)(mIsoSlider * maxIso));
         invalidate();
     }
 
@@ -350,6 +409,11 @@ public class ProMode extends View {
             float slider = getSlider(event.getX(), event.getY());
             if (slider >= 0) {
                 setSlider(slider,false);
+            }
+        } else if (mMode == ISO_MODE) {
+            float slider = getSlider(event.getX(), event.getY());
+            if (slider >= 0) {
+                setIsoSlider(slider,false);
             }
         } else {
             int idx = findButton(event.getX(), event.getY());
