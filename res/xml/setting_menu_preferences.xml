@@ -483,13 +483,5 @@
             android:layout="@layout/preference"
             android:summary="%s"/>
 
-        <ListPreference
-            android:key="pref_camera2_capture_mfsr_key"
-            android:defaultValue="@string/pref_camera2_capture_mfsr_default"
-            android:title="@string/pref_camera2_capture_mfsr_title"
-            android:entries="@array/pref_camera2_capture_mfsr_entries"
-            android:entryValues="@array/pref_camera2_capture_mfsr_entryvalues"
-            android:layout="@layout/preference"
-            android:summary="%s"/>
     </PreferenceCategory>
 </PreferenceScreen>

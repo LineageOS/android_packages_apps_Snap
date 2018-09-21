@@ -149,5 +149,10 @@
     "h263":{"pref_camera2_videoencoderprofile_key":"off"},
     "h264":{"pref_camera2_videoencoderprofile_key":"off"},
     "h265":{}
+  },
+  "pref_camera2_capture_mfnr_key":
+  {
+    "1":{"pref_camera2_zsl_key":"disable"},
+    "0":{}
   }
 }

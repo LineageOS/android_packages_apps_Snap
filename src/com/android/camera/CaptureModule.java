@@ -380,10 +380,8 @@ public class CaptureModule implements CameraModule, PhotoController,
             new CaptureRequest.Key<>("org.quic.camera.EarlyPCRenable.EarlyPCRenable", byte.class);
     private static final CaptureResult.Key<Byte> is_depth_focus =
             new CaptureResult.Key<>("org.quic.camera.isDepthFocus.isDepthFocus", byte.class);
-    public static final CaptureRequest.Key<Integer> capture_mfnr_enable =
-            new CaptureRequest.Key<>("org.codeaurora.qcamera3.mfnr_enable", Integer.class);
-    public static final CaptureRequest.Key<Integer> capture_mfsr_enable =
-            new CaptureRequest.Key<>("org.codeaurora.qcamera3.mfsr_enable", Integer.class);
+    private static final CaptureRequest.Key<Byte> capture_burst_fps =
+            new CaptureRequest.Key<>("org.quic.camera.BurstFPS.burstfps", byte.class);
 
     private boolean mIsDepthFocus = false;
     private boolean[] mTakingPicture = new boolean[MAX_NUM_CAM];
@@ -2111,8 +2109,8 @@ public class CaptureModule implements CameraModule, PhotoController,
                 VendorTagUtil.setCdsMode(captureBuilder, 2);// CDS 0-OFF, 1-ON, 2-AUTO
                 applySettingsForCapture(captureBuilder, id);
                 applyCaptureMFNR(captureBuilder);
-                applyCaptureMFSR(captureBuilder);
             }
+            applyCaptureBurstFps(captureBuilder);
             if (!(mIsSupportedQcfa || isDeepZoom())) {
                 addPreviewSurface(captureBuilder, null, id);
             }
@@ -2477,7 +2475,7 @@ public class CaptureModule implements CameraModule, PhotoController,
                         ImageAvailableListener listener = new ImageAvailableListener(i) {
                             @Override
                             public void onImageAvailable(ImageReader reader) {
-                                if (mIsSupportedQcfa) {
+                                if (mIsSupportedQcfa || isMFNREnabled()) {
                                     mHandler.post(new Runnable() {
                                         @Override
                                         public void run() {
@@ -2652,7 +2650,7 @@ public class CaptureModule implements CameraModule, PhotoController,
                 @Override
                 public void run() {
                     mUI.stopSelfieFlash();
-                    if (!mIsSupportedQcfa) {
+                    if (!(mIsSupportedQcfa || isMFNREnabled())) {
                         mUI.enableShutter(true);
                     }
                     if (mDeepPortraitMode) {
@@ -2663,6 +2661,17 @@ public class CaptureModule implements CameraModule, PhotoController,
                 }
             });
         }
+    }
+
+    private boolean isMFNREnabled() {
+        boolean mfnrEnable = false;
+        if (mSettingsManager != null) {
+            String mfnrValue = mSettingsManager.getValue(SettingsManager.KEY_CAPTURE_MFNR_VALUE);
+            if (mfnrValue != null) {
+                mfnrEnable = mfnrValue.equals("1");
+            }
+        }
+        return mfnrEnable;
     }
 
     private Size parsePictureSize(String value) {
@@ -4169,7 +4178,6 @@ public class CaptureModule implements CameraModule, PhotoController,
                     "createCaptureSession", clazz);
             method_createCaptureSession.invoke(mCameraDevice[cameraId], sessionConfig);
         } catch (Exception exception) {
-            Log.w(TAG, "configureCameraSessionWithParameters method is not exist");
             exception.printStackTrace();
         }
     }
@@ -4199,7 +4207,6 @@ public class CaptureModule implements CameraModule, PhotoController,
                     "createCaptureSession", clazz);
             method_createCaptureSession.invoke(camera, sessionConfig);
         } catch (Exception exception) {
-            Log.w(TAG, "buildConstrainedCameraSession method is not exist");
             exception.printStackTrace();
         }
     }
@@ -4533,24 +4540,20 @@ public class CaptureModule implements CameraModule, PhotoController,
     }
 
     private void applyCaptureMFNR(CaptureRequest.Builder builder) {
-        String value = mSettingsManager.getValue(SettingsManager.KEY_CAPTURE_MFNR_VALUE);
-        if (value != null) {
-            try {
-                builder.set(CaptureModule.capture_mfnr_enable, Integer.parseInt(value));
-            } catch (IllegalArgumentException e) {
-                Log.w(TAG, "cannot find vendor tag: " + capture_mfnr_enable.toString());
-            }
-        }
+        int noiseReduMode = (isMFNREnabled() ? CameraMetadata.NOISE_REDUCTION_MODE_HIGH_QUALITY :
+                CameraMetadata.NOISE_REDUCTION_MODE_ZERO_SHUTTER_LAG);
+        Log.v(TAG, "applyCaptureMFNR mfnrEnable :" + isMFNREnabled() + ", noiseReduMode :"
+                + noiseReduMode);
+        builder.set(CaptureRequest.NOISE_REDUCTION_MODE, noiseReduMode);
     }
 
-    private void applyCaptureMFSR(CaptureRequest.Builder builder) {
-        String value = mSettingsManager.getValue(SettingsManager.KEY_CAPTURE_MFSR_VALUE);
-        if (value != null) {
-            try {
-                builder.set(CaptureModule.capture_mfsr_enable, Integer.parseInt(value));
-            } catch (IllegalArgumentException e) {
-                Log.w(TAG, "cannot find vendor tag: " + capture_mfsr_enable.toString());
-            }
+    private void applyCaptureBurstFps(CaptureRequest.Builder builder) {
+        try {
+            Log.v(TAG, " applyCaptureBurstFps burst fps mLongshotActive :" + mLongshotActive +
+                    ", value :" + (byte)(mLongshotActive ? 0x01 : 0x00));
+            builder.set(CaptureModule.capture_burst_fps, (byte)(mLongshotActive ? 0x01 : 0x00));
+        } catch (IllegalArgumentException e) {
+            Log.w(TAG, "cannot find vendor tag: " + capture_burst_fps.toString());
         }
     }
 
