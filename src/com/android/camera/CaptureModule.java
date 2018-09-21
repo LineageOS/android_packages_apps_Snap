@@ -635,7 +635,21 @@ public class CaptureModule implements CameraModule, PhotoController,
             }
             showBokehStatusMessage(id, result);
             processCaptureResult(result);
-            mPostProcessor.onMetaAvailable(result);
+            if (mPostProcessor.isZSLEnabled() && getCameraMode() != DUAL_MODE) {
+                boolean zsl = false;
+                List<CaptureResult> resultList = result.getPartialResults();
+                for (CaptureResult r : resultList) {
+                    if (r.getRequest().containsTarget(mImageReader[id].getSurface())) {
+                        zsl = true;
+                        break;
+                    }
+                }
+                if (zsl){
+                    mPostProcessor.onMetaAvailable(result);
+                }
+             } else {
+                mPostProcessor.onMetaAvailable(result);
+            }
         }
     };
 
@@ -1203,9 +1217,15 @@ public class CaptureModule implements CameraModule, PhotoController,
                                                 .build(), mCaptureCallback, mCameraHandler);
                                     }
                                 } else {
-                                    if (mCaptureSession[id] != null) {
-                                        mCaptureSession[id].setRepeatingRequest(mPreviewRequestBuilder[id]
-                                                .build(), mCaptureCallback, mCameraHandler);
+                                    if (mPostProcessor.isZSLEnabled() && getCameraMode() !=
+                                            DUAL_MODE) {
+                                        setRepeatingBurstForZSL(id);
+                                    } else {
+                                        if (mCaptureSession[id] != null) {
+                                            mCaptureSession[id].setRepeatingRequest(
+                                                    mPreviewRequestBuilder[id].build(),
+                                                    mCaptureCallback, mCameraHandler);
+                                        }
                                     }
                                 }
 
@@ -1321,8 +1341,12 @@ public class CaptureModule implements CameraModule, PhotoController,
         applyAERegions(mPreviewRequestBuilder[id], id);
         mPreviewRequestBuilder[id].setTag(id);
         try {
-            mCaptureSession[id].setRepeatingRequest(mPreviewRequestBuilder[id]
-                    .build(), mCaptureCallback, mCameraHandler);
+            if (mPostProcessor.isZSLEnabled() && getCameraMode() != DUAL_MODE) {
+                setRepeatingBurstForZSL(BAYER_ID);
+            } else {
+                mCaptureSession[id].setRepeatingRequest(mPreviewRequestBuilder[id]
+                        .build(), mCaptureCallback, mCameraHandler);
+            }
         } catch (CameraAccessException | IllegalStateException e) {
             e.printStackTrace();
         }
@@ -1346,8 +1370,12 @@ public class CaptureModule implements CameraModule, PhotoController,
         applyAERegions(mPreviewRequestBuilder[id], id);
         mPreviewRequestBuilder[id].setTag(id);
         try {
-            mCaptureSession[id].setRepeatingRequest(mPreviewRequestBuilder[id]
-                    .build(), mCaptureCallback, mCameraHandler);
+            if (mPostProcessor.isZSLEnabled() && getCameraMode() != DUAL_MODE) {
+                setRepeatingBurstForZSL(BAYER_ID);
+            } else {
+                mCaptureSession[id].setRepeatingRequest(mPreviewRequestBuilder[id]
+                        .build(), mCaptureCallback, mCameraHandler);
+            }
         } catch (CameraAccessException | IllegalStateException e) {
             e.printStackTrace();
         }
@@ -1556,8 +1584,12 @@ public class CaptureModule implements CameraModule, PhotoController,
                 if (mLongshotActive && isFlashOn(id)) {
                     mCaptureSession[id].stopRepeating();
                     applyFlash(mPreviewRequestBuilder[id], id);
-                    mCaptureSession[id].setRepeatingRequest(mPreviewRequestBuilder[id]
-                            .build(), mCaptureCallback, mCameraHandler);
+                    if (mPostProcessor.isZSLEnabled() && getCameraMode() != DUAL_MODE) {
+                        setRepeatingBurstForZSL(BAYER_ID);
+                    } else {
+                        mCaptureSession[id].setRepeatingRequest(mPreviewRequestBuilder[id]
+                                .build(), mCaptureCallback, mCameraHandler);
+                    }
                 }
             }
         } catch (CameraAccessException e) {
@@ -1611,8 +1643,12 @@ public class CaptureModule implements CameraModule, PhotoController,
                 if (mLongshotActive && isFlashOn(id)) {
                     mCaptureSession[id].stopRepeating();
                     applyFlash(mPreviewRequestBuilder[id], id);
-                    mCaptureSession[id].setRepeatingRequest(mPreviewRequestBuilder[id]
-                                            .build(), mCaptureCallback, mCameraHandler);
+                    if (mPostProcessor.isZSLEnabled() && getCameraMode() != DUAL_MODE) {
+                        setRepeatingBurstForZSL(id);
+                    } else {
+                        mCaptureSession[id].setRepeatingRequest(mPreviewRequestBuilder[id]
+                                .build(), mCaptureCallback, mCameraHandler);
+                    }
                 }
             }
         } catch (CameraAccessException e) {
@@ -2341,8 +2377,12 @@ public class CaptureModule implements CameraModule, PhotoController,
         try {
             applySettingsForLockExposure(mPreviewRequestBuilder[id], id);
             mState[id] = STATE_WAITING_AE_LOCK;
-            mCaptureSession[id].setRepeatingRequest(mPreviewRequestBuilder[id].build(),
-                    mCaptureCallback, mCameraHandler);
+            if (mPostProcessor.isZSLEnabled() && getCameraMode() != DUAL_MODE) {
+                setRepeatingBurstForZSL(id);
+            } else {
+                mCaptureSession[id].setRepeatingRequest(mPreviewRequestBuilder[id].build(),
+                        mCaptureCallback, mCameraHandler);
+            }
         } catch (CameraAccessException | IllegalStateException e) {
             e.printStackTrace();
         }
@@ -3512,7 +3552,9 @@ public class CaptureModule implements CameraModule, PhotoController,
             mControlAFMode = CaptureRequest.CONTROL_AF_MODE_CONTINUOUS_PICTURE;
             closePreviewSession();
             mFrameProcessor.onClose();
-
+            if (mPostProcessor != null) {
+                mPostProcessor.enableZSLQueue(false);
+            }
             Size preview = mVideoPreviewSize;
             if (mHighSpeedCapture) {
                 preview = mVideoSize;
@@ -3543,7 +3585,6 @@ public class CaptureModule implements CameraModule, PhotoController,
             mFrameProcessor.setOutputSurface(surface);
             mFrameProcessor.setVideoOutputSurface(mMediaRecorder.getSurface());
             addPreviewSurface(mVideoRequestBuilder, surfaces, cameraId);
-
             if (mHighSpeedCapture)
                 mVideoRequestBuilder.set(CaptureRequest.CONTROL_AE_TARGET_FPS_RANGE, mHighSpeedFPSRange);
 
@@ -3558,6 +3599,7 @@ public class CaptureModule implements CameraModule, PhotoController,
                         CameraConstrainedHighSpeedCaptureSession session =
                                     (CameraConstrainedHighSpeedCaptureSession) mCurrentSession;
                         try {
+                            removeImageReaderSurfaces(mVideoRequestBuilder);
                             List list = session 
                                     .createHighSpeedRequestList(mVideoRequestBuilder.build());
                             session.setRepeatingBurst(list, mCaptureCallback, mCameraHandler);
@@ -3608,6 +3650,7 @@ public class CaptureModule implements CameraModule, PhotoController,
                         mCaptureSession[cameraId] = cameraCaptureSession;
                         try {
                             setUpVideoCaptureRequestBuilder(mVideoRequestBuilder, cameraId);
+                            removeImageReaderSurfaces(mVideoRequestBuilder);
                             mCurrentSession.setRepeatingRequest(mVideoRequestBuilder.build(),
                                     mCaptureCallback, mCameraHandler);
                         } catch (CameraAccessException e) {
@@ -3929,15 +3972,18 @@ public class CaptureModule implements CameraModule, PhotoController,
                 mUI.showRecordVideoForReview(thumbnail);
             }
         }
-
         if(mFrameProcessor != null) {
             mFrameProcessor.onOpen(getFrameProcFilterId(), mPreviewSize);
+        }
+        if (mPostProcessor != null) {
+            mPostProcessor.enableZSLQueue(true);
         }
         boolean changed = mUI.setPreviewSize(mPreviewSize.getWidth(), mPreviewSize.getHeight());
         if (changed) {
             mUI.hideSurfaceView();
             mUI.showSurfaceView();
         }
+
         createSessions();
         mUI.showUIafterRecording();
         mUI.resetTrackingFocus();
@@ -3958,6 +4004,14 @@ public class CaptureModule implements CameraModule, PhotoController,
                 mActivity.getString(R.string.video_file_name_format));
 
         return dateFormat.format(date);
+    }
+
+    private void removeImageReaderSurfaces(CaptureRequest.Builder builder) {
+        for (int i = 0; i < MAX_NUM_CAM; i++) {
+            if(mImageReader[i] != null){
+                builder.removeTarget(mImageReader[i].getSurface());
+            }
+        }
     }
 
     private String generateVideoFilename(int outputFileFormat) {
@@ -4575,8 +4629,12 @@ public class CaptureModule implements CameraModule, PhotoController,
                     ((CameraConstrainedHighSpeedCaptureSession) session).setRepeatingBurst(list
                             , mCaptureCallback, mCameraHandler);
                 } else {
-                    mCaptureSession[id].setRepeatingRequest(mPreviewRequestBuilder[id]
-                            .build(), mCaptureCallback, mCameraHandler);
+                    if (mPostProcessor.isZSLEnabled() && getCameraMode() != DUAL_MODE) {
+                        setRepeatingBurstForZSL(id);
+                    } else {
+                        mCaptureSession[id].setRepeatingRequest(mPreviewRequestBuilder[id]
+                                .build(), mCaptureCallback, mCameraHandler);
+                    }
                 }
 
             }
@@ -4980,8 +5038,12 @@ public class CaptureModule implements CameraModule, PhotoController,
             try {
                 if (checkSessionAndBuilder(mCaptureSession[BAYER_ID],
                         mPreviewRequestBuilder[BAYER_ID])) {
-                    mCaptureSession[BAYER_ID].setRepeatingRequest(mPreviewRequestBuilder[BAYER_ID]
-                            .build(), mCaptureCallback, mCameraHandler);
+                    if (mPostProcessor.isZSLEnabled() && getCameraMode() != DUAL_MODE) {
+                        setRepeatingBurstForZSL(BAYER_ID);
+                    } else {
+                        mCaptureSession[BAYER_ID].setRepeatingRequest(mPreviewRequestBuilder[BAYER_ID]
+                                .build(), mCaptureCallback, mCameraHandler);
+                    }
                 }
             } catch (CameraAccessException | IllegalStateException e) {
                 e.printStackTrace();
@@ -5007,8 +5069,12 @@ public class CaptureModule implements CameraModule, PhotoController,
             try {
                 if (checkSessionAndBuilder(mCaptureSession[FRONT_ID],
                         mPreviewRequestBuilder[FRONT_ID])) {
-                    mCaptureSession[FRONT_ID].setRepeatingRequest(mPreviewRequestBuilder[FRONT_ID]
-                            .build(), mCaptureCallback, mCameraHandler);
+                    if (mPostProcessor.isZSLEnabled()) {
+                        setRepeatingBurstForZSL(FRONT_ID);
+                    } else {
+                        mCaptureSession[FRONT_ID].setRepeatingRequest(mPreviewRequestBuilder[FRONT_ID]
+                                .build(), mCaptureCallback, mCameraHandler);
+                    }
                 }
             } catch (CameraAccessException | IllegalStateException e) {
                 e.printStackTrace();
@@ -5025,6 +5091,23 @@ public class CaptureModule implements CameraModule, PhotoController,
             } catch (CameraAccessException | IllegalStateException e) {
                 e.printStackTrace();
             }
+        }
+    }
+
+    private void setRepeatingBurstForZSL(int id) throws CameraAccessException,IllegalStateException{
+        List<CaptureRequest> requests =
+                new ArrayList<CaptureRequest>();
+        CaptureRequest previewZslRequest = mPreviewRequestBuilder[id].build();
+        mPreviewRequestBuilder[id].removeTarget(mImageReader[id].getSurface());
+        CaptureRequest previewRequest = mPreviewRequestBuilder[id].build();
+        requests.add(previewZslRequest);
+        requests.add(previewRequest);
+        //restore the orginal request builder
+        mPreviewRequestBuilder[id].addTarget(mImageReader[id].getSurface());
+
+        if (mCaptureSession[id] != null) {
+            mCaptureSession[id].setRepeatingBurst(requests,
+                    mCaptureCallback,mCameraHandler);
         }
     }
 
