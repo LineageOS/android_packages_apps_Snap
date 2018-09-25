@@ -4328,6 +4328,7 @@ public class CaptureModule implements CameraModule, PhotoController,
         requestAudioFocus();
         try {
             mMediaRecorder.start(); // Recording is now started
+            Log.d(TAG, "StartRecordingVideo done.");
         } catch (RuntimeException e) {
             Toast.makeText(mActivity,"Could not start media recorder.\n " +
                     "Can't start video recording.", Toast.LENGTH_LONG).show();
@@ -4626,6 +4627,7 @@ public class CaptureModule implements CameraModule, PhotoController,
         setEndOfStream(true, false);
         if (!ApiHelper.HAS_RESUME_SUPPORTED){
             mMediaRecorder.start();
+            Log.d(TAG, "StartRecordingVideo done.");
         } else {
             try {
                 Method resumeRec = Class.forName("android.media.MediaRecorder").getMethod("resume");
