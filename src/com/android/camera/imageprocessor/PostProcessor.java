@@ -1284,9 +1284,19 @@ public class PostProcessor{
                             mController.showCapturedReview(bytes, orientation);
                         }
                     } else {
-                        mActivity.getMediaSaveService().addImage(
-                                bytes, title, date, null, image.getCropRect().width(), image.getCropRect().height(),
-                                orientation, null, mController.getMediaSavedListener(), mActivity.getContentResolver(), "jpeg");
+                        if(SettingsManager.getInstance().getSavePictureFormat() ==
+                                SettingsManager.HEIF_FORMAT) {
+                            String value = SettingsManager.getInstance().getValue(
+                                    SettingsManager.KEY_JPEG_QUALITY);
+                            int qualityNumber = CaptureModule.getQualityNumber(value);
+                            mActivity.getMediaSaveService().addHEIFImageFromJpeg(bytes,title,date,null,
+                                    image.getWidth(),image.getHeight(),orientation,null,mActivity.getContentResolver(),
+                                    mController.getMediaSavedListener(),qualityNumber,"heif");
+                        } else {
+                            mActivity.getMediaSaveService().addImage(
+                                    bytes, title, date, null, image.getCropRect().width(), image.getCropRect().height(),
+                                    orientation, null, mController.getMediaSavedListener(), mActivity.getContentResolver(), "jpeg");
+                        }
                         mController.updateThumbnailJpegData(bytes);
                         image.close();
                     }

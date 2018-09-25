@@ -637,6 +637,7 @@ public class SettingsActivity extends PreferenceActivity {
 
     private void initializePreferences() {
         updatePreference(SettingsManager.KEY_PICTURE_SIZE);
+        updatePreference(SettingsManager.KEY_PICTURE_FORMAT);
         updatePreference(SettingsManager.KEY_VIDEO_QUALITY);
         updatePreference(SettingsManager.KEY_EXPOSURE);
         updatePreference(SettingsManager.KEY_VIDEO_HIGH_FRAME_RATE);

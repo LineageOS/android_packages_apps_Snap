@@ -141,6 +141,16 @@
             android:layout="@layout/preference"
             android:title="@string/pref_camera2_shutter_sound_title" />
 
+        <ListPreference
+            android:defaultValue="@string/pref_camera2_picture_format_default"
+            android:entries="@array/pref_camera2_picture_format_entries"
+            android:entryValues="@array/pref_camera2_picture_format_entryvalues"
+            android:icon="@drawable/ic_settings_storage"
+            android:key="pref_camera2_picture_format_key"
+            android:layout="@layout/preference"
+            android:summary="%s"
+            android:title="@string/pref_camera2_picture_format_title"/>
+
         <SwitchPreference
             android:defaultValue="false"
             android:key="pref_camera2_mono_only_key"

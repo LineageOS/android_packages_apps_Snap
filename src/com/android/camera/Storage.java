@@ -18,14 +18,18 @@ package com.android.camera;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.IOException;
 
 import android.annotation.TargetApi;
 import android.content.ContentResolver;
 import android.content.ContentValues;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.location.Location;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Environment;
+import android.os.Handler;
 import android.os.StatFs;
 import android.provider.MediaStore.Images;
 import android.provider.MediaStore.Images.ImageColumns;
@@ -35,6 +39,8 @@ import android.util.Log;
 import com.android.camera.data.LocalData;
 import com.android.camera.exif.ExifInterface;
 import com.android.camera.util.ApiHelper;
+import androidx.heifwriter.HeifWriter;
+import android.graphics.ImageFormat;
 
 public class Storage {
     private static final String TAG = "CameraStorage";
@@ -135,13 +141,24 @@ public class Storage {
         values.put(ImageColumns.TITLE, title);
         if (mimeType.equalsIgnoreCase("jpeg") ||
             mimeType.equalsIgnoreCase("image/jpeg") ||
+                mimeType.equalsIgnoreCase("heif") ||
             mimeType == null) {
-            values.put(ImageColumns.DISPLAY_NAME, title + ".jpg");
+
+            if (mimeType.equalsIgnoreCase("heif")){
+                values.put(ImageColumns.DISPLAY_NAME, title + ".heic");
+            } else {
+                values.put(ImageColumns.DISPLAY_NAME, title + ".jpg");
+            }
+
         } else {
             values.put(ImageColumns.DISPLAY_NAME, title + ".raw");
         }
         values.put(ImageColumns.DATE_TAKEN, date);
-        values.put(ImageColumns.MIME_TYPE, "image/jpeg");
+        if (mimeType.equalsIgnoreCase("heif")) {
+            values.put(ImageColumns.MIME_TYPE, "image/heif");
+        } else {
+            values.put(ImageColumns.MIME_TYPE, "image/jpeg");
+        }
         // Clockwise rotation in degrees. 0, 90, 180, or 270.
         values.put(ImageColumns.ORIENTATION, orientation);
         values.put(ImageColumns.DATA, path);
@@ -178,6 +195,40 @@ public class Storage {
             size = (int) f.length();
         }
         return size;
+    }
+
+    public static Uri addHeifImage(ContentResolver resolver, String title, long date,
+                                   Location location, int orientation, ExifInterface exif, byte[] data, int width,
+                                   int height, int quality, String mimeType) {
+        String path = generateFilepath(title, mimeType);
+        Bitmap bitmap = BitmapFactory.decodeByteArray(data,0,data.length);
+        if (bitmap != null) {
+            try {
+                HeifWriter.Builder builder =
+                        new HeifWriter.Builder(path,width, height,HeifWriter.INPUT_MODE_BITMAP);
+                builder.setQuality(quality);
+                builder.setMaxImages(1);
+                builder.setPrimaryIndex(0);
+                builder.setRotation(orientation);
+                HeifWriter heifWriter = builder.build();
+                heifWriter.start();
+                heifWriter.addBitmap(bitmap);
+                heifWriter.stop(3000);
+                heifWriter.close();
+            } catch (IOException|IllegalStateException e) {
+                e.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            bitmap.recycle();
+        }
+        File f = new File(path);
+        int size = 0;
+        if (f.exists() && f.isFile()) {
+            size = (int) f.length();
+        }
+        return addImage(resolver, title, date, location, orientation,
+                size, path, width, height, mimeType);
     }
 
     // Overwrites the file and updates the MediaStore, or inserts the image if
@@ -224,11 +275,16 @@ public class Storage {
     }
 
     public static String generateFilepath(String title, String pictureFormat) {
-        if (pictureFormat == null || pictureFormat.equalsIgnoreCase("jpeg")) {
+        if (pictureFormat == null || pictureFormat.equalsIgnoreCase("jpeg")
+                || pictureFormat.equalsIgnoreCase("heif")) {
+            String suffix = ".jpg";
+            if (pictureFormat.equalsIgnoreCase("heif")) {
+                suffix = ".heic";
+            }
             if (isSaveSDCard() && SDCard.instance().isWriteable()) {
-                return SDCard.instance().getDirectory() + '/' + title + ".jpg";
+                return SDCard.instance().getDirectory() + '/' + title + suffix;
             } else {
-                return DIRECTORY + '/' + title + ".jpg";
+                return DIRECTORY + '/' + title + suffix;
             }
         } else {
             return RAW_DIRECTORY + '/' + title + ".raw";
