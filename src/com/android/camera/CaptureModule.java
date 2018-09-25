@@ -1497,7 +1497,11 @@ public class CaptureModule implements CameraModule, PhotoController,
                 if(mFrameProcessor.isFrameFilterEnabled() && !mDeepPortraitMode) {
                     mActivity.runOnUiThread(new Runnable() {
                         public void run() {
-                            mUI.getSurfaceHolder().setFixedSize(mPreviewSize.getHeight(), mPreviewSize.getWidth());
+                            SurfaceHolder surfaceHolder = mUI.getSurfaceHolder();
+                            if (surfaceHolder != null) {
+                                surfaceHolder.setFixedSize(
+                                        mPreviewSize.getHeight(), mPreviewSize.getWidth());
+                            }
                         }
                     });
                 }
@@ -4180,7 +4184,11 @@ public class CaptureModule implements CameraModule, PhotoController,
             if (mFrameProcessor.isFrameFilterEnabled()) {
                 mActivity.runOnUiThread(new Runnable() {
                     public void run() {
-                        mUI.getSurfaceHolder().setFixedSize(mVideoSize.getHeight(), mVideoSize.getWidth());
+                        SurfaceHolder surfaceHolder = mUI.getSurfaceHolder();
+                        if (surfaceHolder != null) {
+                            surfaceHolder.setFixedSize(
+                                    mVideoSize.getHeight(), mVideoSize.getWidth());
+                        }
                     }
                 });
             }
