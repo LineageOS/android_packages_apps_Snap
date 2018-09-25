@@ -698,10 +698,13 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
 
     public void initializeProMode(boolean promode) {
         mCameraControls.setProMode(promode);
-        if (promode)
+        if (promode) {
             mVideoButton.setVisibility(View.INVISIBLE);
-        else if (mModule.getCurrentIntentMode() == CaptureModule.INTENT_MODE_NORMAL)
+            mFlashButton.setVisibility(View.INVISIBLE);
+        }
+        else if (mModule.getCurrentIntentMode() == CaptureModule.INTENT_MODE_NORMAL) {
             mVideoButton.setVisibility(View.VISIBLE);
+        }
     }
 
     // called from onResume but only the first time
