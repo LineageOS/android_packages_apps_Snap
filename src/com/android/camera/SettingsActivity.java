@@ -613,12 +613,14 @@ public class SettingsActivity extends PreferenceActivity {
         }
 
         CharSequence[] entries = mSettingsManager.getEntries(SettingsManager.KEY_SCENE_MODE);
-        List<CharSequence> list = Arrays.asList(entries);
-        if (mDeveloperMenuEnabled && list != null && !list.contains("HDR")){
-            Preference p = findPreference("pref_camera2_hdr_key");
-            if (p != null){
-                PreferenceGroup developer = (PreferenceGroup)findPreference("developer");
-                developer.removePreference(p);
+        if (entries != null) {
+            List<CharSequence> list = Arrays.asList(entries);
+            if (mDeveloperMenuEnabled && list != null && !list.contains("HDR")){
+                Preference p = findPreference("pref_camera2_hdr_key");
+                if (p != null){
+                    PreferenceGroup developer = (PreferenceGroup)findPreference("developer");
+                    developer.removePreference(p);
+                }
             }
         }
 
