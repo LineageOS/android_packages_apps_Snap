@@ -5558,7 +5558,7 @@ public class CaptureModule implements CameraModule, PhotoController,
                 updatePreview = true;
                 applyExposure(mPreviewRequestBuilder[cameraId]);
                 break;
-            case SettingsManager.KEY_ISO:
+            case SettingsManager.KEY_MANUAL_ISO_VALUE:
                 updatePreview = true;
                 applyIso(mPreviewRequestBuilder[cameraId]);
                 break;
@@ -5663,9 +5663,11 @@ public class CaptureModule implements CameraModule, PhotoController,
     }
 
     private void applyIso(CaptureRequest.Builder request) {
-        String value = mSettingsManager.getValue(SettingsManager.KEY_ISO);
         if (applyManualIsoExposure(request)) return;
-        if (value == null) return;
+        final SharedPreferences sharedPref = mActivity.getSharedPreferences(
+                ComboPreferences.getLocalSharedPreferencesName(mActivity, getMainCameraId()),
+                Context.MODE_PRIVATE);
+        String value = sharedPref.getString(SettingsManager.KEY_MANUAL_ISO_VALUE, "100");
         String scene = mSettingsManager.getValue(SettingsManager.KEY_SCENE_MODE);
         boolean promode = false;
         if (scene != null) {
@@ -5684,9 +5686,15 @@ public class CaptureModule implements CameraModule, PhotoController,
                 request.set(CaptureRequest.SENSOR_SENSITIVITY, mIsoSensitivity);
             }
         } else {
-            long intValue = SettingsManager.KEY_ISO_INDEX.get(value);
+            int isoValue = Integer.parseInt(value);
             VendorTagUtil.setIsoExpPrioritySelectPriority(request, 0);
+            long intValue = SettingsManager.KEY_ISO_INDEX.get(
+                    SettingsManager.MAUNAL_ABSOLUTE_ISO_VALUE);
             VendorTagUtil.setIsoExpPriority(request, intValue);
+            VendorTagUtil.setUseIsoValues(request, isoValue);
+            if (DEBUG) {
+                Log.v(TAG, "applyIso ISO value :" + isoValue);
+            }
             if (request.get(CaptureRequest.SENSOR_EXPOSURE_TIME) != null) {
                 mIsoExposureTime = request.get(CaptureRequest.SENSOR_EXPOSURE_TIME);
             }
