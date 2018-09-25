@@ -2469,7 +2469,7 @@ public class CaptureModule implements CameraModule, PhotoController,
                                             }
                                         } else {
                                             mActivity.getMediaSaveService().addImage(bytes, title, date,
-                                                    null, image.getWidth(), image.getHeight(), orientation, null,
+                                                    null, image.getWidth(), image.getHeight(), orientation, exif,
                                                     mOnMediaSavedListener, mContentResolver, "jpeg");
 
                                             if (mLongshotActive) {
@@ -2796,6 +2796,7 @@ public class CaptureModule implements CameraModule, PhotoController,
         } else {
             Log.d(TAG, "no location - getRecordLocation: " + getRecordLocation());
         }
+
         builder.set(CaptureRequest.JPEG_ORIENTATION, CameraUtil.getJpegRotation(id, mOrientation));
         builder.set(CaptureRequest.JPEG_THUMBNAIL_SIZE, mPictureThumbSize);
         builder.set(CaptureRequest.JPEG_THUMBNAIL_QUALITY, (byte)80);
