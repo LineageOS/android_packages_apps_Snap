@@ -4136,15 +4136,15 @@ public class CaptureModule implements CameraModule, PhotoController,
     }
 
     private class HandlerExecutor implements Executor {
-        private final Handler mHandler;
+        private final Handler ihandler;
 
         public HandlerExecutor(Handler handler) {
-            mHandler = handler;
+            ihandler = handler;
         }
 
         @Override
         public void execute(Runnable runCmd) {
-            mHandler.post(runCmd);
+            ihandler.post(runCmd);
         }
     }
 
@@ -6377,8 +6377,14 @@ public class CaptureModule implements CameraModule, PhotoController,
         closeSessions();
 
         if(isSurfaceChanged) {
-            mUI.hideSurfaceView();
-            mUI.showSurfaceView();
+            //run in UI thread
+            mHandler.post(new Runnable() {
+                @Override
+                public void run() {
+                    mUI.hideSurfaceView();
+                    mUI.showSurfaceView();
+                }
+            });
         }
 
         initializeValues();
