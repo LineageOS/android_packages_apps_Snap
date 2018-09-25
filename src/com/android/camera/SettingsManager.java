@@ -740,6 +740,7 @@ public class SettingsManager implements ListMenu.SettingsListener {
         if (flashMode != null) {
             if (!isFlashAvailable(mCameraId)) {
                 removePreference(mPreferenceGroup, KEY_FLASH_MODE);
+                removePreference(mPreferenceGroup, KEY_VIDEO_FLASH_MODE);
                 mFilteredKeys.add(flashMode.getKey());
             }
         }
