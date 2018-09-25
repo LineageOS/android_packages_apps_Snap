@@ -4499,6 +4499,10 @@ public class CaptureModule implements CameraModule, PhotoController,
         if (mHighSpeedCapture) {
             mVideoPausePreviewRequestBuilder.set(CaptureRequest.CONTROL_AE_TARGET_FPS_RANGE,
                     mHighSpeedFPSRange);
+        } else {
+            mHighSpeedFPSRange = new Range(30, 30);
+            mVideoPausePreviewRequestBuilder.set(CaptureRequest.CONTROL_AE_TARGET_FPS_RANGE,
+                    mHighSpeedFPSRange);
         }
         if (!mHighSpeedCapture || !((int)mHighSpeedFPSRange.getUpper() > NORMAL_SESSION_MAX_FPS)) {
             applyVideoCommentSettings(mVideoPausePreviewRequestBuilder, cameraId);
