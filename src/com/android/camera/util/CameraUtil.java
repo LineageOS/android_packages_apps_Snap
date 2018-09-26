@@ -576,7 +576,7 @@ public class CameraUtil {
     public static int getOptimalPreviewSize(Activity currentActivity,
             Point[] sizes, double targetRatio) {
         // TODO(andyhuibers): Don't hardcode this but use device's measurements.
-        final int MAX_ASPECT_HEIGHT = 1080;
+        final int MAX_ASPECT_HEIGHT = 1440;
         // Use a very small tolerance because we want an exact match.
         final double ASPECT_TOLERANCE = 0.01;
         if (sizes == null) return -1;
@@ -599,10 +599,9 @@ public class CameraUtil {
             if (Math.abs(ratio - targetRatio) > ASPECT_TOLERANCE) continue;
 
             // Count sizes with height <= 1080p to mimic camera1 api behavior.
+            if (size.y > MAX_ASPECT_HEIGHT) continue;
             if (ratio_4_3 == targetRatio) {
                 if (size.y > minDiff) continue;
-            } else {
-                if (size.y > MAX_ASPECT_HEIGHT) continue;
             }
 
             double heightDiff = Math.abs(size.y - targetHeight);
