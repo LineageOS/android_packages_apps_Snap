@@ -4440,6 +4440,7 @@ public class CaptureModule implements CameraModule, PhotoController,
     private void applyVideoCommentSettings(CaptureRequest.Builder builder, int cameraId) {
         builder.set(CaptureRequest.CONTROL_MODE, CaptureRequest.CONTROL_MODE_AUTO);
         builder.set(CaptureRequest.CONTROL_AE_MODE, CaptureRequest.CONTROL_AE_MODE_ON);
+        applyAntiBandingLevel(builder);
         applyVideoStabilization(builder);
         applyNoiseReduction(builder);
         applyColorEffect(builder);
@@ -5440,11 +5441,9 @@ public class CaptureModule implements CameraModule, PhotoController,
                 R.string.pref_camera_manual_wb_value_color_temperature);
         String gainMode = mActivity.getString(
                 R.string.pref_camera_manual_wb_value_rbgb_gains);
-        Log.v("daming", " >>> 5362 >>> cctMode :" + cctMode);
         if (manualWBMode.equals(cctMode)) {
             int colorTempValue = Integer.parseInt(pref.getString(
                     SettingsManager.KEY_MANUAL_WB_TEMPERATURE_VALUE, "-1"));
-            Log.v("daming", " >>> 5366 >>> colorTempValue :" + colorTempValue);
             if (colorTempValue != -1) {
                 VendorTagUtil.setWbColorTemperatureValue(request, colorTempValue);
             }
@@ -5455,7 +5454,6 @@ public class CaptureModule implements CameraModule, PhotoController,
             if (rGain != -1.0 && gGain != -1.0 && bGain != -1.0f) {
                 request.set(CaptureRequest.CONTROL_AWB_MODE, CaptureRequest.CONTROL_AWB_MODE_OFF);
                 float[] gains = {rGain, gGain, bGain};
-                Log.v("daming", " >>> 5375 >>> rGain :" + rGain + ", gGain :" + gGain + ", bGain :" + bGain);
                 VendorTagUtil.setMWBGainsValue(request, gains);
             }
         } else {
