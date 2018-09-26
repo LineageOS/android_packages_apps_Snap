@@ -6145,7 +6145,6 @@ public class CaptureModule implements CameraModule, PhotoController,
             if(DEBUG) Log.d(TAG, "isDepthFocus is " + isDepthFocus);
             if (isDepthFocus != null && isDepthFocus == 1) {
                 mIsDepthFocus = true;
-                return;
             } else {
                 mIsDepthFocus = false;
             }
@@ -6154,6 +6153,10 @@ public class CaptureModule implements CameraModule, PhotoController,
             if (DEBUG) e.printStackTrace();
         }
 
+        // If focus started then don't return
+        if (mIsDepthFocus && mLastResultAFState == CaptureResult.CONTROL_AF_STATE_INACTIVE) {
+            return;
+        }
         // Report state change when AF state has changed.
         if (resultAFState != mLastResultAFState && mFocusStateListener != null) {
             mActivity.runOnUiThread(new Runnable() {
