@@ -606,23 +606,6 @@ public class SettingsManager implements ListMenu.SettingsListener {
         return sharedPreferences.getFloat(key, 0.5f);
     }
 
-    private boolean setIsoPref(String key, int value) {
-        boolean result = false;
-        final SharedPreferences sharedPref = mContext.getSharedPreferences(
-                ComboPreferences.getLocalSharedPreferencesName(mContext, getCurrentCameraId()),
-                Context.MODE_PRIVATE);
-        int prefValue = Integer.parseInt(sharedPref.getString(key, "100"));
-        if (prefValue != value) {
-            ListPreference pref = mPreferenceGroup.findPreference(key);
-            SharedPreferences.Editor editor = sharedPref.edit();
-            editor.putString(key, String.valueOf(value));
-            editor.apply();
-            updateMapAndNotify(pref);
-            result = true;
-        }
-        return result;
-    }
-
     public boolean isOverriden(String key) {
         Values values = mValuesMap.get(key);
         return values.overriddenValue != null;
@@ -671,20 +654,6 @@ public class SettingsManager implements ListMenu.SettingsListener {
             List<SettingState> list = new ArrayList<>();
             Values values = new Values("" + value * minFocus, null);
             SettingState ss = new SettingState(KEY_FOCUS_DISTANCE, values);
-            list.add(ss);
-            notifyListeners(list);
-        }
-    }
-
-    public void setIsoValue(String key, boolean forceNotify, float value, int maxIso) {
-        boolean isSuccess = false;
-        if (value >= 0) {
-            isSuccess = setIsoPref(key, (int)(value * maxIso));
-        }
-        if (isSuccess || forceNotify) {
-            List<SettingState> list = new ArrayList<>();
-            Values values = new Values("" + value * maxIso, null);
-            SettingState ss = new SettingState(KEY_MANUAL_ISO_VALUE, values);
             list.add(ss);
             notifyListeners(list);
         }
@@ -1533,23 +1502,29 @@ public class SettingsManager implements ListMenu.SettingsListener {
     }
 
     private List<String> getSupportedIso(int cameraId) {
-        Range<Integer> range = mCharacteristics.get(cameraId).get(CameraCharacteristics
-                .SENSOR_INFO_SENSITIVITY_RANGE);
         List<String> supportedIso = new ArrayList<>();
-        supportedIso.add("auto");
+        try {
+            int[] range = mCharacteristics.get(cameraId).get(
+                    CaptureModule.ISO_AVAILABLE_MODES);
+            supportedIso.add("auto");
 
-        if (range != null) {
-            int max = range.getUpper();
-            int value = 50;
-            while (value <= max) {
-                if (range.contains(value)) {
-                    supportedIso.add("" + value);
+            if (range != null) {
+                for (int iso : range) {
+                    for (String key : KEY_ISO_INDEX.keySet()) {
+                        if (KEY_ISO_INDEX.get(key).equals(iso)) {
+                            supportedIso.add(key);
+                        }
+                    }
                 }
-                value += 50;
+            } else {
+                Log.w(TAG, "Supported ISO range is null.");
             }
-        } else {
-            Log.w(TAG, "Supported ISO range is null.");
+        } catch (NullPointerException e) {
+            Log.w(TAG, "Supported ISO_AVAILABLE_MODES is null.");
+        } catch (IllegalArgumentException e) {
+            Log.w(TAG, "IllegalArgumentException Supported ISO_AVAILABLE_MODES is wrong.");
         }
+
         return supportedIso;
     }
 
