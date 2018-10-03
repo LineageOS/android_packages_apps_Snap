@@ -577,7 +577,7 @@ public class CameraUtil {
         for (int i = 0; i < sizes.length; i++) {
             Point size = sizes[i];
             double ratio = (double) size.x / size.y;
-            if (Math.abs(ratio - targetRatio) > ASPECT_TOLERANCE) continue;
+            if (Math.abs(ratio - targetRatio) > ASPECT_TOLERANCE || size.x > 1080) continue;
 
             // Count sizes with height <= 1080p to mimic camera1 api behavior.
             if (size.y > MAX_ASPECT_HEIGHT) continue;

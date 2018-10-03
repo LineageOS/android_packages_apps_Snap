@@ -102,7 +102,7 @@ public class PostProcessor{
     public static final int FILTER_MAX = 8;
 
     //BestPicture requires 10 which is the biggest among filters
-    private static final int MAX_REQUIRED_IMAGE_NUM = 11;
+    private static final int MAX_REQUIRED_IMAGE_NUM = 3;
     private int mCurrentNumImage = 0;
     private ImageFilter mFilter;
     private int mFilterIndex;
@@ -134,6 +134,7 @@ public class PostProcessor{
     private ImageReader mImageReader;
     private ImageReader mZSLReprocessImageReader;
     private boolean mUseZSL = true;
+    private boolean mProcessZSL = true;
     private boolean mSaveRaw = false;
     private Handler mZSLHandler;
     private HandlerThread mZSLHandlerThread;
@@ -144,7 +145,6 @@ public class PostProcessor{
     private TotalCaptureResult mZSLFallOffResult = null;
     private boolean mIsZSLFallOff = false;
     private TotalCaptureResult mLatestResultForLongShot = null;
-    private LinkedList<ZSLQueue.ImageItem> mFallOffImages = new LinkedList<ZSLQueue.ImageItem>();
     private int mPendingContinuousRequestCount = 0;
     public int mMaxRequiredImageNum;
 
@@ -199,50 +199,6 @@ public class PostProcessor{
         }
     }
 
-    private void clearFallOffImage() {
-        for(ZSLQueue.ImageItem item: mFallOffImages ) {
-            try {
-                item.getImage().close();
-                Image raw = item.getRawImage();
-                if (raw != null) {
-                    raw.close();
-                }
-            } catch(Exception e) {
-            }
-        }
-        mFallOffImages.clear();
-    }
-
-    private ZSLQueue.ImageItem findFallOffImage(long timestamp) {
-        ZSLQueue.ImageItem foundImage = null;
-        for(ZSLQueue.ImageItem item: mFallOffImages ) {
-            if(item.getImage().getTimestamp() == timestamp) {
-                foundImage = item;
-                break;
-            }
-        }
-        if(foundImage != null) {
-            mFallOffImages.remove(foundImage);
-        }
-        return foundImage;
-    }
-
-    private void addFallOffImage(ZSLQueue.ImageItem item) {
-        mFallOffImages.add(item);
-        if(mFallOffImages.size() >= MAX_REQUIRED_IMAGE_NUM - 1) {
-            ZSLQueue.ImageItem it = mFallOffImages.getFirst();
-            try {
-                it.getImage().close();
-                Image raw = item.getRawImage();
-                if (raw != null) {
-                    raw.close();
-                }
-            } catch(Exception e) {
-            }
-            mFallOffImages.removeFirst();
-        }
-    }
-
     class ImageHandlerTask implements Runnable, ImageReader.OnImageAvailableListener {
         private ImageWrapper mImageWrapper = null;
         private ImageReader mRawImageReader = null;
@@ -250,6 +206,18 @@ public class PostProcessor{
 
         @Override
         public void onImageAvailable(ImageReader reader) {
+            if (!mProcessZSL) {
+                Image image = reader.acquireNextImage();
+                if (image != null) {
+                    image.close();
+                }
+                if (mSaveRaw && mRawImageReader != null) {
+                   Image rawImage = mRawImageReader.acquireNextImage();
+                   if (rawImage != null)
+                       rawImage.close();
+                }
+                return;
+            }
             try {
                 if(mUseZSL) {
                     if(mController.isLongShotActive() && mPendingContinuousRequestCount > 0) {
@@ -268,35 +236,18 @@ public class PostProcessor{
                         }
                         return;
                     }
+
                     if(mIsZSLFallOff) {
-                        Image image = reader.acquireNextImage();
-                        Image rawImage = null;
-                        if (mSaveRaw && mRawImageReader != null) {
-                            rawImage = mRawImageReader.acquireNextImage();
-                        }
-                        ZSLQueue.ImageItem imageItem = new ZSLQueue.ImageItem();
-                        imageItem.setImage(image,rawImage);
-                        if(mZSLFallOffResult == null) {
-                            addFallOffImage(imageItem);
-                            return;
-                        }
-                        addFallOffImage(imageItem);
-                        ZSLQueue.ImageItem foundImage = findFallOffImage(
-                                mZSLFallOffResult.get(CaptureResult.SENSOR_TIMESTAMP).longValue());
-                        if(foundImage != null && foundImage.getImage() != null) {
-                            Log.d(TAG,"ZSL fall off image is found");
-                            reprocessImage(foundImage.getImage(), mZSLFallOffResult);
-                            Image raw = foundImage.getRawImage();
+                        ZSLQueue.ImageItem foundImage = mZSLQueue.tryToGetMatchingItem();
+                        if (foundImage != null) {
+                            reprocessImage(foundImage.getImage(),foundImage.getMetadata());
+                            Image raw =  foundImage.getRawImage();
                             if (raw != null) {
                                 onRawImageToProcess(raw);
                             }
                             mIsZSLFallOff = false;
-                            clearFallOffImage();
                             mZSLFallOffResult = null;
-                        } else {
-                            clearFallOffImage();
                         }
-                        return;
                     }
 
                     Image image = reader.acquireLatestImage();
@@ -350,7 +301,6 @@ public class PostProcessor{
                 Log.e(TAG, "Max images has been already acquired. ");
                 mIsZSLFallOff = false;
                 mZSLFallOffResult = null;
-                clearFallOffImage();
             }
         }
 
@@ -456,12 +406,18 @@ public class PostProcessor{
         if(mController.getPreviewCaptureResult() == null ||
                 mController.getPreviewCaptureResult().get(CaptureResult.CONTROL_AE_STATE) == CameraMetadata.CONTROL_AE_STATE_FLASH_REQUIRED) {
             if(DEBUG_ZSL) Log.d(TAG, "Flash required image");
+            if (imageItem != null)
+                imageItem.closeImage();
             imageItem = null;
         }
         if (mController.isSelfieFlash()) {
+            if (imageItem != null)
+                imageItem.closeImage();
             imageItem = null;
         }
         if (mController.isLongShotActive()) {
+            if (imageItem != null)
+                imageItem.closeImage();
             imageItem = null;
         }
         if (imageItem != null) {
@@ -755,6 +711,17 @@ public class PostProcessor{
         mCaptureSession = null;
         mImageReader = null;
         mPendingContinuousRequestCount = 0;
+    }
+
+    public void enableZSLQueue(boolean enable) {
+        if (enable) {
+            mProcessZSL = true;
+        } else {
+            mProcessZSL = false;
+            if (mZSLQueue != null) {
+                mZSLQueue.clear();
+            }
+        }
     }
 
     private void startBackgroundThread() {

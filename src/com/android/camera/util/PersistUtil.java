@@ -76,7 +76,7 @@ public class PersistUtil {
             SystemProperties.getInt("persist.sys.camera.sensor.align",
                     CAMERA_SENSOR_HORIZONTAL_ALIGNED);
     private static final int CIRCULAR_BUFFER_SIZE_PERSIST =
-            SystemProperties.getInt("persist.sys.camera.zsl.buffer.size", 5);
+            SystemProperties.getInt("persist.sys.camera.zsl.buffer.size", 3);
     private static final int SAVE_TASK_MEMORY_LIMIT_IN_MB =
             SystemProperties.getInt("persist.sys.camera.perf.memlimit", 60);
     private static final boolean PERSIST_CAMERA_UI_AUTO_TEST_ENABLED =
