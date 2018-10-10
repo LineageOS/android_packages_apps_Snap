@@ -1468,11 +1468,13 @@ public class SettingsManager implements ListMenu.SettingsListener {
 
     private List<String> getSupportedWhiteBalanceModes(int cameraId) {
         try {
-            int[] whiteBalanceModes = mCharacteristics.get(cameraId).get(CameraCharacteristics
-                    .CONTROL_AWB_AVAILABLE_MODES);
             List<String> modes = new ArrayList<>();
-            for (int mode : whiteBalanceModes) {
-                modes.add("" + mode);
+            if (mCharacteristics.size() > 0) {
+                int[] whiteBalanceModes = mCharacteristics.get(cameraId).get(CameraCharacteristics
+                        .CONTROL_AWB_AVAILABLE_MODES);
+                for (int mode : whiteBalanceModes) {
+                    modes.add("" + mode);
+                }
             }
             return modes;
         } catch (IndexOutOfBoundsException e) {
@@ -1514,7 +1516,11 @@ public class SettingsManager implements ListMenu.SettingsListener {
     }
 
     private boolean isFlashAvailable(int cameraId) {
-        return mCharacteristics.get(cameraId).get(CameraCharacteristics.FLASH_INFO_AVAILABLE);
+        if (mCharacteristics.size() > 0) {
+            return mCharacteristics.get(cameraId).get(CameraCharacteristics.FLASH_INFO_AVAILABLE);
+        } else {
+            return false;
+        }
     }
 
     public StreamConfigurationMap getStreamConfigurationMap(int cameraId){
