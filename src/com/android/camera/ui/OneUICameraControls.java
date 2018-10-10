@@ -582,7 +582,8 @@ public class OneUICameraControls extends RotatableLayout {
     }
 
     private void setProModeParameters() {
-        ViewGroup.LayoutParams lp = new ViewGroup.LayoutParams(mWidth/ 4, mWidth/ 4);
+        int width = (mWidth > mHeight) ? mHeight : mWidth;
+        ViewGroup.LayoutParams lp = new ViewGroup.LayoutParams(width/ 4, width/ 4);
         mExposureText.setLayoutParams(lp);
         mManualText.setLayoutParams(lp);
         mWhiteBalanceText.setLayoutParams(lp);
