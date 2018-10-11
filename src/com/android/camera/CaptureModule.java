@@ -5159,7 +5159,9 @@ public class CaptureModule implements CameraModule, PhotoController,
         }
 
         if (mIsRecordingVideo) {
-            captureVideoSnapshot(getMainCameraId());
+            if (mUI.isShutterEnabled()) {
+                captureVideoSnapshot(getMainCameraId());
+            }
         } else {
             String timer = mSettingsManager.getValue(SettingsManager.KEY_TIMER);
 
