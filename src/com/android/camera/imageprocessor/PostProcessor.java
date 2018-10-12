@@ -1125,6 +1125,10 @@ public class PostProcessor{
             if(result.get(CaptureResult.SENSOR_SENSITIVITY) != null) {
                 exif.addISO(result.get(CaptureResult.SENSOR_SENSITIVITY));
             }
+            if(result.get(CaptureResult.JPEG_GPS_LOCATION ) != null) {
+                exif.addGpsTags(result.get(CaptureResult.JPEG_GPS_LOCATION).getLatitude(),
+                        result.get(CaptureResult.JPEG_GPS_LOCATION).getLongitude());
+            }
         }
         ByteArrayOutputStream jpegOut = new ByteArrayOutputStream();
         try {
@@ -1209,9 +1213,10 @@ public class PostProcessor{
                                 mController.showCapturedReview(bytes, mOrientation);
                             }
                         }
+                        ExifInterface exif = Exif.getExif(bytes);
                         mActivity.getMediaSaveService().addImage(
                                     bytes, title, date, null, resultImage.outRoi.width(), resultImage.outRoi.height(),
-                                    mOrientation, null, mediaSavedListener, contentResolver, "jpeg");
+                                    mOrientation, exif, mediaSavedListener, contentResolver, "jpeg");
                             mController.updateThumbnailJpegData(bytes);
                     }
                 }
@@ -1285,7 +1290,7 @@ public class PostProcessor{
                     } else {
                         mActivity.getMediaSaveService().addImage(
                                 bytes, title, date, null, image.getCropRect().width(), image.getCropRect().height(),
-                                orientation, null, mController.getMediaSavedListener(), mActivity.getContentResolver(), "jpeg");
+                                orientation, exif, mController.getMediaSavedListener(), mActivity.getContentResolver(), "jpeg");
                         mController.updateThumbnailJpegData(bytes);
                         image.close();
                     }
