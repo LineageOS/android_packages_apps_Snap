@@ -95,6 +95,8 @@
   <string name="pref_camera_zsl_entry_off">Av</string>
   <string name="pref_camera_zsl_entry_on">På</string>
   <!-- The message is shown in toast when HDR or scene mode is enabled -->
+  <string name="hdr_enable_message">HDR är aktiverad, bara det automatiska scenläget stöds</string>
+  <string name="scene_enable_message">HDR stöds endast i automatisk scendetektion</string>
   <!-- Settings screen, Video HDR location dialog choices -->
   <string name="pref_camera_video_hdr_entry_off">Av</string>
   <string name="pref_camera_video_hdr_entry_on">På</string>
@@ -146,8 +148,10 @@
   <!-- Settings menu, redeye reduction choices -->
   <string name="pref_camera_redeyereduction_entry_enable">Aktivera</string>
   <string name="pref_camera_redeyereduction_entry_disable">Avaktivera</string>
+  <string name="pref_camera_selfiemirror_title">Selfie spegel</string>
   <string name="pref_camera_selfiemirror_entry_enable">Aktivera</string>
   <string name="pref_camera_selfiemirror_entry_disable">Avaktivera</string>
+  <string name="pref_camera_shuttersound_title">Slutarljud</string>
   <string name="pref_camera_shuttersound_entry_enable">Aktiverad</string>
   <string name="pref_camera_shuttersound_entry_disable">Avaktiverad</string>
   <!-- The message is shown in toast when the app encounters an unsupported selection for HFR/HSR mode -->
@@ -418,6 +422,7 @@
   <string name="bestpicture_at_least_one_picture">Minst en bild måste väljas.</string>
   <string name="pref_camera2_shutter_sound_entry_on">På</string>
   <string name="pref_camera2_shutter_sound_entry_off">Av</string>
+  <string name="pref_camera2_shutter_sound_title">Slutarljud</string>
   <string name="pref_camera2_timer_entry_off">Av</string>
   <string name="pref_camera2_timer_entry_2sec">2 sekunder</string>
   <string name="pref_camera2_timer_entry_5sec">5 sekunder</string>

@@ -167,8 +167,11 @@
   <!-- Continuous shot enable message -->
   <!-- Advanced features enable message -->
   <!-- The alas of CameraActivity for gesture operation -->
+  <string name="camera_gesture_title">Agor camera</string>
   <string name="text_tsmakeup_alert_quit">Diddymu</string>
   <string name="makeup_ui_ok_button">Iawn</string>
+  <string name="perf_camera2_preferences_category_photo">Camera llun</string>
+  <string name="perf_camera2_preferences_category_video">Camera fideo</string>
   <string name="pref_camera2_scene_mode_instructional_ok">Iawn</string>
   <!-- Default Zoom setting. -->
   <!-- Settings menu, Zoom choices -->

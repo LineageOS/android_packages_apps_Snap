@@ -95,7 +95,7 @@
   <!-- Touch focus duration -->
   <string name="pref_camera_focustime_title">Фокус касанием</string>
   <string name="pref_camera_focustime_entry_0">0 секунд</string>
-  <string name="pref_camera_focustime_entry_3">3 cекунды</string>
+  <string name="pref_camera_focustime_entry_3">3 секунды</string>
   <string name="pref_camera_focustime_entry_5">5 секунд</string>
   <string name="pref_camera_focustime_entry_10">10 секунд</string>
   <string name="pref_camera_focustime_entry_infinite">Бесконечно</string>

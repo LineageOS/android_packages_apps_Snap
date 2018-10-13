@@ -168,7 +168,7 @@
   <!-- The message is shown in dialog when the app encounters an unsupported resolution for HSR mode -->
   <string name="error_app_unsupported_hsr">Ускоренная съемка не поддерживается для текущего разрешения видео. Установите более низкое разрешение</string>
   <!-- The message is shown in dialog when the app encounters an unsupported video codec for HFR mode -->
-  <string name="error_app_unsupported_hfr_codec">Ускоренная съемка возможна только с видеокодеком H264</string>
+  <string name="error_app_unsupported_hfr_codec">При включенном HFR поддерживается только видеокодек H264</string>
   <!-- The message is shown in dialog when the app encounters an unsupported video resolution-->
   <string name="error_app_unsupported">Видеокодек не поддерживает выбранное разрешение</string>
   <!-- The message is shown in dialog when the app encounters an unsupported video profile-->
@@ -224,7 +224,7 @@
   <string name="pref_camera_iso_title">Значение ISO</string>
   <!-- Settings screen, ISO dialog radio button choices -->
   <string name="pref_camera_iso_entry_auto">Авто</string>
-  <string name="pref_camera_iso_entry_isodeblur">Aвто (уменьш. размытия)</string>
+  <string name="pref_camera_iso_entry_isodeblur">Авто (уменьш. размытия)</string>
   <string name="pref_camera_iso_entry_iso50">ISO50</string>
   <string name="pref_camera_iso_entry_iso100">ISO 100</string>
   <string name="pref_camera_iso_entry_iso125">ISO125</string>
@@ -525,7 +525,7 @@
   <string name="pref_camera_bokeh_mpo_title">MPO режим боке</string>
   <string name="pref_camera_bokeh_mpo_entry_enable">Включить</string>
   <string name="pref_camera_bokeh_mpo_entry_disable">Выключить</string>
-  <string name="pref_camera_bokeh_blur_degree_title">Уровень размытия боке</string>
+  <string name="pref_camera_bokeh_blur_degree_title">Уровень размытия Bokeh</string>
   <!-- Default Zoom setting. -->
   <string name="pref_camera_zoom_title">Зум</string>
   <!-- Settings menu, Zoom choices -->
