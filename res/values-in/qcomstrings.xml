@@ -420,6 +420,7 @@
   <string name="pref_camera2_camera2_entry_enable">Hidup</string>
   <string name="pref_camera2_camera2_entry_disable">Mati</string>
   <string name="pref_camera2_mono_only_title">Hanya mono</string>
+  <string name="pref_camera2_mono_only_entry_on">Hidup</string>
   <string name="pref_camera2_mono_only_entry_off">Tidak aktif</string>
   <string name="pref_camera2_mono_preview_title">Pratinjau mono</string>
   <string name="pref_camera2_mono_preview_entry_on">Hidup</string>
@@ -432,6 +433,7 @@
   <string name="pref_camera2_mpo_entry_on">Hidup</string>
   <string name="pref_camera2_mpo_entry_off">Tidak aktif</string>
   <string name="pref_camera2_makeup_title">Makeup</string>
+  <string name="pref_camera2_makeup_entry_on">Hidup</string>
   <string name="pref_camera2_makeup_entry_off">Tidak aktif</string>
   <string name="pref_camera2_noise_reduction_title">Pengurangan kebisingan</string>
   <string name="pref_camera2_noise_reduction_entry_off">Tidak aktif</string>
@@ -441,6 +443,7 @@
   <string name="pref_camera2_videosnap_entry_enable">Hidup</string>
   <string name="pref_camera2_videosnap_entry_disable">Mati</string>
   <string name="pref_camera2_trackingfocus_title">Fokus pelacakan</string>
+  <string name="pref_camera2_trackingfocus_entry_on">Hidup</string>
   <string name="pref_camera2_trackingfocus_entry_off">Tidak aktif</string>
   <string name="pref_camera_scenemode_entry_bestpicture">Gambar terbaik</string>
   <string name="bestpicture_done">SELESAI</string>
@@ -448,5 +451,7 @@
   <string name="pref_camera2_shutter_sound_entry_on">Hidup</string>
   <string name="pref_camera2_shutter_sound_entry_off">Tidak aktif</string>
   <string name="pref_camera2_shutter_sound_title">Suara rana</string>
+  <string name="pref_camera2_initial_camera_entry_bayer">Bayer</string>
   <string name="pref_camera2_initial_camera_entry_mono">Satu</string>
+  <string name="pref_camera2_initial_camera_entry_front">Depan</string>
 </resources>

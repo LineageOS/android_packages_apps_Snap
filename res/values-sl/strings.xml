@@ -161,7 +161,7 @@ Predmet je shranjen lokalno in na voljo brez povezave.</string>
   <!-- alert to the user that an SD card must be installed before using the camera -->
   <string name="no_storage" product="default">Pred uporabo fotoaparata vstavite kartico SD.</string>
   <!-- alert to the user that the SD card is being disk-checked -->
-  <string name="preparing_sd" product="default">Pripravljanje kartice SD …</string>
+  <string name="preparing_sd" product="default">Pripravljanje kartice SD \u2026</string>
   <!-- alert to the user that the camera fails to read or write the SD card. -->
   <string name="access_sd_fail" product="default">Dostop do kartice SD ni bil mogoč.</string>
   <!-- A label that overlays on top of the preview frame to indicate the camcorder is in time lapse mode [CHAR LIMIT=35] -->
@@ -364,7 +364,7 @@ Predmet je shranjen lokalno in na voljo brez povezave.</string>
   <!-- The text shown in the progress dialog when waiting for previous panorama finishing [CHAR LIMIT=40] -->
   <string name="pano_dialog_waiting_previous">Čakanje na prejšnjo panoramo</string>
   <!-- The text shown on the bottom-left corner of the screen to indicate that the saving is in process [CHAR LIMIT=13] -->
-  <string name="pano_review_saving_indication_str">Shranjevan. …</string>
+  <string name="pano_review_saving_indication_str">Shranjevanje \u2026</string>
   <!-- The text shown on the screen to indicate that the panorama is rendering [CHAR LIMIT=27] -->
   <string name="pano_review_rendering">Upodabljanje panorame</string>
   <!-- Toast telling users tapping on the viewfinder will trigger autofocus [CHAR LIMIT=28] -->
@@ -428,7 +428,7 @@ Predmet je shranjen lokalno in na voljo brez povezave.</string>
   <string name="accessibility_review_ok">Pregled opravljen</string>
   <!-- button in review mode indicate the user want to retake another photo/video for attachment [
 CHAR LIMIT = NONE] -->
-  <string name="accessibility_review_retake">Vnovični pregled</string>
+  <string name="accessibility_review_retake">Vnovičen pregled</string>
   <!-- Default text for a button that can be toggled on and off. -->
   <string name="capital_on">VKLOPLJENO</string>
   <!-- Default text for a button that can be toggled on and off. -->
