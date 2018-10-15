@@ -1119,7 +1119,7 @@
     <string name="pref_camera2_saturation_level_entry_10" translatable="true">Level 10</string>
 
     <string name="pref_camera2_anti_banding_level_title" translatable="true">Anti Banding Level</string>
-    <string name="pref_camera2_anti_banding_level_default" translatable="false">0</string>
+    <string name="pref_camera2_anti_banding_level_default" translatable="false">3</string>
     <string name="pref_camera2_anti_banding_level_entry_off" translatable="true">Off</string>
     <string name="pref_camera2_anti_banding_level_entry_50hz" translatable="true">50HZ</string>
     <string name="pref_camera2_anti_banding_level_entry_60hz" translatable="true">60HZ</string>
