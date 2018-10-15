@@ -5504,7 +5504,7 @@ public class CaptureModule implements CameraModule, PhotoController,
         final SharedPreferences pref = mActivity.getSharedPreferences(
                 ComboPreferences.getLocalSharedPreferencesName(mActivity, getMainCameraId()),
                 Context.MODE_PRIVATE);
-        String manualWBMode = mSettingsManager.getValue(SettingsManager.KEY_MANUAL_WB);
+        String manualWBMode = pref.getString(SettingsManager.KEY_MANUAL_WB, "off");
         String cctMode = mActivity.getString(
                 R.string.pref_camera_manual_wb_value_color_temperature);
         String gainMode = mActivity.getString(
