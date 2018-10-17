@@ -155,8 +155,8 @@ public class OptizoomFilter implements ImageFilter{
 
     static {
         try {
-            System.loadLibrary("jni_optizoom");
-            mIsSupported = true;
+            //System.loadLibrary("jni_optizoom");
+            mIsSupported = false;
         }catch(UnsatisfiedLinkError e) {
             mIsSupported = false;
         }
