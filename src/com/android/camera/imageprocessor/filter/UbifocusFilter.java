@@ -327,8 +327,8 @@ public class UbifocusFilter implements ImageFilter {
 
     static {
         try {
-            System.loadLibrary("jni_ubifocus");
-            mIsSupported = true;
+            //System.loadLibrary("jni_ubifocus");
+            mIsSupported = false;
         }catch(UnsatisfiedLinkError e) {
             mIsSupported = false;
         }

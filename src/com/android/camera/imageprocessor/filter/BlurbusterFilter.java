@@ -154,8 +154,8 @@ public class BlurbusterFilter implements ImageFilter{
 
     static {
         try {
-            System.loadLibrary("jni_blurbuster");
-            mIsSupported = true;
+            //System.loadLibrary("jni_blurbuster");
+            mIsSupported = false;
         }catch(UnsatisfiedLinkError e) {
             Log.d(TAG, e.toString());
             mIsSupported = false;

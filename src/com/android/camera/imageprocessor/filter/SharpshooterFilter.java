@@ -179,8 +179,8 @@ public class SharpshooterFilter implements ImageFilter{
 
     static {
         try {
-            System.loadLibrary("jni_sharpshooter");
-            mIsSupported = true;
+            //System.loadLibrary("jni_sharpshooter");
+            mIsSupported = false;
         }catch(UnsatisfiedLinkError e) {
             Log.d(TAG, e.toString());
             mIsSupported = false;
