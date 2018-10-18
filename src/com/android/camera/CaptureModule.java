@@ -838,7 +838,7 @@ public class CaptureModule implements CameraModule, PhotoController,
                             for (int wi = 0; wi < 10; wi++)
                             {
                                 index               = 10*(int)(el/64) + 48*10*hi + 48*10*10*(el%64) + wi;
-                                bg_statsdata[480*(639-(int)(index/480))+(index%480)] = Color.argb(255, r, g, b);
+                                bg_statsdata[index] = Color.argb(255, r, g, b);
                             }
                         }
                     }
@@ -877,7 +877,7 @@ public class CaptureModule implements CameraModule, PhotoController,
                             for (int wi = 0; wi < 10; wi++)
                             {
                                 index               = 10*(int)(el/64) + 48*10*hi + 48*10*10*(el%64) + wi;
-                                be_statsdata[480*(639-(int)(index/480))+(index%480)] = Color.argb(255, r, g, b);
+                                be_statsdata[index] = Color.argb(255, r, g, b);
                             }
                         }
                     }
