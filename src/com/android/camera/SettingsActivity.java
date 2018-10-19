@@ -161,8 +161,7 @@ public class SettingsActivity extends PreferenceActivity {
         final TextView ExpTimeText = new TextView(SettingsActivity.this);
         final EditText ExpTimeInput = new EditText(SettingsActivity.this);
         ISOinput.setInputType(InputType.TYPE_CLASS_NUMBER);
-        int floatType = InputType.TYPE_NUMBER_FLAG_DECIMAL | InputType.TYPE_CLASS_NUMBER;
-        ExpTimeInput.setInputType(floatType);
+        ExpTimeInput.setInputType(InputType.TYPE_CLASS_NUMBER);
         alert.setTitle("Manual Exposure Settings");
         alert.setNegativeButton("Cancel",new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog,int id) {
