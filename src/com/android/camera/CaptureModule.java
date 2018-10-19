@@ -144,6 +144,7 @@ import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.Executor;
@@ -221,6 +222,11 @@ public class CaptureModule implements CameraModule, PhotoController,
     private static final int HIGH_SESSION_MAX_FPS = 120;
 
     private static final int SCREEN_DELAY = 2 * 60 * 1000;
+
+    private static final int mShotNum = PersistUtil.getLongshotShotLimit();
+    private boolean mLongshoting = false;
+    private AtomicInteger mNumFramesArrived = new AtomicInteger(0);
+    private final int MAX_IMAGEREADERS = 10;
 
     /** For temporary save warmstart gains and cct value*/
     private float mRGain = -1.0f;
@@ -2057,16 +2063,18 @@ public class CaptureModule implements CameraModule, PhotoController,
                 captureBuilder.set(CaptureRequest.CONTROL_ENABLE_ZSL, false);
             }
 
-            applySettingsForJpegInformation(captureBuilder, id);
-            applyAFRegions(captureBuilder, id);
-            applyAERegions(captureBuilder, id);
+            if (!mLongshoting) {
+                applySettingsForJpegInformation(captureBuilder, id);
+                applyAFRegions(captureBuilder, id);
+                applyAERegions(captureBuilder, id);
+                VendorTagUtil.setCdsMode(captureBuilder, 2);// CDS 0-OFF, 1-ON, 2-AUTO
+                applySettingsForCapture(captureBuilder, id);
+                applyCaptureMFNR(captureBuilder);
+                applyCaptureMFSR(captureBuilder);
+            }
             if (!(mIsSupportedQcfa || isDeepZoom())) {
                 addPreviewSurface(captureBuilder, null, id);
             }
-            VendorTagUtil.setCdsMode(captureBuilder, 2);// CDS 0-OFF, 1-ON, 2-AUTO
-            applySettingsForCapture(captureBuilder, id);
-            applyCaptureMFNR(captureBuilder);
-            applyCaptureMFSR(captureBuilder);
             if (mUI.getCurrentProMode() == ProMode.MANUAL_MODE) {
                 float value = mSettingsManager.getFocusValue(SettingsManager.KEY_FOCUS_DISTANCE);
                 applyFocusDistance(captureBuilder, String.valueOf(value));
@@ -2150,54 +2158,68 @@ public class CaptureModule implements CameraModule, PhotoController,
         }
     }
 
+    private CameraCaptureSession.CaptureCallback mLongshotCallBack= new CameraCaptureSession.CaptureCallback() {
+            @Override
+            public void onCaptureCompleted(CameraCaptureSession session,
+                                           CaptureRequest request,
+                                           TotalCaptureResult result) {
+                Log.d(TAG, "captureStillPictureForLongshot onCaptureCompleted: " + mNumFramesArrived.get() + " " + mShotNum);
+                if (mLongshotActive) {
+                    checkAndPlayShutterSound(getMainCameraId());
+                    mActivity.runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            mUI.doShutterAnimation();
+                        }
+                    });
+                }
+            }
+
+            @Override
+            public void onCaptureStarted(CameraCaptureSession session, CaptureRequest request,
+                    long timestamp, long frameNumber) {
+                mLongshoting = true;
+                mNumFramesArrived.incrementAndGet();
+                Log.d(TAG, "captureStillPictureForLongshot onCaptureStarted: " + mNumFramesArrived.get());
+                if (mNumFramesArrived.get() >= mShotNum) {
+                    mLongshotActive = false;
+                }
+            }
+
+            @Override
+            public void onCaptureFailed(CameraCaptureSession session,
+                                        CaptureRequest request,
+                                        CaptureFailure result) {
+                Log.d(TAG, "captureStillPictureForLongshot onCaptureFailed.");
+                if (mLongshotActive) {
+                    mActivity.runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            mUI.doShutterAnimation();
+                        }
+                    });
+                }
+            }
+
+            @Override
+            public void onCaptureSequenceCompleted(CameraCaptureSession session, int
+                            sequenceId, long frameNumber) {
+                if(mLongshotActive) {
+                    captureStillPicture(getMainCameraId());
+                } else {
+                    mLongshoting = false;
+                    mNumFramesArrived.getAndSet(0);
+                    unlockFocus(getMainCameraId());
+                }
+            }
+        };
+
     private void captureStillPictureForLongshot(CaptureRequest.Builder captureBuilder, int id) throws CameraAccessException{
-        Log.d(TAG, "captureStillPictureForLongshot " + id);
         List<CaptureRequest> burstList = new ArrayList<>();
-        for (int i = 0; i < PersistUtil.getLongshotShotLimit(); i++) {
+        for (int i = 0; i < MAX_IMAGEREADERS*2; i++) {
             burstList.add(captureBuilder.build());
         }
-        mCaptureSession[id].captureBurst(burstList, new
-                CameraCaptureSession.CaptureCallback() {
-
-                    @Override
-                    public void onCaptureCompleted(CameraCaptureSession session,
-                                                   CaptureRequest request,
-                                                   TotalCaptureResult result) {
-                        Log.d(TAG, "captureStillPictureForLongshot onCaptureCompleted: " + id);
-                        if (mLongshotActive) {
-                            checkAndPlayShutterSound(id);
-                            mActivity.runOnUiThread(new Runnable() {
-                                @Override
-                                public void run() {
-                                    mUI.doShutterAnimation();
-                                }
-                            });
-                        }
-                    }
-
-                    @Override
-                    public void onCaptureFailed(CameraCaptureSession session,
-                                                CaptureRequest request,
-                                                CaptureFailure result) {
-                        Log.d(TAG, "captureStillPictureForLongshot onCaptureFailed: " + id);
-                        if (mLongshotActive) {
-                            mActivity.runOnUiThread(new Runnable() {
-                                @Override
-                                public void run() {
-                                    mUI.doShutterAnimation();
-                                }
-                            });
-                        }
-                    }
-
-                    @Override
-                    public void onCaptureSequenceCompleted(CameraCaptureSession session, int
-                            sequenceId, long frameNumber) {
-                        Log.d(TAG, "captureStillPictureForLongshot onCaptureSequenceCompleted: " + id);
-                        mLongshotActive = false;
-                        unlockFocus(id);
-                    }
-                }, mCaptureCallbackHandler);
+        mCaptureSession[id].captureBurst(burstList, mLongshotCallBack, mCaptureCallbackHandler);
         mActivity.runOnUiThread(new Runnable() {
             @Override
             public void run() {
@@ -2382,8 +2404,6 @@ public class CaptureModule implements CameraModule, PhotoController,
 
                 if (isClearSightOn()) {
                     if(i == getMainCameraId()) {
-//                        ClearSightImageProcessor.getInstance().init(map, mPictureSize.getWidth(),
-//                                mPictureSize.getHeight(), mActivity, mOnMediaSavedListener);
                         ClearSightImageProcessor.getInstance().init(map, mActivity,
                                 mOnMediaSavedListener);
                         ClearSightImageProcessor.getInstance().setCallback(this);
@@ -2393,21 +2413,21 @@ public class CaptureModule implements CameraModule, PhotoController,
                             && i == getMainCameraId()) {
                         if(mPostProcessor.isZSLEnabled()) {
                             mImageReader[i] = ImageReader.newInstance(mSupportedMaxPictureSize.getWidth(),
-                                    mSupportedMaxPictureSize.getHeight(), imageFormat, mPostProcessor.getMaxRequiredImageNum());
+                                    mSupportedMaxPictureSize.getHeight(), imageFormat, MAX_IMAGEREADERS + 2);
                         } else {
                             mImageReader[i] = ImageReader.newInstance(mPictureSize.getWidth(),
-                                    mPictureSize.getHeight(), imageFormat, mPostProcessor.getMaxRequiredImageNum());
+                                    mPictureSize.getHeight(), imageFormat, MAX_IMAGEREADERS + 2);
                         }
                         if (mSaveRaw) {
                             mRawImageReader[i] = ImageReader.newInstance(mSupportedRawPictureSize.getWidth(),
-                                    mSupportedRawPictureSize.getHeight(), ImageFormat.RAW10, mPostProcessor.getMaxRequiredImageNum());
+                                    mSupportedRawPictureSize.getHeight(), ImageFormat.RAW10, MAX_IMAGEREADERS + 2);
                             mPostProcessor.setRawImageReader(mRawImageReader[i]);
                         }
                         mImageReader[i].setOnImageAvailableListener(mPostProcessor.getImageHandler(), mImageAvailableHandler);
                         mPostProcessor.onImageReaderReady(mImageReader[i], mSupportedMaxPictureSize, mPictureSize);
                     } else if (i == getMainCameraId()) {
                         mImageReader[i] = ImageReader.newInstance(mPictureSize.getWidth(),
-                                mPictureSize.getHeight(), imageFormat, PersistUtil.getLongshotShotLimit());
+                                mPictureSize.getHeight(), imageFormat, MAX_IMAGEREADERS);
 
                         ImageAvailableListener listener = new ImageAvailableListener(i) {
                             @Override
@@ -2422,7 +2442,10 @@ public class CaptureModule implements CameraModule, PhotoController,
                                 }
                                 Log.d(TAG, "image available for cam: " + mCamId);
                                 Image image = reader.acquireNextImage();
-
+                                if (mLongshoting && (!mLongshotActive)) {
+                                    image.close();
+                                    return;
+                                }
                                 if (isMpoOn()) {
                                     mMpoSaveHandler.obtainMessage(
                                             MpoSaveHandler.MSG_NEW_IMG, mCamId, 0, image).sendToTarget();
