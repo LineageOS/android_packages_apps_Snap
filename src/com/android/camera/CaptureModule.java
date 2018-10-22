@@ -2104,12 +2104,12 @@ public class CaptureModule implements CameraModule, PhotoController,
                 captureBuilder.set(CaptureRequest.CONTROL_ENABLE_ZSL, false);
             }
 
+            applySettingsForJpegInformation(captureBuilder, id);
+            applyAFRegions(captureBuilder, id);
+            applyAERegions(captureBuilder, id);
+            applySettingsForCapture(captureBuilder, id);
             if (!mLongshoting) {
-                applySettingsForJpegInformation(captureBuilder, id);
-                applyAFRegions(captureBuilder, id);
-                applyAERegions(captureBuilder, id);
                 VendorTagUtil.setCdsMode(captureBuilder, 2);// CDS 0-OFF, 1-ON, 2-AUTO
-                applySettingsForCapture(captureBuilder, id);
                 applyCaptureMFNR(captureBuilder);
                 applyCaptureMFSR(captureBuilder);
             }
