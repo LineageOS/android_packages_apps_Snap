@@ -2090,7 +2090,10 @@ public class CaptureModule implements CameraModule, PhotoController,
         mIsRefocus = false;
         if (isDeepZoom()) mSupportZoomCapture = false;
         try {
-            if (null == mActivity || null == mCameraDevice[id]) {
+            if (null == mActivity || null == mCameraDevice[id]
+                    || !checkSessionAndBuilder(mCaptureSession[id], mPreviewRequestBuilder[id])) {
+                mUI.enableShutter(true);
+                mLongshotActive = false;
                 warningToast("Camera is not ready yet to take a picture.");
                 return;
             }
