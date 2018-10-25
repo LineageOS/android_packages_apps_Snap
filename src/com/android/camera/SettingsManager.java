@@ -1786,11 +1786,7 @@ public class SettingsManager implements ListMenu.SettingsListener {
     public boolean isZSLInAppEnabled(){
         String value = getValue(KEY_ZSL);
         String appZSLValue = mContext.getString(R.string.pref_camera2_zsl_entryvalue_app_zsl);
-        if ( (value != null && value.equals(appZSLValue)) ||
-                SettingsManager.SCENE_MODE_SUNSET_STRING.equals(
-                        SettingsManager.getInstance().getValue(SettingsManager.KEY_SCENE_MODE)) ||
-                SettingsManager.SCENE_MODE_LANDSCAPE_STRING.equals(
-                        SettingsManager.getInstance().getValue(SettingsManager.KEY_SCENE_MODE))){
+        if ( value != null && value.equals(appZSLValue)){
             return true;
         }else{
             return false;
