@@ -215,30 +215,8 @@ public class Storage {
     }
 
     public static Uri addHeifImage(ContentResolver resolver, String title, long date,
-                                   Location location, int orientation, ExifInterface exif, byte[] data, int width,
+                                   Location location, int orientation, ExifInterface exif, String path, int width,
                                    int height, int quality, String mimeType) {
-        String path = generateFilepath(title, mimeType);
-        Bitmap bitmap = BitmapFactory.decodeByteArray(data,0,data.length);
-        if (bitmap != null) {
-            try {
-                HeifWriter.Builder builder =
-                        new HeifWriter.Builder(path,width, height,HeifWriter.INPUT_MODE_BITMAP);
-                builder.setQuality(quality);
-                builder.setMaxImages(1);
-                builder.setPrimaryIndex(0);
-                builder.setRotation(orientation);
-                HeifWriter heifWriter = builder.build();
-                heifWriter.start();
-                heifWriter.addBitmap(bitmap);
-                heifWriter.stop(3000);
-                heifWriter.close();
-            } catch (IOException|IllegalStateException e) {
-                e.printStackTrace();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            bitmap.recycle();
-        }
         File f = new File(path);
         int size = 0;
         if (f.exists() && f.isFile()) {

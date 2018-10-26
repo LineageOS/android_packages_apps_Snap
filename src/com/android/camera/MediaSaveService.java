@@ -167,7 +167,7 @@ public class MediaSaveService extends Service {
         t.execute();
     }
 
-    public void addHEIFImageFromJpeg(byte[] data, String title, long date, Location loc,
+    public void addHEIFImage(String path,String title,long date , Location loc,
                              int width, int height, int orientation, ExifInterface exif,
                              ContentResolver resolver, OnMediaSavedListener listener,
                              int qualitiy, String pictureFormat) {
@@ -175,12 +175,9 @@ public class MediaSaveService extends Service {
             Log.e(TAG, "Cannot add image when the queue is full");
             return;
         }
-        HEIFImageSaveTask t = new HEIFImageSaveTask(data, title, date, loc, width, height, orientation,
+        HEIFImageSaveTask t = new HEIFImageSaveTask(path,title,date, loc, width, height, orientation,
                 exif, resolver, listener, qualitiy, pictureFormat);
-        mMemoryUse += data.length;
-        if (isQueueFull()) {
-            onQueueFull();
-        }
+
         t.execute();
     }
 
@@ -350,7 +347,7 @@ public class MediaSaveService extends Service {
     }
 
     private class HEIFImageSaveTask extends AsyncTask<Void, Void, Uri> {
-        private byte[] data;
+        private String path;
         private String title;
         private long date;
         private Location loc;
@@ -362,11 +359,11 @@ public class MediaSaveService extends Service {
         private int quality;
         private String pictureFormat;
 
-        public HEIFImageSaveTask(byte[] data, String title, long date, Location loc,
+        public HEIFImageSaveTask(String path, String title, long date, Location loc,
                                  int width, int height, int orientation, ExifInterface exif,
                                  ContentResolver resolver, OnMediaSavedListener listener,
                                  int quality,String pictureFormat) {
-            this.data = data;
+            this.path = path;
             this.title = title;
             this.date = date;
             this.loc = loc;
@@ -388,15 +385,13 @@ public class MediaSaveService extends Service {
         @Override
         protected Uri doInBackground(Void... params) {
             return Storage.addHeifImage(
-                    resolver,title,date,loc,orientation,exif,data,
+                    resolver,title,date,loc,orientation,exif,path,
                     width,height,quality,pictureFormat);
         }
 
         @Override
         protected void onPostExecute(Uri uri) {
             boolean previouslyFull = isQueueFull();
-            mMemoryUse -= data.length;
-            if (isQueueFull() != previouslyFull) onQueueAvailable();
         }
     }
 
