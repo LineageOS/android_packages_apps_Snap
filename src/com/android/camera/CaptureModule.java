@@ -495,6 +495,9 @@ public class CaptureModule implements CameraModule, PhotoController,
     private HeifWriter mInitHeifWriter;
     private OutputConfiguration mHeifOutput;
     private HeifImage mHeifImage;
+    private HeifWriter mLiveShotInitHeifWriter;
+    private OutputConfiguration mLiveShotOutput;
+    private HeifImage mLiveShotImage;
     private NamedImages mNamedImages;
     private ContentResolver mContentResolver;
     private byte[] mLastJpegData;
@@ -2407,7 +2410,33 @@ public class CaptureModule implements CameraModule, PhotoController,
             applyVideoSnapshot(captureBuilder, id);
             applyZoom(captureBuilder, id);
 
-            captureBuilder.addTarget(mVideoSnapshotImageReader.getSurface());
+            if (mSettingsManager.getSavePictureFormat() == SettingsManager.HEIF_FORMAT) {
+                long captureTime = System.currentTimeMillis();
+                mNamedImages.nameNewImage(captureTime);
+                NamedEntity name = mNamedImages.getNextNameEntity();
+                String title = (name == null) ? null : name.title;
+                long date = (name == null) ? -1 : name.date;
+                String path = Storage.generateFilepath(title, "heif");
+                String value = mSettingsManager.getValue(SettingsManager.KEY_JPEG_QUALITY);
+                int quality = getQualityNumber(value);
+                int orientation = CameraUtil.getJpegRotation(id,mOrientation);
+                HeifWriter writer = createHEIFEncoder(path,mVideoSize.getWidth(),
+                        mVideoSize.getHeight(), orientation,quality);
+                if (writer != null) {
+                    mLiveShotImage = new HeifImage(writer,path,title,date,orientation,quality);
+                    Surface input = writer.getInputSurface();
+                    mLiveShotOutput.addSurface(input);
+                    try{
+                        mCurrentSession.updateOutputConfiguration(mLiveShotOutput);
+                        captureBuilder.addTarget(input);
+                        writer.start();
+                    } catch (IllegalStateException | IllegalArgumentException e) {
+                        e.printStackTrace();
+                    }
+                }
+            } else {
+                captureBuilder.addTarget(mVideoSnapshotImageReader.getSurface());
+            }
             // send snapshot stream together with preview and video stream for snapshot request
             // stream is the surface for the app
             Surface surface = getPreviewSurfaceForSession(id);
@@ -2441,6 +2470,27 @@ public class CaptureModule implements CameraModule, PhotoController,
                         public void onCaptureSequenceCompleted(CameraCaptureSession session, int
                                 sequenceId, long frameNumber) {
                             Log.d(TAG, "captureVideoSnapshot onCaptureSequenceCompleted: " + id);
+                            if (mSettingsManager.getSavePictureFormat() == SettingsManager.HEIF_FORMAT) {
+                                if (mLiveShotImage != null) {
+                                    try {
+                                        mLiveShotOutput.removeSurface(mLiveShotImage.getInputSurface());
+                                        mCurrentSession.updateOutputConfiguration(mLiveShotOutput);
+                                        mLiveShotImage.getWriter().stop(3000);
+                                        mLiveShotImage.getWriter().close();
+                                        mActivity.getMediaSaveService().addHEIFImage(mLiveShotImage.getPath(),
+                                                mLiveShotImage.getTitle(),mLiveShotImage.getDate(),
+                                                null,mVideoSize.getWidth(),mVideoSize.getHeight(),
+                                                mLiveShotImage.getOrientation(),null,
+                                                mContentResolver,mOnMediaSavedListener,
+                                                mLiveShotImage.getQuality(),"heif");
+                                        mLiveShotImage = null;
+                                    } catch (TimeoutException | IllegalStateException e) {
+                                        e.printStackTrace();
+                                    } catch (Exception e) {
+                                        e.printStackTrace();
+                                    }
+                                }
+                            }
                         }
                     }, mCaptureCallbackHandler);
         } catch (CameraAccessException e) {
@@ -2491,6 +2541,15 @@ public class CaptureModule implements CameraModule, PhotoController,
         CameraManager manager = (CameraManager) mActivity.getSystemService(Context.CAMERA_SERVICE);
         try {
             String[] cameraIdList = manager.getCameraIdList();
+            //inti heifWriter and get input surface
+            if (mSettingsManager.getSavePictureFormat() == SettingsManager.HEIF_FORMAT) {
+                String tmpPath = mActivity.getCacheDir().getPath() + "/" + "heif.tmp";
+                if (mInitHeifWriter != null) {
+                    mInitHeifWriter.close();
+                }
+                mInitHeifWriter = createHEIFEncoder(tmpPath, mPictureSize.getWidth(),
+                        mPictureSize.getHeight(), 0, 85);
+            }
             for (int i = 0; i < cameraIdList.length; i++) {
                 String cameraId = cameraIdList[i];
 
@@ -2522,16 +2581,6 @@ public class CaptureModule implements CameraModule, PhotoController,
                     continue;
                 }
                 mCameraId[i] = cameraId;
-
-                //inti heifWriter and get input surface
-                if (mSettingsManager.getSavePictureFormat() == SettingsManager.HEIF_FORMAT) {
-                    String tmpPath = mActivity.getCacheDir().getPath() + "/" + "heif.tmp";
-                    if (mInitHeifWriter != null) {
-                        mInitHeifWriter.close();
-                    }
-                    mInitHeifWriter = createHEIFEncoder(tmpPath, mPictureSize.getWidth(),
-                            mPictureSize.getHeight(), 0, 85);
-                }
 
                 if (isClearSightOn()) {
                     if(i == getMainCameraId()) {
@@ -2574,6 +2623,10 @@ public class CaptureModule implements CameraModule, PhotoController,
                                 Log.d(TAG, "image available for cam: " + mCamId);
                                 Image image = reader.acquireNextImage();
                                 if (mLongshoting && (!mLongshotActive)) {
+                                    image.close();
+                                    return;
+                                }
+                                if (mSettingsManager.getSavePictureFormat() == SettingsManager.HEIF_FORMAT) {
                                     image.close();
                                     return;
                                 }
@@ -2660,6 +2713,12 @@ public class CaptureModule implements CameraModule, PhotoController,
     private void createVideoSnapshotImageReader() {
         if (mVideoSnapshotImageReader != null) {
             mVideoSnapshotImageReader.close();
+        }
+        if (mSettingsManager.getSavePictureFormat() == SettingsManager.HEIF_FORMAT) {
+            String tmpPath = mActivity.getCacheDir().getPath() + "/" + "liveshot_heif.tmp";
+            mLiveShotInitHeifWriter = createHEIFEncoder(tmpPath,mVideoSize.getWidth(),
+                    mVideoSize.getHeight(),0, 85);
+            return;
         }
         mVideoSnapshotImageReader = ImageReader.newInstance(mVideoSnapshotSize.getWidth(),
                 mVideoSnapshotSize.getHeight(), ImageFormat.JPEG, 2);
@@ -2941,6 +3000,8 @@ public class CaptureModule implements CameraModule, PhotoController,
     }
 
     private void applySettingsForJpegInformation(CaptureRequest.Builder builder, int id) {
+        if (mSettingsManager.getSavePictureFormat() == SettingsManager.HEIF_FORMAT)
+            return;
         Location location = mLocationManager.getCurrentLocation();
         if(location != null) {
             // make copy so that we don't alter the saved location since we may re-use it
@@ -4220,7 +4281,16 @@ public class CaptureModule implements CameraModule, PhotoController,
             List<Surface> outputSurfaces, CameraCaptureSession.StateCallback listener,
             Handler handler, CaptureRequest initialRequest) throws CameraAccessException {
         List<OutputConfiguration> outConfigurations = new ArrayList<>(outputSurfaces.size());
-        outputSurfaces.add(mVideoSnapshotImageReader.getSurface());
+        if (mSettingsManager.getSavePictureFormat() == SettingsManager.HEIF_FORMAT &&
+                mLiveShotInitHeifWriter != null) {
+            mLiveShotOutput = new OutputConfiguration(
+                    mLiveShotInitHeifWriter.getInputSurface());
+            mLiveShotOutput.enableSurfaceSharing();
+            outConfigurations.add(mLiveShotOutput);
+        } else {
+            outputSurfaces.add(mVideoSnapshotImageReader.getSurface());
+        }
+
         for (Surface surface : outputSurfaces) {
             outConfigurations.add(new OutputConfiguration(surface));
         }
@@ -4272,6 +4342,13 @@ public class CaptureModule implements CameraModule, PhotoController,
         List<OutputConfiguration> outConfigurations = new ArrayList<>(outputSurfaces.size());
         for (Surface surface : outputSurfaces) {
             outConfigurations.add(new OutputConfiguration(surface));
+        }
+        if (mSettingsManager.getSavePictureFormat() == SettingsManager.HEIF_FORMAT &&
+                mLiveShotInitHeifWriter != null) {
+            mLiveShotOutput = new OutputConfiguration(
+                    mLiveShotInitHeifWriter.getInputSurface());
+            mLiveShotOutput .enableSurfaceSharing();
+            outConfigurations.add(mLiveShotOutput);
         }
         Method method_setSessionParameters = null;
         Method method_createCaptureSession = null;
@@ -4379,6 +4456,7 @@ public class CaptureModule implements CameraModule, PhotoController,
                 mVideoRequestBuilder.set(CaptureRequest.CONTROL_AE_TARGET_FPS_RANGE,
                         mHighSpeedFPSRange);
             }
+
 
             if (ApiHelper.isAndroidPOrHigher()) {
                 if (mHighSpeedCapture && ((int) mHighSpeedFPSRange.getUpper() > NORMAL_SESSION_MAX_FPS)) {
@@ -4908,6 +4986,9 @@ public class CaptureModule implements CameraModule, PhotoController,
         setEndOfStream(false, true);
         mFrameProcessor.setVideoOutputSurface(null);
         mFrameProcessor.onClose();
+        if (mLiveShotInitHeifWriter != null) {
+            mLiveShotInitHeifWriter.close();
+        }
         closePreviewSession();
         try {
             mMediaRecorder.setOnErrorListener(null);
