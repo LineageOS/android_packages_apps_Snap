@@ -463,6 +463,13 @@ public class CaptureModule implements CameraModule, PhotoController,
     private boolean mSaveRaw = false;
     private boolean mSupportZoomCapture = true;
 
+    private int mLastAeState = -1;
+    private int mLastAfState = -1;
+    private boolean mIsCanceled = false;
+    private boolean mIsAutoFocusStarted = false;
+    private boolean mIsAutoFlash = false;
+    private int mSetAePrecaptureTriggerIdel = 0;
+
     /**
      * A {@link CameraCaptureSession } for camera preview.
      */
@@ -994,13 +1001,13 @@ public class CaptureModule implements CameraModule, PhotoController,
     };
 
     private void updateCaptureStateMachine(int id, CaptureResult result) {
+        Integer afState = result.get(CaptureResult.CONTROL_AF_STATE);
+        Integer aeState = result.get(CaptureResult.CONTROL_AE_STATE);
         switch (mState[id]) {
             case STATE_PREVIEW: {
                 break;
             }
             case STATE_WAITING_AF_LOCK: {
-                Integer afState = result.get(CaptureResult.CONTROL_AF_STATE);
-                Integer aeState = result.get(CaptureResult.CONTROL_AE_STATE);
                 Log.d(TAG, "STATE_WAITING_AF_LOCK id: " + id + " afState:" + afState + " aeState:" + aeState);
 
                 // AF_PASSIVE is added for continous auto focus mode
@@ -1037,8 +1044,6 @@ public class CaptureModule implements CameraModule, PhotoController,
             }
             case STATE_WAITING_PRECAPTURE: {
                 // CONTROL_AE_STATE can be null on some devices
-                Integer afState = result.get(CaptureResult.CONTROL_AF_STATE);
-                Integer aeState = result.get(CaptureResult.CONTROL_AE_STATE);
                 Log.d(TAG, "STATE_WAITING_PRECAPTURE id: " + id + " afState: " + afState + " aeState:" + aeState);
                 if (aeState == null ||
                         aeState == CaptureResult.CONTROL_AE_STATE_PRECAPTURE ||
@@ -1064,8 +1069,6 @@ public class CaptureModule implements CameraModule, PhotoController,
             }
             case STATE_WAITING_AE_LOCK: {
                 // CONTROL_AE_STATE can be null on some devices
-                Integer afState = result.get(CaptureResult.CONTROL_AF_STATE);
-                Integer aeState = result.get(CaptureResult.CONTROL_AE_STATE);
                 Log.d(TAG, "STATE_WAITING_AE_LOCK id: " + id + " afState: " + afState + " aeState:" + aeState);
                 if (aeState == null || aeState == CaptureResult.CONTROL_AE_STATE_LOCKED) {
                     checkAfAeStatesAndCapture(id);
@@ -1073,15 +1076,44 @@ public class CaptureModule implements CameraModule, PhotoController,
                 break;
             }
             case STATE_AF_AE_LOCKED: {
-                Integer afState = result.get(CaptureResult.CONTROL_AF_STATE);
-                Integer aeState = result.get(CaptureResult.CONTROL_AE_STATE);
                 Log.d(TAG, "STATE_AF_AE_LOCKED id: " + id + " afState:" + afState + " aeState:" + aeState);
                 break;
             }
             case STATE_WAITING_TOUCH_FOCUS: {
-                Integer afState = result.get(CaptureResult.CONTROL_AF_STATE);
-                Integer aeState = result.get(CaptureResult.CONTROL_AE_STATE);
                 Log.d(TAG, "STATE_WAITING_TOUCH_FOCUS id: " + id + " afState:" + afState + " aeState:" + aeState);
+                try {
+                    if (mIsAutoFocusStarted) {
+                        if (mIsCanceled && mSetAePrecaptureTriggerIdel == 1) {
+                            Log.i(TAG, "STATE_WAITING_TOUCH_FOCUS SET CONTROL_AE_PRECAPTURE_TRIGGER_IDLE");
+                            mPreviewRequestBuilder[id].set(
+                                    CaptureRequest.CONTROL_AE_PRECAPTURE_TRIGGER,
+                                    CaptureRequest.CONTROL_AE_PRECAPTURE_TRIGGER_IDLE);
+                            mCaptureSession[id].setRepeatingRequest(
+                                    mPreviewRequestBuilder[id].build(), mCaptureCallback,
+                                    mCameraHandler);
+                            mSetAePrecaptureTriggerIdel = 0;
+                        }
+                        if (mPreviewRequestBuilder[id] != null && mLastAeState != -1
+                                && (mLastAeState == CaptureResult.CONTROL_AE_STATE_PRECAPTURE
+                                && (aeState == CaptureResult.CONTROL_AE_STATE_FLASH_REQUIRED
+                                || aeState == CaptureResult.CONTROL_AE_STATE_CONVERGED))
+                                && mIsAutoFlash
+                                && !mIsCanceled) {
+
+                            Log.i(TAG, "SET CONTROL_AE_PRECAPTURE_TRIGGER_CANCEL START");
+                            mPreviewRequestBuilder[id].set(CaptureRequest.CONTROL_AE_PRECAPTURE_TRIGGER,
+                                    CaptureRequest.CONTROL_AE_PRECAPTURE_TRIGGER_CANCEL);
+                            mCaptureSession[id].setRepeatingRequest(mPreviewRequestBuilder[id].build(),
+                                    mCaptureCallback, mCameraHandler);
+                            mSetAePrecaptureTriggerIdel++;
+                            mIsCanceled = true;
+                            Log.i(TAG, "SET CONTROL_AE_PRECAPTURE_TRIGGER_CANCEL END");
+
+                        }
+                    }
+                } catch (CameraAccessException e) {
+                    e.printStackTrace();
+                }
                 break;
             }
             case STATE_WAITING_AF_LOCKING: {
@@ -1089,18 +1121,14 @@ public class CaptureModule implements CameraModule, PhotoController,
                 break;
             }
             case STATE_WAITING_AF_AE_LOCK: {
-                Integer afState = result.get(CaptureResult.CONTROL_AF_STATE);
-                Integer aeState = result.get(CaptureResult.CONTROL_AE_STATE);
                 Log.d(TAG, "STATE_WAITING_AF_AE_LOCK id: " + id + " afState: " + afState +
                         " aeState:" + aeState);
-
                 if ((aeState == null || aeState == CaptureResult.CONTROL_AE_STATE_CONVERGED)) {
                     if (isFlashOn(id)) {
                         // if flash is on and AE state is CONVERGED then lock AE
                         lockExposure(id);
                     }
                 }
-
                 if ((CaptureResult.CONTROL_AF_STATE_FOCUSED_LOCKED == afState ||
                         CaptureResult.CONTROL_AF_STATE_NOT_FOCUSED_LOCKED == afState) &&
                         (aeState == null || aeState == CaptureResult.CONTROL_AE_STATE_LOCKED)) {
@@ -1109,6 +1137,7 @@ public class CaptureModule implements CameraModule, PhotoController,
                 break;
             }
         }
+        mLastAeState = aeState;
     }
 
     private void checkAfAeStatesAndCapture(int id) {
@@ -2086,6 +2115,8 @@ public class CaptureModule implements CameraModule, PhotoController,
             addPreviewSurface(builder, null, id);
 
             mControlAFMode = CaptureRequest.CONTROL_AF_MODE_AUTO;
+            mIsAutoFocusStarted = true;
+            mIsCanceled = false;
             applySettingsForAutoFocus(builder, id);
             builder.set(CaptureRequest.CONTROL_AF_MODE, CaptureRequest.CONTROL_AF_MODE_AUTO);
             mState[id] = STATE_WAITING_TOUCH_FOCUS;
@@ -2806,6 +2837,7 @@ public class CaptureModule implements CameraModule, PhotoController,
                 });
             }
             mControlAFMode = CaptureRequest.CONTROL_AF_MODE_CONTINUOUS_PICTURE;
+            mIsAutoFocusStarted = false;
             applyFlash(mPreviewRequestBuilder[id], id);
             applySettingsForUnlockExposure(mPreviewRequestBuilder[id], id);
             if (mSettingsManager.isDeveloperEnabled()) {
@@ -4455,6 +4487,7 @@ public class CaptureModule implements CameraModule, PhotoController,
             mCameraHandler.removeMessages(CANCEL_TOUCH_FOCUS, mCameraId[cameraId]);
             mState[cameraId] = STATE_PREVIEW;
             mControlAFMode = CaptureRequest.CONTROL_AF_MODE_CONTINUOUS_PICTURE;
+            mIsAutoFocusStarted = false;
             closePreviewSession();
             mFrameProcessor.onClose();
 
@@ -6213,6 +6246,7 @@ public class CaptureModule implements CameraModule, PhotoController,
     private void applyFlash(CaptureRequest.Builder request, String value) {
         if(DEBUG) Log.d(TAG, "applyFlash: " + value);
         String redeye = mSettingsManager.getValue(SettingsManager.KEY_REDEYE_REDUCTION);
+        mIsAutoFlash = false;
         if (redeye != null && redeye.equals("on") && !mLongshotActive) {
             request.set(CaptureRequest.CONTROL_AE_MODE,
                     CaptureRequest.CONTROL_AE_MODE_ON_AUTO_FLASH_REDEYE);
@@ -6229,6 +6263,7 @@ public class CaptureModule implements CameraModule, PhotoController,
                     }
                     break;
                 case "auto":
+                    mIsAutoFlash = true;
                     if (isCaptureBrust) {
                         // When long shot is active, turn off the flash in auto mode
                         request.set(CaptureRequest.CONTROL_AE_MODE, CaptureRequest.CONTROL_AE_MODE_ON);
@@ -6263,6 +6298,7 @@ public class CaptureModule implements CameraModule, PhotoController,
         String value = mSettingsManager.getValue(SettingsManager.KEY_FLASH_MODE);
 
         boolean isCaptureBrust = isCaptureBrustMode();
+        mIsAutoFlash = false;
         switch (value) {
             case "on":
                 if (isCaptureBrust) {
@@ -6274,6 +6310,7 @@ public class CaptureModule implements CameraModule, PhotoController,
                 }
                 break;
             case "auto":
+                mIsAutoFlash = true;
                 if (isCaptureBrust) {
                     // When long shot is active, turn off the flash in auto mode
                     request.set(CaptureRequest.CONTROL_AE_MODE, CaptureRequest.CONTROL_AE_MODE_ON);
@@ -6412,6 +6449,7 @@ public class CaptureModule implements CameraModule, PhotoController,
         mInTAF = false;
         mState[id] = STATE_PREVIEW;
         mControlAFMode = CaptureRequest.CONTROL_AF_MODE_CONTINUOUS_PICTURE;
+        mIsAutoFocusStarted = false;
         setAFModeToPreview(id, mControlAFMode);
     }
 
