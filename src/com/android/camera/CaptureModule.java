@@ -542,7 +542,7 @@ public class CaptureModule implements CameraModule, PhotoController,
     private static final int STATS_DATA = 768;
     public static int statsdata[] = new int[STATS_DATA];
 
-    public static int statsview_scale = 1;
+    private boolean mInTAF = false;
 
     // BG stats
     private static final int BGSTATS_DATA = 64*48;
@@ -2051,6 +2051,7 @@ public class CaptureModule implements CameraModule, PhotoController,
         if (null == mActivity || null == mCameraDevice[id]
                 || !checkSessionAndBuilder(mCaptureSession[id], mPreviewRequestBuilder[id])) {
             warningToast("Camera is not ready yet to take a picture.");
+            mInTAF = false;
             return;
         }
         try {
@@ -3640,9 +3641,8 @@ public class CaptureModule implements CameraModule, PhotoController,
         mUI.setFocusPosition(x, y);
         x = newXY[0];
         y = newXY[1];
-        if (!mIsDepthFocus) {
-            mUI.onFocusStarted();
-        }
+        mInTAF = true;
+        mUI.onFocusStarted();
         if (isBackCamera()) {
             switch (getCameraMode()) {
                 case DUAL_MODE:
@@ -6222,6 +6222,7 @@ public class CaptureModule implements CameraModule, PhotoController,
         }
         if (mCropRegion[id] == null) {
             Log.d(TAG, "crop region is null at " + id);
+            mInTAF = false;
             return;
         }
         Point p = mUI.getSurfaceViewSize();
@@ -6251,6 +6252,7 @@ public class CaptureModule implements CameraModule, PhotoController,
         if (DEBUG) {
             Log.v(TAG, "cancelTouchFocus " + id);
         }
+        mInTAF = false;
         mState[id] = STATE_PREVIEW;
         mControlAFMode = CaptureRequest.CONTROL_AF_MODE_CONTINUOUS_PICTURE;
         setAFModeToPreview(id, mControlAFMode);
@@ -6305,31 +6307,33 @@ public class CaptureModule implements CameraModule, PhotoController,
     }
 
     private void updateFocusStateChange(CaptureResult result) {
-        final Integer resultAFState = result.get(CaptureResult.CONTROL_AF_STATE);
+        Integer resultAFState = result.get(CaptureResult.CONTROL_AF_STATE);
         if (resultAFState == null) return;
         try {
             Byte isDepthFocus = result.get(CaptureModule.is_depth_focus);
-            if(DEBUG) Log.d(TAG, "isDepthFocus is " + isDepthFocus);
-            if (isDepthFocus != null && isDepthFocus == 1) {
-                mIsDepthFocus = true;
-            } else {
-                mIsDepthFocus = false;
+            if (isDepthFocus != null) {
+                if (isDepthFocus == 1) {
+                    mIsDepthFocus = true;
+                } else {
+                    mIsDepthFocus = false;
+                }
             }
+            if(DEBUG) Log.d(TAG, "isDepthFocus is " + mIsDepthFocus + ", inTAF is " + mInTAF);
         } catch (IllegalArgumentException e) {
             mIsDepthFocus = false;
             if (DEBUG) e.printStackTrace();
         }
 
-        // If focus started then don't return
-        if (mIsDepthFocus && mLastResultAFState == CaptureResult.CONTROL_AF_STATE_INACTIVE) {
-            return;
+        if (mIsDepthFocus && !mInTAF) {
+            resultAFState = CaptureResult.CONTROL_AF_STATE_INACTIVE;
         }
+        final Integer afState = resultAFState;
         // Report state change when AF state has changed.
         if (resultAFState != mLastResultAFState && mFocusStateListener != null) {
             mActivity.runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    mFocusStateListener.onFocusStatusUpdate(resultAFState);
+                    mFocusStateListener.onFocusStatusUpdate(afState);
                 }
             });
         }
