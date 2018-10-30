@@ -757,6 +757,10 @@ public class SettingsManager implements ListMenu.SettingsListener {
                 removePreference(mPreferenceGroup, KEY_VIDEO_FLASH_MODE);
                 mFilteredKeys.add(flashMode.getKey());
             }
+            // Front Camera does not support video
+            if (mCameraId == CaptureModule.FRONT_ID) {
+                removePreference(mPreferenceGroup, KEY_VIDEO_FLASH_MODE);
+            }
         }
 
         if (bsgc != null) {
