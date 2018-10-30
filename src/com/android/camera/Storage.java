@@ -146,6 +146,8 @@ public class Storage {
 
             if (mimeType.equalsIgnoreCase("heif")){
                 values.put(ImageColumns.DISPLAY_NAME, title + ".heic");
+            } else if(mimeType.equalsIgnoreCase("heifs")){
+                values.put(ImageColumns.DISPLAY_NAME, title + ".heics");
             } else {
                 values.put(ImageColumns.DISPLAY_NAME, title + ".jpg");
             }
@@ -271,10 +273,13 @@ public class Storage {
 
     public static String generateFilepath(String title, String pictureFormat) {
         if (pictureFormat == null || pictureFormat.equalsIgnoreCase("jpeg")
-                || pictureFormat.equalsIgnoreCase("heif")) {
+                || pictureFormat.equalsIgnoreCase("heif")
+                || pictureFormat.equalsIgnoreCase("heifs")) {
             String suffix = ".jpg";
             if (pictureFormat.equalsIgnoreCase("heif")) {
                 suffix = ".heic";
+            }else if(pictureFormat.equalsIgnoreCase("heifs")) {
+                suffix = ".heics";
             }
             if (isSaveSDCard() && SDCard.instance().isWriteable()) {
                 return SDCard.instance().getDirectory() + '/' + title + suffix;
