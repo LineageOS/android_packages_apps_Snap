@@ -570,6 +570,7 @@ public class SettingsManager implements ListMenu.SettingsListener {
     }
 
     public String getValue(String key) {
+        if (mValuesMap == null) return null;
         Values values = mValuesMap.get(key);
         if (values == null) return null;
         if (values.overriddenValue == null) return values.value;
