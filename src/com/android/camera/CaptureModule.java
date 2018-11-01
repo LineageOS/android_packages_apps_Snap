@@ -63,9 +63,13 @@ import android.media.EncoderCapabilities.VideoEncoderCap;
 import android.media.Image;
 import android.media.ImageReader;
 import android.media.MediaActionSound;
+import android.media.MediaFormat;
 import android.media.MediaMetadataRetriever;
 import android.media.MediaRecorder;
 import android.media.MediaCodecInfo;
+import android.media.MediaCodecInfo.CodecCapabilities;
+import android.media.MediaCodecInfo.VideoCapabilities;
+import android.media.MediaCodecList;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -4941,6 +4945,41 @@ public class CaptureModule implements CameraModule, PhotoController,
         mCurrentVideoValues = null;
     }
 
+    private void updateBitrateForNonHFR(int videoEncoder, int bitRate, int height, int width) {
+        MediaCodecList allCodecs = new MediaCodecList(MediaCodecList.ALL_CODECS);
+        for (MediaCodecInfo info : allCodecs.getCodecInfos()) {
+            if (!info.isEncoder() || info.getName().contains("google")) continue;
+            for (String type : info.getSupportedTypes()) {
+                if ((videoEncoder == MediaRecorder.VideoEncoder.MPEG_4_SP && type.equalsIgnoreCase(MediaFormat.MIMETYPE_VIDEO_MPEG4))
+                        || (videoEncoder == MediaRecorder.VideoEncoder.H263 && type.equalsIgnoreCase(MediaFormat.MIMETYPE_VIDEO_H263))
+                        || (videoEncoder == MediaRecorder.VideoEncoder.H264 && type.equalsIgnoreCase(MediaFormat.MIMETYPE_VIDEO_AVC))
+                        || (videoEncoder == MediaRecorder.VideoEncoder.HEVC && type.equalsIgnoreCase(MediaFormat.MIMETYPE_VIDEO_HEVC)))
+                {
+                    CodecCapabilities codecCapabilities = info.getCapabilitiesForType(type);
+                    VideoCapabilities videoCapabilities = codecCapabilities.getVideoCapabilities();
+                    try {
+                        if (videoCapabilities != null) {
+                            Log.d(TAG, "updateBitrate type is " + type + " " + info.getName());
+                            long maxBitRate = videoCapabilities.getBitrateRange().getUpper().intValue();
+                            int maxWidth = videoCapabilities.getSupportedWidths().getUpper().intValue();
+                            int maxHeight = videoCapabilities.getSupportedHeights().getUpper().intValue();
+                            Log.d(TAG, "updateBitrate size is " + width + "x" + height);
+                            int adjustedBitRate = (int) (maxBitRate * width * height / (maxWidth * maxHeight));
+                            Log.d(TAG, "updateBitrate maxBitRate is " + maxBitRate + ", profileBitRate is " + bitRate
+                                    + ", adjustedBitRate is " + adjustedBitRate);
+                            mMediaRecorder.setVideoEncodingBitRate(Math.min(bitRate, adjustedBitRate));
+                            return;
+                        }
+                    } catch (IllegalArgumentException e) {
+
+                    }
+                }
+            }
+        }
+        Log.i(TAG, "updateBitrate video bitrate: "+ bitRate);
+        mMediaRecorder.setVideoEncodingBitRate(bitRate);
+    }
+
     private void setUpMediaRecorder(int cameraId) throws IOException {
         Log.d(TAG, "setUpMediaRecorder");
         String videoSize = mSettingsManager.getValue(SettingsManager.KEY_VIDEO_QUALITY);
@@ -5029,7 +5068,9 @@ public class CaptureModule implements CameraModule, PhotoController,
             mMediaRecorder.setOutputFile(fileName);
         }
         mMediaRecorder.setVideoFrameRate(mProfile.videoFrameRate);
-        mMediaRecorder.setVideoEncodingBitRate(mProfile.videoBitRate);
+        if (!mHighSpeedCapture) {
+            updateBitrateForNonHFR(videoEncoder, mProfile.videoBitRate, videoHeight, videoWidth);
+        }
         if(mFrameProcessor.isFrameFilterEnabled()) {
             mMediaRecorder.setVideoSize(mProfile.videoFrameHeight, mProfile.videoFrameWidth);
         } else {
@@ -5044,7 +5085,6 @@ public class CaptureModule implements CameraModule, PhotoController,
         }
         mMediaRecorder.setMaxDuration(mMaxVideoDurationInMs);
 
-        Log.i(TAG, "Profile video bitrate: "+ mProfile.videoBitRate);
         Log.i(TAG, "Profile video frame rate: "+ mProfile.videoFrameRate);
         if (mCaptureTimeLapse) {
             double fps = 1000 / (double) mTimeBetweenTimeLapseFrameCaptureMs;
