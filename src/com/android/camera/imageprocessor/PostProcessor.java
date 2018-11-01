@@ -454,6 +454,8 @@ public class PostProcessor{
     }
 
     public boolean takeZSLPicture() {
+        if (mZSLQueue == null)
+            return false;
         mController.setJpegImageData(null);
         ZSLQueue.ImageItem imageItem = mZSLQueue.tryToGetMatchingItem();
         if(mController.getPreviewCaptureResult() == null ||
