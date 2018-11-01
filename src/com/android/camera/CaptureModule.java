@@ -4839,6 +4839,7 @@ public class CaptureModule implements CameraModule, PhotoController,
                     //is pause record
                     mMediaRecorder.pause();
                     captureRequestBuilder = mVideoPausePreviewRequestBuilder;
+                    applyVideoCommentSettings(captureRequestBuilder, getMainCameraId());
                 }
             }
 
