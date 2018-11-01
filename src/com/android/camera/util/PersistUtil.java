@@ -47,7 +47,7 @@ public class PersistUtil {
     private static final boolean PERSIST_SKIP_MEMORY_CHECK =
             SystemProperties.getBoolean("persist.sys.camera.perf.skip_memck", false);
     private static final int PERSIST_LONGSHOT_SHOT_LIMIT =
-            SystemProperties.getInt("persist.sys.camera.longshot.shotnum", 30);
+            SystemProperties.getInt("persist.sys.camera.longshot.shotnum", 60);
     private static final String PERSIST_CAMERA_PREVIEW_SIZE =
             SystemProperties.get("persist.sys.camera.preview.size", "");
     private static final String PERSIST_CAMERA_VIDEO_SIZE =
