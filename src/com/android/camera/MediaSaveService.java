@@ -19,6 +19,7 @@ package com.android.camera;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.IOException;
 import java.nio.ByteOrder;
 
 import android.app.Service;
@@ -50,6 +51,8 @@ import org.codeaurora.snapcam.filter.GImage;
 
 import com.adobe.xmp.XMPException;
 import com.adobe.xmp.XMPMeta;
+
+import androidx.heifwriter.HeifWriter;
 
 
 /*
