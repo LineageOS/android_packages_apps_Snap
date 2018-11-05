@@ -437,6 +437,7 @@ public class CaptureModule implements CameraModule, PhotoController,
     private SettingsManager mSettingsManager;
     private long SECONDARY_SERVER_MEM;
     private boolean mLongshotActive = false;
+    private long mLastLongshotTimestamp = 0;
     private CameraCharacteristics mMainCameraCharacteristics;
     private int mDisplayRotation;
     private int mDisplayOrientation;
@@ -2294,6 +2295,9 @@ public class CaptureModule implements CameraModule, PhotoController,
                     long timestamp, long frameNumber) {
                 mLongshoting = true;
                 mNumFramesArrived.incrementAndGet();
+                if(mNumFramesArrived.get() == mShotNum) {
+                    mLastLongshotTimestamp = timestamp;
+                }
                 Log.d(TAG, "captureStillPictureForLongshot onCaptureStarted: " + mNumFramesArrived.get());
                 if (mNumFramesArrived.get() >= mShotNum) {
                     mLongshotActive = false;
@@ -2649,7 +2653,8 @@ public class CaptureModule implements CameraModule, PhotoController,
                                 }
                                 Log.d(TAG, "image available for cam: " + mCamId);
                                 Image image = reader.acquireNextImage();
-                                if (mLongshoting && (!mLongshotActive)) {
+                                if (mLongshoting && (!mLongshotActive) &&
+                                        image.getTimestamp() > mLastLongshotTimestamp) {
                                     image.close();
                                     return;
                                 }
