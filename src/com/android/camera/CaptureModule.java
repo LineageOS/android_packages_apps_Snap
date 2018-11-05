@@ -1849,10 +1849,11 @@ public class CaptureModule implements CameraModule, PhotoController,
     private void takePicture() {
         Log.d(TAG, "takePicture");
         mUI.enableShutter(false);
-        if (mSettingsManager.isZSLInHALEnabled()&&
-                !isFlashOn(getMainCameraId())&&
+        if ((mSettingsManager.isZSLInHALEnabled() &&
+                !isFlashOn(getMainCameraId()) &&
                 mPreviewCaptureResult.get(CaptureResult.CONTROL_AE_STATE) !=
-                        CameraMetadata.CONTROL_AE_STATE_FLASH_REQUIRED) {
+                     CameraMetadata.CONTROL_AE_STATE_FLASH_REQUIRED) ||
+                isActionImageCapture()) {
             takeZSLPictureInHAL();
         } else {
             if (isBackCamera()) {
@@ -1893,6 +1894,10 @@ public class CaptureModule implements CameraModule, PhotoController,
                 lockFocus(cameraId);
             }
         }
+    }
+
+    private boolean isActionImageCapture() {
+        return mIntentMode == INTENT_MODE_CAPTURE;
     }
 
     private boolean takeZSLPicture(int cameraId) {
@@ -2143,7 +2148,7 @@ public class CaptureModule implements CameraModule, PhotoController,
             CaptureRequest.Builder captureBuilder =
                     mCameraDevice[id].createCaptureRequest(CameraDevice.TEMPLATE_STILL_CAPTURE);
 
-            if(mSettingsManager.isZSLInHALEnabled()) {
+            if(mSettingsManager.isZSLInHALEnabled() ||  isActionImageCapture() ) {
                 captureBuilder.set(CaptureRequest.CONTROL_ENABLE_ZSL, true);
             }else{
                 captureBuilder.set(CaptureRequest.CONTROL_ENABLE_ZSL, false);
@@ -3401,6 +3406,10 @@ public class CaptureModule implements CameraModule, PhotoController,
         } else if(mPostProcessor.isFilterOn() || getFrameFilters().size() != 0 || mPostProcessor.isSelfieMirrorOn()) {
             mChosenImageFormat = ImageFormat.YUV_420_888;
         } else {
+            mChosenImageFormat = ImageFormat.JPEG;
+        }
+        // if intent action is ACTION_IMAGE_CAPTURE, use HAL-ZSL to capture
+        if (isActionImageCapture()) {
             mChosenImageFormat = ImageFormat.JPEG;
         }
         setUpCameraOutputs(mChosenImageFormat);
