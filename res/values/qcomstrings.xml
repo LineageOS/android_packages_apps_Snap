@@ -1012,7 +1012,7 @@
 
     <string name="pref_camera2_makeup_title" translatable="true">Makeup</string>
 
-    <string name="pref_camera2_noise_reduction_default" translatable="false">off</string>
+    <string name="pref_camera2_noise_reduction_default" translatable="false">high-quality</string>
     <string name="pref_camera2_noise_reduction_title" translatable="true">Noise Reduction</string>
 
     <string name="pref_camera2_noise_reduction_entry_off" translatable="true">@string/pref_camera_noise_reduction_entry_off</string>
