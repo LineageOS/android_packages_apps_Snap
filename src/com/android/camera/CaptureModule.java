@@ -390,6 +390,8 @@ public class CaptureModule implements CameraModule, PhotoController,
             new CaptureResult.Key<>("org.quic.camera.isDepthFocus.isDepthFocus", byte.class);
     private static final CaptureRequest.Key<Byte> capture_burst_fps =
             new CaptureRequest.Key<>("org.quic.camera.BurstFPS.burstfps", byte.class);
+    private static final CaptureRequest.Key<Byte> custom_noise_reduction =
+            new CaptureRequest.Key<>("org.quic.camera.CustomNoiseReduction.CustomNoiseReduction", byte.class);
 
     private boolean mIsDepthFocus = false;
     private boolean[] mTakingPicture = new boolean[MAX_NUM_CAM];
@@ -4631,11 +4633,19 @@ public class CaptureModule implements CameraModule, PhotoController,
     }
 
     private void applyCaptureMFNR(CaptureRequest.Builder builder) {
-        int noiseReduMode = (isMFNREnabled() ? CameraMetadata.NOISE_REDUCTION_MODE_HIGH_QUALITY :
+        boolean isMfnrEnable = isMFNREnabled();
+        int noiseReduMode = (isMfnrEnable ? CameraMetadata.NOISE_REDUCTION_MODE_HIGH_QUALITY :
                 CameraMetadata.NOISE_REDUCTION_MODE_ZERO_SHUTTER_LAG);
-        Log.v(TAG, "applyCaptureMFNR mfnrEnable :" + isMFNREnabled() + ", noiseReduMode :"
+        Log.v(TAG, "applyCaptureMFNR mfnrEnable :" + isMfnrEnable + ", noiseReduMode :"
                 + noiseReduMode);
         builder.set(CaptureRequest.NOISE_REDUCTION_MODE, noiseReduMode);
+        if (isMfnrEnable) {
+            try {
+                builder.set(custom_noise_reduction, (byte)0x01);
+            } catch (IllegalArgumentException e) {
+                Log.w(TAG, "cannot find vendor tag: " + custom_noise_reduction.toString());
+            }
+        }
     }
 
     private void applyCaptureBurstFps(CaptureRequest.Builder builder) {
