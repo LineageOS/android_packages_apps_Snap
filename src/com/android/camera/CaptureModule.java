@@ -494,9 +494,9 @@ public class CaptureModule implements CameraModule, PhotoController,
      */
     private ImageReader[] mImageReader = new ImageReader[MAX_NUM_CAM];
     private ImageReader[] mRawImageReader = new ImageReader[MAX_NUM_CAM];
-    private Surface mHeifInput;
-    private HeifWriter mHeifWriter;
-    private String mHeifPath;
+    private HeifWriter mInitHeifWriter;
+    private OutputConfiguration mHeifOutput;
+    private HeifImage mHeifImage;
     private NamedImages mNamedImages;
     private ContentResolver mContentResolver;
     private byte[] mLastJpegData;
@@ -1571,9 +1571,17 @@ public class CaptureModule implements CameraModule, PhotoController,
                 if (mSaveRaw) {
                     list.add(mRawImageReader[id].getSurface());
                 }
+
+                List<OutputConfiguration> outputConfigurations = null;
                 if (mSettingsManager.getSavePictureFormat() == SettingsManager.HEIF_FORMAT ) {
-                    if (mHeifWriter != null && mHeifInput != null) {
-                        list.add(mHeifInput);
+                    outputConfigurations = new ArrayList<OutputConfiguration>();
+                    if (mInitHeifWriter != null) {
+                        for (Surface s : list) {
+                            outputConfigurations.add(new OutputConfiguration(s));
+                        }
+                        mHeifOutput = new OutputConfiguration(mInitHeifWriter.getInputSurface());
+                        mHeifOutput.enableSurfaceSharing();
+                        outputConfigurations.add(mHeifOutput);
                     }
                 }
                 if(mChosenImageFormat == ImageFormat.YUV_420_888 || mChosenImageFormat == ImageFormat.PRIVATE) {
@@ -1586,10 +1594,22 @@ public class CaptureModule implements CameraModule, PhotoController,
                         mCameraDevice[id].createReprocessableCaptureSession(new InputConfiguration(mImageReader[id].getWidth(),
                                 mImageReader[id].getHeight(), mImageReader[id].getImageFormat()), list, captureSessionCallback, null);
                     } else {
-                        mCameraDevice[id].createCaptureSession(list, captureSessionCallback, null);
+                        if (mSettingsManager.getSavePictureFormat() == SettingsManager.HEIF_FORMAT &&
+                                outputConfigurations != null) {
+                            mCameraDevice[id].createCaptureSessionByOutputConfigurations(outputConfigurations,
+                                    captureSessionCallback,null);
+                        } else {
+                            mCameraDevice[id].createCaptureSession(list, captureSessionCallback, null);
+                        }
                     }
                 } else {
-                    mCameraDevice[id].createCaptureSession(list, captureSessionCallback, null);
+                    if (mSettingsManager.getSavePictureFormat() == SettingsManager.HEIF_FORMAT &&
+                            outputConfigurations != null) {
+                        mCameraDevice[id].createCaptureSessionByOutputConfigurations(outputConfigurations,
+                                captureSessionCallback, null);
+                    } else {
+                        mCameraDevice[id].createCaptureSession(list, captureSessionCallback, null);
+                    }
                 }
             } else {
                 if (surface != null) {
@@ -2147,11 +2167,26 @@ public class CaptureModule implements CameraModule, PhotoController,
                 }
 
                 if (mSettingsManager.getSavePictureFormat() == SettingsManager.HEIF_FORMAT) {
-                    if (mHeifWriter != null && mHeifInput != null) {
-                        captureBuilder.addTarget(mHeifInput);
+                    long captureTime = System.currentTimeMillis();
+                    mNamedImages.nameNewImage(captureTime);
+                    NamedEntity name = mNamedImages.getNextNameEntity();
+                    String title = (name == null) ? null : name.title;
+                    long date = (name == null) ? -1 : name.date;
+                    String path = Storage.generateFilepath(title, "heif");
+                    String value = mSettingsManager.getValue(SettingsManager.KEY_JPEG_QUALITY);
+                    int quality = getQualityNumber(value);
+                    int orientation = CameraUtil.getJpegRotation(id,mOrientation);
+                    HeifWriter writer = createHEIFEncoder(path,mPictureSize.getWidth(),mPictureSize.getHeight(),
+                            orientation,quality);
+                    if (writer != null) {
+                        mHeifImage = new HeifImage(writer,path,title,date,orientation,quality);
+                        Surface input = writer.getInputSurface();
+                        mHeifOutput.addSurface(input);
                         try{
-                            mHeifWriter.start();
-                        } catch (IllegalStateException e) {
+                            mCaptureSession[id].updateOutputConfiguration(mHeifOutput);
+                            captureBuilder.addTarget(input);
+                            writer.start();
+                        } catch (IllegalStateException | IllegalArgumentException e) {
                             e.printStackTrace();
                         }
                     }
@@ -2312,26 +2347,6 @@ public class CaptureModule implements CameraModule, PhotoController,
                                                CaptureRequest request,
                                                TotalCaptureResult result) {
                     Log.d(TAG, "captureStillPictureForCommon onCaptureCompleted: " + id);
-
-                    if (mSettingsManager.getSavePictureFormat() == SettingsManager.HEIF_FORMAT) {
-                        if (mHeifWriter != null) {
-                            try {
-                                mHeifWriter.stop(5000);
-                                mHeifWriter.close();
-                            } catch (TimeoutException | IllegalStateException e) {
-                                Log.d(TAG,"HEIF encode error ="+e.getMessage());
-                                e.printStackTrace();
-                            } catch (Exception e) {
-                                Log.d(TAG, e.toString());
-                            }
-                        }
-                        mActivity.runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
-                                restartSession(false);
-                            }
-                        });
-                    }
                 }
 
                 @Override
@@ -2345,6 +2360,24 @@ public class CaptureModule implements CameraModule, PhotoController,
                 public void onCaptureSequenceCompleted(CameraCaptureSession session, int
                         sequenceId, long frameNumber) {
                     Log.d(TAG, "captureStillPictureForCommon onCaptureSequenceCompleted: " + id);
+                    if (mSettingsManager.getSavePictureFormat() == SettingsManager.HEIF_FORMAT) {
+                        if (mHeifImage != null) {
+                            try {
+                                mHeifOutput.removeSurface(mHeifImage.getInputSurface());
+                                mCaptureSession[id].updateOutputConfiguration(mHeifOutput);
+                                mHeifImage.getWriter().stop(3000);
+                                mHeifImage.getWriter().close();
+                                mActivity.getMediaSaveService().addHEIFImage(mHeifImage.getPath(),
+                                        mHeifImage.getTitle(),mHeifImage.getDate(),null,mPictureSize.getWidth(),mPictureSize.getHeight(),
+                                        mHeifImage.getOrientation(),null,mContentResolver,mOnMediaSavedListener,mHeifImage.getQuality(),"heif");
+                                mHeifImage = null;
+                            } catch (TimeoutException | IllegalStateException e) {
+                                e.printStackTrace();
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    }
                     if (mUI.getCurrentProMode() != ProMode.MANUAL_MODE) {
                         unlockFocus(id);
                     } else {
@@ -2488,6 +2521,16 @@ public class CaptureModule implements CameraModule, PhotoController,
                 }
                 mCameraId[i] = cameraId;
 
+                //inti heifWriter and get input surface
+                if (mSettingsManager.getSavePictureFormat() == SettingsManager.HEIF_FORMAT) {
+                    String tmpPath = mActivity.getCacheDir().getPath() + "/" + "heif.tmp";
+                    if (mInitHeifWriter != null) {
+                        mInitHeifWriter.close();
+                    }
+                    mInitHeifWriter = createHEIFEncoder(tmpPath, mPictureSize.getWidth(),
+                            mPictureSize.getHeight(), 0, 85);
+                }
+
                 if (isClearSightOn()) {
                     if(i == getMainCameraId()) {
                         ClearSightImageProcessor.getInstance().init(map, mActivity,
@@ -2512,19 +2555,6 @@ public class CaptureModule implements CameraModule, PhotoController,
                         mImageReader[i].setOnImageAvailableListener(mPostProcessor.getImageHandler(), mImageAvailableHandler);
                         mPostProcessor.onImageReaderReady(mImageReader[i], mSupportedMaxPictureSize, mPictureSize);
                     } else if (i == getMainCameraId()) {
-                        if (mSettingsManager.getSavePictureFormat() == SettingsManager.HEIF_FORMAT) {
-                            long captureTime = System.currentTimeMillis();
-                            String title = String.valueOf(captureTime);
-                            String path = Storage.generateFilepath(title, "heif");
-                            String value = mSettingsManager.getValue(SettingsManager.KEY_JPEG_QUALITY);
-                            int quality = getQualityNumber(value);
-                            mHeifWriter = createHEIFEncoder(path, mPictureSize.getWidth(),
-                                    mPictureSize.getHeight(), 0, quality);
-                            if (mHeifWriter != null) {
-                                mHeifInput = mHeifWriter.getInputSurface();
-                                mHeifPath = path;
-                            }
-                        }
                         mImageReader[i] = ImageReader.newInstance(mPictureSize.getWidth(),
                                 mPictureSize.getHeight(), imageFormat, MAX_IMAGEREADERS);
 
@@ -2594,7 +2624,6 @@ public class CaptureModule implements CameraModule, PhotoController,
                                     mSupportedRawPictureSize.getHeight(), ImageFormat.RAW10, PersistUtil.getLongshotShotLimit());
                             mRawImageReader[i].setOnImageAvailableListener(listener, mImageAvailableHandler);
                         }
-
                     }
                 }
             }
@@ -2606,7 +2635,7 @@ public class CaptureModule implements CameraModule, PhotoController,
         }
     }
 
-    public HeifWriter createHEIFEncoder(String path, int width, int height,
+    public static HeifWriter createHEIFEncoder(String path, int width, int height,
                                         int orientation, int quality) {
         HeifWriter heifWriter = null;
         try {
@@ -3080,11 +3109,8 @@ public class CaptureModule implements CameraModule, PhotoController,
         if(isClearSightOn()) {
             ClearSightImageProcessor.getInstance().close();
         }
-        if (mHeifWriter != null && mHeifPath != null) {
-            mHeifWriter.close();
-            File emptyFile = new File(mHeifPath);
-            if (emptyFile.exists() && emptyFile.length() == 0)
-                emptyFile.delete();
+        if (mInitHeifWriter != null) {
+            mInitHeifWriter.close();
         }
         closeCamera();
         resetAudioMute();
@@ -6989,6 +7015,54 @@ public class CaptureModule implements CameraModule, PhotoController,
     }
     public void onRenderSurfaceDestroyed() {
         mRenderer = null;
+    }
+
+    public static class HeifImage {
+        private HeifWriter mWriter;
+        private String mPath;
+        private String mTitle;
+        private long mDate;
+        private int mQuality;
+        private int mOrientation;
+        private Surface mInputSurface;
+
+        public HeifImage(HeifWriter writer,String path,String title,long date,int orientation,int quality) {
+            mWriter = writer;
+            mPath = path;
+            mTitle = title;
+            mDate = date;
+            mQuality = quality;
+            mOrientation = orientation;
+            mInputSurface = writer.getInputSurface();
+        }
+
+        public HeifWriter getWriter() {
+            return mWriter;
+        }
+
+        public String getPath() {
+            return mPath;
+        }
+
+        public String getTitle() {
+            return mTitle;
+        }
+
+        public long getDate() {
+            return mDate;
+        }
+
+        public int getQuality() {
+            return mQuality;
+        }
+
+        public Surface getInputSurface(){
+            return mInputSurface;
+        }
+
+        public int getOrientation() {
+            return mOrientation;
+        }
     }
 }
 
