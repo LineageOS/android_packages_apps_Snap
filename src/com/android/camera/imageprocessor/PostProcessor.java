@@ -722,9 +722,6 @@ public class PostProcessor{
             mZSLQueue = new ZSLQueue(mController);
         }
         mMaxRequiredImageNum = MAX_REQUIRED_IMAGE_NUM;
-        if(mController.isLongShotSettingEnabled()) {
-            mMaxRequiredImageNum = Math.max(MAX_REQUIRED_IMAGE_NUM, PersistUtil.getLongshotShotLimit()+2);
-        }
         mPendingContinuousRequestCount = 0;
     }
 
