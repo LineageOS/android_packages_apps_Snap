@@ -207,14 +207,14 @@
             android:title="@string/pref_camera_dis_title" />
 
         <ListPreference
-            android:defaultValue="@string/pref_camera_noise_reduction_default"
+            android:defaultValue="@string/pref_camera2_noise_reduction_default"
             android:entries="@array/pref_camera2_noise_reduction_entries"
             android:entryValues="@array/pref_camera2_noise_reduction_entryvalues"
             android:icon="@drawable/noise_reduction"
             android:key="pref_camera2_noise_reduction_key"
             android:layout="@layout/preference"
             android:summary="%s"
-            android:title="@string/pref_camera_noise_reduction_title" />
+            android:title="@string/pref_camera2_noise_reduction_title" />
 
         <ListPreference
             android:defaultValue="@string/pref_camera_videoencoder_default"
