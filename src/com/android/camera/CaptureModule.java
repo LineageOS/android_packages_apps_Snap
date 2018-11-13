@@ -2703,7 +2703,7 @@ public class CaptureModule implements CameraModule, PhotoController,
 
                         if (mSaveRaw) {
                             mRawImageReader[i] = ImageReader.newInstance(mSupportedRawPictureSize.getWidth(),
-                                    mSupportedRawPictureSize.getHeight(), ImageFormat.RAW10, PersistUtil.getLongshotShotLimit());
+                                    mSupportedRawPictureSize.getHeight(), ImageFormat.RAW10, MAX_IMAGEREADERS);
                             mRawImageReader[i].setOnImageAvailableListener(listener, mImageAvailableHandler);
                         }
                     }
