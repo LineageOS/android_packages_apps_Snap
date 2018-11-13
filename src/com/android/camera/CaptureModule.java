@@ -2639,10 +2639,11 @@ public class CaptureModule implements CameraModule, PhotoController,
                         ImageAvailableListener listener = new ImageAvailableListener(i) {
                             @Override
                             public void onImageAvailable(ImageReader reader) {
-                                if (mIsSupportedQcfa || isMFNREnabled()) {
+                                if (captureWaitImageReceive()) {
                                     mHandler.post(new Runnable() {
                                         @Override
                                         public void run() {
+                                            Log.d(TAG, "image available for cam enable shutter button " );
                                             mUI.enableShutter(true);
                                         }
                                     });
@@ -2826,7 +2827,7 @@ public class CaptureModule implements CameraModule, PhotoController,
                 @Override
                 public void run() {
                     mUI.stopSelfieFlash();
-                    if (!(mIsSupportedQcfa || isMFNREnabled())) {
+                    if (!captureWaitImageReceive()) {
                         mUI.enableShutter(true);
                     }
                     if (mDeepPortraitMode) {
@@ -2848,6 +2849,22 @@ public class CaptureModule implements CameraModule, PhotoController,
             }
         }
         return mfnrEnable;
+    }
+
+    private boolean isHDREnable() {
+        boolean hdrEnable = false;
+        if (mSettingsManager != null) {
+            String value = mSettingsManager.getValue(SettingsManager.KEY_SCENE_MODE);
+            if (value != null) {
+                int mode = Integer.parseInt(value);
+                hdrEnable = (mode == CaptureRequest.CONTROL_SCENE_MODE_HDR);
+            }
+        }
+        return hdrEnable;
+    }
+
+    private boolean captureWaitImageReceive() {
+        return mIsSupportedQcfa || isMFNREnabled() || isHDREnable();
     }
 
     private Size parsePictureSize(String value) {
@@ -4761,7 +4778,7 @@ public class CaptureModule implements CameraModule, PhotoController,
             try {
                 builder.set(custom_noise_reduction, (byte)0x01);
             } catch (IllegalArgumentException e) {
-                Log.w(TAG, "cannot find vendor tag: " + custom_noise_reduction.toString());
+                Log.w(TAG, "capture can`t find vendor tag: " + custom_noise_reduction.toString());
             }
         }
     }
@@ -5983,6 +6000,13 @@ public class CaptureModule implements CameraModule, PhotoController,
                 && mode != SettingsManager.SCENE_MODE_PROMODE_INT) {
             request.set(CaptureRequest.CONTROL_SCENE_MODE, mode);
             request.set(CaptureRequest.CONTROL_MODE, CaptureRequest.CONTROL_MODE_USE_SCENE_MODE);
+            if (mode == CaptureRequest.CONTROL_SCENE_MODE_HDR) {
+                try {
+                    request.set(custom_noise_reduction, (byte)0x01);
+                } catch (IllegalArgumentException e) {
+                    Log.w(TAG, " HDR can`t find vendor tag: " + custom_noise_reduction.toString());
+                }
+            }
         } else {
             request.set(CaptureRequest.CONTROL_MODE, CaptureRequest.CONTROL_MODE_AUTO);
         }
