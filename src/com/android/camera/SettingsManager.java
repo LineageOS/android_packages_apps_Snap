@@ -38,6 +38,11 @@ import android.hardware.camera2.CameraCharacteristics;
 import android.hardware.camera2.CameraManager;
 import android.hardware.camera2.CameraMetadata;
 import android.hardware.camera2.params.StreamConfigurationMap;
+import android.media.MediaCodecInfo;
+import android.media.MediaCodecInfo.CodecCapabilities;
+import android.media.MediaCodecInfo.VideoCapabilities;
+import android.media.MediaCodecList;
+import android.media.MediaFormat;
 import android.media.MediaRecorder;
 import android.media.CamcorderProfile;
 import android.preference.PreferenceManager;
@@ -1152,36 +1157,66 @@ public class SettingsManager implements ListMenu.SettingsListener {
         ArrayList<String> supported = new ArrayList<String>();
         supported.add("off");
         ListPreference videoQuality = mPreferenceGroup.findPreference(KEY_VIDEO_QUALITY);
-        if (videoQuality == null) return supported;
+        ListPreference videoEncoder = mPreferenceGroup.findPreference(KEY_VIDEO_ENCODER);
+        if (videoQuality == null || videoEncoder == null) return supported;
         String videoSizeStr = videoQuality.getValue();
+        int videoEncoderNum = SettingTranslation.getVideoEncoder(videoEncoder.getValue());
+        VideoCapabilities videoCapabilities = null;
+        boolean findVideoEncoder = false;
         if (videoSizeStr != null) {
             Size videoSize = parseSize(videoSizeStr);
+            MediaCodecList allCodecs = new MediaCodecList(MediaCodecList.ALL_CODECS);
+            for (MediaCodecInfo info : allCodecs.getCodecInfos()) {
+                if (!info.isEncoder() || info.getName().contains("google")) continue;
+                for (String type : info.getSupportedTypes()) {
+                    if ((videoEncoderNum == MediaRecorder.VideoEncoder.MPEG_4_SP && type.equalsIgnoreCase(MediaFormat.MIMETYPE_VIDEO_MPEG4))
+                            || (videoEncoderNum == MediaRecorder.VideoEncoder.H263 && type.equalsIgnoreCase(MediaFormat.MIMETYPE_VIDEO_H263))
+                            || (videoEncoderNum == MediaRecorder.VideoEncoder.H264 && type.equalsIgnoreCase(MediaFormat.MIMETYPE_VIDEO_AVC))
+                            || (videoEncoderNum == MediaRecorder.VideoEncoder.HEVC && type.equalsIgnoreCase(MediaFormat.MIMETYPE_VIDEO_HEVC))) {
+                        CodecCapabilities codecCapabilities = info.getCapabilitiesForType(type);
+                        videoCapabilities = codecCapabilities.getVideoCapabilities();
+                        findVideoEncoder = true;
+                        break;
+                    }
+                }
+                if (findVideoEncoder) break;
+            }
+
             try {
                 Range[] range = getSupportedHighSpeedVideoFPSRange(mCameraId, videoSize);
                 for (Range r : range) {
                     // To support HFR for both preview and recording,
                     // minmal FPS needs to be equal to maximum FPS
-                    if ((int) r.getUpper() == (int)r.getLower()) {
-                        supported.add("hfr" + String.valueOf(r.getUpper()));
-                        supported.add("hsr" + String.valueOf(r.getUpper()));
+                    if ((int) r.getUpper() == (int) r.getLower()) {
+                        if (videoCapabilities != null) {
+                            if (videoCapabilities.areSizeAndRateSupported(
+                                    videoSize.getWidth(), videoSize.getHeight(), (int) r.getUpper())) {
+                                supported.add("hfr" + String.valueOf(r.getUpper()));
+                                supported.add("hsr" + String.valueOf(r.getUpper()));
+                            }
+                        }
                     }
                 }
             } catch (IllegalArgumentException ex) {
                 Log.w(TAG, "HFR is not supported for this resolution " + ex);
             }
-            if ( mExtendedHFRSize != null && mExtendedHFRSize.length >= 3 ) {
-                for( int i=0; i < mExtendedHFRSize.length; i+=3 ) {
-                    String item = "hfr" + mExtendedHFRSize[i+2];
-                    if ( !supported.contains(item)
+            if (mExtendedHFRSize != null && mExtendedHFRSize.length >= 3) {
+                for (int i = 0; i < mExtendedHFRSize.length; i += 3) {
+                    String item = "hfr" + mExtendedHFRSize[i + 2];
+                    if (!supported.contains(item)
                             && videoSize.getWidth() <= mExtendedHFRSize[i]
-                            && videoSize.getHeight() <= mExtendedHFRSize[i+1] ) {
-                        supported.add(item);
-                        supported.add("hsr"+mExtendedHFRSize[i+2]);
+                            && videoSize.getHeight() <= mExtendedHFRSize[i + 1]) {
+                        if (videoCapabilities != null) {
+                            if (videoCapabilities.areSizeAndRateSupported(
+                                    videoSize.getWidth(), videoSize.getHeight(), mExtendedHFRSize[i + 2])) {
+                                supported.add(item);
+                                supported.add("hsr" + mExtendedHFRSize[i + 2]);
+                            }
+                        }
                     }
                 }
             }
         }
-
         return supported;
     }
 
