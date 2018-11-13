@@ -67,6 +67,15 @@ public class CountDownView extends FrameLayout {
         }
     }
 
+    public void releaseSoundPool() {
+        if (mSoundPool != null) {
+            mSoundPool.unload(R.raw.beep_once);
+            mSoundPool.unload(R.raw.beep_twice);
+            mSoundPool.release();
+            mSoundPool = null;
+        }
+    }
+
     public boolean isCountingDown() {
         return mRemainingSecs > 0;
     };
