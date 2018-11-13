@@ -4256,7 +4256,7 @@ public class CaptureModule implements CameraModule, PhotoController,
             } catch (IllegalStateException e) {
                 e.printStackTrace();
             }
-            if (!mFrameProcessor.isFrameListnerEnabled() && !startMediaRecorder()) {
+            if ((!mFrameProcessor.isFrameListnerEnabled() && !startMediaRecorder()) || !mIsRecordingVideo) {
                 mUI.showUIafterRecording();
                 releaseMediaRecorder();
                 mFrameProcessor.setVideoOutputSurface(null);
@@ -4997,6 +4997,7 @@ public class CaptureModule implements CameraModule, PhotoController,
             mLiveShotInitHeifWriter.close();
         }
         closePreviewSession();
+        mIsRecordingVideo = false;
         try {
             mMediaRecorder.setOnErrorListener(null);
             mMediaRecorder.setOnInfoListener(null);
@@ -5020,7 +5021,6 @@ public class CaptureModule implements CameraModule, PhotoController,
         mUI.showRecordingUI(false, false);
         mUI.enableShutter(true);
 
-        mIsRecordingVideo = false;
         if (mIntentMode == INTENT_MODE_VIDEO) {
             if (isQuickCapture()) {
                 onRecordingDone(true);
