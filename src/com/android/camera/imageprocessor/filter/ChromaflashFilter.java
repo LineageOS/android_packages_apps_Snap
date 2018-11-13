@@ -252,8 +252,8 @@ public class ChromaflashFilter implements ImageFilter{
 
     static {
         try {
-            System.loadLibrary("jni_chromaflash");
-            mIsSupported = true;
+            //System.loadLibrary("jni_chromaflash");
+            mIsSupported = false;
         }catch(UnsatisfiedLinkError e) {
             Log.d(TAG, e.toString());
             mIsSupported = false;
