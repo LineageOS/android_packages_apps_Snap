@@ -685,7 +685,12 @@ public class CaptureModule implements CameraModule, PhotoController,
     private void detectHDRMode(CaptureResult result, int id) {
         String value = mSettingsManager.getValue(SettingsManager.KEY_SCENE_MODE);
         String autoHdr = mSettingsManager.getValue(SettingsManager.KEY_AUTO_HDR);
-        Byte hdrScene = result.get(CaptureModule.isHdr);
+        Byte hdrScene = null;
+        try {
+            hdrScene = result.get(CaptureModule.isHdr);
+        } catch (IllegalArgumentException e) {
+            // Ignore exception.
+        }
         if (value == null || hdrScene == null) return;
         mAutoHdrEnable = false;
         if (autoHdr != null && "enable".equals(autoHdr) && "0".equals(value) && hdrScene == 1) {
@@ -768,7 +773,12 @@ public class CaptureModule implements CameraModule, PhotoController,
                 }
             }
             if (SettingsManager.getInstance().isStatsVisualizerSupport() == 3) {
-                int[] histogramStats = result.get(CaptureModule.histogramStats);
+                int[] histogramStats = null;
+                try {
+                    histogramStats = result.get(CaptureModule.histogramStats);
+                } catch (IllegalArgumentException e) {
+                    // Ignore exception.
+                }
                 if (histogramStats != null && mHiston) {
                     /*The first element in the array stores max hist value . Stats data begin
                     from second value*/
@@ -5309,6 +5319,8 @@ public class CaptureModule implements CameraModule, PhotoController,
     }
 
     private void applyExposureMeteringModes(CaptureRequest.Builder request) {
+        if (!VendorTagUtil.isSupported(request, CaptureModule.exposure_metering))
+            return;
         String value = mSettingsManager.getValue(SettingsManager.KEY_EXPOSURE_METERING_MODE);
         if (value != null) {
             int intValue = Integer.parseInt(value);
