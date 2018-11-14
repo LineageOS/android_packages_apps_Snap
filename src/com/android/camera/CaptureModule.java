@@ -250,6 +250,7 @@ public class CaptureModule implements CameraModule, PhotoController,
     private static final int STREAM_CONFIG_MODE_QTIEIS_LOOKAHEAD = 0xF008;
     private static final int STREAM_CONFIG_MODE_FOVC = 0xF010;
     private static final int STREAM_CONFIG_MODE_ZZHDR  = 0xF002;
+    private static final int STREAM_CONFIG_MODE_FS2    =  0xF040;
 
     public static final boolean DEBUG =
             (PersistUtil.getCamera2Debug() == PersistUtil.CAMERA2_DEBUG_DUMP_LOG) ||
@@ -392,6 +393,11 @@ public class CaptureModule implements CameraModule, PhotoController,
             new CaptureRequest.Key<>("org.quic.camera.BurstFPS.burstfps", byte.class);
     private static final CaptureRequest.Key<Byte> custom_noise_reduction =
             new CaptureRequest.Key<>("org.quic.camera.CustomNoiseReduction.CustomNoiseReduction", byte.class);
+
+    public static final CaptureRequest.Key<Byte> sensor_mode_fs =
+            new CaptureRequest.Key<>("org.quic.camera.SensorModeFS ", byte.class);
+    public static CameraCharacteristics.Key<Byte> fs_mode_support =
+            new CameraCharacteristics.Key<>("org.quic.camera.SensorModeFS.isFastShutterModeSupported", Byte.class);
 
     private boolean mIsDepthFocus = false;
     private boolean[] mTakingPicture = new boolean[MAX_NUM_CAM];
@@ -1608,12 +1614,17 @@ public class CaptureModule implements CameraModule, PhotoController,
                         }
                     }
                 } else {
-                    if (mSettingsManager.getSavePictureFormat() == SettingsManager.HEIF_FORMAT &&
-                            outputConfigurations != null) {
-                        mCameraDevice[id].createCaptureSessionByOutputConfigurations(outputConfigurations,
-                                captureSessionCallback, null);
+                    if (ApiHelper.isAndroidPOrHigher()) {
+                        createCameraSessionWithSessionConfiguration(id, list, captureSessionCallback,
+                                mCameraHandler, mPreviewRequestBuilder[id].build());
                     } else {
-                        mCameraDevice[id].createCaptureSession(list, captureSessionCallback, null);
+                        if (mSettingsManager.getSavePictureFormat() == SettingsManager.HEIF_FORMAT &&
+                                outputConfigurations != null) {
+                            mCameraDevice[id].createCaptureSessionByOutputConfigurations(outputConfigurations,
+                                    captureSessionCallback, null);
+                        } else {
+                            mCameraDevice[id].createCaptureSession(list, captureSessionCallback, null);
+                        }
                     }
                 }
             } else {
@@ -2158,7 +2169,12 @@ public class CaptureModule implements CameraModule, PhotoController,
                 applyCaptureMFNR(captureBuilder);
             }
             applyCaptureBurstFps(captureBuilder);
-            if (!(mIsSupportedQcfa || isDeepZoom())) {
+            String valueFS2 = mSettingsManager.getValue(SettingsManager.KEY_SENSOR_MODE_FS2_VALUE);
+            int fs2Value = 0;
+            if (valueFS2 != null) {
+                fs2Value = Integer.parseInt(valueFS2);
+            }
+            if (!(mIsSupportedQcfa || isDeepZoom() || (fs2Value ==1))) {
                 addPreviewSurface(captureBuilder, null, id);
             }
             if (mUI.getCurrentProMode() == ProMode.MANUAL_MODE) {
@@ -2990,6 +3006,7 @@ public class CaptureModule implements CameraModule, PhotoController,
         applyJpegQuality(builder);
         applyFlash(builder, id);
         applyCommonSettings(builder, id);
+        applySensorModeFS2(builder);
     }
 
     private void applySettingsForPrecapture(CaptureRequest.Builder builder, int id) {
@@ -4323,6 +4340,45 @@ public class CaptureModule implements CameraModule, PhotoController,
             Toast.makeText(mActivity, "Video Failed", Toast.LENGTH_SHORT).show();
         }
     };
+
+
+    private void createCameraSessionWithSessionConfiguration(int cameraId,
+                 List<Surface> outputSurfaces, CameraCaptureSession.StateCallback listener,
+                 Handler handler, CaptureRequest initialRequest) {
+        List<OutputConfiguration> outConfigurations = new ArrayList<>(outputSurfaces.size());
+        for (Surface surface : outputSurfaces) {
+            outConfigurations.add(new OutputConfiguration(surface));
+        }
+        int opMode = SESSION_REGULAR;
+        String valueFS2 = mSettingsManager.getValue(SettingsManager.KEY_SENSOR_MODE_FS2_VALUE);
+        if (valueFS2 != null) {
+            int intValue = Integer.parseInt(valueFS2);
+            if (intValue == 1) {
+                opMode |= STREAM_CONFIG_MODE_FS2;
+            }
+        }
+        Log.v(TAG, " createCameraSessionWithSessionConfiguration opMode: " + opMode);
+        Method method_setSessionParameters = null;
+        Method method_createCaptureSession = null;
+        Object sessionConfig = null;
+        try {
+            Class clazz = Class.forName("android.hardware.camera2.params.SessionConfiguration");
+            sessionConfig = clazz.getConstructors()[0].newInstance(
+                    opMode, outConfigurations,
+                    new HandlerExecutor(handler), listener);
+            if (method_setSessionParameters == null) {
+                method_setSessionParameters = clazz.getDeclaredMethod(
+                        "setSessionParameters", CaptureRequest.class);
+            }
+            method_setSessionParameters.invoke(sessionConfig, initialRequest);
+            method_createCaptureSession = CameraDevice.class.getDeclaredMethod(
+                    "createCaptureSession", clazz);
+            method_createCaptureSession.invoke(mCameraDevice[cameraId], sessionConfig);
+        } catch (Exception exception) {
+            Log.w(TAG, "createCameraSessionWithSessionConfiguration method is not exist");
+            exception.printStackTrace();
+        }
+    }
 
     private void configureCameraSessionWithParameters(int cameraId,
             List<Surface> outputSurfaces, CameraCaptureSession.StateCallback listener,
@@ -5693,6 +5749,20 @@ public class CaptureModule implements CameraModule, PhotoController,
             request.set(CaptureModule.earlyPCR, (byte) (mHighSpeedCapture ? 0x00 : 0x01));
         } catch (IllegalArgumentException e) {
             e.printStackTrace();
+        }
+    }
+
+    private void applySensorModeFS2(CaptureRequest.Builder request) {
+        String value = mSettingsManager.getValue(SettingsManager.KEY_SENSOR_MODE_FS2_VALUE);
+        if (value != null) {
+            int intValue = Integer.parseInt(value);
+            byte fs2 =(byte)((intValue == 0) ? 0x00 : 0x01);
+            Log.v(TAG, "applySensorModeFS2 intValue : " + intValue + ", fs2 :" + fs2);
+            try {
+                request.set(CaptureModule.sensor_mode_fs, fs2);
+            } catch (IllegalArgumentException e) {
+                Log.w(TAG, "hal no vendorTag : " + sensor_mode_fs);
+            }
         }
     }
 
