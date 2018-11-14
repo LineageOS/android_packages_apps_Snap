@@ -3777,7 +3777,7 @@ public class CaptureModule implements CameraModule, PhotoController,
         mSupportedMaxPictureSize = prevSizes[0];
         Size[] rawSize = mSettingsManager.getSupportedOutputSize(getMainCameraId(),
                     ImageFormat.RAW10);
-        if (rawSize != null) {
+        if (rawSize != null && rawSize.length > 0) {
             mSupportedRawPictureSize = rawSize[0];
         }
         mPreviewSize = getOptimalPreviewSize(mPictureSize, prevSizes);
