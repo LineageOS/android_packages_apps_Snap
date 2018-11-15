@@ -328,10 +328,12 @@ public class SettingsManager implements ListMenu.SettingsListener {
     }
 
     public void updateQcfaPictureSize() {
-            ListPreference pictureSize = mPreferenceGroup.findPreference(KEY_PICTURE_SIZE);
+        ListPreference pictureSize = mPreferenceGroup.findPreference(KEY_PICTURE_SIZE);
+        if (pictureSize != null) {
             CameraSettings.formatPictureSizes(pictureSize,
                     getSupportedPictureSizeList(getCurrentCameraId()), mContext);
             CameraSettings.resetIfInvalid(pictureSize);
+        }
     }
 
     public void init() {
