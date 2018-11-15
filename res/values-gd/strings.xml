@@ -22,9 +22,12 @@
     <!-- Displayed in the title of the dialog for things to do with a picture
              that is to be "set as" (e.g. set as contact photo or set as wallpaper) -->
     <!-- Details dialog "OK" button. Dismisses dialog. -->
+    <string name="delete">Sguab às</string>
     <!-- String Delete the selected media item(s) [CHAR LIMIT=50] -->
+    <string name="share">Co-roinn</string>
     <!-- The label shown after an image is deleted [CHAR LIMIT=16] -->
     <!-- The label on the button which when clicked will undo a deletion of image [CHAR LIMIT=16]-->
+    <string name="details">Mion-fhiosrachadh</string>
     <!-- String indicating how many media item(s) is(are) selected
             eg. 1 selected [CHAR LIMIT=30] -->
     <!-- String indicating how many media album(s) is(are) selected
@@ -66,6 +69,7 @@
     <!-- String indicating camera flash is fired. [CHAR LIMIT=14] -->
     <!-- String indicating camera flash is not used. [CHAR LIMIT=14] -->
     <!-- String indicating image width or height is unknown. [CHAR LIMIT=14] -->
+    <string name="unknown">Chan eil fhios</string>
     <!-- Toast message shown after we try to make a local album available offline
          [CHAR LIMIT=150] -->
     <!-- The content of a dialog showing trimming in progress. [CHAR LIMIT=30] -->
@@ -74,7 +78,9 @@
     <!-- message for the dialog showing the error of camera hardware -->
     <!-- message for the dialog showing the camera is disabled because of security policies. Camera cannot be used. -->
     <!-- message for the dialog showing that the app does not have sufficient permissions [CHAR LIMIT=NONE] -->
+    <string name="error_permissions">Chan eil ceadan gu leòr aig an aplacaid is cha ruith e. Thoir sùil air roghainnean nan ceadan.</string>
     <!-- Dialog "Dismiss" button. Closes the dialog [CHAR LIMIT=12]-->
+    <string name="dialog_dismiss">Leig seachad</string>
     <!-- alert to the user to wait for some operation to complete -->
     <!-- alert to the user that an SD card must be installed before using the camera -->
     <!-- alert to the user that the SD card is being disk-checked -->
@@ -185,6 +191,7 @@
     <!-- Default effect setting that clears the effect. -->
     <!-- Title of video effect setting popup window -->
     <!-- Effect setting item that clear the effect. [CHAR LIMIT=14] -->
+    <string name="effect_none">Chan eil gin</string>
     <!-- Effect setting item that squeezes the face. [CHAR LIMIT=14] -->
     <!-- Effect setting item that makes eyes big. [CHAR LIMIT=14] -->
     <!-- Effect setting item that makes mouth big. [CHAR LIMIT=14] -->
@@ -202,7 +209,9 @@
     <!-- Title of category for background replacement effects. [CHAR LIMIT=26] -->
     <!-- The shutter button. [CHAR LIMIT = NONE] -->
     <!-- The exit best photo mode button. [CHAR LIMIT = NONE] -->
+    <string name="accessibility_exit_best_mode_button">Fàg modh an deilbh as fhear</string>
     <!-- The menu button. [CHAR LIMIT = NONE] -->
+    <string name="accessibility_menu_button">Putan a’ chlàir-thaice</string>
     <!-- The mode picker to switch between camera, video and panorama. [CHAR LIMIT = NONE] -->
     <!-- The check box in camera settings, such as store location. [CHAR LIMIT = NONE] -->
     <!-- The button to switch to Camera mode. [CHAR LIMIT = NONE] -->
@@ -221,12 +230,16 @@ CHAR LIMIT = NONE] -->
     <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
+    <string name="pref_video_time_lapse_frame_interval_2000">2 dhiog</string>
     <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
+    <string name="pref_video_time_lapse_frame_interval_4000">4 diogan</string>
     <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
+    <string name="pref_video_time_lapse_frame_interval_6000">6 diogan</string>
     <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
+    <string name="pref_video_time_lapse_frame_interval_10000">10 diogan</string>
     <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
@@ -260,6 +273,7 @@ CHAR LIMIT = NONE] -->
     <!-- Minutes: a unit of time for time lapse intervals. [CHAR LIMIT = 20] -->
     <!-- Hours: a unit of time for time lapse intervals. [CHAR LIMIT = 20] -->
     <!-- The button to confirm time-lapse setting changes. [CHAR LIMIT = 20] -->
+    <string name="time_lapse_interval_set">Deiseil</string>
     <!-- Title in time interval picker for setting time interval. [CHAR LIMIT = 30]-->
     <!-- Help text that is shown when the time lapse feature is turned off. [CHAR LIMIT = 180]-->
     <!-- Title in timer setting for setting the duration for the countdown timer. [CHAR LIMIT = 50]-->
@@ -268,6 +282,7 @@ CHAR LIMIT = NONE] -->
     <!-- Message for first run dialog asking if the user wants to remember photo locations [CHAR LIMIT = None] -->
     <!-- Negative answer for first run dialog asking if the user wants to remember photo locations [CHAR LIMIT = 20] -->
     <!-- Positive answer for first run dialog asking if the user wants to remember photo locations [CHAR LIMIT = 20] -->
+    <string name="remember_location_yes">Tha</string>
     <!-- Camera menu labels -->
     <!-- more options label [CHAR LIMIT=50] -->
     <!-- settings label [CHAR LIMIT=50] -->
@@ -278,8 +293,38 @@ CHAR LIMIT = NONE] -->
     <!-- Label above a slider that let's the user set the rotation of a tiny planet image. [CHAR LIMIT = 15] -->
     <!-- Crop -->
     <!-- Label for the save button in the crop activity action bar [CHAR LIMIT=20] -->
+    <string name="crop_save">Sàbhail</string>
     <!--  String shown when we cannot load the image when starting the activity [CHAR LIMIT=NONE] -->
     <!-- Label for album filmstrip button -->
     <!--  String shown when setting the homepage wallpaper in the background [CHAR LIMIT=NONE] -->
     <!-- Menu, Video rotation labels [CHAR LIMIT=50] -->
+    <string name="pref_camera2_category_system">An siostam</string>
+    <string name="pref_camera2_restore_default">Aisig na bun-roghainnean</string>
+    <string name="pref_camera2_restore_default_hint">Thèid roghainnean a’ chamara aiseag air na bun-roghainnean</string>
+    <plurals name="save_best_dialog_content">
+        <item quantity="one">Thèid %1$d de 10 dealbhan a shàbhaladh agus an còrr a sguabadh às</item>
+        <item quantity="two">Thèid %1$d de 10 dealbhan a shàbhaladh agus an còrr a sguabadh às</item>
+        <item quantity="few">Thèid %1$d de 10 dealbhan a shàbhaladh agus an còrr a sguabadh às</item>
+        <item quantity="other">Thèid %1$d de 10 dealbhan a shàbhaladh agus an còrr a sguabadh às</item>
+    </plurals>
+    <string name="save_best_dialog_title">A bheil thu airson na dealbhan a thagh thu a shàbhaladh?</string>
+    <string name="save_best_dialog_native_bt">Sguir dheth</string>
+    <plurals name="save_best_image_toast">
+        <item quantity="one">Chaidh %1$d de 10 dealbhan a shàbhaladh.</item>
+        <item quantity="two">Chaidh %1$d de 10 dealbhan a shàbhaladh.</item>
+        <item quantity="few">Chaidh %1$d de 10 dealbhan a shàbhaladh.</item>
+        <item quantity="other">Chaidh %1$d de 10 dealbhan a shàbhaladh.</item>
+    </plurals>
+    <string name="dialog_do_not_show">Na seall seo a-rithist</string>
+    <string name="delete_best_dialog_title">A bheil thu airson na h-uile gin a sguabadh às?</string>
+    <string name="delete_best_dialog_content">A bheil thu cinnteach gu bheil thu airson a h-uile 10 dealbhan a thog thu a sguabadh às?</string>
+    <string name="delete_best_dialog_native_bt">Sguir dheth</string>
+    <string name="delete_best_dialog_positive_bt">Sguab às</string>
+    <string name="delete_all_best_dialog_title">A bheil thu airson na h-uile gin a sguabadh às?</string>
+    <string name="delete_all_best_dialog_content">A bheil thu cinnteach gu bheil thu airson a h-uile dealbh a sguabadh às?</string>
+    <string name="delete_all_best_dialog_native_bt">Sguir dheth</string>
+    <string name="delete_all_best_dialog_positive_bt">Sguab às na h-uile</string>
+    <string name="overflow_best_item1">Sàbhail na h-uile</string>
+    <string name="overflow_best_item2">Sguab às na h-uile</string>
+    <string name="settings_title">Roghainnean</string>
 </resources>

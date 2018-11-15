@@ -73,7 +73,7 @@
     <string name="video_err">동영상을 재생할 수 없습니다.</string>
     <!-- Toast message shown when the cropped image has been saved in the
          %s folder (string: folder_download) [CHAR LIMIT=50]-->
-    <string name="crop_saved">잘린 이미지가 <xliff:g id="folder_name">%s</xliff:g>에 저장되었습니다.</string>
+    <string name="crop_saved">        잘린 이미지가 <xliff:g id="folder_name">%s</xliff:g>에 저장되었습니다.</string>
     <!-- Text indicating the title of a media item in details window [CHAR LIMIT=14] -->
     <string name="title">제목</string>
     <!-- Text indicating the description of a media item in details window [CHAR LIMIT=14] -->
@@ -127,7 +127,7 @@
     <string name="unknown">알 수 없음</string>
     <!-- Toast message shown after we try to make a local album available offline
          [CHAR LIMIT=150] -->
-    <string name="try_to_set_local_album_available_offline">이 항목은 로컬에 저장되어 있으며 오프라인에서 사용할 수 있습니다.</string>
+    <string name="try_to_set_local_album_available_offline">        이 항목은 로컬에 저장되어 있으며 오프라인에서 사용할 수 있습니다.</string>
     <!-- The content of a dialog showing trimming in progress. [CHAR LIMIT=30] -->
     <string name="please_wait">잠시 기다려 주세요.</string>
     <!-- Text to show with progress bar while stitching a photo sphere. 'Photo sphere' is a product name. [CHAR LIMIT=35]-->
