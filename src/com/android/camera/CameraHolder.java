@@ -72,7 +72,7 @@ public class CameraHolder {
     private ArrayList<CameraCharacteristics> mCharacteristics = new ArrayList<>();
 
     /* Debug double-open issue */
-    private static final boolean DEBUG_OPEN_RELEASE = true;
+    private static final boolean DEBUG_OPEN_RELEASE = false;
     private static class OpenReleaseState {
         long time;
         int id;
