@@ -433,9 +433,11 @@ public class SettingsManager implements ListMenu.SettingsListener {
     public void updatePictureAndVideoSize() {
         ListPreference pictureSize = mPreferenceGroup.findPreference(KEY_PICTURE_SIZE);
         ListPreference videoQualityPref = mPreferenceGroup.findPreference(KEY_VIDEO_QUALITY);
-        CameraSettings.formatPictureSizes(pictureSize,
-                getSupportedPictureSizeList(getCurrentCameraId()), mContext);
-        CameraSettings.resetIfInvalid(pictureSize);
+        if (pictureSize != null) {
+            CameraSettings.formatPictureSizes(pictureSize,
+                    getSupportedPictureSizeList(getCurrentCameraId()), mContext);
+            CameraSettings.resetIfInvalid(pictureSize);
+        }
         if (videoQualityPref != null) {
             videoQualityPref.setEntries(mContext.getResources().getStringArray(
                     R.array.pref_camera2_video_quality_entries));
