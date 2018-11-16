@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1983374f_d777a5a3",
+        "filename": "src/com/android/camera/app/CameraApp.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2018-11-16T20:20:11Z",
+      "side": 1,
+      "message": "Code style",
+      "range": {
+        "startLine": 51,
+        "startChar": 38,
+        "endLine": 52,
+        "endChar": 4
+      },
+      "revId": "7cca3179a1673a6c01971f34eb2668c97f2aa6a8",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
