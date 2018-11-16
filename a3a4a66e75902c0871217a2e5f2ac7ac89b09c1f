@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b2983f98_3ffa91eb",
+        "filename": "Android.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2018-11-16T19:16:39Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this become libjni_snapimageutil?",
+      "range": {
+        "startLine": 43,
+        "startChar": 72,
+        "endLine": 43,
+        "endChar": 88
+      },
+      "revId": "a3a4a66e75902c0871217a2e5f2ac7ac89b09c1f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e9444f3d_5c6f8ce3",
+        "filename": "Android.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2018-11-16T19:16:39Z",
+      "side": 1,
+      "message": "Same",
+      "range": {
+        "startLine": 45,
+        "startChar": 68,
+        "endLine": 45,
+        "endChar": 84
+      },
+      "revId": "a3a4a66e75902c0871217a2e5f2ac7ac89b09c1f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
