@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7afea6fa_ec5cb75b",
+        "filename": "src/com/android/camera/PhotoModule.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 4006,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2018-11-16T20:25:53Z",
+      "side": 1,
+      "message": "Unrelated? If you want the messages to match remove the dot from the message we add below",
+      "revId": "2527c049ecadbb924a8786f71a02665b82ea468a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
