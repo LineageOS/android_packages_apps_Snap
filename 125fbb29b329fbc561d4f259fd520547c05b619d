@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7c405797_64e1f9c1",
+        "filename": "src/com/android/camera/CameraActivity.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 1958,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2018-11-16T20:25:23Z",
+      "side": 1,
+      "message": "Missing space",
+      "range": {
+        "startLine": 1958,
+        "startChar": 8,
+        "endLine": 1958,
+        "endChar": 11
+      },
+      "revId": "125fbb29b329fbc561d4f259fd520547c05b619d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
