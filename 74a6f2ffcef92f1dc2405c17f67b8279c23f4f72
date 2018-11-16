@@ -1,0 +1,84 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a07cfcd7_5e0a50e6",
+        "filename": "src/com/android/camera/PhotoModule.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 1400,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2018-11-16T20:23:53Z",
+      "side": 1,
+      "message": "100 chars",
+      "revId": "74a6f2ffcef92f1dc2405c17f67b8279c23f4f72",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b401c3d2_01c6c1bf",
+        "filename": "src/com/android/camera/PhotoModule.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 1407,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2018-11-16T20:23:53Z",
+      "side": 1,
+      "message": "100 chars",
+      "revId": "74a6f2ffcef92f1dc2405c17f67b8279c23f4f72",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "db3f897b_2b68c75f",
+        "filename": "src/com/android/camera/PhotoModule.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 3032,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2018-11-16T20:23:53Z",
+      "side": 1,
+      "message": "100 chars (yes it was like that but since we touch the line we can fix that)",
+      "range": {
+        "startLine": 3031,
+        "startChar": 0,
+        "endLine": 3032,
+        "endChar": 103
+      },
+      "revId": "74a6f2ffcef92f1dc2405c17f67b8279c23f4f72",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "244eec67_1e23652b",
+        "filename": "src/com/android/camera/PhotoModule.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 5019,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2018-11-16T20:23:53Z",
+      "side": 1,
+      "message": "100 chars",
+      "range": {
+        "startLine": 5018,
+        "startChar": 0,
+        "endLine": 5019,
+        "endChar": 108
+      },
+      "revId": "74a6f2ffcef92f1dc2405c17f67b8279c23f4f72",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
