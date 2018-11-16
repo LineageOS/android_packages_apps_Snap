@@ -113,7 +113,8 @@
       "pref_camera2_longshot_key":"off"}
     ,
     "109":
-    {"pref_camera2_coloreffect_key":"0"}
+    {"pref_camera2_coloreffect_key":"0",
+      "pref_camera2_flashmode_key":"off"}
     ,
     "110":
     {"pref_camera2_coloreffect_key":"0",
