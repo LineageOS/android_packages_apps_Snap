@@ -22,6 +22,30 @@
       "revId": "ae92471b25d5d574158e8c3b0f4ab0b34497027f",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "637643ee_cbe63493",
+        "filename": "jni/Android.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2018-11-16T20:08:32Z",
+      "side": 1,
+      "message": "Will do this edit and test without the commit later.",
+      "parentUuid": "fefc1ac0_7baf548f",
+      "range": {
+        "startLine": 73,
+        "startChar": 13,
+        "endLine": 73,
+        "endChar": 18
+      },
+      "revId": "ae92471b25d5d574158e8c3b0f4ab0b34497027f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
