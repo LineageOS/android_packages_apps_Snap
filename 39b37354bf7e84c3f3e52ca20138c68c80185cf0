@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b2016c43_6f637ba8",
+        "filename": "src/com/android/camera/PhotoUI.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 1336,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2018-11-16T19:34:47Z",
+      "side": 1,
+      "message": "Code style can be improved here",
+      "range": {
+        "startLine": 1323,
+        "startChar": 0,
+        "endLine": 1336,
+        "endChar": 5
+      },
+      "revId": "39b37354bf7e84c3f3e52ca20138c68c80185cf0",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "92fcc9d3_df4fc6b1",
+        "filename": "src/com/android/camera/PreviewGestures.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2018-11-16T19:34:47Z",
+      "side": 1,
+      "message": "Same",
+      "range": {
+        "startLine": 314,
+        "startChar": 0,
+        "endLine": 327,
+        "endChar": 5
+      },
+      "revId": "39b37354bf7e84c3f3e52ca20138c68c80185cf0",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c59d4dd2_217764a1",
+        "filename": "src/com/android/camera/ui/ZoomRenderer.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2018-11-16T19:34:47Z",
+      "side": 1,
+      "message": "Extra space",
+      "range": {
+        "startLine": 148,
+        "startChar": 4,
+        "endLine": 148,
+        "endChar": 5
+      },
+      "revId": "39b37354bf7e84c3f3e52ca20138c68c80185cf0",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a2dfbfbc_0b9e6514",
+        "filename": "src/com/android/camera/ui/ZoomRenderer.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2018-11-16T19:34:47Z",
+      "side": 1,
+      "message": "Missing spaces",
+      "range": {
+        "startLine": 179,
+        "startChar": 52,
+        "endLine": 179,
+        "endChar": 53
+      },
+      "revId": "39b37354bf7e84c3f3e52ca20138c68c80185cf0",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f14d0a96_f109c4f5",
+        "filename": "src/com/android/camera/ui/ZoomRenderer.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2018-11-16T19:34:47Z",
+      "side": 1,
+      "message": "Same",
+      "range": {
+        "startLine": 180,
+        "startChar": 8,
+        "endLine": 180,
+        "endChar": 22
+      },
+      "revId": "39b37354bf7e84c3f3e52ca20138c68c80185cf0",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
