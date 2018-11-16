@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f02abc56_81d1a04a",
+        "filename": "src/com/android/camera/VideoUI.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 1120,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2018-11-16T19:34:41Z",
+      "side": 1,
+      "message": "Code style can be improved here",
+      "range": {
+        "startLine": 1107,
+        "startChar": 0,
+        "endLine": 1120,
+        "endChar": 5
+      },
+      "revId": "9785d8d000abe8219d59e1012c8f6903ea92087b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
