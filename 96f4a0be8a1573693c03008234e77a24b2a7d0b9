@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "15091a0f_35dbcd19",
+        "filename": "src/com/android/camera/PhotoUI.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 423,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2018-11-16T20:48:53Z",
+      "side": 1,
+      "message": "Should probably remove this",
+      "revId": "96f4a0be8a1573693c03008234e77a24b2a7d0b9",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ea8b955_4efbecce",
+        "filename": "src/com/android/camera/PhotoUI.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 444,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2018-11-16T20:48:53Z",
+      "side": 1,
+      "message": "Same",
+      "revId": "96f4a0be8a1573693c03008234e77a24b2a7d0b9",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
