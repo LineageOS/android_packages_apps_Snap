@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fefc1ac0_7baf548f",
+        "filename": "jni/Android.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2018-11-16T19:17:50Z",
+      "side": 1,
+      "message": ":\u003d",
+      "range": {
+        "startLine": 73,
+        "startChar": 13,
+        "endLine": 73,
+        "endChar": 18
+      },
+      "revId": "ae92471b25d5d574158e8c3b0f4ab0b34497027f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
