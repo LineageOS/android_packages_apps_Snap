@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b672ee70_8e757609",
+        "filename": "src/com/android/camera/ui/ModuleSwitcher.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2018-11-19T21:14:30Z",
+      "side": 1,
+      "message": "Missing break",
+      "revId": "df0ce6955b3ef8e2b49c8e1035a6af26928951fb",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
