@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "def29354_af71af45",
+        "filename": "src/com/android/camera/PhotoModule.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 2788,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2018-11-19T21:02:50Z",
+      "side": 1,
+      "message": "Missing space?",
+      "range": {
+        "startLine": 2788,
+        "startChar": 31,
+        "endLine": 2788,
+        "endChar": 32
+      },
+      "revId": "7042065288cf25468a2a8ff0d4a253e1b1171402",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
