@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9e16d65c_afc52e5e",
+        "filename": "src/com/android/camera/AndroidCameraManagerImpl.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2018-11-19T20:15:50Z",
+      "side": 0,
+      "message": "Is this removed on purpose?",
+      "range": {
+        "startLine": 253,
+        "startChar": 0,
+        "endLine": 256,
+        "endChar": 29
+      },
+      "revId": "f870656e25387126ad9be8c01b0659e917094eb9",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
