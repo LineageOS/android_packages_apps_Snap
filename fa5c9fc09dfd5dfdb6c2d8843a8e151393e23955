@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c825b725_edb0b93e",
+        "filename": "src/com/android/camera/CaptureModule.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 2383,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2018-11-19T20:58:24Z",
+      "side": 1,
+      "message": "100 chars",
+      "revId": "fa5c9fc09dfd5dfdb6c2d8843a8e151393e23955",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad58ecde_e7357ac9",
+        "filename": "src/com/android/camera/CaptureModule.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 3133,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2018-11-19T20:58:24Z",
+      "side": 1,
+      "message": "Since we touch it, code style and 100 chars",
+      "revId": "fa5c9fc09dfd5dfdb6c2d8843a8e151393e23955",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c8f9d236_524378e0",
+        "filename": "src/com/android/camera/SettingsManager.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 1303,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2018-11-19T20:58:24Z",
+      "side": 1,
+      "message": "100 chars",
+      "revId": "fa5c9fc09dfd5dfdb6c2d8843a8e151393e23955",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ea82e150_f12ccf65",
+        "filename": "src/com/android/camera/imageprocessor/PostProcessor.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 707,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2018-11-19T20:58:24Z",
+      "side": 1,
+      "message": "100 chars",
+      "revId": "fa5c9fc09dfd5dfdb6c2d8843a8e151393e23955",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
