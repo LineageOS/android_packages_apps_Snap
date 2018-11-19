@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "af650b60_32251ef0",
+        "filename": "src/com/android/camera/VideoMenu.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 749,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2018-11-19T20:58:47Z",
+      "side": 0,
+      "message": "Unrelated",
+      "revId": "fa5c9fc09dfd5dfdb6c2d8843a8e151393e23955",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
