@@ -4235,8 +4235,9 @@ public class CaptureModule implements CameraModule, PhotoController,
             mCaptureSession[cameraId] = cameraCaptureSession;
             try {
                 setUpVideoCaptureRequestBuilder(mVideoRequestBuilder, cameraId);
-                mCurrentSession.setRepeatingRequest(mVideoRequestBuilder.build(),
-                        mCaptureCallback, mCameraHandler);
+                List list = CameraUtil
+                        .createHighSpeedRequestList(mVideoRequestBuilder.build());
+                mCurrentSession.setRepeatingBurst(list, mCaptureCallback, mCameraHandler);
             } catch (CameraAccessException e) {
                 e.printStackTrace();
             } catch (IllegalStateException e) {
@@ -4277,15 +4278,9 @@ public class CaptureModule implements CameraModule, PhotoController,
             List<CaptureRequest> slowMoRequests = null;
             try {
                 setUpVideoCaptureRequestBuilder(mVideoRequestBuilder, cameraId);
-                if (mHighSpeedCapture && ((int) mHighSpeedFPSRange.getUpper() > NORMAL_SESSION_MAX_FPS)) {
-                    slowMoRequests = ((CameraConstrainedHighSpeedCaptureSession) mCurrentSession).
-                            createHighSpeedRequestList(mVideoRequestBuilder.build());
-                    mCurrentSession.setRepeatingBurst(slowMoRequests,
-                            mCaptureCallback, mCameraHandler);
-                } else {
-                    mCurrentSession.setRepeatingRequest(mVideoRequestBuilder.build(),
-                            mCaptureCallback, mCameraHandler);
-                }
+                List list = CameraUtil
+                        .createHighSpeedRequestList(mVideoRequestBuilder.build());
+                mCurrentSession.setRepeatingBurst(list,mCaptureCallback, mCameraHandler);
             } catch (CameraAccessException e) {
                 e.printStackTrace();
             } catch (IllegalStateException e) {
@@ -4521,6 +4516,7 @@ public class CaptureModule implements CameraModule, PhotoController,
                                 @Override
                                 public void onConfigured(CameraCaptureSession cameraCaptureSession) {
                                     mCurrentSession = cameraCaptureSession;
+                                    Log.v(TAG, "createConstrainedHighSpeedCaptureSession onConfigured");
                                     mCaptureSession[cameraId] = cameraCaptureSession;
                                     CameraConstrainedHighSpeedCaptureSession session =
                                             (CameraConstrainedHighSpeedCaptureSession) mCurrentSession;
