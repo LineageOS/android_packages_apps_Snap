@@ -4140,16 +4140,10 @@ public class CaptureModule implements CameraModule, PhotoController,
 
     private void updateVideoSnapshotSize() {
         mVideoSnapshotSize = mVideoSize;
-        if (isVideoSize1080P(mVideoSnapshotSize)) {
-            updateHFRSetting();
-            mHighSpeedFPSRange = new Range(mHighSpeedCaptureRate, mHighSpeedCaptureRate);
-            Log.d(TAG,"updateVideoSnapshotSize " + mHighSpeedCaptureRate);
-            boolean is60FPS = ((int)mHighSpeedFPSRange.getUpper() == 60);
-            // if video is 1080p encode except 60fps, VideoSnapShotSize set 16M(5312x2988)
-            if (!is60FPS) {
-                mVideoSnapshotSize = new Size(5312, 2988);
-            }
+        if (!is4kSize(mVideoSize) && (mHighSpeedCaptureRate == 0)) {
+            mVideoSnapshotSize = getMaxPictureSizeLiveshot();
         }
+
         String videoSnapshot = getVideoSnapshotSize();
         String[] sourceStrArray = videoSnapshot.split("x");
         if (sourceStrArray != null && sourceStrArray.length >= 2) {
@@ -4161,6 +4155,35 @@ public class CaptureModule implements CameraModule, PhotoController,
                 mVideoSnapshotSize.getWidth() + ", " + mVideoSnapshotSize.getHeight());
         Size[] thumbSizes = mSettingsManager.getSupportedThumbnailSizes(getMainCameraId());
         mVideoSnapshotThumbSize = getOptimalPreviewSize(mVideoSnapshotSize, thumbSizes); // get largest thumb size
+    }
+
+    private boolean is4kSize(Size size) {
+        return (size.getHeight() >= 2160 || size.getWidth() >= 3840);
+    }
+
+    private Size getMaxPictureSizeLiveshot() {
+        Size[] sizes = mSettingsManager.getSupportedOutputSize(getMainCameraId(), ImageFormat.JPEG);
+        float ratio = (float) mVideoSize.getWidth() / mVideoSize.getHeight();
+        Size optimalSize = null;
+        for (Size size : sizes) {
+            float pictureRatio = (float) size.getWidth() / size.getHeight();
+            if (Math.abs(pictureRatio - ratio) > 0.01) continue;
+            if (optimalSize == null || size.getWidth() > optimalSize.getWidth()) {
+                optimalSize = size;
+            }
+        }
+
+        // Cannot find one that matches the aspect ratio. This should not happen.
+        // Ignore the requirement.
+        if (optimalSize == null) {
+            Log.w(TAG, "getMaxPictureSizeLiveshot: no picture size match the aspect ratio");
+            for (Size size : sizes) {
+                if (optimalSize == null || size.getWidth() > optimalSize.getWidth()) {
+                    optimalSize = size;
+                }
+            }
+        }
+        return optimalSize;
     }
 
     private String getVideoSnapshotSize(){
