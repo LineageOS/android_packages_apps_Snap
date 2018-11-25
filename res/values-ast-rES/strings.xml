@@ -110,7 +110,7 @@
     <!-- String indicating image width or height is unknown. [CHAR LIMIT=14] -->
     <!-- Toast message shown after we try to make a local album available offline
          [CHAR LIMIT=150] -->
-    <string name="try_to_set_local_album_available_offline">Esti elementu atroxóse de mou llocal y ta disponible ensin conexón.</string>
+    <string name="try_to_set_local_album_available_offline">        Esti elementu atroxóse de mou llocal y ta disponible ensin conexón.</string>
     <!-- The content of a dialog showing trimming in progress. [CHAR LIMIT=30] -->
     <!-- Text to show with progress bar while stitching a photo sphere. 'Photo sphere' is a product name. [CHAR LIMIT=35]-->
     <!-- title for the dialog showing the error of camera hardware -->

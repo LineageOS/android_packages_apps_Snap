@@ -311,7 +311,7 @@
     <!-- Toast after enable HDR function to inform Continuous Shot has disabled -->
     <string name="HDR_disable_continuous_shot">Включение HDR отключит непрерывную съемку.</string>
     <!-- Toast after enable Advanced Capture function to inform Continuous Shot has disabled -->
-    <string name="advanced_capture_disable_continuous_shot">Включение расширенных функций отключит непрерывную съемку.</string>
+    <string name="advanced_capture_disable_continuous_shot">Расширенные функции отключают непрерывную съемку.</string>
     <!-- Toast after enable 2k4k video quality to inform IS has disabled -->
     <string name="video_quality_4k_disable_IS">Включение видеосъемки с разрешением 4K отключит стабилизацию.</string>
     <!-- Toast after 2k4k video is enabled to inform SeeMore has been disabled -->

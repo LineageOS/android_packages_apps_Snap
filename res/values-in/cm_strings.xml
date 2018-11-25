@@ -66,7 +66,7 @@
     <string name="pref_camera_scenemode_entry_sweepstitch">Sweep stitch</string>
     <string name="pref_camera_scenemode_entry_text">Teks</string>
     <string name="pref_camera_scenemode_entry_theatre">Teater</string>
-    <string name="pref_camera_scenemode_entry_whiteboard">Papan tulis</string>
+    <string name="pref_camera_scenemode_entry_whiteboard">Papan tulis </string>
     <!-- Settings screen, focus mode -->
     <string name="pref_camera_focusmode_entry_continuous">Terus menerus</string>
     <string name="pref_camera_focusmode_entry_mw_continuous">Terus menerus (MV)</string>

@@ -77,7 +77,7 @@
     <string name="video_err">Non se puido reproducir o vídeo.</string>
     <!-- Toast message shown when the cropped image has been saved in the
          %s folder (string: folder_download) [CHAR LIMIT=50]-->
-    <string name="crop_saved">A imaxe recortada gardouse en <xliff:g id="folder_name">%s</xliff:g>.</string>
+    <string name="crop_saved">        A imaxe recortada gardouse en <xliff:g id="folder_name">%s</xliff:g>.</string>
     <!-- Text indicating the title of a media item in details window [CHAR LIMIT=14] -->
     <string name="title">Título</string>
     <!-- Text indicating the description of a media item in details window [CHAR LIMIT=14] -->
@@ -131,7 +131,7 @@
     <string name="unknown">Non se coñece</string>
     <!-- Toast message shown after we try to make a local album available offline
          [CHAR LIMIT=150] -->
-    <string name="try_to_set_local_album_available_offline">Este álbum gardouse de forma local e pódese consultar sen conexión.</string>
+    <string name="try_to_set_local_album_available_offline">        Este álbum gardouse de forma local e pódese consultar sen conexión.</string>
     <!-- The content of a dialog showing trimming in progress. [CHAR LIMIT=30] -->
     <string name="please_wait">Agarde, por favor</string>
     <!-- Text to show with progress bar while stitching a photo sphere. 'Photo sphere' is a product name. [CHAR LIMIT=35]-->
