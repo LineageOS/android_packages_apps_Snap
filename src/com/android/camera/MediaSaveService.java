@@ -391,7 +391,7 @@ public class MediaSaveService extends Service {
 
         @Override
         protected void onPostExecute(Uri uri) {
-            boolean previouslyFull = isQueueFull();
+            if (listener != null) listener.onMediaSaved(uri);
         }
     }
 
