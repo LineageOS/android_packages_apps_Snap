@@ -1345,8 +1345,10 @@ public class SettingsManager implements ListMenu.SettingsListener {
     public boolean isBsgcAvailable(int id) {
         boolean ret = false;
         try {
-            byte bsgc_available = mCharacteristics.get(id).get(CaptureModule.bsgcAvailable);
-            ret = bsgc_available == 1;
+            if (mCharacteristics.size() > 0) {
+                byte bsgc_available = mCharacteristics.get(id).get(CaptureModule.bsgcAvailable);
+                ret = bsgc_available == 1;
+            }
         } catch (IllegalArgumentException e) {
             e.printStackTrace();
         }
