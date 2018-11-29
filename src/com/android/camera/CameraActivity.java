@@ -2003,6 +2003,9 @@ public class CameraActivity extends Activity
             message = getString(R.string.spaceIsLow_content);
         }
 
+        if (isFinishing()) {
+            return;
+        }
         if (message != null) {
             if (mStorageHint == null) {
                 mStorageHint = OnScreenHint.makeText(this, message);
