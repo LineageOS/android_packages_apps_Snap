@@ -1296,7 +1296,12 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
 
     public void hideCameraControls(boolean hide) {
         final int status = (hide) ? View.INVISIBLE : View.VISIBLE;
-        if (mFlashButton != null) mFlashButton.setVisibility(status);
+        if (mFlashButton != null){
+            mFlashButton.setVisibility(status);
+            if (!hide) {
+                mFlashButton.init(false);
+            }
+        }
         if (mFrontBackSwitcher != null) mFrontBackSwitcher.setVisibility(status);
         if (mSceneModeSwitcher != null) mSceneModeSwitcher.setVisibility(status);
         if (mFilterModeSwitcher != null) mFilterModeSwitcher.setVisibility(status);
