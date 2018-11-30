@@ -1936,7 +1936,7 @@ public class CaptureModule implements CameraModule, PhotoController,
     private void parallelLockFocusExposure(int id) {
         if (mActivity == null || mCameraDevice[id] == null
                 || !checkSessionAndBuilder(mCaptureSession[id], mPreviewRequestBuilder[id])) {
-            mUI.enableShutter(true);
+            enableShutterAndVideoOnUiThread(id);
             warningToast("Camera is not ready yet to take a picture.");
             return;
         }
@@ -2011,7 +2011,7 @@ public class CaptureModule implements CameraModule, PhotoController,
     private void lockFocus(int id) {
         if (mActivity == null || mCameraDevice[id] == null
                 || !checkSessionAndBuilder(mCaptureSession[id], mPreviewRequestBuilder[id])) {
-            mUI.enableShutter(true);
+            enableShutterAndVideoOnUiThread(id);
             warningToast("Camera is not ready yet to take a picture.");
             return;
         }
@@ -2134,7 +2134,7 @@ public class CaptureModule implements CameraModule, PhotoController,
         try {
             if (null == mActivity || null == mCameraDevice[id]
                     || !checkSessionAndBuilder(mCaptureSession[id], mPreviewRequestBuilder[id])) {
-                mUI.enableShutter(true);
+                enableShutterAndVideoOnUiThread(id);
                 mLongshotActive = false;
                 warningToast("Camera is not ready yet to take a picture.");
                 return;
