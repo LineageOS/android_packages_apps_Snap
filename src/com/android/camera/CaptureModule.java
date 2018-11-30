@@ -2829,7 +2829,7 @@ public class CaptureModule implements CameraModule, PhotoController,
                         int orientation = Exif.getOrientation(exif);
 
                         mActivity.getMediaSaveService().addImage(bytes, title, date,
-                                null, image.getWidth(), image.getHeight(), orientation, null,
+                                null, image.getWidth(), image.getHeight(), orientation, exif,
                                 mOnMediaSavedListener, mContentResolver, "jpeg");
 
                         mActivity.updateThumbnail(bytes);
