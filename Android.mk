@@ -32,7 +32,10 @@ LOCAL_PRIVATE_PLATFORM_APIS:=true
 #LOCAL_SDK_VERSION := current
 LOCAL_RENDERSCRIPT_TARGET_API := 23
 
+#Do not override for targets using vanilla AOSP
+ifneq ($(TARGET_USES_AOSP),true)
 LOCAL_OVERRIDES_PACKAGES := Camera2
+endif
 
 LOCAL_PROGUARD_FLAG_FILES := proguard.flags
 
