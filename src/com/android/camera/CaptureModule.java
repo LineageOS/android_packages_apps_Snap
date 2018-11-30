@@ -4334,10 +4334,15 @@ public class CaptureModule implements CameraModule, PhotoController,
                 e.printStackTrace();
             }
             if ((!mFrameProcessor.isFrameListnerEnabled() && !startMediaRecorder()) || !mIsRecordingVideo) {
-                mUI.showUIafterRecording();
                 releaseMediaRecorder();
-                mFrameProcessor.setVideoOutputSurface(null);
-                restartSession(true);
+                mHandler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        mUI.showUIafterRecording();
+                        mFrameProcessor.setVideoOutputSurface(null);
+                        restartSession(true);
+                    }
+                });
                 return;
             }
 
