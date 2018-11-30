@@ -2189,8 +2189,11 @@ public class CaptureModule implements CameraModule, PhotoController,
             } else if(id == getMainCameraId() && mPostProcessor.isFilterOn()) { // Case of post filtering
                 captureStillPictureForFilter(captureBuilder, id);
             } else {
-                captureBuilder.addTarget(mImageReader[id].getSurface());
-                if (mSaveRaw) {
+                if (mImageReader[id] != null) {
+                    captureBuilder.addTarget(mImageReader[id].getSurface());
+                }
+
+                if (mSaveRaw && mRawImageReader[id] != null) {
                     captureBuilder.addTarget(mRawImageReader[id].getSurface());
                 }
 
