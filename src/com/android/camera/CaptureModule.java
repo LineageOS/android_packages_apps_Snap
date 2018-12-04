@@ -2581,10 +2581,13 @@ public class CaptureModule implements CameraModule, PhotoController,
                         }
                     }, mCaptureCallbackHandler);
         } catch (CameraAccessException e) {
-            Log.d(TAG, "captureVideoSnapshot failed");
+            Log.e(TAG, "captureVideoSnapshot failed: CameraAccessException");
             e.printStackTrace();
         } catch (IllegalArgumentException e) {
-            Log.d(TAG, "captureVideoSnapshot IllegalArgumentException failed");
+            Log.e(TAG, "captureVideoSnapshot failed: IllegalArgumentException");
+            e.printStackTrace();
+        } catch (IllegalStateException e) {
+            Log.e(TAG, "captureVideoSnapshot failed: IllegalStateException");
             e.printStackTrace();
         }
     }
