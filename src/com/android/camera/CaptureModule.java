@@ -3141,6 +3141,8 @@ public class CaptureModule implements CameraModule, PhotoController,
         builder.set(CaptureRequest.CONTROL_MODE, CaptureRequest.CONTROL_MODE_AUTO);
         applyColorEffect(builder);
         applyVideoFlash(builder);
+        applyVideoStabilization(builder);
+        applyVideoEIS(builder);
     }
 
     private void applyCommonSettings(CaptureRequest.Builder builder, int id) {
