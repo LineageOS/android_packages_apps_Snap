@@ -4607,11 +4607,7 @@ public class CaptureModule implements CameraModule, PhotoController,
             closePreviewSession();
             mFrameProcessor.onClose();
 
-            Size preview = mVideoPreviewSize;
-            if (mHighSpeedCapture) {
-                preview = mVideoSize;
-            }
-            if (mUI.setPreviewSize(preview.getWidth(), preview.getHeight())) {
+            if (mUI.setPreviewSize(mVideoPreviewSize.getWidth(), mVideoPreviewSize.getHeight())) {
                 mUI.hideSurfaceView();
                 mUI.showSurfaceView();
             }
