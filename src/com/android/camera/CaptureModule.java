@@ -786,7 +786,6 @@ public class CaptureModule implements CameraModule, PhotoController,
                                         CaptureResult partialResult) {
             int id = (int) partialResult.getRequest().getTag();
             if (id == getMainCameraId()) {
-                updateFocusStateChange(partialResult);
                 Face[] faces = partialResult.get(CaptureResult.STATISTICS_FACES);
                 if (faces != null && isBsgcDetecionOn()) {
                     updateFaceView(faces, getBsgcInfo(partialResult, faces.length));
