@@ -1403,9 +1403,13 @@ public class CameraUtil {
         Collection<Surface> outputSurfaces = request.getTargets();
         Range<Integer> fpsRange = request.get(CaptureRequest.CONTROL_AE_TARGET_FPS_RANGE);
 
-        StreamConfigurationMap config =
-                SettingsManager.getInstance().getStreamConfigurationMap((int)request.getTag());
-        SurfaceUtils.checkConstrainedHighSpeedSurfaces(outputSurfaces, fpsRange, config);
+        try {
+            StreamConfigurationMap config =
+                    SettingsManager.getInstance().getStreamConfigurationMap((int)request.getTag());
+            SurfaceUtils.checkConstrainedHighSpeedSurfaces(outputSurfaces, fpsRange, config);
+        } catch (IllegalArgumentException e) {
+            Log.w(TAG, " checkConstrainedHighSpeedSurfaces occur " + e.toString());
+        }
 
         // Request list size: to limit the preview to 30fps, need use maxFps/30; to maximize
         // the preview frame rate, should use maxBatch size for that high speed stream
