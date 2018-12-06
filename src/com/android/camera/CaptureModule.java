@@ -469,6 +469,8 @@ public class CaptureModule implements CameraModule, PhotoController,
     private byte[] mJpegImageData;
     private boolean mSaveRaw = false;
     private boolean mSupportZoomCapture = true;
+    private long mStartRecordingTime;
+    private long mStopRecordingTime;
 
     private int mLastAeState = -1;
     private int mLastAfState = -1;
@@ -4579,6 +4581,7 @@ public class CaptureModule implements CameraModule, PhotoController,
         if (null == mCameraDevice[cameraId]) {
             return false;
         }
+        mStartRecordingTime = System.currentTimeMillis();
         Log.d(TAG, "StartRecordingVideo " + cameraId);
         mStartRecPending = true;
         mIsRecordingVideo = true;
@@ -4789,7 +4792,8 @@ public class CaptureModule implements CameraModule, PhotoController,
         requestAudioFocus();
         try {
             mMediaRecorder.start(); // Recording is now started
-            Log.d(TAG, "StartRecordingVideo done.");
+            Log.d(TAG, "StartRecordingVideo done. Time=" +
+                    (System.currentTimeMillis() - mStartRecordingTime) + "ms");
         } catch (RuntimeException e) {
             Toast.makeText(mActivity,"Could not start media recorder.\n " +
                     "Can't start video recording.", Toast.LENGTH_LONG).show();
@@ -5179,7 +5183,7 @@ public class CaptureModule implements CameraModule, PhotoController,
 
     private void stopRecordingVideo(int cameraId) {
         Log.d(TAG, "stopRecordingVideo " + cameraId);
-
+        mStopRecordingTime = System.currentTimeMillis();
         mStopRecPending = true;
         boolean shouldAddToMediaStoreNow = false;
         // Stop recording
@@ -5197,7 +5201,8 @@ public class CaptureModule implements CameraModule, PhotoController,
             mMediaRecorder.setOnInfoListener(null);
             mMediaRecorder.stop();
             shouldAddToMediaStoreNow = true;
-            Log.d(TAG, "stopRecordingVideo done.");
+            Log.d(TAG, "stopRecordingVideo done. Time=" +
+                    (System.currentTimeMillis() - mStopRecordingTime) + "ms");
             AccessibilityUtils.makeAnnouncement(mUI.getVideoButton(),
                     mActivity.getString(R.string.video_recording_stopped));
         } catch (RuntimeException e) {
