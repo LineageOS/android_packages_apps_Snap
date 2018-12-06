@@ -1615,15 +1615,17 @@ public class CaptureModule implements CameraModule, PhotoController,
                 }
 
                 List<OutputConfiguration> outputConfigurations = null;
-                if (mSettingsManager.getSavePictureFormat() == SettingsManager.HEIF_FORMAT ) {
+                if (ApiHelper.isAndroidPOrHigher()) {
                     outputConfigurations = new ArrayList<OutputConfiguration>();
-                    if (mInitHeifWriter != null) {
-                        for (Surface s : list) {
-                            outputConfigurations.add(new OutputConfiguration(s));
+                    for (Surface s : list) {
+                        outputConfigurations.add(new OutputConfiguration(s));
+                    }
+                    if (mSettingsManager.getSavePictureFormat() == SettingsManager.HEIF_FORMAT ) {
+                        if (mInitHeifWriter != null) {
+                            mHeifOutput = new OutputConfiguration(mInitHeifWriter.getInputSurface());
+                            mHeifOutput.enableSurfaceSharing();
+                            outputConfigurations.add(mHeifOutput);
                         }
-                        mHeifOutput = new OutputConfiguration(mInitHeifWriter.getInputSurface());
-                        mHeifOutput.enableSurfaceSharing();
-                        outputConfigurations.add(mHeifOutput);
                     }
                 }
                 if(mChosenImageFormat == ImageFormat.YUV_420_888 || mChosenImageFormat == ImageFormat.PRIVATE) {
@@ -1645,17 +1647,11 @@ public class CaptureModule implements CameraModule, PhotoController,
                         }
                     }
                 } else {
-                    if (ApiHelper.isAndroidPOrHigher()) {
-                        createCameraSessionWithSessionConfiguration(id, list, captureSessionCallback,
+                    if (ApiHelper.isAndroidPOrHigher() && outputConfigurations != null) {
+                        createCameraSessionWithSessionConfiguration(id, outputConfigurations, captureSessionCallback,
                                 mCameraHandler, mPreviewRequestBuilder[id].build());
                     } else {
-                        if (mSettingsManager.getSavePictureFormat() == SettingsManager.HEIF_FORMAT &&
-                                outputConfigurations != null) {
-                            mCameraDevice[id].createCaptureSessionByOutputConfigurations(outputConfigurations,
-                                    captureSessionCallback, null);
-                        } else {
-                            mCameraDevice[id].createCaptureSession(list, captureSessionCallback, null);
-                        }
+                        mCameraDevice[id].createCaptureSession(list, captureSessionCallback, null);
                     }
                 }
             } else {
@@ -4433,12 +4429,8 @@ public class CaptureModule implements CameraModule, PhotoController,
 
 
     private void createCameraSessionWithSessionConfiguration(int cameraId,
-                 List<Surface> outputSurfaces, CameraCaptureSession.StateCallback listener,
+                 List<OutputConfiguration> outConfigurations, CameraCaptureSession.StateCallback listener,
                  Handler handler, CaptureRequest initialRequest) {
-        List<OutputConfiguration> outConfigurations = new ArrayList<>(outputSurfaces.size());
-        for (Surface surface : outputSurfaces) {
-            outConfigurations.add(new OutputConfiguration(surface));
-        }
         int opMode = SESSION_REGULAR;
         String valueFS2 = mSettingsManager.getValue(SettingsManager.KEY_SENSOR_MODE_FS2_VALUE);
         if (valueFS2 != null) {
