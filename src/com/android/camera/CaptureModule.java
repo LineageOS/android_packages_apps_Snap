@@ -2145,7 +2145,7 @@ public class CaptureModule implements CameraModule, PhotoController,
             Message message =
                     mCameraHandler.obtainMessage(CANCEL_TOUCH_FOCUS, id, 0, mCameraId[id]);
             mCameraHandler.sendMessageDelayed(message, CANCEL_TOUCH_FOCUS_DELAY);
-        } catch (CameraAccessException | IllegalStateException e) {
+        } catch (CameraAccessException | IllegalStateException | IllegalArgumentException e) {
             e.printStackTrace();
         }
     }
