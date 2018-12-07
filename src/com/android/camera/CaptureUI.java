@@ -1551,7 +1551,11 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
     }
 
     public void initCountDownView() {
-        if (mCountDownView == null) initializeCountDown();
+        if (mCountDownView == null) {
+            initializeCountDown();
+        } else {
+            mCountDownView.initSoundPool();
+        }
     }
 
     public void releaseSoundPool() {
