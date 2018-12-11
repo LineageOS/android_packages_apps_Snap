@@ -4358,10 +4358,7 @@ public class CaptureModule implements CameraModule, PhotoController,
                 e.printStackTrace();
             }
             if (!mFrameProcessor.isFrameListnerEnabled() && !startMediaRecorder()) {
-                mUI.showUIafterRecording();
-                releaseMediaRecorder();
-                mFrameProcessor.setVideoOutputSurface(null);
-                restartSession(true);
+                startRecordingFailed();
                 return;
             }
 
@@ -4691,10 +4688,7 @@ public class CaptureModule implements CameraModule, PhotoController,
                                         e.printStackTrace();
                                     }
                                     if (!mFrameProcessor.isFrameListnerEnabled() && !startMediaRecorder()) {
-                                        mUI.showUIafterRecording();
-                                        releaseMediaRecorder();
-                                        mFrameProcessor.setVideoOutputSurface(null);
-                                        restartSession(true);
+                                        startRecordingFailed();
                                         return;
                                     }
                                     mUI.clearFocus();
@@ -4762,6 +4756,18 @@ public class CaptureModule implements CameraModule, PhotoController,
         return true;
     }
 
+    private void startRecordingFailed() {
+        releaseMediaRecorder();
+        mHandler.post(new Runnable() {
+            @Override
+            public void run() {
+                mUI.showUIafterRecording();
+                mFrameProcessor.setVideoOutputSurface(null);
+                restartSession(true);
+            }
+        });
+    }
+
     private void quitRecordingWithError(String msg) {
         Toast.makeText(mActivity,"Could not start media recorder.\n " +
                 msg, Toast.LENGTH_LONG).show();
@@ -4806,15 +4812,7 @@ public class CaptureModule implements CameraModule, PhotoController,
 
     public void startMediaRecording() {
         if (!startMediaRecorder()) {
-            mActivity.runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-                    mUI.showUIafterRecording();
-                }
-            });
-            releaseMediaRecorder();
-            mFrameProcessor.setVideoOutputSurface(null);
-            restartSession(true);
+            startRecordingFailed();
         }
     }
 
