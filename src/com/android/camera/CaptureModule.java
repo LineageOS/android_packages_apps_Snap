@@ -1037,7 +1037,14 @@ public class CaptureModule implements CameraModule, PhotoController,
                     }
                 }
 
-                if ((CaptureResult.CONTROL_AF_STATE_FOCUSED_LOCKED == afState ||
+                // If the lens is just fixed focus then check only
+                // for AE Lock else check AF & AE state before
+                // trigger of capture
+                if (mSettingsManager.isFixedFocus(getMainCameraId())) {
+                    if (aeState == null || aeState == CaptureResult.CONTROL_AE_STATE_LOCKED) {
+                        checkAfAeStatesAndCapture(id);
+                    }
+                } else if ((CaptureResult.CONTROL_AF_STATE_FOCUSED_LOCKED == afState ||
                         CaptureResult.CONTROL_AF_STATE_NOT_FOCUSED_LOCKED == afState) &&
                         (aeState == null || aeState == CaptureResult.CONTROL_AE_STATE_LOCKED)) {
                     checkAfAeStatesAndCapture(id);
