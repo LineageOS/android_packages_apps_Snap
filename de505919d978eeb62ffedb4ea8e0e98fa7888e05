@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "778c5e5c_5d68f6d1",
+        "filename": "src/com/android/camera/DisableCameraReceiver.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 10258
+      },
+      "writtenOn": "2018-12-12T09:38:12Z",
+      "side": 1,
+      "message": "12-12 17:06:16.885  4951  4951 D AndroidRuntime: Shutting down VM\n12-12 17:06:16.887  4951  4951 E AndroidRuntime: FATAL EXCEPTION: main\n12-12 17:06:16.887  4951  4951 E AndroidRuntime: Process: org.lineageos.snap, PID: 4951\n12-12 17:06:16.887  4951  4951 E AndroidRuntime: java.lang.RuntimeException: Unable to start receiver com.android.camera.DisableCameraReceiver: java.lang.NullPointerException: Attempt to invoke virtual method \u0027java.lang.Object android.content.Context.getSystemService(java.lang.String)\u0027 on a null object reference\n12-12 17:06:16.887  4951  4951 E AndroidRuntime: \tat android.app.ActivityThread.handleReceiver(ActivityThread.java:3426)\n12-12 17:06:16.887  4951  4951 E AndroidRuntime: \tat android.app.ActivityThread.access$1200(ActivityThread.java:200)\n12-12 17:06:16.887  4951  4951 E AndroidRuntime: \tat android.app.ActivityThread$H.handleMessage(ActivityThread.java:1667)\n12-12 17:06:16.887  4951  4951 E AndroidRuntime: \tat android.os.Handler.dispatchMessage(Handler.java:106)\n12-12 17:06:16.887  4951  4951 E AndroidRuntime: \tat android.os.Looper.loop(Looper.java:193)\n12-12 17:06:16.887  4951  4951 E AndroidRuntime: \tat android.app.ActivityThread.main(ActivityThread.java:6718)\n12-12 17:06:16.887  4951  4951 E AndroidRuntime: \tat java.lang.reflect.Method.invoke(Native Method)\n12-12 17:06:16.887  4951  4951 E AndroidRuntime: \tat com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:493)\n12-12 17:06:16.887  4951  4951 E AndroidRuntime: \tat com.android.internal.os.ZygoteInit.main(ZygoteInit.java:858)\n12-12 17:06:16.887  4951  4951 E AndroidRuntime: Caused by: java.lang.NullPointerException: Attempt to invoke virtual method \u0027java.lang.Object android.content.Context.getSystemService(java.lang.String)\u0027 on a null object reference\n12-12 17:06:16.887  4951  4951 E AndroidRuntime: \tat com.android.camera.CameraHolder.\u003cinit\u003e(CameraHolder.java:177)\n12-12 17:06:16.887  4951  4951 E AndroidRuntime: \tat com.android.camera.CameraHolder.instance(CameraHolder.java:133)\n12-12 17:06:16.887  4951  4951 E AndroidRuntime: \tat com.android.camera.DisableCameraReceiver.hasCamera(DisableCameraReceiver.java:56)\n12-12 17:06:16.887  4951  4951 E AndroidRuntime: \tat com.android.camera.DisableCameraReceiver.onReceive(DisableCameraReceiver.java:42)\n12-12 17:06:16.887  4951  4951 E AndroidRuntime: \tat android.app.ActivityThread.handleReceiver(ActivityThread.java:3417)\n12-12 17:06:16.887  4951  4951 E AndroidRuntime: \t... 8 more\n\nNeed to call setCamera2Mode somewhere before this line",
+      "range": {
+        "startLine": 56,
+        "startChar": 8,
+        "endLine": 56,
+        "endChar": 61
+      },
+      "revId": "de505919d978eeb62ffedb4ea8e0e98fa7888e05",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
