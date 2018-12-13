@@ -1577,7 +1577,12 @@ public class CaptureModule implements CameraModule, PhotoController,
 
             Surface surface = null;
             if (!mDeepPortraitMode) {
-                waitForPreviewSurfaceReady();
+                try {
+                    waitForPreviewSurfaceReady();
+                } catch (RuntimeException e) {
+                    Log.v(TAG,
+                            "createSession: normal status occur Time out waiting for surface ");
+                }
                 surface = getPreviewSurfaceForSession(id);
 
                 if(id == getMainCameraId()) {
