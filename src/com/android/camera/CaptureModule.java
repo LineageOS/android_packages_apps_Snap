@@ -3143,6 +3143,7 @@ public class CaptureModule implements CameraModule, PhotoController,
 
     private void applyVideoSnapshot(CaptureRequest.Builder builder, int id) {
         builder.set(CaptureRequest.CONTROL_MODE, CaptureRequest.CONTROL_MODE_AUTO);
+        applyFaceDetection(builder);
         applyColorEffect(builder);
         applyVideoFlash(builder);
         applyVideoStabilization(builder);
