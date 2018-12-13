@@ -501,6 +501,19 @@ public class CameraUtil {
         return result;
     }
 
+    public static int getDisplayOrientationForCamera2(int degrees, int cameraId) {
+        CameraCharacteristics info = CameraHolder.instance().getCameraCharacteristics(cameraId);
+        int result;
+        if (info.get(CameraCharacteristics.LENS_FACING) ==
+                CameraCharacteristics.LENS_FACING_FRONT) {
+            result = (info.get(CameraCharacteristics.SENSOR_ORIENTATION) + degrees) % 360;
+            result = (360 - result) % 360;  // compensate the mirror
+        } else {
+            result = (info.get(CameraCharacteristics.SENSOR_ORIENTATION) - degrees + 360) % 360;
+        }
+        return result;
+    }
+
     public static int getCameraOrientation(int cameraId) {
         Camera.CameraInfo info = new Camera.CameraInfo();
         Camera.getCameraInfo(cameraId, info);
