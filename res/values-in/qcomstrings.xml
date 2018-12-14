@@ -486,6 +486,7 @@
     <string name="pref_camera2_scene_mode_time_lapse_instructional_content">Dengan Selang waktu, Anda dapat mengubah rekaman video yang panjang menjadi beberapa detik video. Efek ini berlaku untuk video, tapi bukan foto.</string>
     <string name="pref_camera2_scene_mode_panorama_instructional_content">Memungkinkan Anda untuk menggerakkan ke kiri atau ke kanan untuk mengambil foto lanskap yang luas. Anda dapat juga menggerakkan ke atas atau ke bawah untuk mengambil foto tinggi.</string>
     <string name="pref_camera2_scene_mode_blur_buster_instructional_content">BlurBuster mengurangi kabur dari tangan yang gemetar. Ini bisa sangat membantu saat memotret di tempat yang sulit.</string>
+    <string name="pref_camera2_scene_mode_pro_instructional_content">Dengan modus Pro, Anda dapat secara manual mengontrol setelan untuk ISO, pencahayaan, keseimbangan putih, dan fokus. Anda akan memiliki akses yang mudah ke semua setelan lanjutan ini</string>
     <string name="pref_camera2_not_show_again">Jangan tampilkan lagi</string>
     <string name="pref_camera2_scene_mode_instructional_ok">OKE</string>
     <string name="pref_camera2_instant_aec_title">Instan AEC</string>
@@ -521,6 +522,7 @@
     <string name="pref_camera_bokeh_mode_title">Modus Bokeh</string>
     <string name="pref_camera_bokeh_mode_entry_enable">Hidup</string>
     <string name="pref_camera_bokeh_mode_entry_disable">Mati</string>
+    <string name="pref_camera_bokeh_mpo_title">Bokeh modus MPO</string>
     <string name="pref_camera_bokeh_mpo_entry_enable">Hidup</string>
     <string name="pref_camera_bokeh_mpo_entry_disable">Mati</string>
     <!-- Default Zoom setting. -->
@@ -546,6 +548,7 @@
     <string name="pref_camera2_zsl_entry_hal_zsl">Perangkat keras ZSL</string>
     <!-- QCFA Title -->
     <!-- QCFA choices -->
+    <string name="pref_camera2_switch_camera_title">Beralih kamera dengan ID</string>
     <string name="pref_camera2_initial_camera_entry_bayer">Bayer</string>
     <string name="pref_camera2_initial_camera_entry_mono">Satu</string>
     <string name="pref_camera2_initial_camera_entry_front">Depan</string>

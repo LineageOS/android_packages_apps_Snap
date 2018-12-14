@@ -91,6 +91,7 @@
     <!-- The message is shown in dialog when the app encounters an unsupported video codec for HFR mode -->
     <!-- The message is shown in dialog when the app encounters an unsupported video resolution-->
     <!-- The message is shown in dialog when the app encounters an unsupported video profile-->
+    <string name="error_app_unsupported_profile">Proffil fideo anghydnaws</string>
     <!--The message is shown in dialog when the raw snapshot is selected in zsl mode-->
     <!-- Settings screen, AE bracketing and HDR location dialog choices -->
     <!-- The messsage shown if user selects a snapshot resolution lower than the current video size. -->
@@ -142,6 +143,7 @@
     <!-- Picture format entry values. Do not translate. -->
     <!-- Settings screen, Picture quality title -->
     <!-- Settings screen, Picture quality dialog radio button choices -->
+    <string name="pref_camera_jpegquality_entry_1">Safonol</string>
     <!-- Default auto histogram setting. Do not translate. -->
     <!-- Settings screen, Select Histogram title -->
     <!-- Settings screen, Histogram radio button choices -->
@@ -161,19 +163,28 @@
     <!-- HDR mode entry values. Do not translate. -->
     <!--Default video rotation setting-->
     <!--Settings screen, video rotation title-->
+    <string name="pref_camera_video_rotation_title">Cylchdro fideo</string>
     <!--Menu, video rotation label-->
+    <string name="pref_camera_video_rotation_label">CYLCHDRO FIDEO</string>
     <!-- Settings screen, Video rotation dialog radio button choices -->
     <!-- The message is shown in toast when click showOnMap Menu and there is no map app -->
+    <string name="map_activity_not_found_err">Does dim apiau mapio wedi eu gosod i fedru dangos y lleoliad</string>
     <!-- Continuous shot enable message -->
     <!-- Advanced features enable message -->
     <!-- The alas of CameraActivity for gesture operation -->
     <string name="camera_gesture_title">Agor camera</string>
+    <string name="pref_camera_tsmakeup_level_whiten">Gwynnu</string>
+    <string name="text_tsmakeup_alert_title">Rhybudd</string>
     <string name="text_tsmakeup_alert_quit">Diddymu</string>
+    <string name="camera_unknown_error">Gwall anhysbys. Yn cau\'r camera.</string>
     <string name="makeup_ui_ok_button">Iawn</string>
+    <string name="perf_camera2_version_info">Gwybodaeth am y fersiwn</string>
     <string name="perf_camera2_preferences_category_photo">Camera llun</string>
     <string name="perf_camera2_preferences_category_video">Camera fideo</string>
+    <string name="perf_camera2_preferences_category_system">System</string>
     <string name="pref_camera2_scene_mode_instructional_ok">Iawn</string>
     <!-- Default Zoom setting. -->
+    <string name="pref_camera_zoom_title">Chwyddo</string>
     <!-- Settings menu, Zoom choices -->
     <!-- QCFA Title -->
     <!-- QCFA choices -->
