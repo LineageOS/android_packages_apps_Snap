@@ -7205,10 +7205,10 @@ public class CaptureModule implements CameraModule, PhotoController,
             try{
                 mMediaRecorder.reset();
                 mMediaRecorder.release();
-                mMediaRecorder = null;
-            }catch (IllegalStateException e) {
+            }catch (RuntimeException e) {
                 e.printStackTrace();
             }
+            mMediaRecorder = null;
         }
         mVideoFilename = null;
     }
