@@ -1893,9 +1893,9 @@ public class CaptureModule implements CameraModule, PhotoController,
         Log.d(TAG, "takePicture");
         mUI.enableShutter(false);
         if ((mSettingsManager.isZSLInHALEnabled() &&
-                !isFlashOn(getMainCameraId()) &&
+                !isFlashOn(getMainCameraId()) && (mPreviewCaptureResult != null &&
                 mPreviewCaptureResult.get(CaptureResult.CONTROL_AE_STATE) !=
-                     CameraMetadata.CONTROL_AE_STATE_FLASH_REQUIRED) ||
+                     CameraMetadata.CONTROL_AE_STATE_FLASH_REQUIRED)) ||
                 isActionImageCapture()) {
             takeZSLPictureInHAL();
         } else {
