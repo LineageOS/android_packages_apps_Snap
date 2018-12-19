@@ -2497,6 +2497,10 @@ public class CaptureModule implements CameraModule, PhotoController,
             captureBuilder.set(CaptureRequest.JPEG_THUMBNAIL_QUALITY, (byte)80);
             applyVideoSnapshot(captureBuilder, id);
             applyZoom(captureBuilder, id);
+            if (mHighSpeedCapture) {
+                captureBuilder.set(CaptureRequest.CONTROL_AE_TARGET_FPS_RANGE,
+                        mHighSpeedFPSRange);
+            }
 
             if (mSettingsManager.getSavePictureFormat() == SettingsManager.HEIF_FORMAT) {
                 long captureTime = System.currentTimeMillis();
