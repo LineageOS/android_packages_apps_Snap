@@ -19,6 +19,8 @@ package com.android.camera;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import com.android.camera.util.CameraUtil;
+import org.codeaurora.snapcam.R;
 
 /**
  * {@code CameraButtonIntentReceiver} is invoked when the camera button is
@@ -32,12 +34,26 @@ import android.content.Intent;
  */
 public class CameraButtonIntentReceiver extends BroadcastReceiver {
 
+    private boolean mCamera2supported = false;
+    private boolean mCamera2enabled = false;
+
     @Override
     public void onReceive(Context context, Intent intent) {
         // Try to get the camera hardware
         CameraHolder holder = CameraHolder.instance();
         ComboPreferences pref = new ComboPreferences(context);
         int cameraId = CameraSettings.readPreferredCameraId(pref);
+
+        // Check if the device supports Camera API 2
+        mCamera2supported = CameraUtil.isCamera2Supported(context);
+        Log.d(TAG, "Camera API 2 supported: " + mCamera2supported);
+
+        mCamera2enabled = mCamera2supported &&
+                context.getResources().getBoolean(R.bool.support_camera_api_v2);
+        Log.d(TAG, "Camera API 2 enabled: " + mCamera2enabled);
+
+        holder.setCamera2Mode(context, mCamera2enabled);
+
         if (holder.tryOpen(null, cameraId, null) == null) {
             return;
         }
