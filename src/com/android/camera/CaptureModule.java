@@ -2409,8 +2409,11 @@ public class CaptureModule implements CameraModule, PhotoController,
 
     private void captureStillPictureForLongshot(CaptureRequest.Builder captureBuilder, int id) throws CameraAccessException{
         List<CaptureRequest> burstList = new ArrayList<>();
+        boolean isBurstShotFpsEnable = PersistUtil.isBurstShotFpsEnabled();
         for (int i = 0; i < MAX_IMAGEREADERS*2; i++) {
-            burstList.add(mPreviewRequestBuilder[id].build());
+            if (isBurstShotFpsEnable) {
+                burstList.add(mPreviewRequestBuilder[id].build());
+            }
             burstList.add(captureBuilder.build());
         }
         mCaptureSession[id].captureBurst(burstList, mLongshotCallBack, mCaptureCallbackHandler);
@@ -4239,7 +4242,7 @@ public class CaptureModule implements CameraModule, PhotoController,
             mVideoSnapshotSize = getMaxPictureSizeLiveshot();
         }
 
-        String videoSnapshot = getVideoSnapshotSize();
+        String videoSnapshot = PersistUtil.getVideoSnapshotSize();
         String[] sourceStrArray = videoSnapshot.split("x");
         if (sourceStrArray != null && sourceStrArray.length >= 2) {
             int width = Integer.parseInt(sourceStrArray[0]);
@@ -4279,10 +4282,6 @@ public class CaptureModule implements CameraModule, PhotoController,
             }
         }
         return optimalSize;
-    }
-
-    private String getVideoSnapshotSize(){
-        return SystemProperties.get("persist.sys.camera.video.snapshotsize", "");
     }
 
     private boolean isVideoSize1080P(Size size) {
