@@ -3847,7 +3847,8 @@ public class CaptureModule implements CameraModule, PhotoController,
     @Override
     public void onSingleTapUp(View view, int x, int y) {
         if (mPaused || !mCamerasOpened || !mFirstTimeInitialized || !mAutoFocusRegionSupported
-                || !mAutoExposureRegionSupported || !isTouchToFocusAllowed()) {
+                || !mAutoExposureRegionSupported || !isTouchToFocusAllowed()
+                || mCaptureSession[getMainCameraId()] == null) {
             return;
         }
         if (DEBUG) {
