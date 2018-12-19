@@ -726,6 +726,22 @@ public class CameraActivity extends Activity
         return s;
     }
 
+    private int getOrientationFromUri(Uri uri) {
+        String[] projection = {
+                MediaStore.Images.Media.ORIENTATION
+        };
+        Cursor cursor = getContentResolver().query(uri, projection, null, null, null);
+        if (cursor == null)
+            return 0;
+        int orientation_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.ORIENTATION);
+        int ori = 0;
+        if (cursor.moveToFirst()) {
+            ori = cursor.getInt(orientation_index);
+        }
+        cursor.close();
+        return ori;
+    }
+
     public void updateThumbnail(final byte[] jpegData) {
         if (mUpdateThumbnailTask != null) mUpdateThumbnailTask.cancel(true);
         mUpdateThumbnailTask = new UpdateThumbnailTask(jpegData, true);
@@ -790,6 +806,7 @@ public class CameraActivity extends Activity
     private class UpdateThumbnailTask extends AsyncTask<Void, Void, Bitmap> {
         private byte[] mJpegData;
         private boolean mCheckOrientation;
+        private int mOrientation = -1;
 
         public UpdateThumbnailTask(final byte[] jpegData, boolean checkOrientation) {
             mJpegData = jpegData;
@@ -810,8 +827,10 @@ public class CameraActivity extends Activity
             String path = getPathFromUri(uri);
             if (path == null) {
                 return null;
-            }
-            else {
+            } else {
+                if (path.endsWith(Storage.HEIF_POSTFIX)) {
+                    mOrientation = getOrientationFromUri(uri);
+                }
                 if (img.isPhoto()) {
                     return decodeImageCenter(path);
                 } else {
@@ -851,16 +870,20 @@ public class CameraActivity extends Activity
             // saves jpeg with orientation tag set.
             int orientation = 0;
             if (mCheckOrientation) {
-                ExifInterface exif = new ExifInterface();
-                try {
-                    if (mJpegData != null) {
-                        exif.readExif(mJpegData);
-                    } else {
-                        exif.readExif(path);
+                if (mOrientation != -1) {
+                    orientation = mOrientation;
+                } else {
+                    ExifInterface exif = new ExifInterface();
+                    try {
+                        if (mJpegData != null) {
+                            exif.readExif(mJpegData);
+                        } else {
+                            exif.readExif(path);
+                        }
+                        orientation = Exif.getOrientation(exif);
+                    } catch (IOException e) {
+                        // ignore
                     }
-                    orientation = Exif.getOrientation(exif);
-                } catch (IOException e) {
-                    // ignore
                 }
             }
 

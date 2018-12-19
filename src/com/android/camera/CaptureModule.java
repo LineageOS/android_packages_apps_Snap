@@ -3122,8 +3122,6 @@ public class CaptureModule implements CameraModule, PhotoController,
     }
 
     private void applySettingsForJpegInformation(CaptureRequest.Builder builder, int id) {
-        if (mSettingsManager.getSavePictureFormat() == SettingsManager.HEIF_FORMAT)
-            return;
         Location location = mLocationManager.getCurrentLocation();
         if(location != null) {
             // make copy so that we don't alter the saved location since we may re-use it

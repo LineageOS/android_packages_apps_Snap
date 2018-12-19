@@ -51,6 +51,7 @@ public class Storage {
     public static final String DIRECTORY = DCIM + "/Camera";
     public static final String RAW_DIRECTORY = DCIM + "/Camera/raw";
     public static final String JPEG_POSTFIX = ".jpg";
+    public static final String HEIF_POSTFIX = ".heic";
 
     // Match the code in MediaProvider.computeBucketValues().
     public static final String BUCKET_ID =
