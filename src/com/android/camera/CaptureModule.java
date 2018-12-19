@@ -4536,13 +4536,6 @@ public class CaptureModule implements CameraModule, PhotoController,
         for (Surface surface : outputSurfaces) {
             outConfigurations.add(new OutputConfiguration(surface));
         }
-        if (mSettingsManager.getSavePictureFormat() == SettingsManager.HEIF_FORMAT &&
-                mLiveShotInitHeifWriter != null) {
-            mLiveShotOutput = new OutputConfiguration(
-                    mLiveShotInitHeifWriter.getInputSurface());
-            mLiveShotOutput .enableSurfaceSharing();
-            outConfigurations.add(mLiveShotOutput);
-        }
         Method method_setSessionParameters = null;
         Method method_createCaptureSession = null;
         Object sessionConfig = null;
