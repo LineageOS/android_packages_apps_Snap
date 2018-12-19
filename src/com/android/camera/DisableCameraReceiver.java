@@ -23,6 +23,8 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.hardware.Camera.CameraInfo;
 import android.util.Log;
+import com.android.camera.util.CameraUtil;
+import org.codeaurora.snapcam.R;
 
 // We want to disable camera-related activities if there is no camera. This
 // receiver runs when BOOT_COMPLETED intent is received. After running once
@@ -33,9 +35,21 @@ public class DisableCameraReceiver extends BroadcastReceiver {
     private static final String ACTIVITIES[] = {
         "com.android.camera.CameraLauncher",
     };
+    private boolean mCamera2supported = false;
+    private boolean mCamera2enabled = false;
 
     @Override
     public void onReceive(Context context, Intent intent) {
+        // Check if the device supports Camera API 2
+        mCamera2supported = CameraUtil.isCamera2Supported(context);
+        Log.d(TAG, "Camera API 2 supported: " + mCamera2supported);
+
+        mCamera2enabled = mCamera2supported &&
+                context.getResources().getBoolean(R.bool.support_camera_api_v2);
+        Log.d(TAG, "Camera API 2 enabled: " + mCamera2enabled);
+
+        CameraHolder.setCamera2Mode(context, mCamera2enabled);
+
         // Disable camera-related activities if there is no camera.
         boolean needCameraActivity = CHECK_BACK_CAMERA_ONLY
             ? hasBackCamera()
