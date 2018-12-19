@@ -1383,6 +1383,7 @@ public class SettingsManager implements ListMenu.SettingsListener {
         List<String> res = new ArrayList<>();
 
         boolean isDeepportrait = getDeepportraitEnabled();
+        boolean isHeifEnabled = getSavePictureFormat() == HEIF_FORMAT;
 
         if (getQcfaPrefEnabled() && getIsSupportedQcfa(cameraId)) {
             res.add(getSupportedQcfaDimension(cameraId));
@@ -1390,6 +1391,9 @@ public class SettingsManager implements ListMenu.SettingsListener {
 
         if (sizes != null) {
             for (int i = 0; i < sizes.length; i++) {
+                if (isHeifEnabled && (Math.min(sizes[i].getWidth(),sizes[i].getHeight()) < 512)) {
+                    continue;
+                }
                 if (isDeepportrait &&
                         (Math.min(sizes[i].getWidth(),sizes[i].getHeight()) < 720 ||
                         Math.max(sizes[i].getWidth(),sizes[i].getHeight()) <= 1024)) {

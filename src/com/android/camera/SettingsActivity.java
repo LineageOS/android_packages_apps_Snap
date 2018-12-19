@@ -125,7 +125,8 @@ public class SettingsActivity extends PreferenceActivity {
                     UpdateManualExposureSettings();
                 }
 
-                if ( pref.getKey().equals(SettingsManager.KEY_QCFA) ) {
+                if ( pref.getKey().equals(SettingsManager.KEY_QCFA) ||
+                        pref.getKey().equals(SettingsManager.KEY_PICTURE_FORMAT) ) {
                     mSettingsManager.updateQcfaPictureSize();
                     updatePreference(SettingsManager.KEY_PICTURE_SIZE);
                 }
