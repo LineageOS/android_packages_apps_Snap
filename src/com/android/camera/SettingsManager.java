@@ -1561,11 +1561,13 @@ public class SettingsManager implements ListMenu.SettingsListener {
     }
 
     public List<String> getSupportedColorEffects(int cameraId) {
-        int[] flashModes = mCharacteristics.get(cameraId).get(CameraCharacteristics
-                .CONTROL_AVAILABLE_EFFECTS);
         List<String> modes = new ArrayList<>();
-        for (int mode : flashModes) {
-            modes.add("" + mode);
+        if (mCharacteristics.size() > 0) {
+            int[] flashModes = mCharacteristics.get(cameraId).get(CameraCharacteristics
+                    .CONTROL_AVAILABLE_EFFECTS);
+            for (int mode : flashModes) {
+                modes.add("" + mode);
+            }
         }
         return modes;
     }
