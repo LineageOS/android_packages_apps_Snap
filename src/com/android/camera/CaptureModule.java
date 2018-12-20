@@ -7200,8 +7200,8 @@ public class CaptureModule implements CameraModule, PhotoController,
 
     private void releaseMediaRecorder() {
         Log.v(TAG, "Releasing media recorder.");
+        cleanupEmptyFile();
         if (mMediaRecorder != null) {
-            cleanupEmptyFile();
             try{
                 mMediaRecorder.reset();
                 mMediaRecorder.release();
@@ -7210,7 +7210,6 @@ public class CaptureModule implements CameraModule, PhotoController,
                 e.printStackTrace();
             }
         }
-        mVideoFilename = null;
     }
 
     private void cleanupEmptyFile() {
