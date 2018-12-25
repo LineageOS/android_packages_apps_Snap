@@ -4352,9 +4352,8 @@ public class CaptureModule implements CameraModule, PhotoController,
             mCaptureSession[cameraId] = cameraCaptureSession;
             try {
                 setUpVideoCaptureRequestBuilder(mVideoRequestBuilder, cameraId);
-                List list = CameraUtil
-                        .createHighSpeedRequestList(mVideoRequestBuilder.build());
-                mCurrentSession.setRepeatingBurst(list, mCaptureCallback, mCameraHandler);
+                mCurrentSession.setRepeatingRequest(mVideoRequestBuilder.build(),
+                        mCaptureCallback, mCameraHandler);
             } catch (CameraAccessException e) {
                 e.printStackTrace();
             } catch (IllegalStateException e) {
@@ -4392,9 +4391,25 @@ public class CaptureModule implements CameraModule, PhotoController,
             List<CaptureRequest> slowMoRequests = null;
             try {
                 setUpVideoCaptureRequestBuilder(mVideoRequestBuilder, cameraId);
-                List list = CameraUtil
-                        .createHighSpeedRequestList(mVideoRequestBuilder.build());
-                mCurrentSession.setRepeatingBurst(list,mCaptureCallback, mCameraHandler);
+                int deviceSocId = mSettingsManager.getDeviceSocId();
+                if (deviceSocId == SettingsManager.TALOS_SOCID ||
+                        deviceSocId == SettingsManager.MOOREA_SOCID) {
+                    List list = CameraUtil
+                            .createHighSpeedRequestList(mVideoRequestBuilder.build());
+                    mCurrentSession.setRepeatingBurst(list,mCaptureCallback, mCameraHandler);
+                } else {
+                    if (mHighSpeedCapture &&
+                            ((int) mHighSpeedFPSRange.getUpper() > NORMAL_SESSION_MAX_FPS)) {
+                        slowMoRequests =
+                                ((CameraConstrainedHighSpeedCaptureSession) mCurrentSession).
+                                        createHighSpeedRequestList(mVideoRequestBuilder.build());
+                        mCurrentSession.setRepeatingBurst(slowMoRequests, mCaptureCallback,
+                                mCameraHandler);
+                    } else {
+                        mCurrentSession.setRepeatingRequest(mVideoRequestBuilder.build(),
+                                mCaptureCallback, mCameraHandler);
+                    }
+                }
             } catch (CameraAccessException e) {
                 e.printStackTrace();
             } catch (IllegalStateException e) {
