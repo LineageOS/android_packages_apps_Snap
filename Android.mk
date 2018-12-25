@@ -69,9 +69,9 @@ include $(BUILD_PACKAGE)
 include $(CLEAR_VARS)
 
 LOCAL_PREBUILT_STATIC_JAVA_LIBRARIES += \
-    qreader-core:quickReader/libs/core-1.9.3.aar \
-    qreader-zxing:quickReader/libs/zxing-1.9.3.aar \
-    zxing-core:quickReader/libs/zxing-core-g-2.3.1.jar
+    qreader-core:quickReader/libs/core-1.9.8.aar \
+    qreader-zxing:quickReader/libs/zxing-1.9.8.aar \
+    zxing-core:quickReader/libs/zxing-core-g-3.3.3.jar
 
 include $(BUILD_MULTI_PREBUILT)
 
