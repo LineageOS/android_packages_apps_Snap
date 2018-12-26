@@ -2745,6 +2745,7 @@ public class CaptureModule implements CameraModule, PhotoController,
                                     if (image.getFormat() == ImageFormat.RAW10) {
                                         mActivity.getMediaSaveService().addRawImage(bytes, title,
                                                 "raw");
+                                        image.close();
                                     } else {
                                         ExifInterface exif = Exif.getExif(bytes);
                                         int orientation = Exif.getOrientation(exif);
