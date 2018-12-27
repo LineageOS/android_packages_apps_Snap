@@ -298,6 +298,8 @@ public class CameraSettings {
     public static String mKeyIso = null;
     public static String mKeyIsoValues = null;
 
+    private static boolean mSupportBokehMode = false;
+
     private static final HashMap<Integer, String>
             VIDEO_ENCODER_TABLE = new HashMap<Integer, String>();
     public static final HashMap<String, Integer>
@@ -493,6 +495,9 @@ public class CameraSettings {
         } else {
             Log.d(TAG, "Using key for iso-values: " + mKeyIsoValues);
         }
+
+        // Bokeh mode
+        mSupportBokehMode = mContext.getResources().getBoolean(R.bool.support_bokeh_mode);
     }
 
     public PreferenceGroup getPreferenceGroup(int preferenceRes) {
@@ -1322,9 +1327,11 @@ public class CameraSettings {
             return;
         }
 
-//        if (numOfCameras > 2 ) {
-//            numOfCameras = 2;
-//        }
+        if (!mSupportBokehMode) {
+            if (numOfCameras > 2) {
+                numOfCameras = 2;
+            }
+        }
 
         CharSequence[] entryValues = new CharSequence[numOfCameras];
         for (int i = 0; i < numOfCameras; ++i) {
@@ -1669,6 +1676,11 @@ public class CameraSettings {
 
     public static boolean isBokehModeSupported(Parameters params) {
         boolean ret = false;
+
+        if (!mSupportBokehMode) {
+            return ret;
+        }
+
         if (null != params) {
             String val = params.get(KEY_QC_IS_BOKEH_MODE_SUPPORTED);
             if ("1".equals(val)) {
@@ -1680,6 +1692,11 @@ public class CameraSettings {
 
     public static boolean isBokehMPOSupported(Parameters params) {
         boolean ret = false;
+
+        if (!mSupportBokehMode) {
+            return ret;
+        }
+
         if (null != params) {
             String val = params.get(KEY_QC_IS_BOKEH_MPO_SUPPORTED);
             if ("1".equals(val)) {
