@@ -31,14 +31,12 @@ import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Display;
-import android.widget.ImageView;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
 import com.android.camera.CaptureModule;
-import com.android.camera.SettingsManager;
 import com.android.camera.Storage;
 import com.android.camera.imageprocessor.filter.BeautificationFilter;
 
@@ -66,7 +64,7 @@ public class OneUICameraControls extends RotatableLayout {
     private View mMakeupSeekBarLayout;
     private View mCancelButton;
     private ViewGroup mProModeLayout;
-    private View mProModeCloseButton;
+    private View mSettingsButton;
 
     private ArrowTextView mRefocusToast;
 
@@ -148,6 +146,7 @@ public class OneUICameraControls extends RotatableLayout {
         mPauseButton = findViewById(R.id.video_pause);
         mFrontBackSwitcher = findViewById(R.id.front_back_switcher);
         mTsMakeupSwitcher = findViewById(R.id.ts_makeup_switcher);
+        mSettingsButton = findViewById(R.id.settings);
         mMakeupSeekBarLowText = findViewById(R.id.makeup_low_text);
         mMakeupSeekBarHighText = findViewById(R.id.makeup_high_text);
         mMakeupSeekBar = findViewById(R.id.makeup_seekbar);
@@ -163,7 +162,6 @@ public class OneUICameraControls extends RotatableLayout {
         mRemainingPhotosText = (TextView) findViewById(R.id.remaining_photos_text);
         mCancelButton = findViewById(R.id.cancel_button);
         mProModeLayout = (ViewGroup) findViewById(R.id.pro_mode_layout);
-        mProModeCloseButton = findViewById(R.id.promode_close_button);
 
         mExposureText = (TextView) findViewById(R.id.exposure_value);
         mManualText = (TextView) findViewById(R.id.manual_value);
@@ -233,7 +231,7 @@ public class OneUICameraControls extends RotatableLayout {
         mViews = new View[]{
                 mSceneModeSwitcher, mFilterModeSwitcher, mFrontBackSwitcher,
                 mTsMakeupSwitcher,mDeepportraitSwitcher, mFlashButton, mShutter,
-                mPreview, mVideoShutter, mPauseButton, mCancelButton
+                mPreview, mPauseButton, mCancelButton, mSettingsButton
         };
         mBottomLargeSize = getResources().getDimensionPixelSize(
                 R.dimen.one_ui_bottom_large);
@@ -341,15 +339,17 @@ public class OneUICameraControls extends RotatableLayout {
             setLocation(mMute, true, 2);
             setLocation(mTsMakeupSwitcher, true, 3);
             setLocation(mFlashButton, true, 4);
+            setLocation(mSettingsButton, true, 5);
             setLocation(mPauseButton, false, 3.15f);
             setLocation(mShutter, false , 0.85f);
             setLocation(mVideoShutter, false, 2);
             setLocation(mExitBestPhotpMode ,false, 4);
         } else {
-            setLocation(mFrontBackSwitcher, true, 2);
-            setLocation(mTsMakeupSwitcher, true, 3);
-            setLocation(mFlashButton, true, 4);
-            setLocation(mDeepportraitSwitcher,true,5);
+            setLocation(mTsMakeupSwitcher, true, 2);
+            setLocation(mFlashButton, true, 3);
+            setLocation(mDeepportraitSwitcher,true,4);
+            setLocation(mSettingsButton,true,5);
+            setLocation(mFrontBackSwitcher, false, 3.15f);
             if (mIntentMode == CaptureModule.INTENT_MODE_CAPTURE) {
                 setLocation(mShutter, false, 2);
                 setLocation(mCancelButton, false, 0.85f);
@@ -357,14 +357,13 @@ public class OneUICameraControls extends RotatableLayout {
                 setLocation(mVideoShutter, false, 2);
                 setLocation(mCancelButton, false, 0.85f);
             } else {
+                setLocation(mVideoShutter, false, 2);
                 setLocation(mShutter, false, 2);
                 setLocation(mPreview, false, 0);
-                setLocation(mVideoShutter, false, 3.15f);
             }
             setLocation(mExitBestPhotpMode ,false, 4);
         }
         setLocationCustomBottom(mMakeupSeekBarLayout, 0, 1);
-        setLocation(mProModeCloseButton, false, 4);
 
         layoutToast(mRefocusToast, w, h, rotation);
     }
@@ -443,7 +442,6 @@ public class OneUICameraControls extends RotatableLayout {
                 setBottomButtionSize(mVideoShutter, mBottomLargeSize, mBottomLargeSize);
             } else {
                 setBottomButtionSize(mShutter, mBottomLargeSize, mBottomLargeSize);
-                setBottomButtionSize(mVideoShutter, mBottomSmallSize, mBottomSmallSize);
             }
         }
     }
@@ -500,8 +498,8 @@ public class OneUICameraControls extends RotatableLayout {
         mOrientation = orientation;
         View[] views = {
                 mSceneModeSwitcher, mFilterModeSwitcher, mFrontBackSwitcher,
-                mTsMakeupSwitcher, mFlashButton, mDeepportraitSwitcher, mPreview, mMute,
-                mShutter, mVideoShutter, mMakeupSeekBarLowText, mMakeupSeekBarHighText,
+                mTsMakeupSwitcher, mFlashButton, mDeepportraitSwitcher, mSettingsButton, mPreview,
+                mMute, mShutter, mVideoShutter, mMakeupSeekBarLowText, mMakeupSeekBarHighText,
                 mPauseButton, mExitBestPhotpMode
         };
 
@@ -562,8 +560,6 @@ public class OneUICameraControls extends RotatableLayout {
     }
 
     public void setProMode(boolean promode) {
-        if (mProModeOn && !promode)
-            mProMode.resetEVandWB();
         mProModeOn = promode;
         initializeProMode(mProModeOn);
         mProMode.reinit();
@@ -594,12 +590,10 @@ public class OneUICameraControls extends RotatableLayout {
         if (!promode) {
             mProMode.setMode(ProMode.NO_MODE);
             mProModeLayout.setVisibility(INVISIBLE);
-            mProModeCloseButton.setVisibility(INVISIBLE);
             return;
         }
         mProModeLayout.setVisibility(VISIBLE);
-        mProModeCloseButton.setVisibility(VISIBLE);
-        mProModeLayout.setY(mHeight - mBottom - mProModeLayout.getHeight());
+        mProModeLayout.setY(mHeight - mBottom - mProModeLayout.getHeight() - 48);
     }
 
     public void updateProModeText(int mode, String value) {

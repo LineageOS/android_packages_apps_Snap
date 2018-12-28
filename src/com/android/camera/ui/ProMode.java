@@ -80,7 +80,6 @@ public class ProMode extends View {
     private int mMode = NO_MODE;
     private Context mContext;
     private ViewGroup mParent;
-    private float minFocus = -1;
     private OneUICameraControls mUI;
     private int mWidth;
     private int mHeight;
@@ -195,8 +194,8 @@ public class ProMode extends View {
         mMode = mode;
         if (lastMode == MANUAL_MODE && mode != MANUAL_MODE) {
             //set key focus value to notify capture module to reset focus mode
-            mSettingsManager.setFocusDistance(SettingsManager.KEY_FOCUS_DISTANCE, true,
-                    -1f, -1f);
+            mSettingsManager.setFocusSliderValue(SettingsManager.KEY_FOCUS_DISTANCE, true,
+                    -1f);
         }
         removeViews();
         if (mMode == NO_MODE) {
@@ -208,9 +207,7 @@ public class ProMode extends View {
         mIndex = -1;
         String key = currentKey();
         if (mMode == MANUAL_MODE) {
-            minFocus = mSettingsManager
-                    .getMinimumFocusDistance(mSettingsManager.getCurrentCameraId());
-            float value = mSettingsManager.getFocusValue(SettingsManager.KEY_FOCUS_DISTANCE);
+            float value = mSettingsManager.getFocusSliderValue(SettingsManager.KEY_FOCUS_DISTANCE);
             setSlider(value,true);
             int stride = mCurveRight - mCurveLeft;
             for (int i = 0; i < 2; i++) {
@@ -298,8 +295,8 @@ public class ProMode extends View {
 
     public void setSlider(float slider,boolean forceNotify) {
         mSlider = slider;
-        mSettingsManager.setFocusDistance(SettingsManager.KEY_FOCUS_DISTANCE, forceNotify,
-                mSlider, minFocus);
+        mSettingsManager.setFocusSliderValue(SettingsManager.KEY_FOCUS_DISTANCE, forceNotify,
+                mSlider);
         mUI.updateProModeText(mMode, "Manual");
         invalidate();
     }

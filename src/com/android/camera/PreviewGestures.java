@@ -99,12 +99,29 @@ public class PreviewGestures
             if (isLeftSwipe(orientation, deltaX, deltaY)) {
                 waitUntilNextDown = true;
                 if (mCaptureUI != null)
-                    mCaptureUI.openSettingsMenu();
+                    mCaptureUI.swipeCameraMode(-1);
+                return true;
+            }
+            if (isRightSwipe(orientation, deltaX, deltaY)) {
+                waitUntilNextDown = true;
+                if (mCaptureUI != null)
+                    mCaptureUI.swipeCameraMode(1);
+                return true;
+            }
+            if (isUpSwipe(orientation, deltaX, deltaY) ||
+                    isDownSwipe(orientation, deltaX, deltaY)) {
+                if (e1.getY() < 200) {
+                    return false;
+                }
+                waitUntilNextDown = true;
+                if (mCaptureUI != null)
+                    mCaptureUI.switchFrontBackCamera();
                 return true;
             }
             return false;
         }
 
+        // left -> right
         private boolean isLeftSwipe(int orientation, int deltaX, int deltaY) {
             switch (orientation) {
                 case 90:
@@ -115,6 +132,48 @@ public class PreviewGestures
                     return deltaY < 0 && Math.abs(deltaY) > 2 * Math.abs(deltaX);
                 default:
                     return deltaX < 0 && Math.abs(deltaX) > 2 * Math.abs(deltaY);
+            }
+        }
+
+        //right -> left
+        private boolean isRightSwipe(int orientation, int deltaX, int deltaY) {
+            switch (orientation) {
+                case 90:
+                    return deltaY < 0 && Math.abs(deltaY) > 2 * Math.abs(deltaX);
+                case 180:
+                    return deltaX < 0 && Math.abs(deltaX) > 2 * Math.abs(deltaY);
+                case 270:
+                    return deltaY > 0 && Math.abs(deltaY) > 2 * Math.abs(deltaX);
+                default:
+                    return deltaX > 0 && Math.abs(deltaX) > 2 * Math.abs(deltaY);
+            }
+        }
+
+        //bottom -> top
+        private boolean isUpSwipe(int orientation, int deltaX, int deltaY) {
+            switch (orientation) {
+                case 90:
+                    return deltaX > 0 && Math.abs(deltaX) > 2 * Math.abs(deltaY);
+                case 180:
+                    return deltaY < 0 && Math.abs(deltaY) > 2 * Math.abs(deltaX);
+                case 270:
+                    return deltaX < 0 && Math.abs(deltaX) > 2 * Math.abs(deltaY);
+                default:
+                    return deltaY > 0 && Math.abs(deltaY) > 2 * Math.abs(deltaX);
+            }
+        }
+
+        //top -> bottom
+        private boolean isDownSwipe(int orientation, int deltaX, int deltaY) {
+            switch (orientation) {
+                case 90:
+                    return deltaX < 0 && Math.abs(deltaX) > 2 * Math.abs(deltaY);
+                case 180:
+                    return deltaY > 0 && Math.abs(deltaY) > 2 * Math.abs(deltaX);
+                case 270:
+                    return deltaX > 0 && Math.abs(deltaX) > 2 * Math.abs(deltaY);
+                default:
+                    return deltaY < 0 && Math.abs(deltaY) > 2 * Math.abs(deltaX);
             }
         }
     };

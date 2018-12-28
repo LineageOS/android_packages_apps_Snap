@@ -160,6 +160,8 @@ public class CameraUtil {
     public static final int RATIO_3_2 = 3;
     public static final int MODE_TWO_BT = 1;
     public static final int MODE_ONE_BT = 0;
+    public static final int FACING_FRONT = 1;
+    public static final int FACING_BACK = 0;
     private static final String DIALOG_CONFIG = "dialog_config";
     public static final String KEY_SAVE = "save";
     public static final String KEY_DELETE = "delete";
@@ -833,6 +835,16 @@ public class CameraUtil {
             }
         }
         return cameraId;
+    }
+    public static int getFacingOfIntentExtras(Activity currentActivity) {
+        int facing = currentActivity.getIntent().getIntExtra(CameraUtil.EXTRAS_CAMERA_FACING, -1);
+        if (isFrontCameraIntent(facing)) {
+            return FACING_FRONT;
+        }
+        if (isBackCameraIntent(facing)) {
+            return FACING_BACK;
+        }
+        return -1;
     }
 
     private static boolean isFrontCameraIntent(int intentCameraId) {

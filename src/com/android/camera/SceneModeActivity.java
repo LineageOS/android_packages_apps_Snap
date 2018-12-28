@@ -140,12 +140,16 @@ public class SceneModeActivity extends Activity {
             mDotsView.setVisibility(View.GONE);
         }
 
+        CaptureModule.CameraMode cameraModule =
+                (CaptureModule.CameraMode) getIntent().getSerializableExtra(
+                SettingsActivity.CAMERA_MODULE);
         mButton = (RotateImageView) findViewById(R.id.setting_button);
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getBaseContext(), SettingsActivity.class);
                 intent.putExtra(CameraUtil.KEY_IS_SECURE_CAMERA, isSecureCamera);
+                intent.putExtra(SettingsActivity.CAMERA_MODULE, cameraModule);
                 startActivity(intent);
                 finish();
             }

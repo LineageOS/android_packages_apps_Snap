@@ -22,6 +22,7 @@ import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.preference.PreferenceManager;
 
+import java.util.ArrayList;
 import java.util.Map;
 import java.util.Set;
 import java.util.WeakHashMap;
@@ -69,8 +70,8 @@ public class ComboPreferences implements
     }
 
     public static String getLocalSharedPreferencesName(
-            Context context, int cameraId) {
-        return context.getPackageName() + "_preferences_" + cameraId;
+            Context context, String cameraIdAndMode) {
+        return context.getPackageName() + "_preferences_" + cameraIdAndMode;
     }
 
     public static String getGlobalSharedPreferencesName(Context context) {
@@ -108,26 +109,30 @@ public class ComboPreferences implements
         movePrefFrom(prefMap, CameraSettings.KEY_CAMERA_SAVEPATH, src);
     }
 
-    public static String[] getSharedPreferencesNames(Context context) {
-        int numOfCameras = CameraHolder.instance().getNumberOfCameras();
-        String prefNames[] = new String[numOfCameras + 1];
+    public static String[] getSharedPreferencesNames(Context context, ArrayList<String> keys) {
+        String prefNames[] = new String[keys.size() + 1];
         prefNames[0] = getGlobalSharedPreferencesName(context);
-        for (int i = 0; i < numOfCameras; i++) {
-            prefNames[i + 1] = getLocalSharedPreferencesName(context, i);
+        for (int i = 0; i < keys.size(); i++) {
+            prefNames[i + 1] = getLocalSharedPreferencesName(context, keys.get(i));
         }
         return prefNames;
     }
 
     // Sets the camera id and reads its preferences. Each camera has its own
     // preferences.
-    public void setLocalId(Context context, int cameraId) {
-        String prefName = getLocalSharedPreferencesName(context, cameraId);
+    public void setLocalId(Context context, int cameraId, String mode) {
+        String prefName = getLocalSharedPreferencesName(context,
+                String.valueOf(cameraId) + mode);
         if (mPrefLocal != null) {
             mPrefLocal.unregisterOnSharedPreferenceChangeListener(this);
         }
         mPrefLocal = context.getSharedPreferences(
                 prefName, Context.MODE_PRIVATE);
         mPrefLocal.registerOnSharedPreferenceChangeListener(this);
+    }
+
+    public void setLocalId(Context context, int cameraId) {
+        setLocalId(context, cameraId, "");
     }
 
     public SharedPreferences getGlobal() {
@@ -156,7 +161,7 @@ public class ComboPreferences implements
                 || key.equals(SettingsManager.KEY_CAMERA_ID)
                 || key.equals(SettingsManager.KEY_MONO_ONLY)
                 || key.equals(SettingsManager.KEY_MONO_PREVIEW)
-                || key.equals(SettingsManager.KEY_SWITCH_CAMERA)
+                || key.equals(SettingsManager.KEY_FRONT_REAR_SWITCHER_VALUE)
                 || key.equals(SettingsManager.KEY_CLEARSIGHT);
     }
 

@@ -777,4 +777,9 @@ CHAR LIMIT = NONE] -->
     <string name="overflow_best_item2">Delete All</string>
 
     <string name="settings_title">Settings</string>
+    <string name="camera_default_mode">Default</string>
+    <string name="camera_bokeh_mode">Bokeh</string>
+    <string name="camera_sat_mode">SAT</string>
+    <string name="camera_pano_mode">Panorama</string>
+    <string name="camera_pro_mode">ProMode</string>
  </resources>

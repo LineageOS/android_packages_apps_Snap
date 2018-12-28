@@ -52,12 +52,13 @@
 
     <com.android.camera.ui.RotateImageView
         android:id="@+id/video_button"
-        android:layout_width="@dimen/one_ui_bottom_small"
-        android:layout_height="@dimen/one_ui_bottom_small"
+        android:layout_width="@dimen/one_ui_bottom_large"
+        android:layout_height="@dimen/one_ui_bottom_large"
         android:clickable="true"
         android:contentDescription="@string/accessibility_shutter_button"
         android:focusable="true"
         android:scaleType="fitCenter"
+        android:visibility="gone"
         android:src="@drawable/video_capture" />
 
     <com.android.camera.PauseButton
@@ -80,15 +81,15 @@
         android:visibility="gone"
         android:src="@drawable/ic_menu_cancel_holo_light" />
 
-    <com.android.camera.PauseButton
-        android:id="@+id/video_pause"
+    <com.android.camera.ui.RotateImageView
+        android:id="@+id/front_back_switcher"
         android:layout_width="@dimen/one_ui_bottom_small"
         android:layout_height="@dimen/one_ui_bottom_small"
         android:focusable="true"
         android:clickable="true"
         android:scaleType="fitCenter"
         android:visibility="gone"
-        android:src="@drawable/btn_pause_recording"/>
+        android:src="@drawable/front_back_camera" />
 
     <com.android.camera.ui.RotateImageView
         android:id="@+id/preview_thumb"
@@ -112,11 +113,6 @@
         android:visibility="gone"/>
 
     <com.android.camera.ui.RotateImageView
-        android:id="@+id/front_back_switcher"
-        style="@style/OneUIMenuButton"
-        android:src="@drawable/front_back_camera" />
-
-    <com.android.camera.ui.RotateImageView
         android:id="@+id/hdr_switcher"
         style="@style/OneUIMenuButton" />
 
@@ -136,6 +132,10 @@
 
     <com.android.camera.ui.RotateImageView
         android:id="@+id/deepportrait_switcher"
+        style="@style/OneUIMenuButton" />
+
+    <com.android.camera.ui.RotateImageView
+        android:id="@+id/settings"
         style="@style/OneUIMenuButton" />
 
     <LinearLayout
@@ -163,13 +163,6 @@
     </LinearLayout>
 
     <include layout="@layout/pro_mode_layout" />
-
-    <ImageView
-        android:id="@+id/promode_close_button"
-        android:layout_height="20dp"
-        android:layout_width="20dp"
-        android:src="@drawable/icon_x" />
-
 
     <SeekBar
         android:layout_width="320dp"
@@ -241,4 +234,22 @@
             </com.android.camera.ui.RotateLayout>
         </RelativeLayout>
     </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="100dp"
+        android:background="@color/camera_control_bg_transparent">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/mode_select_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|bottom"
+            android:layout_centerHorizontal="true"
+            android:scrollbars="none" />
+
+    </FrameLayout>
+
 </com.android.camera.ui.OneUICameraControls>

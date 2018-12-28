@@ -22,16 +22,13 @@ package com.android.camera;
 import android.animation.Animator;
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.content.ActivityNotFoundException;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.ImageFormat;
 import android.graphics.Matrix;
-import android.graphics.Paint;
 import android.graphics.Point;
 import android.graphics.Rect;
 import android.graphics.drawable.AnimationDrawable;
@@ -43,6 +40,8 @@ import android.renderscript.Element;
 import android.renderscript.RenderScript;
 import android.renderscript.ScriptIntrinsicYuvToRGB;
 import android.renderscript.Type;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.util.Log;
@@ -68,6 +67,7 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 
 import com.android.camera.imageprocessor.filter.BeautificationFilter;
+import com.android.camera.data.Camera2ModeAdapter;
 import com.android.camera.imageprocessor.filter.DeepPortraitFilter;
 import com.android.camera.ui.AutoFitSurfaceView;
 import com.android.camera.ui.Camera2FaceView;
@@ -78,7 +78,6 @@ import com.android.camera.ui.CountDownView;
 import com.android.camera.ui.FlashToggleButton;
 import com.android.camera.ui.FocusIndicator;
 import com.android.camera.ui.PieRenderer;
-import com.android.camera.ui.ProMode;
 import com.android.camera.ui.RenderOverlay;
 import com.android.camera.ui.RotateImageView;
 import com.android.camera.ui.RotateLayout;
@@ -87,10 +86,10 @@ import com.android.camera.ui.SelfieFlashView;
 import com.android.camera.ui.TrackingFocusRenderer;
 import com.android.camera.ui.ZoomRenderer;
 import com.android.camera.util.CameraUtil;
-import com.android.camera.deepportrait.CamGLRenderer;
 import com.android.camera.deepportrait.GLCameraPreview;
 import org.codeaurora.snapcam.R;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -210,7 +209,6 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
     private PauseButton mPauseButton;
     private RotateImageView mMuteButton;
     private ImageView mSeekbarToggleButton;
-    private View mProModeCloseButton;
     private RotateLayout mSceneModeLabelRect;
     private LinearLayout mSceneModeLabelView;
     private TextView mSceneModeName;
@@ -219,6 +217,10 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
     private TextView mDeepzoomSetName;
     private int mDeepZoomIndex = 0;
     private float mDeepZoomValue = 1.0f;
+    private ImageView mSettingsIcon;
+    private ArrayList<TextView> mCameraModeTexts = new ArrayList<>();
+    private RecyclerView mModeSelectLayout;
+    private Camera2ModeAdapter mCameraModeAdapter;
 
     private ImageView mSceneModeLabelCloseIcon;
     private AlertDialog  mSceneModeInstructionalDialog = null;
@@ -404,16 +406,24 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
         setDeepportraitButtonIcon();
 
         mFlashButton = (FlashToggleButton) mRootView.findViewById(R.id.flash_button);
-        mProModeCloseButton = mRootView.findViewById(R.id.promode_close_button);
-        mProModeCloseButton.setOnClickListener(new View.OnClickListener() {
+        mModeSelectLayout = (RecyclerView) mRootView.findViewById(R.id.mode_select_layout);
+        mModeSelectLayout.setLayoutManager(new LinearLayoutManager(mActivity,
+                LinearLayoutManager.HORIZONTAL, false));
+        mCameraModeAdapter = new Camera2ModeAdapter(mModule.getCameraModeList());
+        mCameraModeAdapter.setOnItemClickListener(mModule.getModeItemClickListener());
+        mModeSelectLayout.setAdapter(mCameraModeAdapter);
+        mSettingsIcon = (ImageView) mRootView.findViewById(R.id.settings);
+        mSettingsIcon.setImageResource(R.drawable.settings);
+        mSettingsIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mSettingsManager.setValue(SettingsManager.KEY_SCENE_MODE, "" + SettingsManager.SCENE_MODE_AUTO_INT);
+                openSettingsMenu();
             }
         });
+
         initFilterModeButton();
         initSceneModeButton();
-        initSwitchCamera();
+        initCameraSwitcher();
         initFlashButton();
         updateMenus();
 
@@ -479,6 +489,7 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
         mCancelButton = (ImageView) mRootView.findViewById(R.id.cancel_button);
         final int intentMode = mModule.getCurrentIntentMode();
         if (intentMode != CaptureModule.INTENT_MODE_NORMAL) {
+            mModeSelectLayout.setVisibility(View.GONE);
             mCameraControls.setIntentMode(intentMode);
             mCameraControls.setVideoMode(false);
             mCancelButton.setVisibility(View.VISIBLE);
@@ -500,6 +511,9 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
                 public void onClick(View view) {
                     mPreviewLayout.setVisibility(View.GONE);
                     mReviewImage.setImageBitmap(null);
+                    if (intentMode == CaptureModule.INTENT_MODE_VIDEO) {
+                        mModule.onRetakeVideo();
+                    }
                 }
             });
             mReviewDoneButton.setOnClickListener(new View.OnClickListener() {
@@ -568,6 +582,12 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
         mActivity.setPreviewGestures(mGestures);
         mRecordingTimeRect.setVisibility(View.GONE);
         showFirstTimeHelp();
+    }
+
+    private void selectModeText(View view) {
+        for (TextView textView : mCameraModeTexts) {
+            textView.setSelected(textView == view);
+        }
     }
 
     protected void showCapturedImageForReview(byte[] jpegData, int orientation) {
@@ -693,13 +713,13 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
         });
     }
 
-    public void onCameraOpened(List<Integer> cameraIds) {
+    public void onCameraOpened(int cameraId) {
         mGestures.setCaptureUI(this);
-        if (mModule.isDeepZoom()) {
+        if (mModule.isDeepZoom() || mModule.getCurrenCameraMode() == CaptureModule.CameraMode.RTB) {
             mGestures.setZoomEnabled(false);
         } else {
-            mGestures.setZoomEnabled(mSettingsManager.isZoomSupported(cameraIds));
-            initializeZoom(cameraIds);
+            mGestures.setZoomEnabled(mSettingsManager.isZoomSupported(cameraId));
+            initializeZoom(cameraId);
         }
     }
 
@@ -707,8 +727,8 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
         initSceneModeButton();
         initFilterModeButton();
         initFlashButton();
-        setMakeupButtonIcon();
-        setDeepportraitButtonIcon();
+//        setMakeupButtonIcon();
+//        setDeepportraitButtonIcon();
         showSceneModeLabel();
         updateMenus();
         if(mModule.isTrackingFocusSettingOn()) {
@@ -733,8 +753,8 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
         if (promode) {
             mVideoButton.setVisibility(View.INVISIBLE);
             mFlashButton.setVisibility(View.INVISIBLE);
-        }
-        else if (mModule.getCurrentIntentMode() == CaptureModule.INTENT_MODE_NORMAL) {
+        } else if (mModule.getCurrentIntentMode() == CaptureModule.INTENT_MODE_NORMAL &&
+                mModule.getCurrenCameraMode() == CaptureModule.CameraMode.VIDEO) {
             mVideoButton.setVisibility(View.VISIBLE);
         }
     }
@@ -749,7 +769,7 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
             mShutterButton.setVisibility(View.INVISIBLE);
         } else {
             mShutterButton.setVisibility(View.VISIBLE);
-            mVideoButton.setVisibility(View.VISIBLE);
+            mVideoButton.setVisibility(View.INVISIBLE);
         }
         mShutterButton.setOnShutterButtonListener(mModule);
         mShutterButton.setImageResource(R.drawable.one_ui_shutter_anim);
@@ -768,11 +788,11 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
         });
     }
 
-    public void initializeZoom(List<Integer> ids) {
-        if (!mSettingsManager.isZoomSupported(ids) || (mZoomRenderer == null))
+    public void initializeZoom(int id) {
+        if (!mSettingsManager.isZoomSupported(id) || (mZoomRenderer == null))
             return;
 
-        Float zoomMax = mSettingsManager.getMaxZoom(ids);
+        Float zoomMax = mSettingsManager.getMaxZoom(id);
         mZoomRenderer.setZoomMax(zoomMax);
         mZoomRenderer.setZoom(1f);
         mZoomRenderer.setOnZoomChangeListener(new ZoomChangeListener());
@@ -797,6 +817,9 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
                 ((ViewGroup) mRootView).removeView(mFilterLayout);
                 mFilterLayout = null;
             }
+            if (mModule.getCurrentIntentMode() == CaptureModule.INTENT_MODE_NORMAL) {
+                mModeSelectLayout.setVisibility(View.VISIBLE);
+            }
         }
         updateMenus();
     }
@@ -808,13 +831,14 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
         clearFocus();
         removeFilterMenu(false);
         Intent intent = new Intent(mActivity, SettingsActivity.class);
+        intent.putExtra(SettingsActivity.CAMERA_MODULE, mModule.getCurrenCameraMode());
         mActivity.startActivity(intent);
     }
 
-    public void initSwitchCamera() {
+    public void initCameraSwitcher() {
         mFrontBackSwitcher.setVisibility(View.INVISIBLE);
-        String value = mSettingsManager.getValue(SettingsManager.KEY_CAMERA_ID);
-        Log.d(TAG,"value of KEY_CAMERA_ID is null? " + (value==null));
+        String value = mSettingsManager.getValue(SettingsManager.KEY_FRONT_REAR_SWITCHER_VALUE);
+        Log.d(TAG,"value of KEY_FRONT_REAR_SWITCHER_VALUE is null? " + (value==null));
         if (value == null)
             return;
 
@@ -822,24 +846,41 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
         mFrontBackSwitcher.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                removeFilterMenu(false);
-
-                String value = mSettingsManager.getValue(SettingsManager.KEY_CAMERA_ID);
-                if (value == null)
-                    return;
-
-                int index = mSettingsManager.getValueIndex(SettingsManager.KEY_CAMERA_ID);
-                CharSequence[] entries = mSettingsManager.getEntries(SettingsManager.KEY_CAMERA_ID);
-                do {
-                    index = (index + 1) % entries.length;
-                } while (entries[index] == null);
-                mSettingsManager.setValueIndex(SettingsManager.KEY_CAMERA_ID, index);
+                switchFrontBackCamera();
             }
         });
     }
 
+    public void switchFrontBackCamera() {
+        if (mIsVideoUI || !mModule.getCameraModeSwitcherAllowed()
+                || !isSupportFrontCamera(mModule.getCurrenCameraMode())) {
+            return;
+        }
+        mModule.setCameraModeSwitcherAllowed(false);
+        removeFilterMenu(false);
+
+        String value = mSettingsManager.getValue(
+                SettingsManager.KEY_FRONT_REAR_SWITCHER_VALUE);
+        if (value == null)
+            return;
+
+        int index = mSettingsManager.getValueIndex(SettingsManager.KEY_FRONT_REAR_SWITCHER_VALUE);
+        index = (index + 1) % 2;
+        mSettingsManager.setValueIndex(SettingsManager.KEY_FRONT_REAR_SWITCHER_VALUE, index);
+    }
+
+    private boolean isSupportFrontCamera(CaptureModule.CameraMode mode) {
+        switch (mode) {
+            case VIDEO:
+            case DEFAULT:
+                return true;
+            default:
+                return false;
+        }
+    }
+
     public void initFlashButton() {
-        mFlashButton.init(false);
+        mFlashButton.init(mModule.getCurrenCameraMode() == CaptureModule.CameraMode.VIDEO);
         enableView(mFlashButton, SettingsManager.KEY_FLASH_MODE);
     }
 
@@ -855,6 +896,7 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
                 removeFilterMenu(false);
                 Intent intent = new Intent(mActivity, SceneModeActivity.class);
                 intent.putExtra(CameraUtil.KEY_IS_SECURE_CAMERA, mActivity.isSecureCamera());
+                intent.putExtra(SettingsActivity.CAMERA_MODULE, mModule.getCurrenCameraMode());
                 mActivity.startActivity(intent);
             }
         });
@@ -874,6 +916,7 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
                 addFilterMode();
                 adjustOrientation();
                 updateMenus();
+                mModeSelectLayout.setVisibility(View.GONE);
             }
         });
     }
@@ -907,7 +950,8 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
             setMuteButtonResource(!mModule.isAudioMute());
         } else {
             mFlashButton.setVisibility(View.VISIBLE);
-            mFlashButton.init(false);
+//            mSettingsManager.setValue(SettingsManager.KEY_VIDEO_FLASH_MODE, "off");
+            mFlashButton.init(true);
             mVideoButton.setImageResource(R.drawable.video_capture);
             mRecordingTimeRect.setVisibility(View.GONE);
             mMuteButton.setVisibility(View.INVISIBLE);
@@ -1056,11 +1100,13 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
 
     public void hideUIwhileRecording() {
         mCameraControls.setVideoMode(true);
+        mModeSelectLayout.setVisibility(View.INVISIBLE);
         mSceneModeLabelRect.setVisibility(View.INVISIBLE);
         mDeepZoomModeRect.setVisibility(View.INVISIBLE);
         mFrontBackSwitcher.setVisibility(View.INVISIBLE);
         mFilterModeSwitcher.setVisibility(View.INVISIBLE);
         mSceneModeSwitcher.setVisibility(View.INVISIBLE);
+        mSettingsIcon.setVisibility(View.INVISIBLE);
         String value = mSettingsManager.getValue(SettingsManager.KEY_MAKEUP);
         if(value != null && value.equals("0")) {
             mMakeupButton.setVisibility(View.INVISIBLE);
@@ -1068,19 +1114,69 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
         mDeepportraitSwitcher.setVisibility(View.INVISIBLE);
         mIsVideoUI = true;
         mPauseButton.setVisibility(View.VISIBLE);
+        if (mModule.getCurrentIntentMode() == CaptureModule.INTENT_MODE_NORMAL) {
+            mShutterButton.setVisibility(View.VISIBLE);
+        }
     }
 
     public void showUIafterRecording() {
         mCameraControls.setVideoMode(false);
         mFrontBackSwitcher.setVisibility(View.VISIBLE);
-        mFilterModeSwitcher.setVisibility(View.VISIBLE);
-        mSceneModeSwitcher.setVisibility(View.VISIBLE);
-        mMakeupButton.setVisibility(View.VISIBLE);
-        mDeepportraitSwitcher.setVisibility(View.VISIBLE);
+        mSettingsIcon.setVisibility(View.VISIBLE);
         mIsVideoUI = false;
         mPauseButton.setVisibility(View.INVISIBLE);
+        if (mModule.getCurrentIntentMode() == CaptureModule.INTENT_MODE_NORMAL) {
+            mShutterButton.setVisibility(View.INVISIBLE);
+            mModeSelectLayout.setVisibility(View.VISIBLE);
+        }
         //exit recording mode needs to refresh scene mode label.
         showSceneModeLabel();
+    }
+
+    public void showRelatedIcons(CaptureModule.CameraMode mode) {
+        //common settings
+        mShutterButton.setVisibility(View.VISIBLE);
+        mFrontBackSwitcher.setVisibility(View.VISIBLE);
+        mMakeupButton.setVisibility(View.INVISIBLE);
+        mDeepportraitSwitcher.setVisibility(View.INVISIBLE);
+        mSceneModeSwitcher.setVisibility(View.INVISIBLE);
+        //settings for each mode
+        switch (mode) {
+            case DEFAULT:
+                mFilterModeSwitcher.setVisibility(View.VISIBLE);
+                mSceneModeSwitcher.setVisibility(View.VISIBLE);
+                mVideoButton.setVisibility(View.INVISIBLE);
+                mMuteButton.setVisibility(View.INVISIBLE);
+                mPauseButton.setVisibility(View.INVISIBLE);
+                break;
+            case RTB:
+            case SAT:
+                mFrontBackSwitcher.setVisibility(View.INVISIBLE);
+                mFilterModeSwitcher.setVisibility(View.VISIBLE);
+                mVideoButton.setVisibility(View.INVISIBLE);
+                mFlashButton.setVisibility(View.INVISIBLE);
+                mMuteButton.setVisibility(View.INVISIBLE);
+                mPauseButton.setVisibility(View.INVISIBLE);
+                break;
+            case VIDEO:
+                mVideoButton.setVisibility(View.VISIBLE);
+                mShutterButton.setVisibility(View.INVISIBLE);
+                mFilterModeSwitcher.setVisibility(View.INVISIBLE);
+                break;
+            case PRO_MODE:
+                mFilterModeSwitcher.setVisibility(View.INVISIBLE);
+                mVideoButton.setVisibility(View.INVISIBLE);
+                mFrontBackSwitcher.setVisibility(View.INVISIBLE);
+                mMuteButton.setVisibility(View.INVISIBLE);
+                mPauseButton.setVisibility(View.INVISIBLE);
+                break;
+            default:
+                break;
+        }
+        String value = mSettingsManager.getValue(SettingsManager.KEY_FRONT_REAR_SWITCHER_VALUE);
+        if (value == null) {
+            mFrontBackSwitcher.setVisibility(View.INVISIBLE);
+        }
     }
 
     public void addFilterMode() {
@@ -2042,6 +2138,34 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
 
     public int getCurrentProMode() {
         return mCameraControls.getPromode();
+    }
+
+    public void swipeCameraMode(int move) {
+        if (mIsVideoUI || !mModule.getCameraModeSwitcherAllowed()) {
+            return;
+        }
+        int index = mModule.getCurrentModeIndex() + move;
+        int modeListSize = mModule.getCameraModeList().size();
+        if (index >= modeListSize || index == -1) {
+            return;
+        }
+        int mode = index % modeListSize;
+        mModule.setCameraModeSwitcherAllowed(false);
+        mCameraModeAdapter.setSelectedPosition(mode);
+        mModule.selectCameraMode(mode);
+    }
+
+    public void switchToPhotoModeDueToError() {
+        int photoModeIndex = 1;
+        List<String> modeList = mModule.getCameraModeList();
+        for (; photoModeIndex < modeList.size(); photoModeIndex++) {
+            if (modeList.get(photoModeIndex).equals(
+                    mModule.getSelectableModes()[CaptureModule.CameraMode.DEFAULT.ordinal()])) {
+                break;
+            }
+        }
+        mCameraModeAdapter.setSelectedPosition(photoModeIndex);
+        mModule.selectCameraMode(photoModeIndex);
     }
 
 }

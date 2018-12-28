@@ -1273,6 +1273,20 @@
     <string name="pref_camera2_deepportrait_entry_value_enable" translatable="false">on</string>
     <string name="pref_camera_scenemode_entry_deepportrait" translatable="false">Deepportrait</string>
 
+    <string name="pref_camera2_switcher_title" translatable="false">Camera Switcher</string>
+    <string name="pref_camera2_switcher_default" translatable="false">rear</string>
+    <string name="pref_camera2_switcher_entry_rear" translatable="false">rear</string>
+    <string name="pref_camera2_switcher_entry_front" translatable="false">front</string>
+    <string name="pref_camera2_switcher_entry_value_rear" translatable="false">rear</string>
+    <string name="pref_camera2_switcher_entry_value_front" translatable="false">front</string>
+
+    <string name="pref_camera2_force_aux_title" translatable="false">Force AUX</string>
+    <string name="pref_camera2_force_aux_default" translatable="false">off</string>
+    <string name="pref_camera2_force_aux_entry_on" translatable="false">on</string>
+    <string name="pref_camera2_force_aux_entry_off" translatable="false">off</string>
+    <string name="pref_camera2_force_aux_entry_value_on" translatable="false">on</string>
+    <string name="pref_camera2_force_aux_entry_value_off" translatable="false">off</string>
+
     <string name="pref_camera2_stats_visualizer_title" translatable="true">Stats Visualizer</string>
     <string name="pref_camera2_stats_visualizer_default" translatable="false"></string>
     <string name="pref_camera2_stats_visualizer_entry_bg_stats" translatable="false">BG Stats</string>

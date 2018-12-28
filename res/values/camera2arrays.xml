@@ -1199,6 +1199,26 @@ for time lapse recording -->
         <item>@string/pref_camera2_deepportrait_entry_value_enable</item>
     </string-array>
 
+    <string-array name="pref_camera2_switcher_entryvalues" translatable="false">
+        <item>@string/pref_camera2_switcher_entry_value_rear</item>
+        <item>@string/pref_camera2_switcher_entry_value_front</item>
+    </string-array>
+
+    <string-array name="pref_camera2_switcher_entries" translatable="false">
+        <item>@string/pref_camera2_switcher_entry_rear</item>
+        <item>@string/pref_camera2_switcher_entry_front</item>
+    </string-array>
+
+    <string-array name="pref_camera2_force_aux_entryvalues" translatable="false">
+        <item>@string/pref_camera2_force_aux_entry_on</item>
+        <item>@string/pref_camera2_force_aux_entry_value_off</item>
+    </string-array>
+
+    <string-array name="pref_camera2_force_aux_entries" translatable="false">
+        <item>@string/pref_camera2_force_aux_entry_on</item>
+        <item>@string/pref_camera2_force_aux_entry_off</item>
+    </string-array>
+
     <string-array name="pref_camera2_stats_visualizer_entries" translatable="false">
         <item>@string/pref_camera2_stats_visualizer_entry_bg_stats</item>
         <item>@string/pref_camera2_stats_visualizer_entry_be_stats</item>

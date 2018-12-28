@@ -423,11 +423,6 @@
         camera:entryValues="@array/pref_camera2_exposure_metering_entryvalues" />
 
     <ListPreference
-        camera:defaultValue="@string/pref_camera2_switch_camera_default"
-        camera:key="pref_camera2_switch_camera_key"
-        camera:title="@string/pref_camera2_switch_camera_title"/>
-
-    <ListPreference
         camera:key="pref_camera2_eis_key"
         camera:defaultValue="@string/pref_camera2_eis_default"
         camera:title="@string/pref_camera2_eis_title"
@@ -447,6 +442,20 @@
         camera:title="@string/pref_camera2_video_hdr_title"
         camera:entries="@array/pref_camera2_video_hdr_entries"
         camera:entryValues="@array/pref_camera2_video_hdr_entryvalues" />
+
+    <ListPreference
+        camera:key="pref_camera2_force_aux_key"
+        camera:defaultValue="@string/pref_camera2_force_aux_default"
+        camera:title="@string/pref_camera2_force_aux_title"
+        camera:entries="@array/pref_camera2_force_aux_entries"
+        camera:entryValues="@array/pref_camera2_force_aux_entryvalues" />
+
+    <ListPreference
+        camera:key="pref_camera2_switcher_key"
+        camera:defaultValue="@string/pref_camera2_switcher_default"
+        camera:title="@string/pref_camera2_switcher_title"
+        camera:entries="@array/pref_camera2_switcher_entries"
+        camera:entryValues="@array/pref_camera2_switcher_entryvalues" />
 
     <ListPreference
         camera:key="pref_camera2_stats_visualizer_key"

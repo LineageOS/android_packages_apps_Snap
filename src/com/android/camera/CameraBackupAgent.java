@@ -24,9 +24,8 @@ public class CameraBackupAgent extends BackupAgentHelper {
     private static final String CAMERA_BACKUP_KEY = "camera_prefs";
 
     public void onCreate () {
-        Context context = getApplicationContext();
-        String prefNames[] = ComboPreferences.getSharedPreferencesNames(context);
-
-        addHelper(CAMERA_BACKUP_KEY, new SharedPreferencesBackupHelper(context, prefNames));
+//        Context context = getApplicationContext();
+//        String prefNames[] = ComboPreferences.getSharedPreferencesNames(context);
+//        addHelper(CAMERA_BACKUP_KEY, new SharedPreferencesBackupHelper(context, prefNames));
     }
 }

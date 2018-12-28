@@ -432,13 +432,6 @@
             android:title="@string/pref_camera2_exposure_metering_title" />
 
         <ListPreference
-            android:defaultValue="@string/pref_camera2_switch_camera_default"
-            android:key="pref_camera2_switch_camera_key"
-            android:layout="@layout/preference"
-            android:summary="%s"
-            android:title="@string/pref_camera2_switch_camera_title"/>
-
-        <ListPreference
             android:key="pref_camera2_eis_key"
             android:defaultValue="@string/pref_camera2_eis_default"
             android:title="@string/pref_camera2_eis_title"
@@ -462,6 +455,15 @@
             android:title="@string/pref_camera2_video_hdr_title"
             android:entries="@array/pref_camera2_video_hdr_entries"
             android:entryValues="@array/pref_camera2_video_hdr_entryvalues"
+            android:layout="@layout/preference"
+            android:summary="%s"/>
+
+        <ListPreference
+            android:key="pref_camera2_force_aux_key"
+            android:defaultValue="@string/pref_camera2_force_aux_default"
+            android:title="@string/pref_camera2_force_aux_title"
+            android:entries="@array/pref_camera2_force_aux_entries"
+            android:entryValues="@array/pref_camera2_force_aux_entryvalues"
             android:layout="@layout/preference"
             android:summary="%s"/>
 

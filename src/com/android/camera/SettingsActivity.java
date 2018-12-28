@@ -60,6 +60,7 @@ import org.codeaurora.snapcam.R;
 import com.android.camera.util.CameraUtil;
 import com.android.camera.ui.RotateTextToast;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
@@ -68,6 +69,7 @@ import java.util.Arrays;
 
 public class SettingsActivity extends PreferenceActivity {
     private static final String TAG = "SettingsActivity";
+    public static final String CAMERA_MODULE = "camera_module";
     private SettingsManager mSettingsManager;
     private SharedPreferences mSharedPreferences;
     private SharedPreferences mLocalSharedPref;
@@ -169,8 +171,7 @@ public class SettingsActivity extends PreferenceActivity {
         int cameraId = mSettingsManager.getCurrentCameraId();
         final SharedPreferences pref = SettingsActivity.this.getSharedPreferences(
                 ComboPreferences.getLocalSharedPreferencesName(SettingsActivity.this,
-                        cameraId),
-                Context.MODE_PRIVATE);
+                        mSettingsManager.getCurrentPrepNameKey()), Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = pref.edit();
         final AlertDialog.Builder alert = new AlertDialog.Builder(SettingsActivity.this);
         LinearLayout linear = new LinearLayout(SettingsActivity.this);
@@ -562,8 +563,8 @@ public class SettingsActivity extends PreferenceActivity {
 
         int cameraId = mSettingsManager.getCurrentCameraId();
         mLocalSharedPref = this.getSharedPreferences(
-                ComboPreferences.getLocalSharedPreferencesName(this, cameraId),
-                Context.MODE_PRIVATE);
+                ComboPreferences.getLocalSharedPreferencesName(this,
+                        mSettingsManager.getCurrentPrepNameKey()), Context.MODE_PRIVATE);
         mSettingsManager.registerListener(mListener);
         addPreferencesFromResource(R.xml.setting_menu_preferences);
         mSharedPreferences = getPreferenceManager().getSharedPreferences();
@@ -655,6 +656,119 @@ public class SettingsActivity extends PreferenceActivity {
                 }
             }
         }
+        final ArrayList<String> videoOnlyList = new ArrayList<String>() {
+            {
+                add(SettingsManager.KEY_EIS_VALUE);
+                add(SettingsManager.KEY_FOVC_VALUE);
+                add(SettingsManager.KEY_VIDEO_HDR_VALUE);
+            }
+        };
+        final ArrayList<String> dualCameraOnlyList = new ArrayList<String>() {
+            {
+                add(SettingsManager.KEY_SATURATION_LEVEL);
+                add(SettingsManager.KEY_ANTI_BANDING_LEVEL);
+                add(SettingsManager.KEY_STATS_VISUALIZER_VALUE);
+                add(SettingsManager.KEY_SAVERAW);
+                add(SettingsManager.KEY_MANUAL_EXPOSURE);
+                add(SettingsManager.KEY_SHARPNESS_CONTROL_MODE);
+                add(SettingsManager.KEY_AF_MODE);
+                add(SettingsManager.KEY_EXPOSURE_METERING_MODE);
+            }
+        };
+        final ArrayList<String> proModeOnlyList = new ArrayList<String>() {
+            {
+                add(SettingsManager.KEY_EXPOSURE_METERING_MODE);
+            }
+        };
+        PreferenceGroup developer = (PreferenceGroup) findPreference("developer");
+        PreferenceGroup photoPre = (PreferenceGroup) findPreference("photo");
+        PreferenceGroup videoPre = (PreferenceGroup) findPreference("video");
+        PreferenceScreen parentPre = getPreferenceScreen();
+        CaptureModule.CameraMode mode =
+                (CaptureModule.CameraMode) getIntent().getSerializableExtra(CAMERA_MODULE);
+        switch (mode) {
+            case DEFAULT:
+                removePreferenceGroup("video", parentPre);
+                if (mDeveloperMenuEnabled && developer != null) {
+                    for (String removeKey : videoOnlyList) {
+                        developer.removePreference(findPreference(removeKey));
+                    }
+                }
+                break;
+            case VIDEO:
+                removePreferenceGroup("photo", parentPre);
+                if (mDeveloperMenuEnabled) {
+                    ArrayList<String> videoAddList = new ArrayList<>();
+                    videoAddList.add(SettingsManager.KEY_ZOOM);
+                    videoAddList.addAll(videoOnlyList);
+                    if (mSettingsManager.getInitialCameraId() == CaptureModule.FRONT_ID) {
+                        videoAddList.remove(SettingsManager.KEY_EIS_VALUE);
+                    }
+                    addDeveloperOptions(developer, videoAddList);
+                }
+                break;
+            case RTB:
+                removePreferenceGroup("video", parentPre);
+                removePreference(SettingsManager.KEY_REDEYE_REDUCTION, photoPre);
+                if (mDeveloperMenuEnabled) {
+                    addDeveloperOptions(developer, dualCameraOnlyList);
+                }
+                break;
+            case SAT:
+                removePreferenceGroup("video", parentPre);
+                removePreference(SettingsManager.KEY_REDEYE_REDUCTION, photoPre);
+                if (mDeveloperMenuEnabled) {
+                    addDeveloperOptions(developer, dualCameraOnlyList);
+                }
+                break;
+            case PRO_MODE:
+                removePreferenceGroup("video", parentPre);
+                if (mDeveloperMenuEnabled) {
+                    addDeveloperOptions(developer, proModeOnlyList);
+                }
+                break;
+            default:
+                //don't filter
+                break;
+        }
+    }
+
+    private boolean removePreference(String key, PreferenceGroup parentPreferenceGroup) {
+        Preference removePreference = findPreference(key);
+        if (removePreference != null && parentPreferenceGroup != null) {
+            parentPreferenceGroup.removePreference(removePreference);
+            return true;
+        }
+        return false;
+    }
+
+    private boolean removePreferenceGroup(String key, PreferenceScreen parentPreferenceScreen) {
+        PreferenceGroup removePreference = (PreferenceGroup) findPreference(key);
+        if (removePreference != null && parentPreferenceScreen != null) {
+            parentPreferenceScreen.removePreference(removePreference);
+            return true;
+        }
+        return false;
+    }
+
+    private void addDeveloperOptions(PreferenceGroup developer, List<String> keyList) {
+        if (developer == null) {
+            Log.d(TAG, "can't find developer PreferenceGroup");
+            return;
+        }
+        ArrayList<Preference> addList = new ArrayList<>();
+        for (String key : keyList) {
+            Preference p = findPreference(key);
+            if (p != null) {
+                addList.add(p);
+            } else {
+                Log.d(TAG, "can't find key " + key);
+            }
+        }
+        developer.removeAll();
+        for (Preference addItem : addList) {
+            developer.addPreference(addItem);
+        }
     }
 
     private void initializePreferences() {
@@ -665,7 +779,6 @@ public class SettingsActivity extends PreferenceActivity {
         updatePreference(SettingsManager.KEY_VIDEO_HIGH_FRAME_RATE);
         updatePreference(SettingsManager.KEY_VIDEO_ENCODER);
         updatePreference(SettingsManager.KEY_ZOOM);
-        updatePreference(SettingsManager.KEY_SWITCH_CAMERA);
         updatePreference(SettingsManager.KEY_VIDEO_DURATION);
         updateMultiPreference(SettingsManager.KEY_STATS_VISUALIZER_VALUE);
         updatePictureSizePreferenceButton();
