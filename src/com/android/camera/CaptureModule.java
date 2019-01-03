@@ -4907,7 +4907,7 @@ public class CaptureModule implements CameraModule, PhotoController,
     private void applyCaptureMFNR(CaptureRequest.Builder builder) {
         boolean isMfnrEnable = isMFNREnabled();
         int noiseReduMode = (isMfnrEnable ? CameraMetadata.NOISE_REDUCTION_MODE_HIGH_QUALITY :
-                CameraMetadata.NOISE_REDUCTION_MODE_ZERO_SHUTTER_LAG);
+                CameraMetadata.NOISE_REDUCTION_MODE_FAST);
         Log.v(TAG, "applyCaptureMFNR mfnrEnable :" + isMfnrEnable + ", noiseReduMode :"
                 + noiseReduMode);
         builder.set(CaptureRequest.NOISE_REDUCTION_MODE, noiseReduMode);
