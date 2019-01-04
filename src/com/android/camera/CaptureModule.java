@@ -549,6 +549,7 @@ public class CaptureModule implements CameraModule, PhotoController,
     private ContentValues mCurrentVideoValues;
     private String mVideoFilename;
     private boolean mMediaRecorderPausing = false;
+    private boolean mMediaRecorderStarted = false;
     private long mRecordingStartTime;
     private long mRecordingTotalTime;
     private boolean mRecordingTimeCountsDown = false;
@@ -4836,6 +4837,7 @@ public class CaptureModule implements CameraModule, PhotoController,
         requestAudioFocus();
         try {
             mMediaRecorder.start(); // Recording is now started
+            mMediaRecorderStarted = true;
             Log.d(TAG, "StartRecordingVideo done. Time=" +
                     (System.currentTimeMillis() - mStartRecordingTime) + "ms");
         } catch (RuntimeException e) {
@@ -5277,6 +5279,7 @@ public class CaptureModule implements CameraModule, PhotoController,
         if (!mPaused) {
             closePreviewSession();
         }
+        mMediaRecorderStarted = false;
         try {
             mMediaRecorder.setOnErrorListener(null);
             mMediaRecorder.setOnInfoListener(null);
@@ -5632,18 +5635,16 @@ public class CaptureModule implements CameraModule, PhotoController,
     }
 
     public void onVideoButtonClick() {
-        if (isRecorderReady() == false) return;
+        if (!isRecorderReady() || getCameraMode() == DUAL_MODE) return;
 
-        if (getCameraMode() == DUAL_MODE) return;
-
-        if (mIsRecordingVideo) {
-            stopRecordingVideo(getMainCameraId());
-        } else {
+        if (!mIsRecordingVideo) {
             if (!startRecordingVideo(getMainCameraId())) {
                 // Show ui when start recording failed.
                 mUI.showUIafterRecording();
                 releaseMediaRecorder();
             }
+        } else if (mMediaRecorderStarted) {
+            stopRecordingVideo(getMainCameraId());
         }
     }
 
