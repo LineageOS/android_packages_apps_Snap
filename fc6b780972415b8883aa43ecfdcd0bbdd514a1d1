@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "757ef1b1_e6ebc09f",
+        "filename": "src/com/android/camera/CameraSettings.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 1316,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2019-01-05T16:05:24Z",
+      "side": 1,
+      "message": "Remove space between 2 and ) while at it.",
+      "revId": "fc6b780972415b8883aa43ecfdcd0bbdd514a1d1",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "026ba7b5_f988c3ca",
+        "filename": "src/com/android/camera/CameraSettings.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 1666,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2019-01-05T16:05:24Z",
+      "side": 1,
+      "message": "Maybe:\n\nreturn ret;",
+      "revId": "fc6b780972415b8883aa43ecfdcd0bbdd514a1d1",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "90cc83de_34fb54d6",
+        "filename": "src/com/android/camera/CameraSettings.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 1682,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2019-01-05T16:05:24Z",
+      "side": 1,
+      "message": "Same?",
+      "revId": "fc6b780972415b8883aa43ecfdcd0bbdd514a1d1",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
