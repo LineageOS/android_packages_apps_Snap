@@ -1501,7 +1501,8 @@ public class CaptureModule implements CameraModule, PhotoController,
 
                         @Override
                         public void onConfigured(CameraCaptureSession cameraCaptureSession) {
-                            if (mPaused || null == mCameraDevice[id]) {
+                            if (mPaused || null == mCameraDevice[id] ||
+                                    cameraCaptureSession == null) {
                                 return;
                             }
                             Log.i(TAG, "cameracapturesession - onConfigured "+ id);
