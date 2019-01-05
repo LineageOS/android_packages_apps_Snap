@@ -2335,6 +2335,10 @@ public class CaptureModule implements CameraModule, PhotoController,
             public void onCaptureCompleted(CameraCaptureSession session,
                                            CaptureRequest request,
                                            TotalCaptureResult result) {
+                String requestTag = String.valueOf(request.getTag());
+                if (requestTag.equals("preview")) {
+                    return;
+                }
                 Log.d(TAG, "captureStillPictureForLongshot onCaptureCompleted: " + mNumFramesArrived.get() + " " + mShotNum);
                 if (mLongshotActive) {
                     checkAndPlayShutterSound(getMainCameraId());
@@ -2350,6 +2354,10 @@ public class CaptureModule implements CameraModule, PhotoController,
             @Override
             public void onCaptureStarted(CameraCaptureSession session, CaptureRequest request,
                     long timestamp, long frameNumber) {
+                String requestTag = String.valueOf(request.getTag());
+                if (requestTag.equals("preview")) {
+                    return;
+                }
                 mLongshoting = true;
                 mNumFramesArrived.incrementAndGet();
                 if(mNumFramesArrived.get() == mShotNum) {
@@ -2412,8 +2420,10 @@ public class CaptureModule implements CameraModule, PhotoController,
         boolean isBurstShotFpsEnable = PersistUtil.isBurstShotFpsEnabled();
         for (int i = 0; i < MAX_IMAGEREADERS*2; i++) {
             if (isBurstShotFpsEnable) {
+                mPreviewRequestBuilder[id].setTag("preview");
                 burstList.add(mPreviewRequestBuilder[id].build());
             }
+            captureBuilder.setTag("capture");
             burstList.add(captureBuilder.build());
         }
         mCaptureSession[id].captureBurst(burstList, mLongshotCallBack, mCaptureCallbackHandler);
