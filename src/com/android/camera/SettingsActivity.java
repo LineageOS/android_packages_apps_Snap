@@ -658,6 +658,7 @@ public class SettingsActivity extends PreferenceActivity {
         updateVideoHDRPreference();
 
         Map<String, SettingsManager.Values> map = mSettingsManager.getValuesMap();
+        if (map == null) return;
         Set<Map.Entry<String, SettingsManager.Values>> set = map.entrySet();
 
         for (Map.Entry<String, SettingsManager.Values> entry : set) {
