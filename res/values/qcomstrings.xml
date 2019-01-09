@@ -385,12 +385,12 @@
     <string name="pref_camera_hfr_entry_3x">Slow motion 90 FPS</string>
     <string name="pref_camera_hfr_entry_4x">Slow motion 120 FPS</string>
     <string name="pref_camera_hfr_entry_8x">Slow motion 240 FPS</string>
-    <string name="pref_camera_hfr_entry_16x">HFR 480</string>
+    <string name="pref_camera_hfr_entry_16x">Slow motion 480 FPS</string>
     <string name="pref_camera_hfr_entry_hsr_60">High speed 60 FPS</string>
     <string name="pref_camera_hfr_entry_hsr_90">High speed 90 FPS</string>
     <string name="pref_camera_hfr_entry_hsr_120">High speed 120 FPS</string>
     <string name="pref_camera_hfr_entry_hsr_240">High speed 240 FPS</string>
-    <string name="pref_camera_hfr_entry_hsr_480">HSR 480</string>
+    <string name="pref_camera_hfr_entry_hsr_480">High speed 480 FPS</string>
 
     <!-- HFR entry values. Do not translate. -->
     <string name="pref_camera_hfr_value_off" translatable="false">off</string>
@@ -980,7 +980,7 @@
     <string name="pref_camera_scenemode_entry_trackingfocus">Tracking focus</string>
     <string name="pref_camera_scenemode_entry_panorama">Panorama</string>
     <string name="pref_camera_scenemode_entry_promode">Pro mode</string>
-    <string name="pref_camera_scenemode_entry_deepzoom">DeepZoom</string>
+    <string name="pref_camera_scenemode_entry_deepzoom" translatable="false">DeepZoom</string>
     <string name="bestpicture_done">DONE</string>
     <string name="bestpicture_at_least_one_picture">At least one picture has to be chosen.</string>
 
@@ -1035,9 +1035,9 @@
     <string name="pref_camera2_scene_mode_time_lapse_instructional_content">With Time lapse, you can transform a long video recording into a few seconds of video. This effect applies to videos, but not photos.</string>
     <string name="pref_camera2_scene_mode_panorama_instructional_content">Allows you to pan left or right to take a wide landscape photo. You can also pan up or down to take tall photos.</string>
     <string name="pref_camera2_scene_mode_blur_buster_instructional_content">BlurBuster reduces blur from shaky hands. It can be helpful when taking photos in difficult places.</string>
-    <string name="pref_camera2_scene_mode_pro_instructional_content">With Pro mode, you can manually control settings for ISO, exposure, white balance, and focus. You will have easy access to all of these advanced settings</string>
-    <string name="pref_camera2_scene_mode_deepzoom_instructional_content">With DeepZoom Mode, you can use the 2X or 4X to take picture, then you can get the deepzoom`s picture </string>
-    <string name="pref_camera2_scene_mode_deepportrait_instructional_content">With DeepPortrait, you can take selfies, with a blurred background. You can use the slider to adjust the amount of the blur</string>
+    <string name="pref_camera2_scene_mode_pro_instructional_content">With Pro mode, you can manually control settings for ISO, exposure, white balance, and focus. You will have easy access to all of these advanced settings.</string>
+    <string name="pref_camera2_scene_mode_deepzoom_instructional_content">With DeepZoom mode, you can take a photo at 2x or 4x enhanced zoom.</string>
+    <string name="pref_camera2_scene_mode_deepportrait_instructional_content">With DeepPortrait mode, you can take selfies with a blurred background. You can use the slider to adjust the amount of the blur.</string>
     <string name="pref_camera2_not_show_again">Do not show again</string>
     <string name="pref_camera2_scene_mode_instructional_ok">OK</string>
 
@@ -1133,28 +1133,28 @@
     <string name="pref_camera2_zsl_entryvalue_app_zsl" translatable="false">app-zsl</string>
     <string name="pref_camera2_zsl_entryvalue_hal_zsl" translatable="false">hal-zsl</string>
 
-    <string name="pref_camera2_videoencoderprofile_title">EncoderProfile</string>
-    <string name="pref_camera2_videoencoderprofile_default">off</string>
+    <string name="pref_camera2_videoencoderprofile_title">Encoder profile</string>
+    <string name="pref_camera2_videoencoderprofile_default" translatable="false">off</string>
 
-    <string name="pref_camera2_sharpness_control_title">SharpnessControl</string>
-    <string name="pref_camera2_sharpness_control_default">2</string>
-    <string name="pref_camera2_sharpness_control_entry_level0" translatable="false">Level 0</string>
-    <string name="pref_camera2_sharpness_control_entry_level1" translatable="false">Level 1</string>
-    <string name="pref_camera2_sharpness_control_entry_level2" translatable="false">Level 2 (Default)</string>
-    <string name="pref_camera2_sharpness_control_entry_level3" translatable="false">Level 3</string>
-    <string name="pref_camera2_sharpness_control_entry_level4" translatable="false">Level 4</string>
-    <string name="pref_camera2_sharpness_control_entry_level5" translatable="false">Level 5</string>
-    <string name="pref_camera2_sharpness_control_entry_level6" translatable="false">Level 6</string>
+    <string name="pref_camera2_sharpness_control_title" translatable="false">@string/pref_camera_sharpness_title</string>
+    <string name="pref_camera2_sharpness_control_default" translatable="false">2</string>
+    <string name="pref_camera2_sharpness_control_entry_level0" translatable="false">@string/pref_camera_sharpness_entry_level0</string>
+    <string name="pref_camera2_sharpness_control_entry_level1">Level 1 (default)</string>
+    <string name="pref_camera2_sharpness_control_entry_level2">Level 2</string>
+    <string name="pref_camera2_sharpness_control_entry_level3" translatable="false">@string/pref_camera_sharpness_entry_level3</string>
+    <string name="pref_camera2_sharpness_control_entry_level4" translatable="false">@string/pref_camera_sharpness_entry_level4</string>
+    <string name="pref_camera2_sharpness_control_entry_level5" translatable="false">@string/pref_camera_sharpness_entry_level5</string>
+    <string name="pref_camera2_sharpness_control_entry_level6" translatable="false">@string/pref_camera_sharpness_entry_level6</string>
 
     <string name="pref_camera2_afmode_default" translatable="false">-1</string>
-    <string name="pref_camera2_afmode_title">Set CONTROL_AF_MODE</string>
-    <string name="pref_camera2_afmode_entry_disable">Disable</string>
+    <string name="pref_camera2_afmode_title" translatable="false">@string/pref_camera_focusmode_title</string>
+    <string name="pref_camera2_afmode_entry_disable">Disabled</string>
     <string name="pref_camera2_afmode_entry_off">Off</string>
-    <string name="pref_camera2_afmode_entry_auto">Auto</string>
-    <string name="pref_camera2_afmode_entry_macro">Macro</string>
-    <string name="pref_camera2_afmode_entry_continuous_video">Continuous Video</string>
-    <string name="pref_camera2_afmode_entry_continuous_picture">Continuous Picture</string>
-    <string name="pref_camera2_afmode_entry_edof">EDOF</string>
+    <string name="pref_camera2_afmode_entry_auto" translatable="false">@string/pref_camera_focusmode_entry_auto</string>
+    <string name="pref_camera2_afmode_entry_macro" translatable="false">@string/pref_camera_focusmode_entry_macro</string>
+    <string name="pref_camera2_afmode_entry_continuous_video">Continuous video</string>
+    <string name="pref_camera2_afmode_entry_continuous_picture">Continuous picture</string>
+    <string name="pref_camera2_afmode_entry_edof">Extended depth of focus</string>
     <string name="pref_camera2_afmode_value_disable" translatable="false">-1</string>
     <string name="pref_camera2_afmode_value_off" translatable="false">0</string>
     <string name="pref_camera2_afmode_value_auto" translatable="false">1</string>
@@ -1163,17 +1163,17 @@
     <string name="pref_camera2_afmode_value_continuous_picture" translatable="false">4</string>
     <string name="pref_camera2_afmode_value_edof" translatable="false">5</string>
 
-    <string name="pref_camera2_exposure_metering_title">ExposureMetering</string>
+    <string name="pref_camera2_exposure_metering_title" translatable="false">@string/pref_camera_autoexposure_title</string>
     <string name="pref_camera2_exposure_metering_default">1</string>
-    <string name="pref_camera2_exposure_metering_entry_frame_average" translatable="false">FrameAverage</string>
-    <string name="pref_camera2_exposure_metering_entry_center_weighted" translatable="false">CenterWeighted</string>
-    <string name="pref_camera2_exposure_metering_entry_spot_meteting" translatable="false">SpotMeteting</string>
+    <string name="pref_camera2_exposure_metering_entry_frame_average" translatable="false">@string/pref_camera_autoexposure_entry_frameaverage</string>
+    <string name="pref_camera2_exposure_metering_entry_center_weighted" translatable="false">@string/pref_camera_autoexposure_entry_centerweighted</string>
+    <string name="pref_camera2_exposure_metering_entry_spot_meteting" translatable="false">@string/pref_camera_autoexposure_entry_spotmetering</string>
     <string name="pref_camera2_exposure_metering_entryvalue_frame_average" translatable="false">0</string>
     <string name="pref_camera2_exposure_metering_entryvalue_center_weighted" translatable="false">1</string>
     <string name="pref_camera2_exposure_metering_entryvalue_spot_meteting" translatable="false">2</string>
 
     <string name="pref_camera2_switch_camera_default" translatable="false">-1</string>
-    <string name="pref_camera2_switch_camera_title">Switch camera by id</string>
+    <string name="pref_camera2_switch_camera_title">Switch camera by ID</string>
 
     <!-- QCFA Title -->
     <string name="pref_camera2_qcfa_title" translatable="false">Quadra CFA</string>
@@ -1192,10 +1192,10 @@
 
     <string name="pref_camera2_eis_title">Video EIS</string>
     <string name="pref_camera2_eis_default" translatable="false">disable</string>
-    <string name="pref_camera2_eis_entry_v2enable" translatable="false">V2</string>
-    <string name="pref_camera2_eis_entry_v3enable" translatable="false">V3</string>
-    <string name="pref_camera2_eis_entry_v3_set_when_pause" translatable="false">V3 and set when pause</string>
-    <string name="pref_camera2_eis_entry_disable" translatable="false">disable</string>
+    <string name="pref_camera2_eis_entry_v2enable">V2</string>
+    <string name="pref_camera2_eis_entry_v3enable">V3</string>
+    <string name="pref_camera2_eis_entry_v3_set_when_pause">V3 and set when pause</string>
+    <string name="pref_camera2_eis_entry_disable">Disabled</string>
     <string name="pref_camera2_eis_entry_value_v2enable" translatable="false">V2</string>
     <string name="pref_camera2_eis_entry_value_v3enable" translatable="false">V3</string>
     <string name="pref_camera2_eis_entry_value_v3_set_when_pause" translatable="false">V3SetWhenPause</string>
@@ -1203,15 +1203,15 @@
 
     <string name="pref_camera2_fovc_title">Video FOVC</string>
     <string name="pref_camera2_fovc_default" translatable="false">false</string>
-    <string name="pref_camera2_fovc_entry_enable" translatable="false">Enable</string>
-    <string name="pref_camera2_fovc_entry_disable" translatable="false">Disable</string>
+    <string name="pref_camera2_fovc_entry_enable">Enabled</string>
+    <string name="pref_camera2_fovc_entry_disable">Disabled</string>
     <string name="pref_camera2_fovc_entry_value_enable" translatable="false">true</string>
     <string name="pref_camera2_fovc_entry_value_disable" translatable="false">false</string>
 
-    <string name="pref_camera2_video_hdr_title">Video HDR</string>
+    <string name="pref_camera2_video_hdr_title" translatable="false">@string/pref_camera_video_hdr_title</string>
     <string name="pref_camera2_video_hdr_default" translatable="false">0</string>
-    <string name="pref_camera2_video_hdr_entry_enable">enable</string>
-    <string name="pref_camera2_video_hdr_entry_disable">disable</string>
+    <string name="pref_camera2_video_hdr_entry_enable">Enabled</string>
+    <string name="pref_camera2_video_hdr_entry_disable">Disabled</string>
     <string name="pref_camera2_video_hdr_entry_value_enable" translatable="false">1</string>
     <string name="pref_camera2_video_hdr_entry_value_disable" translatable="false">0</string>
 
@@ -1222,14 +1222,14 @@
 
     <string name="pref_camera2_deepportrait_entry_value_disable" translatable="false">off</string>
     <string name="pref_camera2_deepportrait_entry_value_enable" translatable="false">on</string>
-    <string name="pref_camera_scenemode_entry_deepportrait" translatable="false">Deepportrait</string>
+    <string name="pref_camera_scenemode_entry_deepportrait" translatable="false">DeepPortrait</string>
 
-    <string name="pref_camera2_stats_visualizer_title">Stats Visualizer</string>
+    <string name="pref_camera2_stats_visualizer_title">Statistics visualizer</string>
     <string name="pref_camera2_stats_visualizer_default" translatable="false"></string>
-    <string name="pref_camera2_stats_visualizer_entry_bg_stats" translatable="false">BG Stats</string>
-    <string name="pref_camera2_stats_visualizer_entry_be_stats" translatable="false">BE Stats</string>
-    <string name="pref_camera2_stats_visualizer_entry_hist_stats" translatable="false">Hist Stats</string>
-    <string name="pref_camera2_stats_visualizer_entry_awb_info" translatable="false">AWB Info</string>
+    <string name="pref_camera2_stats_visualizer_entry_bg_stats">BG statistics</string>
+    <string name="pref_camera2_stats_visualizer_entry_be_stats">BE statistics</string>
+    <string name="pref_camera2_stats_visualizer_entry_hist_stats">Hist statistics</string>
+    <string name="pref_camera2_stats_visualizer_entry_awb_info" translatable="false">AWB information</string>
     <string name="pref_camera2_stats_visualizer_entry_value_enable_bg" translatable="false">0</string>
     <string name="pref_camera2_stats_visualizer_entry_value_enable_be" translatable="false">1</string>
     <string name="pref_camera2_stats_visualizer_entry_value_enable_hist" translatable="false">2</string>
@@ -1237,24 +1237,24 @@
     <string name="stats_visualizer_bg_label">BG GraphView</string>
     <string name="stats_visualizer_be_label">BE GraphView</string>
 
-    <string name="pref_camera2_capture_mfnr_title">MFNR</string>
+    <string name="pref_camera2_capture_mfnr_title">Multi-frame noise reduction</string>
     <string name="pref_camera2_capture_mfnr_default" translatable="false">0</string>
-    <string name="pref_camera2_capture_mfnr_entry_enable">enable</string>
-    <string name="pref_camera2_capture_mfnr_entry_disable">disable</string>
+    <string name="pref_camera2_capture_mfnr_entry_enable">Enabled</string>
+    <string name="pref_camera2_capture_mfnr_entry_disable">Disabled</string>
     <string name="pref_camera2_capture_mfnr_entry_value_enable" translatable="false">1</string>
     <string name="pref_camera2_capture_mfnr_entry_value_disable" translatable="false">0</string>
 
     <string name="pref_camera2_fs2_title">FastShutter</string>
     <string name="pref_camera2_fs2_default" translatable="false">0</string>
-    <string name="pref_camera2_fs2_entry_enable">enable</string>
-    <string name="pref_camera2_fs2_entry_disable">disable</string>
+    <string name="pref_camera2_fs2_entry_enable">Enabled</string>
+    <string name="pref_camera2_fs2_entry_disable">Disabled</string>
     <string name="pref_camera2_fs2_entry_value_enable" translatable="false">1</string>
     <string name="pref_camera2_fs2_entry_value_disable" translatable="false">0</string>
 
     <string name="pref_camera2_abort_captures_title">Abort Captures</string>
     <string name="pref_camera2_abort_captures_default" translatable="false">1</string>
-    <string name="pref_camera2_abort_captures_entry_enable">enable</string>
-    <string name="pref_camera2_abort_captures_entry_disable">disable</string>
+    <string name="pref_camera2_abort_captures_entry_enable">Enabled</string>
+    <string name="pref_camera2_abort_captures_entry_disable">Disabled</string>
     <string name="pref_camera2_abort_captures_entry_value_enable" translatable="false">1</string>
     <string name="pref_camera2_abort_captures_entry_value_disable" translatable="false">0</string>
 </resources>

@@ -1000,7 +1000,7 @@ for time lapse recording -->
     </string-array>
 
     <string-array name="pref_camera2_videoencoderprofile_entry" translatable="false">
-        <item>Off</item>
+        <item>@string/setting_off_value</item>
         <item>HLG</item>
         <item>HDR10</item>
     </string-array>
