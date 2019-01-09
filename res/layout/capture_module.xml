@@ -72,36 +72,87 @@
             android:visibility="gone"
             android:layout_width="100dip"
             android:layout_height="100dip"
-            android:layout_marginTop="70dip"
+            android:layout_marginTop="520dip"
             android:layout_marginLeft="10dip" />
         <com.android.camera.Camera2GraphView
             android:id="@+id/graph_view_gb"
             android:visibility="gone"
             android:layout_width="100dip"
             android:layout_height="100dip"
-            android:layout_marginTop="70dip"
+            android:layout_marginTop="520dip"
             android:layout_marginLeft="120dip" />
         <com.android.camera.Camera2GraphView
             android:id="@+id/graph_view_b"
             android:visibility="gone"
             android:layout_width="100dip"
             android:layout_height="100dip"
-            android:layout_marginTop="70dip"
+            android:layout_marginTop="520dip"
             android:layout_marginLeft="230dip" />
+        <TextView
+            android:id="@+id/bg_stats_graph_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="68dip"
+            android:layout_marginLeft="16dip"
+            android:textSize="15sp"
+            android:visibility="gone"
+            android:text="@string/stats_visualizer_bg_label"/>
         <com.android.camera.Camera2BGBitMap
             android:id="@+id/bg_stats_graph"
             android:visibility="gone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="68dip"
+            android:layout_marginTop="88dip"
             android:layout_marginLeft="16dip" />
+        <TextView
+            android:id="@+id/be_stats_graph_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="68dip"
+            android:layout_marginLeft="260dip"
+            android:textSize="15sp"
+            android:visibility="gone"
+            android:text="@string/stats_visualizer_be_label"/>
         <com.android.camera.Camera2BEBitMap
             android:id="@+id/be_stats_graph"
             android:visibility="gone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="88dip"
+            android:layout_marginLeft="260dip" />
+        <LinearLayout
+            android:id="@+id/stats_awb_info"
             android:layout_marginTop="68dip"
-            android:layout_marginLeft="16dip" />
+            android:layout_marginLeft="150dip"
+            android:orientation="vertical"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/stats_awb_r_text"
+                android:textSize="15sp"
+                android:padding="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:id="@+id/stats_awb_g_text"
+                android:textSize="15sp"
+                android:padding="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:id="@+id/stats_awb_b_text"
+                android:textSize="15sp"
+                android:padding="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:id="@+id/stats_awb_cc_text"
+                android:textSize="15sp"
+                android:padding="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
         <com.android.camera.DrawAutoHDR2
             android:id="@+id/autohdr_view"
             android:layout_width="200dip"

@@ -454,17 +454,25 @@ public class PostProcessor{
     }
 
     public boolean takeZSLPicture() {
+        if (mZSLQueue == null)
+            return false;
         mController.setJpegImageData(null);
         ZSLQueue.ImageItem imageItem = mZSLQueue.tryToGetMatchingItem();
         if(mController.getPreviewCaptureResult() == null ||
                 mController.getPreviewCaptureResult().get(CaptureResult.CONTROL_AE_STATE) == CameraMetadata.CONTROL_AE_STATE_FLASH_REQUIRED) {
             if(DEBUG_ZSL) Log.d(TAG, "Flash required image");
+            if (imageItem != null)
+                imageItem.closeImage();
             imageItem = null;
         }
         if (mController.isSelfieFlash()) {
+            if (imageItem != null)
+                imageItem.closeImage();
             imageItem = null;
         }
         if (mController.isLongShotActive()) {
+            if (imageItem != null)
+                imageItem.closeImage();
             imageItem = null;
         }
         if (imageItem != null) {
@@ -714,9 +722,6 @@ public class PostProcessor{
             mZSLQueue = new ZSLQueue(mController);
         }
         mMaxRequiredImageNum = MAX_REQUIRED_IMAGE_NUM;
-        if(mController.isLongShotSettingEnabled()) {
-            mMaxRequiredImageNum = Math.max(MAX_REQUIRED_IMAGE_NUM, PersistUtil.getLongshotShotLimit()+2);
-        }
         mPendingContinuousRequestCount = 0;
     }
 
@@ -1120,6 +1125,10 @@ public class PostProcessor{
             if(result.get(CaptureResult.SENSOR_SENSITIVITY) != null) {
                 exif.addISO(result.get(CaptureResult.SENSOR_SENSITIVITY));
             }
+            if(result.get(CaptureResult.JPEG_GPS_LOCATION ) != null) {
+                exif.addGpsTags(result.get(CaptureResult.JPEG_GPS_LOCATION).getLatitude(),
+                        result.get(CaptureResult.JPEG_GPS_LOCATION).getLongitude());
+            }
         }
         ByteArrayOutputStream jpegOut = new ByteArrayOutputStream();
         try {
@@ -1204,9 +1213,10 @@ public class PostProcessor{
                                 mController.showCapturedReview(bytes, mOrientation);
                             }
                         }
+                        ExifInterface exif = Exif.getExif(bytes);
                         mActivity.getMediaSaveService().addImage(
                                     bytes, title, date, null, resultImage.outRoi.width(), resultImage.outRoi.height(),
-                                    mOrientation, null, mediaSavedListener, contentResolver, "jpeg");
+                                    mOrientation, exif, mediaSavedListener, contentResolver, "jpeg");
                             mController.updateThumbnailJpegData(bytes);
                     }
                 }
@@ -1280,7 +1290,7 @@ public class PostProcessor{
                     } else {
                         mActivity.getMediaSaveService().addImage(
                                 bytes, title, date, null, image.getCropRect().width(), image.getCropRect().height(),
-                                orientation, null, mController.getMediaSavedListener(), mActivity.getContentResolver(), "jpeg");
+                                orientation, exif, mController.getMediaSavedListener(), mActivity.getContentResolver(), "jpeg");
                         mController.updateThumbnailJpegData(bytes);
                         image.close();
                     }

@@ -47,9 +47,11 @@ public class PersistUtil {
     private static final boolean PERSIST_SKIP_MEMORY_CHECK =
             SystemProperties.getBoolean("persist.sys.camera.perf.skip_memck", false);
     private static final int PERSIST_LONGSHOT_SHOT_LIMIT =
-            SystemProperties.getInt("persist.sys.camera.longshot.shotnum", 30);
+            SystemProperties.getInt("persist.sys.camera.longshot.shotnum", 60);
     private static final String PERSIST_CAMERA_PREVIEW_SIZE =
             SystemProperties.get("persist.sys.camera.preview.size", "");
+    private static final String PERSIST_CAMERA_VIDEO_SNAPSHOTSIZE =
+            SystemProperties.get("persist.sys.camera.video.snapshotsize", "");
     private static final String PERSIST_CAMERA_VIDEO_SIZE =
             SystemProperties.get("persist.sys.camera.video.size", "");
     private static final boolean PERSIST_CAMERA_CAMERA2 =
@@ -121,6 +123,8 @@ public class PersistUtil {
             SystemProperties.get("persist.sys.camera.display.umax", "");
     private static final String PERSIST_DISPLAY_LMAX =
             SystemProperties.get("persist.sys.camera.display.lmax", "");
+    private static final boolean PERSIST_BURST_SHOT_FPS_ENABLED =
+            SystemProperties.getBoolean("persist.sys.camera.burst.shot.fps", false);
 
     public static int getMemoryLimit() {
         return PERSIST_MEMORY_LIMIT;
@@ -148,6 +152,10 @@ public class PersistUtil {
             }
         }
         return result;
+    }
+
+    public static String getVideoSnapshotSize(){
+        return PERSIST_CAMERA_VIDEO_SNAPSHOTSIZE;
     }
 
     public static Point getCameraVideoSize() {
@@ -311,4 +319,7 @@ public class PersistUtil {
         return PERSIST_DISPLAY_LMAX;
     }
 
+    public static boolean isBurstShotFpsEnabled() {
+        return PERSIST_BURST_SHOT_FPS_ENABLED;
+    }
 }

@@ -49,7 +49,8 @@
       "pref_camera2_longshot_key":"off"}
     ,
     "4":
-    {"pref_camera2_coloreffect_key":"0"}
+    {"pref_camera2_coloreffect_key":"0",
+     "pref_camera2_zsl_key":"hal-zsl"}
     ,
     "5":
     {"pref_camera2_coloreffect_key":"0",
@@ -62,7 +63,8 @@
     {"pref_camera2_coloreffect_key":"0"}
     ,
     "10":
-    {"pref_camera2_coloreffect_key":"0"}
+    {"pref_camera2_coloreffect_key":"0",
+      "pref_camera2_zsl_key":"hal-zsl"}
     ,
     "13":
     {"pref_camera2_coloreffect_key":"0"}
@@ -71,7 +73,8 @@
     {"pref_camera2_coloreffect_key":"0"}
     ,
     "18":
-    {"pref_camera2_coloreffect_key":"0"}
+    {"pref_camera2_coloreffect_key":"0",
+      "pref_camera2_zsl_key":"disable"}
     ,
     "100":
     {"pref_camera2_longshot_key":"off",
@@ -110,7 +113,8 @@
       "pref_camera2_longshot_key":"off"}
     ,
     "109":
-    {"pref_camera2_coloreffect_key":"0"}
+    {"pref_camera2_coloreffect_key":"0",
+      "pref_camera2_flashmode_key":"off"}
     ,
     "110":
     {"pref_camera2_coloreffect_key":"0",
@@ -149,5 +153,13 @@
     "h263":{"pref_camera2_videoencoderprofile_key":"off"},
     "h264":{"pref_camera2_videoencoderprofile_key":"off"},
     "h265":{}
+  },
+  "pref_camera2_capture_mfnr_key":
+  {
+    "1":{"pref_camera2_zsl_key":"disable",
+         "pref_camera2_longshot_key":"off",
+         "pref_camera2_manual_exp_key":"off",
+         "pref_camera2_selfiemirror_key":"off"},
+    "0":{}
   }
 }

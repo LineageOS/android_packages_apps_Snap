@@ -67,6 +67,7 @@ import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
+import com.android.camera.imageprocessor.filter.BeautificationFilter;
 import com.android.camera.imageprocessor.filter.DeepPortraitFilter;
 import com.android.camera.ui.AutoFitSurfaceView;
 import com.android.camera.ui.Camera2FaceView;
@@ -107,6 +108,7 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
     private static final int ANIMATION_DURATION = 300;
     private static final int CLICK_THRESHOLD = 200;
     private static final int AUTOMATIC_MODE = 0;
+    private static final String[] AWB_INFO_TITLE = {" R gain "," G gain "," B gain "," CCT "};
     private CameraActivity mActivity;
     private View mRootView;
     private View mPreviewCover;
@@ -230,6 +232,12 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
     private ImageView mReviewImage;
     private int mDownSampleFactor = 4;
     private DecodeImageForReview mDecodeTaskForReview = null;
+
+    private View mStatsAwbInfo;
+    private TextView mStatsAwbRText;
+    private TextView mStatsAwbGText;
+    private TextView mStatsAwbBText;
+    private TextView mStatsAwbCcText;
 
     int mPreviewWidth;
     int mPreviewHeight;
@@ -415,6 +423,12 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
         mPauseButton = (PauseButton) mRootView.findViewById(R.id.video_pause);
         mPauseButton.setOnPauseButtonListener(this);
 
+        mStatsAwbInfo = mRootView.findViewById(R.id.stats_awb_info);
+        mStatsAwbRText = mRootView.findViewById(R.id.stats_awb_r_text);
+        mStatsAwbGText = mRootView.findViewById(R.id.stats_awb_g_text);
+        mStatsAwbBText = mRootView.findViewById(R.id.stats_awb_b_text);
+        mStatsAwbCcText = mRootView.findViewById(R.id.stats_awb_cc_text);
+
         mMuteButton = (RotateImageView)mRootView.findViewById(R.id.mute_button);
         mMuteButton.setVisibility(View.VISIBLE);
         setMuteButtonResource(!mModule.isAudioMute());
@@ -582,6 +596,25 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
         }
     }
 
+    public void updateAwbInfoText(String[] info) {
+        if (info == null || info.length <4)
+            return;
+        mStatsAwbRText.setText(AWB_INFO_TITLE[0]+info[0]);
+        mStatsAwbGText.setText(AWB_INFO_TITLE[1]+info[1]);
+        mStatsAwbBText.setText(AWB_INFO_TITLE[2]+info[2]);
+        mStatsAwbCcText.setText(AWB_INFO_TITLE[3]+info[3]);
+    }
+
+    public void updateAWBInfoVisibility(int visibility) {
+        mActivity.runOnUiThread(new Runnable() {
+            public void run() {
+                if(mStatsAwbInfo != null) {
+                    mStatsAwbInfo.setVisibility(visibility);
+                }
+            }
+        });
+    }
+
     private int getCurrentIntentMode() {
         return mModule.getCurrentIntentMode();
     }
@@ -697,10 +730,13 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
 
     public void initializeProMode(boolean promode) {
         mCameraControls.setProMode(promode);
-        if (promode)
+        if (promode) {
             mVideoButton.setVisibility(View.INVISIBLE);
-        else if (mModule.getCurrentIntentMode() == CaptureModule.INTENT_MODE_NORMAL)
+            mFlashButton.setVisibility(View.INVISIBLE);
+        }
+        else if (mModule.getCurrentIntentMode() == CaptureModule.INTENT_MODE_NORMAL) {
             mVideoButton.setVisibility(View.VISIBLE);
+        }
     }
 
     // called from onResume but only the first time
@@ -1260,7 +1296,12 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
 
     public void hideCameraControls(boolean hide) {
         final int status = (hide) ? View.INVISIBLE : View.VISIBLE;
-        if (mFlashButton != null) mFlashButton.setVisibility(status);
+        if (mFlashButton != null){
+            mFlashButton.setVisibility(status);
+            if (!hide) {
+                mFlashButton.init(false);
+            }
+        }
         if (mFrontBackSwitcher != null) mFrontBackSwitcher.setVisibility(status);
         if (mSceneModeSwitcher != null) mSceneModeSwitcher.setVisibility(status);
         if (mFilterModeSwitcher != null) mFilterModeSwitcher.setVisibility(status);
@@ -1361,7 +1402,9 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
              enableMakeupMenu = false;
              enableFilterMenu = false;
         }
-
+        if(!BeautificationFilter.isSupportedStatic()) {
+            enableMakeupMenu = false;
+        }
         mMakeupButton.setEnabled(enableMakeupMenu);
         mFilterModeSwitcher.setEnabled(enableFilterMenu);
         mSceneModeSwitcher.setEnabled(enableSceneMenu);
@@ -1381,6 +1424,10 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
         if (mShutterButton != null) {
             mShutterButton.setEnabled(enabled);
         }
+    }
+
+    public boolean isShutterEnabled() {
+        return mShutterButton.isEnabled();
     }
 
     /**
@@ -1503,8 +1550,21 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
         showUIAfterCountDown();
     }
 
+    public void initCountDownView() {
+        if (mCountDownView == null) {
+            initializeCountDown();
+        } else {
+            mCountDownView.initSoundPool();
+        }
+    }
+
+    public void releaseSoundPool() {
+        if (mCountDownView != null) {
+            mCountDownView.releaseSoundPool();
+        }
+    }
+
     public void startCountDown(int sec, boolean playSound) {
-        if (mCountDownView == null) initializeCountDown();
         mCountDownView.startCountDown(sec, playSound);
         hideUIWhileCountDown();
     }

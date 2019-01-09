@@ -164,9 +164,6 @@ public class Camera2FaceView extends FaceView {
             mMatrix.postRotate(mOrientation); // postRotate is clockwise
             canvas.rotate(-mOrientation); // rotate is counter-clockwise (for canvas)
 
-            float rectWidth;
-            float rectHeight;
-            float diameter;
             int extendFaceSize = 0;
             extendFaceSize = mExFaces == null? 0 : mExFaces.length;
             for (int i = 0; i < mFaces.length; i++) {
@@ -187,12 +184,7 @@ public class Camera2FaceView extends FaceView {
                 if (LOGV) CameraUtil.dumpRect(mRect, "Transformed rect");
                 mPaint.setColor(mColor);
                 mRect.offset(dx, dy);
-
-                rectHeight = mRect.bottom-mRect.top;
-                rectWidth = mRect.right - mRect.left;
-                diameter = rectHeight > rectWidth ? rectWidth : rectHeight;
-
-                canvas.drawCircle(mRect.centerX(), mRect.centerY(), diameter/2, mPaint);
+                canvas.drawRect(mRect, mPaint);
 
                 if (i < extendFaceSize && mExFaces[i] != null) {
                     ExtendedFace exFace = mExFaces[i];
@@ -364,7 +356,6 @@ public class Camera2FaceView extends FaceView {
     public void clear() {
         // Face indicator is displayed during preview. Do not clear the
         // drawable.
-        mColor = mFocusingColor;
         mFaces = null;
         mExFaces = null;
         invalidate();

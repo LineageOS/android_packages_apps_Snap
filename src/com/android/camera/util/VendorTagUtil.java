@@ -57,8 +57,19 @@ public class VendorTagUtil {
     private static CaptureRequest.Key<Integer> USE_ISO_VALUE =
             new CaptureRequest.Key<>("org.codeaurora.qcamera3.iso_exp_priority.use_iso_value",
                     Integer.class);
-    private static final CaptureRequest.Key<Byte> HDRVideoMode =
+    private static CaptureRequest.Key<Integer> WB_COLOR_TEMPERATURE =
+            new CaptureRequest.Key<>("org.codeaurora.qcamera3.manualWB.color_temperature",
+                    Integer.class);
+    private static CaptureRequest.Key<float[]> MANUAL_WB_GAINS =
+            new CaptureRequest.Key<>("org.codeaurora.qcamera3.manualWB.gains", float[].class);
+    private static CaptureRequest.Key<Integer> PARTIAL_MANUAL_WB_MODE =
+            new CaptureRequest.Key<>("org.codeaurora.qcamera3.manualWB.partial_mwb_mode", Integer.class);
+    private static CaptureRequest.Key<Byte> HDRVideoMode =
             new CaptureRequest.Key<>("org.quic.camera2.streamconfigs.HDRVideoMode", Byte.class);
+
+    private static final int MANUAL_WB_DISABLE_MODE = 0;
+    private static final int MANUAL_WB_CCT_MODE = 1;
+    private static final int MANUAL_WB_GAINS_MODE = 2;
 
     private static boolean isSupported(CaptureRequest.Builder builder,
                                        CaptureRequest.Key<?> key) {
@@ -145,6 +156,42 @@ public class VendorTagUtil {
 
     private static boolean isUseIsoValueSupported(CaptureRequest.Builder builder) {
         return isSupported(builder, USE_ISO_VALUE);
+    }
+
+    private static boolean isPartialWBModeSupported(CaptureRequest.Builder builder) {
+        return isSupported(builder, PARTIAL_MANUAL_WB_MODE);
+    }
+
+    private static boolean isWBTemperatureSupported(CaptureRequest.Builder builder) {
+        return isSupported(builder, WB_COLOR_TEMPERATURE);
+    }
+
+    private static boolean isMWBGainsSupported(CaptureRequest.Builder builder) {
+        return isSupported(builder, MANUAL_WB_GAINS);
+    }
+
+    public static void setWbColorTemperatureValue(CaptureRequest.Builder builder, Integer value) {
+        if (isPartialWBModeSupported(builder)) {
+            builder.set(PARTIAL_MANUAL_WB_MODE, MANUAL_WB_CCT_MODE);
+            if (isWBTemperatureSupported(builder)) {
+                builder.set(WB_COLOR_TEMPERATURE, value);
+            }
+        }
+    }
+
+    public static void setMWBGainsValue(CaptureRequest.Builder builder, float[] gains) {
+        if (isPartialWBModeSupported(builder)) {
+            builder.set(PARTIAL_MANUAL_WB_MODE, MANUAL_WB_GAINS_MODE);
+            if (isMWBGainsSupported(builder)) {
+                builder.set(MANUAL_WB_GAINS, gains);
+            }
+        }
+    }
+
+    public static void setMWBDisableMode(CaptureRequest.Builder builder) {
+        if (isPartialWBModeSupported(builder)) {
+            builder.set(PARTIAL_MANUAL_WB_MODE, MANUAL_WB_DISABLE_MODE);
+        }
     }
 
     public static void setHDRVideoMode(CaptureRequest.Builder builder, byte mode) {

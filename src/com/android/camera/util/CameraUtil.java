@@ -501,6 +501,19 @@ public class CameraUtil {
         return result;
     }
 
+    public static int getDisplayOrientationForCamera2(int degrees, int cameraId) {
+        CameraCharacteristics info = CameraHolder.instance().getCameraCharacteristics(cameraId);
+        int result;
+        if (info.get(CameraCharacteristics.LENS_FACING) ==
+                CameraCharacteristics.LENS_FACING_FRONT) {
+            result = (info.get(CameraCharacteristics.SENSOR_ORIENTATION) + degrees) % 360;
+            result = (360 - result) % 360;  // compensate the mirror
+        } else {
+            result = (info.get(CameraCharacteristics.SENSOR_ORIENTATION) - degrees + 360) % 360;
+        }
+        return result;
+    }
+
     public static int getCameraOrientation(int cameraId) {
         Camera.CameraInfo info = new Camera.CameraInfo();
         Camera.getCameraInfo(cameraId, info);
@@ -576,7 +589,7 @@ public class CameraUtil {
     public static int getOptimalPreviewSize(Activity currentActivity,
             Point[] sizes, double targetRatio) {
         // TODO(andyhuibers): Don't hardcode this but use device's measurements.
-        final int MAX_ASPECT_HEIGHT = 1080;
+        final int MAX_ASPECT_HEIGHT = 1440;
         // Use a very small tolerance because we want an exact match.
         final double ASPECT_TOLERANCE = 0.01;
         if (sizes == null) return -1;
@@ -599,10 +612,9 @@ public class CameraUtil {
             if (Math.abs(ratio - targetRatio) > ASPECT_TOLERANCE) continue;
 
             // Count sizes with height <= 1080p to mimic camera1 api behavior.
+            if (size.y > MAX_ASPECT_HEIGHT) continue;
             if (ratio_4_3 == targetRatio) {
                 if (size.y > minDiff) continue;
-            } else {
-                if (size.y > MAX_ASPECT_HEIGHT) continue;
             }
 
             double heightDiff = Math.abs(size.y - targetHeight);
@@ -1404,9 +1416,13 @@ public class CameraUtil {
         Collection<Surface> outputSurfaces = request.getTargets();
         Range<Integer> fpsRange = request.get(CaptureRequest.CONTROL_AE_TARGET_FPS_RANGE);
 
-        StreamConfigurationMap config =
-                SettingsManager.getInstance().getStreamConfigurationMap((int)request.getTag());
-        SurfaceUtils.checkConstrainedHighSpeedSurfaces(outputSurfaces, fpsRange, config);
+        try {
+            StreamConfigurationMap config =
+                    SettingsManager.getInstance().getStreamConfigurationMap((int)request.getTag());
+            SurfaceUtils.checkConstrainedHighSpeedSurfaces(outputSurfaces, fpsRange, config);
+        } catch (IllegalArgumentException e) {
+            Log.w(TAG, " checkConstrainedHighSpeedSurfaces occur " + e.toString());
+        }
 
         // Request list size: to limit the preview to 30fps, need use maxFps/30; to maximize
         // the preview frame rate, should use maxBatch size for that high speed stream

@@ -18,6 +18,7 @@ package com.android.camera;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -156,6 +157,15 @@ public class ListPreference extends CameraPreference {
     }
 
     public void setMakeupSeekBarValue(String value) {
+        mValue = value;
+        persistStringValue(value);
+    }
+
+    public void setFromMultiValues(Set<String> set) {
+        String value = "";
+        for (String str : set) {
+            value = value + str +";";
+        }
         mValue = value;
         persistStringValue(value);
     }
