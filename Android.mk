@@ -48,6 +48,8 @@ LOCAL_RENDERSCRIPT_TARGET_API := 23
 
 LOCAL_OVERRIDES_PACKAGES := Camera2
 
+LOCAL_PRODUCT_MODULE := true
+
 LOCAL_PROGUARD_FLAG_FILES := proguard.flags
 
 # If this is an unbundled build (to install separately) then include
@@ -68,7 +70,8 @@ include $(CLEAR_VARS)
 LOCAL_MODULE := privapp_whitelist_org.lineageos.snap.xml
 LOCAL_MODULE_CLASS := ETC
 LOCAL_MODULE_TAGS := optional
-LOCAL_MODULE_PATH := $(TARGET_OUT_ETC)/permissions
+LOCAL_MODULE_PATH := $(TARGET_OUT_PRODUCT_ETC)/permissions
+LOCAL_PRODUCT_MODULE := true
 LOCAL_SRC_FILES := $(LOCAL_MODULE)
 include $(BUILD_PREBUILT)
 
