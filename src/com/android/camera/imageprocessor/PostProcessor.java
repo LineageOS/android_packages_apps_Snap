@@ -611,6 +611,7 @@ public class PostProcessor{
         addImage(image);
         if (isReadyToProcess()) {
             mController.unlockFocus(mController.getMainCameraId());
+            mController.enableShutterButtonOnMainThread(mController.getMainCameraId());
             long captureStartTime = System.currentTimeMillis();
             mNamedImages.nameNewImage(captureStartTime);
             PhotoModule.NamedImages.NamedEntity name = mNamedImages.getNextNameEntity();
