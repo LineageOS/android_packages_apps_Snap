@@ -161,5 +161,10 @@
          "pref_camera2_manual_exp_key":"off",
          "pref_camera2_selfiemirror_key":"off"},
     "0":{}
+  },
+  "pref_camera2_saveraw_key":
+  {
+    "enable":{"pref_camera2_longshot_key":"off"},
+    "disable":{}
   }
 }
