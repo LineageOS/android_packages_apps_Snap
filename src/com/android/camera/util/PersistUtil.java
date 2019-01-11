@@ -80,7 +80,7 @@ public class PersistUtil {
     private static final int CIRCULAR_BUFFER_SIZE_PERSIST =
             SystemProperties.getInt("persist.sys.camera.zsl.buffer.size", 5);
     private static final int SAVE_TASK_MEMORY_LIMIT_IN_MB =
-            SystemProperties.getInt("persist.sys.camera.perf.memlimit", 60);
+            SystemProperties.getInt("persist.sys.camera.perf.memlimit", 120);
     private static final boolean PERSIST_CAMERA_UI_AUTO_TEST_ENABLED =
             SystemProperties.getBoolean("persist.sys.camera.ui.auto_test", false);
     private static final boolean PERSIST_CAMERA_SAVE_IN_SD_ENABLED =
