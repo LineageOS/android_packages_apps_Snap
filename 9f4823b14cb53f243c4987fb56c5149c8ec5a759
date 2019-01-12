@@ -16,6 +16,24 @@
       "revId": "9f4823b14cb53f243c4987fb56c5149c8ec5a759",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8050511c_989db867",
+        "filename": "res/values/camera2arrays.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 994,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2019-01-12T02:25:35Z",
+      "side": 1,
+      "message": "HLG and HDR acronyms are not supposed to be translated are they?",
+      "parentUuid": "f38183a1_1f083006",
+      "revId": "9f4823b14cb53f243c4987fb56c5149c8ec5a759",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }
