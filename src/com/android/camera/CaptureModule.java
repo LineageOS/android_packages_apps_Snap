@@ -438,12 +438,13 @@ public class CaptureModule implements CameraModule, PhotoController,
     private boolean[] mCameraOpened = new boolean[MAX_NUM_CAM];
     private CameraDevice[] mCameraDevice = new CameraDevice[MAX_NUM_CAM];
     private String[] mCameraId = new String[MAX_NUM_CAM];
-    private String[] mSelectableModes = {"Video", "Photo", "Bokeh", "SAT", "ProMode"};
+    private String[] mSelectableModes = {"Video", "HFR", "Photo", "Bokeh", "SAT", "ProMode"};
     private ArrayList<SceneModule> mSceneCameraIds = new ArrayList<>();
     private SceneModule mCurrentSceneMode;
     private int mCurrentModeIndex = 1;
     public enum CameraMode {
         VIDEO,
+        HFR,
         DEFAULT,
         RTB,
         SAT,
@@ -1396,11 +1397,24 @@ public class CaptureModule implements CameraModule, PhotoController,
         if (mPaused || !mCamerasOpened || mTempHoldVideoInVideoIntent) return;
         final int cameraId = mCurrentSceneMode.getCurrentId();
         Log.d(TAG,"createSessions : Current SceneMode is "+mCurrentSceneMode.mode);
-        if (mCurrentSceneMode.mode == CameraMode.VIDEO) {
-            createSessionForVideo(cameraId);
-        } else {
-            createSession(cameraId);
+        switch (mCurrentSceneMode.mode) {
+            case VIDEO:
+                createSessionForVideo(cameraId);
+                break;
+            case HFR:
+                String value = mSettingsManager.getValue(SettingsManager.KEY_VIDEO_HIGH_FRAME_RATE);
+                if (value == null || value.equals("off")) {
+                    initDefaultHighSpeedCaptureSettings();
+                }
+                createSessionForVideo(cameraId);
+                break;
+            default:
+                createSession(cameraId);
         }
+    }
+
+    private void initDefaultHighSpeedCaptureSettings() {
+        mSettingsManager.setHFRDefaultRate();
     }
 
     private CaptureRequest.Builder getRequestBuilder(int id) throws CameraAccessException {
@@ -1678,8 +1692,13 @@ public class CaptureModule implements CameraModule, PhotoController,
             mState[cameraId] = STATE_PREVIEW;
             mControlAFMode = CaptureRequest.CONTROL_AF_MODE_CONTINUOUS_VIDEO;
 
-            mUI.setPreviewSize(mVideoPreviewSize.getWidth(), mVideoPreviewSize.getHeight());
-            mUI.resetTrackingFocus();
+            mActivity.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    mUI.setPreviewSize(mVideoPreviewSize.getWidth(), mVideoPreviewSize.getHeight());
+                    mUI.resetTrackingFocus();
+                }
+            });
             List<Surface> surfaces = new ArrayList<>();
             Surface surface = getPreviewSurfaceForSession(cameraId);
             mFrameProcessor.onOpen(getFrameProcFilterId(), mVideoSize);
@@ -2029,6 +2048,7 @@ public class CaptureModule implements CameraModule, PhotoController,
                     CaptureModule.FRONT_ID = cameraId;
                     mSceneCameraIds.get(CameraMode.DEFAULT.ordinal()).frontCameraId = cameraId;
                     mSceneCameraIds.get(CameraMode.VIDEO.ordinal()).frontCameraId = cameraId;
+                    mSceneCameraIds.get(CameraMode.HFR.ordinal()).frontCameraId = cameraId;
                     mSceneCameraIds.get(CameraMode.PRO_MODE.ordinal()).frontCameraId = cameraId;
                 } else {
                     if (!isFirstDefault) {
@@ -2039,6 +2059,10 @@ public class CaptureModule implements CameraModule, PhotoController,
                     mSceneCameraIds.get(CameraMode.DEFAULT.ordinal()).rearCameraId = cameraId;
                     mSceneCameraIds.get(CameraMode.VIDEO.ordinal()).rearCameraId = cameraId;
                     mSceneCameraIds.get(CameraMode.PRO_MODE.ordinal()).rearCameraId = cameraId;
+                    if (mSettingsManager.isHFRSupported()) { // filter HFR mode
+                        removeList[CameraMode.HFR.ordinal()] = false;
+                        mSceneCameraIds.get(CameraMode.HFR.ordinal()).rearCameraId = cameraId;
+                    }
                     if (mCurrentSceneMode == null) {
                         int index = mIntentMode == INTENT_MODE_VIDEO ?
                                 CameraMode.VIDEO.ordinal() : CameraMode.DEFAULT.ordinal();

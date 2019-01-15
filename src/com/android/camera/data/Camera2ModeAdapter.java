@@ -41,7 +41,7 @@ import java.util.List;
 
 public class Camera2ModeAdapter extends RecyclerView.Adapter<Camera2ModeAdapter.ViewHolder> {
     private List<String> mModeList;
-    private int mSelectedPos = 1;
+    private int mSelectedPos = 2;
     private OnItemClickListener mOnItemClickListener;
 
     public Camera2ModeAdapter(List<String> list) {
