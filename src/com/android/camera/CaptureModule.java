@@ -1898,7 +1898,8 @@ public class CaptureModule implements CameraModule, PhotoController,
         if ((mSettingsManager.isZSLInHALEnabled() &&
                 !isFlashOn(getMainCameraId()) && (mPreviewCaptureResult != null &&
                 mPreviewCaptureResult.get(CaptureResult.CONTROL_AE_STATE) !=
-                     CameraMetadata.CONTROL_AE_STATE_FLASH_REQUIRED)) ||
+                     CameraMetadata.CONTROL_AE_STATE_FLASH_REQUIRED &&
+                mPreviewCaptureResult.getRequest().get(CaptureRequest.CONTROL_AE_LOCK) != Boolean.TRUE)) ||
                 isActionImageCapture()) {
             takeZSLPictureInHAL();
         } else {
