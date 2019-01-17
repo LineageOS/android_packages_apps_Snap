@@ -2389,30 +2389,37 @@ public class CaptureModule implements CameraModule, PhotoController,
             @Override
             public void onCaptureSequenceCompleted(CameraCaptureSession session, int
                             sequenceId, long frameNumber) {
+                if (mSettingsManager.getSavePictureFormat() == SettingsManager.HEIF_FORMAT) {
+                    mLongshotActive = false;
+                    if (mHeifImage != null) {
+                        try {
+                            mHeifImage.getWriter().stop(5000);
+                            mHeifImage.getWriter().close();
+                            mActivity.getMediaSaveService().addHEIFImage(mHeifImage.getPath(),
+                                    mHeifImage.getTitle(),mHeifImage.getDate(),null,mPictureSize.getWidth(),mPictureSize.getHeight(),
+                                    mHeifImage.getOrientation(),null,mContentResolver,mOnMediaSavedListener,mHeifImage.getQuality(),"heifs");
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        } finally {
+                            try{
+                                mHeifOutput.removeSurface(mHeifImage.getInputSurface());
+                                session.updateOutputConfiguration(mHeifOutput);
+                                mHeifImage = null;
+                            }catch (CameraAccessException e) {
+                                e.printStackTrace();
+                            }catch (Exception e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    }
+
+                }
                 if(mLongshotActive) {
                     captureStillPicture(getMainCameraId());
                 } else {
                     mLongshoting = false;
                     mNumFramesArrived.getAndSet(0);
                     unlockFocus(getMainCameraId());
-                }
-                if (mSettingsManager.getSavePictureFormat() == SettingsManager.HEIF_FORMAT) {
-                    if (mHeifImage != null) {
-                        try {
-                            mHeifImage.getWriter().stop(3000);
-                            mHeifImage.getWriter().close();
-                            mHeifOutput.removeSurface(mHeifImage.getInputSurface());
-                            session.updateOutputConfiguration(mHeifOutput);
-                            mActivity.getMediaSaveService().addHEIFImage(mHeifImage.getPath(),
-                                    mHeifImage.getTitle(),mHeifImage.getDate(),null,mPictureSize.getWidth(),mPictureSize.getHeight(),
-                                    mHeifImage.getOrientation(),null,mContentResolver,mOnMediaSavedListener,mHeifImage.getQuality(),"heifs");
-                            mHeifImage = null;
-                        } catch (TimeoutException | IllegalStateException e) {
-                            e.printStackTrace();
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-                    }
                 }
             }
         };
@@ -2478,16 +2485,21 @@ public class CaptureModule implements CameraModule, PhotoController,
                             try {
                                 mHeifImage.getWriter().stop(3000);
                                 mHeifImage.getWriter().close();
-                                mHeifOutput.removeSurface(mHeifImage.getInputSurface());
-                                mCaptureSession[id].updateOutputConfiguration(mHeifOutput);
                                 mActivity.getMediaSaveService().addHEIFImage(mHeifImage.getPath(),
                                         mHeifImage.getTitle(),mHeifImage.getDate(),null,mPictureSize.getWidth(),mPictureSize.getHeight(),
                                         mHeifImage.getOrientation(),null,mContentResolver,mOnMediaSavedListener,mHeifImage.getQuality(),"heif");
-                                mHeifImage = null;
-                            } catch (TimeoutException | IllegalStateException e) {
-                                e.printStackTrace();
                             } catch (Exception e) {
                                 e.printStackTrace();
+                            } finally {
+                                try{
+                                    mHeifOutput.removeSurface(mHeifImage.getInputSurface());
+                                    mCaptureSession[id].updateOutputConfiguration(mHeifOutput);
+                                    mHeifImage = null;
+                                } catch (CameraAccessException e) {
+                                    e.printStackTrace();
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                }
                             }
                         }
                     }
