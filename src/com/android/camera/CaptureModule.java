@@ -3032,6 +3032,16 @@ public class CaptureModule implements CameraModule, PhotoController,
                         throw new RuntimeException("Time out waiting to lock camera closing");
                     }
                     Log.d(TAG, "Closing camera: " + mCameraDevice[i].getId());
+
+                    if (isAbortCapturesEnable()) {
+                        mCaptureSession[i].abortCaptures();
+                        Log.d(TAG, "Closing camera call abortCaptures ");
+                    }
+                    if (isSendRequestAfterFlushEnable()) {
+                        Log.v(TAG, "Closing camera call setRepeatingRequest");
+                        mCaptureSession[i].setRepeatingRequest(mPreviewRequestBuilder[i].build(),
+                                mCaptureCallback, mCameraHandler);
+                    }
                     mCameraDevice[i].close();
                     mCameraDevice[i] = null;
                     mCameraOpened[i] = false;
@@ -3058,6 +3068,8 @@ public class CaptureModule implements CameraModule, PhotoController,
         } catch (InterruptedException e) {
             mCameraOpenCloseLock.release();
             throw new RuntimeException("Interrupted while trying to lock camera closing.", e);
+        } catch (CameraAccessException e) {
+            e.printStackTrace();
         } finally {
             mCameraOpenCloseLock.release();
         }
@@ -4624,6 +4636,10 @@ public class CaptureModule implements CameraModule, PhotoController,
             mUI.clearFocus();
             mUI.hideUIwhileRecording();
             mCameraHandler.removeMessages(CANCEL_TOUCH_FOCUS, mCameraId[cameraId]);
+            if (isAbortCapturesEnable()) {
+                mCaptureSession[cameraId].abortCaptures();
+                Log.d(TAG, "startRecordingVideo call abortCaptures befor close preview ");
+            }
             mState[cameraId] = STATE_PREVIEW;
             mControlAFMode = CaptureRequest.CONTROL_AF_MODE_CONTINUOUS_PICTURE;
             mIsAutoFocusStarted = false;
@@ -5206,6 +5222,36 @@ public class CaptureModule implements CameraModule, PhotoController,
         resumeVideoRecording();
     }
 
+    private boolean isEISDisable() {
+        boolean result = true;
+        String value = mSettingsManager.getValue(SettingsManager.KEY_EIS_VALUE);
+        if (value != null) {
+            result = value.equals(mActivity.getResources().getString(
+                    R.string.pref_camera2_eis_entry_value_disable));
+        } else {
+            result = false;
+        }
+        Log.v(TAG, "isEISDisable :" + result);
+        return result;
+    }
+
+    private boolean isAbortCapturesEnable() {
+        boolean result = true;
+        String value = mSettingsManager.getValue(SettingsManager.KEY_ABORT_CAPTURES);
+        if (value != null) {
+            result = value.equals(mActivity.getResources().getString(
+                    R.string.pref_camera2_abort_captures_entry_value_enable));
+        } else {
+            result = false;
+        }
+        Log.v(TAG, "isAbortCapturesEnable :" + result);
+        return result;
+    }
+
+    private boolean isSendRequestAfterFlushEnable() {
+        return PersistUtil.isSendRequestAfterFlush();
+    }
+
     private void stopRecordingVideo(int cameraId) {
         Log.d(TAG, "stopRecordingVideo " + cameraId);
         mStopRecordingTime = System.currentTimeMillis();
@@ -5219,8 +5265,18 @@ public class CaptureModule implements CameraModule, PhotoController,
         if (mLiveShotInitHeifWriter != null) {
             mLiveShotInitHeifWriter.close();
         }
-        closePreviewSession();
         mIsRecordingVideo = false;
+        if (isEISDisable() && isAbortCapturesEnable()) {
+            try {
+                mCurrentSession.abortCaptures();
+                Log.d(TAG, "stopRecordingVideo call abortCaptures ");
+            } catch (CameraAccessException e) {
+                e.printStackTrace();
+            }
+        }
+        if (!mPaused) {
+            closePreviewSession();
+        }
         try {
             mMediaRecorder.setOnErrorListener(null);
             mMediaRecorder.setOnInfoListener(null);
@@ -5262,7 +5318,9 @@ public class CaptureModule implements CameraModule, PhotoController,
             mUI.hideSurfaceView();
             mUI.showSurfaceView();
         }
-        createSessions();
+        if (!mPaused) {
+            createSessions();
+        }
         mUI.showUIafterRecording();
         mUI.resetTrackingFocus();
         mStopRecPending = false;
