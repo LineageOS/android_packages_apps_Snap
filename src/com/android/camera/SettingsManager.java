@@ -76,6 +76,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileInputStream;
+import java.io.InputStreamReader;
+import java.io.BufferedReader;
 import java.io.InputStream;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -93,6 +98,9 @@ public class SettingsManager implements ListMenu.SettingsListener {
 
     public static final int SCENE_MODE_AUTO_INT = 0;
     public static final int SCENE_MODE_NIGHT_INT = 5;
+
+    public static final int TALOS_SOCID = 355;
+    public static final int MOOREA_SOCID = 365;
 
     // Custom-Scenemodes start from 100
     public static final int SCENE_MODE_CUSTOM_START = 100;
@@ -163,6 +171,7 @@ public class SettingsManager implements ListMenu.SettingsListener {
     public static final String KEY_VIDEO_HDR_VALUE = "pref_camera2_video_hdr_key";
     public static final String KEY_CAPTURE_MFNR_VALUE = "pref_camera2_capture_mfnr_key";
     public static final String KEY_SENSOR_MODE_FS2_VALUE = "pref_camera2_fs2_key";
+    public static final String KEY_ABORT_CAPTURES = "pref_camera2_abort_captures_key";
     public static final String KEY_SAVERAW = "pref_camera2_saveraw_key";
     public static final String KEY_ZOOM = "pref_camera2_zoom_key";
     public static final String KEY_SHARPNESS_CONTROL_MODE = "pref_camera2_sharpness_control_key";
@@ -218,6 +227,7 @@ public class SettingsManager implements ListMenu.SettingsListener {
     private int mCameraId;
     private Set<String> mFilteredKeys;
     private int[] mExtendedHFRSize;//An array of pairs (fps, maxW, maxH)
+    private int mDeviceSocId = -1;
 
     private static Map<String, Set<String>> VIDEO_ENCODER_PROFILE_TABLE = new HashMap<>();
 
@@ -661,6 +671,35 @@ public class SettingsManager implements ListMenu.SettingsListener {
         }
     }
 
+    public int getDeviceSocId() {
+        if (mDeviceSocId == -1) {
+            String filePath = "/sys/devices/soc0/soc_id";
+            File file = new File(filePath);
+            if (file.isDirectory()) {
+                Log.d(TAG, filePath + " is directory");
+            } else {
+                try {
+                    InputStream is = new FileInputStream(file);
+                    if (is != null) {
+                        InputStreamReader isr = new InputStreamReader(is);
+                        BufferedReader br = new BufferedReader(isr);
+
+                        String line;
+                        while ((line = br.readLine()) != null) {
+                            mDeviceSocId = Integer.parseInt(line);
+                        }
+                    }
+                } catch (FileNotFoundException e) {
+                    Log.d(TAG, filePath + " doesn't found!");
+                } catch (IOException e) {
+                    Log.d(TAG, filePath + " read exception, " + e.getMessage());
+                }
+            }
+        }
+        Log.d(TAG, "getDeviceSocId mDeviceSocId :" + mDeviceSocId);
+        return mDeviceSocId;
+    }
+
     public int getCurrentCameraId() {
         return mCameraId;
     }
@@ -829,6 +868,7 @@ public class SettingsManager implements ListMenu.SettingsListener {
         ListPreference mpo = mPreferenceGroup.findPreference(KEY_MPO);
         ListPreference redeyeReduction = mPreferenceGroup.findPreference(KEY_REDEYE_REDUCTION);
         ListPreference videoQuality = mPreferenceGroup.findPreference(KEY_VIDEO_QUALITY);
+        ListPreference videoDuration = mPreferenceGroup.findPreference(KEY_VIDEO_DURATION);
         ListPreference audioEncoder = mPreferenceGroup.findPreference(KEY_AUDIO_ENCODER);
         ListPreference noiseReduction = mPreferenceGroup.findPreference(KEY_NOISE_REDUCTION);
         ListPreference faceDetection = mPreferenceGroup.findPreference(KEY_FACE_DETECTION);
@@ -938,6 +978,29 @@ public class SettingsManager implements ListMenu.SettingsListener {
             if (filterUnsupportedOptions(videoQuality,
                     getSupportedVideoSize(cameraId))) {
                 mFilteredKeys.add(videoQuality.getKey());
+            }
+        }
+
+        if (videoDuration != null) {
+            final SharedPreferences pref = mContext.getSharedPreferences(
+                    ComboPreferences.getLocalSharedPreferencesName(mContext, cameraId),
+                    Context.MODE_PRIVATE);
+            String fpsStr = pref.getString(SettingsManager.KEY_VIDEO_HIGH_FRAME_RATE, "off");
+            if (fpsStr != null && !fpsStr.equals("off")) {
+                int fpsRate = Integer.parseInt(fpsStr.substring(3));
+                if (fpsRate == 480) {
+                    if (filterUnsupportedOptions(videoDuration, getSupportedVideoDurationFor480())) {
+                        mFilteredKeys.add(videoDuration.getKey());
+                    }
+                } else {
+                    if (filterUnsupportedOptions(videoDuration, getSupportedVideoDuration())) {
+                        mFilteredKeys.add(videoDuration.getKey());
+                    }
+                }
+            } else {
+                if (filterUnsupportedOptions(videoDuration, getSupportedVideoDuration())) {
+                    mFilteredKeys.add(videoDuration.getKey());
+                }
             }
         }
 
@@ -1617,6 +1680,24 @@ public class SettingsManager implements ListMenu.SettingsListener {
         return map.getOutputSizes(cl);
     }
 
+    private List<String> getSupportedVideoDuration() {
+        int[] videoDurations = {-1, 10, 30, 0};
+        List<String> modes = new ArrayList<>();
+        for (int i : videoDurations) {
+            modes.add(""+i);
+        }
+        return  modes;
+    }
+
+    private List<String> getSupportedVideoDurationFor480() {
+        int[] videoDurations = {48, 144, 0};
+        List<String> modes = new ArrayList<>();
+        for (int i : videoDurations) {
+            modes.add(""+i);
+        }
+        return  modes;
+    }
+
     private List<String> getSupportedVideoSize(int cameraId) {
         StreamConfigurationMap map = mCharacteristics.get(cameraId).get(
                 CameraCharacteristics.SCALER_STREAM_CONFIGURATION_MAP);
@@ -2015,6 +2096,22 @@ public class SettingsManager implements ListMenu.SettingsListener {
             return true;
         }else{
             return false;
+        }
+    }
+
+    public void filterVideoDuration() {
+        ListPreference videoDuration = mPreferenceGroup.findPreference(KEY_VIDEO_DURATION);
+        videoDuration.reloadInitialEntriesAndEntryValues();
+        if (filterUnsupportedOptions(videoDuration, getSupportedVideoDuration())) {
+            mFilteredKeys.add(videoDuration.getKey());
+        }
+    }
+
+    public void filterVideoDurationFor480fps() {
+        ListPreference videoDuration = mPreferenceGroup.findPreference(KEY_VIDEO_DURATION);
+        videoDuration.reloadInitialEntriesAndEntryValues();
+        if (filterUnsupportedOptions(videoDuration, getSupportedVideoDurationFor480())) {
+            mFilteredKeys.add(videoDuration.getKey());
         }
     }
 
