@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "7e19b8c8_01d2a0ec",
+        "filename": "src/com/android/camera/CameraSettings.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 523
+      },
+      "writtenOn": "2019-02-04T18:01:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "88b78e10_d06914c6",
+      "revId": "d1f9c8dccb809436dd684e8c97733aa152306207",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "38f76c22_175f7c1f",
         "filename": "src/com/android/camera/CameraSettings.java",
         "patchSetId": 1
@@ -42,6 +60,30 @@
     },
     {
       "key": {
+        "uuid": "b9f2b512_74b7f344",
+        "filename": "src/com/android/camera/CameraSettings.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1666,
+      "author": {
+        "id": 523
+      },
+      "writtenOn": "2019-02-04T18:01:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "38f76c22_175f7c1f",
+      "range": {
+        "startLine": 1665,
+        "startChar": 0,
+        "endLine": 1666,
+        "endChar": 25
+      },
+      "revId": "d1f9c8dccb809436dd684e8c97733aa152306207",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "71ac06d6_bac6c769",
         "filename": "src/com/android/camera/CameraSettings.java",
         "patchSetId": 1
@@ -62,6 +104,30 @@
       "revId": "d1f9c8dccb809436dd684e8c97733aa152306207",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "27e20c19_703b4cd6",
+        "filename": "src/com/android/camera/CameraSettings.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1681,
+      "author": {
+        "id": 523
+      },
+      "writtenOn": "2019-02-04T18:01:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "71ac06d6_bac6c769",
+      "range": {
+        "startLine": 1680,
+        "startChar": 0,
+        "endLine": 1681,
+        "endChar": 25
+      },
+      "revId": "d1f9c8dccb809436dd684e8c97733aa152306207",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
