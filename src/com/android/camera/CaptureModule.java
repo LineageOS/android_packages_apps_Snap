@@ -3061,7 +3061,7 @@ public class CaptureModule implements CameraModule, PhotoController,
                     }
                     Log.d(TAG, "Closing camera: " + mCameraDevice[i].getId());
 
-                    if (isAbortCapturesEnable()) {
+                    if (isAbortCapturesEnable() && mCaptureSession[i] != null) {
                         mCaptureSession[i].abortCaptures();
                         Log.d(TAG, "Closing camera call abortCaptures ");
                     }
