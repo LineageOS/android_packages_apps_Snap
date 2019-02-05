@@ -6884,8 +6884,15 @@ public class CaptureModule implements CameraModule, PhotoController,
             try {
                 if (checkSessionAndBuilder(mCaptureSession[BAYER_ID],
                         mPreviewRequestBuilder[BAYER_ID])) {
-                    mCaptureSession[BAYER_ID].setRepeatingRequest(mPreviewRequestBuilder[BAYER_ID]
-                            .build(), mCaptureCallback, mCameraHandler);
+                    if (mIsRecordingVideo && mHighSpeedCapture) {
+                        List requestList = CameraUtil.createHighSpeedRequestList(
+                                mPreviewRequestBuilder[BAYER_ID].build());
+                        mCaptureSession[BAYER_ID].setRepeatingBurst(requestList, mCaptureCallback,
+                                mCameraHandler);
+                    } else {
+                        mCaptureSession[BAYER_ID].setRepeatingRequest(mPreviewRequestBuilder[BAYER_ID]
+                                .build(), mCaptureCallback, mCameraHandler);
+                    }
                 }
             } catch (CameraAccessException | IllegalStateException e) {
                 e.printStackTrace();
