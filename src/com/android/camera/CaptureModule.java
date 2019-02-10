@@ -1037,7 +1037,14 @@ public class CaptureModule implements CameraModule, PhotoController,
                     }
                 }
 
-                if ((CaptureResult.CONTROL_AF_STATE_FOCUSED_LOCKED == afState ||
+                // If the lens is just fixed focus then check only
+                // for AE Lock else check AF & AE state before
+                // trigger of capture
+                if (mSettingsManager.isFixedFocus(getMainCameraId())) {
+                    if (aeState == null || aeState == CaptureResult.CONTROL_AE_STATE_LOCKED) {
+                        checkAfAeStatesAndCapture(id);
+                    }
+                } else if ((CaptureResult.CONTROL_AF_STATE_FOCUSED_LOCKED == afState ||
                         CaptureResult.CONTROL_AF_STATE_NOT_FOCUSED_LOCKED == afState) &&
                         (aeState == null || aeState == CaptureResult.CONTROL_AE_STATE_LOCKED)) {
                     checkAfAeStatesAndCapture(id);
@@ -4024,7 +4031,7 @@ public class CaptureModule implements CameraModule, PhotoController,
         }
     };
 
-    private void configureCameraSessionWithParameters(CameraDevice camera,
+    private void configureCameraSessionWithParameters(int cameraId,
             List<Surface> outputSurfaces, CameraCaptureSession.StateCallback listener,
             Handler handler, CaptureRequest initialRequest) throws CameraAccessException {
         List<OutputConfiguration> outConfigurations = new ArrayList<>(outputSurfaces.size());
@@ -4033,13 +4040,32 @@ public class CaptureModule implements CameraModule, PhotoController,
             outConfigurations.add(new OutputConfiguration(surface));
         }
 
+        String zzHDR = mSettingsManager.getValue(SettingsManager.KEY_VIDEO_HDR_VALUE);
+        boolean zzHdrStatue = zzHDR.equals("1");
+        // if enable ZZHDR mode, don`t call the setOpModeForVideoStream method.
+        /* if (!zzHdrStatue) {
+            setOpModeForVideoStream(cameraId);
+        }*/
+        String value = mSettingsManager.getValue(SettingsManager.KEY_FOVC_VALUE);
+        if (value != null && Boolean.parseBoolean(value)) {
+            mStreamConfigOptMode = mStreamConfigOptMode | STREAM_CONFIG_MODE_FOVC;
+        }
+        if (zzHdrStatue) {
+            mStreamConfigOptMode = STREAM_CONFIG_MODE_ZZHDR;
+        }
+        if (DEBUG) {
+            Log.v(TAG, "configureCameraSessionWithParameters mStreamConfigOptMode :"
+                    + mStreamConfigOptMode);
+        }
+
         Method method_setSessionParameters = null;
         Method method_createCaptureSession = null;
         Object sessionConfig = null;
         try {
             Class clazz = Class.forName("android.hardware.camera2.params.SessionConfiguration");
             sessionConfig = clazz.getConstructors()[0].newInstance(
-                    SESSION_REGULAR, outConfigurations, new HandlerExecutor(handler), listener);
+                    SESSION_REGULAR | mStreamConfigOptMode, outConfigurations,
+                    new HandlerExecutor(handler), listener);
             if (method_setSessionParameters == null) {
                 method_setSessionParameters = clazz.getDeclaredMethod(
                         "setSessionParameters", CaptureRequest.class);
@@ -4047,7 +4073,7 @@ public class CaptureModule implements CameraModule, PhotoController,
             method_setSessionParameters.invoke(sessionConfig, initialRequest);
             method_createCaptureSession = CameraDevice.class.getDeclaredMethod(
                     "createCaptureSession", clazz);
-            method_createCaptureSession.invoke(camera, sessionConfig);
+            method_createCaptureSession.invoke(mCameraDevice[cameraId], sessionConfig);
         } catch (Exception exception) {
             Log.w(TAG, "configureCameraSessionWithParameters method is not exist");
             exception.printStackTrace();
@@ -4173,7 +4199,7 @@ public class CaptureModule implements CameraModule, PhotoController,
                             mSessionListener, mCameraHandler, initialRequest);
 
                 } else {
-                    configureCameraSessionWithParameters(mCameraDevice[cameraId], surfaces,
+                    configureCameraSessionWithParameters(cameraId, surfaces,
                             mSessionListener, mCameraHandler, mVideoRequestBuilder.build());
                 }
             } else {
