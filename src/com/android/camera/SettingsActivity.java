@@ -140,8 +140,9 @@ public class SettingsActivity extends PreferenceActivity {
 
                 if ( pref.getKey().equals(SettingsManager.KEY_QCFA) ||
                         pref.getKey().equals(SettingsManager.KEY_PICTURE_FORMAT) ) {
-                    mSettingsManager.updateQcfaPictureSize();
+                    mSettingsManager.updatePictureAndVideoSize();
                     updatePreference(SettingsManager.KEY_PICTURE_SIZE);
+                    updatePreference(SettingsManager.KEY_VIDEO_QUALITY);
                 }
 
                 if ( pref.getKey().equals(SettingsManager.KEY_VIDEO_HDR_VALUE) ) {
