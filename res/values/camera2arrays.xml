@@ -748,6 +748,8 @@
         <item>@string/pref_camera_video_duration_entry_mms</item>
         <item>@string/pref_camera_video_duration_entry_10</item>
         <item>@string/pref_camera_video_duration_entry_30</item>
+        <item>@string/pref_camera_video_duration_entry_48</item>
+        <item>@string/pref_camera_video_duration_entry_144</item>
         <item>@string/pref_camera_video_duration_entry_nolimit</item>
     </string-array>
 
@@ -756,6 +758,8 @@
         <item>-1</item>
         <item>10</item>
         <item>30</item>
+        <item>48</item>
+        <item>144</item>
         <item>0</item>
     </string-array>
 
