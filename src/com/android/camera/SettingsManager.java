@@ -1961,13 +1961,15 @@ public class SettingsManager implements ListMenu.SettingsListener {
         List<String> modes = new ArrayList<>();
 
         try {
-            int[] instantAecAvailableModes = mCharacteristics.get(cameraId).get(
-                    CaptureModule.InstantAecAvailableModes);
-            if (instantAecAvailableModes == null) {
-                return null;
-            }
-            for (int i : instantAecAvailableModes) {
-                modes.add("" + i);
+            if (mCharacteristics.size() > 0) {
+                int[] instantAecAvailableModes = mCharacteristics.get(cameraId).get(
+                        CaptureModule.InstantAecAvailableModes);
+                if (instantAecAvailableModes == null) {
+                    return null;
+                }
+                for (int i : instantAecAvailableModes) {
+                    modes.add("" + i);
+                }
             }
         } catch(NullPointerException e) {
             Log.w(TAG, "Supported instant aec modes is null.");

@@ -2909,6 +2909,20 @@ public class CaptureModule implements CameraModule, PhotoController,
         }
     }
 
+    public void enableShutterButtonOnMainThread(int id) {
+        if (id == getMainCameraId()) {
+            mActivity.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    if (captureWaitImageReceive()) {
+                        Log.d(TAG, "image available then enable shutter button " );
+                        mUI.enableShutter(true);
+                    }
+                }
+            });
+        }
+    }
+
     private void enableShutterAndVideoOnUiThread(int id) {
         if (id == getMainCameraId()) {
             mActivity.runOnUiThread(new Runnable() {
