@@ -1736,8 +1736,6 @@ public class CaptureModule implements CameraModule, PhotoController,
         if (!checkSessionAndBuilder(mCaptureSession[id], mPreviewRequestBuilder[id])) {
             return;
         }
-        afMode = (mSettingsManager.isDeveloperEnabled() && getDevAfMode() != -1) ? getDevAfMode()
-                : afMode;
         if (DEBUG) {
             Log.d(TAG, "setAFModeToPreview " + afMode);
         }
@@ -2912,8 +2910,10 @@ public class CaptureModule implements CameraModule, PhotoController,
             if (mSettingsManager.isDeveloperEnabled()) {
                 applyCommonSettings(mPreviewRequestBuilder[id], id);
             }
+            int afMode = (mSettingsManager.isDeveloperEnabled() && getDevAfMode() != -1) ?
+                    getDevAfMode() : mControlAFMode;
             setAFModeToPreview(id, mUI.getCurrentProMode() == ProMode.MANUAL_MODE ?
-                    CaptureRequest.CONTROL_AF_MODE_OFF : mControlAFMode);
+                    CaptureRequest.CONTROL_AF_MODE_OFF : afMode);
             mTakingPicture[id] = false;
             enableShutterAndVideoOnUiThread(id);
         } catch (NullPointerException | IllegalStateException | CameraAccessException e) {
@@ -6701,7 +6701,8 @@ public class CaptureModule implements CameraModule, PhotoController,
         mState[id] = STATE_PREVIEW;
         mControlAFMode = CaptureRequest.CONTROL_AF_MODE_CONTINUOUS_PICTURE;
         mIsAutoFocusStarted = false;
-        setAFModeToPreview(id, mControlAFMode);
+        setAFModeToPreview(id, (mSettingsManager.isDeveloperEnabled() && getDevAfMode() != -1) ?
+                getDevAfMode() : mControlAFMode);
     }
 
     private MeteringRectangle[] afaeRectangle(float x, float y, int width, int height,
@@ -6885,8 +6886,15 @@ public class CaptureModule implements CameraModule, PhotoController,
             try {
                 if (checkSessionAndBuilder(mCaptureSession[BAYER_ID],
                         mPreviewRequestBuilder[BAYER_ID])) {
-                    mCaptureSession[BAYER_ID].setRepeatingRequest(mPreviewRequestBuilder[BAYER_ID]
-                            .build(), mCaptureCallback, mCameraHandler);
+                    if (mIsRecordingVideo && mHighSpeedCapture) {
+                        List requestList = CameraUtil.createHighSpeedRequestList(
+                                mPreviewRequestBuilder[BAYER_ID].build());
+                        mCaptureSession[BAYER_ID].setRepeatingBurst(requestList, mCaptureCallback,
+                                mCameraHandler);
+                    } else {
+                        mCaptureSession[BAYER_ID].setRepeatingRequest(mPreviewRequestBuilder[BAYER_ID]
+                                .build(), mCaptureCallback, mCameraHandler);
+                    }
                 }
             } catch (CameraAccessException | IllegalStateException e) {
                 e.printStackTrace();
