@@ -325,20 +325,18 @@ public class ProMode extends View {
 
         mIndex = index;
         String key = currentKey();
-        if (mIndex > 0) {
-            View v = mAddedViews.get(mIndex);
-            if (v instanceof TextView) {
-                ((TextView) v).setTextColor(BLUE);
-            } else if (v instanceof ImageView) {
-                if (mMode == WHITE_BALANCE_MODE) {
-                    ((ImageView) v).setImageResource(wbIconsBlue[mIndex]);
-                }
+        View v = mAddedViews.get(mIndex);
+        if (v instanceof TextView) {
+            ((TextView) v).setTextColor(BLUE);
+        } else if (v instanceof ImageView) {
+            if (mMode == WHITE_BALANCE_MODE) {
+                ((ImageView) v).setImageResource(wbIconsBlue[mIndex]);
             }
-            if (key != null) mSettingsManager.setValueIndex(key, mIndex);
-            CharSequence[] cc = mSettingsManager.getEntries(key);
-            mUI.updateProModeText(mMode, cc[mIndex].toString());
-            invalidate();
         }
+        if (key != null) mSettingsManager.setValueIndex(key, mIndex);
+        CharSequence[] cc = mSettingsManager.getEntries(key);
+        mUI.updateProModeText(mMode, cc[mIndex].toString());
+        invalidate();
     }
 
     private void removeViews() {
