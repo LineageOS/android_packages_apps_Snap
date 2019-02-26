@@ -195,10 +195,12 @@
     <string name="pref_camera_hfr_entry_3x">Zeitlupe 90 FPS</string>
     <string name="pref_camera_hfr_entry_4x">Zeitlupe 120 FPS</string>
     <string name="pref_camera_hfr_entry_8x">Zeitlupe 240 FPS</string>
+    <string name="pref_camera_hfr_entry_16x">Zeitlupe 480 FPS</string>
     <string name="pref_camera_hfr_entry_hsr_60">Highspeed 60 FPS</string>
     <string name="pref_camera_hfr_entry_hsr_90">Highspeed 90 FPS</string>
     <string name="pref_camera_hfr_entry_hsr_120">Highspeed 120 FPS</string>
     <string name="pref_camera_hfr_entry_hsr_240">Highspeed 240 FPS</string>
+    <string name="pref_camera_hfr_entry_hsr_480">Highspeed 480 FPS</string>
     <!-- HFR entry values. Do not translate. -->
     <!-- Default noise reduction setting. Do not translate. -->
     <!-- Settings screen, Select See More title -->
@@ -486,6 +488,9 @@
     <string name="pref_camera2_scene_mode_time_lapse_instructional_content">Mit Zeitraffer verwandeln Sie eine lange Videoaufzeichnung in ein Video von ein paar Sekunden Länge. Dieser Effekt kann auf Videos, aber nicht auf Fotos angewandt werden.</string>
     <string name="pref_camera2_scene_mode_panorama_instructional_content">Erlaubt es Ihnen nach links und rechts zu schwenken, um eine weite Landschaft zu fotografieren. Sie können auch nach oben oder unten schwenken, um hohe Bilder aufzunehmen.</string>
     <string name="pref_camera2_scene_mode_blur_buster_instructional_content">BlurBuster reduziert durch zitternde Hände verursachte Unschärfe. Es kann hilfreich sein, um in schwierigen Situationen zu fotografieren.</string>
+    <string name="pref_camera2_scene_mode_pro_instructional_content">Im Pro-Modus können Sie Einstellungen für ISO, Belichtung, Weißabgleich und Fokus manuell ändern. Sie haben einfachen Zugriff auf alle erweiterten Einstellungen.</string>
+    <string name="pref_camera2_scene_mode_deepzoom_instructional_content">Im DeepZoom-Modus können Sie ein Foto mit 2-fachem oder 4-fachem Zoom machen.</string>
+    <string name="pref_camera2_scene_mode_deepportrait_instructional_content">Im DeepPortrait-Modus können Sie Selfies mit unscharfem Hintergrund machen. Mit dem Schieberegler können Sie den Grad der Unschärfe festlegen.</string>
     <string name="pref_camera2_not_show_again">Nicht erneut anzeigen</string>
     <string name="pref_camera2_scene_mode_instructional_ok">OK</string>
     <string name="pref_camera2_instant_aec_title">Sofortige Belichtungsautomatik</string>
@@ -546,9 +551,14 @@
     <string name="pref_camera2_zsl_entry_disable">Aus</string>
     <string name="pref_camera2_zsl_entry_app_zsl">Software ZSL</string>
     <string name="pref_camera2_zsl_entry_hal_zsl">Hardware ZSL</string>
+    <string name="pref_camera2_videoencoderprofile_title">Encoder-Profil</string>
+    <string name="pref_camera2_sharpness_control_entry_level1">Stufe 1 (Standard)</string>
     <string name="pref_camera2_sharpness_control_entry_level2">Stufe 2</string>
     <string name="pref_camera2_afmode_entry_disable">Deaktiviert</string>
     <string name="pref_camera2_afmode_entry_off">Aus</string>
+    <string name="pref_camera2_afmode_entry_continuous_video">Fortlaufendes Video</string>
+    <string name="pref_camera2_afmode_entry_continuous_picture">Serienbild</string>
+    <string name="pref_camera2_afmode_entry_edof">Erweiterte Tiefenschärfe</string>
     <string name="pref_camera2_switch_camera_title">Kamera nach ID wechseln</string>
     <!-- QCFA Title -->
     <!-- QCFA choices -->
@@ -561,6 +571,8 @@
     <string name="pref_camera2_fovc_entry_disable">Deaktiviert</string>
     <string name="pref_camera2_video_hdr_entry_enable">Aktiviert</string>
     <string name="pref_camera2_video_hdr_entry_disable">Deaktiviert</string>
+    <string name="pref_camera2_stats_visualizer_entry_disable">Alle deaktivieren</string>
+    <string name="pref_camera2_capture_mfnr_title">Rauschunterdrückung (Serienaufnahme)</string>
     <string name="pref_camera2_capture_mfnr_entry_enable">Aktiviert</string>
     <string name="pref_camera2_capture_mfnr_entry_disable">Deaktiviert</string>
     <string name="pref_camera2_capture_mfsr_entry_enable">Aktiviert</string>

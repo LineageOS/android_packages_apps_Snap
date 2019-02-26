@@ -79,6 +79,7 @@
     <string name="pref_camera_manual_exp_entry_ISO_priority">Ưu tiên ISO</string>
     <string name="pref_camera_manual_exp_entry_exptime_priority">Ưu tiên thời gian phơi sáng</string>
     <string name="pref_camera_manual_exp_entry_user_setting">Cài đặt của người dùng</string>
+    <string name="pref_camera_manual_exp_entry_gains_priority">Ưu tiên tăng thêm</string>
     <string name="pref_camera_manual_exp_entry_off">Tắt</string>
     <!-- Manual white balance entry values -->
     <string name="pref_camera_manual_wb_title">Cân bằng trắng thủ công</string>
@@ -195,10 +196,12 @@
     <string name="pref_camera_hfr_entry_3x">Chuyển động chậm 90 FPS</string>
     <string name="pref_camera_hfr_entry_4x">Chuyển động chậm 120 FPS</string>
     <string name="pref_camera_hfr_entry_8x">Chuyển động chậm 240 FPS</string>
+    <string name="pref_camera_hfr_entry_16x">Chuyển động chậm 480 FPS</string>
     <string name="pref_camera_hfr_entry_hsr_60">Tốc độ cao 60 FPS</string>
     <string name="pref_camera_hfr_entry_hsr_90">Tốc độ cao 90 FPS</string>
     <string name="pref_camera_hfr_entry_hsr_120">Tốc độ cao 120 FPS</string>
     <string name="pref_camera_hfr_entry_hsr_240">Tốc độ cao 240 FPS</string>
+    <string name="pref_camera_hfr_entry_hsr_480">Tốc độ cao 480 FPS</string>
     <!-- HFR entry values. Do not translate. -->
     <!-- Default noise reduction setting. Do not translate. -->
     <!-- Settings screen, Select See More title -->
@@ -486,6 +489,9 @@
     <string name="pref_camera2_scene_mode_time_lapse_instructional_content">Với Time lapse, bạn có thể chuyển đổi một ghi âm dài video vào một vài giây của video. Này có hiệu lực áp dụng cho video, nhưng không có hình ảnh.</string>
     <string name="pref_camera2_scene_mode_panorama_instructional_content">Cho phép bạn xoay trái hoặc phải để chụp ảnh phong cảnh rộng. Bạn cũng có thể xoay lên hoặc xuống để chụp ảnh cao.</string>
     <string name="pref_camera2_scene_mode_blur_buster_instructional_content">BlurBuster giảm mờ từ bàn tay run rẩy. Nó có thể hữu ích khi chụp ảnh ở những nơi khó khăn.</string>
+    <string name="pref_camera2_scene_mode_pro_instructional_content">Với Chế độ chuyên nghiệp, bạn có thể tự kiểm soát cài đặt cho ISO, phơi ảnh, cân bằng trắng, và lấy nét. Bạn sẽ dễ dàng truy cập vào tất cả các cài đặt nâng cao này.</string>
+    <string name="pref_camera2_scene_mode_deepzoom_instructional_content">Với chế độ DeepZoom, bạn có thể chụp ảnh ở mức thu phóng cao gấp 2 hoặc 4 lần.</string>
+    <string name="pref_camera2_scene_mode_deepportrait_instructional_content">Với chế độ DeepPortrait, bạn có thể chụp ảnh tự sướng với nền mờ. Bạn có thể sử dụng thanh trượt để điều chỉnh mức độ mờ.</string>
     <string name="pref_camera2_not_show_again">Không hiện lại</string>
     <string name="pref_camera2_scene_mode_instructional_ok">OK</string>
     <string name="pref_camera2_instant_aec_title">AEC Tức thì</string>
@@ -546,9 +552,14 @@
     <string name="pref_camera2_zsl_entry_disable">Tắt</string>
     <string name="pref_camera2_zsl_entry_app_zsl">Phần mềm ZSL</string>
     <string name="pref_camera2_zsl_entry_hal_zsl">Phần cứng ZSL</string>
+    <string name="pref_camera2_videoencoderprofile_title">Hồ sơ mã hóa</string>
+    <string name="pref_camera2_sharpness_control_entry_level1">Cấp 1 (mặc định)</string>
     <string name="pref_camera2_sharpness_control_entry_level2">Mức 2</string>
     <string name="pref_camera2_afmode_entry_disable">Đã tắt</string>
     <string name="pref_camera2_afmode_entry_off">Tắt</string>
+    <string name="pref_camera2_afmode_entry_continuous_video">Video liên tục</string>
+    <string name="pref_camera2_afmode_entry_continuous_picture">Ảnh liên tục</string>
+    <string name="pref_camera2_afmode_entry_edof">Mở rộng độ sâu lấy nét</string>
     <string name="pref_camera2_switch_camera_title">Chuyển máy ảnh bằng ID</string>
     <!-- QCFA Title -->
     <!-- QCFA choices -->
@@ -556,13 +567,22 @@
     <string name="pref_camera2_initial_camera_entry_bayer">Bayer</string>
     <string name="pref_camera2_initial_camera_entry_mono">Đơn sắc</string>
     <string name="pref_camera2_initial_camera_entry_front">Trước</string>
+    <string name="pref_camera2_eis_title">Video EIS</string>
     <string name="pref_camera2_eis_entry_disable">Đã tắt</string>
+    <string name="pref_camera2_fovc_title">Video FOVC</string>
     <string name="pref_camera2_fovc_entry_enable">Đã bật</string>
     <string name="pref_camera2_fovc_entry_disable">Đã tắt</string>
     <string name="pref_camera2_video_hdr_entry_enable">Đã bật</string>
     <string name="pref_camera2_video_hdr_entry_disable">Đã tắt</string>
+    <string name="pref_camera2_stats_visualizer_title">Thống kê trực quan</string>
+    <string name="pref_camera2_stats_visualizer_entry_disable">Vô hiệu hoá tất cả</string>
+    <string name="pref_camera2_stats_visualizer_entry_bg_stats">Thống kê BG</string>
+    <string name="pref_camera2_stats_visualizer_entry_be_stats">Thống kê BE</string>
+    <string name="pref_camera2_stats_visualizer_entry_hist_stats">Thống kê lịch sử</string>
+    <string name="pref_camera2_capture_mfnr_title">Giảm nhiễu đa khung</string>
     <string name="pref_camera2_capture_mfnr_entry_enable">Đã bật</string>
     <string name="pref_camera2_capture_mfnr_entry_disable">Đã tắt</string>
+    <string name="pref_camera2_capture_mfsr_title">Độ phân giải siêu đa khung hình</string>
     <string name="pref_camera2_capture_mfsr_entry_enable">Đã bật</string>
     <string name="pref_camera2_capture_mfsr_entry_disable">Đã tắt</string>
 </resources>

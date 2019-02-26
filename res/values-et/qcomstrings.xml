@@ -206,10 +206,15 @@
     <string name="pref_camera2_bsgc_title">Naeratuse/pilgutuse/pilgu suuna tuvastus</string>
     <string name="pref_camera2_zsl_entry_app_zsl">Tarkvaraline ZSL</string>
     <string name="pref_camera2_zsl_entry_hal_zsl">Riistvaraline ZSL</string>
+    <string name="pref_camera2_sharpness_control_entry_level1">Tase 1 (vaikimisi)</string>
+    <string name="pref_camera2_afmode_entry_continuous_video">Pidev video</string>
+    <string name="pref_camera2_afmode_entry_continuous_picture">Liikuv pilt</string>
     <string name="pref_camera2_switch_camera_title">Vaheta kaamerat ID järgi</string>
     <!-- QCFA Title -->
     <!-- QCFA choices -->
     <string name="pref_camera2_switch_camera_title">Vaheta kaamerat ID järgi</string>
     <string name="pref_camera2_eis_title">Video EIS</string>
     <string name="pref_camera2_fovc_title">Video FOVC</string>
+    <string name="pref_camera2_stats_visualizer_title">Statistika visualiseerija</string>
+    <string name="pref_camera2_stats_visualizer_entry_disable">Keela kõik</string>
 </resources>

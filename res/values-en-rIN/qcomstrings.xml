@@ -197,10 +197,12 @@
     <string name="pref_camera_hfr_entry_3x">Slow motion 90 FPS</string>
     <string name="pref_camera_hfr_entry_4x">Slow motion 120 FPS</string>
     <string name="pref_camera_hfr_entry_8x">Slow motion 240 FPS</string>
+    <string name="pref_camera_hfr_entry_16x">Slow motion 480 FPS</string>
     <string name="pref_camera_hfr_entry_hsr_60">High speed 60 FPS</string>
     <string name="pref_camera_hfr_entry_hsr_90">High speed 90 FPS</string>
     <string name="pref_camera_hfr_entry_hsr_120">High speed 120 FPS</string>
     <string name="pref_camera_hfr_entry_hsr_240">High speed 240 FPS</string>
+    <string name="pref_camera_hfr_entry_hsr_480">High speed 480 FPS</string>
     <!-- HFR entry values. Do not translate. -->
     <!-- Default noise reduction setting. Do not translate. -->
     <!-- Settings screen, Select See More title -->
@@ -488,6 +490,9 @@
     <string name="pref_camera2_scene_mode_time_lapse_instructional_content">With Time lapse, you can transform a long video recording into a few seconds of video. This effect applies to videos, but not photos.</string>
     <string name="pref_camera2_scene_mode_panorama_instructional_content">Allows you to pan left or right to take a wide landscape photo. You can also pan up or down to take tall photos.</string>
     <string name="pref_camera2_scene_mode_blur_buster_instructional_content">BlurBuster reduces blur from shaky hands. It can be helpful when taking photos in difficult places.</string>
+    <string name="pref_camera2_scene_mode_pro_instructional_content">With Pro mode, you can manually control settings for ISO, exposure, white balance, and focus. You will have easy access to all of these advanced settings.</string>
+    <string name="pref_camera2_scene_mode_deepzoom_instructional_content">With DeepZoom mode, you can take a photo at 2x or 4x enhanced zoom.</string>
+    <string name="pref_camera2_scene_mode_deepportrait_instructional_content">With DeepPortrait mode, you can take selfies with a blurred background. You can use the slider to adjust the amount of the blur.</string>
     <string name="pref_camera2_not_show_again">Do not show again</string>
     <string name="pref_camera2_scene_mode_instructional_ok">OK</string>
     <string name="pref_camera2_instant_aec_title">Instant AEC</string>
@@ -548,9 +553,14 @@
     <string name="pref_camera2_zsl_entry_disable">Off</string>
     <string name="pref_camera2_zsl_entry_app_zsl">Software ZSL</string>
     <string name="pref_camera2_zsl_entry_hal_zsl">Hardware ZSL</string>
+    <string name="pref_camera2_videoencoderprofile_title">Encoder profile</string>
+    <string name="pref_camera2_sharpness_control_entry_level1">Level 1 (default)</string>
     <string name="pref_camera2_sharpness_control_entry_level2">Level 2</string>
     <string name="pref_camera2_afmode_entry_disable">Disabled</string>
     <string name="pref_camera2_afmode_entry_off">Off</string>
+    <string name="pref_camera2_afmode_entry_continuous_video">Continuous video</string>
+    <string name="pref_camera2_afmode_entry_continuous_picture">Continuous picture</string>
+    <string name="pref_camera2_afmode_entry_edof">Extended depth of focus</string>
     <string name="pref_camera2_switch_camera_title">Switch camera by ID</string>
     <!-- QCFA Title -->
     <!-- QCFA choices -->
@@ -565,8 +575,15 @@
     <string name="pref_camera2_fovc_entry_disable">Disabled</string>
     <string name="pref_camera2_video_hdr_entry_enable">Enabled</string>
     <string name="pref_camera2_video_hdr_entry_disable">Disabled</string>
+    <string name="pref_camera2_stats_visualizer_title">Statistics visualiser</string>
+    <string name="pref_camera2_stats_visualizer_entry_disable">Disable all</string>
+    <string name="pref_camera2_stats_visualizer_entry_bg_stats">BG statistics</string>
+    <string name="pref_camera2_stats_visualizer_entry_be_stats">BE statistics</string>
+    <string name="pref_camera2_stats_visualizer_entry_hist_stats">Hist statistics</string>
+    <string name="pref_camera2_capture_mfnr_title">Multi-frame noise reduction</string>
     <string name="pref_camera2_capture_mfnr_entry_enable">Enabled</string>
     <string name="pref_camera2_capture_mfnr_entry_disable">Disabled</string>
+    <string name="pref_camera2_capture_mfsr_title">Multi-frame super-resolution</string>
     <string name="pref_camera2_capture_mfsr_entry_enable">Enabled</string>
     <string name="pref_camera2_capture_mfsr_entry_disable">Disabled</string>
 </resources>

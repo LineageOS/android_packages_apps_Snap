@@ -249,6 +249,8 @@
     <string name="pref_camera2_videosnap_entry_disable">Disabìlita</string>
     <string name="pref_camera2_trackingfocus_entry_on">Allutu</string>
     <string name="pref_camera2_trackingfocus_entry_off">Istudadu</string>
+    <string name="pref_camera_scenemode_entry_panorama">Panorama</string>
+    <string name="pref_camera_scenemode_entry_promode">Modalidade Pro</string>
     <string name="bestpicture_done">FATU</string>
     <string name="pref_camera2_shutter_sound_entry_on">Allutu</string>
     <string name="pref_camera2_shutter_sound_entry_off">Istudadu</string>
@@ -256,8 +258,11 @@
     <string name="pref_camera2_timer_entry_2sec">2 segundos</string>
     <string name="pref_camera2_timer_entry_5sec">5 segundos</string>
     <string name="pref_camera2_timer_entry_10sec">10 segundos</string>
+    <string name="pref_camera2_saveraw_title">Sarva in formadu Raw</string>
     <string name="makeup_ui_ok_button">AB</string>
+    <string name="perf_camera2_version_info">Informatziones de sa versione</string>
     <string name="perf_camera2_preferences_category_general">Generales</string>
+    <string name="perf_camera2_preferences_category_video">Videocàmera</string>
     <string name="perf_camera2_preferences_category_system">Sistema</string>
     <string name="pref_camera2_scene_mode_instructional_ok">AB</string>
     <string name="pref_camera2_instant_aec_entry_disable">Disabìlita</string>

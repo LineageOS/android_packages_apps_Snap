@@ -196,10 +196,12 @@
     <string name="pref_camera_hfr_entry_3x">Замедл. движ. — 90 к/с</string>
     <string name="pref_camera_hfr_entry_4x">Замедл. движ. — 120 к/с</string>
     <string name="pref_camera_hfr_entry_8x">Замедл. движ. — 240 к/с</string>
+    <string name="pref_camera_hfr_entry_16x">Замедленная съемка 480 FPS</string>
     <string name="pref_camera_hfr_entry_hsr_60">Ускор. съемка — 60 к/с</string>
     <string name="pref_camera_hfr_entry_hsr_90">Ускор. съемка — 90 к/с</string>
     <string name="pref_camera_hfr_entry_hsr_120">Ускор. съемка — 120 к/с</string>
     <string name="pref_camera_hfr_entry_hsr_240">Ускор. съемка — 240 к/с</string>
+    <string name="pref_camera_hfr_entry_hsr_480">Высокая скорость 480 FPS</string>
     <!-- HFR entry values. Do not translate. -->
     <!-- Default noise reduction setting. Do not translate. -->
     <!-- Settings screen, Select See More title -->
@@ -488,6 +490,8 @@
     <string name="pref_camera2_scene_mode_panorama_instructional_content">Позволяет сдвигать окно съемки влево или вправо для съемки ландшафтного фото. Вы можете также сдвигать его вверх или вниз, чтобы снимать высокие фотографии.</string>
     <string name="pref_camera2_scene_mode_blur_buster_instructional_content">BlurBuster уменьшает размытие при съемке с трясущимися руками. Может быть полезно при съемке в тяжелых условиях.</string>
     <string name="pref_camera2_scene_mode_pro_instructional_content">В режиме Pro можно вручную управлять параметрами ISO, экспозиции, баланса белого и фокуса. Вы получите легкий доступ ко всем этим дополнительным настройкам.</string>
+    <string name="pref_camera2_scene_mode_deepzoom_instructional_content">В режиме глубокого масштабирования вы можете сделать снимок с 2-кратным или 4-кратным увеличением.</string>
+    <string name="pref_camera2_scene_mode_deepportrait_instructional_content">В режиме глубокого портрета вы можете делать селфи с размытым фоном. Можно использовать ползунок для регулировки размытия.</string>
     <string name="pref_camera2_not_show_again">Больше не показывать</string>
     <string name="pref_camera2_scene_mode_instructional_ok">ОК</string>
     <string name="pref_camera2_instant_aec_title">Мгновенный AEC</string>
@@ -548,10 +552,14 @@
     <string name="pref_camera2_zsl_entry_disable">Отключить</string>
     <string name="pref_camera2_zsl_entry_app_zsl">Программный ZSL</string>
     <string name="pref_camera2_zsl_entry_hal_zsl">Аппаратный ZSL</string>
+    <string name="pref_camera2_videoencoderprofile_title">Профиль кодировщика</string>
     <string name="pref_camera2_sharpness_control_entry_level1">Уровень 1 (по умолчанию)</string>
     <string name="pref_camera2_sharpness_control_entry_level2">Уровень 2</string>
     <string name="pref_camera2_afmode_entry_disable">Отключить</string>
     <string name="pref_camera2_afmode_entry_off">Отключить</string>
+    <string name="pref_camera2_afmode_entry_continuous_video">Непрерывное видео</string>
+    <string name="pref_camera2_afmode_entry_continuous_picture">Непрерывное изображение</string>
+    <string name="pref_camera2_afmode_entry_edof">Расширенная глубина фокуса</string>
     <string name="pref_camera2_switch_camera_title">Переключить камеру по ID</string>
     <!-- QCFA Title -->
     <!-- QCFA choices -->
@@ -566,9 +574,15 @@
     <string name="pref_camera2_fovc_entry_disable">Отключить</string>
     <string name="pref_camera2_video_hdr_entry_enable">Включить</string>
     <string name="pref_camera2_video_hdr_entry_disable">Отключить</string>
+    <string name="pref_camera2_stats_visualizer_title">Статистика визуализатора</string>
     <string name="pref_camera2_stats_visualizer_entry_disable">Отключить все</string>
+    <string name="pref_camera2_stats_visualizer_entry_bg_stats">BG статистика</string>
+    <string name="pref_camera2_stats_visualizer_entry_be_stats">BE статистика</string>
+    <string name="pref_camera2_stats_visualizer_entry_hist_stats">Статистика гистограммы</string>
+    <string name="pref_camera2_capture_mfnr_title">Многокадровое шумоподавление</string>
     <string name="pref_camera2_capture_mfnr_entry_enable">Включить</string>
     <string name="pref_camera2_capture_mfnr_entry_disable">Отключить</string>
+    <string name="pref_camera2_capture_mfsr_title">Многокадровое супер-разрешение</string>
     <string name="pref_camera2_capture_mfsr_entry_enable">Включить</string>
     <string name="pref_camera2_capture_mfsr_entry_disable">Отключить</string>
 </resources>

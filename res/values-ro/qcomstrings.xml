@@ -196,10 +196,12 @@
     <string name="pref_camera_hfr_entry_3x">Mișcare lentă 90 FPS</string>
     <string name="pref_camera_hfr_entry_4x">Mișcare lentă 120 FPS</string>
     <string name="pref_camera_hfr_entry_8x">Mișcare lentă 240 FPS</string>
+    <string name="pref_camera_hfr_entry_16x">Slow motion 480 FPS</string>
     <string name="pref_camera_hfr_entry_hsr_60">Viteză mărită 60 FPS</string>
     <string name="pref_camera_hfr_entry_hsr_90">Viteză mărită 90 FPS</string>
     <string name="pref_camera_hfr_entry_hsr_120">Viteză mărită 120 FPS</string>
     <string name="pref_camera_hfr_entry_hsr_240">Viteză mărită 240 FPS</string>
+    <string name="pref_camera_hfr_entry_hsr_480">High speed 480 FPS</string>
     <!-- HFR entry values. Do not translate. -->
     <!-- Default noise reduction setting. Do not translate. -->
     <!-- Settings screen, Select See More title -->
@@ -487,6 +489,9 @@
     <string name="pref_camera2_scene_mode_time_lapse_instructional_content">Cu Time lapse, puteţi transforma o înregistrare video lungă într-un video de doar câteva secunde. Acest efect se aplică videoclipurilor, dar nu și fotografiilor.</string>
     <string name="pref_camera2_scene_mode_panorama_instructional_content">Vă permite să panoramați în stânga sau în dreapta pentru a face o fotografie peisaj largă. Aveţi posibilitatea să panoramați în sus sau în jos pentru a face fotografii înalte.</string>
     <string name="pref_camera2_scene_mode_blur_buster_instructional_content">BlurBuster reduce ceața cauzată de mișcarea mâinilor. Poate fi util când realizați fotografii în locuri dificile.</string>
+    <string name="pref_camera2_scene_mode_pro_instructional_content">Cu modul Pro puteţi controla manual setările pentru ISO, expunere, balans de alb şi focalizare. Veţi avea acces uşor la toate aceste setări avansate.</string>
+    <string name="pref_camera2_scene_mode_deepzoom_instructional_content">Cu modul DeepZoom puteţi face o fotografie la zoom îmbunătăţit 2x sau 4x.</string>
+    <string name="pref_camera2_scene_mode_deepportrait_instructional_content">Cu modul DeepPortrait puteţi face selfie-uri cu un fundal înceţoşat. Puteți utiliza glisorul pentru a ajusta cantitatea de ceață.</string>
     <string name="pref_camera2_not_show_again">Nu mai afişa</string>
     <string name="pref_camera2_scene_mode_instructional_ok">OK</string>
     <string name="pref_camera2_instant_aec_title">AEC instant</string>
@@ -547,9 +552,14 @@
     <string name="pref_camera2_zsl_entry_disable">Oprit</string>
     <string name="pref_camera2_zsl_entry_app_zsl">ZSL software</string>
     <string name="pref_camera2_zsl_entry_hal_zsl">ZSL hardware</string>
+    <string name="pref_camera2_videoencoderprofile_title">Profil encoder</string>
+    <string name="pref_camera2_sharpness_control_entry_level1">Nivel 1 (implicit)</string>
     <string name="pref_camera2_sharpness_control_entry_level2">Nivel 2</string>
     <string name="pref_camera2_afmode_entry_disable">Dezactivat</string>
     <string name="pref_camera2_afmode_entry_off">Oprit</string>
+    <string name="pref_camera2_afmode_entry_continuous_video">Video continuu</string>
+    <string name="pref_camera2_afmode_entry_continuous_picture">Poză continuă</string>
+    <string name="pref_camera2_afmode_entry_edof">Focus adâncime extins</string>
     <string name="pref_camera2_switch_camera_title">Comutatare cameră prin ID</string>
     <!-- QCFA Title -->
     <!-- QCFA choices -->
@@ -564,8 +574,15 @@
     <string name="pref_camera2_fovc_entry_disable">Dezactivat</string>
     <string name="pref_camera2_video_hdr_entry_enable">Activat</string>
     <string name="pref_camera2_video_hdr_entry_disable">Dezactivat</string>
+    <string name="pref_camera2_stats_visualizer_title">Vizualizare statistici</string>
+    <string name="pref_camera2_stats_visualizer_entry_disable">Dezactivaţi toate</string>
+    <string name="pref_camera2_stats_visualizer_entry_bg_stats">Statistici BG</string>
+    <string name="pref_camera2_stats_visualizer_entry_be_stats">Statistici BE</string>
+    <string name="pref_camera2_stats_visualizer_entry_hist_stats">Statistici Hist</string>
+    <string name="pref_camera2_capture_mfnr_title">Reducere zgomot multi-cadru</string>
     <string name="pref_camera2_capture_mfnr_entry_enable">Activat</string>
     <string name="pref_camera2_capture_mfnr_entry_disable">Dezactivat</string>
+    <string name="pref_camera2_capture_mfsr_title">Super-rezoluție multi-cadru</string>
     <string name="pref_camera2_capture_mfsr_entry_enable">Activat</string>
     <string name="pref_camera2_capture_mfsr_entry_disable">Dezactivat</string>
 </resources>

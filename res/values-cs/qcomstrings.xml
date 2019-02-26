@@ -79,6 +79,7 @@
     <string name="pref_camera_manual_exp_entry_ISO_priority">ISO priorita</string>
     <string name="pref_camera_manual_exp_entry_exptime_priority">Priorita času expozice</string>
     <string name="pref_camera_manual_exp_entry_user_setting">Uživatelské nastavení</string>
+    <string name="pref_camera_manual_exp_entry_gains_priority">Zisk priority</string>
     <string name="pref_camera_manual_exp_entry_off">Vypnuto</string>
     <!-- Manual white balance entry values -->
     <string name="pref_camera_manual_wb_title">Ruční vyvážení bílé</string>
@@ -195,10 +196,12 @@
     <string name="pref_camera_hfr_entry_3x">Zpomalený pohyb 90 FPS</string>
     <string name="pref_camera_hfr_entry_4x">Zpomalený pohyb 120 FPS</string>
     <string name="pref_camera_hfr_entry_8x">Zpomalený pohyb 240 FPS</string>
+    <string name="pref_camera_hfr_entry_16x">Zpomalené video 480 FPS</string>
     <string name="pref_camera_hfr_entry_hsr_60">Vysoká rychlost 60 FPS</string>
     <string name="pref_camera_hfr_entry_hsr_90">Vysoká rychlost 90 FPS</string>
     <string name="pref_camera_hfr_entry_hsr_120">Vysoká rychlost 120 FPS</string>
     <string name="pref_camera_hfr_entry_hsr_240">Vysoká rychlost 240 FPS</string>
+    <string name="pref_camera_hfr_entry_hsr_480">Vysokorychlostní video 480 FPS</string>
     <!-- HFR entry values. Do not translate. -->
     <!-- Default noise reduction setting. Do not translate. -->
     <!-- Settings screen, Select See More title -->
@@ -486,6 +489,9 @@
     <string name="pref_camera2_scene_mode_time_lapse_instructional_content">S časosběrným nahráváním můžete přeměnit dlouhé nahrávání videa na několikasekundové. Tento efekt platí pro videa, nikoliv pro fotografie.</string>
     <string name="pref_camera2_scene_mode_panorama_instructional_content">Umožňuje snímat panorama posunem vlevo nebo vpravo. Pro zachycení vysokých snímků je možné též posouvat nahoru nebo dolů.</string>
     <string name="pref_camera2_scene_mode_blur_buster_instructional_content">BlurBuster snižuje rozmazání z třesoucích se rukou. Může být užitečné při fotografování v obtížných místech.</string>
+    <string name="pref_camera2_scene_mode_pro_instructional_content">S režimem PRO můžete manuálně ovládat ISO, expozici, vyvážení bílé a ostření. Všechna tato pokročilá nastavení budete mít po ruce.</string>
+    <string name="pref_camera2_scene_mode_deepzoom_instructional_content">V režimu DeepZoom je možné využít 2× nebo 4× rozšířené přiblížení.</string>
+    <string name="pref_camera2_scene_mode_deepportrait_instructional_content">S režimem DeepPortrait můžete pořizovat selfies s rozostřeným pozadím. Množství rozostření můžete upravit pomocí posuvníku.</string>
     <string name="pref_camera2_not_show_again">Znovu nezobrazovat</string>
     <string name="pref_camera2_scene_mode_instructional_ok">OK</string>
     <string name="pref_camera2_instant_aec_title">Okamžité AEC</string>
@@ -546,9 +552,14 @@
     <string name="pref_camera2_zsl_entry_disable">Vypnuto</string>
     <string name="pref_camera2_zsl_entry_app_zsl">Softwarové ZSL</string>
     <string name="pref_camera2_zsl_entry_hal_zsl">Hardwarové ZSL</string>
+    <string name="pref_camera2_videoencoderprofile_title">Profil enkodéru</string>
+    <string name="pref_camera2_sharpness_control_entry_level1">Úroveň 1 (výchozí)</string>
     <string name="pref_camera2_sharpness_control_entry_level2">Úroveň 2</string>
     <string name="pref_camera2_afmode_entry_disable">Zakázáno</string>
     <string name="pref_camera2_afmode_entry_off">Vypnuto</string>
+    <string name="pref_camera2_afmode_entry_continuous_video">Plynulé video</string>
+    <string name="pref_camera2_afmode_entry_continuous_picture">Sekvenční snímaní</string>
+    <string name="pref_camera2_afmode_entry_edof">Rozšířená hloubka ostrosti</string>
     <string name="pref_camera2_switch_camera_title">Přepnutí fotoaparátu pomocí ID</string>
     <!-- QCFA Title -->
     <!-- QCFA choices -->
@@ -556,13 +567,22 @@
     <string name="pref_camera2_initial_camera_entry_bayer">Bayer</string>
     <string name="pref_camera2_initial_camera_entry_mono">Černobílý</string>
     <string name="pref_camera2_initial_camera_entry_front">Přední</string>
+    <string name="pref_camera2_eis_title">Video typu EIS</string>
     <string name="pref_camera2_eis_entry_disable">Zakázáno</string>
+    <string name="pref_camera2_fovc_title">Video typu FOVC</string>
     <string name="pref_camera2_fovc_entry_enable">Povoleno</string>
     <string name="pref_camera2_fovc_entry_disable">Zakázáno</string>
     <string name="pref_camera2_video_hdr_entry_enable">Povoleno</string>
     <string name="pref_camera2_video_hdr_entry_disable">Zakázáno</string>
+    <string name="pref_camera2_stats_visualizer_title">Zobrazovač statistik</string>
+    <string name="pref_camera2_stats_visualizer_entry_disable">Zakázat vše</string>
+    <string name="pref_camera2_stats_visualizer_entry_bg_stats">BG statistiky</string>
+    <string name="pref_camera2_stats_visualizer_entry_be_stats">BE statistiky</string>
+    <string name="pref_camera2_stats_visualizer_entry_hist_stats">Hist statistiky</string>
+    <string name="pref_camera2_capture_mfnr_title">Redukce šumu Multi-frame</string>
     <string name="pref_camera2_capture_mfnr_entry_enable">Povoleno</string>
     <string name="pref_camera2_capture_mfnr_entry_disable">Zakázáno</string>
+    <string name="pref_camera2_capture_mfsr_title">Vysoké rozlišení Multi-frame</string>
     <string name="pref_camera2_capture_mfsr_entry_enable">Povoleno</string>
     <string name="pref_camera2_capture_mfsr_entry_disable">Zakázáno</string>
 </resources>

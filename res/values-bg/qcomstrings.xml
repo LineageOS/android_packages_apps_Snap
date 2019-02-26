@@ -51,6 +51,7 @@
     <string name="pref_camera_audioencoder_title">Аудио кодек</string>
     <!-- Settings screen, Audio encoder dialog radio button choices -->
     <!-- Default Skin Tone Enhancement setting. Do not translate. -->
+    <string name="pref_camera_skinToneEnhancement_default">забрани</string>
     <!-- Settings screen, Select Skin Tone Enhancement title -->
     <string name="pref_camera_skinToneEnhancement_title">Подобряване на цвета на кожата</string>
     <!-- Settings screen, Skin Tone Enhancement radio button choices -->
@@ -79,6 +80,7 @@
     <string name="pref_camera_manual_exp_entry_ISO_priority">ISO приоритет</string>
     <string name="pref_camera_manual_exp_entry_exptime_priority">Време за експозиция приоритет</string>
     <string name="pref_camera_manual_exp_entry_user_setting">Потребителска настройка</string>
+    <string name="pref_camera_manual_exp_entry_gains_priority">Приоритет лице</string>
     <string name="pref_camera_manual_exp_entry_off">Изкл.</string>
     <!-- Manual white balance entry values -->
     <string name="pref_camera_manual_wb_title">Ръчен баланс на бялото</string>
@@ -195,10 +197,12 @@
     <string name="pref_camera_hfr_entry_3x">Запис с 90 кадъра в секунда</string>
     <string name="pref_camera_hfr_entry_4x">Запис с 120 кадъра в секунда</string>
     <string name="pref_camera_hfr_entry_8x">Запис с 240 кадъра в секунда</string>
+    <string name="pref_camera_hfr_entry_16x">Запис с 480 кадъра в секунда</string>
     <string name="pref_camera_hfr_entry_hsr_60">Висока скорост 60 кадъра в секунда</string>
     <string name="pref_camera_hfr_entry_hsr_90">Висока скорост 90 кадъра в секунда</string>
     <string name="pref_camera_hfr_entry_hsr_120">Висока скорост 120 кадъра в секунда</string>
     <string name="pref_camera_hfr_entry_hsr_240">Висока скорост 240 кадъра в секунда</string>
+    <string name="pref_camera_hfr_entry_hsr_480">Висока скорост 480 кадъра в секунда МЦ</string>
     <!-- HFR entry values. Do not translate. -->
     <!-- Default noise reduction setting. Do not translate. -->
     <!-- Settings screen, Select See More title -->
@@ -486,6 +490,9 @@
     <string name="pref_camera2_scene_mode_time_lapse_instructional_content">С Time lapse можете да превърнете дълъг видеозапис в няколко секунди от видеоклипа. Този ефект се отнася за видеоклипове, но не за снимки.</string>
     <string name="pref_camera2_scene_mode_panorama_instructional_content">Позволява ви да превъртите наляво или надясно, за да направите широка пейзажна снимка. Можете да използвате панорамиране нагоре или надолу, за да заснемате по-високи изображения.</string>
     <string name="pref_camera2_scene_mode_blur_buster_instructional_content">BlurBuster намалява размазването от нестабилни ръце. Тя може да бъде полезна, когато правите снимки при тежки условия.</string>
+    <string name="pref_camera2_scene_mode_pro_instructional_content">В Pro режимът можете ръчно да намествате ISO, експонация, баланс на бялото и фокус. Ще имате лесен достъп до всички тези разширени настройки.</string>
+    <string name="pref_camera2_scene_mode_deepzoom_instructional_content">С DeepZoom режим можете да направите снимка с 2х или 4х увеличение.</string>
+    <string name="pref_camera2_scene_mode_deepportrait_instructional_content">В режим DeepPortrait можете да направите селфи с размазан фон. Можете да използвате плъзгача, за да регулирате размазването.</string>
     <string name="pref_camera2_not_show_again">Не показвай отново</string>
     <string name="pref_camera2_scene_mode_instructional_ok">ОK</string>
     <string name="pref_camera2_instant_aec_title">Незабавни AEC</string>
@@ -546,9 +553,14 @@
     <string name="pref_camera2_zsl_entry_disable">Изкл.</string>
     <string name="pref_camera2_zsl_entry_app_zsl">Софтуер ZSL</string>
     <string name="pref_camera2_zsl_entry_hal_zsl">Хардуер ZSL</string>
+    <string name="pref_camera2_videoencoderprofile_title">Профил на енкодера</string>
+    <string name="pref_camera2_sharpness_control_entry_level1">Ниво 1 (по подразбиране)</string>
     <string name="pref_camera2_sharpness_control_entry_level2">Ниво 2</string>
     <string name="pref_camera2_afmode_entry_disable">Изкл.</string>
     <string name="pref_camera2_afmode_entry_off">Изкл.</string>
+    <string name="pref_camera2_afmode_entry_continuous_video">Непрекъснато видео</string>
+    <string name="pref_camera2_afmode_entry_continuous_picture">Непрекъснати снимки</string>
+    <string name="pref_camera2_afmode_entry_edof">Разширена дълбочина на фокуса</string>
     <string name="pref_camera2_switch_camera_title">Превключване на камера чрез ID</string>
     <!-- QCFA Title -->
     <!-- QCFA choices -->
@@ -556,13 +568,22 @@
     <string name="pref_camera2_initial_camera_entry_bayer">Bayer</string>
     <string name="pref_camera2_initial_camera_entry_mono">Моно</string>
     <string name="pref_camera2_initial_camera_entry_front">Предна</string>
+    <string name="pref_camera2_eis_title">Видео EIS</string>
     <string name="pref_camera2_eis_entry_disable">Изкл.</string>
+    <string name="pref_camera2_fovc_title">Видео FOVC</string>
     <string name="pref_camera2_fovc_entry_enable">Вкл.</string>
     <string name="pref_camera2_fovc_entry_disable">Изкл.</string>
     <string name="pref_camera2_video_hdr_entry_enable">Вкл.</string>
     <string name="pref_camera2_video_hdr_entry_disable">Изкл.</string>
+    <string name="pref_camera2_stats_visualizer_title">Станистика на визуализатора</string>
+    <string name="pref_camera2_stats_visualizer_entry_disable">Изключи всички</string>
+    <string name="pref_camera2_stats_visualizer_entry_bg_stats">BG статистика</string>
+    <string name="pref_camera2_stats_visualizer_entry_be_stats">BE статистика</string>
+    <string name="pref_camera2_stats_visualizer_entry_hist_stats">Хистограмна статистика</string>
+    <string name="pref_camera2_capture_mfnr_title">Многокадрово намаляване на шума</string>
     <string name="pref_camera2_capture_mfnr_entry_enable">Вкл.</string>
     <string name="pref_camera2_capture_mfnr_entry_disable">Изкл.</string>
+    <string name="pref_camera2_capture_mfsr_title">Многокадрова супер-резолюция</string>
     <string name="pref_camera2_capture_mfsr_entry_enable">Вкл.</string>
     <string name="pref_camera2_capture_mfsr_entry_disable">Изкл.</string>
 </resources>

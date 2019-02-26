@@ -196,10 +196,12 @@
     <string name="pref_camera_hfr_entry_3x">Slow Motion 90 FPS</string>
     <string name="pref_camera_hfr_entry_4x">Slow Motion 120 FPS</string>
     <string name="pref_camera_hfr_entry_8x">Slow Motion 240 FPS</string>
+    <string name="pref_camera_hfr_entry_16x">Slow Motion 480 FPS</string>
     <string name="pref_camera_hfr_entry_hsr_60">Alta Velocità 60 FPS</string>
     <string name="pref_camera_hfr_entry_hsr_90">Alta Velocità 90 FPS</string>
     <string name="pref_camera_hfr_entry_hsr_120">Alta Velocità 120 FPS</string>
     <string name="pref_camera_hfr_entry_hsr_240">Alta Velocità 240 FPS</string>
+    <string name="pref_camera_hfr_entry_hsr_480">Alta Velocità 480 FPS</string>
     <!-- HFR entry values. Do not translate. -->
     <!-- Default noise reduction setting. Do not translate. -->
     <!-- Settings screen, Select See More title -->
@@ -487,6 +489,9 @@
     <string name="pref_camera2_scene_mode_time_lapse_instructional_content">Con Time lapse, puoi trasformare una lunga registrazione video in un video di pochi secondi. Questo effetto si applica ai video, ma non alle foto.</string>
     <string name="pref_camera2_scene_mode_panorama_instructional_content">Consente di ruotare a sinistra o a destra per scattare una foto panoramica. È possibile ruotare su o giù per scattare foto verticali.</string>
     <string name="pref_camera2_scene_mode_blur_buster_instructional_content">BlurBuster riduce la sfocatura dovuta al tremolio delle mani. Può essere utile quando si scattano foto in condizioni difficili.</string>
+    <string name="pref_camera2_scene_mode_pro_instructional_content">Con la modalità Pro, puoi controllare manualmente le impostazioni per ISO, esposizione, bilanciamento del bianco e messa a fuoco. Avrai facile accesso a tutte queste impostazioni avanzate.</string>
+    <string name="pref_camera2_scene_mode_deepzoom_instructional_content">Con DeepZoom, puoi scattare una foto con zoom 2x o 4x.</string>
+    <string name="pref_camera2_scene_mode_deepportrait_instructional_content">Con DeepPortrait puoi scattare selfie con lo sfondo sfocato. Puoi usare il cursore per regolare la sfocatura.</string>
     <string name="pref_camera2_not_show_again">Non mostrare di nuovo</string>
     <string name="pref_camera2_scene_mode_instructional_ok">OK</string>
     <string name="pref_camera2_instant_aec_title">AEC istantanea</string>
@@ -547,9 +552,14 @@
     <string name="pref_camera2_zsl_entry_disable">Off</string>
     <string name="pref_camera2_zsl_entry_app_zsl">ZSL software</string>
     <string name="pref_camera2_zsl_entry_hal_zsl">ZSL hardware</string>
+    <string name="pref_camera2_videoencoderprofile_title">Profilo encoder</string>
+    <string name="pref_camera2_sharpness_control_entry_level1">Livello 1 (predefinito)</string>
     <string name="pref_camera2_sharpness_control_entry_level2">Livello 2</string>
     <string name="pref_camera2_afmode_entry_disable">Disattivato</string>
     <string name="pref_camera2_afmode_entry_off">Off</string>
+    <string name="pref_camera2_afmode_entry_continuous_video">Video continuo</string>
+    <string name="pref_camera2_afmode_entry_continuous_picture">Scatto continuo</string>
+    <string name="pref_camera2_afmode_entry_edof">Profondità di fuoco estesa</string>
     <string name="pref_camera2_switch_camera_title">Cambia fotocamera per ID</string>
     <!-- QCFA Title -->
     <!-- QCFA choices -->
@@ -564,8 +574,15 @@
     <string name="pref_camera2_fovc_entry_disable">Disattivato</string>
     <string name="pref_camera2_video_hdr_entry_enable">Attivato</string>
     <string name="pref_camera2_video_hdr_entry_disable">Disattivato</string>
+    <string name="pref_camera2_stats_visualizer_title">Visualizzatore statistiche</string>
+    <string name="pref_camera2_stats_visualizer_entry_disable">Disabilita tutto</string>
+    <string name="pref_camera2_stats_visualizer_entry_bg_stats">Statistiche BG</string>
+    <string name="pref_camera2_stats_visualizer_entry_be_stats">Statistiche BE</string>
+    <string name="pref_camera2_stats_visualizer_entry_hist_stats">Statistiche hist</string>
+    <string name="pref_camera2_capture_mfnr_title">Riduzione del rumore multi-scatto</string>
     <string name="pref_camera2_capture_mfnr_entry_enable">Attivato</string>
     <string name="pref_camera2_capture_mfnr_entry_disable">Disattivato</string>
+    <string name="pref_camera2_capture_mfsr_title">Super risoluzione multi-scatto</string>
     <string name="pref_camera2_capture_mfsr_entry_enable">Attivato</string>
     <string name="pref_camera2_capture_mfsr_entry_disable">Disattivato</string>
 </resources>

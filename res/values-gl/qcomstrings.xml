@@ -195,10 +195,12 @@
     <string name="pref_camera_hfr_entry_3x">A cámara lenta 90 FPS</string>
     <string name="pref_camera_hfr_entry_4x">A cámara lenta 120 FPS</string>
     <string name="pref_camera_hfr_entry_8x">A cámara lenta 240 FPS</string>
+    <string name="pref_camera_hfr_entry_16x">A cámara lenta 480 FPS</string>
     <string name="pref_camera_hfr_entry_hsr_60">A gran velocidade 60 FPS</string>
     <string name="pref_camera_hfr_entry_hsr_90">A gran velocidade 90 FPS</string>
     <string name="pref_camera_hfr_entry_hsr_120">A gran velocidade 120 FPS</string>
     <string name="pref_camera_hfr_entry_hsr_240">A gran velocidade 240 FPS</string>
+    <string name="pref_camera_hfr_entry_hsr_480">A gran velocidade 480 FPS</string>
     <!-- HFR entry values. Do not translate. -->
     <!-- Default noise reduction setting. Do not translate. -->
     <!-- Settings screen, Select See More title -->
@@ -486,6 +488,7 @@
     <string name="pref_camera2_scene_mode_time_lapse_instructional_content">Co Time lapse, podes converter unha gravación de vídeo longa nun vídeo de poucos segundos. Iso só aplica nos vídeo pero non nas fotos.</string>
     <string name="pref_camera2_scene_mode_panorama_instructional_content">Permíteche desprazarte cara á esquerda o dereita para tirar unha foto panorámica ampla. Tamén podes subir ou baixar para tirar fotos máis altas.</string>
     <string name="pref_camera2_scene_mode_blur_buster_instructional_content">BluBuster reduce o desenfoque derivado do movemento das mans. Isto pode ser útil ao tirar fotos en posicións difíciles.</string>
+    <string name="pref_camera2_scene_mode_pro_instructional_content">No modo Pro, podes controlar manualmente os axustes como o ISO, a exposición, balance de brancos e ou o enfoque. Terás acceso a todos eses axustes avanzados.</string>
     <string name="pref_camera2_not_show_again">Non amosar máis</string>
     <string name="pref_camera2_scene_mode_instructional_ok">ACEPTAR</string>
     <string name="pref_camera2_instant_aec_title">AEC instantánea</string>
@@ -546,9 +549,12 @@
     <string name="pref_camera2_zsl_entry_disable">Apagado</string>
     <string name="pref_camera2_zsl_entry_app_zsl">Software ZSL</string>
     <string name="pref_camera2_zsl_entry_hal_zsl">Hardware ZSL</string>
+    <string name="pref_camera2_sharpness_control_entry_level1">Nivel 1 (Predeterminado)</string>
     <string name="pref_camera2_sharpness_control_entry_level2">Nivel 2</string>
     <string name="pref_camera2_afmode_entry_disable">Desactivado</string>
     <string name="pref_camera2_afmode_entry_off">Apagado</string>
+    <string name="pref_camera2_afmode_entry_continuous_video">Vídeo contínuo</string>
+    <string name="pref_camera2_afmode_entry_continuous_picture">Imaxe continua</string>
     <string name="pref_camera2_switch_camera_title">Trocar cámara polo ID</string>
     <!-- QCFA Title -->
     <!-- QCFA choices -->
@@ -556,11 +562,16 @@
     <string name="pref_camera2_initial_camera_entry_bayer">Bayer</string>
     <string name="pref_camera2_initial_camera_entry_mono">Mono</string>
     <string name="pref_camera2_initial_camera_entry_front">Frontal</string>
+    <string name="pref_camera2_eis_title">Vídeo EIS</string>
     <string name="pref_camera2_eis_entry_disable">Desactivado</string>
+    <string name="pref_camera2_fovc_title">Vídeo FOVC</string>
     <string name="pref_camera2_fovc_entry_enable">Activado</string>
     <string name="pref_camera2_fovc_entry_disable">Desactivado</string>
     <string name="pref_camera2_video_hdr_entry_enable">Activado</string>
     <string name="pref_camera2_video_hdr_entry_disable">Desactivado</string>
+    <string name="pref_camera2_stats_visualizer_entry_disable">Desactivar todo</string>
+    <string name="pref_camera2_stats_visualizer_entry_bg_stats">Estatísticas BG</string>
+    <string name="pref_camera2_stats_visualizer_entry_be_stats">Estatísticas BE</string>
     <string name="pref_camera2_capture_mfnr_entry_enable">Activado</string>
     <string name="pref_camera2_capture_mfnr_entry_disable">Desactivado</string>
     <string name="pref_camera2_capture_mfsr_entry_enable">Activado</string>

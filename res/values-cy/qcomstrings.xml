@@ -107,8 +107,11 @@
     <!-- Settings menu, redeye reduction choices -->
     <!-- The message is shown in toast when the app encounters an unsupported selection for HFR/HSR mode -->
     <!-- The message is shown in dialog when the app encounters an unsupported resolution for HFR mode -->
+    <string name="error_app_unsupported_hfr">Ni chefnogir modd arafu lluniau ar gyfer y maint fideo a ddewiswyd. Dewisa maint fideo llai.</string>
     <!-- The message is shown in toast when the app encounters an unsupported resolution for DIS mode -->
+    <string name="error_app_unsupported_dis">Ni chefnogir sefydlogi ar gyfer y maint fideo a ddewiswyd. Dewisa maint fideo llai</string>
     <!-- The message is shown in dialog when the app encounters an unsupported resolution for HSR mode -->
+    <string name="error_app_unsupported_hsr">Ni chefnogir modd cyflymu lluniau ar gyfer y maint fideo a ddewiswyd. Dewisa maint fideo llai</string>
     <!-- The message is shown in dialog when the app encounters an unsupported video codec for HFR mode -->
     <!-- The message is shown in dialog when the app encounters an unsupported video resolution-->
     <!-- The message is shown in dialog when the app encounters an unsupported video profile-->
@@ -122,11 +125,14 @@
     <!-- Settings screen, Select hfr title -->
     <!-- Settings screen, hfr radio button choices -->
     <string name="pref_camera_hfr_entry_off">I ffwrdd</string>
+    <string name="pref_camera_hfr_entry_16x">Fideo araf 480 FPS</string>
+    <string name="pref_camera_hfr_entry_hsr_480">Fideo cyflym 480 FPS</string>
     <!-- HFR entry values. Do not translate. -->
     <!-- Default noise reduction setting. Do not translate. -->
     <!-- Settings screen, Select See More title -->
     <!-- Settings screen, see more radio button choices -->
     <string name="pref_camera_noise_reduction_entry_off">I ffwrdd</string>
+    <string name="pref_camera_noise_reduction_entry_high_quality">Ansawdd uchel</string>
     <!-- see more entry values. Do not translate. -->
     <!-- Default see more setting. Do not translate. -->
     <!-- Settings screen, Select See More title -->
@@ -243,7 +249,9 @@
     <!-- Picture format entry values. Do not translate. -->
     <!-- Settings screen, Picture quality title -->
     <!-- Settings screen, Picture quality dialog radio button choices -->
+    <string name="pref_camera_jpegquality_entry_0">Isel</string>
     <string name="pref_camera_jpegquality_entry_1">Safonol</string>
+    <string name="pref_camera_jpegquality_entry_2">Uchel</string>
     <!-- Default auto histogram setting. Do not translate. -->
     <!-- Settings screen, Select Histogram title -->
     <string name="pref_camera_histogram_title">Histogram</string>
@@ -284,6 +292,7 @@
     <!-- The alas of CameraActivity for gesture operation -->
     <string name="camera_gesture_title">Agor camera</string>
     <string name="pref_camera_tsmakeup_entry_off">I ffwrdd</string>
+    <string name="pref_camera_tsmakeup_entry_high">Uchel</string>
     <string name="pref_camera_tsmakeup_level_whiten">Gwynnu</string>
     <string name="text_tsmakeup_alert_title">Rhybudd</string>
     <string name="text_tsmakeup_alert_quit">Diddymu</string>
@@ -295,6 +304,7 @@
     <string name="pref_camera2_mpo_entry_off">I ffwrdd</string>
     <string name="pref_camera2_makeup_entry_off">I ffwrdd</string>
     <string name="pref_camera2_noise_reduction_entry_off">I ffwrdd</string>
+    <string name="pref_camera2_noise_reduction_entry_high_quality">Ansawdd uchel</string>
     <string name="pref_camera2_trackingfocus_entry_off">I ffwrdd</string>
     <string name="pref_camera_scenemode_entry_panorama">Panorama</string>
     <string name="pref_camera_scenemode_entry_promode">Modd proffesiynol</string>
@@ -316,6 +326,9 @@
     <string name="pref_camera2_scene_mode_hdr_instructional_content">Dewisa \"HDR\" am y lluniau gorau posib mewn amgylchiadau gyda golau cymysg fel golau isel neu golau yn y cefndir.</string>
     <string name="pref_camera2_scene_mode_best_photo_instructional_content">Mae\'n dy ganiatáu i dynnu ffrwydrad o 10 llun ac wedyn i ddewis y gorau neu\'r goreuon ohonyn nhw.</string>
     <string name="pref_camera2_scene_mode_chroma_flash_instructional_content">Gyda ChromaFlash, bydd y golau yn dy luniau â fflach yn cael ei optimeiddio ar gyfer yr holl bobol a gwrthrychau yn dy luniau. Mae\'r nodwedd yn gweithio gyda\'r camera cefn yn unig.</string>
+    <string name="pref_camera2_scene_mode_pro_instructional_content">Mae modd Pro yn galluogi rheoli gosodiadau ISO, dinoethiad, cydbwysedd gwyn, a ffocws. Mi fydd gennyt fynediad hawdd at y nodweddion uwch hyn.</string>
+    <string name="pref_camera2_scene_mode_deepzoom_instructional_content">Mae DeepZoom yn caniatáu cymryd llun gyda chwyddiad estynedig 2x neu 4x.</string>
+    <string name="pref_camera2_scene_mode_deepportrait_instructional_content">Ym modd DeepPortrait, gellir tynnu hunlun gyda\'r cefndir allan o ffocws. Defnyddia\'r llithrydd i addasu pa mor aneglur yw\'r cefndir.</string>
     <string name="pref_camera2_not_show_again">Peidio â dangos eto</string>
     <string name="pref_camera2_scene_mode_instructional_ok">Iawn</string>
     <string name="pref_camera2_saturation_level_title">Dinoethiad</string>
@@ -357,8 +370,13 @@
     <string name="pref_camera2_zsl_entry_disable">I ffwrdd</string>
     <string name="pref_camera2_zsl_entry_app_zsl">ZSL meddalwedd</string>
     <string name="pref_camera2_zsl_entry_hal_zsl">ZSL caledwedd</string>
+    <string name="pref_camera2_videoencoderprofile_title">Proffil amgodydd</string>
+    <string name="pref_camera2_sharpness_control_entry_level1">Lefel 1 (rhagosodiad)</string>
     <string name="pref_camera2_sharpness_control_entry_level2">Lefel 2</string>
     <string name="pref_camera2_afmode_entry_off">I ffwrdd</string>
+    <string name="pref_camera2_afmode_entry_continuous_video">Fideo parhaus</string>
+    <string name="pref_camera2_afmode_entry_continuous_picture">Llun parhaus</string>
+    <string name="pref_camera2_afmode_entry_edof">Dyfnder ffocws estynedig</string>
     <string name="pref_camera2_switch_camera_title">Newid camera gydag ID</string>
     <!-- QCFA Title -->
     <!-- QCFA choices -->
@@ -366,4 +384,9 @@
     <string name="pref_camera2_initial_camera_entry_mono">Mono</string>
     <string name="pref_camera2_eis_title">Fideo EIS</string>
     <string name="pref_camera2_fovc_title">Fideo FOVC</string>
+    <string name="pref_camera2_stats_visualizer_title">Darlunydd ystadegau</string>
+    <string name="pref_camera2_stats_visualizer_entry_disable">Analluogi\'r cwbl</string>
+    <string name="pref_camera2_stats_visualizer_entry_bg_stats">Ystadegau BG</string>
+    <string name="pref_camera2_stats_visualizer_entry_be_stats">Ystadegau BE</string>
+    <string name="pref_camera2_stats_visualizer_entry_hist_stats">Ystadegau Hist</string>
 </resources>

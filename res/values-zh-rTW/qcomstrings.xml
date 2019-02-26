@@ -79,6 +79,7 @@
     <string name="pref_camera_manual_exp_entry_ISO_priority">ISO 優先</string>
     <string name="pref_camera_manual_exp_entry_exptime_priority">爆光時間優先</string>
     <string name="pref_camera_manual_exp_entry_user_setting">使用者設定</string>
+    <string name="pref_camera_manual_exp_entry_gains_priority">增益優先權</string>
     <string name="pref_camera_manual_exp_entry_off">關</string>
     <!-- Manual white balance entry values -->
     <string name="pref_camera_manual_wb_title">手動白平衡</string>
@@ -195,10 +196,12 @@
     <string name="pref_camera_hfr_entry_3x">慢動作 90 影格/秒</string>
     <string name="pref_camera_hfr_entry_4x">慢動作 120 影格/秒</string>
     <string name="pref_camera_hfr_entry_8x">慢動作 240 影格/秒</string>
+    <string name="pref_camera_hfr_entry_16x">慢動作 480 影格/秒</string>
     <string name="pref_camera_hfr_entry_hsr_60">高速 60 影格/秒</string>
     <string name="pref_camera_hfr_entry_hsr_90">高速 90 影格/秒</string>
     <string name="pref_camera_hfr_entry_hsr_120">高速 120 影格/秒</string>
     <string name="pref_camera_hfr_entry_hsr_240">高速 240 影格/秒</string>
+    <string name="pref_camera_hfr_entry_hsr_480">高速 480 影格/秒</string>
     <!-- HFR entry values. Do not translate. -->
     <!-- Default noise reduction setting. Do not translate. -->
     <!-- Settings screen, Select See More title -->
@@ -486,6 +489,9 @@
     <string name="pref_camera2_scene_mode_time_lapse_instructional_content">使用縮時，您可以將長時間的影片錄製轉換為幾秒鐘的影片。此效果適用於影片，但不適用於照片。</string>
     <string name="pref_camera2_scene_mode_panorama_instructional_content">允許您向左或向右平移拍攝寬闊的風景照片。 您也可以向上或向下平移拍攝高的照片。</string>
     <string name="pref_camera2_scene_mode_blur_buster_instructional_content">使用模糊剋星可減輕抖動的模糊。在困難的地方拍照時可能會有所幫助。</string>
+    <string name="pref_camera2_scene_mode_pro_instructional_content">使用專業模式，您可以手動控制 ISO、曝光、白平衡和對焦的設定。 您可以輕鬆存取所有這些進階設定。</string>
+    <string name="pref_camera2_scene_mode_deepzoom_instructional_content">使用深度縮放模式，您可以在 2 倍或 4 倍增強變焦的情況下拍攝照片。</string>
+    <string name="pref_camera2_scene_mode_deepportrait_instructional_content">使用深度肖像模式，當您拍一張自拍時，背景將會虛化。您可以使用滑動調整虛化程度。</string>
     <string name="pref_camera2_not_show_again">不再顯示</string>
     <string name="pref_camera2_scene_mode_instructional_ok">確定</string>
     <string name="pref_camera2_instant_aec_title">即時 AEC</string>
@@ -546,9 +552,14 @@
     <string name="pref_camera2_zsl_entry_disable">關</string>
     <string name="pref_camera2_zsl_entry_app_zsl">軟體 ZSL</string>
     <string name="pref_camera2_zsl_entry_hal_zsl">硬體 ZSL</string>
+    <string name="pref_camera2_videoencoderprofile_title">編碼設定檔</string>
+    <string name="pref_camera2_sharpness_control_entry_level1">級別 1 (預設值)</string>
     <string name="pref_camera2_sharpness_control_entry_level2">級別 2</string>
     <string name="pref_camera2_afmode_entry_disable">已停用</string>
     <string name="pref_camera2_afmode_entry_off">關</string>
+    <string name="pref_camera2_afmode_entry_continuous_video">連拍影片</string>
+    <string name="pref_camera2_afmode_entry_continuous_picture">連拍相片</string>
+    <string name="pref_camera2_afmode_entry_edof">景深延伸</string>
     <string name="pref_camera2_switch_camera_title">透過 ID 切換相機</string>
     <!-- QCFA Title -->
     <!-- QCFA choices -->
@@ -556,13 +567,22 @@
     <string name="pref_camera2_initial_camera_entry_bayer">Bayer</string>
     <string name="pref_camera2_initial_camera_entry_mono">單色</string>
     <string name="pref_camera2_initial_camera_entry_front">前面</string>
+    <string name="pref_camera2_eis_title">影片 EIS</string>
     <string name="pref_camera2_eis_entry_disable">已停用</string>
+    <string name="pref_camera2_fovc_title">影片 FOVC</string>
     <string name="pref_camera2_fovc_entry_enable">已啟用</string>
     <string name="pref_camera2_fovc_entry_disable">已停用</string>
     <string name="pref_camera2_video_hdr_entry_enable">已啟用</string>
     <string name="pref_camera2_video_hdr_entry_disable">已停用</string>
+    <string name="pref_camera2_stats_visualizer_title">統計可視化器</string>
+    <string name="pref_camera2_stats_visualizer_entry_disable">停用全部</string>
+    <string name="pref_camera2_stats_visualizer_entry_bg_stats">BG 統計</string>
+    <string name="pref_camera2_stats_visualizer_entry_be_stats">BE 統計</string>
+    <string name="pref_camera2_stats_visualizer_entry_hist_stats">歷史統計</string>
+    <string name="pref_camera2_capture_mfnr_title">多影格降噪</string>
     <string name="pref_camera2_capture_mfnr_entry_enable">已啟用</string>
     <string name="pref_camera2_capture_mfnr_entry_disable">已停用</string>
+    <string name="pref_camera2_capture_mfsr_title">多影格超解析度</string>
     <string name="pref_camera2_capture_mfsr_entry_enable">已啟用</string>
     <string name="pref_camera2_capture_mfsr_entry_disable">已停用</string>
 </resources>

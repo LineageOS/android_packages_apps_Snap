@@ -169,7 +169,7 @@
     <!-- The message is shown in dialog when the app encounters an unsupported resolution for HSR mode -->
     <string name="error_app_unsupported_hsr">Hızlı çekim modu, seçili video boyutunda desteklenmiyor. Daha düşük bir video boyutu seçin</string>
     <!-- The message is shown in dialog when the app encounters an unsupported video codec for HFR mode -->
-    <string name="error_app_unsupported_hfr_codec">Hızlı Çekim modu etkinken yalnızca H.264 video kodlaması desteklenir</string>
+    <string name="error_app_unsupported_hfr_codec">Hızlı Çekim modu etkinken sadece H264 video kodlaması desteklenir</string>
     <!-- The message is shown in dialog when the app encounters an unsupported video resolution-->
     <string name="error_app_unsupported">Bu kodlayıcı için desteklenmeyen video çözünürlüğü</string>
     <!-- The message is shown in dialog when the app encounters an unsupported video profile-->
@@ -483,7 +483,7 @@
     <string name="pref_camera2_scene_mode_sports_instructional_content">Spor modu, daha iyi spor veya aksiyon çekimleri yapmanıza yardımcı olur.\n\nFotoğraflarınızı geliştirir, ancak video kaydı üzerinde herhangi bir etkisi yoktur.</string>
     <string name="pref_camera2_scene_mode_hdr_instructional_content">Düşük ışıklı ve arkadan aydınlık sahneler gibi karışık ışık koşullarında olduğunuzda, mümkün olan en iyi fotoğraflar için \"HDR\" yi seçin.</string>
     <string name="pref_camera2_scene_mode_best_photo_instructional_content">10 fotoğraf çekmenizi sağlar ve aralarından en iyilerini seçebilirsiniz.</string>
-    <string name="pref_camera2_scene_mode_chroma_flash_instructional_content">ChromaFlash ile flaş fotoğraflarınızda ki ışıklandırma, resimlerinizde ki tüm insanlar ve nesneler için optimize edilecektir. Bu özellik yalnızca arka kamera için geçerlidir.</string>
+    <string name="pref_camera2_scene_mode_chroma_flash_instructional_content">ChromaFlash ile flaş fotoğraflarınızda ki ışıklandırma, resimlerinizde ki tüm insanlar ve nesneler için optimize edilecektir. Bu özellik sadece arka kamera için geçerlidir.</string>
     <string name="pref_camera2_scene_mode_sharp_photo_instructional_content">Keskin fotoğraf modu sahnedeki hareketten kaynaklanan bulanıklığı veya el hareketi nedeniyle olan bulanıklığı azaltır.</string>
     <string name="pref_camera2_scene_mode_tracking_focus_instructional_content">Fotoğraf veya video çekerken seçilen bir kişiyi veya nesneyi izlemenize ve odaklamanıza izin verir. Başlamak için odaK dikdörtgeni, izlemek istediğiniz kişi veya nesne üzerine konumlandırın.</string>
     <string name="pref_camera2_scene_mode_time_lapse_instructional_content">Zaman atlama ile uzun bir video kaydını birkaç saniyelik videolara dönüştürebilirsiniz. Bu efekt videolara uygulanır, ancak fotoğraflarda geçerli değildir.</string>
@@ -559,6 +559,7 @@
     <string name="pref_camera2_afmode_entry_off">Kapalı</string>
     <string name="pref_camera2_afmode_entry_continuous_video">Sürekli video</string>
     <string name="pref_camera2_afmode_entry_continuous_picture">Sürekli çekim</string>
+    <string name="pref_camera2_afmode_entry_edof">Genişletilmiş odak derinliği</string>
     <string name="pref_camera2_switch_camera_title">Kamerayı kullanıcıya göre değiştir</string>
     <!-- QCFA Title -->
     <!-- QCFA choices -->
@@ -573,9 +574,15 @@
     <string name="pref_camera2_fovc_entry_disable">Devre dışı</string>
     <string name="pref_camera2_video_hdr_entry_enable">Etkinleştirildi</string>
     <string name="pref_camera2_video_hdr_entry_disable">Devre dışı</string>
+    <string name="pref_camera2_stats_visualizer_title">İstatistik görüntüleyici</string>
     <string name="pref_camera2_stats_visualizer_entry_disable">Tümünü devre dışı bırak</string>
+    <string name="pref_camera2_stats_visualizer_entry_bg_stats">BG istatistikleri</string>
+    <string name="pref_camera2_stats_visualizer_entry_be_stats">BE istatistikleri</string>
+    <string name="pref_camera2_stats_visualizer_entry_hist_stats">Tarih istatistikleri</string>
+    <string name="pref_camera2_capture_mfnr_title">Çoklu kare gürültü azaltma</string>
     <string name="pref_camera2_capture_mfnr_entry_enable">Etkinleştirildi</string>
     <string name="pref_camera2_capture_mfnr_entry_disable">Devre dışı</string>
+    <string name="pref_camera2_capture_mfsr_title">Çoklu kare süper çözünürlük</string>
     <string name="pref_camera2_capture_mfsr_entry_enable">Etkinleştirildi</string>
     <string name="pref_camera2_capture_mfsr_entry_disable">Devre dışı</string>
 </resources>

@@ -489,8 +489,8 @@
     <string name="pref_camera2_scene_mode_time_lapse_instructional_content">在延时摄影模式下，您可以将一段长时间的视频转换为只有几秒钟的视频。此效果仅限视频，对于照片无效。</string>
     <string name="pref_camera2_scene_mode_panorama_instructional_content">允许您从左到右拍摄一幅风景照片。您也可以从上到下拍摄一幅长条形的照片。</string>
     <string name="pref_camera2_scene_mode_blur_buster_instructional_content">模糊抵消器将会抵消由于拍摄时手部抖动造成的模糊，这会协助您在困难环境的拍摄。</string>
-    <string name="pref_camera2_scene_mode_pro_instructional_content">在专业模式下，您可以手动控制ISO，曝光，白平衡和对焦。 您可以轻松使用这些高级设置。</string>
-    <string name="pref_camera2_scene_mode_deepzoom_instructional_content">使用 DeepZoom 模式, 您可以在2倍或4倍增强变焦的情况下拍摄照片。</string>
+    <string name="pref_camera2_scene_mode_pro_instructional_content">在专业模式下，您可以手动控制 ISO，曝光，白平衡和对焦。 您可以轻松使用这些高级设置。</string>
+    <string name="pref_camera2_scene_mode_deepzoom_instructional_content">使用 DeepZoom 模式，您可以在 2 倍或 4 倍增强变焦的情况下拍摄照片。</string>
     <string name="pref_camera2_scene_mode_deepportrait_instructional_content">使用 DeepPortrait 模式，当您拍摄一张自拍时，背景将会虚化。您可以使用滑块调节虚化程度。</string>
     <string name="pref_camera2_not_show_again">不再显示</string>
     <string name="pref_camera2_scene_mode_instructional_ok">确定</string>
@@ -553,10 +553,13 @@
     <string name="pref_camera2_zsl_entry_app_zsl">软件零延迟快门</string>
     <string name="pref_camera2_zsl_entry_hal_zsl">硬件零延迟快门</string>
     <string name="pref_camera2_videoencoderprofile_title">编码器配置文件</string>
-    <string name="pref_camera2_sharpness_control_entry_level1">1级 (默认)</string>
+    <string name="pref_camera2_sharpness_control_entry_level1">1 级 (默认)</string>
     <string name="pref_camera2_sharpness_control_entry_level2">2 级</string>
     <string name="pref_camera2_afmode_entry_disable">已禁用</string>
     <string name="pref_camera2_afmode_entry_off">关闭</string>
+    <string name="pref_camera2_afmode_entry_continuous_video">连拍视频</string>
+    <string name="pref_camera2_afmode_entry_continuous_picture">连拍图片</string>
+    <string name="pref_camera2_afmode_entry_edof">景深扩展</string>
     <string name="pref_camera2_switch_camera_title">通过 ID 切换相机</string>
     <!-- QCFA Title -->
     <!-- QCFA choices -->
@@ -571,9 +574,15 @@
     <string name="pref_camera2_fovc_entry_disable">已禁用</string>
     <string name="pref_camera2_video_hdr_entry_enable">已启用</string>
     <string name="pref_camera2_video_hdr_entry_disable">已禁用</string>
+    <string name="pref_camera2_stats_visualizer_title">状态可视化</string>
     <string name="pref_camera2_stats_visualizer_entry_disable">全部禁用</string>
+    <string name="pref_camera2_stats_visualizer_entry_bg_stats">BG 统计</string>
+    <string name="pref_camera2_stats_visualizer_entry_be_stats">BE 统计</string>
+    <string name="pref_camera2_stats_visualizer_entry_hist_stats">直方图统计</string>
+    <string name="pref_camera2_capture_mfnr_title">多帧降噪</string>
     <string name="pref_camera2_capture_mfnr_entry_enable">已启用</string>
     <string name="pref_camera2_capture_mfnr_entry_disable">已禁用</string>
+    <string name="pref_camera2_capture_mfsr_title">多帧超级分辨率</string>
     <string name="pref_camera2_capture_mfsr_entry_enable">已启用</string>
     <string name="pref_camera2_capture_mfsr_entry_disable">已禁用</string>
 </resources>

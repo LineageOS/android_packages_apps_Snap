@@ -196,10 +196,12 @@
     <string name="pref_camera_hfr_entry_3x">حركة بطيئة 90 إطار في الثانية</string>
     <string name="pref_camera_hfr_entry_4x">حركة بطيئة 120 إطار في الثانية</string>
     <string name="pref_camera_hfr_entry_8x">حركة بطيئة 240 إطار في الثانية</string>
+    <string name="pref_camera_hfr_entry_16x">حركة بطيئة 480 إطار بالثانية</string>
     <string name="pref_camera_hfr_entry_hsr_60">سرعة عالية 60 إطار في الثانية</string>
     <string name="pref_camera_hfr_entry_hsr_90">سرعة عالية 90 إطار في الثانية</string>
     <string name="pref_camera_hfr_entry_hsr_120">سرعة عالية 120 إطار في الثانية</string>
     <string name="pref_camera_hfr_entry_hsr_240">سرعة عالية 240 إطار في الثانية</string>
+    <string name="pref_camera_hfr_entry_hsr_480">سرعة عالية 480 إطار بالثانية</string>
     <!-- HFR entry values. Do not translate. -->
     <!-- Default noise reduction setting. Do not translate. -->
     <!-- Settings screen, Select See More title -->
@@ -487,6 +489,9 @@
     <string name="pref_camera2_scene_mode_time_lapse_instructional_content">مع مرور الوقت، يمكنك تحويل تسجيل الفيديو الطويل في بضع ثوان من الفيديو. ينطبق هذا التأثير على مقاطع الفيديو، وليس على الصور.</string>
     <string name="pref_camera2_scene_mode_panorama_instructional_content">يسمح لك بتحريك الهاتف الى اليسار أو اليمين لالتقاط صورة افقية عريضة. يمكنك أيضا التحريك لأعلى أو لأسفل لالتقاط صور طويلة القامة.</string>
     <string name="pref_camera2_scene_mode_blur_buster_instructional_content">بلوربوستر يقلل الضبابية من الأيدي المهتزه. يمكن أن يكون مفيدا عند التقاط الصور في الأماكن الصعبة.</string>
+    <string name="pref_camera2_scene_mode_pro_instructional_content">مع الوضع المتقدم، يمكنك التحكم يدويا في إعدادات iso، والتعرض، وتوازن اللون الأبيض، والتركيز. سيكون لديك سهولة الوصول إلى كل هذه الإعدادات المتقدمة.</string>
+    <string name="pref_camera2_scene_mode_deepzoom_instructional_content">مع وضع التكبير العميق، يمكنك التقاط صورة بزوم تقريب 2x أو 4x.</string>
+    <string name="pref_camera2_scene_mode_deepportrait_instructional_content">مع وضع الصور العميقة، يمكنك التقاط صور شخصية، مع خلفية ضبابية. يمكنك استخدام شريط التمرير لضبط مقدار الضبابية.</string>
     <string name="pref_camera2_not_show_again">عدم العرض مجدداً</string>
     <string name="pref_camera2_scene_mode_instructional_ok">موافق</string>
     <string name="pref_camera2_instant_aec_title">AEC الفورية</string>
@@ -547,9 +552,14 @@
     <string name="pref_camera2_zsl_entry_disable">إيقاف تشغيل</string>
     <string name="pref_camera2_zsl_entry_app_zsl">برنامج ZSL</string>
     <string name="pref_camera2_zsl_entry_hal_zsl">عتاد ZSL</string>
+    <string name="pref_camera2_videoencoderprofile_title">ملف التشفير</string>
+    <string name="pref_camera2_sharpness_control_entry_level1">المستوى 1 (افتراضي)</string>
     <string name="pref_camera2_sharpness_control_entry_level2">المستوى 2</string>
     <string name="pref_camera2_afmode_entry_disable">معطّل</string>
     <string name="pref_camera2_afmode_entry_off">إيقاف تشغيل</string>
+    <string name="pref_camera2_afmode_entry_continuous_video">الفيديو المستمر</string>
+    <string name="pref_camera2_afmode_entry_continuous_picture">الصورة المستمرة</string>
+    <string name="pref_camera2_afmode_entry_edof">عمق متوسع للتركيز</string>
     <string name="pref_camera2_switch_camera_title">تبديل الكاميرا بمعرف</string>
     <!-- QCFA Title -->
     <!-- QCFA choices -->
@@ -564,8 +574,15 @@
     <string name="pref_camera2_fovc_entry_disable">معطّل</string>
     <string name="pref_camera2_video_hdr_entry_enable">مفعل</string>
     <string name="pref_camera2_video_hdr_entry_disable">معطّل</string>
+    <string name="pref_camera2_stats_visualizer_title">متخيل الاحصائيات</string>
+    <string name="pref_camera2_stats_visualizer_entry_disable">تعطيل الكل</string>
+    <string name="pref_camera2_stats_visualizer_entry_bg_stats">إحصاءات BG</string>
+    <string name="pref_camera2_stats_visualizer_entry_be_stats">إحصاءات BE</string>
+    <string name="pref_camera2_stats_visualizer_entry_hist_stats">إحصائيات Hist</string>
+    <string name="pref_camera2_capture_mfnr_title">تقليل الضوضاء متعدد الأطار</string>
     <string name="pref_camera2_capture_mfnr_entry_enable">مفعل</string>
     <string name="pref_camera2_capture_mfnr_entry_disable">معطّل</string>
+    <string name="pref_camera2_capture_mfsr_title">متعدد الإطار فائق الدقة</string>
     <string name="pref_camera2_capture_mfsr_entry_enable">مفعل</string>
     <string name="pref_camera2_capture_mfsr_entry_disable">معطّل</string>
 </resources>

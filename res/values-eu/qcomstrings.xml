@@ -79,6 +79,7 @@
     <string name="pref_camera_manual_exp_entry_ISO_priority">ISO lehentasuna</string>
     <string name="pref_camera_manual_exp_entry_exptime_priority">Esposizio denboraren lehentasuna</string>
     <string name="pref_camera_manual_exp_entry_user_setting">Erabiltzailearen ezarpena</string>
+    <string name="pref_camera_manual_exp_entry_gains_priority">Lehentasuna harten du</string>
     <string name="pref_camera_manual_exp_entry_off">Ez</string>
     <!-- Manual white balance entry values -->
     <string name="pref_camera_manual_wb_title">Eskuzko zurien balantzea</string>
@@ -195,10 +196,12 @@
     <string name="pref_camera_hfr_entry_3x">Kamera geldoa 90 FPS</string>
     <string name="pref_camera_hfr_entry_4x">Kamera geldoa 120 FPS</string>
     <string name="pref_camera_hfr_entry_8x">Kamera geldoa 240 FPS</string>
+    <string name="pref_camera_hfr_entry_16x">Kamera geldoa 480 FPS</string>
     <string name="pref_camera_hfr_entry_hsr_60">Abiadura handia 60 FPS</string>
     <string name="pref_camera_hfr_entry_hsr_90">Abiadura handia 90 FPS</string>
     <string name="pref_camera_hfr_entry_hsr_120">Abiadura handia 120 FPS</string>
     <string name="pref_camera_hfr_entry_hsr_240">Abiadura handia 240 FPS</string>
+    <string name="pref_camera_hfr_entry_hsr_480">Abiadura handia 480 FPS</string>
     <!-- HFR entry values. Do not translate. -->
     <!-- Default noise reduction setting. Do not translate. -->
     <!-- Settings screen, Select See More title -->
@@ -486,6 +489,9 @@
     <string name="pref_camera2_scene_mode_time_lapse_instructional_content">Time lapse erabiliz, grabazio luze bat segundo gutxi batzuetako bideoa bihurtu dezakezu. Honek bideoetarako balio du, ez argazkietarako.</string>
     <string name="pref_camera2_scene_mode_panorama_instructional_content">Argazki zabal bat ateratzeko, kamera ezkerrera edo eskumara mugitzea ahalbidetzen dizu. Gora edo behera mugitu dezakezu ere argazki luze bat ateratzeko.</string>
     <string name="pref_camera2_scene_mode_blur_buster_instructional_content">BlurBuster-ek esku dardartien lausotzea murrizten du. Argazkiak toki zailetan ateratzean lagungarria izan daiteke.</string>
+    <string name="pref_camera2_scene_mode_pro_instructional_content">Pro moduan, eskuz kontrolatu ditzakezu ISO, esposizio, zuri balantze eta fokuaren ezarpenak. Ezarpen aurreratu guzti hauetara sarbide erraza izango duzu.</string>
+    <string name="pref_camera2_scene_mode_deepzoom_instructional_content">DeepZoom moduarekin, hobetutako 2x edo 4x zoomarekin atera dezakezu argazki bat.</string>
+    <string name="pref_camera2_scene_mode_deepportrait_instructional_content">DeepPortrait moduarekin, lausotutako atzealdea duten auto-argazkiak atera ditzakezu. Lauso kopurua doitu dezakezu.</string>
     <string name="pref_camera2_not_show_again">Ez erakutsi berriro</string>
     <string name="pref_camera2_scene_mode_instructional_ok">ADOS</string>
     <string name="pref_camera2_instant_aec_title">Berehalako AEC</string>
@@ -546,9 +552,14 @@
     <string name="pref_camera2_zsl_entry_disable">Ez</string>
     <string name="pref_camera2_zsl_entry_app_zsl">Software bidezko ZSL</string>
     <string name="pref_camera2_zsl_entry_hal_zsl">Hardware bidezko ZSL</string>
+    <string name="pref_camera2_videoencoderprofile_title">Kodetzaile-profila</string>
+    <string name="pref_camera2_sharpness_control_entry_level1">1. maila (lehenetsia)</string>
     <string name="pref_camera2_sharpness_control_entry_level2">2. maila</string>
     <string name="pref_camera2_afmode_entry_disable">Desgaituta</string>
     <string name="pref_camera2_afmode_entry_off">Ez</string>
+    <string name="pref_camera2_afmode_entry_continuous_video">Bideo jarraitua</string>
+    <string name="pref_camera2_afmode_entry_continuous_picture">Argazki jarraitua</string>
+    <string name="pref_camera2_afmode_entry_edof">Hedatu fokuaren sakonera</string>
     <string name="pref_camera2_switch_camera_title">Txandakatu kamera ID-aren arabera</string>
     <!-- QCFA Title -->
     <!-- QCFA choices -->
@@ -556,13 +567,22 @@
     <string name="pref_camera2_initial_camera_entry_bayer">Bayer</string>
     <string name="pref_camera2_initial_camera_entry_mono">Mono</string>
     <string name="pref_camera2_initial_camera_entry_front">Aurrekoa</string>
+    <string name="pref_camera2_eis_title">Bideo EIS</string>
     <string name="pref_camera2_eis_entry_disable">Desgaituta</string>
+    <string name="pref_camera2_fovc_title">Bideo FOVC</string>
     <string name="pref_camera2_fovc_entry_enable">Gaituta</string>
     <string name="pref_camera2_fovc_entry_disable">Desgaituta</string>
     <string name="pref_camera2_video_hdr_entry_enable">Gaituta</string>
     <string name="pref_camera2_video_hdr_entry_disable">Desgaituta</string>
+    <string name="pref_camera2_stats_visualizer_title">Estatistika grafikoak</string>
+    <string name="pref_camera2_stats_visualizer_entry_disable">Desgaitu denak</string>
+    <string name="pref_camera2_stats_visualizer_entry_bg_stats">BG estatistikak</string>
+    <string name="pref_camera2_stats_visualizer_entry_be_stats">BE estatistikak</string>
+    <string name="pref_camera2_stats_visualizer_entry_hist_stats">Hist estatistikak</string>
+    <string name="pref_camera2_capture_mfnr_title">Hainbat fotogrametako zarata murrizketa</string>
     <string name="pref_camera2_capture_mfnr_entry_enable">Gaituta</string>
     <string name="pref_camera2_capture_mfnr_entry_disable">Desgaituta</string>
+    <string name="pref_camera2_capture_mfsr_title">Hainbat fotogrametako super-bereizmena</string>
     <string name="pref_camera2_capture_mfsr_entry_enable">Gaituta</string>
     <string name="pref_camera2_capture_mfsr_entry_disable">Desgaituta</string>
 </resources>

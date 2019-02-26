@@ -35,4 +35,5 @@
     <!-- Touch focus duration -->
     <!-- Shutter speed -->
     <!-- Advanced options -->
+    <string name="pref_camera2_preferences_category_developer">Optziones avantzadas</string>
 </resources>

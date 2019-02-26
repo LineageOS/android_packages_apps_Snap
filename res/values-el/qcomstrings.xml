@@ -79,6 +79,7 @@
     <string name="pref_camera_manual_exp_entry_ISO_priority">Προτεραιότητα ISO</string>
     <string name="pref_camera_manual_exp_entry_exptime_priority">Προτεραιότητα χρόνου έκθεσης</string>
     <string name="pref_camera_manual_exp_entry_user_setting">Ρύθμιση χρήστη</string>
+    <string name="pref_camera_manual_exp_entry_gains_priority">Προτεραιότητα κέρδους</string>
     <string name="pref_camera_manual_exp_entry_off">Ανενεργή</string>
     <!-- Manual white balance entry values -->
     <string name="pref_camera_manual_wb_title">Χειροκίνητη ισορροπία λευκού</string>
@@ -558,6 +559,7 @@
     <string name="pref_camera2_afmode_entry_off">Ανενεργή</string>
     <string name="pref_camera2_afmode_entry_continuous_video">Συνεχής (βίντεο)</string>
     <string name="pref_camera2_afmode_entry_continuous_picture">Συνεχής (εικόνα)</string>
+    <string name="pref_camera2_afmode_entry_edof">Εκτεταμένο βάθος εστίασης</string>
     <string name="pref_camera2_switch_camera_title">Εναλλαγή κάμερας με βάση το ID</string>
     <!-- QCFA Title -->
     <!-- QCFA choices -->
@@ -565,13 +567,22 @@
     <string name="pref_camera2_initial_camera_entry_bayer">Bayer</string>
     <string name="pref_camera2_initial_camera_entry_mono">Μονόχρωμο</string>
     <string name="pref_camera2_initial_camera_entry_front">Μπροστινή</string>
+    <string name="pref_camera2_eis_title">EIS βίντεο</string>
     <string name="pref_camera2_eis_entry_disable">Ανενεργός</string>
+    <string name="pref_camera2_fovc_title">FOVC βίντεο</string>
     <string name="pref_camera2_fovc_entry_enable">Ενεργός</string>
     <string name="pref_camera2_fovc_entry_disable">Ανενεργός</string>
     <string name="pref_camera2_video_hdr_entry_enable">Ενεργός</string>
     <string name="pref_camera2_video_hdr_entry_disable">Ανενεργός</string>
+    <string name="pref_camera2_stats_visualizer_title">Απεικόνιση στατιστικών</string>
+    <string name="pref_camera2_stats_visualizer_entry_disable">Απενεργοποίηση όλων</string>
+    <string name="pref_camera2_stats_visualizer_entry_bg_stats">Στατιστικά BG</string>
+    <string name="pref_camera2_stats_visualizer_entry_be_stats">Στατιστικά BE</string>
+    <string name="pref_camera2_stats_visualizer_entry_hist_stats">Στατιστικά Hist</string>
+    <string name="pref_camera2_capture_mfnr_title">Μείωση θορύβου πολλαπλών καρέ</string>
     <string name="pref_camera2_capture_mfnr_entry_enable">Ενεργός</string>
     <string name="pref_camera2_capture_mfnr_entry_disable">Ανενεργός</string>
+    <string name="pref_camera2_capture_mfsr_title">Υπερ-ανάλυση πολλαπλών καρέ</string>
     <string name="pref_camera2_capture_mfsr_entry_enable">Ενεργός</string>
     <string name="pref_camera2_capture_mfsr_entry_disable">Ανενεργός</string>
 </resources>
