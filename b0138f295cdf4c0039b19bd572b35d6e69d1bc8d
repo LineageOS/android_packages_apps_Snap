@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8e5d5f98_c0d27501",
+        "filename": "src/com/android/camera/CaptureModule.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 5111,
+      "author": {
+        "id": 19552
+      },
+      "writtenOn": "2019-02-26T09:50:46Z",
+      "side": 1,
+      "message": "Shouldn\u0027t it be \u0027Long shot\u0027 here? Might need to check for other instances of using one instead of the other.",
+      "range": {
+        "startLine": 5111,
+        "startChar": 30,
+        "endLine": 5111,
+        "endChar": 38
+      },
+      "revId": "b0138f295cdf4c0039b19bd572b35d6e69d1bc8d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
