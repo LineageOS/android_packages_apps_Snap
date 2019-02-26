@@ -1048,7 +1048,14 @@ public class CaptureModule implements CameraModule, PhotoController,
                     }
                 }
 
-                if ((CaptureResult.CONTROL_AF_STATE_FOCUSED_LOCKED == afState ||
+                // If the lens is just fixed focus then check only
+                // for AE Lock else check AF & AE state before
+                // trigger of capture
+                if (mSettingsManager.isFixedFocus(getMainCameraId())) {
+                    if (aeState == null || aeState == CaptureResult.CONTROL_AE_STATE_LOCKED) {
+                        checkAfAeStatesAndCapture(id);
+                    }
+                } else if ((CaptureResult.CONTROL_AF_STATE_FOCUSED_LOCKED == afState ||
                         CaptureResult.CONTROL_AF_STATE_NOT_FOCUSED_LOCKED == afState) &&
                         (aeState == null || aeState == CaptureResult.CONTROL_AE_STATE_LOCKED)) {
                     checkAfAeStatesAndCapture(id);
@@ -4032,7 +4039,7 @@ public class CaptureModule implements CameraModule, PhotoController,
         }
     };
 
-    private void configureCameraSessionWithParameters(CameraDevice camera,
+    private void configureCameraSessionWithParameters(int cameraId,
             List<Surface> outputSurfaces, CameraCaptureSession.StateCallback listener,
             Handler handler, CaptureRequest initialRequest) throws CameraAccessException {
         List<OutputConfiguration> outConfigurations = new ArrayList<>(outputSurfaces.size());
@@ -4041,13 +4048,32 @@ public class CaptureModule implements CameraModule, PhotoController,
             outConfigurations.add(new OutputConfiguration(surface));
         }
 
+        String zzHDR = mSettingsManager.getValue(SettingsManager.KEY_VIDEO_HDR_VALUE);
+        boolean zzHdrStatue = zzHDR.equals("1");
+        // if enable ZZHDR mode, don`t call the setOpModeForVideoStream method.
+        /* if (!zzHdrStatue) {
+            setOpModeForVideoStream(cameraId);
+        }*/
+        String value = mSettingsManager.getValue(SettingsManager.KEY_FOVC_VALUE);
+        if (value != null && Boolean.parseBoolean(value)) {
+            mStreamConfigOptMode = mStreamConfigOptMode | STREAM_CONFIG_MODE_FOVC;
+        }
+        if (zzHdrStatue) {
+            mStreamConfigOptMode = STREAM_CONFIG_MODE_ZZHDR;
+        }
+        if (DEBUG) {
+            Log.v(TAG, "configureCameraSessionWithParameters mStreamConfigOptMode :"
+                    + mStreamConfigOptMode);
+        }
+
         Method method_setSessionParameters = null;
         Method method_createCaptureSession = null;
         Object sessionConfig = null;
         try {
             Class clazz = Class.forName("android.hardware.camera2.params.SessionConfiguration");
             sessionConfig = clazz.getConstructors()[0].newInstance(
-                    SESSION_REGULAR, outConfigurations, new HandlerExecutor(handler), listener);
+                    SESSION_REGULAR | mStreamConfigOptMode, outConfigurations,
+                    new HandlerExecutor(handler), listener);
             if (method_setSessionParameters == null) {
                 method_setSessionParameters = clazz.getDeclaredMethod(
                         "setSessionParameters", CaptureRequest.class);
@@ -4055,7 +4081,7 @@ public class CaptureModule implements CameraModule, PhotoController,
             method_setSessionParameters.invoke(sessionConfig, initialRequest);
             method_createCaptureSession = CameraDevice.class.getDeclaredMethod(
                     "createCaptureSession", clazz);
-            method_createCaptureSession.invoke(camera, sessionConfig);
+            method_createCaptureSession.invoke(mCameraDevice[cameraId], sessionConfig);
         } catch (Exception exception) {
             Log.w(TAG, "configureCameraSessionWithParameters method is not exist");
             exception.printStackTrace();
@@ -4181,7 +4207,7 @@ public class CaptureModule implements CameraModule, PhotoController,
                             mSessionListener, mCameraHandler, initialRequest);
 
                 } else {
-                    configureCameraSessionWithParameters(mCameraDevice[cameraId], surfaces,
+                    configureCameraSessionWithParameters(cameraId, surfaces,
                             mSessionListener, mCameraHandler, mVideoRequestBuilder.build());
                 }
             } else {
@@ -4313,6 +4339,7 @@ public class CaptureModule implements CameraModule, PhotoController,
         requestAudioFocus();
         try {
             mMediaRecorder.start(); // Recording is now started
+            Log.d(TAG, "StartRecordingVideo done.");
         } catch (RuntimeException e) {
             Toast.makeText(mActivity,"Could not start media recorder.\n " +
                     "Can't start video recording.", Toast.LENGTH_LONG).show();
@@ -4594,9 +4621,14 @@ public class CaptureModule implements CameraModule, PhotoController,
         Log.v(TAG, "pauseVideoRecording");
         mMediaRecorderPausing = true;
         mRecordingTotalTime += SystemClock.uptimeMillis() - mRecordingStartTime;
+        String value = mSettingsManager.getValue(SettingsManager.KEY_EIS_VALUE);
+        boolean noNeedEndofStreamWhenPause = value != null && value.equals("V3");
         // As EIS is not supported for HFR case (>=120 )
         // and FOVC also currently don’t require this for >=120 case
-        if (mHighSpeedCapture && ((int)mHighSpeedFPSRange.getUpper() >= HIGH_SESSION_MAX_FPS)) {
+        // so use noNeedEndOfStreamInHFR to control
+        boolean noNeedEndOfStreamInHFR = mHighSpeedCapture &&
+                ((int)mHighSpeedFPSRange.getUpper() >= HIGH_SESSION_MAX_FPS);
+        if (noNeedEndofStreamWhenPause || noNeedEndOfStreamInHFR) {
             mMediaRecorder.pause();
         } else {
             setEndOfStream(false, false);
@@ -4611,6 +4643,7 @@ public class CaptureModule implements CameraModule, PhotoController,
         setEndOfStream(true, false);
         if (!ApiHelper.HAS_RESUME_SUPPORTED){
             mMediaRecorder.start();
+            Log.d(TAG, "StartRecordingVideo done.");
         } else {
             try {
                 Method resumeRec = Class.forName("android.media.MediaRecorder").getMethod("resume");
@@ -4633,7 +4666,7 @@ public class CaptureModule implements CameraModule, PhotoController,
                 }
             } else {
                 // is pause or stopRecord
-                if (!(mMediaRecorderPausing && mStopRecPending) && (mCurrentSession != null)) {
+                if ((mMediaRecorderPausing || mStopRecPending) && (mCurrentSession != null)) {
                     mCurrentSession.stopRepeating();
                     try {
                         mVideoRequestBuilder.set(CaptureModule.recording_end_stream, (byte) 0x01);
@@ -5298,7 +5331,7 @@ public class CaptureModule implements CameraModule, PhotoController,
         if (value != null) {
             if (value.equals("V2")) {
                 mStreamConfigOptMode = STREAM_CONFIG_MODE_QTIEIS_REALTIME;
-            } else if (value.equals("V3")) {
+            } else if (value.equals("V3") || value.equals("V3SetWhenPause")) {
                 mStreamConfigOptMode = STREAM_CONFIG_MODE_QTIEIS_LOOKAHEAD;
             }
             byte byteValue = (byte) (value.equals("disable") ? 0x00 : 0x01);

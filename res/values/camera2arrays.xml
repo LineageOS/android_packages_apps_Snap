@@ -1056,12 +1056,14 @@ for time lapse recording -->
         <item>@string/pref_camera2_eis_entry_disable</item>
         <item>@string/pref_camera2_eis_entry_v2enable</item>
         <item>@string/pref_camera2_eis_entry_v3enable</item>
+        <item>@string/pref_camera2_eis_entry_v3_set_when_pause</item>
     </string-array>
 
     <string-array name="pref_camera2_eis_entryvalues" translatable="false">
         <item>@string/pref_camera2_eis_entry_value_disable</item>
         <item>@string/pref_camera2_eis_entry_value_v2enable</item>
         <item>@string/pref_camera2_eis_entry_value_v3enable</item>
+        <item>@string/pref_camera2_eis_entry_value_v3_set_when_pause</item>
     </string-array>
 
     <string-array name="pref_camera2_fovc_entries" translatable="false">
