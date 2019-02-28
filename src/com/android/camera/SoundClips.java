@@ -18,6 +18,7 @@ package com.android.camera;
 
 import android.annotation.TargetApi;
 import android.content.Context;
+import android.media.AudioAttributes;
 import android.media.AudioManager;
 import android.media.MediaActionSound;
 import android.media.SoundPool;
@@ -48,12 +49,6 @@ public class SoundClips {
         } else {
             return new SoundPoolPlayer(context);
         }
-    }
-
-    public static int getAudioTypeForSoundPool() {
-        // STREAM_SYSTEM_ENFORCED is hidden API.
-        return ApiHelper.getIntFieldIfExists(AudioManager.class,
-                "STREAM_SYSTEM_ENFORCED", null, AudioManager.STREAM_RING);
     }
 
     /**
@@ -136,7 +131,14 @@ public class SoundClips {
 
             mSoundIDToPlay = ID_NOT_LOADED;
 
-            mSoundPool = new SoundPool(NUM_SOUND_STREAMS, getAudioTypeForSoundPool(), 0);
+            mSoundPool = new SoundPool.Builder()
+                    .setMaxStreams(NUM_SOUND_STREAMS)
+                    .setAudioAttributes(new AudioAttributes.Builder()
+                                    .setUsage(AudioAttributes.USAGE_ASSISTANCE_SONIFICATION)
+                                    .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
+                                    .setFlags(AudioAttributes.FLAG_AUDIBILITY_ENFORCED)
+                                    .build())
+                    .build();
             mSoundPool.setOnLoadCompleteListener(this);
 
             mSoundIDs = new int[SOUND_RES.length];

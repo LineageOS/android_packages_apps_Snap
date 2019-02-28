@@ -17,6 +17,7 @@
 package com.android.camera;
 
 import android.content.Context;
+import android.media.AudioAttributes;
 import android.media.AudioManager;
 import android.media.SoundPool;
 import android.util.SparseIntArray;
@@ -39,8 +40,14 @@ public class SoundPlayer {
      */
     public SoundPlayer(Context appContext) {
         mAppContext = appContext;
-        final int audioType = getAudioTypeForSoundPool();
-        mSoundPool = new SoundPool(1 /* max streams */, audioType, 0 /* quality */);
+        mSoundPool = new SoundPool.Builder()
+                .setMaxStreams(1)
+                .setAudioAttributes(new AudioAttributes.Builder()
+                        .setUsage(AudioAttributes.USAGE_ASSISTANCE_SONIFICATION)
+                        .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
+                        .setFlags(AudioAttributes.FLAG_AUDIBILITY_ENFORCED)
+                        .build())
+                .build();
     }
 
     /**
@@ -85,11 +92,5 @@ public class SoundPlayer {
 
     public boolean isReleased() {
         return mIsReleased;
-    }
-
-    private static int getAudioTypeForSoundPool() {
-        // STREAM_SYSTEM_ENFORCED is hidden API.
-        return ApiHelper.getIntFieldIfExists(AudioManager.class,
-                "STREAM_SYSTEM_ENFORCED", null, AudioManager.STREAM_RING);
     }
 }

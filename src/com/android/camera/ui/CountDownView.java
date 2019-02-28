@@ -20,6 +20,7 @@ import java.util.Locale;
 
 import android.content.Context;
 import android.content.res.Configuration;
+import android.media.AudioAttributes;
 import android.media.AudioManager;
 import android.media.SoundPool;
 import android.os.Handler;
@@ -62,9 +63,22 @@ public class CountDownView extends FrameLayout {
         if (mSoundPool == null) {
             // Load the beeps
             if (mContext.getResources().getBoolean(R.bool.force_count_down_sound)) {
-                mSoundPool = new SoundPool(1, AudioManager.STREAM_SYSTEM_ENFORCED, 0);
+                mSoundPool = new SoundPool.Builder()
+                        .setMaxStreams(1)
+                        .setAudioAttributes(new AudioAttributes.Builder()
+                                        .setUsage(AudioAttributes.USAGE_ASSISTANCE_SONIFICATION)
+                                        .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
+                                        .setFlags(AudioAttributes.FLAG_AUDIBILITY_ENFORCED)
+                                        .build())
+                        .build();
             } else {
-                mSoundPool = new SoundPool(1, AudioManager.STREAM_NOTIFICATION, 0);
+                mSoundPool = new SoundPool.Builder()
+                        .setMaxStreams(1)
+                        .setAudioAttributes(new AudioAttributes.Builder()
+                                        .setUsage(AudioAttributes.USAGE_ASSISTANCE_SONIFICATION)
+                                        .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
+                                        .build())
+                        .build();
             }
             mBeepOnce = mSoundPool.load(mContext, R.raw.beep_once, 1);
             mBeepTwice = mSoundPool.load(mContext, R.raw.beep_twice, 1);
