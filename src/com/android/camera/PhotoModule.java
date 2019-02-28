@@ -41,6 +41,7 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.location.Location;
+import android.media.AudioAttributes;
 import android.media.AudioManager;
 import android.media.CameraProfile;
 import android.media.SoundPool;
@@ -2659,7 +2660,13 @@ public class PhotoModule
 
         mUI.setSwitcherIndex();
         if (mSoundPool == null) {
-            mSoundPool = new SoundPool(1, AudioManager.STREAM_NOTIFICATION, 0);
+            mSoundPool = new SoundPool.Builder()
+                    .setMaxStreams(1)
+                    .setAudioAttributes(new AudioAttributes.Builder()
+                                    .setUsage(AudioAttributes.USAGE_ASSISTANCE_SONIFICATION)
+                                    .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
+                                    .build())
+                    .build();
             mRefocusSound = mSoundPool.load(mActivity, R.raw.camera_click_x5, 1);
         }
 
