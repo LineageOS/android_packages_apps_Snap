@@ -301,6 +301,7 @@ public class CameraSettings {
     public static String mKeyIso = null;
     public static String mKeyIsoValues = null;
 
+    private static boolean mSupportDis = false;
     private static boolean mSupportBokehMode = false;
 
     private static final HashMap<Integer, String>
@@ -491,6 +492,9 @@ public class CameraSettings {
             Log.d(TAG, "Using key for iso-values: " + mKeyIsoValues);
         }
 
+        // Image stabilization
+        mSupportDis = mContext.getResources().getBoolean(R.bool.support_dis);
+
         // Bokeh mode
         mSupportBokehMode = mContext.getResources().getBoolean(R.bool.support_bokeh_mode);
     }
@@ -631,6 +635,8 @@ public class CameraSettings {
     }
 
     public static List<String> getSupportedDISModes(Parameters params) {
+        if (!mSupportDis)
+            return null;
         String str = params.get(KEY_QC_SUPPORTED_DIS_MODES);
         if (str == null) {
             return null;
