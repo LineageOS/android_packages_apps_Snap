@@ -247,6 +247,10 @@
     <!-- The default quality value is NULL -->
     <string name="pref_video_quality_default" translatable="false">1920x1080</string>
     <!-- Video quality setting entry.
+    Videos will be recorded in 8k DCI quality. [CHAR LIMIT=24] -->
+    <string name="pref_video_quality_entry_8k" translatable="false">
+    8k</string>
+    <!-- Video quality setting entry.
     Videos will be recorded in 4k DCI quality. [CHAR LIMIT=24] -->
     <string name="pref_video_quality_entry_4kdci" translatable="false">
     4k DCI</string>
