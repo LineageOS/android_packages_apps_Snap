@@ -454,6 +454,7 @@ public class SettingsManager implements ListMenu.SettingsListener {
             supportLists.add("<Front camera support VideoSizes and fps>");
             for (int i=0; i < frontVideoLists.size(); i++) {
                 String videoSize = frontVideoLists.get(i);
+                Log.d("zhuw", "front video size = " + videoSize);
                 List<String> fps = getSupportedHFRForAutoTest(videoSize);
                 supportLists.add(videoSize);
                 supportLists.addAll(fps);
@@ -466,6 +467,7 @@ public class SettingsManager implements ListMenu.SettingsListener {
         supportLists.add("<Back camera support VideoSizes and fps>");
         for (int i=0; i < backVideoLists.size(); i++) {
             String videoSize = backVideoLists.get(i);
+            Log.d("zhuw", "back video size = " + videoSize);
             List<String> fps = getSupportedHFRForAutoTest(videoSize);
             supportLists.add(videoSize);
             supportLists.addAll(fps);
@@ -1408,7 +1410,8 @@ public class SettingsManager implements ListMenu.SettingsListener {
                                 videoSize.getWidth() < vEncoder.mMinFrameWidth ||
                                 videoSize.getHeight() > vEncoder.mMaxFrameHeight ||
                                 videoSize.getHeight() < vEncoder.mMinFrameHeight) {
-                            Log.e(TAG, "Codec = " + vEncoder.mCodec + ", capabilities: " +
+                            Log.d("zhuw", "error size " + videoSizeStr);
+                            Log.e("zhuw", "Codec = " + vEncoder.mCodec + ", capabilities: " +
                                     "mMinFrameWidth = " + vEncoder.mMinFrameWidth + " , " +
                                     "mMinFrameHeight = " + vEncoder.mMinFrameHeight + " , " +
                                     "mMaxFrameWidth = " + vEncoder.mMaxFrameWidth + " , " +
@@ -1529,6 +1532,10 @@ public class SettingsManager implements ListMenu.SettingsListener {
                                 rate = String.valueOf(r.getUpper());
                                 supported.add("hfr" + rate);
                                 supported.add("hsr" + rate);
+                                if (PersistUtil.isSSMEnabled()) {
+                                    supported.add("2x_" + rate);
+                                    supported.add("4x_" + rate);
+                                }
                                 mHighestSpeedVideoRate = Integer.valueOf(rate) > mHighestSpeedVideoRate ?
                                         Integer.valueOf(rate) : mHighestSpeedVideoRate;
                             }
@@ -1549,6 +1556,10 @@ public class SettingsManager implements ListMenu.SettingsListener {
                                     videoSize.getWidth(), videoSize.getHeight(), mExtendedHFRSize[i + 2])) {
                                 supported.add(item);
                                 supported.add("hsr" + mExtendedHFRSize[i + 2]);
+                                if (PersistUtil.isSSMEnabled()) {
+                                    supported.add("2x_" + mExtendedHFRSize[i + 2]);
+                                    supported.add("4x_" + mExtendedHFRSize[i + 2]);
+                                }
                                 mHighestSpeedVideoRate = mExtendedHFRSize[i + 2] > mHighestSpeedVideoRate ?
                                         mExtendedHFRSize[i + 2] : mHighestSpeedVideoRate;
                             }

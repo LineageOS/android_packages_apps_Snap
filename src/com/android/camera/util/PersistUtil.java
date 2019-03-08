@@ -127,6 +127,8 @@ public class PersistUtil {
             SystemProperties.get("persist.sys.camera.display.lmax", "");
     private static final boolean PERSIST_BURST_SHOT_FPS_ENABLED =
             SystemProperties.getBoolean("persist.sys.camera.burst.shot.fps", false);
+    private static final boolean PERSIST_SSM_ENABLE =
+            SystemProperties.getBoolean("persist.sys.camera.ssm.enable", false);
 
     public static int getMemoryLimit() {
         return PERSIST_MEMORY_LIMIT;
@@ -327,5 +329,9 @@ public class PersistUtil {
 
     public static boolean isBurstShotFpsEnabled() {
         return PERSIST_BURST_SHOT_FPS_ENABLED;
+    }
+
+    public static boolean isSSMEnabled() {
+        return PERSIST_SSM_ENABLE;
     }
 }
