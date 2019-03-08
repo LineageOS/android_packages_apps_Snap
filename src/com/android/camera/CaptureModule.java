@@ -421,7 +421,6 @@ public class CaptureModule implements CameraModule, PhotoController,
     private int mDisplayOrientation;
     private boolean mIsRefocus = false;
     private int mChosenImageFormat;
-    private Toast mToast;
 
     private boolean mStartRecPending = false;
     private boolean mStopRecPending = false;
@@ -923,7 +922,7 @@ public class CaptureModule implements CameraModule, PhotoController,
             mCamerasOpened = false;
 
             if (null != mActivity) {
-                Toast.makeText(mActivity,"open camera error id =" + id,
+                RotateTextToast.makeText(mActivity,"open camera error id =" + id,
                         Toast.LENGTH_LONG).show();
                 mActivity.finish();
             }
@@ -2930,7 +2929,6 @@ public class CaptureModule implements CameraModule, PhotoController,
         cancelTouchFocus();
         mPaused = true;
         writeXMLForWarmAwb();
-        mToast = null;
         mUI.onPause();
         if (mIsRecordingVideo) {
             stopRecordingVideo(getMainCameraId());
@@ -3212,7 +3210,8 @@ public class CaptureModule implements CameraModule, PhotoController,
             if (mIntentMode != CaptureModule.INTENT_MODE_NORMAL) {
                 mSettingsManager.setValue(
                         SettingsManager.KEY_SCENE_MODE, ""+SettingsManager.SCENE_MODE_AUTO_INT);
-                showToast("Pano Capture is not supported in this mode");
+                RotateTextToast.makeText(mActivity, "Pano Capture is not supported in this mode",
+                        Toast.LENGTH_LONG).show();
             } else {
                 mActivity.onModuleSelected(ModuleSwitcher.PANOCAPTURE_MODULE_INDEX);
             }
@@ -3976,7 +3975,7 @@ public class CaptureModule implements CameraModule, PhotoController,
 
         @Override
         public void onConfigureFailed(CameraCaptureSession cameraCaptureSession) {
-            Toast.makeText(mActivity, "Video Failed", Toast.LENGTH_SHORT).show();
+            RotateTextToast.makeText(mActivity, "Video Failed", Toast.LENGTH_SHORT).show();
         }
     };
 
@@ -4035,7 +4034,7 @@ public class CaptureModule implements CameraModule, PhotoController,
 
         @Override
         public void onConfigureFailed(CameraCaptureSession cameraCaptureSession) {
-            Toast.makeText(mActivity, "Video Failed", Toast.LENGTH_SHORT).show();
+            RotateTextToast.makeText(mActivity, "Video Failed", Toast.LENGTH_SHORT).show();
         }
     };
 
@@ -4258,7 +4257,7 @@ public class CaptureModule implements CameraModule, PhotoController,
 
                                 @Override
                                 public void onConfigureFailed(CameraCaptureSession cameraCaptureSession) {
-                                    Toast.makeText(mActivity, "Failed", Toast.LENGTH_SHORT).show();
+                                    RotateTextToast.makeText(mActivity, "Failed", Toast.LENGTH_SHORT).show();
                                 }
                             }, null);
                 } else {
@@ -4312,7 +4311,7 @@ public class CaptureModule implements CameraModule, PhotoController,
     }
 
     private void quitRecordingWithError(String msg) {
-        Toast.makeText(mActivity,"Could not start media recorder.\n " +
+        RotateTextToast.makeText(mActivity,"Could not start media recorder.\n " +
                 msg, Toast.LENGTH_LONG).show();
         releaseMediaRecorder();
         releaseAudioFocus();
@@ -4341,7 +4340,7 @@ public class CaptureModule implements CameraModule, PhotoController,
             mMediaRecorder.start(); // Recording is now started
             Log.d(TAG, "StartRecordingVideo done.");
         } catch (RuntimeException e) {
-            Toast.makeText(mActivity,"Could not start media recorder.\n " +
+            RotateTextToast.makeText(mActivity,"Could not start media recorder.\n " +
                     "Can't start video recording.", Toast.LENGTH_LONG).show();
             releaseMediaRecorder();
             releaseAudioFocus();
@@ -6685,15 +6684,6 @@ public class CaptureModule implements CameraModule, PhotoController,
                 mVideoFilename = null;
             }
         }
-    }
-
-    private void showToast(String tips) {
-        if (mToast == null) {
-            mToast = Toast.makeText(mActivity, tips, Toast.LENGTH_LONG);
-            mToast.setGravity(Gravity.CENTER, 0, 0);
-        }
-        mToast.setText(tips);
-        mToast.show();
     }
 
     private boolean isRecorderReady() {

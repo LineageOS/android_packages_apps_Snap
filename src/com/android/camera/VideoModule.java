@@ -2107,7 +2107,7 @@ public class VideoModule implements CameraModule,
         try {
             mMediaRecorder.start(); // Recording is now started
         } catch (RuntimeException e) {
-            Toast.makeText(mActivity,"Could not start media recorder.\n Can't start video recording.", Toast.LENGTH_LONG).show();
+            RotateTextToast.makeText(mActivity,"Could not start media recorder.\n Can't start video recording.", Toast.LENGTH_LONG).show();
             releaseMediaRecorder();
             releaseAudioFocus();
             // If start fails, frameworks will not lock the camera for us.
@@ -2736,7 +2736,7 @@ public class VideoModule implements CameraModule,
                         mActivity.getString(R.string.pref_camera_video_cds_value_off));
                 mUI.overrideSettings(CameraSettings.KEY_VIDEO_CDS_MODE,
                         mActivity.getString(R.string.pref_camera_video_cds_value_off));
-                Toast.makeText(mActivity, R.string.disable_CDS_during_HighQualityNoiseReduction,
+                RotateTextToast.makeText(mActivity, R.string.disable_CDS_during_HighQualityNoiseReduction,
                         Toast.LENGTH_LONG).show();
             }
 
@@ -2749,7 +2749,7 @@ public class VideoModule implements CameraModule,
                         mActivity.getString(R.string.pref_camera_video_tnr_value_off));
                 mUI.overrideSettings(CameraSettings.KEY_VIDEO_TNR_MODE,
                         mActivity.getString(R.string.pref_camera_video_tnr_value_off));
-                Toast.makeText(mActivity, R.string.disable_TNR_during_HighQualityNoiseReduction,
+                RotateTextToast.makeText(mActivity, R.string.disable_TNR_during_HighQualityNoiseReduction,
                         Toast.LENGTH_LONG).show();
             }
 
@@ -2773,7 +2773,7 @@ public class VideoModule implements CameraModule,
                     mActivity.getString(R.string.pref_camera_video_cds_value_off));
                 mUI.overrideSettings(CameraSettings.KEY_VIDEO_CDS_MODE,
                     mActivity.getString(R.string.pref_camera_video_cds_value_off));
-                Toast.makeText(mActivity, R.string.disable_CDS_during_SeeMore,
+                RotateTextToast.makeText(mActivity, R.string.disable_CDS_during_SeeMore,
                     Toast.LENGTH_LONG).show();
             }
 
@@ -2786,7 +2786,7 @@ public class VideoModule implements CameraModule,
                     mActivity.getString(R.string.pref_camera_video_tnr_value_off));
                 mUI.overrideSettings(CameraSettings.KEY_VIDEO_TNR_MODE,
                     mActivity.getString(R.string.pref_camera_video_tnr_value_off));
-                Toast.makeText(mActivity, R.string.disable_TNR_during_SeeMore,
+                RotateTextToast.makeText(mActivity, R.string.disable_TNR_during_SeeMore,
                     Toast.LENGTH_LONG).show();
             }
 
@@ -2799,7 +2799,7 @@ public class VideoModule implements CameraModule,
                         mActivity.getString(R.string.pref_camera_noise_reduction_value_off));
                 mUI.overrideSettings(CameraSettings.KEY_NOISE_REDUCTION,
                         mActivity.getString(R.string.pref_camera_noise_reduction_value_off));
-                Toast.makeText(mActivity, R.string.disable_NR_during_SeeMore,
+                RotateTextToast.makeText(mActivity, R.string.disable_NR_during_SeeMore,
                         Toast.LENGTH_LONG).show();
             }
             /* Set SeeMore mode */

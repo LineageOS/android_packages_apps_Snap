@@ -499,7 +499,7 @@ public class BestpictureActivity extends FragmentActivity {
         }
         String toastString = getResources().getQuantityString(R.plurals.save_best_image_toast,
                 toSaveCount, toSaveCount);
-        Toast.makeText(BestpictureActivity.this, toastString, Toast.LENGTH_SHORT).show();
+        RotateTextToast.makeText(BestpictureActivity.this, toastString, Toast.LENGTH_SHORT).show();
         backToViewfinder();
     }
 

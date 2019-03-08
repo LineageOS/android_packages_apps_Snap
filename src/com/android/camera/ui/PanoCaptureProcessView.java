@@ -55,7 +55,6 @@ import android.view.OrientationEventListener;
 import android.view.SurfaceView;
 import android.view.View;
 import android.widget.FrameLayout;
-import android.widget.Toast;
 
 import com.android.camera.CameraActivity;
 import com.android.camera.PanoCaptureModule;

@@ -562,7 +562,7 @@ public class SettingsActivity extends PreferenceActivity {
                                             ComboPreferences.getGlobalSharedPreferencesName(SettingsActivity.this),
                                             Context.MODE_PRIVATE);
                                     sp.edit().putBoolean(SettingsManager.KEY_DEVELOPER_MENU, true).apply();
-                                    Toast.makeText(SettingsActivity.this, "Camera developer option is enabled now", Toast.LENGTH_SHORT).show();
+                                    RotateTextToast.makeText(SettingsActivity.this, "Camera developer option is enabled now", Toast.LENGTH_SHORT).show();
                                     recreate();
                                 }
                             } else {

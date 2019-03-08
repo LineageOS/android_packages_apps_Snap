@@ -214,7 +214,7 @@ public class FrameProcessor {
                     (DeepPortraitFilter)mPreviewFilters.get(0);
             mDeepPortraitFilter.init(size.getWidth(),size.getHeight(),0,0);
             if (!mDeepPortraitFilter.getDPInitialized())
-                Toast.makeText(mActivity, "Deepportrait init failed",
+                RotateTextToast.makeText(mActivity, "Deepportrait init failed",
                     Toast.LENGTH_LONG).show();
         } else {
             mDeepPortraitFilter = null;

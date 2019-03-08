@@ -135,7 +135,7 @@ public class PanoCaptureModule implements CameraModule, PhotoController {
                     Log.d(TAG, "STATE_WAITING_LOCK afState:" + afState + " aeState:" + aeState);
                     if (afState == null) {
                         mState = STATE_AF_ERROR;
-                        Toast.makeText(mActivity, "AF state is null, can't take panorama.", Toast.LENGTH_SHORT).show();
+                        RotateTextToast.makeText(mActivity, "AF state is null, can't take panorama.", Toast.LENGTH_SHORT).show();
                         break;
                     }
                     if (CaptureResult.CONTROL_AF_STATE_FOCUSED_LOCKED == afState ||
@@ -411,11 +411,11 @@ public class PanoCaptureModule implements CameraModule, PhotoController {
             manager.openCamera(mCameraId, mStateCallback, mCameraHandler);
         } catch (SecurityException e) {
             Log.e(TAG, "openCamera: " + e.toString());
-            Toast.makeText(mActivity, "Can't open camera, please restart it", Toast.LENGTH_LONG).show();
+            RotateTextToast.makeText(mActivity, "Can't open camera, please restart it", Toast.LENGTH_LONG).show();
             mActivity.finish();
         } catch (CameraAccessException e) {
             Log.e(TAG, "openCamera: " + e.toString());
-            Toast.makeText(mActivity, "Can't open camera, please restart it", Toast.LENGTH_LONG).show();
+            RotateTextToast.makeText(mActivity, "Can't open camera, please restart it", Toast.LENGTH_LONG).show();
             mActivity.finish();
         } catch (InterruptedException e) {
             Log.e(TAG, "openCamera: " + e.toString());
