@@ -16,6 +16,7 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="pref_camera_aspectratio_wide">ಅಗಲವಾದ</string>
     <string name="pref_camera_scenemode_entry_antimotionblur">ಚಲನೆ ಮಂದ ಕಡಿತ</string>
     <string name="pref_camera_scenemode_entry_aqua">ಅಕ್ವಾ</string>
     <string name="pref_camera_scenemode_entry_ar">ವರ್ಧಿತ ರಿಯಾಲಿಟಿ</string>
@@ -31,10 +32,9 @@
     <string name="pref_camera_scenemode_entry_cine">ಸಿನಿ</string>
     <string name="pref_camera_scenemode_entry_closeup">ಕ್ಲೋಸ್‌ಅಪ್</string>
     <string name="pref_camera_scenemode_entry_dark">ಗಾಢ ಹಿನ್ನೆಲೆ</string>
-    <string name="pref_camera_scenemode_entry_dish">ಡಿಶ್</string>
     <string name="pref_camera_scenemode_entry_duskdawn">ಮುಸ್ಸಂಜೆ ಮುಂಜಾನೆ</string>
-    <string name="pref_camera_scenemode_entry_document">ಡಾಕ್ಯುಮೆಂಟ್</string>
-    <string name="pref_camera_scenemode_entry_fallcolor">ಪತನ ಬಣ್ಣ</string>
+    <string name="pref_camera_scenemode_entry_document">ದಸ್ತಾವೇಜು</string>
+    <string name="pref_camera_scenemode_entry_fallcolor">ಶರದ್ರಿತು ಬಣ್ಣ</string>
     <string name="pref_camera_scenemode_entry_fireworks">ಪಟಾಕಿ</string>
     <string name="pref_camera_scenemode_entry_flowers">ಹೂಗಳು</string>
     <string name="pref_camera_scenemode_entry_handheldtwilight">ಹ್ಯಾಂಡ್‌ಹೆಲ್ಡ್ ಟ್ವಿಲೈಟ್</string>
@@ -56,7 +56,7 @@
     <string name="pref_camera_scenemode_entry_sweepstitch">ಸ್ವೀಪ್‌ ಸ್ಟಿಚ್</string>
     <string name="pref_camera_scenemode_entry_text">ಪಠ್ಯ</string>
     <string name="pref_camera_scenemode_entry_theatre">ಥಿಯೇಟರ್</string>
-    <string name="pref_camera_scenemode_entry_whiteboard">ವೈಟ್‌ಬೋರ್ಡ್</string>
+    <string name="pref_camera_scenemode_entry_whiteboard">ಬಿಳಿಹಲಿಗೆ</string>
     <string name="pref_camera_focusmode_entry_continuous">ನಿರಂತರ</string>
     <string name="pref_camera_focusmode_entry_mw_continuous">ನಿರಂತರ (MW)</string>
     <string name="pref_camera_focusmode_entry_extended">ವಿಸ್ತರಿಸಿದ</string>
@@ -66,7 +66,7 @@
     <string name="pref_camera_focusmode_entry_normal">ಸಾಮಾನ್ಯ</string>
     <string name="pref_camera_focusmode_entry_portrait">ಅಂಚು ವಿನ್ಯಾಸ</string>
     <string name="pref_camera_focusmode_entry_hyperfocal">ಹೈಪರ್ ಫೋಕಲ್</string>
-    <string name="pref_camera_coloreffect_entry_washed">ವಾಶ್ಡ್</string>
+    <string name="pref_camera_coloreffect_entry_washed">ತೊಳೆದ</string>
     <string name="pref_camera_coloreffect_entry_vintage_warm">ವಿಂಟೇಜ್ ವಾರ್ಮ್</string>
     <string name="pref_camera_coloreffect_entry_vintage_cold">ವಿಂಟೇಜ್ ಕೋಲ್ಡ್</string>
     <string name="pref_camera_coloreffect_entry_point_blue">ಪಾಯಿಂಟ್ ನೀಲಿ</string>
@@ -84,4 +84,5 @@
     <string name="pref_camera_focustime_entry_10">10ಸೆ</string>
     <string name="pref_camera_focustime_entry_infinite">ಅನಂತ</string>
     <string name="pref_camera_shutter_speed_title">ಶಟರ್ ವೇಗ</string>
+    <string name="pref_camera2_preferences_category_developer">ಪ್ರೌಢ ಆಯ್ಕೆಗಳು</string>
 </resources>

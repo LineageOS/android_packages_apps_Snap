@@ -86,7 +86,7 @@
     <string name="aperture">Agorfa</string>
     <string name="focal_length">Hyd Ffocal</string>
     <string name="white_balance">Cydbwysedd gwyn</string>
-    <string name="exposure_time">Amser Dinoethiad</string>
+    <string name="exposure_time">Amser amlygiad</string>
     <string name="iso">ISO</string>
     <string name="unit_mm">mm</string>
     <string name="manual">Â llaw</string>
@@ -111,6 +111,7 @@
     <string name="pref_camera_id_title">Dewis camera</string>
     <string name="pref_camera_id_entry_back">Nôl</string>
     <string name="pref_camera_id_entry_front">Blaen</string>
+    <string name="pref_camera_recordlocation_title">Lleoliad GPS</string>
     <string name="pref_camera_location_label">LLEOLIAD</string>
     <string name="pref_camera_timer_title">Amserydd cyfrif i lawr</string>
     <plurals name="pref_camera_timer_entry">
@@ -122,6 +123,7 @@
         <item quantity="other">%d eiliad</item>
     </plurals>
     <string name="pref_camera_timer_sound_title">Bipio wrth gyfrif i lawr</string>
+    <string name="pref_camera_savepath_title">Storfa</string>
     <string name="pref_camera_savepath_entry_0">Ffôn</string>
     <string name="pref_camera_savepath_entry_1">Cerdyn SD</string>
     <string name="setting_off">I Ffwrdd</string>
@@ -180,8 +182,17 @@
     <string name="pref_camera_countdown_label_ten">10 EILIAD</string>
     <string name="pref_camera_countdown_label_fifteen">15 EILIAD</string>
     <string name="not_selectable_in_scene_mode">Nid yw\'n bosib ei ddewis mewn modd golygfa.</string>
-    <string name="pref_exposure_title">Goleuni</string>
-    <string name="pref_exposure_label">GOLEUNI</string>
+    <string name="HDR_disable_continuous_shot">Bydd HDR yn analluogi cipio parhaus.</string>
+    <string name="advanced_capture_disable_continuous_shot">Bydd cipiad uwch yn analluogi cipio parhaus.</string>
+    <string name="video_quality_4k_disable_IS">Bydd defnyddio ansawdd fideo 4k yn analluogi sefydlogi\'r llun.</string>
+    <string name="video_quality_4k_disable_SeeMore">Ni ellir galluogi SeeMore yn ystod fideo 4k.</string>
+    <string name="disable_CDS_during_HighQualityNoiseReduction">Bydd lleihad sŵn o ansawdd uchel yn analluogi CDS.</string>
+    <string name="disable_TNR_during_HighQualityNoiseReduction">Bydd lleihad sŵn o ansawdd uchel yn analluogi TNR.</string>
+    <string name="disable_CDS_during_SeeMore">Bydd SeeMore yn analluogi CDS.</string>
+    <string name="disable_TNR_during_SeeMore">Bydd SeeMore yn analluogi TNR.</string>
+    <string name="disable_NR_during_SeeMore">Bydd SeeMore yn analluogi lleihad sŵn.</string>
+    <string name="pref_exposure_title">Amlygiad</string>
+    <string name="pref_exposure_label">AMLYGIAD</string>
     <string name="pref_camera_hdr_label">HDR</string>
     <string name="pref_camera_id_label_back">CAMERA BLAEN</string>
     <string name="pref_camera_id_label_front">CAMERA CEFN</string>
@@ -291,6 +302,8 @@
     <string name="cannot_load_image">Methu â llwytho\'r ddelwedd!</string>
     <string name="switch_photo_filmstrip">Golwg stribed ffilm</string>
     <string name="setting_wallpaper">Yn gosod fel papur wal</string>
+    <string name="remaining_photos_format">%d yn weddill</string>
+    <string name="makeup_video_size_limit">Dyw colur ond yn gweithio dan faint VGA wrth recordio fideo.</string>
     <string name="pref_camera2_category_system">System</string>
     <string name="pref_camera2_restore_default">Adfer y rhagosodiadau</string>
     <string name="pref_camera2_restore_default_hint">Caiff gosodiadau\'r camer eu hailosod i\'r gosodiadau rhagosodedig</string>

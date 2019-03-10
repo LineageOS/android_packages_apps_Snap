@@ -95,6 +95,7 @@
     <string name="pref_camera_id_title">Choose camera</string>
     <string name="pref_camera_id_entry_back">Back</string>
     <string name="pref_camera_id_entry_front">Front</string>
+    <string name="pref_camera_recordlocation_title">GPS location</string>
     <string name="pref_camera_location_label">LOCATION</string>
     <string name="pref_camera_timer_title">Countdown timer</string>
     <plurals name="pref_camera_timer_entry">
@@ -102,6 +103,9 @@
         <item quantity="other">%d seconds</item>
     </plurals>
     <string name="pref_camera_timer_sound_title">Beep during countdown</string>
+    <string name="pref_camera_savepath_title">Storage</string>
+    <string name="pref_camera_savepath_entry_0">Phone</string>
+    <string name="pref_camera_savepath_entry_1">SD Card</string>
     <string name="setting_off">Off</string>
     <string name="setting_on">On</string>
     <string name="pref_video_quality_title">Video quality</string>
@@ -158,6 +162,15 @@
     <string name="pref_camera_countdown_label_ten">10 SECONDS</string>
     <string name="pref_camera_countdown_label_fifteen">15 SECONDS</string>
     <string name="not_selectable_in_scene_mode">Not selectable in scene mode.</string>
+    <string name="HDR_disable_continuous_shot">HDR will disable continuous shot.</string>
+    <string name="advanced_capture_disable_continuous_shot">Advanced capture will disable continuous shot.</string>
+    <string name="video_quality_4k_disable_IS">4k video quality will disable image stabilization.</string>
+    <string name="video_quality_4k_disable_SeeMore">SeeMore cannot be enabled during 4k video.</string>
+    <string name="disable_CDS_during_HighQualityNoiseReduction">High quality noise reduction will disable CDS.</string>
+    <string name="disable_TNR_during_HighQualityNoiseReduction">High quality noise reduction will disable TNR.</string>
+    <string name="disable_CDS_during_SeeMore">SeeMore will disable CDS.</string>
+    <string name="disable_TNR_during_SeeMore">SeeMore will disable TNR.</string>
+    <string name="disable_NR_during_SeeMore">SeeMore will disable noise reduction.</string>
     <string name="pref_exposure_title">Exposure</string>
     <string name="pref_exposure_label">EXPOSURE</string>
     <string name="pref_camera_hdr_label">HDR</string>
@@ -269,6 +282,8 @@
     <string name="cannot_load_image">Cannot load the image!</string>
     <string name="switch_photo_filmstrip">Filmstrip view</string>
     <string name="setting_wallpaper">Setting wallpaper</string>
+    <string name="remaining_photos_format">%d left</string>
+    <string name="makeup_video_size_limit">Makeup works only under VGA size in video recording.</string>
     <string name="pref_camera2_category_system">System</string>
     <string name="pref_camera2_restore_default">Restore defaults</string>
     <string name="pref_camera2_restore_default_hint">Camera settings will be restored to default settings</string>
@@ -294,4 +309,5 @@
     <string name="delete_all_best_dialog_positive_bt">Delete all</string>
     <string name="overflow_best_item1">Save all</string>
     <string name="overflow_best_item2">Delete all</string>
+    <string name="settings_title">Settings</string>
 </resources>
