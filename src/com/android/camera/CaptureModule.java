@@ -5297,8 +5297,10 @@ public class CaptureModule implements CameraModule, PhotoController,
         mIsRecordingVideo = false;
         if (isEISDisable() && isAbortCapturesEnable()) {
             try {
-                mCurrentSession.abortCaptures();
-                Log.d(TAG, "stopRecordingVideo call abortCaptures ");
+                if (mCurrentSession != null) {
+                    mCurrentSession.abortCaptures();
+                    Log.d(TAG, "stopRecordingVideo call abortCaptures ");
+                }
             } catch (CameraAccessException e) {
                 e.printStackTrace();
             } catch (IllegalStateException e) {
