@@ -140,15 +140,6 @@
         camera:title="@string/pref_camera_redeyereduction_title"/>
 
     <IconListPreference
-        camera:defaultValue="@string/pref_camera_id_default"
-        camera:entries="@array/pref_camera2_id_entries"
-        camera:icons="@array/pref_camera2_id_icons"
-        camera:key="pref_camera2_id_key"
-        camera:labelList="@array/pref_camera2_id_labels"
-        camera:largeIcons="@array/pref_camera2_id_largeicons"
-        camera:title="@string/pref_camera_id_title"/>
-
-    <IconListPreference
         camera:entries="@array/pref_camera2_picturesize_entries"
         camera:entryValues="@array/pref_camera2_picturesize_entryvalues"
         camera:key="pref_camera2_picturesize_key"
@@ -449,6 +440,11 @@
         camera:title="@string/pref_camera2_force_aux_title"
         camera:entries="@array/pref_camera2_force_aux_entries"
         camera:entryValues="@array/pref_camera2_force_aux_entryvalues" />
+
+    <ListPreference
+        camera:defaultValue="@string/pref_camera2_switch_camera_default"
+        camera:key="pref_camera2_switch_camera_key"
+        camera:title="@string/pref_camera2_switch_camera_title"/>
 
     <ListPreference
         camera:key="pref_camera2_switcher_key"
