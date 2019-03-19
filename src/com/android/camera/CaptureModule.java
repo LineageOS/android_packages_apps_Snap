@@ -2244,7 +2244,7 @@ public class CaptureModule implements CameraModule, PhotoController,
                     String value = mSettingsManager.getValue(SettingsManager.KEY_JPEG_QUALITY);
                     int quality = getQualityNumber(value);
                     int orientation = CameraUtil.getJpegRotation(id,mOrientation);
-                    int imageCount = mLongshotActive? MAX_IMAGEREADERS*2 : 1;
+                    int imageCount = mLongshotActive? MAX_IMAGEREADERS*4 : 1;
                     HeifWriter writer = createHEIFEncoder(path,mPictureSize.getWidth(),mPictureSize.getHeight(),
                             orientation,imageCount,quality);
                     if (writer != null) {
@@ -2427,7 +2427,7 @@ public class CaptureModule implements CameraModule, PhotoController,
     private void captureStillPictureForLongshot(CaptureRequest.Builder captureBuilder, int id) throws CameraAccessException{
         List<CaptureRequest> burstList = new ArrayList<>();
         boolean isBurstShotFpsEnable = PersistUtil.isBurstShotFpsEnabled();
-        for (int i = 0; i < MAX_IMAGEREADERS*2; i++) {
+        for (int i = 0; i < MAX_IMAGEREADERS*4; i++) {
             if (isBurstShotFpsEnable) {
                 mPreviewRequestBuilder[id].setTag("preview");
                 burstList.add(mPreviewRequestBuilder[id].build());
@@ -5300,6 +5300,8 @@ public class CaptureModule implements CameraModule, PhotoController,
                 mCurrentSession.abortCaptures();
                 Log.d(TAG, "stopRecordingVideo call abortCaptures ");
             } catch (CameraAccessException e) {
+                e.printStackTrace();
+            } catch (IllegalStateException e) {
                 e.printStackTrace();
             }
         }
