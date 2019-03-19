@@ -243,6 +243,7 @@ public class CaptureModule implements CameraModule, PhotoController,
     private float mBGain = -1.0f;
     private float mCctAWB = -1.0f;
     private float[] mAWBDecisionAfterTC = new float[2];
+    private float[] mAECSensitivity = new float[3];
 
     /** Add for EIS and FOVC Configuration */
     private int mStreamConfigOptMode = 0;
@@ -377,6 +378,13 @@ public class CaptureModule implements CameraModule, PhotoController,
     private static final CaptureRequest.Key<Float[]> awbWarmStart_decision_after_tc =
             new CaptureRequest.Key<>("org.quic.camera2.statsconfigs.AWBDecisionAfterTC", Float[].class);
 
+    //AEC warm start
+    private static final CaptureResult.Key<float[]> aec_sensitivity =
+            new CaptureResult.Key<>("org.quic.camera2.statsconfigs.AECSensitivity", float[].class);
+
+    private static final CaptureRequest.Key<Float[]> aec_start_up_sensitivity =
+            new CaptureRequest.Key<>("org.quic.camera2.statsconfigs.AECStartUpSensitivity", Float[].class);
+
     public static final CaptureRequest.Key<Integer> sharpness_control = new CaptureRequest.Key<>(
             "org.codeaurora.qcamera3.sharpness.strength", Integer.class);
     public static final CaptureRequest.Key<Integer> exposure_metering = new CaptureRequest.Key<>(
@@ -456,6 +464,7 @@ public class CaptureModule implements CameraModule, PhotoController,
 
     boolean mUnsupportedResolution = false;
     private boolean mExistAWBVendorTag = true;
+    private boolean mExistAECWarmTag = true;
 
     private static final long SDCARD_SIZE_LIMIT = 4000 * 1024 * 1024L;
     private static final String sTempCropFilename = "crop-temp";
@@ -6432,6 +6441,9 @@ public class CaptureModule implements CameraModule, PhotoController,
         float cct = pref.getFloat(SettingsManager.KEY_AWB_CCT_VALUE, awbDefault);
         float tc0 = pref.getFloat(SettingsManager.KEY_AWB_DECISION_AFTER_TC_0, awbDefault);
         float tc1 = pref.getFloat(SettingsManager.KEY_AWB_DECISION_AFTER_TC_1, awbDefault);
+        float aec0 = pref.getFloat(SettingsManager.KEY_AEC_SENSITIVITY_0, awbDefault);
+        float aec1 = pref.getFloat(SettingsManager.KEY_AEC_SENSITIVITY_1, awbDefault);
+        float aec2 = pref.getFloat(SettingsManager.KEY_AEC_SENSITIVITY_2, awbDefault);
         if (rGain != awbDefault && gGain != awbDefault && gGain != bGain) {
             Float[] awbGains = {rGain, gGain, bGain};
             Float[] tcs = {tc0, tc1};
@@ -6446,23 +6458,38 @@ public class CaptureModule implements CameraModule, PhotoController,
                 e.printStackTrace();
             }
         }
+        if (aec0 != awbDefault && aec1 != awbDefault && aec2 != awbDefault) {
+            Float[] aecGains = {aec0, aec1, aec2};
+            try {
+                request.set(CaptureModule.aec_start_up_sensitivity, aecGains);
+                result = true;
+            } catch (IllegalArgumentException e) {
+                e.printStackTrace();
+            }
+        } else {
+            Log.v(TAG, " applyAWBCCTAndAgain aec0 :" + aec0 + " " + aec1 + " " + aec2);
+        }
         return result;
     }
 
-    private boolean updateAWBCCTAndgains(CaptureResult awbResult) {
+    private boolean updateAWBCCTAndgains(CaptureResult captureResult) {
         boolean result = false;
-        if (awbResult != null) {
+        if (captureResult != null) {
             try {
                 if (mExistAWBVendorTag) {
-                    mRGain = awbResult.get(CaptureModule.awbFrame_control_rgain);
-                    mGGain = awbResult.get(CaptureModule.awbFrame_control_ggain);
-                    mBGain = awbResult.get(CaptureModule.awbFrame_control_bgain);
-                    mCctAWB = awbResult.get(CaptureModule.awbFrame_control_cct);
-                    mAWBDecisionAfterTC = awbResult.get(CaptureModule.awbFrame_decision_after_tc);
-                    result = true;
+                    mRGain = captureResult.get(CaptureModule.awbFrame_control_rgain);
+                    mGGain = captureResult.get(CaptureModule.awbFrame_control_ggain);
+                    mBGain = captureResult.get(CaptureModule.awbFrame_control_bgain);
+                    mCctAWB = captureResult.get(CaptureModule.awbFrame_control_cct);
+                    mAWBDecisionAfterTC = captureResult.get(CaptureModule.awbFrame_decision_after_tc);
                 }
+                if (mExistAECWarmTag) {
+                    mAECSensitivity = captureResult.get(CaptureModule.aec_sensitivity);
+                }
+                result = true;
             } catch (IllegalArgumentException e) {
                 mExistAWBVendorTag = false;
+                mExistAECWarmTag = false;
                 e.printStackTrace();
             } catch(NullPointerException e) {
             }
@@ -6481,6 +6508,9 @@ public class CaptureModule implements CameraModule, PhotoController,
         editor.putFloat(SettingsManager.KEY_AWB_CCT_VALUE, mCctAWB);
         editor.putFloat(SettingsManager.KEY_AWB_DECISION_AFTER_TC_0, mAWBDecisionAfterTC[0]);
         editor.putFloat(SettingsManager.KEY_AWB_DECISION_AFTER_TC_1, mAWBDecisionAfterTC[1]);
+        editor.putFloat(SettingsManager.KEY_AEC_SENSITIVITY_0, mAECSensitivity[0]);
+        editor.putFloat(SettingsManager.KEY_AEC_SENSITIVITY_1, mAECSensitivity[1]);
+        editor.putFloat(SettingsManager.KEY_AEC_SENSITIVITY_2, mAECSensitivity[2]);
         editor.apply();
     }
 
