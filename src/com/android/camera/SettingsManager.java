@@ -1247,7 +1247,9 @@ public class SettingsManager implements ListMenu.SettingsListener {
         String scene = getValue(SettingsManager.KEY_SCENE_MODE);
         ListPreference picturePref = mPreferenceGroup.findPreference(KEY_PICTURE_SIZE);
         if (picturePref == null) return;
-        picturePref.reloadInitialEntriesAndEntryValues();
+        CameraSettings.formatPictureSizes(picturePref,
+                getSupportedPictureSizeList(getCurrentCameraId()), mContext);
+        CameraSettings.resetIfInvalid(picturePref);
         if (Integer.parseInt(scene) == SCENE_MODE_CHROMAFLASH_INT) {
             if (filterUnsupportedOptions(picturePref, getSupportedChromaFlashPictureSize())) {
                 mFilteredKeys.add(picturePref.getKey());
