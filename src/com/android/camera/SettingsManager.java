@@ -515,8 +515,10 @@ public class SettingsManager implements ListMenu.SettingsListener {
             if (mCharacteristics.size() > 0) {
                 mExtendedHFRSize = mCharacteristics.get(cameraId).get(CaptureModule.hfrFpsTable);
             }
-        }catch(IllegalArgumentException exception) {
+        } catch(IllegalArgumentException exception) {
             exception.printStackTrace();
+        } catch(NullPointerException e) {
+            Log.w(TAG, "Supported hfrFpsTable is null.");
         }
 
         filterPreferences(cameraId);
@@ -684,6 +686,8 @@ public class SettingsManager implements ListMenu.SettingsListener {
             sensorModeTable = mCharacteristics.get(cameraId).get(CaptureModule.sensorModeTable);
         } catch (IllegalArgumentException exception) {
             exception.printStackTrace();
+        } catch(NullPointerException e) {
+            Log.w(TAG, "Supported sensorModeTable is null.");
         }
         return sensorModeTable;
     }
@@ -695,6 +699,8 @@ public class SettingsManager implements ListMenu.SettingsListener {
                     CaptureModule.highSpeedVideoConfigs);
         } catch (IllegalArgumentException exception) {
             exception.printStackTrace();
+        } catch(NullPointerException e) {
+            Log.w(TAG, "Supported highSpeedVideoConfigs is null.");
         }
         return highSpeedVideoConfigs;
     }
@@ -1609,6 +1615,8 @@ public class SettingsManager implements ListMenu.SettingsListener {
         } catch (IllegalArgumentException e) {
             Log.w(TAG, "cannot find vendor tag: " +
                     CaptureModule.support_video_hdr_modes.toString());
+        } catch(NullPointerException e) {
+            Log.w(TAG, "Supported support_video_hdr_modes is null.");
         }
         return modes != null && modes.length > 1;
     }
@@ -1667,6 +1675,8 @@ public class SettingsManager implements ListMenu.SettingsListener {
             result = (fastModeSupport == 1);
         } catch (IllegalArgumentException e) {
             e.printStackTrace();
+        } catch(NullPointerException e) {
+            Log.w(TAG, "Supported fs_mode_support is null.");
         }
         return result;
     }
