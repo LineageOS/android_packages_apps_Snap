@@ -4639,7 +4639,7 @@ public class CaptureModule implements CameraModule, PhotoController,
     }
 
     private boolean startRecordingVideo(final int cameraId) {
-        if (null == mCameraDevice[cameraId]) {
+        if (null == mCameraDevice[cameraId] || !mUI.isShutterEnabled()) {
             return false;
         }
         mStartRecordingTime = System.currentTimeMillis();
