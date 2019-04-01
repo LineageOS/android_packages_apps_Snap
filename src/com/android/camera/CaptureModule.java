@@ -1716,7 +1716,7 @@ public class CaptureModule implements CameraModule, PhotoController,
                     mPreviewRequestBuilder[id].addTarget(surs);
                     list.add(surs);
                 }
-                if (mSettingsManager.getSavePictureFormat() == SettingsManager.JPEG_FORMAT) {
+                if (!mSettingsManager.isHeifWriterEncoding()) {
                     list.add(mImageReader[id].getSurface());
                 }
                 if (mSaveRaw) {
@@ -1729,7 +1729,7 @@ public class CaptureModule implements CameraModule, PhotoController,
                     for (Surface s : list) {
                         outputConfigurations.add(new OutputConfiguration(s));
                     }
-                    if (mSettingsManager.getSavePictureFormat() == SettingsManager.HEIF_FORMAT ) {
+                    if (mSettingsManager.isHeifWriterEncoding()) {
                         if (mInitHeifWriter != null) {
                             mHeifOutput = new OutputConfiguration(mInitHeifWriter.getInputSurface());
                             mHeifOutput.enableSurfaceSharing();
@@ -1747,8 +1747,7 @@ public class CaptureModule implements CameraModule, PhotoController,
                         mCameraDevice[id].createReprocessableCaptureSession(new InputConfiguration(mImageReader[id].getWidth(),
                                 mImageReader[id].getHeight(), mImageReader[id].getImageFormat()), list, captureSessionCallback, null);
                     } else {
-                        if (mSettingsManager.getSavePictureFormat() == SettingsManager.HEIF_FORMAT &&
-                                outputConfigurations != null) {
+                        if (mSettingsManager.isHeifWriterEncoding() && outputConfigurations != null) {
                             mCameraDevice[id].createCaptureSessionByOutputConfigurations(outputConfigurations,
                                     captureSessionCallback,null);
                         } else {
@@ -2552,13 +2551,13 @@ public class CaptureModule implements CameraModule, PhotoController,
                 if (mSaveRaw && mRawImageReader[id] != null) {
                     captureBuilder.addTarget(mRawImageReader[id].getSurface());
                 }
-                if (mSettingsManager.getSavePictureFormat() == SettingsManager.HEIF_FORMAT) {
+                if (mSettingsManager.isHeifWriterEncoding()) {
                     long captureTime = System.currentTimeMillis();
                     mNamedImages.nameNewImage(captureTime);
                     NamedEntity name = mNamedImages.getNextNameEntity();
                     String title = (name == null) ? null : name.title;
                     long date = (name == null) ? -1 : name.date;
-                    String pictureFormat = mLongshotActive? "heifs":"heif";
+                    String pictureFormat = mLongshotActive? "heics":"heic";
                     String path = Storage.generateFilepath(title, pictureFormat);
                     String value = mSettingsManager.getValue(SettingsManager.KEY_JPEG_QUALITY);
                     int quality = getQualityNumber(value);
@@ -2708,7 +2707,7 @@ public class CaptureModule implements CameraModule, PhotoController,
             @Override
             public void onCaptureSequenceCompleted(CameraCaptureSession session, int
                             sequenceId, long frameNumber) {
-                if (mSettingsManager.getSavePictureFormat() == SettingsManager.HEIF_FORMAT) {
+                if (mSettingsManager.isHeifWriterEncoding()) {
                     mLongshotActive = false;
                     if (mHeifImage != null) {
                         try {
@@ -2716,7 +2715,7 @@ public class CaptureModule implements CameraModule, PhotoController,
                             mHeifImage.getWriter().close();
                             mActivity.getMediaSaveService().addHEIFImage(mHeifImage.getPath(),
                                     mHeifImage.getTitle(),mHeifImage.getDate(),null,mPictureSize.getWidth(),mPictureSize.getHeight(),
-                                    mHeifImage.getOrientation(),null,mContentResolver,mOnMediaSavedListener,mHeifImage.getQuality(),"heifs");
+                                    mHeifImage.getOrientation(),null,mContentResolver,mOnMediaSavedListener,mHeifImage.getQuality(),"heics");
                         } catch (Exception e) {
                             e.printStackTrace();
                         } finally {
@@ -2796,14 +2795,14 @@ public class CaptureModule implements CameraModule, PhotoController,
                     } else {
                         enableShutterAndVideoOnUiThread(id);
                     }
-                    if (mSettingsManager.getSavePictureFormat() == SettingsManager.HEIF_FORMAT) {
+                    if (mSettingsManager.isHeifWriterEncoding()) {
                         if (mHeifImage != null) {
                             try {
                                 mHeifImage.getWriter().stop(3000);
                                 mHeifImage.getWriter().close();
                                 mActivity.getMediaSaveService().addHEIFImage(mHeifImage.getPath(),
                                         mHeifImage.getTitle(),mHeifImage.getDate(),null,mPictureSize.getWidth(),mPictureSize.getHeight(),
-                                        mHeifImage.getOrientation(),null,mContentResolver,mOnMediaSavedListener,mHeifImage.getQuality(),"heif");
+                                        mHeifImage.getOrientation(),null,mContentResolver,mOnMediaSavedListener,mHeifImage.getQuality(),"heic");
                             } catch (Exception e) {
                                 e.printStackTrace();
                             } finally {
@@ -2845,7 +2844,7 @@ public class CaptureModule implements CameraModule, PhotoController,
                         mHighSpeedFPSRange);
             }
 
-            if (mSettingsManager.getSavePictureFormat() == SettingsManager.HEIF_FORMAT) {
+            if (mSettingsManager.isHeifWriterEncoding()) {
                 long captureTime = System.currentTimeMillis();
                 mNamedImages.nameNewImage(captureTime);
                 NamedEntity name = mNamedImages.getNextNameEntity();
@@ -2905,7 +2904,7 @@ public class CaptureModule implements CameraModule, PhotoController,
                         public void onCaptureSequenceCompleted(CameraCaptureSession session, int
                                 sequenceId, long frameNumber) {
                             Log.d(TAG, "captureVideoSnapshot onCaptureSequenceCompleted: " + id);
-                            if (mSettingsManager.getSavePictureFormat() == SettingsManager.HEIF_FORMAT) {
+                            if (mSettingsManager.isHeifWriterEncoding()) {
                                 if (mLiveShotImage != null) {
                                     try {
                                         mLiveShotImage.getWriter().stop(3000);
@@ -2917,7 +2916,7 @@ public class CaptureModule implements CameraModule, PhotoController,
                                                 null,mVideoSize.getWidth(),mVideoSize.getHeight(),
                                                 mLiveShotImage.getOrientation(),null,
                                                 mContentResolver,mOnMediaSavedListener,
-                                                mLiveShotImage.getQuality(),"heif");
+                                                mLiveShotImage.getQuality(),"heic");
                                         mLiveShotImage = null;
                                     } catch (TimeoutException | IllegalStateException e) {
                                         e.printStackTrace();
@@ -2980,7 +2979,7 @@ public class CaptureModule implements CameraModule, PhotoController,
         try {
             String[] cameraIdList = manager.getCameraIdList();
             //inti heifWriter and get input surface
-            if (mSettingsManager.getSavePictureFormat() == SettingsManager.HEIF_FORMAT) {
+            if (mSettingsManager.isHeifWriterEncoding()) {
                 String tmpPath = mActivity.getCacheDir().getPath() + "/" + "heif.tmp";
                 if (mInitHeifWriter != null) {
                     mInitHeifWriter.close();
@@ -3064,10 +3063,6 @@ public class CaptureModule implements CameraModule, PhotoController,
                                     image.close();
                                     return;
                                 }
-                                if (mSettingsManager.getSavePictureFormat() == SettingsManager.HEIF_FORMAT) {
-                                    image.close();
-                                    return;
-                                }
                                 if (isMpoOn()) {
                                     mMpoSaveHandler.obtainMessage(
                                             MpoSaveHandler.MSG_NEW_IMG, mCamId, 0, image).sendToTarget();
@@ -3096,9 +3091,13 @@ public class CaptureModule implements CameraModule, PhotoController,
                                                 onCaptureDone();
                                             }
                                         } else {
+                                            String pictureFormat = "jpeg";
+                                            if (image.getFormat() == ImageFormat.HEIC) {
+                                                pictureFormat = "heic";
+                                            }
                                             mActivity.getMediaSaveService().addImage(bytes, title, date,
                                                     null, image.getWidth(), image.getHeight(), orientation, exif,
-                                                    mOnMediaSavedListener, mContentResolver, "jpeg");
+                                                    mOnMediaSavedListener, mContentResolver,pictureFormat);
 
                                             if (mLongshotActive) {
                                                 mLastJpegData = bytes;
@@ -3153,14 +3152,18 @@ public class CaptureModule implements CameraModule, PhotoController,
         if (mVideoSnapshotImageReader != null) {
             mVideoSnapshotImageReader.close();
         }
-        if (mSettingsManager.getSavePictureFormat() == SettingsManager.HEIF_FORMAT) {
+        if (mSettingsManager.isHeifWriterEncoding()) {
             String tmpPath = mActivity.getCacheDir().getPath() + "/" + "liveshot_heif.tmp";
             mLiveShotInitHeifWriter = createHEIFEncoder(tmpPath,mVideoSize.getWidth(),
                     mVideoSize.getHeight(),0, 1,85);
             return;
         }
+        int format = ImageFormat.JPEG;
+        if (mSettingsManager.isHeifHALEncoding()) {
+            format = ImageFormat.HEIC;
+        }
         mVideoSnapshotImageReader = ImageReader.newInstance(mVideoSnapshotSize.getWidth(),
-                mVideoSnapshotSize.getHeight(), ImageFormat.JPEG, 2);
+                mVideoSnapshotSize.getHeight(),format, 2);
         mVideoSnapshotImageReader.setOnImageAvailableListener(
                 new ImageReader.OnImageAvailableListener() {
                     @Override
@@ -3179,9 +3182,11 @@ public class CaptureModule implements CameraModule, PhotoController,
                         ExifInterface exif = Exif.getExif(bytes);
                         int orientation = Exif.getOrientation(exif);
 
+                        String saveFormat = image.getFormat() == ImageFormat.HEIC? "heic" : "jpeg";
+
                         mActivity.getMediaSaveService().addImage(bytes, title, date,
                                 null, image.getWidth(), image.getHeight(), orientation, exif,
-                                mOnMediaSavedListener, mContentResolver, "jpeg");
+                                mOnMediaSavedListener, mContentResolver, saveFormat);
 
                         mActivity.updateThumbnail(bytes);
                         image.close();
@@ -3889,6 +3894,8 @@ public class CaptureModule implements CameraModule, PhotoController,
             mChosenImageFormat = ImageFormat.PRIVATE;
         } else if(mPostProcessor.isFilterOn() || getFrameFilters().size() != 0 || mPostProcessor.isSelfieMirrorOn()) {
             mChosenImageFormat = ImageFormat.YUV_420_888;
+        } else if(mSettingsManager.isHeifHALEncoding()) {
+            mChosenImageFormat = ImageFormat.HEIC;
         } else {
             mChosenImageFormat = ImageFormat.JPEG;
         }
@@ -4804,8 +4811,7 @@ public class CaptureModule implements CameraModule, PhotoController,
             List<Surface> outputSurfaces, CameraCaptureSession.StateCallback listener,
             Handler handler, CaptureRequest initialRequest) throws CameraAccessException {
         List<OutputConfiguration> outConfigurations = new ArrayList<>(outputSurfaces.size());
-        if (mSettingsManager.getSavePictureFormat() == SettingsManager.HEIF_FORMAT &&
-                mLiveShotInitHeifWriter != null) {
+        if (mSettingsManager.isHeifWriterEncoding() && mLiveShotInitHeifWriter != null) {
             mLiveShotOutput = new OutputConfiguration(
                     mLiveShotInitHeifWriter.getInputSurface());
             mLiveShotOutput.enableSurfaceSharing();
