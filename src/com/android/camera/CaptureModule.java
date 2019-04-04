@@ -7593,6 +7593,13 @@ public class CaptureModule implements CameraModule, PhotoController,
         int getCurrentId() {
             int cameraId = isBackCamera() ? rearCameraId : frontCameraId;
             cameraId = isForceAUXOn(this.mode) ? auxCameraId : cameraId;
+            if (this.mode == CameraMode.DEFAULT && mSettingsManager.isDeveloperEnabled()) {
+                String value = mSettingsManager.getValue(SettingsManager.KEY_SWITCH_CAMERA);
+                Log.d("zhuw","value is " + value);
+                if (value != null && !value.equals("-1")) {
+                    cameraId = Integer.valueOf(value);
+                }
+            }
             return cameraId;
         }
     }

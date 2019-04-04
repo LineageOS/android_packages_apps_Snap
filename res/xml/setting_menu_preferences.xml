@@ -467,6 +467,13 @@
             android:layout="@layout/preference"
             android:summary="%s"/>
 
+        <ListPreference
+            android:defaultValue="@string/pref_camera2_switch_camera_default"
+            android:key="pref_camera2_switch_camera_key"
+            android:layout="@layout/preference"
+            android:summary="%s"
+            android:title="@string/pref_camera2_switch_camera_title"/>
+
         <MultiSelectListPreference
             android:key="pref_camera2_stats_visualizer_key"
             android:defaultValue="@array/pref_camera2_stats_visualizer_default"

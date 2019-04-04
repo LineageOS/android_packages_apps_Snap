@@ -133,7 +133,6 @@ public class SettingsManager implements ListMenu.SettingsListener {
     public static final String KEY_SCENE_MODE = "pref_camera2_scenemode_key";
     public static final String KEY_SCEND_MODE_INSTRUCTIONAL = "pref_camera2_scenemode_instructional";
     public static final String KEY_REDEYE_REDUCTION = "pref_camera2_redeyereduction_key";
-    public static final String KEY_CAMERA_ID = "pref_camera2_id_key";
     public static final String KEY_FRONT_REAR_SWITCHER_VALUE = "pref_camera2_switcher_key";
     public static final String KEY_FORCE_AUX = "pref_camera2_force_aux_key";
     public static final String KEY_SWITCH_CAMERA = "pref_camera2_switch_camera_key";
@@ -497,7 +496,9 @@ public class SettingsManager implements ListMenu.SettingsListener {
         if (CaptureModule.CURRENT_MODE == CaptureModule.CameraMode.DEFAULT &&
                 mValuesMap != null) {
             String auxValue = getValue(SettingsManager.KEY_FORCE_AUX);
-            if (auxValue != null && auxValue.equals("on")) {
+            String switchCameraId = getValue(SettingsManager.KEY_SWITCH_CAMERA);
+            if ((auxValue != null && auxValue.equals("on")) ||
+                    (switchCameraId != null && !switchCameraId.equals("-1"))) {
                 cameraIdTag = 0;
             }
         }
@@ -908,7 +909,6 @@ public class SettingsManager implements ListMenu.SettingsListener {
         ListPreference sceneModeInstructional =
                 mPreferenceGroup.findPreference(KEY_SCEND_MODE_INSTRUCTIONAL);
 
-        ListPreference cameraIdPref = mPreferenceGroup.findPreference(KEY_CAMERA_ID);
         ListPreference frontRearSwitcherPref =
                 mPreferenceGroup.findPreference(KEY_FRONT_REAR_SWITCHER_VALUE);
         ListPreference pictureSize = mPreferenceGroup.findPreference(KEY_PICTURE_SIZE);
@@ -938,6 +938,7 @@ public class SettingsManager implements ListMenu.SettingsListener {
             removePreference(mPreferenceGroup, KEY_FORCE_AUX);
             mFilteredKeys.add(forceAUX.getKey());
         }
+        buildCameraId();
 
         if (whiteBalance != null) {
             if (filterUnsupportedOptions(whiteBalance, getSupportedWhiteBalanceModes(cameraId))) {
@@ -1011,7 +1012,6 @@ public class SettingsManager implements ListMenu.SettingsListener {
             }
         }
 
-        if (cameraIdPref != null) removePreference(mPreferenceGroup, KEY_CAMERA_ID);
         if (frontRearSwitcherPref != null && (!mIsFrontCameraPresent)) {
             removePreference(mPreferenceGroup, KEY_FRONT_REAR_SWITCHER_VALUE);
         }
@@ -1262,9 +1262,25 @@ public class SettingsManager implements ListMenu.SettingsListener {
         CharSequence[] fullEntries = new CharSequence[numOfCameras + 1];
         for(int i = 0; i < numOfCameras ; i++) {
             int facing = mCharacteristics.get(i).get(CameraCharacteristics.LENS_FACING);
-            String facingString =
-                    facing == CameraCharacteristics.LENS_FACING_FRONT? "front" : "back";
-            fullEntries[i] = "camera " + i +" facing:"+facingString;
+            String cameraIdString = "camera " + i +" facing:" +
+                    (facing == CameraCharacteristics.LENS_FACING_FRONT ? "front" : "back");
+            fullEntries[i] = "camera " + i +" facing:"+cameraIdString;
+            Byte cameraType = mCharacteristics.get(i).get(CaptureModule.logical_camera_type);
+            switch (cameraType) {
+                case CaptureModule.TYPE_DEFAULT:
+                    cameraIdString += " Default";
+                    break;
+                case CaptureModule.TYPE_RTB:
+                    cameraIdString += " RTB";
+                    break;
+                case CaptureModule.TYPE_SAT:
+                    cameraIdString += " SAT";
+                    break;
+                case CaptureModule.TYPE_VR360:
+                    cameraIdString += " VR360";
+                    break;
+            }
+            fullEntries[i] = cameraIdString;
             fullEntryValues[i] = "" + i;
             Log.d(TAG,"add "+fullEntries[i]+"="+ fullEntryValues[i]);
         }
@@ -1273,23 +1289,6 @@ public class SettingsManager implements ListMenu.SettingsListener {
         ListPreference switchPref = mPreferenceGroup.findPreference(KEY_SWITCH_CAMERA);
         switchPref.setEntries(fullEntries);
         switchPref.setEntryValues(fullEntryValues);
-        if (!mIsFrontCameraPresent) {
-            Log.d(TAG,"no front camera,remove camera id pref");
-            removePreference(mPreferenceGroup, KEY_CAMERA_ID);
-            return;
-        }
-        CharSequence[] entryValues = new CharSequence[numOfCameras];
-        CharSequence[] entries = new CharSequence[numOfCameras];
-        //TODO: Modify this after bayer/mono/front/back determination is done
-        entryValues[0] = "" + CaptureModule.BAYER_ID;
-        entries[0] = "BACK";
-        if (mIsFrontCameraPresent && (numOfCameras > 1)) {
-            entryValues[1] = "" + CaptureModule.FRONT_ID;
-            entries[1] = "FRONT";
-        }
-        ListPreference cameraIdPref = mPreferenceGroup.findPreference(KEY_CAMERA_ID);
-        cameraIdPref.setEntryValues(entryValues);
-        cameraIdPref.setEntries(entries);
     }
 
     private void filterVideoEncoderOptions() {
