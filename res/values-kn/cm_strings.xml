@@ -16,6 +16,7 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="pref_camera_aspectratio_wide">ವ್ಯಾಪಕ</string>
     <string name="pref_camera_scenemode_entry_antimotionblur">ಚಲನೆ ಮಂದ ಕಡಿತ</string>
     <string name="pref_camera_scenemode_entry_aqua">ಅಕ್ವಾ</string>
     <string name="pref_camera_scenemode_entry_ar">ವರ್ಧಿತ ರಿಯಾಲಿಟಿ</string>
@@ -82,5 +83,7 @@
     <string name="pref_camera_focustime_entry_5">5ಸೆ</string>
     <string name="pref_camera_focustime_entry_infinite">ಅನಂತ</string>
     <string name="pref_camera_shutter_speed_title">ಶಟರ್ ವೇಗ</string>
+    <string name="developer_menu_enabled">ನೀವು ಸುಧಾರಿತ ಕ್ಯಾಮರಾ ಆಯ್ಕೆಗಳನ್ನು ಸಶಕ್ತಿಸಿದ್ದೀರಿ</string>
+    <string name="developer_menu_disabled">ನೀವು ಸುಧಾರಿತ ಕ್ಯಾಮರಾ ಆಯ್ಕೆಗಳನ್ನು ಅಶಕ್ತಿಸಿದ್ದೀರಿ</string>
     <string name="pref_camera2_preferences_category_developer">ಪ್ರೌಢ ಆಯ್ಕೆಗಳು</string>
 </resources>

@@ -186,6 +186,7 @@
     <string name="effect_silly_faces">หน้าตลก</string>
     <string name="effect_background">พื้นหลัง</string>
     <string name="accessibility_shutter_button">ชัตเตอร์</string>
+    <string name="accessibility_exit_best_mode_button">ออกจากโหมดภาพดีที่สุด</string>
     <string name="accessibility_menu_button">ปุ่มเมนู</string>
     <string name="accessibility_mode_picker">ตัวเลือกกล้องถ่ายรูป วิดีโอ หรือภาพพาโนรามา</string>
     <string name="accessibility_check_box">ช่องทำเครื่องหมาย %1$s</string>
@@ -261,6 +262,28 @@
     <string name="cannot_load_image">ไม่สามารถโหลดภาพ!</string>
     <string name="switch_photo_filmstrip">มุมมองฟิล์มภาพยนตร์</string>
     <string name="setting_wallpaper">กำลังตั้งค่าวอลเปเปอร์</string>
+    <string name="pref_camera2_category_system">ระบบ</string>
+    <string name="pref_camera2_restore_default">คืนค่าเริ่มต้น</string>
+    <string name="pref_camera2_restore_default_hint">การตั้งค่ากล้องจะคืนสู่ค่าเริ่มตั้ง</string>
+    <plurals name="save_best_dialog_content">
+        <item quantity="other">%1$d จาก 10 ภาพจะถูกบันทึกและที่เหลือจะถูกลบ</item>
+    </plurals>
+    <string name="save_best_dialog_title">บันทึกรูปที่เลือกไว้?</string>
     <string name="save_best_dialog_positive_bt">ตกลง</string>
+    <string name="save_best_dialog_native_bt">ยกเลิก</string>
+    <plurals name="save_best_image_toast">
+        <item quantity="other">%1$d จาก 10 รูปถูกบันทึก</item>
+    </plurals>
+    <string name="dialog_do_not_show">ไม่ต้องแสดงอีก</string>
+    <string name="delete_best_dialog_title">ลบทั้งหมด?</string>
+    <string name="delete_best_dialog_content">คุณต้องการลบรูปภาพทั้งหมดที่ถ่ายทั้ง 10 รูปหรือไม่</string>
+    <string name="delete_best_dialog_native_bt">ยกเลิก</string>
     <string name="delete_best_dialog_positive_bt">ลบ</string>
+    <string name="delete_all_best_dialog_title">ลบทั้งหมด?</string>
+    <string name="delete_all_best_dialog_content">คุณต้องการลบภาพทั้งหมดหรือไม่?</string>
+    <string name="delete_all_best_dialog_native_bt">ยกเลิก</string>
+    <string name="delete_all_best_dialog_positive_bt">ลบทั้งหมด</string>
+    <string name="overflow_best_item1">บันทึกทั้งหมด</string>
+    <string name="overflow_best_item2">ลบทั้งหมด</string>
+    <string name="settings_title">การตั้งค่า</string>
 </resources>

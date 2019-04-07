@@ -47,6 +47,7 @@
     <string name="pref_camera_manual_exp_entry_ISO_priority">Belichtungsautomatik</string>
     <string name="pref_camera_manual_exp_entry_exptime_priority">Blendenautomatik</string>
     <string name="pref_camera_manual_exp_entry_user_setting">Benutzereinstellung</string>
+    <string name="pref_camera_manual_exp_entry_gains_priority">Bekommt Priorität</string>
     <string name="pref_camera_manual_exp_entry_off">Aus</string>
     <string name="pref_camera_manual_wb_title">Manueller Weißabgleich</string>
     <string name="pref_camera_manual_wb_entry_color_temperature">Farbtemperatur</string>
@@ -416,6 +417,7 @@
     <string name="pref_camera2_initial_camera_entry_bayer">Bayer</string>
     <string name="pref_camera2_initial_camera_entry_mono">Schwarzweiß</string>
     <string name="pref_camera2_initial_camera_entry_front">Frontkamera</string>
+    <string name="pref_camera2_eis_title">Video-Bildstabilisator</string>
     <string name="pref_camera2_eis_entry_disable">Deaktiviert</string>
     <string name="pref_camera2_fovc_entry_enable">Aktiviert</string>
     <string name="pref_camera2_fovc_entry_disable">Deaktiviert</string>

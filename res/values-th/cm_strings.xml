@@ -84,4 +84,5 @@
     <string name="pref_camera_focustime_entry_10">10 วินาที</string>
     <string name="pref_camera_focustime_entry_infinite">ไม่จำกัด</string>
     <string name="pref_camera_shutter_speed_title">ความเร็วชัตเตอร์</string>
+    <string name="pref_camera2_preferences_category_developer">ตัวเลือกขั้นสูง</string>
 </resources>

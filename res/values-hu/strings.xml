@@ -206,6 +206,7 @@
     <string name="effect_silly_faces">BOLONDOS ARCOK</string>
     <string name="effect_background">HÁTTÉR</string>
     <string name="accessibility_shutter_button">Exponálógomb</string>
+    <string name="accessibility_exit_best_mode_button">Kilépés a legjobb fotó módból</string>
     <string name="accessibility_menu_button">Menügomb</string>
     <string name="accessibility_mode_picker">Kamera, videó vagy panoráma kiválasztása</string>
     <string name="accessibility_check_box">%1$s jelölőnégyzet</string>
@@ -287,6 +288,30 @@
     <string name="remaining_photos_format">%d maradt</string>
     <string name="initial_recording_seconds">0:00</string>
     <string name="makeup_video_size_limit">Smink csak a VGA méretű videók rögzítésekor működik.</string>
+    <string name="pref_camera2_category_system">Rendszer</string>
+    <string name="pref_camera2_restore_default">Alapértékek visszaállítása</string>
+    <string name="pref_camera2_restore_default_hint">A kamera beállításai alaphelyzetbe kerülnek vissza</string>
+    <plurals name="save_best_dialog_content">
+        <item quantity="one">10-ből %1$d kép mentésre kerül és a többi törlődik</item>
+        <item quantity="other">10-ből %1$d kép mentésre kerül és a többi törlődik</item>
+    </plurals>
+    <string name="save_best_dialog_title">Menti a kijelölt képeket?</string>
     <string name="save_best_dialog_positive_bt">OK</string>
+    <string name="save_best_dialog_native_bt">Mégse</string>
+    <plurals name="save_best_image_toast">
+        <item quantity="one">10-ből %1$d kép elmentve.</item>
+        <item quantity="other">10-ből %1$d kép elmentve.</item>
+    </plurals>
+    <string name="dialog_do_not_show">Ne jelenjen meg többet</string>
+    <string name="delete_best_dialog_title">Törli az összeset?</string>
+    <string name="delete_best_dialog_content">Biztosan törli mind a 10 fényképet?</string>
+    <string name="delete_best_dialog_native_bt">Mégse</string>
     <string name="delete_best_dialog_positive_bt">Törlés</string>
+    <string name="delete_all_best_dialog_title">Törli az összeset?</string>
+    <string name="delete_all_best_dialog_content">Biztosan törli az összes képet?</string>
+    <string name="delete_all_best_dialog_native_bt">Mégse</string>
+    <string name="delete_all_best_dialog_positive_bt">Az összes törlése</string>
+    <string name="overflow_best_item1">Az összes mentése</string>
+    <string name="overflow_best_item2">Az összes törlése</string>
+    <string name="settings_title">Beállítások</string>
 </resources>
