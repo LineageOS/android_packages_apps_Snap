@@ -131,10 +131,6 @@
         style="@style/OneUIMenuButton" />
 
     <com.android.camera.ui.RotateImageView
-        android:id="@+id/deepportrait_switcher"
-        style="@style/OneUIMenuButton" />
-
-    <com.android.camera.ui.RotateImageView
         android:id="@+id/settings"
         style="@style/OneUIMenuButton" />
 

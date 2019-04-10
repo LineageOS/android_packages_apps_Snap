@@ -198,7 +198,6 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
     private View mSceneModeSwitcher;
     private View mFrontBackSwitcher;
     private ImageView mMakeupButton;
-    private ImageView mDeepportraitSwitcher;
     private SeekBar mMakeupSeekBar;
     private SeekBar mDeepportraitSeekBar;
     private View mMakeupSeekBarLayout;
@@ -321,7 +320,6 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
         mFrontBackSwitcher = mRootView.findViewById(R.id.front_back_switcher);
         mMakeupButton = (ImageView) mRootView.findViewById(R.id.ts_makeup_switcher);
         mMakeupSeekBarLayout = mRootView.findViewById(R.id.makeup_seekbar_layout);
-        mDeepportraitSwitcher = (ImageView) mRootView.findViewById(R.id.deepportrait_switcher);
         mSeekbarBody = mRootView.findViewById(R.id.seekbar_body);
         mSeekbarToggleButton = (ImageView) mRootView.findViewById(R.id.seekbar_toggle);
         mSeekbarToggleButton.setOnClickListener(new View.OnClickListener() {
@@ -385,25 +383,6 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
             }
         });
         setMakeupButtonIcon();
-
-        mDeepportraitSwitcher.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (module != null && !module.isAllSessionClosed()) {
-                    String value = mSettingsManager.getValue(SettingsManager.KEY_SCENE_MODE);
-                    if(value == null ||
-                            Integer.valueOf(value) != SettingsManager.SCENE_MODE_DEEPPORTRAIT_INT) {
-                        mSettingsManager.setValue(SettingsManager.KEY_SCENE_MODE,""+
-                                SettingsManager.SCENE_MODE_DEEPPORTRAIT_INT);
-                    } else {
-                        mSettingsManager.setValue(SettingsManager.KEY_SCENE_MODE,
-                                ""+SettingsManager.SCENE_MODE_AUTO_INT);
-                    }
-                }
-                setDeepportraitButtonIcon();
-            }
-        });
-        setDeepportraitButtonIcon();
 
         mFlashButton = (FlashToggleButton) mRootView.findViewById(R.id.flash_button);
         mModeSelectLayout = (RecyclerView) mRootView.findViewById(R.id.mode_select_layout);
@@ -686,7 +665,7 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
             public void run() {
                 if(value != null && !value.equals("0")) {
                     mMakeupButton.setImageResource(R.drawable.beautify_on);
-                    mMakeupSeekBarLayout.setVisibility(View.VISIBLE);
+                    mMakeupSeekBarLayout.setVisibility(View.GONE);
                 } else {
                     mMakeupButton.setImageResource(R.drawable.beautify);
                     mMakeupSeekBarLayout.setVisibility(View.GONE);
@@ -697,20 +676,6 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
 
     public float getDeepZoomValue() {
         return mDeepZoomValue;
-    }
-
-    private void setDeepportraitButtonIcon() {
-        boolean enable = DeepPortraitFilter.isSupportedStatic();
-        mDeepportraitSwitcher.setEnabled(enable);
-        mActivity.runOnUiThread(new Runnable() {
-            public void run() {
-                if(mModule.isDeepPortraitMode()) {
-                    mDeepportraitSwitcher.setImageResource(R.drawable.deep_portrait_on);
-                } else {
-                    mDeepportraitSwitcher.setImageResource(R.drawable.deep_portrait);
-                }
-            }
-        });
     }
 
     public void onCameraOpened(int cameraId) {
@@ -727,9 +692,6 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
         initSceneModeButton();
         initFilterModeButton();
         initFlashButton();
-//        setMakeupButtonIcon();
-//        setDeepportraitButtonIcon();
-        showSceneModeLabel();
         updateMenus();
         if(mModule.isTrackingFocusSettingOn()) {
             mTrackingFocusRenderer.setVisible(false);
@@ -1111,9 +1073,8 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
         mSettingsIcon.setVisibility(View.INVISIBLE);
         String value = mSettingsManager.getValue(SettingsManager.KEY_MAKEUP);
         if(value != null && value.equals("0")) {
-            mMakeupButton.setVisibility(View.INVISIBLE);
+            mMakeupButton.setVisibility(View.GONE);
         }
-        mDeepportraitSwitcher.setVisibility(View.INVISIBLE);
         mIsVideoUI = true;
         mPauseButton.setVisibility(View.VISIBLE);
         if (mModule.getCurrentIntentMode() == CaptureModule.INTENT_MODE_NORMAL) {
@@ -1125,6 +1086,9 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
         mCameraControls.setVideoMode(false);
         mFrontBackSwitcher.setVisibility(View.VISIBLE);
         mSettingsIcon.setVisibility(View.VISIBLE);
+        mFilterModeSwitcher.setVisibility(View.VISIBLE);
+        mSceneModeSwitcher.setVisibility(View.VISIBLE);
+        mMakeupButton.setVisibility(View.GONE);
         mIsVideoUI = false;
         mPauseButton.setVisibility(View.INVISIBLE);
         if (mModule.getCurrentIntentMode() == CaptureModule.INTENT_MODE_NORMAL) {
@@ -1140,7 +1104,6 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
         mShutterButton.setVisibility(View.VISIBLE);
         mFrontBackSwitcher.setVisibility(View.VISIBLE);
         mMakeupButton.setVisibility(View.INVISIBLE);
-        mDeepportraitSwitcher.setVisibility(View.INVISIBLE);
         mSceneModeSwitcher.setVisibility(View.INVISIBLE);
         //settings for each mode
         switch (mode) {
@@ -1405,8 +1368,7 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
         if (mSceneModeSwitcher != null) mSceneModeSwitcher.setVisibility(status);
         if (mFilterModeSwitcher != null) mFilterModeSwitcher.setVisibility(status);
         if (mFilterModeSwitcher != null) mFilterModeSwitcher.setVisibility(status);
-        if (mMakeupButton != null) mMakeupButton.setVisibility(status);
-        if (mDeepportraitSwitcher != null) mDeepportraitSwitcher.setVisibility(status);
+        if (mMakeupButton != null) mMakeupButton.setVisibility(View.GONE);
     }
 
     public void initializeControlByIntent() {
@@ -1505,6 +1467,9 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
             enableMakeupMenu = false;
         }
         mMakeupButton.setEnabled(enableMakeupMenu);
+        if(!BeautificationFilter.isSupportedStatic()) {
+            mMakeupButton.setVisibility(View.GONE);
+        }
         mFilterModeSwitcher.setEnabled(enableFilterMenu);
         mSceneModeSwitcher.setEnabled(enableSceneMenu);
     }
