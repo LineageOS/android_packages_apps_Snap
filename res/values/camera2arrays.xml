@@ -831,7 +831,7 @@
 
     <string-array name="pref_camera2_video_flashmode_entryvalues" translatable="false">
         <item>off</item>
-        <item>torch</item>
+        <item>on</item>
     </string-array>
 
     <string-array name="pref_camera2_video_rotation_entries" translatable="false">

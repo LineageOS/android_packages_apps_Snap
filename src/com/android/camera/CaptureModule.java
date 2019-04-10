@@ -5091,13 +5091,8 @@ public class CaptureModule implements CameraModule, PhotoController,
     private void applyVideoFlash(CaptureRequest.Builder builder) {
         String value = mSettingsManager.getValue(SettingsManager.KEY_VIDEO_FLASH_MODE);
         if (value == null) return;
-        boolean flashOn = value.equals("torch");
-
-        if (flashOn) {
-            builder.set(CaptureRequest.FLASH_MODE, CaptureRequest.FLASH_MODE_TORCH);
-        } else {
-            builder.set(CaptureRequest.FLASH_MODE, CaptureRequest.FLASH_MODE_OFF);
-        }
+        builder.set(CaptureRequest.FLASH_MODE, value.equals("on") ?
+                CaptureRequest.FLASH_MODE_TORCH : CaptureRequest.FLASH_MODE_OFF);
     }
 
     private void applyNoiseReduction(CaptureRequest.Builder builder) {
@@ -6611,41 +6606,15 @@ public class CaptureModule implements CameraModule, PhotoController,
         request.set(CaptureRequest.CONTROL_AWB_MODE, mode);
     }
 
-    private void applyFlash(CaptureRequest.Builder request, String value) {
-        if(DEBUG) Log.d(TAG, "applyFlash: " + value);
+    private void applySnapshotFlash(CaptureRequest.Builder request, String value) {
+        if(DEBUG) Log.d(TAG, "applySnapshotFlash: " + value);
         String redeye = mSettingsManager.getValue(SettingsManager.KEY_REDEYE_REDUCTION);
         mIsAutoFlash = false;
         if (redeye != null && redeye.equals("on") && !mLongshotActive) {
             request.set(CaptureRequest.CONTROL_AE_MODE,
                     CaptureRequest.CONTROL_AE_MODE_ON_AUTO_FLASH_REDEYE);
         } else if (value != null) {
-            boolean isCaptureBrust = isCaptureBrustMode();
-            switch (value) {
-                case "on":
-                    if (isCaptureBrust) {
-                        request.set(CaptureRequest.CONTROL_AE_MODE, CaptureRequest.CONTROL_AE_MODE_ON);
-                        request.set(CaptureRequest.FLASH_MODE, CaptureRequest.FLASH_MODE_TORCH);
-                    } else {
-                        request.set(CaptureRequest.CONTROL_AE_MODE, CaptureRequest.CONTROL_AE_MODE_ON_ALWAYS_FLASH);
-                        request.set(CaptureRequest.FLASH_MODE, CaptureRequest.FLASH_MODE_SINGLE);
-                    }
-                    break;
-                case "auto":
-                    mIsAutoFlash = true;
-                    if (isCaptureBrust) {
-                        // When long shot is active, turn off the flash in auto mode
-                        request.set(CaptureRequest.CONTROL_AE_MODE, CaptureRequest.CONTROL_AE_MODE_ON);
-                        request.set(CaptureRequest.FLASH_MODE, CaptureRequest.FLASH_MODE_OFF);
-                    } else {
-                        request.set(CaptureRequest.CONTROL_AE_MODE, CaptureRequest.CONTROL_AE_MODE_ON_AUTO_FLASH);
-                        request.set(CaptureRequest.FLASH_MODE, CaptureRequest.FLASH_MODE_SINGLE);
-                    }
-                    break;
-                case "off":
-                    request.set(CaptureRequest.CONTROL_AE_MODE, CaptureRequest.CONTROL_AE_MODE_ON);
-                    request.set(CaptureRequest.FLASH_MODE, CaptureRequest.FLASH_MODE_OFF);
-                    break;
-            }
+            setFlashMode(request, value);
         }
     }
 
@@ -6663,13 +6632,25 @@ public class CaptureModule implements CameraModule, PhotoController,
             Log.w(TAG, "flash not supported, can't set android.flash.mode");
             return;
         }
-        String value = mSettingsManager.getValue(SettingsManager.KEY_FLASH_MODE);
-
-        boolean isCaptureBrust = isCaptureBrustMode();
+        String value = mSettingsManager.getValue(mCurrentSceneMode.mode == CameraMode.PRO_MODE ?
+                SettingsManager.KEY_VIDEO_FLASH_MODE : SettingsManager.KEY_FLASH_MODE);
         mIsAutoFlash = false;
-        switch (value) {
+        Log.d("zhuw", "flash value is " + value);
+        setFlashMode(request, value);
+        try {
+            mCaptureSession[id].setRepeatingRequest(request
+                    .build(), mCaptureCallback, mCameraHandler);
+        } catch (CameraAccessException e) {
+            Log.e(TAG, "Camera Access Exception in applyFlashForUIChange, apply failed");
+        }
+    }
+
+    private void setFlashMode(CaptureRequest.Builder request, String flashMode) {
+        if (request == null || flashMode == null) return;
+        boolean isCaptureBurst = isCaptureBrustMode();
+        switch (flashMode) {
             case "on":
-                if (isCaptureBrust) {
+                if (isCaptureBurst) {
                     request.set(CaptureRequest.CONTROL_AE_MODE, CaptureRequest.CONTROL_AE_MODE_ON);
                     request.set(CaptureRequest.FLASH_MODE, CaptureRequest.FLASH_MODE_TORCH);
                 } else {
@@ -6679,7 +6660,7 @@ public class CaptureModule implements CameraModule, PhotoController,
                 break;
             case "auto":
                 mIsAutoFlash = true;
-                if (isCaptureBrust) {
+                if (isCaptureBurst) {
                     // When long shot is active, turn off the flash in auto mode
                     request.set(CaptureRequest.CONTROL_AE_MODE, CaptureRequest.CONTROL_AE_MODE_ON);
                     request.set(CaptureRequest.FLASH_MODE, CaptureRequest.FLASH_MODE_OFF);
@@ -6693,12 +6674,6 @@ public class CaptureModule implements CameraModule, PhotoController,
                 request.set(CaptureRequest.FLASH_MODE, CaptureRequest.FLASH_MODE_OFF);
                 break;
         }
-        try {
-            mCaptureSession[id].setRepeatingRequest(request
-                    .build(), mCaptureCallback, mCameraHandler);
-        } catch (CameraAccessException e) {
-            Log.e(TAG, "Camera Access Exception in applyFlashForUIChange, apply failed");
-        }
     }
 
     private void applyFaceDetection(CaptureRequest.Builder request) {
@@ -6710,10 +6685,10 @@ public class CaptureModule implements CameraModule, PhotoController,
     }
 
     private void applyFlash(CaptureRequest.Builder request, int id) {
-        if (mSettingsManager.isFlashSupported(id) &&
-                mCurrentSceneMode.mode != CameraMode.PRO_MODE) {
-            String value = mSettingsManager.getValue(SettingsManager.KEY_FLASH_MODE);
-            applyFlash(request, value);
+        if (mSettingsManager.isFlashSupported(id)) {
+            String value = mSettingsManager.getValue(mCurrentSceneMode.mode == CameraMode.PRO_MODE ?
+                    SettingsManager.KEY_VIDEO_FLASH_MODE : SettingsManager.KEY_FLASH_MODE);
+            applySnapshotFlash(request, value);
         } else {
             request.set(CaptureRequest.FLASH_MODE, CaptureRequest.FLASH_MODE_OFF);
         }
@@ -6962,7 +6937,15 @@ public class CaptureModule implements CameraModule, PhotoController,
                     if (count == 0) restartAll();
                     return;
                 case SettingsManager.KEY_VIDEO_FLASH_MODE:
-                    updateVideoFlash();
+                    switch (mCurrentSceneMode.mode) {
+                        case PRO_MODE:
+                            applyFlashForUIChange(mPreviewRequestBuilder[getMainCameraId()],
+                                    getMainCameraId());
+                            break;
+                        case VIDEO:
+                            updateVideoFlash();
+                            break;
+                    }
                     return;
                 case SettingsManager.KEY_FLASH_MODE:
                     applyFlashForUIChange(mPreviewRequestBuilder[getMainCameraId()],
