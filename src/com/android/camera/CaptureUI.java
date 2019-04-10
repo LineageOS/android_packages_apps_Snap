@@ -1088,9 +1088,6 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
         mCameraControls.setVideoMode(false);
         mFrontBackSwitcher.setVisibility(View.VISIBLE);
         mSettingsIcon.setVisibility(View.VISIBLE);
-        mFilterModeSwitcher.setVisibility(View.VISIBLE);
-        mSceneModeSwitcher.setVisibility(View.VISIBLE);
-        mMakeupButton.setVisibility(View.GONE);
         mIsVideoUI = false;
         mPauseButton.setVisibility(View.INVISIBLE);
         if (mModule.getCurrentIntentMode() == CaptureModule.INTENT_MODE_NORMAL) {
@@ -1359,17 +1356,18 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
     }
 
     public void hideCameraControls(boolean hide) {
-        final int status = (hide) ? View.INVISIBLE : View.VISIBLE;
+        final boolean status = !hide;
         if (mFlashButton != null){
-            mFlashButton.setVisibility(status);
+            mFlashButton.setEnabled(status);
             if (!hide) {
-                mFlashButton.init(false);
+                mFlashButton.init(mModule.getCurrenCameraMode() == CaptureModule.CameraMode.VIDEO ||
+                        mModule.getCurrenCameraMode() == CaptureModule.CameraMode.PRO_MODE);
             }
         }
-        if (mFrontBackSwitcher != null) mFrontBackSwitcher.setVisibility(status);
-        if (mSceneModeSwitcher != null) mSceneModeSwitcher.setVisibility(status);
-        if (mFilterModeSwitcher != null) mFilterModeSwitcher.setVisibility(status);
-        if (mFilterModeSwitcher != null) mFilterModeSwitcher.setVisibility(status);
+        if (mFrontBackSwitcher != null) mFrontBackSwitcher.setEnabled(status);
+        if (mSceneModeSwitcher != null) mSceneModeSwitcher.setEnabled(status);
+        if (mFilterModeSwitcher != null) mFilterModeSwitcher.setEnabled(status);
+        if (mFilterModeSwitcher != null) mFilterModeSwitcher.setEnabled(status);
         if (mMakeupButton != null) mMakeupButton.setVisibility(View.GONE);
     }
 
