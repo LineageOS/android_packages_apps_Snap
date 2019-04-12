@@ -524,8 +524,6 @@ public class SettingsManager implements ListMenu.SettingsListener {
             }
         } catch(IllegalArgumentException exception) {
             exception.printStackTrace();
-        } catch(NullPointerException e) {
-            Log.w(TAG, "Supported hfrFpsTable is null.");
         }
 
         filterPreferences(cameraId);
@@ -693,8 +691,6 @@ public class SettingsManager implements ListMenu.SettingsListener {
             sensorModeTable = mCharacteristics.get(cameraId).get(CaptureModule.sensorModeTable);
         } catch (IllegalArgumentException exception) {
             exception.printStackTrace();
-        } catch(NullPointerException e) {
-            Log.w(TAG, "Supported sensorModeTable is null.");
         }
         return sensorModeTable;
     }
@@ -706,8 +702,6 @@ public class SettingsManager implements ListMenu.SettingsListener {
                     CaptureModule.highSpeedVideoConfigs);
         } catch (IllegalArgumentException exception) {
             exception.printStackTrace();
-        } catch(NullPointerException e) {
-            Log.w(TAG, "Supported highSpeedVideoConfigs is null.");
         }
         return highSpeedVideoConfigs;
     }
@@ -1202,8 +1196,6 @@ public class SettingsManager implements ListMenu.SettingsListener {
                 Log.w(TAG, "Supported exposure range get null.");
                 return null;
             }
-        } catch(NullPointerException e) {
-            Log.w(TAG, "Supported exposure range modes is null.");
         } catch(IllegalArgumentException e) {
             Log.w(TAG, "Supported exposure range modes occur IllegalArgumentException.");
         }
@@ -1218,8 +1210,6 @@ public class SettingsManager implements ListMenu.SettingsListener {
                 Log.w(TAG, "Supported gains range get null.");
                 return null;
             }
-        } catch(NullPointerException e) {
-            Log.w(TAG, "Supported gains range modes is null.");
         } catch(IllegalArgumentException e) {
             Log.w(TAG, "Supported gains range modes occur IllegalArgumentException.");
         }
@@ -1235,8 +1225,6 @@ public class SettingsManager implements ListMenu.SettingsListener {
                 Log.w(TAG, "get exposure range modes is null.");
                 return null;
             }
-        } catch(NullPointerException e) {
-            Log.w(TAG, "Supported exposure range modes is null.");
         } catch(IllegalArgumentException e) {
             Log.w(TAG, "IllegalArgumentException Supported exposure range modes is null.");
         }
@@ -1254,8 +1242,6 @@ public class SettingsManager implements ListMenu.SettingsListener {
             }
             result[0] = range.getLower();
             result[1] = range.getUpper();
-        } catch(NullPointerException e) {
-            Log.w(TAG, "Supported iso range is null.");
         } catch(IllegalArgumentException e) {
             Log.w(TAG, "IllegalArgumentException Supported iso range is null.");
         }
@@ -1272,19 +1258,21 @@ public class SettingsManager implements ListMenu.SettingsListener {
                     (facing == CameraCharacteristics.LENS_FACING_FRONT ? "front" : "back");
             fullEntries[i] = "camera " + i +" facing:"+cameraIdString;
             Byte cameraType = mCharacteristics.get(i).get(CaptureModule.logical_camera_type);
-            switch (cameraType) {
-                case CaptureModule.TYPE_DEFAULT:
-                    cameraIdString += " Default";
-                    break;
-                case CaptureModule.TYPE_RTB:
-                    cameraIdString += " RTB";
-                    break;
-                case CaptureModule.TYPE_SAT:
-                    cameraIdString += " SAT";
-                    break;
-                case CaptureModule.TYPE_VR360:
-                    cameraIdString += " VR360";
-                    break;
+            if (cameraType != null) {
+                switch (cameraType) {
+                    case CaptureModule.TYPE_DEFAULT:
+                        cameraIdString += " Default";
+                        break;
+                    case CaptureModule.TYPE_RTB:
+                        cameraIdString += " RTB";
+                        break;
+                    case CaptureModule.TYPE_SAT:
+                        cameraIdString += " SAT";
+                        break;
+                    case CaptureModule.TYPE_VR360:
+                        cameraIdString += " VR360";
+                        break;
+                }
             }
             fullEntries[i] = cameraIdString;
             fullEntryValues[i] = "" + i;
@@ -1635,8 +1623,6 @@ public class SettingsManager implements ListMenu.SettingsListener {
         } catch (IllegalArgumentException e) {
             Log.w(TAG, "cannot find vendor tag: " +
                     CaptureModule.support_video_hdr_modes.toString());
-        } catch(NullPointerException e) {
-            Log.w(TAG, "Supported support_video_hdr_modes is null.");
         }
         return modes != null && modes.length > 1;
     }
@@ -1947,8 +1933,6 @@ public class SettingsManager implements ListMenu.SettingsListener {
             } else {
                 Log.w(TAG, "Supported ISO range is null.");
             }
-        } catch (NullPointerException e) {
-            Log.w(TAG, "Supported ISO_AVAILABLE_MODES is null.");
         } catch (IllegalArgumentException e) {
             Log.w(TAG, "IllegalArgumentException Supported ISO_AVAILABLE_MODES is wrong.");
         }
@@ -2061,8 +2045,6 @@ public class SettingsManager implements ListMenu.SettingsListener {
                     modes.add("" + i);
                 }
             }
-        } catch(NullPointerException e) {
-            Log.w(TAG, "Supported instant aec modes is null.");
         } catch(IllegalArgumentException e) {
             Log.w(TAG, "Supported instant aec modes is null.");
         }
