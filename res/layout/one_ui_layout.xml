@@ -134,10 +134,6 @@
         android:id="@+id/ts_makeup_switcher"
         style="@style/OneUIMenuButton" />
 
-    <com.android.camera.ui.RotateImageView
-        android:id="@+id/deepportrait_switcher"
-        style="@style/OneUIMenuButton" />
-
     <LinearLayout
         android:id="@+id/remaining_photos"
         android:layout_width="wrap_content"
