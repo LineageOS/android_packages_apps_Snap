@@ -758,18 +758,19 @@ public class SettingsManager implements ListMenu.SettingsListener {
     }
 
     public boolean setValue(String key, String value) {
-        ListPreference pref = mPreferenceGroup.findPreference(key);
-        if (pref != null) {
-            if (pref.findIndexOfValue(value) < 0) {
-                return false;
-            } else {
-                pref.setValue(value);
-                updateMapAndNotify(pref);
-                return true;
+        if (mPreferenceGroup != null) {
+            ListPreference pref = mPreferenceGroup.findPreference(key);
+            if (pref != null) {
+                if (pref.findIndexOfValue(value) < 0) {
+                    return false;
+                } else {
+                    pref.setValue(value);
+                    updateMapAndNotify(pref);
+                    return true;
+                }
             }
-        } else {
-            return false;
         }
+        return false;
     }
 
     public boolean setValue(String key, Set<String> set) {
