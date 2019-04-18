@@ -713,7 +713,8 @@ public class PostProcessor{
                 || "18".equals(SettingsManager.getInstance().getValue(
                                   SettingsManager.KEY_SCENE_MODE))
                 || mController.getCameraMode() == CaptureModule.DUAL_MODE
-                || isSupportedQcfa || isDeepPortrait) {
+                || isSupportedQcfa || isDeepPortrait
+                || SettingsManager.getInstance().getSavePictureFormat() == SettingsManager.HEIF_FORMAT){
             mUseZSL = false;
         } else {
             mUseZSL = true;
