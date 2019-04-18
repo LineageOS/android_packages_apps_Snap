@@ -5362,7 +5362,7 @@ public class CaptureModule implements CameraModule, PhotoController,
             mLiveShotInitHeifWriter.close();
         }
         mIsRecordingVideo = false;
-        if (isEISDisable() && isAbortCapturesEnable()) {
+        if (isEISDisable() && isAbortCapturesEnable() && mCurrentSession != null) {
             try {
                 mCurrentSession.abortCaptures();
                 Log.d(TAG, "stopRecordingVideo call abortCaptures ");
