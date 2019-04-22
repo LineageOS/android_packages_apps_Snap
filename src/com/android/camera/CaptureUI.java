@@ -692,6 +692,8 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
         initSceneModeButton();
         initFilterModeButton();
         initFlashButton();
+        setMakeupButtonIcon();
+        showSceneModeLabel();
         updateMenus();
         if(mModule.isTrackingFocusSettingOn()) {
             mTrackingFocusRenderer.setVisible(false);

@@ -229,8 +229,7 @@ public class OneUICameraControls extends RotatableLayout {
         mViews = new View[]{
                 mSceneModeSwitcher, mFilterModeSwitcher, mFrontBackSwitcher,
                 mFlashButton, mShutter,
-                mPreview, mPauseButton, mCancelButton, mSettingsButton,
-                mVideoShutter
+                mPreview, mPauseButton, mCancelButton, mSettingsButton
         };
         mBottomLargeSize = getResources().getDimensionPixelSize(
                 R.dimen.one_ui_bottom_large);
@@ -344,10 +343,9 @@ public class OneUICameraControls extends RotatableLayout {
             setLocation(mVideoShutter, false, 2);
             setLocation(mExitBestPhotpMode ,false, 4);
         } else {
-            setLocation(mFrontBackSwitcher, true, 2);
-            setLocation(mFlashButton, true, 3);
-            setLocation(mSettingsButton,true,4);
-            setLocation(mFlashButton, true, 3);
+            setLocation(mFlashButton, true, 2);
+            setLocation(mSettingsButton,true,3);
+            setLocation(mFrontBackSwitcher, false, 3.15f);
             if (mIntentMode == CaptureModule.INTENT_MODE_CAPTURE) {
                 setLocation(mShutter, false, 2);
                 setLocation(mCancelButton, false, 0.85f);
