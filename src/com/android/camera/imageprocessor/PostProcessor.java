@@ -699,13 +699,13 @@ public class PostProcessor{
     }
 
     public void onOpen(int postFilterId, boolean isFlashModeOn, boolean isTrackingFocusOn,
-                       boolean isMakeupOn, boolean isSelfieMirrorOn, boolean isSaveRaw,
-                       boolean isSupportedQcfa, boolean isDeepPortrait) {
+                       boolean isT2TFocusOn, boolean isMakeupOn, boolean isSelfieMirrorOn,
+                       boolean isSaveRaw, boolean isSupportedQcfa, boolean isDeepPortrait) {
         mImageHandlerTask = new ImageHandlerTask();
         mSaveRaw = isSaveRaw;
         mIsDeepPortrait = isDeepPortrait;
-        if(setFilter(postFilterId) || isFlashModeOn || isTrackingFocusOn || isMakeupOn || isSelfieMirrorOn
-                || PersistUtil.getCameraZSLDisabled()
+        if(setFilter(postFilterId) || isFlashModeOn || isTrackingFocusOn || isT2TFocusOn
+                || isMakeupOn || isSelfieMirrorOn || PersistUtil.getCameraZSLDisabled()
                 || !SettingsManager.getInstance().isZSLInAppEnabled()
                 || "enable".equals(
                          SettingsManager.getInstance().getValue(SettingsManager.KEY_AUTO_HDR))

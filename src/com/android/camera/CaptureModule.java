@@ -121,6 +121,7 @@ import com.android.camera.ui.ModuleSwitcher;
 import com.android.camera.ui.ProMode;
 import com.android.camera.ui.RotateTextToast;
 import com.android.camera.ui.TrackingFocusRenderer;
+import com.android.camera.ui.TouchTrackFocusRenderer;
 import com.android.camera.util.ApiHelper;
 import com.android.camera.util.CameraUtil;
 import com.android.camera.util.PersistUtil;
@@ -262,6 +263,7 @@ public class CaptureModule implements CameraModule, PhotoController,
 
     MeteringRectangle[][] mAFRegions = new MeteringRectangle[MAX_NUM_CAM][];
     MeteringRectangle[][] mAERegions = new MeteringRectangle[MAX_NUM_CAM][];
+    MeteringRectangle[][] mT2TrackRegions = new MeteringRectangle[MAX_NUM_CAM][];
     CaptureRequest.Key<Byte> BayerMonoLinkEnableKey =
             new CaptureRequest.Key<>("org.codeaurora.qcamera3.dualcam_link_meta_data.enable",
                     Byte.class);
@@ -412,6 +414,24 @@ public class CaptureModule implements CameraModule, PhotoController,
     public static CameraCharacteristics.Key<Byte> fs_mode_support =
             new CameraCharacteristics.Key<>("org.quic.camera.SensorModeFS.isFastShutterModeSupported", Byte.class);
 
+    // Touch Track Focus
+    public static final CaptureRequest.Key<Byte> t2t_enable = new CaptureRequest.Key<>(
+            "org.quic.camera2.objectTrackingConfig.Enable", Byte.class);
+    /*public static final CaptureRequest.Key<MeteringRectangle[]> t2t_register_roi = new CaptureRequest.Key<>(
+            "org.quic.camera2.objectTracking.RegisterROI", MeteringRectangle[].class);*/
+    public static final CaptureRequest.Key<int[]> t2t_register_roi = new CaptureRequest.Key<>(
+            "org.quic.camera2.objectTrackingConfig.RegisterROI", int[].class);
+    public static final CaptureRequest.Key<Integer> t2t_cmd_trigger = new CaptureRequest.Key<>(
+            "org.quic.camera2.objectTrackingConfig.CmdTrigger", Integer.class);
+
+    private static final CaptureResult.Key<Integer> t2t_tracker_status =
+            new CaptureResult.Key<>("org.quic.camera2.objectTrackingResults.TrackerStatus", Integer.class);
+    private static final CaptureResult.Key<int[]> t2t_tracker_result_roi =
+            new CaptureResult.Key<>("org.quic.camera2.objectTrackingResults.ResultROI", int[].class);
+    private static final CaptureResult.Key<Integer> t2t_tracker_score =
+            new CaptureResult.Key<>("org.quic.camera2.objectTrackingResults.TrackerScore", Integer.class);
+
+    private TouchTrackFocusRenderer mT2TFocusRenderer;
     private boolean mIsDepthFocus = false;
     private boolean[] mTakingPicture = new boolean[MAX_NUM_CAM];
     private int mControlAFMode = CameraMetadata.CONTROL_AF_MODE_CONTINUOUS_PICTURE;
@@ -450,6 +470,8 @@ public class CaptureModule implements CameraModule, PhotoController,
     private ArrayList<SceneModule> mSceneCameraIds = new ArrayList<>();
     private SceneModule mCurrentSceneMode;
     private int mCurrentModeIndex = 1;
+    private int mLastT2tTrackState = -1;
+    private int mT2TTrackState = 0;
     public enum CameraMode {
         VIDEO,
         HFR,
@@ -842,6 +864,8 @@ public class CaptureModule implements CameraModule, PhotoController,
                 } else {
                     updateFaceView(faces, null);
                 }
+
+                updateT2tTrackerView(result);
             }
 
             detectHDRMode(result, id);
@@ -854,6 +878,70 @@ public class CaptureModule implements CameraModule, PhotoController,
             }
         }
     };
+
+    private void updateT2TTracking() {
+        mT2TFocusRenderer.setOriginalCameraBound(
+                mSettingsManager.getSensorActiveArraySize(getMainCameraId()));
+        mT2TFocusRenderer.setMirror(mSettingsManager.isFacingFront(getMainCameraId()));
+        mT2TFocusRenderer.setDisplayOrientation(mDisplayOrientation);
+        mT2TFocusRenderer.setCameraBound(mCropRegion[getMainCameraId()]);
+    }
+
+    private void updateTouchFocusState(int t2tTrigger) {
+        int id = getMainCameraId();
+        try {
+            if (mPreviewRequestBuilder[id] != null) {
+                mPreviewRequestBuilder[id].set(CaptureModule.t2t_cmd_trigger, t2tTrigger);
+                mCaptureSession[id].setRepeatingRequest(mPreviewRequestBuilder[id].build(),
+                        mCaptureCallback, mCameraHandler);
+                if (DEBUG) {
+                    Log.v(TAG, "updateTouchFocusState is called");
+                }
+            }
+        } catch (CameraAccessException | IllegalStateException e) {
+            e.printStackTrace();
+        } catch (IllegalArgumentException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void updateT2tTrackerView(CaptureResult result) {
+        int[] resultROI = null;
+        int trackerScore = -1;
+        if (mT2TFocusRenderer == null) {
+            mT2TFocusRenderer = getT2TFocusRenderer();
+            updateT2TTracking();
+        }
+        if (mT2TFocusRenderer.isVisible()) {
+            updateT2TTracking();
+            try{
+                if (result.get(t2t_tracker_status) != null) {
+                    mT2TTrackState = result.get(t2t_tracker_status);
+                    if (mLastT2tTrackState != mT2TTrackState &&
+                            mT2TTrackState >= TouchTrackFocusRenderer.TRACKER_CMD_REG) {
+                        // as long as State is 1 (registering) or 2 (registered) or 3 (tracking)
+                        // we should be able to turn the "trigger" back to 0 (SYNC)
+                        updateTouchFocusState(TouchTrackFocusRenderer.TRACKER_CMD_SYNC);
+                        mLastT2tTrackState = mT2TTrackState;
+                    }
+                }
+                if (result.get(t2t_tracker_score) != null) {
+                    trackerScore = result.get(t2t_tracker_score);
+                }
+                if (result.get(t2t_tracker_result_roi) != null) {
+                    resultROI = result.get(t2t_tracker_result_roi);
+                    mT2TFocusRenderer.updateTrackerRect(resultROI);
+                }
+                if(DEBUG) {
+                    Log.v(TAG, "updateT2tTrackerView mT2TTrackState :" + mT2TTrackState +
+                            ", trackerScore :" +trackerScore);
+                    Log.v(TAG, "updateT2tTrackerView resultROI :" + resultROI);
+                }
+            } catch (IllegalArgumentException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 
     private void updateStatsView(String stats_visualizer,CaptureResult result) {
         int r, g, b, index;
@@ -3440,6 +3528,7 @@ public class CaptureModule implements CameraModule, PhotoController,
         builder.set(CaptureRequest.CONTROL_AF_MODE, mControlAFMode);
         applyAfModes(builder);
         applyFaceDetection(builder);
+        applyTouchTrackFocus(builder);
         applyWhiteBalance(builder);
         applyExposure(builder);
         applyIso(builder);
@@ -3654,6 +3743,17 @@ public class CaptureModule implements CameraModule, PhotoController,
         return filters;
     }
 
+    public boolean isT2TFocusSettingOn() {
+        try {
+            String value = mSettingsManager.getValue(SettingsManager.KEY_TOUCH_TRACK_FOCUS);
+            if (value != null && value.equals("on")) {
+                return true;
+            }
+        } catch (Exception e) {
+        }
+        return false;
+    }
+
     public boolean isTrackingFocusSettingOn() {
         String scene = mSettingsManager.getValue(SettingsManager.KEY_SCENE_MODE);
         try {
@@ -3773,9 +3873,9 @@ public class CaptureModule implements CameraModule, PhotoController,
                     mSettingsManager.setValue(SettingsManager.KEY_PICTURE_SIZE, maxSize);
                 }
             }
-            mPostProcessor.onOpen(filterMode, isFlashOn,
-                    isTrackingFocusSettingOn(), isMakeupOn, isSelfieMirrorOn,
-                    mSaveRaw, mIsSupportedQcfa, mDeepPortraitMode);
+            mPostProcessor.onOpen(filterMode, isFlashOn, isTrackingFocusSettingOn(),
+                    isT2TFocusSettingOn(), isMakeupOn, isSelfieMirrorOn,mSaveRaw,
+                    mIsSupportedQcfa, mDeepPortraitMode);
         }
         if(mFrameProcessor != null) {
             mFrameProcessor.onOpen(getFrameProcFilterId(), mPreviewSize);
@@ -4145,6 +4245,12 @@ public class CaptureModule implements CameraModule, PhotoController,
         if (DEBUG) {
             Log.d(TAG, "onSingleTapUp " + x + " " + y);
         }
+        if (mT2TFocusRenderer != null && mT2TFocusRenderer.isVisible()) {
+            mT2TFocusRenderer.onSingleTapUp(x, y);
+            triggerTouchFocus(x, y, TouchTrackFocusRenderer.TRACKER_CMD_REG);
+            return;
+        }
+
         int[] newXY = {x, y};
         if (mUI.isOverControlRegion(newXY)) return;
         if (!mUI.isOverSurfaceView(newXY)) return;
@@ -4562,6 +4668,7 @@ public class CaptureModule implements CameraModule, PhotoController,
     private void applyZoomAndUpdate() {
         applyZoomAndUpdate(mCurrentSceneMode.getCurrentId());
         mUI.updateFaceViewCameraBound(mCropRegion[getMainCameraId()]);
+        mUI.updateT2TCameraBound(mCropRegion[getMainCameraId()]);
     }
 
     private void updateZoom() {
@@ -6676,6 +6783,23 @@ public class CaptureModule implements CameraModule, PhotoController,
         }
     }
 
+    private void applyTouchTrackFocus(CaptureRequest.Builder request) {
+        boolean t2tSupported = false;
+        String value = mSettingsManager.getValue(SettingsManager.KEY_TOUCH_TRACK_FOCUS);
+        if (value != null && value.equals("on")) {
+            t2tSupported = true;
+        } else {
+            t2tSupported = false;
+        }
+        // set vendorTag according to mT2TSupported
+        byte t2tValues =(byte)((t2tSupported) ? 0x01 : 0x00);
+        try {
+            request.set(CaptureModule.t2t_enable, t2tValues );
+        } catch (IllegalArgumentException e) {
+            Log.w(TAG, "applyTouchTrackFocus hal no vendorTag : " + t2t_enable);
+        }
+    }
+
     private void applyFaceDetection(CaptureRequest.Builder request) {
         String value = mSettingsManager.getValue(SettingsManager.KEY_FACE_DETECTION);
         if (value != null && value.equals("on")) {
@@ -6755,6 +6879,75 @@ public class CaptureModule implements CameraModule, PhotoController,
                 mUI.enableShutter(!full);
             }
         });
+    }
+
+    public void triggerTouchFocus(int x, int y, int t2tTrigger) {
+        int id = getMainCameraId();
+        int[] registerRect = new int[4];
+        int[] newXY = {x, y};
+        if (mUI.isOverControlRegion(newXY)) return;
+        if (!mUI.isOverSurfaceView(newXY)) return;
+        x = newXY[0];
+        y = newXY[1];
+        if (DEBUG) {
+            Log.d(TAG, "triggerTouchFocus, after trim: x:" + x + " y:" + y
+                    + ", t2tTrigger :" + t2tTrigger);
+        }
+        transformTouchCoords(x, y, id);
+        try {
+            if (mPreviewRequestBuilder[id] != null) {
+                mPreviewRequestBuilder[id].setTag(id);
+                registerRect[0] = mT2TrackRegions[id][0].getX();
+                registerRect[1] = mT2TrackRegions[id][0].getY();
+                registerRect[2] = mT2TrackRegions[id][0].getWidth();
+                registerRect[3] = mT2TrackRegions[id][0].getHeight();
+                mPreviewRequestBuilder[id].set(CaptureModule.t2t_register_roi, registerRect);
+                mPreviewRequestBuilder[id].set(CaptureModule.t2t_cmd_trigger, t2tTrigger);
+                mCaptureSession[id].setRepeatingRequest(mPreviewRequestBuilder[id].build(),
+                        mCaptureCallback, mCameraHandler);
+                if (DEBUG) {
+                    Log.v(TAG, "triggerTouchFocus is called. ROI " + registerRect[0] + " "
+                            + registerRect[1] + " " + registerRect[2] + " " + registerRect[3]);
+                }
+            }
+        } catch (CameraAccessException | IllegalStateException e) {
+            e.printStackTrace();
+        } catch (IllegalArgumentException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void transformTouchCoords(float x, float y, int id) {
+        if (mCropRegion[id] == null) {
+            Log.d(TAG, "transformTouchCoords crop region is null at " + id);
+            mInTAF = false;
+            return;
+        }
+        Point p = mUI.getSurfaceViewSize();
+        int width = p.x;
+        int height = p.y;
+        if (DEBUG) {
+            Log.d(TAG, "transformTouchCoords crop region w: " + mCropRegion[id].width() +
+                    " h: " + mCropRegion[id].height());
+            Log.d(TAG, "transformTouchCoords surfaceViewP w " + p.x + " h: " + p.y);
+        }
+        if (width * mCropRegion[id].width() != height * mCropRegion[id].height()) {
+            Point displayPoint = mUI.getDisplaySize();
+            if (width > displayPoint.x) {
+                height = width * mCropRegion[id].width() / mCropRegion[id].height();
+            }
+            if (height > displayPoint.y) {
+                width = height * mCropRegion[id].height() / mCropRegion[id].width();
+            }
+        }
+        x += (width - p.x) / 2;
+        y += (height - p.y) / 2;
+        mT2TrackRegions[id] = afaeRectangle(x, y, width, height, 1f, mCropRegion[id], id);
+        if (DEBUG) {
+            Log.d(TAG, "transformTouchCoords " + mT2TrackRegions[id][0].getX() + " " +
+                    mT2TrackRegions[id][0].getY() + " " + mT2TrackRegions[id][0].getWidth() +
+                    " " + mT2TrackRegions[id][0].getHeight());
+        }
     }
 
     public void triggerFocusAtPoint(float x, float y, int id) {
@@ -7122,6 +7315,9 @@ public class CaptureModule implements CameraModule, PhotoController,
         if(isTrackingFocusSettingOn()) {
             mUI.resetTrackingFocus();
         }
+        if (isT2TFocusSettingOn()) {
+            mUI.resetTouchTrackingFocus();
+        }
         resetStateMachine();
     }
 
@@ -7159,6 +7355,10 @@ public class CaptureModule implements CameraModule, PhotoController,
 
     public TrackingFocusRenderer getTrackingForcusRenderer() {
         return mUI.getTrackingFocusRenderer();
+    }
+
+    public TouchTrackFocusRenderer getT2TFocusRenderer() {
+        return mUI.getT2TFocusRenderer();
     }
 
     private class MyCameraHandler extends Handler {

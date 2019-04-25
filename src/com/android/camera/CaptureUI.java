@@ -85,6 +85,7 @@ import com.android.camera.ui.RotateTextToast;
 import com.android.camera.ui.SelfieFlashView;
 import com.android.camera.ui.TrackingFocusRenderer;
 import com.android.camera.ui.ZoomRenderer;
+import com.android.camera.ui.TouchTrackFocusRenderer;
 import com.android.camera.util.CameraUtil;
 import com.android.camera.deepportrait.GLCameraPreview;
 import org.codeaurora.snapcam.R;
@@ -123,6 +124,7 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
     private boolean mUIhidden = false;
     private SettingsManager mSettingsManager;
     private TrackingFocusRenderer mTrackingFocusRenderer;
+    private TouchTrackFocusRenderer mT2TFocusRenderer;
     private ImageView mThumbnail;
     private Camera2FaceView mFaceView;
     private Point mDisplaySize = new Point();
@@ -161,6 +163,10 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
             previewUIReady();
             if(mTrackingFocusRenderer != null && mTrackingFocusRenderer.isVisible()) {
                 mTrackingFocusRenderer.setSurfaceDim(mSurfaceView.getLeft(), mSurfaceView.getTop(), mSurfaceView.getRight(), mSurfaceView.getBottom());
+            }
+            if(mT2TFocusRenderer != null && mT2TFocusRenderer.isVisible()) {
+                mT2TFocusRenderer.setSurfaceDim(mSurfaceView.getLeft(), mSurfaceView.getTop(),
+                        mSurfaceView.getRight(), mSurfaceView.getBottom());
             }
         }
 
@@ -276,6 +282,14 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
         return mTrackingFocusRenderer;
     }
 
+    public TouchTrackFocusRenderer getT2TFocusRenderer() {
+        return mT2TFocusRenderer;
+    }
+
+    public void updateT2TCameraBound(Rect cameraBound) {
+        mT2TFocusRenderer.setZoom(mModule.getZoomValue());
+    }
+
     public Point getDisplaySize() {
         return mDisplaySize;
     }
@@ -302,6 +316,9 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
                 int height = bottom - top;
                 if (mFaceView != null) {
                     mFaceView.onSurfaceTextureSizeChanged(width, height);
+                }
+                if (mT2TFocusRenderer != null) {
+                    mT2TFocusRenderer.onSurfaceTextureSizeChanged(width, height);
                 }
             }
         });
@@ -549,9 +566,21 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
             mTrackingFocusRenderer.setVisible(false);
         }
 
+        //Touch track focus
+        if(mT2TFocusRenderer == null) {
+            mT2TFocusRenderer = new TouchTrackFocusRenderer(mActivity, mModule, this);
+            mRenderOverlay.addRenderer(mT2TFocusRenderer);
+        }
+        if (mModule.isT2TFocusSettingOn()) {
+            mT2TFocusRenderer.setVisible(true);
+        } else {
+            mT2TFocusRenderer.setVisible(false);
+        }
+
         if (mGestures == null) {
             // this will handle gesture disambiguation and dispatching
-            mGestures = new PreviewGestures(mActivity, this, mZoomRenderer, mPieRenderer, mTrackingFocusRenderer);
+            mGestures = new PreviewGestures(mActivity, this, mZoomRenderer, mPieRenderer,
+                    mTrackingFocusRenderer);
             mRenderOverlay.setGestures(mGestures);
         }
 
@@ -700,6 +729,13 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
             mTrackingFocusRenderer.setVisible(true);
         } else {
             mTrackingFocusRenderer.setVisible(false);
+        }
+
+        if (mModule.isT2TFocusSettingOn()) {
+            mT2TFocusRenderer.setVisible(false);
+            mT2TFocusRenderer.setVisible(true);
+        } else {
+            mT2TFocusRenderer.setVisible(false);
         }
 
         if (mSurfaceViewMono != null) {
@@ -1061,6 +1097,13 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
         if(mModule.isTrackingFocusSettingOn()) {
             mTrackingFocusRenderer.setVisible(false);
             mTrackingFocusRenderer.setVisible(true);
+        }
+    }
+
+    public void resetTouchTrackingFocus() {
+        if (mModule.isT2TFocusSettingOn()) {
+            mT2TFocusRenderer.setVisible(false);
+            mT2TFocusRenderer.setVisible(true);
         }
     }
 
@@ -1641,6 +1684,9 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
         if(mTrackingFocusRenderer != null) {
             mTrackingFocusRenderer.setVisible(false);
         }
+        if (mT2TFocusRenderer != null) {
+            mT2TFocusRenderer.setVisible(false);
+        }
         if (mMonoDummyAllocation != null && mIsMonoDummyAllocationEverUsed) {
             mMonoDummyAllocation.setOnBufferAvailableListener(null);
             mMonoDummyAllocation.destroy();
@@ -1670,6 +1716,13 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
                 mPieRenderer.clear();
             }
             return mTrackingFocusRenderer;
+        }
+        String value = mSettingsManager.getValue(SettingsManager.KEY_TOUCH_TRACK_FOCUS);
+        if (value != null && value.equals("on")) {
+            if (mPieRenderer != null) {
+                mPieRenderer.clear();
+            }
+            return mT2TFocusRenderer;
         }
         FocusIndicator focusIndicator;
         if (mFaceView != null && mFaceView.faceExists() && !mIsTouchAF) {
