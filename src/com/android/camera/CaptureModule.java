@@ -794,6 +794,7 @@ public class CaptureModule implements CameraModule, PhotoController,
                     updateFaceView(faces, null);
                 }
             }
+            updateCaptureStateMachine(id, partialResult);
         }
 
         @Override
@@ -2244,7 +2245,7 @@ public class CaptureModule implements CameraModule, PhotoController,
                     String value = mSettingsManager.getValue(SettingsManager.KEY_JPEG_QUALITY);
                     int quality = getQualityNumber(value);
                     int orientation = CameraUtil.getJpegRotation(id,mOrientation);
-                    int imageCount = mLongshotActive? MAX_IMAGEREADERS*4 : 1;
+                    int imageCount = mLongshotActive? PersistUtil.getLongshotShotLimit(): 1;
                     HeifWriter writer = createHEIFEncoder(path,mPictureSize.getWidth(),mPictureSize.getHeight(),
                             orientation,imageCount,quality);
                     if (writer != null) {
@@ -2414,20 +2415,17 @@ public class CaptureModule implements CameraModule, PhotoController,
                     }
 
                 }
-                if(mLongshotActive) {
-                    captureStillPicture(getMainCameraId());
-                } else {
-                    mLongshoting = false;
-                    mNumFramesArrived.getAndSet(0);
-                    unlockFocus(getMainCameraId());
-                }
+
+                mLongshoting = false;
+                mNumFramesArrived.getAndSet(0);
+                unlockFocus(getMainCameraId());
             }
         };
 
     private void captureStillPictureForLongshot(CaptureRequest.Builder captureBuilder, int id) throws CameraAccessException{
         List<CaptureRequest> burstList = new ArrayList<>();
         boolean isBurstShotFpsEnable = PersistUtil.isBurstShotFpsEnabled();
-        for (int i = 0; i < MAX_IMAGEREADERS*4; i++) {
+        for (int i = 0; i < PersistUtil.getLongshotShotLimit(); i++) {
             if (isBurstShotFpsEnable) {
                 mPreviewRequestBuilder[id].setTag("preview");
                 burstList.add(mPreviewRequestBuilder[id].build());
@@ -4664,7 +4662,7 @@ public class CaptureModule implements CameraModule, PhotoController,
             mUI.clearFocus();
             mUI.hideUIwhileRecording();
             mCameraHandler.removeMessages(CANCEL_TOUCH_FOCUS, mCameraId[cameraId]);
-            if (isAbortCapturesEnable()) {
+            if (isAbortCapturesEnable() && mCaptureSession[cameraId] != null) {
                 mCaptureSession[cameraId].abortCaptures();
                 Log.d(TAG, "startRecordingVideo call abortCaptures befor close preview ");
             }
@@ -5295,10 +5293,12 @@ public class CaptureModule implements CameraModule, PhotoController,
             mLiveShotInitHeifWriter.close();
         }
         mIsRecordingVideo = false;
-        if (isEISDisable() && isAbortCapturesEnable()) {
+        if (isEISDisable() && isAbortCapturesEnable() && mCurrentSession != null) {
             try {
-                mCurrentSession.abortCaptures();
-                Log.d(TAG, "stopRecordingVideo call abortCaptures ");
+                if (mCurrentSession != null) {
+                    mCurrentSession.abortCaptures();
+                    Log.d(TAG, "stopRecordingVideo call abortCaptures ");
+                }
             } catch (CameraAccessException e) {
                 e.printStackTrace();
             } catch (IllegalStateException e) {
