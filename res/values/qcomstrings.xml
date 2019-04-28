@@ -1068,6 +1068,12 @@
     <string name="pref_camera2_anti_banding_level_entry_60hz">60 Hz (USA)</string>
     <string name="pref_camera2_anti_banding_level_entry_auto">Auto</string>
 
+    <string name="pref_camera2_lensshading_mode_title">Lens Shading</string>
+    <string name="pref_camera2_lensshading_mode_default" translatable="false">0</string>
+    <string name="pref_camera2_lensshading_mode_entry_off">Off</string>
+    <string name="pref_camera2_lensshading_mode_entry_fast">Fast</string>
+    <string name="pref_camera2_lensshading_mode_entry_highquality">High Quality</string>
+
     <string name="pref_camera2_histogram_title">Histogram</string>
     <string name="pref_camera2_histogram_default" translatable="false">disable</string>
     <string name="pref_camera2_histogram_entry_enable">Enable</string>

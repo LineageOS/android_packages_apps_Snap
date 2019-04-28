@@ -149,6 +149,7 @@ public class SettingsManager implements ListMenu.SettingsListener {
     public static final String KEY_INSTANT_AEC = "pref_camera2_instant_aec_key";
     public static final String KEY_SATURATION_LEVEL = "pref_camera2_saturation_level_key";
     public static final String KEY_ANTI_BANDING_LEVEL = "pref_camera2_anti_banding_level_key";
+    public static final String KEY_LENSSHADING_MODE = "pref_camera2_lensshading_mode_key";
     public static final String KEY_AUTO_HDR = "pref_camera2_auto_hdr_key";
     public static final String KEY_HDR = "pref_camera2_hdr_key";
     public static final String KEY_VIDEO_HDR_VALUE = "pref_camera2_video_hdr_key";
@@ -722,6 +723,7 @@ public class SettingsManager implements ListMenu.SettingsListener {
         ListPreference instantAec = mPreferenceGroup.findPreference(KEY_INSTANT_AEC);
         ListPreference saturationLevel = mPreferenceGroup.findPreference(KEY_SATURATION_LEVEL);
         ListPreference antiBandingLevel = mPreferenceGroup.findPreference(KEY_ANTI_BANDING_LEVEL);
+        ListPreference lensShadingMode = mPreferenceGroup.findPreference(KEY_LENSSHADING_MODE);
         ListPreference stats_visualizer = mPreferenceGroup.findPreference(KEY_STATS_VISUALIZER_VALUE);
         ListPreference hdr = mPreferenceGroup.findPreference(KEY_HDR);
         ListPreference zoom = mPreferenceGroup.findPreference(KEY_ZOOM);
@@ -772,6 +774,13 @@ public class SettingsManager implements ListMenu.SettingsListener {
             if (filterUnsupportedOptions(antiBandingLevel,
                     getSupportedAntiBandingLevelAvailableModes(cameraId))) {
                 mFilteredKeys.add(antiBandingLevel.getKey());
+            }
+        }
+
+        if (lensShadingMode != null) {
+            if (filterUnsupportedOptions(lensShadingMode,
+                    getSupportedLensShadingAvailableModes(cameraId))) {
+                mFilteredKeys.add(lensShadingMode.getKey());
             }
         }
 
@@ -1724,6 +1733,16 @@ public class SettingsManager implements ListMenu.SettingsListener {
             modes.add(""+i);
         }
         return  modes;
+    }
+
+    public List<String> getSupportedLensShadingAvailableModes(int cameraId) {
+        int[] lensShadingAvailableModes = mCharacteristics.get(cameraId).get(
+                CameraCharacteristics.SHADING_AVAILABLE_MODES);
+        List<String> modes = new ArrayList<>();
+        for (int i : lensShadingAvailableModes) {
+            modes.add(""+i);
+        }
+        return modes;
     }
 
     public List<String> getSupportedStatsVisualizerAvailableModes(int cameraId) {

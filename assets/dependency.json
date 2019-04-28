@@ -37,7 +37,8 @@
       "pref_camera2_clearsight_key":"off",
       "pref_camera2_mono_preview_key":"off",
       "pref_camera2_mpo_key":"off",
-      "pref_camera2_longshot_key":"off"}
+      "pref_camera2_longshot_key":"off",
+      "pref_camera2_lensshading_mode_key":"0"}
     ,
     "0":
       {"pref_camera2_clearsight_key":"off",

@@ -2831,6 +2831,7 @@ public class CaptureModule implements CameraModule, PhotoController,
         applyInstantAEC(builder);
         applySaturationLevel(builder);
         applyAntiBandingLevel(builder);
+        applyLensShadingMode(builder);
         applySharpnessControlModes(builder);
         applyExposureMeteringModes(builder);
         applyHistogram(builder);
@@ -5288,6 +5289,14 @@ public class CaptureModule implements CameraModule, PhotoController,
         if (value != null) {
             int intValue = Integer.parseInt(value);
             request.set(CaptureRequest.CONTROL_AE_ANTIBANDING_MODE, intValue);
+        }
+    }
+
+    private void applyLensShadingMode(CaptureRequest.Builder request) {
+        String value = mSettingsManager.getValue(SettingsManager.KEY_LENSSHADING_MODE);
+        if (value != null) {
+            int intValue = Integer.parseInt(value);
+            request.set(CaptureRequest.SHADING_MODE, intValue);
         }
     }
 
