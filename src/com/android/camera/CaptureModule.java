@@ -1979,6 +1979,7 @@ public class CaptureModule implements CameraModule, PhotoController,
             cameraId = SWITCH_ID == -1? FRONT_ID : SWITCH_ID;
         }
         captureStillPicture(cameraId);
+        captureStillPictureForHDRTest(cameraId);
     }
 
     public boolean isLongShotActive() {
