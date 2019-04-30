@@ -4669,7 +4669,9 @@ public class CaptureModule implements CameraModule, PhotoController,
             mState[cameraId] = STATE_PREVIEW;
             mControlAFMode = CaptureRequest.CONTROL_AF_MODE_CONTINUOUS_PICTURE;
             mIsAutoFocusStarted = false;
-            closePreviewSession();
+            if (!isAbortCapturesEnable()) {
+                closePreviewSession();
+            }
             mFrameProcessor.onClose();
 
             if (mUI.setPreviewSize(mVideoPreviewSize.getWidth(), mVideoPreviewSize.getHeight())) {
@@ -5305,7 +5307,7 @@ public class CaptureModule implements CameraModule, PhotoController,
                 e.printStackTrace();
             }
         }
-        if (!mPaused) {
+        if (!mPaused && !isAbortCapturesEnable()) {
             closePreviewSession();
         }
         mMediaRecorderStarted = false;
