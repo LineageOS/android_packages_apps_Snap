@@ -5977,23 +5977,16 @@ public class CaptureModule implements CameraModule, PhotoController,
             if (!info.isEncoder() || info.getName().contains("google")) continue;
             for (String type : info.getSupportedTypes()) {
                 if ((videoEncoder == MediaRecorder.VideoEncoder.MPEG_4_SP && type.equalsIgnoreCase(MediaFormat.MIMETYPE_VIDEO_MPEG4))
-                        || (videoEncoder == MediaRecorder.VideoEncoder.H263 && type.equalsIgnoreCase(MediaFormat.MIMETYPE_VIDEO_H263))
-                        || (videoEncoder == MediaRecorder.VideoEncoder.H264 && type.equalsIgnoreCase(MediaFormat.MIMETYPE_VIDEO_AVC))
-                        || (videoEncoder == MediaRecorder.VideoEncoder.HEVC && type.equalsIgnoreCase(MediaFormat.MIMETYPE_VIDEO_HEVC)))
+                        || (videoEncoder == MediaRecorder.VideoEncoder.H263 && type.equalsIgnoreCase(MediaFormat.MIMETYPE_VIDEO_H263)))
                 {
                     CodecCapabilities codecCapabilities = info.getCapabilitiesForType(type);
                     VideoCapabilities videoCapabilities = codecCapabilities.getVideoCapabilities();
                     try {
                         if (videoCapabilities != null) {
                             Log.d(TAG, "updateBitrate type is " + type + " " + info.getName());
-                            long maxBitRate = videoCapabilities.getBitrateRange().getUpper().intValue();
-                            int maxWidth = videoCapabilities.getSupportedWidths().getUpper().intValue();
-                            int maxHeight = videoCapabilities.getSupportedHeights().getUpper().intValue();
-                            Log.d(TAG, "updateBitrate size is " + width + "x" + height);
-                            int adjustedBitRate = (int) (maxBitRate * width * height / (maxWidth * maxHeight));
-                            Log.d(TAG, "updateBitrate maxBitRate is " + maxBitRate + ", profileBitRate is " + bitRate
-                                    + ", adjustedBitRate is " + adjustedBitRate);
-                            mMediaRecorder.setVideoEncodingBitRate(Math.min(bitRate, adjustedBitRate));
+                            int maxBitRate = videoCapabilities.getBitrateRange().getUpper().intValue();
+                            Log.d(TAG, "maxBitRate is " + maxBitRate + ", profileBitRate is " + bitRate);
+                            mMediaRecorder.setVideoEncodingBitRate(Math.min(bitRate, maxBitRate));
                             return;
                         }
                     } catch (IllegalArgumentException e) {
