@@ -1264,7 +1264,11 @@ public class CaptureModule implements CameraModule, PhotoController,
                 break;
             }
         }
-        mLastAeState = aeState;
+        if (aeState == null) {
+            mLastAeState = -1;
+        } else {
+            mLastAeState = aeState;
+        }
     }
 
     private void checkAfAeStatesAndCapture(int id) {
