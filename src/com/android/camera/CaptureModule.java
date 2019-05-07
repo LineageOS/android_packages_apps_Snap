@@ -5472,7 +5472,7 @@ public class CaptureModule implements CameraModule, PhotoController,
                 e.printStackTrace();
             }
         }
-        if (!mPaused) {
+        if (!mPaused && !isAbortCapturesEnable()) {
             closePreviewSession();
         }
         mMediaRecorderStarted = false;
