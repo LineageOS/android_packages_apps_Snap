@@ -401,6 +401,9 @@ public class CameraSettings {
         VIDEO_ENCODER_BITRATE.put("3840x2160:60:" + MediaRecorder.VideoEncoder.H264,  80000000);
         VIDEO_ENCODER_BITRATE.put("3840x2160:60:" + MediaRecorder.VideoEncoder.HEVC,  50400000);
 
+        // 8K 30fps for HEVC
+        VIDEO_ENCODER_BITRATE.put("7680x4320:30" + MediaRecorder.VideoEncoder.HEVC, 81000000);
+
    }
 
    // Following maps help find a corresponding time-lapse or high-speed quality
