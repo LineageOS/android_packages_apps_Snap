@@ -5309,6 +5309,7 @@ public class CaptureModule implements CameraModule, PhotoController,
             closePreviewSession();
         }
         mMediaRecorderStarted = false;
+        mHighSpeedCapture = false;
         try {
             mMediaRecorder.setOnErrorListener(null);
             mMediaRecorder.setOnInfoListener(null);
