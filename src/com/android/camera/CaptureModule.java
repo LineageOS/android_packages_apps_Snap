@@ -7136,6 +7136,7 @@ public class CaptureModule implements CameraModule, PhotoController,
                                     getMainCameraId());
                             break;
                         case VIDEO:
+                        case HFR:
                             updateVideoFlash();
                             break;
                     }
