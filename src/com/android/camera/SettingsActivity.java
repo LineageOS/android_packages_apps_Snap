@@ -707,6 +707,9 @@ public class SettingsActivity extends PreferenceActivity {
                     }
                     addDeveloperOptions(developer, videoAddList);
                 }
+                videoPre.removePreference(findPreference(mode == CaptureModule.CameraMode.VIDEO ?
+                        SettingsManager.KEY_VIDEO_HIGH_FRAME_RATE :
+                        SettingsManager.KEY_VIDEO_TIME_LAPSE_FRAME_INTERVAL));
                 break;
             case RTB:
                 removePreferenceGroup("video", parentPre);
