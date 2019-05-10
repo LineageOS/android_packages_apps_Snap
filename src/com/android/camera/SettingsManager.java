@@ -500,6 +500,7 @@ public class SettingsManager implements ListMenu.SettingsListener {
 
     private void setLocalIdAndInitialize(int cameraId) {
         int cameraIdTag = cameraId;
+        mHighestSpeedVideoRate = 30;
         if (CaptureModule.CURRENT_MODE == CaptureModule.CameraMode.DEFAULT &&
                 mValuesMap != null) {
             String auxValue = getValue(SettingsManager.KEY_FORCE_AUX);
@@ -1340,7 +1341,9 @@ public class SettingsManager implements ListMenu.SettingsListener {
     }
 
     public void setHFRDefaultRate() {
-        setValue(KEY_VIDEO_HIGH_FRAME_RATE, "hfr" + String.valueOf(mHighestSpeedVideoRate));
+        if (!setValue(KEY_VIDEO_HIGH_FRAME_RATE, "hfr" + String.valueOf(mHighestSpeedVideoRate))) {
+            setValue(KEY_VIDEO_HIGH_FRAME_RATE, "off");
+        }
     }
 
     private void filterVideoEncoderProfileOptions() {
