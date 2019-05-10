@@ -300,6 +300,8 @@ public class SettingsManager implements ListMenu.SettingsListener {
                                     String.valueOf(CaptureModule.CameraMode.DEFAULT));
                             mPrepNameKeys.add(String.valueOf(i) +
                                     String.valueOf(CaptureModule.CameraMode.VIDEO));
+                            mPrepNameKeys.add(String.valueOf(i) +
+                                    String.valueOf(CaptureModule.CameraMode.HFR));
                             if (facing != CameraCharacteristics.LENS_FACING_FRONT) {
                                 mPrepNameKeys.add(String.valueOf(i) +
                                         String.valueOf(CaptureModule.CameraMode.PRO_MODE));
