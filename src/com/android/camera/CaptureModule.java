@@ -4246,9 +4246,7 @@ public class CaptureModule implements CameraModule, PhotoController,
                 || mCaptureSession[getMainCameraId()] == null) {
             return;
         }
-        if (DEBUG) {
-            Log.d(TAG, "onSingleTapUp " + x + " " + y);
-        }
+        Log.d(TAG, "onSingleTapUp " + x + " " + y);
         if (mT2TFocusRenderer != null && mT2TFocusRenderer.isVisible()) {
             mT2TFocusRenderer.onSingleTapUp(x, y);
             triggerTouchFocus(x, y, TouchTrackFocusRenderer.TRACKER_CMD_REG);
