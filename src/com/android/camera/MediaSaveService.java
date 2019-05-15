@@ -150,7 +150,7 @@ public class MediaSaveService extends Service {
         if (isQueueFull()) {
             onQueueFull();
         }
-        t.execute();
+        t.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
     }
 
     public void addRawImage(final byte[] data, String title, String pictureFormat) {
