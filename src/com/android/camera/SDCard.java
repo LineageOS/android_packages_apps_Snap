@@ -34,8 +34,6 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Build;
 import android.os.Environment;
-import android.os.storage.StorageVolume;
-import android.os.storage.StorageManager;
 import android.util.Log;
 
 import java.io.File;
@@ -43,18 +41,11 @@ import java.io.File;
 public class SDCard {
     private static final String TAG = "SDCard";
 
-    private static final int VOLUME_SDCARD_INDEX = 1;
-
-    private Context mContext;
-    private StorageManager mStorageManager = null;
-    private StorageVolume mVolume = null;
     private String mPath = null;
-    private String mRawpath = null;
     private static SDCard sSDCard;
 
     public boolean isWriteable() {
-        if (mVolume == null) return false;
-        final String state = getSDCardStorageState();
+        String state = Environment.getExternalStorageState();
         if (Environment.MEDIA_MOUNTED.equals(state)) {
             return true;
         }
@@ -62,34 +53,7 @@ public class SDCard {
     }
 
     public String getDirectory() {
-        if (mVolume == null) {
-            return null;
-        }
-        if (mPath == null) {
-            File[] dirs = mContext.getExternalFilesDirs(null);
-            if (dirs != null) {
-                String dir;
-                for (int i=0; i<dirs.length; i++) {
-                    if (dirs[i] == null) continue;
-                    dir = dirs[i].getAbsolutePath();
-                    if (dir.startsWith(mVolume.getPath())) {
-                        mPath = dir;
-                        break;
-                    }
-                }
-            }
-        }
         return mPath;
-    }
-
-    public String getRawDirectory() {
-        if (mVolume == null) {
-            return null;
-        }
-        if (mRawpath == null) {
-            mRawpath = mVolume.getPath() + "/DCIM/Camera/raw";
-        }
-        return mRawpath;
     }
 
     public static void initialize(Context context) {
@@ -102,14 +66,8 @@ public class SDCard {
         return sSDCard;
     }
 
-    private String getSDCardStorageState() {
-        return mVolume.getState();
-    }
-
     private SDCard(Context context) {
         try {
-            mContext = context;
-            mStorageManager = (StorageManager) context.getSystemService(Context.STORAGE_SERVICE);
             initVolume();
             registerMediaBroadcastreceiver(context);
         } catch (Exception e) {
@@ -118,11 +76,8 @@ public class SDCard {
     }
 
     private void initVolume() {
-        final StorageVolume[] volumes = mStorageManager.getVolumeList();
-        mVolume = (volumes.length > VOLUME_SDCARD_INDEX) ?
-                volumes[VOLUME_SDCARD_INDEX] : null;
-        mPath = null;
-        mRawpath = null;
+        mPath = Environment.getExternalStoragePublicDirectory(
+                Environment.DIRECTORY_DCIM).toString();
     }
 
     private void registerMediaBroadcastreceiver(Context context) {
