@@ -32,13 +32,11 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.os.Build;
 import android.os.Environment;
 import android.os.storage.StorageVolume;
 import android.os.storage.StorageManager;
 import android.util.Log;
 
-import java.io.File;
 import java.util.List;
 
 public class SDCard {
@@ -46,7 +44,6 @@ public class SDCard {
 
     private static final int VOLUME_SDCARD_INDEX = 1;
 
-    private Context mContext;
     private StorageManager mStorageManager = null;
     private StorageVolume mVolume = null;
     private String mPath = null;
@@ -67,18 +64,7 @@ public class SDCard {
             return null;
         }
         if (mPath == null) {
-            File[] dirs = mContext.getExternalFilesDirs(null);
-            if (dirs != null) {
-                String dir;
-                for (int i=0; i<dirs.length; i++) {
-                    if (dirs[i] == null) continue;
-                    dir = dirs[i].getAbsolutePath();
-                    if (dir.startsWith(mVolume.getDirectory().toString())) {
-                        mPath = dir;
-                        break;
-                    }
-                }
-            }
+            mPath = mVolume.getDirectory().toString() + "/DCIM/Camera";
         }
         return mPath;
     }
@@ -109,7 +95,6 @@ public class SDCard {
 
     private SDCard(Context context) {
         try {
-            mContext = context;
             mStorageManager = (StorageManager) context.getSystemService(Context.STORAGE_SERVICE);
             initVolume();
             registerMediaBroadcastreceiver(context);
