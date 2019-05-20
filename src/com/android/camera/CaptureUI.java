@@ -1124,7 +1124,9 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
             mMakeupButton.setVisibility(View.GONE);
         }
         mIsVideoUI = true;
-        mPauseButton.setVisibility(View.VISIBLE);
+        if (!mModule.isSSMEnabled()) {
+            mPauseButton.setVisibility(View.VISIBLE);
+        }
         if (mModule.getCurrentIntentMode() == CaptureModule.INTENT_MODE_NORMAL) {
             mShutterButton.setVisibility(View.VISIBLE);
         }
