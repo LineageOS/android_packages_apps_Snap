@@ -402,13 +402,32 @@
             android:entryValues="@array/pref_camera2_qcfa_entryvalues" />
 
         <ListPreference
+            android:key="pref_camera2_bsgc_key"
             android:defaultValue="@string/pref_camera2_bsgc_default"
             android:entries="@array/pref_camera2_bsgc_entries"
             android:entryValues="@array/pref_camera2_bsgc_entryvalues"
-            android:key="pref_camera2_bsgc_key"
             android:layout="@layout/preference"
             android:summary="%s"
             android:title="@string/pref_camera2_bsgc_title" />
+
+
+        <ListPreference
+            android:key="pref_camera2_facial_contour_key"
+            android:defaultValue="@string/pref_camera2_bsgc_default"
+            android:title="@string/pref_camera2_facial_contour_title"
+            android:layout="@layout/preference"
+            android:summary="%s"
+            android:entries="@array/pref_camera2_bsgc_entries"
+            android:entryValues="@array/pref_camera2_bsgc_entryvalues" />
+
+        <ListPreference
+            android:key="pref_camera2_face_detection_mode"
+            android:defaultValue="@string/pref_camera2_face_points_default"
+            android:title="@string/pref_camera2_face_detection_mode_title"
+            android:layout="@layout/preference"
+            android:summary="%s"
+            android:entries="@array/pref_camera2_face_detection_entries"
+            android:entryValues="@array/pref_camera2_face_detection_entryvalues" />
 
         <ListPreference
             android:defaultValue="@string/pref_camera2_sharpness_control_default"

@@ -78,6 +78,7 @@ import android.os.ParcelFileDescriptor;
 import android.os.SystemClock;
 import android.os.SystemProperties;
 import android.provider.MediaStore;
+import android.provider.Settings;
 import android.util.Log;
 import android.util.Range;
 import android.util.Size;
@@ -183,6 +184,7 @@ public class CaptureModule implements CameraModule, PhotoController,
     private static final int OPEN_CAMERA = 0;
     private static final int CANCEL_TOUCH_FOCUS = 1;
     private static final int MAX_NUM_CAM = 16;
+    private static final int CONTOUR_POINTS_COUNT = 89;
     private String DEPTH_CAM_ID;
     private static final MeteringRectangle[] ZERO_WEIGHT_3A_REGION = new MeteringRectangle[]{
             new MeteringRectangle(0, 0, 0, 0, 0)};
@@ -260,6 +262,10 @@ public class CaptureModule implements CameraModule, PhotoController,
     public static final boolean DEBUG =
             (PersistUtil.getCamera2Debug() == PersistUtil.CAMERA2_DEBUG_DUMP_LOG) ||
             (PersistUtil.getCamera2Debug() == PersistUtil.CAMERA2_DEBUG_DUMP_ALL);
+
+    private static final boolean BSGC_DEBUG = PersistUtil.getBsgcebug();
+    private static final String BSGC_TAG = "BSGC";
+
     private static final String HFR_RATE = PersistUtil.getHFRRate();
 
     MeteringRectangle[][] mAFRegions = new MeteringRectangle[MAX_NUM_CAM][];
@@ -336,14 +342,15 @@ public class CaptureModule implements CameraModule, PhotoController,
             new CameraCharacteristics.Key<>("org.codeaurora.qcamera3.quadra_cfa.is_qcfa_sensor", Byte.class);
     public static CameraCharacteristics.Key<int[]> QCFA_SUPPORT_DIMENSION =
             new CameraCharacteristics.Key<>("org.codeaurora.qcamera3.quadra_cfa.qcfa_dimension", int[].class);
-    public static CameraCharacteristics.Key<Byte> bsgcAvailable =
-            new CameraCharacteristics.Key<>("org.codeaurora.qcamera3.stats.bsgc_available", Byte.class);
     public static CameraCharacteristics.Key<int[]> support_video_hdr_modes =
             new CameraCharacteristics.Key<>("org.codeaurora.qcamera3.available_video_hdr_modes.video_hdr_modes", int[].class);
     public static CameraCharacteristics.Key<Byte> logical_camera_type =
             new CameraCharacteristics.Key<>("org.codeaurora.qcamera3.logicalCameraType.logical_camera_type", Byte.class);
     public static CaptureRequest.Key<Integer> support_video_hdr_values =
             new CaptureRequest.Key<>("org.codeaurora.qcamera3.available_video_hdr_modes.video_hdr_values", Integer.class);
+
+    public static CameraCharacteristics.Key<Byte> bsgcAvailable =
+            new CameraCharacteristics.Key<>("org.codeaurora.qcamera3.stats.bsgc_available", Byte.class);
     public static CaptureResult.Key<byte[]> blinkDetected =
             new CaptureResult.Key<>("org.codeaurora.qcamera3.stats.blink_detected", byte[].class);
     public static CaptureResult.Key<byte[]> blinkDegree =
@@ -360,6 +367,22 @@ public class CaptureModule implements CameraModule, PhotoController,
     public static CaptureResult.Key<byte[]> gazeDegree =
             new CaptureResult.Key<>("org.codeaurora.qcamera3.stats.gaze_degree",
                     byte[].class);
+    public static CaptureResult.Key<int[]> contourPoints =
+            new CaptureResult.Key<>("org.codeaurora.qcamera3.stats.contours",
+                    int[].class);
+    public static CaptureRequest.Key<Byte> facialContourEnable =
+            new CaptureRequest.Key<>("org.codeaurora.qcamera3.facial_attr.contour_enable",
+                    Byte.class);
+    public static CaptureRequest.Key<Byte> smileEnable =
+            new CaptureRequest.Key<>("org.codeaurora.qcamera3.facial_attr.smile_enable",
+                    Byte.class);
+    public static CaptureRequest.Key<Byte> gazeEnable =
+            new CaptureRequest.Key<>("org.codeaurora.qcamera3.facial_attr.gaze_enable",
+                    Byte.class);
+    public static CaptureRequest.Key<Byte> blinkEnable =
+            new CaptureRequest.Key<>("org.codeaurora.qcamera3.facial_attr.blink_enable",
+                    Byte.class);
+
     public static CaptureResult.Key<Integer> ssmCaptureComplete =
             new CaptureResult.Key<>("com.qti.chi.superslowmotionfrc.CaptureComplete", Integer.class);
     public static CaptureResult.Key<Integer> ssmProcessingComplete =
@@ -368,6 +391,7 @@ public class CaptureModule implements CameraModule, PhotoController,
             new CaptureRequest.Key<>("com.qti.chi.superslowmotionfrc.CaptureStart", Integer.class);
     public static CaptureRequest.Key<Integer> ssmInterpFactor =
             new CaptureRequest.Key<>("com.qti.chi.superslowmotionfrc.InterpolationFactor", Integer.class);
+
     public static final CameraCharacteristics.Key<int[]> hfrFpsTable =
             new CameraCharacteristics.Key<>("org.quic.camera2.customhfrfps.info.CustomHFRFpsTable", int[].class);
     public static final CameraCharacteristics.Key<int[]> sensorModeTable  =
@@ -866,7 +890,9 @@ public class CaptureModule implements CameraModule, PhotoController,
             int id = (int) partialResult.getRequest().getTag();
             if (id == getMainCameraId()) {
                 Face[] faces = partialResult.get(CaptureResult.STATISTICS_FACES);
-                if (faces != null && isBsgcDetecionOn()) {
+                if (BSGC_DEBUG)
+                    Log.d(BSGC_TAG,"onCaptureProgressed Detected Face size = " + Integer.toString(faces == null? 0 : faces.length));
+                if (faces != null && (isBsgcDetecionOn() || isFacialContourOn() || isFacePointOn())) {
                     updateFaceView(faces, getBsgcInfo(partialResult, faces.length));
                 } else {
                     updateFaceView(faces, null);
@@ -885,7 +911,9 @@ public class CaptureModule implements CameraModule, PhotoController,
                 updateFocusStateChange(result);
                 updateAWBCCTAndgains(result);
                 Face[] faces = result.get(CaptureResult.STATISTICS_FACES);
-                if (faces != null && isBsgcDetecionOn()) {
+                if (BSGC_DEBUG)
+                    Log.d(BSGC_TAG,"onCaptureCompleted Detected Face size = " + Integer.toString(faces == null? 0 : faces.length));
+                if (faces != null && (isBsgcDetecionOn() || isFacialContourOn() || isFacePointOn())) {
                     updateFaceView(faces, getBsgcInfo(result, faces.length));
                 } else {
                     updateFaceView(faces, null);
@@ -1376,6 +1404,18 @@ public class CaptureModule implements CameraModule, PhotoController,
         String value = mSettingsManager.getValue(SettingsManager.KEY_BSGC_DETECTION);
         if (value == null) return false;
         return  value.equals("enable");
+    }
+
+    private boolean isFacialContourOn() {
+        String value = mSettingsManager.getValue(SettingsManager.KEY_FACIAL_CONTOUR);
+        if (value == null) return false;
+        return  value.equals("enable");
+    }
+
+    private boolean isFacePointOn() {
+        String value = mSettingsManager.getValue(SettingsManager.KEY_FACE_DETECTION_MODE);
+        if (value == null) return false;
+        return  value.equals(String.valueOf(CaptureRequest.STATISTICS_FACE_DETECT_MODE_FULL));
     }
 
     private boolean isRawCaptureOn() {
@@ -4336,22 +4376,67 @@ public class CaptureModule implements CameraModule, PhotoController,
     }
 
     private ExtendedFace[] getBsgcInfo(CaptureResult captureResult, int size) {
-        ExtendedFace []extendedFaces = new ExtendedFace[size];
-        byte[] blinkDetectedArray = captureResult.get(blinkDetected);
-        byte[] blinkDegreesArray = captureResult.get(blinkDegree);
-        int[] gazeDirectionArray = captureResult.get(gazeDirection);
-        byte[] gazeAngleArray = captureResult.get(gazeAngle);
-        byte[] smileDegreeArray = captureResult.get(smileDegree);
-        byte[] smileConfidenceArray = captureResult.get(smileConfidence);
-        for(int i=0;i<size;i++) {
-            ExtendedFace tmp = new ExtendedFace(i);
-            tmp.setBlinkDetected(blinkDetectedArray[i]);
-            tmp.setBlinkDegree(blinkDegreesArray[2*i], blinkDegreesArray[2*i+1]);
-            tmp.setGazeDirection(gazeDirectionArray[3*i], gazeDirectionArray[3*i+1], gazeDirectionArray[3*i+2]);
-            tmp.setGazeAngle(gazeAngleArray[i]);
-            tmp.setSmileDegree(smileDegreeArray[i]);
-            tmp.setSmileConfidence(smileConfidenceArray[i]);
-            extendedFaces[i] = tmp;
+        if (captureResult == null || size == 0) {
+            if(BSGC_DEBUG)
+                Log.d(BSGC_TAG,"extendface size ="+size);
+            return null;
+        }
+        ExtendedFace[] extendedFaces = new ExtendedFace[size];
+        boolean bsgEnable = isBsgcDetecionOn();
+        boolean contourEnable = isFacialContourOn();
+        boolean facePointEnable = isFacePointOn();
+        try {
+            if (bsgEnable) {
+                byte[] blinkDetectedArray = captureResult.get(blinkDetected);
+                if (BSGC_DEBUG)
+                    Log.d(BSGC_TAG,"blinkDetectedArray="+Arrays.toString(blinkDetectedArray));
+                byte[] blinkDegreesArray = captureResult.get(blinkDegree);
+                if (BSGC_DEBUG)
+                    Log.d(BSGC_TAG,"blinkDegreesArray="+Arrays.toString(blinkDegreesArray));
+                int[] gazeDirectionArray = captureResult.get(gazeDirection);
+                if (BSGC_DEBUG)
+                    Log.d(BSGC_TAG,"gazeDirectionArray="+Arrays.toString(gazeDirectionArray));
+                byte[] gazeAngleArray = captureResult.get(gazeAngle);
+                if (BSGC_DEBUG)
+                    Log.d(BSGC_TAG,"gazeAngleArray="+Arrays.toString(gazeAngleArray));
+                byte[] smileDegreeArray = captureResult.get(smileDegree);
+                if (BSGC_DEBUG)
+                    Log.d(BSGC_TAG,"smileDegreeArray="+Arrays.toString(smileDegreeArray));
+                byte[] smileConfidenceArray = captureResult.get(smileConfidence);
+                if (BSGC_DEBUG)
+                    Log.d(BSGC_TAG,"smileConfidenceArray="+Arrays.toString(smileConfidenceArray));
+                for (int i = 0; i < size; i++) {
+                    ExtendedFace tmp = new ExtendedFace(i);
+                    if (bsgEnable) {
+                        tmp.setBlinkDetected(blinkDetectedArray[i]);
+                        tmp.setBlinkDegree(blinkDegreesArray[2 * i], blinkDegreesArray[2 * i + 1]);
+                        tmp.setGazeDirection(gazeDirectionArray[3 * i], gazeDirectionArray[3 * i + 1], gazeDirectionArray[3 * i + 2]);
+                        tmp.setGazeAngle(gazeAngleArray[i]);
+                        tmp.setSmileDegree(smileDegreeArray[i]);
+                        tmp.setSmileConfidence(smileConfidenceArray[i]);
+                        extendedFaces[i] = tmp;
+                    }
+                }
+            }
+            if (contourEnable || facePointEnable) {
+                int[] contourPoints = captureResult.get(CaptureModule.contourPoints);
+                if (BSGC_DEBUG)
+                    Log.d(BSGC_TAG,"contourPoints="+Arrays.toString(contourPoints));
+                int[] landmarkPoints = captureResult.get(CaptureResult.STATISTICS_FACE_LANDMARKS);
+                if (BSGC_DEBUG)
+                    Log.d(BSGC_TAG,"landmarkPoints="+Arrays.toString(landmarkPoints));
+                ExtendedFace tmp;
+                if (extendedFaces[0] == null) {
+                    tmp = new ExtendedFace(0);
+                    extendedFaces[0] = tmp;
+                } else {
+                    tmp = extendedFaces[0];
+                }
+                tmp.setContour(contourPoints);
+                tmp.setLandMarks(landmarkPoints);
+            }
+        } catch (IllegalArgumentException|NullPointerException e){
+            e.printStackTrace();
         }
         return extendedFaces;
     }
@@ -6884,9 +6969,40 @@ public class CaptureModule implements CameraModule, PhotoController,
 
     private void applyFaceDetection(CaptureRequest.Builder request) {
         String value = mSettingsManager.getValue(SettingsManager.KEY_FACE_DETECTION);
+        String mode = mSettingsManager.getValue(SettingsManager.KEY_FACE_DETECTION_MODE);
+        String bsgc = mSettingsManager.getValue(SettingsManager.KEY_BSGC_DETECTION);
+        String facialContour = mSettingsManager.getValue(SettingsManager.KEY_FACIAL_CONTOUR);
         if (value != null && value.equals("on")) {
-            request.set(CaptureRequest.STATISTICS_FACE_DETECT_MODE,
-                    CaptureRequest.STATISTICS_FACE_DETECT_MODE_SIMPLE);
+            try {
+                int modeValue = CaptureRequest.STATISTICS_FACE_DETECT_MODE_SIMPLE;
+                if (mode != null)
+                    modeValue = Integer.valueOf(mode);
+                request.set(CaptureRequest.STATISTICS_FACE_DETECT_MODE,
+                        modeValue);
+
+                if (bsgc != null) {
+                    final byte bsgc_enable;
+                    if (bsgc.equals("enable")) {
+                        bsgc_enable = 1;
+                    } else {
+                        bsgc_enable = 0;
+                    }
+                    request.set(CaptureModule.smileEnable, bsgc_enable);
+                    request.set(CaptureModule.gazeEnable, bsgc_enable);
+                    request.set(CaptureModule.blinkEnable, bsgc_enable);
+                }
+
+                if (facialContour != null) {
+                    final byte facialContour_enable;
+                    if (facialContour.equals("enable")) {
+                        facialContour_enable = 1;
+                    } else {
+                        facialContour_enable = 0;
+                    }
+                    request.set(CaptureModule.facialContourEnable, facialContour_enable);
+                }
+            } catch (IllegalArgumentException e) {
+            }
         }
     }
 

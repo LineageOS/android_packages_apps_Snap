@@ -214,6 +214,8 @@ public class SettingsManager implements ListMenu.SettingsListener {
 
     public static final HashMap<String, Integer> KEY_ISO_INDEX = new HashMap<String, Integer>();
     public static final String KEY_BSGC_DETECTION = "pref_camera2_bsgc_key";
+    public static final String KEY_FACIAL_CONTOUR = "pref_camera2_facial_contour_key";
+    public static final String KEY_FACE_DETECTION_MODE = "pref_camera2_face_detection_mode";
     public static final String KEY_ZSL = "pref_camera2_zsl_key";
     public static final String KEY_VIDEO_ENCODER_PROFILE = "pref_camera2_videoencoderprofile_key";
     public static final String MAUNAL_ABSOLUTE_ISO_VALUE = "absolute";
@@ -956,6 +958,7 @@ public class SettingsManager implements ListMenu.SettingsListener {
         ListPreference zoom = mPreferenceGroup.findPreference(KEY_ZOOM);
         ListPreference qcfa = mPreferenceGroup.findPreference(KEY_QCFA);
         ListPreference bsgc = mPreferenceGroup.findPreference(KEY_BSGC_DETECTION);
+        ListPreference faceDetectionMode = mPreferenceGroup.findPreference(KEY_FACE_DETECTION_MODE);
         ListPreference fsMode = mPreferenceGroup.findPreference(KEY_SENSOR_MODE_FS2_VALUE);
 
         if (forceAUX != null && !mHasMultiCamera) {
@@ -985,7 +988,16 @@ public class SettingsManager implements ListMenu.SettingsListener {
         if (bsgc != null) {
             if (!isBsgcAvailable(mCameraId)) {
                 removePreference(mPreferenceGroup, KEY_BSGC_DETECTION);
+                removePreference(mPreferenceGroup, KEY_FACIAL_CONTOUR);
                 mFilteredKeys.add(bsgc.getKey());
+                mFilteredKeys.add(KEY_FACIAL_CONTOUR);
+            }
+        }
+
+        if (faceDetectionMode != null) {
+            if (!isFaceDetectionModeSupported(mCameraId)) {
+                removePreference(mPreferenceGroup, KEY_FACE_DETECTION_MODE);
+                mFilteredKeys.add(faceDetectionMode.getKey());
             }
         }
 
@@ -1701,18 +1713,30 @@ public class SettingsManager implements ListMenu.SettingsListener {
         }
         return false;
     }
+    public boolean isFaceDetectionModeSupported(int id) {
+//        always enable FaceDetectionMode by default
+//        int[] faceDetection = mCharacteristics.get(id).get
+//                (CameraCharacteristics.STATISTICS_INFO_AVAILABLE_FACE_DETECT_MODES);
+//        if (faceDetection != null && faceDetection.length > 2) {
+//            return true;
+//        }
+//        return false;
+        return true;
+    }
+
 
     public boolean isBsgcAvailable(int id) {
-        boolean ret = false;
-        try {
-            if (mCharacteristics.size() > 0) {
-                byte bsgc_available = mCharacteristics.get(id).get(CaptureModule.bsgcAvailable);
-                ret = bsgc_available == 1;
-            }
-        } catch (IllegalArgumentException e) {
-            e.printStackTrace();
-        }
-        return ret;
+//        boolean ret = false;
+//        try {
+//            if (mCharacteristics.size() > 0) {
+//                byte bsgc_available = mCharacteristics.get(id).get(CaptureModule.bsgcAvailable);
+//                ret = bsgc_available == 1;
+//            }
+//        } catch (IllegalArgumentException e) {
+//            e.printStackTrace();
+//        }
+//        return ret;
+        return true;
     }
 
     private boolean isFastShutterModeSupported(int id) {

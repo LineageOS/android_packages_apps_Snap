@@ -36,6 +36,7 @@ import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.ImageFormat;
+import android.media.audiofx.PresetReverb;
 import android.os.Bundle;
 import android.preference.ListPreference;
 import android.preference.MultiSelectListPreference;
@@ -67,6 +68,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.Arrays;
+
+import static com.android.camera.CaptureModule.CameraMode.VIDEO;
 
 public class SettingsActivity extends PreferenceActivity {
     private static final String TAG = "SettingsActivity";
@@ -690,6 +693,7 @@ public class SettingsActivity extends PreferenceActivity {
                 add(SettingsManager.KEY_EXPOSURE_METERING_MODE);
             }
         };
+
         PreferenceGroup developer = (PreferenceGroup) findPreference("developer");
         PreferenceGroup photoPre = (PreferenceGroup) findPreference("photo");
         PreferenceGroup videoPre = (PreferenceGroup) findPreference("video");
@@ -718,9 +722,14 @@ public class SettingsActivity extends PreferenceActivity {
                     if (mSettingsManager.getInitialCameraId() == CaptureModule.FRONT_ID) {
                         videoAddList.remove(SettingsManager.KEY_EIS_VALUE);
                     }
+                    if (mode == VIDEO) {
+                        videoAddList.add(SettingsManager.KEY_BSGC_DETECTION);
+                        videoAddList.add(SettingsManager.KEY_FACE_DETECTION_MODE);
+                        videoAddList.add(SettingsManager.KEY_FACIAL_CONTOUR);
+                    }
                     addDeveloperOptions(developer, videoAddList);
                 }
-                removePreference(mode == CaptureModule.CameraMode.VIDEO ?
+                removePreference(mode == VIDEO ?
                         SettingsManager.KEY_VIDEO_HIGH_FRAME_RATE :
                         SettingsManager.KEY_VIDEO_TIME_LAPSE_FRAME_INTERVAL, videoPre);
                 break;
