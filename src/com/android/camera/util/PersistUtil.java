@@ -38,6 +38,7 @@ public class PersistUtil {
     public static final int CAMERA2_DEBUG_DUMP_IMAGE = 1;
     public static final int CAMERA2_DEBUG_DUMP_LOG = 2;
     public static final int CAMERA2_DEBUG_DUMP_ALL = 100;
+    public static final int CAMERA2_DEV_OPTION_ALL = 100;
 
     private static final int CAMERA_SENSOR_HORIZONTAL_ALIGNED = 0;
     private static final int CAMERA_SENSOR_VERTICAL_ALIGNED = 1;
@@ -62,6 +63,8 @@ public class PersistUtil {
             SystemProperties.getInt("persist.sys.camera.focus_delay", 5000);
     private static final int PERSIST_CAMERA_DEBUG =
             SystemProperties.getInt("persist.sys.camera.debug", 0);
+    private static final int PERSIST_CAMERA_DEV_DEBUG_OPTION =
+            SystemProperties.getInt("persist.sys.camera.devoption.debug", 0);
     private static final String PERSIST_CAMERA_STILLMORE_BRCOLR =
             SystemProperties.get("persist.sys.camera.stm_brcolor", "0.5");
     private static final String PERSIST_CAMERA_STILLMORE_BRINTENSITY =
@@ -185,6 +188,10 @@ public class PersistUtil {
 
     public static int getCamera2Debug() {
         return PERSIST_CAMERA_DEBUG;
+    }
+
+    public static int getDevOptionLevel() {
+        return PERSIST_CAMERA_DEV_DEBUG_OPTION;
     }
 
     public static float getStillmoreBrColor(){

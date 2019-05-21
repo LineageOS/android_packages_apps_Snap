@@ -505,7 +505,8 @@ public class SettingsManager implements ListMenu.SettingsListener {
 
     private void setLocalIdAndInitialize(int cameraId) {
         int cameraIdTag = cameraId;
-        if (CaptureModule.CURRENT_MODE == CaptureModule.CameraMode.DEFAULT &&
+        if ((CaptureModule.CURRENT_MODE == CaptureModule.CameraMode.DEFAULT ||
+                CaptureModule.CURRENT_MODE == CaptureModule.CameraMode.VIDEO) &&
                 mValuesMap != null) {
             String auxValue = getValue(SettingsManager.KEY_FORCE_AUX);
             String switchCameraId = getValue(SettingsManager.KEY_SWITCH_CAMERA);
