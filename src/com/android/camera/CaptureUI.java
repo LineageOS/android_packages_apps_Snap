@@ -865,18 +865,15 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
 
         int index = mSettingsManager.getValueIndex(SettingsManager.KEY_FRONT_REAR_SWITCHER_VALUE);
         index = (index + 1) % 2;
+        if (index == 1 && (mModule.getCurrenCameraMode() == CaptureModule.CameraMode.RTB ||
+                mModule.getCurrenCameraMode() == CaptureModule.CameraMode.SAT)) {
+            switchToPhotoModeDueToError(false);
+        }
         mSettingsManager.setValueIndex(SettingsManager.KEY_FRONT_REAR_SWITCHER_VALUE, index);
     }
 
     private boolean isSupportFrontCamera(CaptureModule.CameraMode mode) {
-        switch (mode) {
-            case VIDEO:
-            case HFR:
-            case DEFAULT:
-                return true;
-            default:
-                return false;
-        }
+        return mode != CaptureModule.CameraMode.PRO_MODE;
     }
 
     public void initFlashButton() {
@@ -1158,7 +1155,6 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
                 break;
             case RTB:
             case SAT:
-                mFrontBackSwitcher.setVisibility(View.INVISIBLE);
                 mFilterModeSwitcher.setVisibility(View.VISIBLE);
                 mVideoButton.setVisibility(View.INVISIBLE);
                 mFlashButton.setVisibility(View.INVISIBLE);
@@ -2177,7 +2173,7 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
         mModule.selectCameraMode(mode);
     }
 
-    public void switchToPhotoModeDueToError() {
+    public void switchToPhotoModeDueToError(boolean switchCamera) {
         int photoModeIndex = 1;
         List<String> modeList = mModule.getCameraModeList();
         for (; photoModeIndex < modeList.size(); photoModeIndex++) {
@@ -2188,7 +2184,11 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
         }
         mCameraModeAdapter.setSelectedPosition(photoModeIndex);
         mModeSelectLayout.smoothScrollToPosition(photoModeIndex);
-        mModule.selectCameraMode(photoModeIndex);
+        if (switchCamera) {
+            mModule.selectCameraMode(photoModeIndex);
+        } else {
+            mModule.setCurrentSceneModeOnly(photoModeIndex);
+        }
     }
 
 }
