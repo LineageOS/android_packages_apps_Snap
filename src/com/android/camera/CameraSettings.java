@@ -311,6 +311,9 @@ public class CameraSettings {
         VIDEO_ENCODER_TABLE.put(MediaRecorder.VideoEncoder.MPEG_4_SP, "m4v");
 
         //video qualities
+        if (CamcorderProfileWrapper.QUALITY_8KUHD != -1) {
+            VIDEO_QUALITY_TABLE.put("7680x4320", CamcorderProfileWrapper.QUALITY_8KUHD);
+        }
         if ( CamcorderProfileWrapper.QUALITY_4KDCI != -1 ) {
             VIDEO_QUALITY_TABLE.put("4096x2160", CamcorderProfileWrapper.QUALITY_4KDCI);
         }
