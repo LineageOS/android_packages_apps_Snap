@@ -691,7 +691,7 @@ public class SettingsActivity extends PreferenceActivity {
                 removePreferenceGroup("video", parentPre);
                 if (mDeveloperMenuEnabled && developer != null) {
                     for (String removeKey : videoOnlyList) {
-                        developer.removePreference(findPreference(removeKey));
+                        removePreference(removeKey, developer);
                     }
                 }
                 break;
@@ -707,9 +707,9 @@ public class SettingsActivity extends PreferenceActivity {
                     }
                     addDeveloperOptions(developer, videoAddList);
                 }
-                videoPre.removePreference(findPreference(mode == CaptureModule.CameraMode.VIDEO ?
+                removePreference(mode == CaptureModule.CameraMode.VIDEO ?
                         SettingsManager.KEY_VIDEO_HIGH_FRAME_RATE :
-                        SettingsManager.KEY_VIDEO_TIME_LAPSE_FRAME_INTERVAL));
+                        SettingsManager.KEY_VIDEO_TIME_LAPSE_FRAME_INTERVAL, videoPre);
                 break;
             case RTB:
                 removePreferenceGroup("video", parentPre);
