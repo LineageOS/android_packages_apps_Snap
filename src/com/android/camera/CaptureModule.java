@@ -1532,22 +1532,12 @@ public class CaptureModule implements CameraModule, PhotoController,
         Log.d(TAG,"createSessions : Current SceneMode is "+mCurrentSceneMode.mode);
         switch (mCurrentSceneMode.mode) {
             case VIDEO:
-                createSessionForVideo(cameraId);
-                break;
             case HFR:
-                String value = mSettingsManager.getValue(SettingsManager.KEY_VIDEO_HIGH_FRAME_RATE);
-                if (value == null || value.equals("off")) {
-                    initDefaultHighSpeedCaptureSettings();
-                }
                 createSessionForVideo(cameraId);
                 break;
             default:
                 createSession(cameraId);
         }
-    }
-
-    private void initDefaultHighSpeedCaptureSettings() {
-        mSettingsManager.setHFRDefaultRate();
     }
 
     private CaptureRequest.Builder getRequestBuilder(int id) throws CameraAccessException {
