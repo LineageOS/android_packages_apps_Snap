@@ -209,6 +209,7 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
     private ImageView mMakeupButton;
     private SeekBar mMakeupSeekBar;
     private SeekBar mDeepportraitSeekBar;
+    private SeekBar mZoomSeekBar;
     private View mMakeupSeekBarLayout;
     private View mSeekbarBody;
     private TextView mRecordingTimeView;
@@ -248,6 +249,9 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
     private TextView mStatsAwbGText;
     private TextView mStatsAwbBText;
     private TextView mStatsAwbCcText;
+    private TextView mZoomValueText;
+
+    private LinearLayout mZoomLinearLayout;
 
     private TextView mZoomSwitch;
     private int mZoomIndex = 0;
@@ -407,6 +411,7 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
             }
         });
         setMakeupButtonIcon();
+        initZoomSeekBar();
 
         mFlashButton = (FlashToggleButton) mRootView.findViewById(R.id.flash_button);
         mModeSelectLayout = (RecyclerView) mRootView.findViewById(R.id.mode_select_layout);
@@ -614,6 +619,78 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
         mActivity.setPreviewGestures(mGestures);
         mRecordingTimeRect.setVisibility(View.GONE);
         showFirstTimeHelp();
+    }
+
+    private void initZoomSeekBar() {
+        mZoomLinearLayout = (LinearLayout) mRootView.findViewById(R.id.zoom_linearlayout);
+        mZoomValueText = (TextView) mRootView.findViewById(R.id.zoom_value_text);
+        mZoomSeekBar = (SeekBar) mRootView.findViewById(R.id.zoom_seekbar);
+        Float zoomMax = mSettingsManager.getMaxZoom(mModule.getMainCameraId());
+        mZoomSeekBar.setMax(zoomMax.intValue() * 10 - 10);
+        updateZoomSeekBar(1.0f);
+        mZoomLinearLayout.setVisibility(View.VISIBLE);
+        mZoomSeekBar.setVisibility(View.VISIBLE);
+        mZoomSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                mModule.updateZoomChanged((progress + 10) / 10f);
+                int zoomSig = Math.round((progress + 10)) / 10;
+                int zoomFraction = Math.round(progress + 10) % 10;
+                String txt = zoomSig + "." + zoomFraction + "x";
+
+                if (mZoomValueText != null) {
+                    mZoomValueText.setText(txt);
+                }
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                mModule.updateZoomChanged((seekBar.getProgress() + 10) / 10f);
+                if (mZoomValueText != null) {
+                    mZoomValueText.setText((seekBar.getProgress() + 10) / 10f + "x");
+                }
+            }
+        });
+    }
+
+    public void hideZoomSeekBar() {
+        if (mZoomLinearLayout != null) {
+            mZoomLinearLayout.setVisibility(View.GONE);
+        }
+        if (mZoomValueText != null) {
+            mZoomValueText.setVisibility(View.GONE);
+        }
+        if (mZoomSeekBar != null) {
+            mZoomSeekBar.setVisibility(View.GONE);
+        }
+    }
+
+    public void showZoomSeekBar() {
+        if (mZoomLinearLayout != null) {
+            mZoomLinearLayout.setVisibility(View.VISIBLE);
+        }
+        if (mZoomValueText != null) {
+            mZoomValueText.setVisibility(View.VISIBLE);
+        }
+        if (mZoomSeekBar != null) {
+            mZoomSeekBar.setVisibility(View.VISIBLE);
+        }
+    }
+
+    public void updateZoomSeekBar(float zoomValue) {
+        int zoomSig = Math.round(zoomValue * 10) / 10;
+        int zoomFraction = Math.round(zoomValue * 10) % 10;
+        String txt = zoomSig + "." + zoomFraction + "x";
+        if (mZoomValueText != null) {
+            mZoomValueText.setText(txt);
+        }
+        if (mZoomSeekBar != null) {
+            mZoomSeekBar.setProgress(zoomSig * 10 + zoomFraction - 10);
+        }
     }
 
     private void selectModeText(View view) {
@@ -852,6 +929,7 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
             }
             if (mModule.getCurrentIntentMode() == CaptureModule.INTENT_MODE_NORMAL) {
                 mModeSelectLayout.setVisibility(View.VISIBLE);
+                showZoomSeekBar();
             }
         }
         updateMenus();
@@ -950,6 +1028,7 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
                 adjustOrientation();
                 updateMenus();
                 mModeSelectLayout.setVisibility(View.GONE);
+                hideZoomSeekBar();
             }
         });
     }
