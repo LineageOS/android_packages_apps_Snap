@@ -16,4 +16,9 @@
 -->
 <resources>
     <string name="quick_reader_action_dismiss">ವಜಾಮಾಡು</string>
+    <string name="quick_reader_permission_rationale_message">ಪಟ್ಟಿಸಂಕೇತ ವಿಸಂಕೇತಿಸಲು ತಿಟ್ಟುಕ ಪ್ರವೇಶ ಅಗತ್ಯವಿದೆ</string>
+    <string name="quick_reader_permission_rationale_positive">ಮತ್ತೆ ಕೇಳು</string>
+    <string name="quick_reader_permission_fatal_message">ಕ್ಯಾಮರಾ ಪ್ರವೇಶವು ತಿರಸ್ಕರಿಸಲಾಗಿದೆ. ದಯವಿಟ್ಟು ಇದನ್ನು ಆಪ್ ಅಳವಡಿಕೆಗಳಲ್ಲಿ ಅನುಮತಿಸಿ</string>
+    <string name="quick_reader_scanned_text_positive">ನಕಲಿಸು</string>
+    <string name="quick_reader_copied_message">ಹಿಡಿಕೆ ಕಟ್ಟಿಗೆ ನಕಲಾಗಿದೆ</string>
 </resources>
