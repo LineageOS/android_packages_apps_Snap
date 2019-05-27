@@ -44,6 +44,8 @@ public class PersistUtil {
 
     private static final int PERSIST_MEMORY_LIMIT =
             SystemProperties.getInt("persist.sys.camera.perf.memlimit", 60);
+    private static final String PERSIST_HFR_LIMIT =
+            SystemProperties.get("persist.sys.camera.hfr.rate", "");
     private static final boolean PERSIST_SKIP_MEMORY_CHECK =
             SystemProperties.getBoolean("persist.sys.camera.perf.skip_memck", false);
     private static final int PERSIST_LONGSHOT_SHOT_LIMIT =
@@ -132,6 +134,10 @@ public class PersistUtil {
 
     public static int getMemoryLimit() {
         return PERSIST_MEMORY_LIMIT;
+    }
+
+    public static String getHFRRate() {
+        return PERSIST_HFR_LIMIT;
     }
 
     public static boolean getSkipMemoryCheck() {

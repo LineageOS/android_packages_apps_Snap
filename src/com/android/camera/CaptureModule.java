@@ -259,6 +259,7 @@ public class CaptureModule implements CameraModule, PhotoController,
     public static final boolean DEBUG =
             (PersistUtil.getCamera2Debug() == PersistUtil.CAMERA2_DEBUG_DUMP_LOG) ||
             (PersistUtil.getCamera2Debug() == PersistUtil.CAMERA2_DEBUG_DUMP_ALL);
+    private static final String HFR_RATE = PersistUtil.getHFRRate();
 
     MeteringRectangle[][] mAFRegions = new MeteringRectangle[MAX_NUM_CAM][];
     MeteringRectangle[][] mAERegions = new MeteringRectangle[MAX_NUM_CAM][];
@@ -1532,7 +1533,12 @@ public class CaptureModule implements CameraModule, PhotoController,
         Log.d(TAG,"createSessions : Current SceneMode is "+mCurrentSceneMode.mode);
         switch (mCurrentSceneMode.mode) {
             case VIDEO:
+                createSessionForVideo(cameraId);
+                break;
             case HFR:
+                if (!HFR_RATE.equals("")) {
+                    mSettingsManager.setValue(SettingsManager.KEY_VIDEO_HIGH_FRAME_RATE, HFR_RATE);
+                }
                 createSessionForVideo(cameraId);
                 break;
             default:
