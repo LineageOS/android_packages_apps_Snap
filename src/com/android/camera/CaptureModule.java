@@ -1857,7 +1857,7 @@ public class CaptureModule implements CameraModule, PhotoController,
             mPreviewRequestBuilder[cameraId] = mVideoRecordRequestBuilder;
             mIsPreviewingVideo = true;
             if (ApiHelper.isAndroidPOrHigher()) {
-                if (mHighSpeedCapture && ((int) mHighSpeedFPSRange.getUpper() > NORMAL_SESSION_MAX_FPS)) {
+                if (isHighSpeedRateCapture()) {
                     CaptureRequest initialRequest = mVideoRecordRequestBuilder.build();
                     int optionMode = isSSMEnabled() ? STREAM_CONFIG_SSM : SESSION_HIGH_SPEED;
                     buildConstrainedCameraSession(mCameraDevice[cameraId], optionMode,
@@ -1867,7 +1867,7 @@ public class CaptureModule implements CameraModule, PhotoController,
                             mSessionListener, mCameraHandler, mVideoRecordRequestBuilder.build());
                 }
             } else {
-                if (mHighSpeedCapture && ((int)mHighSpeedFPSRange.getUpper() > NORMAL_SESSION_MAX_FPS)) {
+                if (isHighSpeedRateCapture()) {
                     mCameraDevice[cameraId].createConstrainedHighSpeedCaptureSession(surfaces, new
                             CameraConstrainedHighSpeedCaptureSession.StateCallback() {
 
@@ -2488,7 +2488,15 @@ public class CaptureModule implements CameraModule, PhotoController,
             builder.set(CaptureRequest.CONTROL_AF_MODE, CaptureRequest.CONTROL_AF_MODE_AUTO);
             mState[id] = STATE_WAITING_TOUCH_FOCUS;
             applyFlash(builder, id);//apply flash mode and AEmode for this temp builder
-            mCaptureSession[id].capture(builder.build(), mCaptureCallback, mCameraHandler);
+            if (isHighSpeedRateCapture()) {
+                List<CaptureRequest> tafBuilderList = isSSMEnabled() ?
+                        CameraUtil.createHighSpeedRequestList(builder.build()) :
+                        ((CameraConstrainedHighSpeedCaptureSession) mCaptureSession[id]).
+                                createHighSpeedRequestList(builder.build());
+                mCaptureSession[id].captureBurst(tafBuilderList, mCaptureCallback, mCameraHandler);
+            } else {
+                mCaptureSession[id].capture(builder.build(), mCaptureCallback, mCameraHandler);
+            }
             setAFModeToPreview(id, mControlAFMode);
             Message message =
                     mCameraHandler.obtainMessage(CANCEL_TOUCH_FOCUS, id, 0, mCameraId[id]);
@@ -3533,7 +3541,8 @@ public class CaptureModule implements CameraModule, PhotoController,
     private void applySettingsForAutoFocus(CaptureRequest.Builder builder, int id) {
         builder.set(CaptureRequest.CONTROL_AF_TRIGGER, CaptureRequest
                 .CONTROL_AF_TRIGGER_START);
-        if (mCurrentSceneMode.mode == CameraMode.VIDEO) {
+        if (mCurrentSceneMode.mode == CameraMode.VIDEO ||
+                mCurrentSceneMode.mode == CameraMode.HFR) {
             Range fpsRange = mHighSpeedCapture ? mHighSpeedFPSRange : new Range(30, 30);
             builder.set(CaptureRequest.CONTROL_AE_TARGET_FPS_RANGE, fpsRange);
         }
@@ -4784,8 +4793,7 @@ public class CaptureModule implements CameraModule, PhotoController,
                             .createHighSpeedRequestList(mVideoRecordRequestBuilder.build());
                     mCurrentSession.setRepeatingBurst(list,mCaptureCallback, mCameraHandler);
                 } else {
-                    if (mHighSpeedCapture &&
-                            ((int) mHighSpeedFPSRange.getUpper() > NORMAL_SESSION_MAX_FPS)) {
+                    if (isHighSpeedRateCapture()) {
                         slowMoRequests = mSuperSlomoCapture ? CameraUtil
                                 .createHighSpeedRequestList(mVideoRecordRequestBuilder.build()) :
                                 ((CameraConstrainedHighSpeedCaptureSession) mCurrentSession).
@@ -5168,7 +5176,7 @@ public class CaptureModule implements CameraModule, PhotoController,
             mVideoPreviewRequestBuilder.set(CaptureRequest.CONTROL_AE_TARGET_FPS_RANGE,
                     mHighSpeedFPSRange);
         }
-        if (!mHighSpeedCapture || !((int)mHighSpeedFPSRange.getUpper() > NORMAL_SESSION_MAX_FPS)) {
+        if (!isHighSpeedRateCapture()) {
             applyVideoCommentSettings(mVideoPreviewRequestBuilder, cameraId);
         }
     }
@@ -7783,6 +7791,14 @@ public class CaptureModule implements CameraModule, PhotoController,
 
     public boolean isSSMEnabled() {
         return mSuperSlomoCapture && (int)mHighSpeedFPSRange.getUpper() > NORMAL_SESSION_MAX_FPS;
+    }
+
+    /**
+     * if it is HFR or HSR recording and rate > 60
+     * @return if it is high speed rate recording
+     */
+    private boolean isHighSpeedRateCapture() {
+        return mHighSpeedCapture && (int)mHighSpeedFPSRange.getUpper() > NORMAL_SESSION_MAX_FPS;
     }
 
     public void onRenderComplete(DPImage dpimage, boolean isError) {
