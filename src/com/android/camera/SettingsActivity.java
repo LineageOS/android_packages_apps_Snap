@@ -146,16 +146,14 @@ public class SettingsActivity extends PreferenceActivity {
                 }
 
                 if ( pref.getKey().equals(SettingsManager.KEY_VIDEO_HDR_VALUE) ) {
-                    ListPreference autoHdrPref = (ListPreference) findPreference(
-                            mSettingsManager.KEY_AUTO_HDR);
-                    if (pref.getSummary().equals("enable")) {
-                        // when enable the Video HDR, app will disable the AUTO HDR.
-                        autoHdrPref.setEnabled(false);
-                        autoHdrPref.setValue("disable");
-                        mSettingsManager.setValue(mSettingsManager.KEY_AUTO_HDR, "disable");
-                    } else {
-                        autoHdrPref.setEnabled(true);
-                    }
+                    // when enable the Video HDR, app will disable the AUTO HDR.
+                    updateConflictOptionState(SettingsManager.KEY_AUTO_HDR, pref,
+                            "Disable", "disable");
+                }
+
+                if (pref.getKey().equals(SettingsManager.KEY_VIDEO_HIGH_FRAME_RATE)) {
+                    updateConflictOptionState(SettingsManager.KEY_VIDEO_TIME_LAPSE_FRAME_INTERVAL,
+                            pref, "Off", "0");
                 }
 
                 if ( (pref.getKey().equals(SettingsManager.KEY_MANUAL_WB)) ) {
@@ -164,6 +162,25 @@ public class SettingsActivity extends PreferenceActivity {
             }
         }
     };
+
+    /**
+     * This method is to enable or disable the option which is conflict with changed setting
+     * @param conflictKey key you want to change after setting is changed
+     * @param changedPref preference of setting which is just changed
+     * @param checkedValue Judgement condition of enable or disable. It is Entry not EntryValue
+     * @param targetValue EntryValue you want to set into conflictKey when you disable it
+     */
+    private void updateConflictOptionState(String conflictKey, Preference changedPref,
+                                           String checkedValue, String targetValue) {
+        ListPreference conflictPref = (ListPreference) findPreference(conflictKey);
+        if (!changedPref.getSummary().equals(checkedValue)) {
+            conflictPref.setValue(targetValue);
+            mSettingsManager.setValue(conflictKey, targetValue);
+            conflictPref.setEnabled(false);
+        } else {
+            conflictPref.setEnabled(true);
+        }
+    }
 
     private void UpdateManualExposureSettings() {
         //dismiss all popups first, because we need to show edit dialog
