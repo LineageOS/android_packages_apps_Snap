@@ -5353,6 +5353,7 @@ public class CaptureModule implements CameraModule, PhotoController,
         if(mFrameProcessor != null) {
             mFrameProcessor.onOpen(getFrameProcFilterId(), mPreviewSize);
         }
+        mUI.showUIafterRecording();
         boolean changed = mUI.setPreviewSize(mPreviewSize.getWidth(), mPreviewSize.getHeight());
         if (changed) {
             mUI.hideSurfaceView();
@@ -5361,7 +5362,6 @@ public class CaptureModule implements CameraModule, PhotoController,
         if (!mPaused) {
             createSessions();
         }
-        mUI.showUIafterRecording();
         mUI.resetTrackingFocus();
         mStopRecPending = false;
     }
