@@ -3297,6 +3297,7 @@ public class CaptureModule implements CameraModule, PhotoController,
         try {
             manager = (CameraManager) mActivity.getSystemService(Context.CAMERA_SERVICE);
             mCameraId[id] = manager.getCameraIdList()[id];
+            mOriginalCropRegion[id] = mSettingsManager.getSensorActiveArraySize(id);
             if (!mCameraOpenCloseLock.tryAcquire(5000, TimeUnit.MILLISECONDS)) {
                 Log.d(TAG, "Time out waiting to lock camera opening.");
                 throw new RuntimeException("Time out waiting to lock camera opening");
