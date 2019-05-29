@@ -979,7 +979,7 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
             mVideoButton.setImageResource(R.drawable.video_stop);
             mRecordingTimeView.setText("00:00");
             mRecordingTimeRect.setVisibility(View.VISIBLE);
-            mMuteButton.setVisibility(View.VISIBLE);
+            mMuteButton.setVisibility(mModule.isHSRMode() ? View.VISIBLE : View.INVISIBLE);
             setMuteButtonResource(!mModule.isAudioMute());
         } else {
             mFlashButton.setVisibility(View.VISIBLE);
