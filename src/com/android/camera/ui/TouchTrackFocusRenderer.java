@@ -66,7 +66,7 @@ public class TouchTrackFocusRenderer extends OverlayRenderer implements FocusInd
     private int mInX = -1;
     private int mInY = -1;
     private final static int CIRCLE_THUMB_SIZE = 100;
-    private final static int RECT_SLIDE_LENGTH = 125;
+    private final static int RECT_SLIDE_LENGTH = 145;
     private Rect mSurfaceDim;
     private CaptureUI mUI;
 
