@@ -993,8 +993,6 @@ public class CaptureModule implements CameraModule, PhotoController,
             mCamerasOpened = false;
 
             if (null != mActivity) {
-                Toast.makeText(mActivity,"open camera error id =" + id,
-                        Toast.LENGTH_LONG).show();
                 mActivity.finish();
             }
         }
