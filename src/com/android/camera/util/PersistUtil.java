@@ -44,6 +44,8 @@ public class PersistUtil {
 
     private static final int PERSIST_MEMORY_LIMIT =
             SystemProperties.getInt("persist.sys.camera.perf.memlimit", 60);
+    private static final String PERSIST_HFR_LIMIT =
+            SystemProperties.get("persist.sys.camera.hfr.rate", "");
     private static final boolean PERSIST_SKIP_MEMORY_CHECK =
             SystemProperties.getBoolean("persist.sys.camera.perf.skip_memck", false);
     private static final int PERSIST_LONGSHOT_SHOT_LIMIT =
@@ -127,9 +129,15 @@ public class PersistUtil {
             SystemProperties.get("persist.sys.camera.display.lmax", "");
     private static final boolean PERSIST_BURST_SHOT_FPS_ENABLED =
             SystemProperties.getBoolean("persist.sys.camera.burst.shot.fps", false);
+    private static final boolean PERSIST_SSM_ENABLE =
+            SystemProperties.getBoolean("persist.sys.camera.ssm.enable", false);
 
     public static int getMemoryLimit() {
         return PERSIST_MEMORY_LIMIT;
+    }
+
+    public static String getHFRRate() {
+        return PERSIST_HFR_LIMIT;
     }
 
     public static boolean getSkipMemoryCheck() {
@@ -327,5 +335,9 @@ public class PersistUtil {
 
     public static boolean isBurstShotFpsEnabled() {
         return PERSIST_BURST_SHOT_FPS_ENABLED;
+    }
+
+    public static boolean isSSMEnabled() {
+        return PERSIST_SSM_ENABLE;
     }
 }

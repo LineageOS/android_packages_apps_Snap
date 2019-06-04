@@ -231,7 +231,6 @@ public class SettingsManager implements ListMenu.SettingsListener {
     private boolean mIsFrontCameraPresent = false;
     private boolean mHasMultiCamera = false;
     private boolean mIsHFRSupported = false;
-    private int mHighestSpeedVideoRate = 30;
     private JSONObject mDependency;
     private int mCameraId;
     private Set<String> mFilteredKeys;
@@ -506,7 +505,6 @@ public class SettingsManager implements ListMenu.SettingsListener {
 
     private void setLocalIdAndInitialize(int cameraId) {
         int cameraIdTag = cameraId;
-        mHighestSpeedVideoRate = 30;
         if (CaptureModule.CURRENT_MODE == CaptureModule.CameraMode.DEFAULT &&
                 mValuesMap != null) {
             String auxValue = getValue(SettingsManager.KEY_FORCE_AUX);
@@ -908,6 +906,12 @@ public class SettingsManager implements ListMenu.SettingsListener {
     }
 
     private void filterPreferences(int cameraId) {
+        if (CaptureModule.CURRENT_MODE == CaptureModule.CameraMode.VIDEO) {
+            ListPreference hfrPref = mPreferenceGroup.findPreference(KEY_VIDEO_HIGH_FRAME_RATE);
+            if (hfrPref != null) {
+                hfrPref.setValue("off");
+            }
+        }
         // filter unsupported preferences
         ListPreference forceAUX = mPreferenceGroup.findPreference(KEY_FORCE_AUX);
         ListPreference whiteBalance = mPreferenceGroup.findPreference(KEY_WHITE_BALANCE);
@@ -1346,12 +1350,6 @@ public class SettingsManager implements ListMenu.SettingsListener {
         return mIsHFRSupported;
     }
 
-    public void setHFRDefaultRate() {
-        if (!setValue(KEY_VIDEO_HIGH_FRAME_RATE, "hfr" + String.valueOf(mHighestSpeedVideoRate))) {
-            setValue(KEY_VIDEO_HIGH_FRAME_RATE, "off");
-        }
-    }
-
     private void filterVideoEncoderProfileOptions() {
         ListPreference videoEncoderProfilePref =
                 mPreferenceGroup.findPreference(KEY_VIDEO_ENCODER_PROFILE);
@@ -1516,9 +1514,9 @@ public class SettingsManager implements ListMenu.SettingsListener {
                 if (findVideoEncoder) break;
             }
 
-            String rate = "";
             try {
                 Range[] range = getSupportedHighSpeedVideoFPSRange(mCameraId, videoSize);
+                String rate;
                 for (Range r : range) {
                     // To support HFR for both preview and recording,
                     // minmal FPS needs to be equal to maximum FPS
@@ -1529,8 +1527,10 @@ public class SettingsManager implements ListMenu.SettingsListener {
                                 rate = String.valueOf(r.getUpper());
                                 supported.add("hfr" + rate);
                                 supported.add("hsr" + rate);
-                                mHighestSpeedVideoRate = Integer.valueOf(rate) > mHighestSpeedVideoRate ?
-                                        Integer.valueOf(rate) : mHighestSpeedVideoRate;
+                                if (PersistUtil.isSSMEnabled()) {
+                                    supported.add("2x_" + rate);
+                                    supported.add("4x_" + rate);
+                                }
                             }
                         }
                     }
@@ -1549,8 +1549,10 @@ public class SettingsManager implements ListMenu.SettingsListener {
                                     videoSize.getWidth(), videoSize.getHeight(), mExtendedHFRSize[i + 2])) {
                                 supported.add(item);
                                 supported.add("hsr" + mExtendedHFRSize[i + 2]);
-                                mHighestSpeedVideoRate = mExtendedHFRSize[i + 2] > mHighestSpeedVideoRate ?
-                                        mExtendedHFRSize[i + 2] : mHighestSpeedVideoRate;
+                                if (PersistUtil.isSSMEnabled()) {
+                                    supported.add("2x_" + mExtendedHFRSize[i + 2]);
+                                    supported.add("4x_" + mExtendedHFRSize[i + 2]);
+                                }
                             }
                         }
                     }

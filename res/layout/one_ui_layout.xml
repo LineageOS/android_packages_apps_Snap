@@ -40,6 +40,15 @@
         android:src="@drawable/ic_unmuted_button"
         android:visibility="gone" />
 
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_gravity="center_horizontal|center_vertical"
+        android:visibility="gone"
+        android:indeterminate="true"
+        android:indeterminateTint="#f44242" />
+
     <com.android.camera.ShutterButton
         android:id="@+id/shutter_button"
         android:layout_width="@dimen/one_ui_bottom_large"

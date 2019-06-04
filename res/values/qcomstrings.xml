@@ -403,7 +403,7 @@
      <string name="pref_camera_hfr_title">Video High FrameRate</string>
 
      <!-- Settings screen, hfr radio button choices -->
-     <string name="pref_camera_hfr_entry_off">Off</string>
+     <string name="pref_camera_hfr_entry_off">30FPS</string>
      <string name="pref_camera_hfr_entry_2x">HFR 60</string>
      <string name="pref_camera_hfr_entry_3x">HFR 90</string>
      <string name="pref_camera_hfr_entry_4x">HFR 120</string>
@@ -416,6 +416,12 @@
      <string name="pref_camera_hfr_entry_hsr_240">HSR 240</string>
      <string name="pref_camera_hfr_entry_hsr_480">HSR 480</string>
      <string name="pref_camera_hfr_entry_hsr_960">HSR 960</string>
+     <string name="pref_camera_hfr_entry_2x_ssm_120">Super SloMo 120->240</string>
+     <string name="pref_camera_hfr_entry_4x_ssm_120">Super SloMo 120->480</string>
+     <string name="pref_camera_hfr_entry_2x_ssm_240">Super SloMo 240->480</string>
+     <string name="pref_camera_hfr_entry_4x_ssm_240">Super SloMo 240->960</string>
+     <string name="pref_camera_hfr_entry_2x_ssm_480">Super SloMo 480->960</string>
+     <string name="pref_camera_hfr_entry_4x_ssm_480">Super SloMo 480->1920</string>
 
      <!-- HFR entry values. Do not translate. -->
      <string name="pref_camera_hfr_value_off">off</string>
@@ -431,6 +437,12 @@
      <string name="pref_camera_hfr_value_hsr_240">hsr240</string>
      <string name="pref_camera_hfr_value_hsr_480">hsr480</string>
      <string name="pref_camera_hfr_value_hsr_960">hsr960</string>
+     <string name="pref_camera_hfr_value_2x_ssm_120">2x_120</string>
+     <string name="pref_camera_hfr_value_4x_ssm_120">4x_120</string>
+     <string name="pref_camera_hfr_value_2x_ssm_240">2x_240</string>
+     <string name="pref_camera_hfr_value_4x_ssm_240">4x_240</string>
+     <string name="pref_camera_hfr_value_2x_ssm_480">2x_480</string>
+     <string name="pref_camera_hfr_value_4x_ssm_480">4x_480</string>
 
      <!-- Default noise reduction setting. Do not translate. -->
      <string name="pref_camera_noise_reduction_default">off</string>
