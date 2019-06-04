@@ -664,7 +664,7 @@ public class SettingsActivity extends PreferenceActivity {
                 add(SettingsManager.KEY_VIDEO_HDR_VALUE);
             }
         };
-        final ArrayList<String> dualCameraOnlyList = new ArrayList<String>() {
+        final ArrayList<String> multiCameraSettingList = new ArrayList<String>() {
             {
                 add(SettingsManager.KEY_SATURATION_LEVEL);
                 add(SettingsManager.KEY_ANTI_BANDING_LEVEL);
@@ -721,13 +721,15 @@ public class SettingsActivity extends PreferenceActivity {
             case RTB:
                 removePreferenceGroup("video", parentPre);
                 if (mDeveloperMenuEnabled) {
-                    addDeveloperOptions(developer, dualCameraOnlyList);
+                    ArrayList<String> RTBList = new ArrayList<>(multiCameraSettingList);
+                    RTBList.add(SettingsManager.KEY_CAPTURE_MFNR_VALUE);
+                    addDeveloperOptions(developer, RTBList);
                 }
                 break;
             case SAT:
                 removePreferenceGroup("video", parentPre);
                 if (mDeveloperMenuEnabled) {
-                    addDeveloperOptions(developer, dualCameraOnlyList);
+                    addDeveloperOptions(developer, multiCameraSettingList);
                 }
                 break;
             case PRO_MODE:
