@@ -66,6 +66,7 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.camera.imageprocessor.filter.BeautificationFilter;
 import com.android.camera.data.Camera2ModeAdapter;
@@ -247,6 +248,9 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
     private TextView mStatsAwbGText;
     private TextView mStatsAwbBText;
     private TextView mStatsAwbCcText;
+
+    private TextView mZoomSwitch;
+    private int mZoomIndex = 0;
 
     int mPreviewWidth;
     int mPreviewHeight;
@@ -484,6 +488,23 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
 
         mCameraControls = (OneUICameraControls) mRootView.findViewById(R.id.camera_controls);
         mFaceView = (Camera2FaceView) mRootView.findViewById(R.id.face_view);
+
+        mZoomSwitch = (TextView)mRootView.findViewById(R.id.zoom_switch);
+
+        mZoomSwitch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String[] entries = mActivity.getResources().getStringArray(
+                        R.array.pref_camera2_zomm_switch_entries);
+                String[] values = mActivity.getResources().getStringArray(
+                        R.array.pref_camera2_zomm_switch_entryvalues);
+                mZoomIndex = mZoomIndex + 1;
+                if (mZoomIndex > values.length -1)
+                    mZoomIndex = 0;
+                mZoomSwitch.setText(entries[mZoomIndex]);
+                mModule.onZoomChanged(Float.valueOf(values[mZoomIndex]));
+            }
+        });
 
         mCancelButton = (ImageView) mRootView.findViewById(R.id.cancel_button);
         final int intentMode = mModule.getCurrentIntentMode();
@@ -749,15 +770,25 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
                 mSurfaceViewMono.setVisibility(View.GONE);
             }
         }
+        mZoomIndex = 0;
+        mZoomSwitch.setText("1x");
+        if(getCurrentIntentMode() == CaptureModule.TYPE_RTB) {
+            mZoomSwitch.setVisibility(View.GONE);
+        } else {
+            mZoomSwitch.setVisibility(View.VISIBLE);
+        }
     }
 
     public void initializeProMode(boolean promode) {
         mCameraControls.setProMode(promode);
         if (promode) {
             mVideoButton.setVisibility(View.INVISIBLE);
+            mZoomSwitch.setVisibility(View.INVISIBLE);
         } else if (mModule.getCurrentIntentMode() == CaptureModule.INTENT_MODE_NORMAL &&
                 mModule.getCurrenCameraMode() == CaptureModule.CameraMode.VIDEO) {
             mVideoButton.setVisibility(View.VISIBLE);
+        } else {
+            mZoomSwitch.setVisibility(View.VISIBLE);
         }
     }
 
