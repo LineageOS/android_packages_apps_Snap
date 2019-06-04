@@ -3411,14 +3411,17 @@ public class CaptureModule implements CameraModule, PhotoController,
                     }
                     Log.d(TAG, "Closing camera: " + mCameraDevice[i].getId());
 
-                    if (isAbortCapturesEnable() && mCaptureSession[i] != null) {
-                        mCaptureSession[i].abortCaptures();
-                        Log.d(TAG, "Closing camera call abortCaptures ");
-                    }
-                    if (isSendRequestAfterFlushEnable()) {
-                        Log.v(TAG, "Closing camera call setRepeatingRequest");
-                        mCaptureSession[i].setRepeatingRequest(mPreviewRequestBuilder[i].build(),
-                                mCaptureCallback, mCameraHandler);
+                    // session was closed here if intentMode is INTENT_MODE_VIDEO
+                    if (mIntentMode != INTENT_MODE_VIDEO) {
+                        if (isAbortCapturesEnable() && mCaptureSession[i] != null) {
+                            mCaptureSession[i].abortCaptures();
+                            Log.d(TAG, "Closing camera call abortCaptures ");
+                        }
+                        if (isSendRequestAfterFlushEnable()) {
+                            Log.v(TAG, "Closing camera call setRepeatingRequest");
+                            mCaptureSession[i].setRepeatingRequest(mPreviewRequestBuilder[i].build(),
+                                    mCaptureCallback, mCameraHandler);
+                        }
                     }
                     mCameraDevice[i].close();
                     mCameraDevice[i] = null;
