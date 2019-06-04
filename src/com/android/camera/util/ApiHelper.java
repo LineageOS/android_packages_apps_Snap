@@ -75,4 +75,12 @@ public class ApiHelper {
     public static boolean isAndroidPOrHigher() {
         return Build.VERSION.SDK_INT >= 28;
     }
+
+    public static boolean isAndroidP() {
+        return Build.VERSION.SDK_INT == 28;
+    }
+
+    public static boolean isAndroidQOrHigher(){
+        return Build.VERSION.SDK_INT >= 29;
+    }
 }
