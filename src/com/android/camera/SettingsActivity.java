@@ -59,6 +59,7 @@ import android.text.InputType;
 import org.codeaurora.snapcam.R;
 import com.android.camera.util.CameraUtil;
 import com.android.camera.ui.RotateTextToast;
+import com.android.camera.util.PersistUtil;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -69,6 +70,8 @@ import java.util.Arrays;
 
 public class SettingsActivity extends PreferenceActivity {
     private static final String TAG = "SettingsActivity";
+    private static final boolean DEV_LEVEL_ALL =
+            PersistUtil.getDevOptionLevel() == PersistUtil.CAMERA2_DEV_OPTION_ALL;
     public static final String CAMERA_MODULE = "camera_module";
     private SettingsManager mSettingsManager;
     private SharedPreferences mSharedPreferences;
@@ -708,6 +711,9 @@ public class SettingsActivity extends PreferenceActivity {
                 if (mDeveloperMenuEnabled) {
                     ArrayList<String> videoAddList = new ArrayList<>();
                     videoAddList.add(SettingsManager.KEY_ZOOM);
+                    if (DEV_LEVEL_ALL) {
+                        videoAddList.add(SettingsManager.KEY_SWITCH_CAMERA);
+                    }
                     videoAddList.addAll(videoOnlyList);
                     if (mSettingsManager.getInitialCameraId() == CaptureModule.FRONT_ID) {
                         videoAddList.remove(SettingsManager.KEY_EIS_VALUE);
