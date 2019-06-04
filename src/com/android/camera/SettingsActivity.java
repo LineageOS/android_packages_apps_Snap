@@ -673,6 +673,11 @@ public class SettingsActivity extends PreferenceActivity {
                 add(SettingsManager.KEY_SHARPNESS_CONTROL_MODE);
                 add(SettingsManager.KEY_AF_MODE);
                 add(SettingsManager.KEY_EXPOSURE_METERING_MODE);
+                add(SettingsManager.KEY_ABORT_CAPTURES);
+                add(SettingsManager.KEY_INSTANT_AEC);
+                add(SettingsManager.KEY_MANUAL_WB);
+                add(SettingsManager.KEY_AF_MODE);
+                add(SettingsManager.KEY_QCFA);
             }
         };
         final ArrayList<String> proModeOnlyList = new ArrayList<String>() {
@@ -713,14 +718,12 @@ public class SettingsActivity extends PreferenceActivity {
                 break;
             case RTB:
                 removePreferenceGroup("video", parentPre);
-                removePreference(SettingsManager.KEY_REDEYE_REDUCTION, photoPre);
                 if (mDeveloperMenuEnabled) {
                     addDeveloperOptions(developer, dualCameraOnlyList);
                 }
                 break;
             case SAT:
                 removePreferenceGroup("video", parentPre);
-                removePreference(SettingsManager.KEY_REDEYE_REDUCTION, photoPre);
                 if (mDeveloperMenuEnabled) {
                     addDeveloperOptions(developer, dualCameraOnlyList);
                 }
