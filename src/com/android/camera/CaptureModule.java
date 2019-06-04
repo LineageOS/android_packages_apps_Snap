@@ -4997,7 +4997,7 @@ public class CaptureModule implements CameraModule, PhotoController,
         releaseAudioFocus();
         mActivity.runOnUiThread(new Runnable() {
             public void run() {
-                mUI.switchToPhotoModeDueToError();
+                mUI.switchToPhotoModeDueToError(true);
             }
         });
     }
@@ -7808,8 +7808,7 @@ public class CaptureModule implements CameraModule, PhotoController,
             return -1;
         }
         setCameraModeSwitcherAllowed(false);
-        mCurrentSceneMode = mSceneCameraIds.get(mode);
-        mCurrentModeIndex = mode;
+        setCurrentSceneModeOnly(mode);
         String value = mSettingsManager.getValue(SettingsManager.KEY_FRONT_REAR_SWITCHER_VALUE);
         if (value != null && value.equals("front") &&
                 (mCurrentSceneMode.mode == CameraMode.RTB ||
@@ -7820,6 +7819,11 @@ public class CaptureModule implements CameraModule, PhotoController,
             restartAll();
         }
         return 1;
+    }
+
+    public void setCurrentSceneModeOnly(int mode) {
+        mCurrentSceneMode = mSceneCameraIds.get(mode);
+        mCurrentModeIndex = mode;
     }
 
     public int getCurrentModeIndex() {
