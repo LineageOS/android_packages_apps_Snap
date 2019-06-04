@@ -2218,6 +2218,8 @@ public class CaptureModule implements CameraModule, PhotoController,
                     if (mSceneCameraIds.get(CameraMode.SAT.ordinal()).rearCameraId != 0) {
                         break;
                     }
+                    // if dual camera is enabled, video rear camera will be changed to SAT
+                    mSceneCameraIds.get(CameraMode.VIDEO.ordinal()).rearCameraId = cameraId;
                     mSceneCameraIds.get(CameraMode.SAT.ordinal()).rearCameraId = cameraId;
                     //add default front camera id, need to change if front SAT available
                     mSceneCameraIds.get(CameraMode.SAT.ordinal()).frontCameraId = FRONT_ID;
