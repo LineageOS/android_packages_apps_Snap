@@ -1137,6 +1137,10 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
             mShutterButton.setVisibility(View.INVISIBLE);
             mModeSelectLayout.setVisibility(View.VISIBLE);
         }
+        mFilterModeSwitcher.setVisibility(View.VISIBLE);
+        if (mFilterMenuStatus == FILTER_MENU_ON) {
+            removeFilterMenu(true);
+        }
         //exit recording mode needs to refresh scene mode label.
         showSceneModeLabel();
     }
@@ -1168,8 +1172,8 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
             case VIDEO:
             case HFR:
                 mVideoButton.setVisibility(View.VISIBLE);
+                mFilterModeSwitcher.setVisibility(View.VISIBLE);
                 mShutterButton.setVisibility(View.INVISIBLE);
-                mFilterModeSwitcher.setVisibility(View.INVISIBLE);
                 break;
             case PRO_MODE:
                 mFilterModeSwitcher.setVisibility(View.INVISIBLE);

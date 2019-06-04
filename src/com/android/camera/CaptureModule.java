@@ -7215,8 +7215,16 @@ public class CaptureModule implements CameraModule, PhotoController,
                 int cameraId = mCurrentSceneMode.getCurrentId();
                 if (checkSessionAndBuilder(mCaptureSession[cameraId],
                         mPreviewRequestBuilder[cameraId])) {
-                    mCaptureSession[cameraId].setRepeatingRequest(mPreviewRequestBuilder[cameraId]
-                            .build(), mCaptureCallback, mCameraHandler);
+                    if (mCaptureSession[cameraId] instanceof CameraConstrainedHighSpeedCaptureSession) {
+                        List<CaptureRequest> list = ((CameraConstrainedHighSpeedCaptureSession)
+                                mCaptureSession[cameraId]).createHighSpeedRequestList(
+                                        mPreviewRequestBuilder[cameraId].build());
+                        mCaptureSession[cameraId].setRepeatingBurst(list, mCaptureCallback,
+                                mCameraHandler);
+                    } else {
+                        mCaptureSession[cameraId].setRepeatingRequest(mPreviewRequestBuilder[cameraId]
+                                .build(), mCaptureCallback, mCameraHandler);
+                    }
                 }
             } catch (CameraAccessException | IllegalStateException e) {
                 e.printStackTrace();
