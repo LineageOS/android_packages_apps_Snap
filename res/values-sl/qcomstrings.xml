@@ -418,6 +418,7 @@
     <string name="pref_camera2_initial_camera_entry_mono">Mono</string>
     <string name="pref_camera2_initial_camera_entry_front">Sprednja</string>
     <string name="pref_camera2_eis_title">EIS za videoposnetke</string>
+    <string name="pref_camera2_eis_entry_v3_set_when_pause">V3 in nastavi ob premoru</string>
     <string name="pref_camera2_eis_entry_disable">Onemogočen</string>
     <string name="pref_camera2_fovc_title">FOVC za videoposnetke</string>
     <string name="pref_camera2_fovc_entry_enable">Omogočen</string>

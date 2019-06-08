@@ -212,6 +212,7 @@
     <string name="pref_camera2_makeup_entry_off">ปิด</string>
     <string name="pref_camera2_noise_reduction_entry_off">ปิด</string>
     <string name="pref_camera2_trackingfocus_entry_off">ปิด</string>
+    <string name="pref_camera_scenemode_entry_sharpshooter">ภาพคมชัด</string>
     <string name="pref_camera_scenemode_entry_panorama">พาโนรามา</string>
     <string name="pref_camera_scenemode_entry_promode">โหมด pro</string>
     <string name="pref_camera2_shutter_sound_entry_off">ปิด</string>
@@ -224,8 +225,12 @@
     <string name="panocapture_direction_is_changed">ทิศทางการถ่ายมีการเปลี่ยนแปลง \u2026 พาโนรามากำลังหยุด</string>
     <string name="perf_camera2_version_info">ข้อมูลรุ่น</string>
     <string name="perf_camera2_preferences_category_general">ทั่วไป</string>
+    <string name="perf_camera2_preferences_category_photo">กล้องนิ่ง</string>
     <string name="perf_camera2_preferences_category_video">กล้องวิดีโอ</string>
     <string name="perf_camera2_preferences_category_system">ระบบ</string>
+    <string name="pref_camera2_scene_mode_dual_camera_instructional_content">ในโหมดกล้องคู่ รูปภาพของคุณจะชัดขึ้น นอกจากนี้คุณยังสามารถใส่เอฟเฟกต์พื้นหลัง โดยแก้ไขรูปภาพของกล้องคู่ในแกลเลอรี่</string>
+    <string name="pref_camera2_scene_mode_opti_zoom_instructional_content">ใช้ OptiZoom เมื่อต้องการขยายภาพชัดเจน คุณสามารถขยายก่อน หรือหลังจากถ่ายภาพ</string>
+    <string name="pref_camera2_scene_mode_sports_instructional_content">โหมดกีฬาช่วยให้คุณถ่ายภาพกีฬาหรือภาพเคลื่อนไหวดีกว่า\n\nช่วยปรับปรุงภาพถ่ายของคุณ แต่ไม่มีผลกับการบันทึกวิดีโอ</string>
     <string name="pref_camera2_scene_mode_pro_instructional_content">ด้วยโหมด Pro คุณสามารถควบคุมการตั้งค่า ISO ช่องรับแสง สมดุลสีขาว และโฟกัสด้วยตนเอง คุณจะเข้าถึงการตั้งค่าขั้นสูงได้อย่างง่ายดาย</string>
     <string name="pref_camera2_scene_mode_deepzoom_instructional_content">ด้วยโหมด DeepZoom คุณสามารถถ่ายรูปภาพที่ขยาย 2 เท่า หรือ 4 เท่า</string>
     <string name="pref_camera2_scene_mode_deepportrait_instructional_content">ด้วยโหมด DeepPortrait คุณจะสามารถถ่ายภาพเซลฟี่ด้วยพื้นหลังละลาย คุณสามารถเลื่อนสไลด์เพื่อที่จะปรับความชัดของพื้นหลัง</string>
@@ -282,6 +287,7 @@
     <string name="pref_camera2_switch_camera_title">สลับกล้องตาม ID</string>
     <string name="pref_camera2_initial_camera_entry_mono">โมโน</string>
     <string name="pref_camera2_eis_title">วิดีโอ EIS</string>
+    <string name="pref_camera2_eis_entry_v3_set_when_pause">V3 และตั้งเมื่อหยุดชั่วคราว</string>
     <string name="pref_camera2_fovc_title">วีดีโอ FOVC</string>
     <string name="pref_camera2_stats_visualizer_title">สถิติ Visualizer</string>
     <string name="pref_camera2_stats_visualizer_entry_disable">ปิดใช้งานทั้งหมด</string>

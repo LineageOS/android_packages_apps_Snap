@@ -418,6 +418,7 @@
     <string name="pref_camera2_initial_camera_entry_mono">Μονόχρωμο</string>
     <string name="pref_camera2_initial_camera_entry_front">Μπροστινή</string>
     <string name="pref_camera2_eis_title">EIS βίντεο</string>
+    <string name="pref_camera2_eis_entry_v3_set_when_pause">V3 και ορισμός κατά την παύση</string>
     <string name="pref_camera2_eis_entry_disable">Ανενεργός</string>
     <string name="pref_camera2_fovc_title">FOVC βίντεο</string>
     <string name="pref_camera2_fovc_entry_enable">Ενεργός</string>

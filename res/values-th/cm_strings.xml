@@ -16,6 +16,7 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="pref_camera_megapixel_format">(<xliff:g id="ratio" example="16:9">%1$s</xliff:g>) <xliff:g id="pixels">%2$1.1f</xliff:g> ล้านพิกเซล</string>
     <string name="pref_camera_scenemode_entry_antimotionblur">การลดเบลอจากการเคลื่อนไหว</string>
     <string name="pref_camera_scenemode_entry_aqua">น้ำ</string>
     <string name="pref_camera_scenemode_entry_ar">เพิ่มความสมจริง</string>
@@ -84,5 +85,7 @@
     <string name="pref_camera_focustime_entry_10">10 วินาที</string>
     <string name="pref_camera_focustime_entry_infinite">ไม่จำกัด</string>
     <string name="pref_camera_shutter_speed_title">ความเร็วชัตเตอร์</string>
+    <string name="developer_menu_enabled">คุณได้เปิดการตั้งค่ากล้องขั้นสูง</string>
+    <string name="developer_menu_disabled">คุณได้ปิดการตั้งค่ากล้องขั้นสูง</string>
     <string name="pref_camera2_preferences_category_developer">ตัวเลือกขั้นสูง</string>
 </resources>

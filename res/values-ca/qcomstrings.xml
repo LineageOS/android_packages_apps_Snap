@@ -418,6 +418,7 @@
     <string name="pref_camera2_initial_camera_entry_mono">Mono</string>
     <string name="pref_camera2_initial_camera_entry_front">Frontal</string>
     <string name="pref_camera2_eis_title">Vídeo EIS</string>
+    <string name="pref_camera2_eis_entry_v3_set_when_pause">V3 i establir en pausar</string>
     <string name="pref_camera2_eis_entry_disable">Deshabilitat</string>
     <string name="pref_camera2_fovc_title">Vídeo FOVC</string>
     <string name="pref_camera2_fovc_entry_enable">Habilitat</string>

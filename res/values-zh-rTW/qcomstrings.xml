@@ -418,6 +418,7 @@
     <string name="pref_camera2_initial_camera_entry_mono">單色</string>
     <string name="pref_camera2_initial_camera_entry_front">前面</string>
     <string name="pref_camera2_eis_title">影片 EIS</string>
+    <string name="pref_camera2_eis_entry_v3_set_when_pause">V3 並在暫停時設定</string>
     <string name="pref_camera2_eis_entry_disable">已停用</string>
     <string name="pref_camera2_fovc_title">影片 FOVC</string>
     <string name="pref_camera2_fovc_entry_enable">已啟用</string>

@@ -418,6 +418,7 @@
     <string name="pref_camera2_initial_camera_entry_mono">Fekete-fehér</string>
     <string name="pref_camera2_initial_camera_entry_front">Előlapi</string>
     <string name="pref_camera2_eis_title">EIS Videó</string>
+    <string name="pref_camera2_eis_entry_v3_set_when_pause">V3 és állítsa be amikor szünetel</string>
     <string name="pref_camera2_eis_entry_disable">Kikapcsolva</string>
     <string name="pref_camera2_fovc_title">FOVC Videó</string>
     <string name="pref_camera2_fovc_entry_enable">Engedélyezve</string>

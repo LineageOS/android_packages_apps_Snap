@@ -80,6 +80,8 @@
     <string name="camera_error_title">ข้อผิดพลาดกล้องถ่ายรูป</string>
     <string name="cannot_connect_camera">ไม่สามารถเชื่อมต่อกับกล้องถ่ายรูป</string>
     <string name="camera_disabled">กล้องถ่ายรูปถูกปิดใช้งานเนื่องจากนโยบายด้านความปลอดภัย</string>
+    <string name="error_permissions">แอปไม่ได้รับอนุญาตให้เข้าถึงสิทธิพื้นฐานที่ต้องใช้ กรุณาตรวจสอบที่การตั้งค่าการอนุญาต</string>
+    <string name="dialog_dismiss">ยกเลิก</string>
     <string name="wait">โปรดรอสักครู่…</string>
     <string name="no_storage" product="default">ใส่ SD การ์ดก่อนใช้กล้องถ่ายรูป</string>
     <string name="preparing_sd" product="default">กำลังเตรียม SD การ์ด…</string>
