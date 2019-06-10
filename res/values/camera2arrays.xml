@@ -897,14 +897,12 @@ for time lapse recording -->
         <item>0</item>
         <item>1</item>
         <item>2</item>
-        <item>3</item>
     </string-array>
 
     <string-array name="pref_camera2_anti_banding_level_entries" translatable="true">
-        <item>@string/pref_camera2_anti_banding_level_entry_off</item>
+        <item>@string/pref_camera2_anti_banding_level_entry_auto</item>
         <item>@string/pref_camera2_anti_banding_level_entry_50hz</item>
         <item>@string/pref_camera2_anti_banding_level_entry_60hz</item>
-        <item>@string/pref_camera2_anti_banding_level_entry_auto</item>
     </string-array>
 
     <string-array name="pref_camera2_saturation_level_entryvalues" translatable="false">
