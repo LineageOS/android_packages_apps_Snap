@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "44568587_2b8904a8",
+        "filename": "res/values/qcomstrings.xml",
+        "patchSetId": 5
+      },
+      "lineNbr": 1066,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2019-06-10T17:25:07Z",
+      "side": 1,
+      "message": "moving this string is not necessary, keep it untouched",
+      "range": {
+        "startLine": 1066,
+        "startChar": 4,
+        "endLine": 1066,
+        "endChar": 11
+      },
+      "revId": "7fa08723e9df6ddb34bc2b3c251cc31fdc2e621e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
