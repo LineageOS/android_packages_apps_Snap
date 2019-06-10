@@ -246,13 +246,12 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
     private void previewUIReady() {
         if((mSurfaceHolder != null && mSurfaceHolder.getSurface().isValid())) {
             mModule.onPreviewUIReady();
-            if ((mIsVideoUI || mModule.getCurrentIntentMode() != CaptureModule.INTENT_MODE_NORMAL)
+            if (mModule.getCurrentIntentMode() != CaptureModule.INTENT_MODE_NORMAL
                     && mThumbnail != null){
                 mThumbnail.setVisibility(View.INVISIBLE);
                 mThumbnail = null;
                 mActivity.updateThumbnail(mThumbnail);
-            } else if (!mIsVideoUI &&
-                    mModule.getCurrentIntentMode() == CaptureModule.INTENT_MODE_NORMAL){
+            } else if (mModule.getCurrentIntentMode() == CaptureModule.INTENT_MODE_NORMAL){
                 if (mThumbnail == null)
                     mThumbnail = (ImageView) mRootView.findViewById(R.id.preview_thumb);
                 mActivity.updateThumbnail(mThumbnail);
@@ -766,7 +765,8 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
     }
 
     public void openSettingsMenu() {
-        if (mPreviewLayout != null && mPreviewLayout.getVisibility() == View.VISIBLE) {
+        if ((mPreviewLayout != null && mPreviewLayout.getVisibility() == View.VISIBLE) ||
+                mIsVideoUI) {
             return;
         }
         clearFocus();
@@ -1913,7 +1913,6 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
         mSurfaceView.getHolder().setFixedSize(mPreviewWidth, mPreviewHeight);
         mSurfaceView.setAspectRatio(mPreviewHeight, mPreviewWidth);
         mSurfaceView.setVisibility(View.VISIBLE);
-        mIsVideoUI = false;
     }
 
     public boolean setPreviewSize(int width, int height) {

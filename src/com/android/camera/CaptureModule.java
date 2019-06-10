@@ -1147,7 +1147,11 @@ public class CaptureModule implements CameraModule, PhotoController,
                 break;
             }
         }
-        mLastAeState = aeState;
+        if (aeState == null) {
+            mLastAeState = -1;
+        } else {
+            mLastAeState = aeState;
+        }
     }
 
     private void checkAfAeStatesAndCapture(int id) {
@@ -1979,6 +1983,7 @@ public class CaptureModule implements CameraModule, PhotoController,
             cameraId = SWITCH_ID == -1? FRONT_ID : SWITCH_ID;
         }
         captureStillPicture(cameraId);
+        captureStillPictureForHDRTest(cameraId);
     }
 
     public boolean isLongShotActive() {
@@ -3297,6 +3302,7 @@ public class CaptureModule implements CameraModule, PhotoController,
         try {
             manager = (CameraManager) mActivity.getSystemService(Context.CAMERA_SERVICE);
             mCameraId[id] = manager.getCameraIdList()[id];
+            mOriginalCropRegion[id] = mSettingsManager.getSensorActiveArraySize(id);
             if (!mCameraOpenCloseLock.tryAcquire(5000, TimeUnit.MILLISECONDS)) {
                 Log.d(TAG, "Time out waiting to lock camera opening.");
                 throw new RuntimeException("Time out waiting to lock camera opening");
@@ -4639,7 +4645,7 @@ public class CaptureModule implements CameraModule, PhotoController,
     }
 
     private boolean startRecordingVideo(final int cameraId) {
-        if (null == mCameraDevice[cameraId]) {
+        if (null == mCameraDevice[cameraId] || !mUI.isShutterEnabled()) {
             return false;
         }
         mStartRecordingTime = System.currentTimeMillis();
@@ -4669,7 +4675,9 @@ public class CaptureModule implements CameraModule, PhotoController,
             mState[cameraId] = STATE_PREVIEW;
             mControlAFMode = CaptureRequest.CONTROL_AF_MODE_CONTINUOUS_PICTURE;
             mIsAutoFocusStarted = false;
-            closePreviewSession();
+            if (!isAbortCapturesEnable()) {
+                closePreviewSession();
+            }
             mFrameProcessor.onClose();
 
             if (mUI.setPreviewSize(mVideoPreviewSize.getWidth(), mVideoPreviewSize.getHeight())) {
@@ -5305,10 +5313,11 @@ public class CaptureModule implements CameraModule, PhotoController,
                 e.printStackTrace();
             }
         }
-        if (!mPaused) {
+        if (!mPaused && !isAbortCapturesEnable()) {
             closePreviewSession();
         }
         mMediaRecorderStarted = false;
+        mHighSpeedCapture = false;
         try {
             mMediaRecorder.setOnErrorListener(null);
             mMediaRecorder.setOnInfoListener(null);
@@ -5345,6 +5354,7 @@ public class CaptureModule implements CameraModule, PhotoController,
         if(mFrameProcessor != null) {
             mFrameProcessor.onOpen(getFrameProcFilterId(), mPreviewSize);
         }
+        mUI.showUIafterRecording();
         boolean changed = mUI.setPreviewSize(mPreviewSize.getWidth(), mPreviewSize.getHeight());
         if (changed) {
             mUI.hideSurfaceView();
@@ -5353,7 +5363,6 @@ public class CaptureModule implements CameraModule, PhotoController,
         if (!mPaused) {
             createSessions();
         }
-        mUI.showUIafterRecording();
         mUI.resetTrackingFocus();
         mStopRecPending = false;
     }
@@ -5437,23 +5446,16 @@ public class CaptureModule implements CameraModule, PhotoController,
             if (!info.isEncoder() || info.getName().contains("google")) continue;
             for (String type : info.getSupportedTypes()) {
                 if ((videoEncoder == MediaRecorder.VideoEncoder.MPEG_4_SP && type.equalsIgnoreCase(MediaFormat.MIMETYPE_VIDEO_MPEG4))
-                        || (videoEncoder == MediaRecorder.VideoEncoder.H263 && type.equalsIgnoreCase(MediaFormat.MIMETYPE_VIDEO_H263))
-                        || (videoEncoder == MediaRecorder.VideoEncoder.H264 && type.equalsIgnoreCase(MediaFormat.MIMETYPE_VIDEO_AVC))
-                        || (videoEncoder == MediaRecorder.VideoEncoder.HEVC && type.equalsIgnoreCase(MediaFormat.MIMETYPE_VIDEO_HEVC)))
+                        || (videoEncoder == MediaRecorder.VideoEncoder.H263 && type.equalsIgnoreCase(MediaFormat.MIMETYPE_VIDEO_H263)))
                 {
                     CodecCapabilities codecCapabilities = info.getCapabilitiesForType(type);
                     VideoCapabilities videoCapabilities = codecCapabilities.getVideoCapabilities();
                     try {
                         if (videoCapabilities != null) {
                             Log.d(TAG, "updateBitrate type is " + type + " " + info.getName());
-                            long maxBitRate = videoCapabilities.getBitrateRange().getUpper().intValue();
-                            int maxWidth = videoCapabilities.getSupportedWidths().getUpper().intValue();
-                            int maxHeight = videoCapabilities.getSupportedHeights().getUpper().intValue();
-                            Log.d(TAG, "updateBitrate size is " + width + "x" + height);
-                            int adjustedBitRate = (int) (maxBitRate * width * height / (maxWidth * maxHeight));
-                            Log.d(TAG, "updateBitrate maxBitRate is " + maxBitRate + ", profileBitRate is " + bitRate
-                                    + ", adjustedBitRate is " + adjustedBitRate);
-                            mMediaRecorder.setVideoEncodingBitRate(Math.min(bitRate, adjustedBitRate));
+                            int maxBitRate = videoCapabilities.getBitrateRange().getUpper().intValue();
+                            Log.d(TAG, "maxBitRate is " + maxBitRate + ", profileBitRate is " + bitRate);
+                            mMediaRecorder.setVideoEncodingBitRate(Math.min(bitRate, maxBitRate));
                             return;
                         }
                     } catch (IllegalArgumentException e) {
