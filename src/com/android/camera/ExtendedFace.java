@@ -29,7 +29,10 @@
 
 package com.android.camera;
 
+import android.graphics.Point;
 import android.hardware.camera2.params.Face;
+
+import java.util.ArrayList;
 
 public class ExtendedFace {
     private int mSmileDegree = 0;
@@ -42,6 +45,8 @@ public class ExtendedFace {
     private int mTopbottomGaze = 0;
     private int mGazeDirection = 0;
     private int mRollDirection = 0;
+    private int[] mContour;
+    private int[] mLandMarks;
     private int mId;
 
     public ExtendedFace(int id) {
@@ -109,5 +114,21 @@ public class ExtendedFace {
 
     public void setSmileConfidence(int smileConfidence) {
         this.mSmileConfidence = smileConfidence;
+    }
+
+    public void setContour(int[] contour) {
+        mContour = contour;
+    }
+
+    public int[] getContour() {
+        return mContour;
+    }
+
+    public void setLandMarks(int[] landMarks){
+        mLandMarks = landMarks;
+    }
+
+    public int[] getLandMarks() {
+        return mLandMarks;
     }
 }

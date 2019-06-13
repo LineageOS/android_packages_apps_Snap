@@ -392,6 +392,21 @@
         camera:entryValues="@array/pref_camera2_bsgc_entryvalues" />
 
     <ListPreference
+        camera:key="pref_camera2_facial_contour_key"
+        camera:defaultValue="@string/pref_camera2_bsgc_default"
+        camera:title="@string/pref_camera2_facial_contour_title"
+        camera:entries="@array/pref_camera2_bsgc_entries"
+        camera:entryValues="@array/pref_camera2_bsgc_entryvalues" />
+
+    <ListPreference
+        camera:key="pref_camera2_face_detection_mode"
+        camera:defaultValue="@string/pref_camera2_face_detection_mode_default"
+        camera:title="@string/pref_camera2_face_detection_mode_title"
+        camera:entries="@array/pref_camera2_face_detection_entries"
+        camera:entryValues="@array/pref_camera2_face_detection_entryvalues" />
+
+
+    <ListPreference
         camera:key="pref_camera2_videoencoderprofile_key"
         camera:defaultValue="@string/pref_camera2_videoencoderprofile_default"
         camera:title="@string/pref_camera2_videoencoderprofile_title"

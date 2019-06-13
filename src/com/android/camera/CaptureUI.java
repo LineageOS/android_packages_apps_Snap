@@ -493,6 +493,7 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
 
         mCameraControls = (OneUICameraControls) mRootView.findViewById(R.id.camera_controls);
         mFaceView = (Camera2FaceView) mRootView.findViewById(R.id.face_view);
+        mFaceView.initMode();
 
         mZoomSwitch = (TextView)mRootView.findViewById(R.id.zoom_switch);
 
@@ -854,6 +855,7 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
         } else {
             mZoomSwitch.setVisibility(View.VISIBLE);
         }
+        mFaceView.initMode();
     }
 
     public void initializeProMode(boolean promode) {

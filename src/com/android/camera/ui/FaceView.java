@@ -61,6 +61,7 @@ public class FaceView extends View
     private final int mFocusedColor;
     private final int mFailColor;
     protected Paint mPaint;
+    protected Paint mPointPaint;
     protected volatile boolean mBlocked;
 
     protected int mUncroppedWidth;
@@ -101,6 +102,14 @@ public class FaceView extends View
         mPaint.setDither(true);
         mPaint.setColor(Color.WHITE);//setColor(0xFFFFFF00);
         mPaint.setStrokeCap(Paint.Cap.ROUND);
+
+        mPointPaint = new Paint();
+        mPointPaint.setAntiAlias(true);
+        mPointPaint.setStyle(Style.STROKE);
+        mPointPaint.setStrokeWidth(res.getDimension(R.dimen.face_points_stroke));
+        mPointPaint.setDither(true);
+        mPointPaint.setColor(Color.BLUE);
+        mPointPaint.setStrokeCap(Paint.Cap.ROUND);
     }
 
     @Override
