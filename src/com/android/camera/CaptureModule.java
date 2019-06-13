@@ -5171,6 +5171,10 @@ public class CaptureModule implements CameraModule, PhotoController,
         }
     }
 
+    public boolean isHSRMode() {
+        return mHighSpeedRecordingMode && !mSuperSlomoCapture;
+    }
+
     private void updateProgressBar(boolean show) {
         mActivity.runOnUiThread(new Runnable() {
             @Override
