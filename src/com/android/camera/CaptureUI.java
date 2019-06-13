@@ -863,6 +863,7 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
         if (promode) {
             mVideoButton.setVisibility(View.INVISIBLE);
             mZoomSwitch.setVisibility(View.INVISIBLE);
+            mFlashButton.setVisibility(View.INVISIBLE);
         } else if (mModule.getCurrentIntentMode() == CaptureModule.INTENT_MODE_NORMAL &&
                 mModule.getCurrenCameraMode() == CaptureModule.CameraMode.VIDEO) {
             mVideoButton.setVisibility(View.VISIBLE);
