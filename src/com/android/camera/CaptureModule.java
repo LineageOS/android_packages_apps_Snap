@@ -2296,12 +2296,11 @@ public class CaptureModule implements CameraModule, PhotoController,
     private void takePicture() {
         Log.d(TAG, "takePicture");
         mUI.enableShutter(false);
-        if ((mSettingsManager.isZSLInHALEnabled() &&
+        if ((mSettingsManager.isZSLInHALEnabled() || isActionImageCapture()) &&
                 !isFlashOn(getMainCameraId()) && (mPreviewCaptureResult != null &&
                 mPreviewCaptureResult.get(CaptureResult.CONTROL_AE_STATE) !=
                      CameraMetadata.CONTROL_AE_STATE_FLASH_REQUIRED &&
-                mPreviewCaptureResult.getRequest().get(CaptureRequest.CONTROL_AE_LOCK) != Boolean.TRUE)) ||
-                isActionImageCapture()) {
+                mPreviewCaptureResult.getRequest().get(CaptureRequest.CONTROL_AE_LOCK) != Boolean.TRUE)) {
             takeZSLPictureInHAL();
         } else {
             int cameraId = mCurrentSceneMode.getCurrentId();
@@ -3957,17 +3956,13 @@ public class CaptureModule implements CameraModule, PhotoController,
             mFrameProcessor.onOpen(getFrameProcFilterId(), mPreviewSize);
         }
 
-        if(mPostProcessor.isZSLEnabled()) {
+        if(mPostProcessor.isZSLEnabled() && !isActionImageCapture()) {
             mChosenImageFormat = ImageFormat.PRIVATE;
         } else if(mPostProcessor.isFilterOn() || getFrameFilters().size() != 0 || mPostProcessor.isSelfieMirrorOn()) {
             mChosenImageFormat = ImageFormat.YUV_420_888;
         } else if(mSettingsManager.isHeifHALEncoding()) {
             mChosenImageFormat = ImageFormat.HEIC;
         } else {
-            mChosenImageFormat = ImageFormat.JPEG;
-        }
-        // if intent action is ACTION_IMAGE_CAPTURE, use HAL-ZSL to capture
-        if (isActionImageCapture()) {
             mChosenImageFormat = ImageFormat.JPEG;
         }
         setUpCameraOutputs(mChosenImageFormat);
