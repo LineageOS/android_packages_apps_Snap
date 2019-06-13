@@ -1138,10 +1138,6 @@ public class CaptureModule implements CameraModule, PhotoController,
         public void onError(CameraDevice cameraDevice, int error) {
             int id = Integer.parseInt(cameraDevice.getId());
             Log.e(TAG, "onError " + id + " " + error);
-            if (mCamerasOpened) {
-                mCameraDevice[id].close();
-                mCameraDevice[id] = null;
-            }
             mCameraOpenCloseLock.release();
             mCamerasOpened = false;
 
@@ -3504,8 +3500,15 @@ public class CaptureModule implements CameraModule, PhotoController,
     }
 
     private void applySettingsForPrecapture(CaptureRequest.Builder builder, int id) {
-        builder.set(CaptureRequest.CONTROL_AE_PRECAPTURE_TRIGGER,
-                CaptureRequest.CONTROL_AE_PRECAPTURE_TRIGGER_START);
+        String redeye = mSettingsManager.getValue(SettingsManager.KEY_REDEYE_REDUCTION);
+        if (redeye != null && redeye.equals("on")) {
+            if (DEBUG)
+            Log.d(TAG, "Red Eye Reduction is On. " +
+                    "Don't set CONTROL_AE_PRECAPTURE_TRIGGER to Start");
+        } else {
+            builder.set(CaptureRequest.CONTROL_AE_PRECAPTURE_TRIGGER,
+                    CaptureRequest.CONTROL_AE_PRECAPTURE_TRIGGER_START);
+        }
 
         // For long shot, torch mode is used
         if (!mLongshotActive) {
