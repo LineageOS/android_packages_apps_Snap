@@ -2337,6 +2337,12 @@ public class CaptureModule implements CameraModule, PhotoController,
         }
     }
 
+    public void doShutterAnimation() {
+        if (mUI != null) {
+            mUI.doShutterAnimation();
+        }
+    }
+
     private CameraCaptureSession.CaptureCallback mLongshotCallBack= new CameraCaptureSession.CaptureCallback() {
             @Override
             public void onCaptureCompleted(CameraCaptureSession session,
@@ -2750,6 +2756,7 @@ public class CaptureModule implements CameraModule, PhotoController,
                                 if (mLongshoting && (!mLongshotActive) &&
                                         image.getTimestamp() > mLastLongshotTimestamp) {
                                     image.close();
+                                    Log.d(TAG, "image duplicate mLastLongshotTimestamp ");
                                     return;
                                 }
                                 if (mSettingsManager.getSavePictureFormat() == SettingsManager.HEIF_FORMAT) {
