@@ -2124,6 +2124,12 @@ public class CaptureModule implements CameraModule, PhotoController,
         mSettingsManager.init();
     }
 
+    private boolean frontIsAllowed() {
+        return mCurrentSceneMode.mode == CameraMode.DEFAULT ||
+                mCurrentSceneMode.mode == CameraMode.VIDEO ||
+                mCurrentSceneMode.mode == CameraMode.HFR;
+    }
+
     public boolean isRefocus() {
         return mIsRefocus;
     }
@@ -3803,6 +3809,10 @@ public class CaptureModule implements CameraModule, PhotoController,
         setProModeVisible();
         mJpegImageData = null;
         closeVideoFileDescriptor();
+        if (mIntentMode != CaptureModule.INTENT_MODE_NORMAL && isExitCamera) {
+            mActivity.setResultEx(Activity.RESULT_CANCELED, new Intent());
+            mActivity.finish();
+        }
     }
 
     public void onResumeBeforeSuper() {
@@ -4026,6 +4036,14 @@ public class CaptureModule implements CameraModule, PhotoController,
         Log.d(TAG, "onResume " + (mCurrentSceneMode != null ? mCurrentSceneMode.mode : "null")
         + (resumeFromRestartAll ? " isResumeFromRestartAll" : ""));
         reinit();
+        if (!isBackCamera() && !frontIsAllowed()) {
+            Log.d(TAG, "Current Mode " + mCurrentSceneMode.mode + "not support Front camera");
+            if (!resumeFromRestartAll) {
+                startBackgroundThread();
+            }
+            mUI.switchToPhotoModeDueToError(true);
+            return;
+        }
         mDeepPortraitMode = isDeepPortraitMode();
         initializeValues();
         updatePreviewSize();
@@ -8082,6 +8100,8 @@ public class CaptureModule implements CameraModule, PhotoController,
     public void setCurrentSceneModeOnly(int mode) {
         mCurrentSceneMode = mSceneCameraIds.get(mode);
         mCurrentModeIndex = mode;
+        CURRENT_ID = mCurrentSceneMode.getCurrentId();
+        CURRENT_MODE = mCurrentSceneMode.mode;
     }
 
     public int getCurrentModeIndex() {
