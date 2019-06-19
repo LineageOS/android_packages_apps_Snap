@@ -686,7 +686,6 @@ public class SettingsActivity extends PreferenceActivity {
                 add(SettingsManager.KEY_MANUAL_WB);
                 add(SettingsManager.KEY_AF_MODE);
                 add(SettingsManager.KEY_QCFA);
-                add(SettingsManager.KEY_TOUCH_TRACK_FOCUS);
             }
         };
         final ArrayList<String> proModeOnlyList = new ArrayList<String>() {
