@@ -417,6 +417,7 @@
     <string name="pref_camera2_fovc_entry_disable">Dimatikan</string>
     <string name="pref_camera2_video_hdr_entry_enable">Dihidupkan</string>
     <string name="pref_camera2_video_hdr_entry_disable">Dimatikan</string>
+    <string name="pref_camera2_stats_visualizer_entry_disable">Nonaktifkan semua</string>
     <string name="pref_camera2_capture_mfnr_entry_enable">Dihidupkan</string>
     <string name="pref_camera2_capture_mfnr_entry_disable">Dimatikan</string>
     <string name="pref_camera2_capture_mfsr_entry_enable">Dihidupkan</string>

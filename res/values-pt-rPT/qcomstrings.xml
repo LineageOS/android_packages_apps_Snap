@@ -386,7 +386,7 @@
     <string name="pref_camera_bokeh_mpo_entry_disable">Desativar</string>
     <string name="pref_camera_bokeh_blur_degree_title">Valor de desfocagem do Bokeh</string>
     <string name="pref_camera_zoom_title">Zoom</string>
-    <string name="pref_camera_zoom_entry_off">Desativada</string>
+    <string name="pref_camera_zoom_entry_off">Desativado</string>
     <string name="pref_camera_zoom_entry_1x">1x</string>
     <string name="pref_camera_zoom_entry_2x">2x</string>
     <string name="pref_camera_zoom_entry_3x">3x</string>

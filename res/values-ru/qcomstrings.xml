@@ -418,6 +418,7 @@
     <string name="pref_camera2_initial_camera_entry_mono">Ч/Б</string>
     <string name="pref_camera2_initial_camera_entry_front">Фронтальная</string>
     <string name="pref_camera2_eis_title">Видео EIS</string>
+    <string name="pref_camera2_eis_entry_v3_set_when_pause">V3 и установить во время паузы</string>
     <string name="pref_camera2_eis_entry_disable">Отключить</string>
     <string name="pref_camera2_fovc_title">Видео FOVC</string>
     <string name="pref_camera2_fovc_entry_enable">Включить</string>
