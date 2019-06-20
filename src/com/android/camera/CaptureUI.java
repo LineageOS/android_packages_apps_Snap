@@ -509,6 +509,9 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
                     mZoomIndex = 0;
                 mZoomSwitch.setText(entries[mZoomIndex]);
                 mModule.onZoomChanged(Float.valueOf(values[mZoomIndex]));
+                if (mZoomRenderer != null) {
+                    mZoomRenderer.setZoom(Float.valueOf(values[mZoomIndex]));
+                }
             }
         });
 
@@ -634,11 +637,14 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
         mZoomSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                mModule.updateZoomChanged((progress + 10) / 10f);
+                float zoomValue = (progress + 10) / 10f;
+                mModule.updateZoomChanged(zoomValue);
+                if (mZoomRenderer != null) {
+                    mZoomRenderer.setZoom(zoomValue);
+                }
                 int zoomSig = Math.round((progress + 10)) / 10;
                 int zoomFraction = Math.round(progress + 10) % 10;
                 String txt = zoomSig + "." + zoomFraction + "x";
-
                 if (mZoomValueText != null) {
                     mZoomValueText.setText(txt);
                 }
@@ -650,9 +656,13 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-                mModule.updateZoomChanged((seekBar.getProgress() + 10) / 10f);
+                float zoomValue = (seekBar.getProgress() + 10) / 10f;
+                mModule.updateZoomChanged(zoomValue);
+                if (mZoomRenderer != null) {
+                    mZoomRenderer.setZoom(zoomValue);
+                }
                 if (mZoomValueText != null) {
-                    mZoomValueText.setText((seekBar.getProgress() + 10) / 10f + "x");
+                    mZoomValueText.setText(zoomValue + "x");
                 }
             }
         });
