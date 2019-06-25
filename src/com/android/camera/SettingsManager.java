@@ -1538,6 +1538,7 @@ public class SettingsManager implements ListMenu.SettingsListener {
         boolean findVideoEncoder = false;
         if (videoSizeStr != null) {
             Size videoSize = parseSize(videoSizeStr);
+            boolean above1080p = videoSize.getHeight() * videoSize.getWidth() > 1920*1080;
             MediaCodecList allCodecs = new MediaCodecList(MediaCodecList.ALL_CODECS);
             for (MediaCodecInfo info : allCodecs.getCodecInfos()) {
                 if (!info.isEncoder() || info.getName().contains("google")) continue;
@@ -1568,7 +1569,7 @@ public class SettingsManager implements ListMenu.SettingsListener {
                                 rate = String.valueOf(r.getUpper());
                                 supported.add("hfr" + rate);
                                 supported.add("hsr" + rate);
-                                if (PersistUtil.isSSMEnabled()) {
+                                if (PersistUtil.isSSMEnabled() && !above1080p) {
                                     supported.add("2x_" + rate);
                                     supported.add("4x_" + rate);
                                 }
@@ -1590,7 +1591,7 @@ public class SettingsManager implements ListMenu.SettingsListener {
                                     videoSize.getWidth(), videoSize.getHeight(), mExtendedHFRSize[i + 2])) {
                                 supported.add(item);
                                 supported.add("hsr" + mExtendedHFRSize[i + 2]);
-                                if (PersistUtil.isSSMEnabled()) {
+                                if (PersistUtil.isSSMEnabled() && !above1080p) {
                                     supported.add("2x_" + mExtendedHFRSize[i + 2]);
                                     supported.add("4x_" + mExtendedHFRSize[i + 2]);
                                 }
