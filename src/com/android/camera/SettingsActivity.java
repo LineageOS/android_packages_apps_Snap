@@ -701,6 +701,12 @@ public class SettingsActivity extends PreferenceActivity {
         PreferenceScreen parentPre = getPreferenceScreen();
         CaptureModule.CameraMode mode =
                 (CaptureModule.CameraMode) getIntent().getSerializableExtra(CAMERA_MODULE);
+
+        if (mSettingsManager.getInitialCameraId() == CaptureModule.FRONT_ID) {
+            removePreference(SettingsManager.KEY_TOUCH_TRACK_FOCUS, photoPre);
+            removePreference(SettingsManager.KEY_TOUCH_TRACK_FOCUS, videoPre);
+        }
+
         switch (mode) {
             case DEFAULT:
                 removePreferenceGroup("video", parentPre);
@@ -735,6 +741,14 @@ public class SettingsActivity extends PreferenceActivity {
                         SettingsManager.KEY_VIDEO_TIME_LAPSE_FRAME_INTERVAL, videoPre);
                 break;
             case RTB:
+                removePreferenceGroup("video", parentPre);
+                removePreference(SettingsManager.KEY_TOUCH_TRACK_FOCUS, photoPre);
+                if (mDeveloperMenuEnabled) {
+                    ArrayList<String> RTBList = new ArrayList<>(multiCameraSettingList);
+                    RTBList.add(SettingsManager.KEY_CAPTURE_MFNR_VALUE);
+                    addDeveloperOptions(developer, RTBList);
+                }
+                break;
             case SAT:
                 removePreferenceGroup("video", parentPre);
                 if (mDeveloperMenuEnabled) {
@@ -743,6 +757,7 @@ public class SettingsActivity extends PreferenceActivity {
                 break;
             case PRO_MODE:
                 removePreferenceGroup("video", parentPre);
+                removePreference(SettingsManager.KEY_TOUCH_TRACK_FOCUS, photoPre);
                 if (mDeveloperMenuEnabled) {
                     addDeveloperOptions(developer, proModeOnlyList);
                 }
