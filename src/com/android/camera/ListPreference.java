@@ -178,6 +178,13 @@ public class ListPreference extends CameraPreference {
         for (int i = 0, n = mEntryValues.length; i < n; ++i) {
             if (CameraUtil.equals(mEntryValues[i], value)) return i;
         }
+
+        String defaultValue = findSupportedDefaultValue();
+        if (defaultValue != null) {
+            for (int i = 0, n = mEntryValues.length; i < n; ++i) {
+                if (CameraUtil.equals(mEntryValues[i], defaultValue)) return i;
+            }
+        }
         return -1;
     }
 
