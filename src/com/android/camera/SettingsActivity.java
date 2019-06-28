@@ -685,6 +685,7 @@ public class SettingsActivity extends PreferenceActivity {
                 add(SettingsManager.KEY_INSTANT_AEC);
                 add(SettingsManager.KEY_MANUAL_WB);
                 add(SettingsManager.KEY_AF_MODE);
+                add(SettingsManager.KEY_CAPTURE_MFNR_VALUE);
                 add(SettingsManager.KEY_QCFA);
             }
         };
@@ -734,13 +735,6 @@ public class SettingsActivity extends PreferenceActivity {
                         SettingsManager.KEY_VIDEO_TIME_LAPSE_FRAME_INTERVAL, videoPre);
                 break;
             case RTB:
-                removePreferenceGroup("video", parentPre);
-                if (mDeveloperMenuEnabled) {
-                    ArrayList<String> RTBList = new ArrayList<>(multiCameraSettingList);
-                    RTBList.add(SettingsManager.KEY_CAPTURE_MFNR_VALUE);
-                    addDeveloperOptions(developer, RTBList);
-                }
-                break;
             case SAT:
                 removePreferenceGroup("video", parentPre);
                 if (mDeveloperMenuEnabled) {
