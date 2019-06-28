@@ -90,6 +90,8 @@ import com.android.camera.ui.ZoomRenderer;
 import com.android.camera.ui.TouchTrackFocusRenderer;
 import com.android.camera.util.CameraUtil;
 import com.android.camera.deepportrait.GLCameraPreview;
+import com.android.camera.util.PersistUtil;
+
 import org.codeaurora.snapcam.R;
 
 import java.util.ArrayList;
@@ -104,6 +106,8 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
         PauseButton.OnPauseButtonListener {
     private static final int HIGHLIGHT_COLOR = 0xff33b5e5;
     private static final String TAG = "SnapCam_CaptureUI";
+    private static final boolean DEV_LEVEL_ALL =
+            PersistUtil.getDevOptionLevel() == PersistUtil.CAMERA2_DEV_OPTION_ALL;
     private static final int FILTER_MENU_NONE = 0;
     private static final int FILTER_MENU_IN_ANIMATION = 1;
     private static final int FILTER_MENU_ON = 2;
@@ -1294,6 +1298,9 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
                 mFlashButton.setVisibility(View.INVISIBLE);
                 mMuteButton.setVisibility(View.INVISIBLE);
                 mPauseButton.setVisibility(View.INVISIBLE);
+                if (!DEV_LEVEL_ALL) {
+                    mFrontBackSwitcher.setVisibility(View.INVISIBLE);
+                }
                 break;
             case VIDEO:
             case HFR:
