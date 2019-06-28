@@ -8057,7 +8057,12 @@ public class CaptureModule implements CameraModule, PhotoController,
     }
 
     public CameraMode getCurrenCameraMode() {
-        return mCurrentSceneMode.mode;
+        if (mCurrentSceneMode == null) {
+            Log.w(TAG, "getCurrenCameraMode mCurrentSceneMode is NULL retrun CameraMode.DEFAULT");
+            return CameraMode.DEFAULT;
+        } else {
+            return mCurrentSceneMode.mode;
+        }
     }
 
     public OnItemClickListener getModeItemClickListener() {
