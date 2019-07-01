@@ -1327,6 +1327,14 @@ public class CaptureModule implements CameraModule, PhotoController,
                         CaptureResult.CONTROL_AF_STATE_NOT_FOCUSED_LOCKED == afState) &&
                         (aeState == null || aeState == CaptureResult.CONTROL_AE_STATE_LOCKED)) {
                     checkAfAeStatesAndCapture(id);
+                } else if (mSettingsManager.isFixedFocus(id)) {
+                    // CONTROL_AE_STATE can be null on some devices
+                    if(aeState == null || (aeState == CaptureResult
+                            .CONTROL_AE_STATE_CONVERGED) && isFlashOff(id)) {
+                        lockExposure(id);
+                    } else {
+                        runPrecaptureSequence(id);
+                    }
                 }
                 break;
             }
