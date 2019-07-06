@@ -86,7 +86,7 @@
     <string name="camera_disabled">Kameraet er deaktiveret på grund af sikkerhedspolitikker.</string>
     <string name="error_permissions">App\'en har ikke de nødvendige tilladelser for at køre. Kontrollér venligst dine tilladelsesindstillinger.</string>
     <string name="dialog_dismiss">Afvis</string>
-    <string name="wait">Vent\u2026</string>
+    <string name="wait">Vent venligst\u2026</string>
     <string name="no_storage" product="default">Indsæt et SD-kort, før kameraet tages i brug.</string>
     <string name="preparing_sd" product="default">Forbereder SD-kort\u2026</string>
     <string name="access_sd_fail" product="default">Det var ikke muligt at få adgang til SD-kortet.</string>

@@ -40,6 +40,9 @@
     <string name="perf_camera2_preferences_category_photo">Fotokaamera</string>
     <string name="perf_camera2_preferences_category_video">Videokaamera</string>
     <string name="perf_camera2_preferences_category_system">Süsteem</string>
+    <string name="pref_camera2_scene_mode_pro_instructional_content">Pro režiimis saate käsitsi reguleerida ISO, säriaja, valge tasakaalu ja fookuse sätteid. Teil on lihtne ligipääs kõigile neile täpsematele sätetele.</string>
+    <string name="pref_camera2_scene_mode_deepzoom_instructional_content">DeepZoomi režiimis saate pildistada 2 või 4-kordse suumiga.</string>
+    <string name="pref_camera2_scene_mode_deepportrait_instructional_content">DeepPortrait režiimis saate teha hägustatud taustaga selfiesid. Hägususe muutmiseks saate kasutada liugurit.</string>
     <string name="pref_camera2_not_show_again">Ära rohkem näita</string>
     <string name="pref_camera2_instant_aec_title">Kohene AEC</string>
     <string name="pref_camera2_hdr_title">HDR</string>
@@ -60,13 +63,21 @@
     <string name="pref_camera2_bsgc_title">Naeratuse/pilgutuse/pilgu suuna tuvastus</string>
     <string name="pref_camera2_zsl_entry_app_zsl">Tarkvaraline ZSL</string>
     <string name="pref_camera2_zsl_entry_hal_zsl">Riistvaraline ZSL</string>
+    <string name="pref_camera2_videoencoderprofile_title">Enkoodri profiil</string>
     <string name="pref_camera2_sharpness_control_entry_level1">Tase 1 (vaikimisi)</string>
     <string name="pref_camera2_afmode_entry_continuous_video">Pidev video</string>
     <string name="pref_camera2_afmode_entry_continuous_picture">Liikuv pilt</string>
+    <string name="pref_camera2_afmode_entry_edof">Laiendatud fookussügavus</string>
     <string name="pref_camera2_switch_camera_title">Vaheta kaamerat ID järgi</string>
     <string name="pref_camera2_switch_camera_title">Vaheta kaamerat ID järgi</string>
     <string name="pref_camera2_eis_title">Video EIS</string>
+    <string name="pref_camera2_eis_entry_v3_set_when_pause">V3 ja määra pausil olles</string>
     <string name="pref_camera2_fovc_title">Video FOVC</string>
     <string name="pref_camera2_stats_visualizer_title">Statistika visualiseerija</string>
     <string name="pref_camera2_stats_visualizer_entry_disable">Keela kõik</string>
+    <string name="pref_camera2_stats_visualizer_entry_bg_stats">BG statistika</string>
+    <string name="pref_camera2_stats_visualizer_entry_be_stats">BE statistika</string>
+    <string name="pref_camera2_stats_visualizer_entry_hist_stats">Hist statistika</string>
+    <string name="pref_camera2_capture_mfnr_title">Mitmikkaadri mürasummutus</string>
+    <string name="pref_camera2_capture_mfsr_title">Mitmikkaadri superlahutus</string>
 </resources>
