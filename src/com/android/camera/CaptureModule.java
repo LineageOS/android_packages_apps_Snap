@@ -4923,7 +4923,8 @@ public class CaptureModule implements CameraModule, PhotoController,
                 setUpVideoCaptureRequestBuilder(mVideoRecordRequestBuilder, cameraId);
                 int deviceSocId = mSettingsManager.getDeviceSocId();
                 if (deviceSocId == SettingsManager.TALOS_SOCID ||
-                        deviceSocId == SettingsManager.MOOREA_SOCID) {
+                        deviceSocId == SettingsManager.MOOREA_SOCID ||
+                        deviceSocId == SettingsManager.SAIPAN_SOCID) {
                     List list = CameraUtil
                             .createHighSpeedRequestList(mVideoRecordRequestBuilder.build());
                     mCurrentSession.setRepeatingBurst(list,mCaptureCallback, mCameraHandler);
