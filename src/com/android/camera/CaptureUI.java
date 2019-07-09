@@ -948,8 +948,8 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
             }
             if (mModule.getCurrentIntentMode() == CaptureModule.INTENT_MODE_NORMAL) {
                 mModeSelectLayout.setVisibility(View.VISIBLE);
-                showZoomSeekBar();
             }
+            mModule.updateZoomSeekBarVisible();
         }
         updateMenus();
     }
