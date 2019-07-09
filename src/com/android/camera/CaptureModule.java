@@ -6104,28 +6104,31 @@ public class CaptureModule implements CameraModule, PhotoController,
             return;
         }
 
-        if (mIsRecordingVideo) {
-            if (mUI.isShutterEnabled()) {
-                captureVideoSnapshot(getMainCameraId());
-            }
-        } else {
-            String timer = mSettingsManager.getValue(SettingsManager.KEY_TIMER);
-
-            int seconds = Integer.parseInt(timer);
-            // When shutter button is pressed, check whether the previous countdown is
-            // finished. If not, cancel the previous countdown and start a new one.
-            if (mUI.isCountingDown()) {
-                mUI.cancelCountDown();
-            }
-            if (seconds > 0) {
-                mUI.startCountDown(seconds, true);
-            } else {
-                if(mChosenImageFormat == ImageFormat.YUV_420_888 && mPostProcessor.isItBusy()) {
-                    warningToast("It's still busy processing previous scene mode request.");
-                    return;
+        if (mCurrentSceneMode.mode == CameraMode.HFR ||
+                mCurrentSceneMode.mode == CameraMode.VIDEO) {
+            if (!mHighSpeedCapture) {
+                if (mUI.isShutterEnabled()) {
+                    captureVideoSnapshot(getMainCameraId());
                 }
-                checkSelfieFlashAndTakePicture();
             }
+            return;
+        }
+
+        String timer = mSettingsManager.getValue(SettingsManager.KEY_TIMER);
+        int seconds = Integer.parseInt(timer);
+        // When shutter button is pressed, check whether the previous countdown is
+        // finished. If not, cancel the previous countdown and start a new one.
+        if (mUI.isCountingDown()) {
+            mUI.cancelCountDown();
+        }
+        if (seconds > 0) {
+            mUI.startCountDown(seconds, true);
+        } else {
+            if (mChosenImageFormat == ImageFormat.YUV_420_888 && mPostProcessor.isItBusy()) {
+                warningToast("It's still busy processing previous scene mode request.");
+                return;
+            }
+            checkSelfieFlashAndTakePicture();
         }
     }
 
