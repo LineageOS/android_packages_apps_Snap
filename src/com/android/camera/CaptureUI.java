@@ -2303,7 +2303,8 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
     }
 
     public void swipeCameraMode(int move) {
-        if (mIsVideoUI || !mModule.getCameraModeSwitcherAllowed()) {
+        if (mIsVideoUI || !mModule.getCameraModeSwitcherAllowed() ||
+                mModule.getCurrentIntentMode() != CaptureModule.INTENT_MODE_NORMAL) {
             return;
         }
         int index = mModule.getCurrentModeIndex() + move;
