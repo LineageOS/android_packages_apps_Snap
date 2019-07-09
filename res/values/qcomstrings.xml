@@ -422,6 +422,8 @@
      <string name="pref_camera_hfr_entry_4x_ssm_240">Super SloMo 240->960</string>
      <string name="pref_camera_hfr_entry_2x_ssm_480">Super SloMo 480->960</string>
      <string name="pref_camera_hfr_entry_4x_ssm_480">Super SloMo 480->1920</string>
+     <string name="pref_camera_hfr_entry_2x_ssm_960">Super SloMo 960->1920</string>
+     <string name="pref_camera_hfr_entry_4x_ssm_960">Super SloMo 960->3840</string>
 
      <!-- HFR entry values. Do not translate. -->
      <string name="pref_camera_hfr_value_off">off</string>
@@ -443,6 +445,8 @@
      <string name="pref_camera_hfr_value_4x_ssm_240">4x_240</string>
      <string name="pref_camera_hfr_value_2x_ssm_480">2x_480</string>
      <string name="pref_camera_hfr_value_4x_ssm_480">4x_480</string>
+     <string name="pref_camera_hfr_value_2x_ssm_960">2x_960</string>
+     <string name="pref_camera_hfr_value_4x_ssm_960">4x_960</string>
 
      <!-- Default noise reduction setting. Do not translate. -->
      <string name="pref_camera_noise_reduction_default">off</string>
