@@ -70,8 +70,8 @@ public class ComboPreferences implements
     }
 
     public static String getLocalSharedPreferencesName(
-            Context context, String cameraIdAndMode) {
-        return context.getPackageName() + "_preferences_" + cameraIdAndMode;
+            Context context, String prefTag) {
+        return context.getPackageName() + "_preferences_" + prefTag;
     }
 
     public static String getGlobalSharedPreferencesName(Context context) {
@@ -120,9 +120,8 @@ public class ComboPreferences implements
 
     // Sets the camera id and reads its preferences. Each camera has its own
     // preferences.
-    public void setLocalId(Context context, int cameraId, String mode) {
-        String prefName = getLocalSharedPreferencesName(context,
-                String.valueOf(cameraId) + mode);
+    public void setLocalId(Context context, String prefTag, String mode) {
+        String prefName = getLocalSharedPreferencesName(context,prefTag + mode);
         if (mPrefLocal != null) {
             mPrefLocal.unregisterOnSharedPreferenceChangeListener(this);
         }
@@ -132,7 +131,7 @@ public class ComboPreferences implements
     }
 
     public void setLocalId(Context context, int cameraId) {
-        setLocalId(context, cameraId, "");
+        setLocalId(context, String.valueOf(cameraId), "");
     }
 
     public SharedPreferences getGlobal() {
