@@ -161,7 +161,6 @@ public class ComboPreferences implements
                 || key.equals(SettingsManager.KEY_MONO_ONLY)
                 || key.equals(SettingsManager.KEY_MONO_PREVIEW)
                 || key.equals(SettingsManager.KEY_FRONT_REAR_SWITCHER_VALUE)
-                || key.equals(SettingsManager.KEY_SWITCH_CAMERA)
                 || key.equals(SettingsManager.KEY_FORCE_AUX)
                 || key.equals(SettingsManager.KEY_CAMERA_SAVEPATH)
                 || key.equals(SettingsManager.KEY_FACE_DETECTION)
