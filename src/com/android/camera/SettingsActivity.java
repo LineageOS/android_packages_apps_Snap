@@ -726,6 +726,7 @@ public class SettingsActivity extends PreferenceActivity {
                         videoAddList.add(SettingsManager.KEY_SWITCH_CAMERA);
                     }
                     videoAddList.addAll(videoOnlyList);
+                    videoAddList.add(SettingsManager.KEY_ANTI_BANDING_LEVEL);
                     if (mSettingsManager.getInitialCameraId() == CaptureModule.FRONT_ID) {
                         videoAddList.remove(SettingsManager.KEY_EIS_VALUE);
                     }
