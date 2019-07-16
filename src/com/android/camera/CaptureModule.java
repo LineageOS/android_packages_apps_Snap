@@ -483,6 +483,8 @@ public class CaptureModule implements CameraModule, PhotoController,
     private TextView mBeStatsLabel;
     private DrawAutoHDR2 mDrawAutoHDR2;
     public boolean mAutoHdrEnable;
+    private MFNRDrawer mMFNRDrawer;
+    public boolean mMFNREnable;
     /*HDR Test*/
     private boolean mCaptureHDRTestEnable = false;
     boolean mHiston    = false;
@@ -1529,6 +1531,7 @@ public class CaptureModule implements CameraModule, PhotoController,
         mBgStatsLabel = (TextView) mRootView.findViewById(R.id.bg_stats_graph_label);
         mBeStatsLabel = (TextView) mRootView.findViewById(R.id.be_stats_graph_label);
         mDrawAutoHDR2 = (DrawAutoHDR2 )mRootView.findViewById(R.id.autohdr_view);
+        mMFNRDrawer = (MFNRDrawer )mRootView.findViewById(R.id.mfnr_view);
         mGraphViewR.setDataSection(0,256);
         mGraphViewGB.setDataSection(256,512);
         mGraphViewB.setDataSection(512,768);
@@ -1549,6 +1552,9 @@ public class CaptureModule implements CameraModule, PhotoController,
         }
         if (mDrawAutoHDR2 != null) {
             mDrawAutoHDR2.setCaptureModuleObject(this);
+        }
+        if (mMFNRDrawer != null) {
+            mMFNRDrawer.setCaptureModuleObject(this);
         }
 
         mFirstTimeInitialized = true;
@@ -3841,6 +3847,7 @@ public class CaptureModule implements CameraModule, PhotoController,
         mLongshotActive = false;
         updateZoom();
         updatePreviewSurfaceReadyState(false);
+        updateMFNRText();
     }
 
     private void cancelTouchFocus() {
@@ -5357,7 +5364,7 @@ public class CaptureModule implements CameraModule, PhotoController,
         builder.set(CaptureRequest.NOISE_REDUCTION_MODE, noiseReduMode);
         if (isMfnrEnable) {
             try {
-                builder.set(custom_noise_reduction, (byte)0x01);
+                builder.set(custom_noise_reduction, (byte) 0x01);
             } catch (IllegalArgumentException e) {
                 Log.w(TAG, "capture can`t find vendor tag: " + custom_noise_reduction.toString());
             }
@@ -6517,6 +6524,22 @@ public class CaptureModule implements CameraModule, PhotoController,
                 }
             }
         });
+    }
+
+    private void updateMFNRText() {
+        boolean isMfnrEnable = isMFNREnabled();
+        if (isMfnrEnable) {
+            mMFNREnable = true;
+            if (mMFNRDrawer != null) {
+                mMFNRDrawer.setVisibility(View.VISIBLE);
+                mMFNRDrawer.refleshMFNR();
+            }
+        } else {
+            mMFNREnable = false;
+            if (mMFNRDrawer != null) {
+                mMFNRDrawer.setVisibility(View.INVISIBLE);
+            }
+        }
     }
 
     private void updateGraghView(){
@@ -8382,42 +8405,78 @@ class Camera2BEBitMap extends View {
     }
 }
 
-class DrawAutoHDR2 extends View{
+class DrawAutoHDR2 extends View {
 
     private static final String TAG = "AutoHdrView";
     private CaptureModule mCaptureModule;
 
-    public DrawAutoHDR2 (Context context, AttributeSet attrs) {
-        super(context,attrs);
+    public DrawAutoHDR2(Context context, AttributeSet attrs) {
+        super(context, attrs);
     }
 
     @Override
-    protected void onDraw (Canvas canvas) {
+    protected void onDraw(Canvas canvas) {
         if (mCaptureModule == null)
             return;
         if (mCaptureModule.mAutoHdrEnable) {
             Paint autoHDRPaint = new Paint();
             autoHDRPaint.setColor(Color.WHITE);
-            autoHDRPaint.setAlpha (0);
+            autoHDRPaint.setAlpha(0);
             canvas.drawPaint(autoHDRPaint);
             autoHDRPaint.setStyle(Paint.Style.STROKE);
-            autoHDRPaint.setColor(Color.MAGENTA);
             autoHDRPaint.setStrokeWidth(1);
             autoHDRPaint.setTextSize(32);
-            autoHDRPaint.setAlpha (255);
-            canvas.drawText("HDR On",200,100,autoHDRPaint);
-        }
-        else {
+            autoHDRPaint.setAlpha(255);
+            canvas.drawText("HDR On", 200, 100, autoHDRPaint);
+        } else {
             super.onDraw(canvas);
             return;
         }
     }
 
-    public void AutoHDR () {
+    public void AutoHDR() {
         invalidate();
     }
 
-    public void setCaptureModuleObject (CaptureModule captureModule) {
+    public void setCaptureModuleObject(CaptureModule captureModule) {
+        mCaptureModule = captureModule;
+    }
+}
+
+class MFNRDrawer extends View {
+
+    private static final String TAG = "MFNRDrawer";
+    private CaptureModule mCaptureModule;
+
+    public MFNRDrawer(Context context, AttributeSet attrs) {
+        super(context, attrs);
+    }
+
+    @Override
+    protected void onDraw(Canvas canvas) {
+        if (mCaptureModule == null)
+            return;
+        if (mCaptureModule.mMFNREnable) {
+            Paint mfnrPaint = new Paint();
+            mfnrPaint.setColor(Color.WHITE);
+            mfnrPaint.setAlpha(0);
+            canvas.drawPaint(mfnrPaint);
+            mfnrPaint.setStyle(Paint.Style.STROKE);
+            mfnrPaint.setStrokeWidth(1);
+            mfnrPaint.setTextSize(32);
+            mfnrPaint.setAlpha(255);
+            canvas.drawText("MFNR", 100, 100, mfnrPaint);
+        } else {
+            super.onDraw(canvas);
+            return;
+        }
+    }
+
+    public void refleshMFNR() {
+        invalidate();
+    }
+
+    public void setCaptureModuleObject(CaptureModule captureModule) {
         mCaptureModule = captureModule;
     }
 }
