@@ -662,6 +662,7 @@ public class CaptureModule implements CameraModule, PhotoController,
     private int mInterpFactor = 1;
     private CaptureRequest.Builder mVideoRecordRequestBuilder;
     private CaptureRequest.Builder mVideoPreviewRequestBuilder;
+    private Surface mVideoPreviewSurface;
     private boolean mCameraModeSwitcherAllowed = true;
 
     private static final int STATS_DATA = 768;
@@ -886,10 +887,12 @@ public class CaptureModule implements CameraModule, PhotoController,
             updateCaptureStateMachine(id, result);
             Integer ssmStatus = result.get(ssmCaptureComplete);
             if (ssmStatus != null) {
+                Log.d(TAG, "ssmStatus: CaptureComplete is " + ssmStatus);
                 updateProgressBar(true);
             }
             Integer procComplete = result.get(ssmProcessingComplete);
-            if (procComplete != null && ++mCaptureCompleteCount == 2) {
+            if (procComplete != null && ++mCaptureCompleteCount == 1) {
+                Log.d(TAG, "ssmStatus: ProcessingComplete is " + procComplete);
                 mCaptureCompleteCount = 0;
                 mSSMCaptureCompleteFlag = true;
                 mActivity.runOnUiThread(new Runnable() {
@@ -1960,6 +1963,7 @@ public class CaptureModule implements CameraModule, PhotoController,
                     }
                 });
             }
+            mVideoPreviewSurface = surface;
             mFrameProcessor.setOutputSurface(surface);
             mFrameProcessor.setVideoOutputSurface(mMediaRecorder.getSurface());
             createVideoSnapshotImageReader();
@@ -2123,7 +2127,10 @@ public class CaptureModule implements CameraModule, PhotoController,
         applyAERegions(mPreviewRequestBuilder[id], id);
         mPreviewRequestBuilder[id].setTag(id);
         try {
-            if (mCaptureSession[id] instanceof CameraConstrainedHighSpeedCaptureSession) {
+            if (isSSMEnabled()) {
+                mCaptureSession[id].setRepeatingBurst(createSSMBatchRequest(mVideoRecordRequestBuilder),
+                        mCaptureCallback, mCameraHandler);
+            } else if (mCaptureSession[id] instanceof CameraConstrainedHighSpeedCaptureSession) {
                 CameraConstrainedHighSpeedCaptureSession session =
                         (CameraConstrainedHighSpeedCaptureSession) mCaptureSession[id];
                 List requestList = CameraUtil.createHighSpeedRequestList(mVideoRecordRequestBuilder.build());
@@ -2612,9 +2619,9 @@ public class CaptureModule implements CameraModule, PhotoController,
             applyFlash(builder, id);//apply flash mode and AEmode for this temp builder
             if (isHighSpeedRateCapture()) {
                 List<CaptureRequest> tafBuilderList = isSSMEnabled() ?
-                        CameraUtil.createHighSpeedRequestList(builder.build()) :
+                        createSSMBatchRequest(builder) :
                         ((CameraConstrainedHighSpeedCaptureSession) mCaptureSession[id]).
-                                createHighSpeedRequestList(builder.build());
+                        createHighSpeedRequestList(builder.build());
                 mCaptureSession[id].captureBurst(tafBuilderList, mCaptureCallback, mCameraHandler);
             } else {
                 mCaptureSession[id].capture(builder.build(), mCaptureCallback, mCameraHandler);
@@ -4932,6 +4939,25 @@ public class CaptureModule implements CameraModule, PhotoController,
         }
     }
 
+    private List<CaptureRequest> createSSMBatchRequest(CaptureRequest.Builder requestBuilder) {
+        List<CaptureRequest> ssmRequests = new ArrayList<CaptureRequest>();
+        Surface ssmVideoSurface = mMediaRecorder.getSurface();
+        requestBuilder.removeTarget(mVideoPreviewSurface);
+        requestBuilder.removeTarget(ssmVideoSurface);
+        requestBuilder.addTarget(mVideoPreviewSurface);
+        ssmRequests.add(requestBuilder.build());
+        requestBuilder.removeTarget(mVideoPreviewSurface);
+        requestBuilder.addTarget(ssmVideoSurface);
+        int mSSMBatchSize = CameraUtil.getHighSpeedVideoConfigsLists(getMainCameraId());
+        if (DEBUG) {
+            Log.d(TAG, "mSSMBatchSize is " + mSSMBatchSize);
+        }
+        for (int i = 1; i < mSSMBatchSize; i++) {
+            ssmRequests.add(requestBuilder.build());
+        }
+        return ssmRequests;
+    }
+
     private final CameraCaptureSession.StateCallback mCCSSateCallback = new CameraCaptureSession
             .StateCallback() {
         @Override
@@ -4987,8 +5013,8 @@ public class CaptureModule implements CameraModule, PhotoController,
                     mCurrentSession.setRepeatingBurst(list,mCaptureCallback, mCameraHandler);
                 } else {
                     if (isHighSpeedRateCapture()) {
-                        slowMoRequests = mSuperSlomoCapture ? CameraUtil
-                                .createHighSpeedRequestList(mVideoRecordRequestBuilder.build()) :
+                        slowMoRequests = mSuperSlomoCapture ?
+                                createSSMBatchRequest(mVideoRecordRequestBuilder) :
                                 ((CameraConstrainedHighSpeedCaptureSession) mCurrentSession).
                                 createHighSpeedRequestList(mVideoRecordRequestBuilder.build());
                         mCurrentSession.setRepeatingBurst(slowMoRequests, mCaptureCallback,
@@ -5286,11 +5312,11 @@ public class CaptureModule implements CameraModule, PhotoController,
             try {
                 mVideoRecordRequestBuilder.set(ssmInterpFactor, mInterpFactor);
                 mVideoRecordRequestBuilder.set(ssmCaptureStart, 1);
-                mCurrentSession.captureBurst(CameraUtil.createHighSpeedRequestList(
-                        mVideoRecordRequestBuilder.build()), mCaptureCallback, mCameraHandler);
+                mCurrentSession.captureBurst(createSSMBatchRequest(mVideoRecordRequestBuilder),
+                        mCaptureCallback, mCameraHandler);
                 mVideoRecordRequestBuilder.set(ssmCaptureStart, 0);
-                mCurrentSession.setRepeatingBurst(CameraUtil.createHighSpeedRequestList(
-                        mVideoRecordRequestBuilder.build()), mCaptureCallback, mCameraHandler);
+                mCurrentSession.setRepeatingBurst(createSSMBatchRequest(mVideoRecordRequestBuilder),
+                        mCaptureCallback, mCameraHandler);
             } catch (CameraAccessException | IllegalArgumentException e) {
                 e.printStackTrace();
                 quitRecordingWithError("SSM starts failed");
