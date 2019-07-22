@@ -153,19 +153,6 @@ public class SettingsActivity extends PreferenceActivity {
                     updatePreference(SettingsManager.KEY_VIDEO_QUALITY);
                 }
 
-                if ( pref.getKey().equals(SettingsManager.KEY_VIDEO_HDR_VALUE) ) {
-                    ListPreference autoHdrPref = (ListPreference) findPreference(
-                            mSettingsManager.KEY_AUTO_HDR);
-                    if (pref.getSummary().equals("enable")) {
-                        // when enable the Video HDR, app will disable the AUTO HDR.
-                        autoHdrPref.setEnabled(false);
-                        autoHdrPref.setValue("disable");
-                        mSettingsManager.setValue(mSettingsManager.KEY_AUTO_HDR, "disable");
-                    } else {
-                        autoHdrPref.setEnabled(true);
-                    }
-                }
-
                 if ( (pref.getKey().equals(SettingsManager.KEY_MANUAL_WB)) ) {
                     updateManualWBSettings();
                 }
