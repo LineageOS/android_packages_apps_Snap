@@ -7062,18 +7062,26 @@ public class CaptureModule implements CameraModule, PhotoController,
         String mode = mSettingsManager.getValue(SettingsManager.KEY_FACE_DETECTION_MODE);
         String bsgc = mSettingsManager.getValue(SettingsManager.KEY_BSGC_DETECTION);
         String facialContour = mSettingsManager.getValue(SettingsManager.KEY_FACIAL_CONTOUR);
-        if (value != null && value.equals("on")) {
+        if (value != null) {
             try {
+                boolean FdEnable = value.equals("on");
                 int modeValue = CaptureRequest.STATISTICS_FACE_DETECT_MODE_SIMPLE;
-                if (mode != null)
-                    modeValue = Integer.valueOf(mode);
+                if (FdEnable){
+                    if (mode != null)
+                        modeValue = Integer.valueOf(mode);
+                } else {
+                    modeValue = CaptureRequest.STATISTICS_FACE_DETECT_MODE_OFF;
+                }
+
                 request.set(CaptureRequest.STATISTICS_FACE_DETECT_MODE,
                         modeValue);
 
                 if (bsgc != null) {
                     final byte bsgc_enable;
-                    if (bsgc.equals("enable")) {
+                    if (bsgc.equals("enable") && FdEnable) {
                         bsgc_enable = 1;
+                        request.set(CaptureRequest.STATISTICS_FACE_DETECT_MODE,
+                                CaptureRequest.STATISTICS_FACE_DETECT_MODE_FULL);
                     } else {
                         bsgc_enable = 0;
                     }
@@ -7084,7 +7092,7 @@ public class CaptureModule implements CameraModule, PhotoController,
 
                 if (facialContour != null) {
                     final byte facialContour_enable;
-                    if (facialContour.equals("enable")) {
+                    if (facialContour.equals("enable") && FdEnable) {
                         facialContour_enable = 1;
                     } else {
                         facialContour_enable = 0;
