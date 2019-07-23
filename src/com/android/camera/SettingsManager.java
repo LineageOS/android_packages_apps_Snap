@@ -284,6 +284,7 @@ public class SettingsManager implements ListMenu.SettingsListener {
         try {
             String[] cameraIdList = manager.getCameraIdList();
             boolean isFirstBackCameraId = true;
+            boolean isRearCameraPresent = false;
             for (int i = 0; i < cameraIdList.length; i++) {
                 String cameraId = cameraIdList[i];
                 CameraCharacteristics characteristics
@@ -299,50 +300,25 @@ public class SettingsManager implements ListMenu.SettingsListener {
                     mIsMonoCameraPresent = true;
                 }
                 int facing = characteristics.get(CameraCharacteristics.LENS_FACING);
-                try {
-                    Byte type = characteristics.get(CaptureModule.logical_camera_type);
-                    switch (type) {
-                        case CaptureModule.TYPE_DEFAULT:// default
-                            mPrepNameKeys.add(String.valueOf(i) +
-                                    String.valueOf(CaptureModule.CameraMode.DEFAULT));
-                            mPrepNameKeys.add(String.valueOf(i) +
-                                    String.valueOf(CaptureModule.CameraMode.VIDEO));
-                            mPrepNameKeys.add(String.valueOf(i) +
-                                    String.valueOf(CaptureModule.CameraMode.HFR));
-                            if (facing != CameraCharacteristics.LENS_FACING_FRONT) {
-                                mPrepNameKeys.add(String.valueOf(i) +
-                                        String.valueOf(CaptureModule.CameraMode.PRO_MODE));
-                            }
-                            break;
-                        case CaptureModule.TYPE_RTB:// RTB
-                            mHasMultiCamera = true;
-                            mPrepNameKeys.add(String.valueOf(i) +
-                                    String.valueOf(CaptureModule.CameraMode.RTB));
-                            break;
-                        case CaptureModule.TYPE_SAT:// SAT
-                            mHasMultiCamera = true;
-                            mPrepNameKeys.add(String.valueOf(i) +
-                                    String.valueOf(CaptureModule.CameraMode.SAT));
-                            break;
-                        case CaptureModule.TYPE_VR360:// VR 360
-                            break;
-                        default:// indicate error
-                            Log.w(TAG, "Type error: indicate error in settings");
-                            break;
-                    }
-                } catch (IllegalArgumentException | NullPointerException e) {
-                    e.printStackTrace();
-                }
                 if (facing == CameraCharacteristics.LENS_FACING_FRONT) {
                     CaptureModule.FRONT_ID = i;
                     mIsFrontCameraPresent = true;
-                } else if (facing == CameraCharacteristics.LENS_FACING_BACK &&
-                        isFirstBackCameraId) {
-                    isFirstBackCameraId = false;
-                    mHasMultiCamera = true;
-                    upgradeCameraId(mPreferences.getGlobal(), i);
+                }
+                if (facing == CameraCharacteristics.LENS_FACING_BACK) {
+                    isRearCameraPresent = true;
+                    if (isFirstBackCameraId) {
+                        isFirstBackCameraId = false;
+                        mHasMultiCamera = true;
+                        upgradeCameraId(mPreferences.getGlobal(), i);
+                    }
                 }
                 mCharacteristics.add(i, characteristics);
+            }
+            if (isRearCameraPresent) {
+                initPrepNameKeys(CameraCharacteristics.LENS_FACING_BACK);
+            }
+            if (mIsFrontCameraPresent) {
+                initPrepNameKeys(CameraCharacteristics.LENS_FACING_FRONT);
             }
         } catch (CameraAccessException e) {
             e.printStackTrace();
@@ -365,6 +341,23 @@ public class SettingsManager implements ListMenu.SettingsListener {
     public void destroyInstance() {
         if (sInstance != null) {
             sInstance = null;
+        }
+    }
+
+    private void initPrepNameKeys(int facing) {
+        final String rearTag = "rear";
+        final String frontTag = "front";
+        if (facing == CameraCharacteristics.LENS_FACING_BACK) {
+            mPrepNameKeys.add(rearTag + String.valueOf(CaptureModule.CameraMode.DEFAULT));
+            mPrepNameKeys.add(rearTag + String.valueOf(CaptureModule.CameraMode.VIDEO));
+            mPrepNameKeys.add(rearTag + String.valueOf(CaptureModule.CameraMode.HFR));
+            mPrepNameKeys.add(rearTag + String.valueOf(CaptureModule.CameraMode.RTB));
+            mPrepNameKeys.add(rearTag + String.valueOf(CaptureModule.CameraMode.SAT));
+            mPrepNameKeys.add(rearTag + String.valueOf(CaptureModule.CameraMode.PRO_MODE));
+        } else {
+            mPrepNameKeys.add(frontTag + String.valueOf(CaptureModule.CameraMode.DEFAULT));
+            mPrepNameKeys.add(frontTag + String.valueOf(CaptureModule.CameraMode.VIDEO));
+            mPrepNameKeys.add(frontTag + String.valueOf(CaptureModule.CameraMode.HFR));
         }
     }
 
@@ -517,18 +510,8 @@ public class SettingsManager implements ListMenu.SettingsListener {
     }
 
     private void setLocalIdAndInitialize(int cameraId) {
-        int cameraIdTag = cameraId;
-        if ((CaptureModule.CURRENT_MODE == CaptureModule.CameraMode.DEFAULT ||
-                CaptureModule.CURRENT_MODE == CaptureModule.CameraMode.VIDEO) &&
-                mValuesMap != null) {
-            String auxValue = getValue(SettingsManager.KEY_FORCE_AUX);
-            String switchCameraId = getValue(SettingsManager.KEY_SWITCH_CAMERA);
-            if ((auxValue != null && auxValue.equals("on")) ||
-                    (switchCameraId != null && !switchCameraId.equals("-1"))) {
-                cameraIdTag = 0;
-            }
-        }
-        mPreferences.setLocalId(mContext, cameraIdTag, String.valueOf(CaptureModule.CURRENT_MODE));
+        String facing = mPreferences.getGlobal().getString(KEY_FRONT_REAR_SWITCHER_VALUE, "rear");
+        mPreferences.setLocalId(mContext, facing, String.valueOf(CaptureModule.CURRENT_MODE));
         mCameraId = cameraId;
         CameraSettings.upgradeLocalPreferences(mPreferences.getLocal());
 

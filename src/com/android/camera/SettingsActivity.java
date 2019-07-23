@@ -711,6 +711,9 @@ public class SettingsActivity extends PreferenceActivity {
             case DEFAULT:
                 removePreferenceGroup("video", parentPre);
                 if (mDeveloperMenuEnabled && developer != null) {
+                    if (!DEV_LEVEL_ALL) {
+                        removePreference(SettingsManager.KEY_SWITCH_CAMERA, developer);
+                    }
                     for (String removeKey : videoOnlyList) {
                         removePreference(removeKey, developer);
                     }
@@ -759,6 +762,9 @@ public class SettingsActivity extends PreferenceActivity {
                 removePreferenceGroup("video", parentPre);
                 removePreference(SettingsManager.KEY_TOUCH_TRACK_FOCUS, photoPre);
                 if (mDeveloperMenuEnabled) {
+                    if (DEV_LEVEL_ALL) {
+                        proModeOnlyList.add(SettingsManager.KEY_SWITCH_CAMERA);
+                    }
                     addDeveloperOptions(developer, proModeOnlyList);
                 }
                 break;
