@@ -544,6 +544,7 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
                 public void onClick(View view) {
                     mPreviewLayout.setVisibility(View.GONE);
                     mReviewImage.setImageBitmap(null);
+                    mModule.setJpegImageData(null);
                     if (intentMode == CaptureModule.INTENT_MODE_VIDEO) {
                         mModule.onRetakeVideo();
                     }
