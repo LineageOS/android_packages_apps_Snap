@@ -247,6 +247,11 @@ public class CaptureModule implements CameraModule, PhotoController,
     private float[] mAWBDecisionAfterTC = new float[2];
     private float[] mAECSensitivity = new float[3];
 
+    private long[] mAecFramecontrolExosureTime = new long[3];
+    private float[] mAecFramecontrolLinearGain = new float[3];
+    private float[] mAecFramecontrolSensitivity = new float[3];
+    private float mAecFramecontrolLuxIndex = -1.0f;
+
     /** Add for EIS and FOVC Configuration */
     private int mStreamConfigOptMode = 0;
     private static final int STREAM_CONFIG_MODE_QTIEIS_REALTIME = 0xF004;
@@ -424,6 +429,14 @@ public class CaptureModule implements CameraModule, PhotoController,
 
     private static final CaptureRequest.Key<Float[]> aec_start_up_sensitivity =
             new CaptureRequest.Key<>("org.quic.camera2.statsconfigs.AECStartUpSensitivity", Float[].class);
+    private static final CaptureResult.Key<long[]> aec_frame_control_exposure_time =
+            new CaptureResult.Key<>("org.quic.camera2.statsconfigs.AECExposureTime", long[].class);
+    private static final CaptureResult.Key<float[]> aec_frame_control_linear_gain =
+            new CaptureResult.Key<>("org.quic.camera2.statsconfigs.AECLinearGain", float[].class);
+    private static final CaptureResult.Key<float[]> aec_frame_control_sensitivity =
+            new CaptureResult.Key<>("org.quic.camera2.statsconfigs.AECSensitivity", float[].class);
+    private static final CaptureResult.Key<Float> aec_frame_control_lux_index =
+            new CaptureResult.Key<>("org.quic.camera2.statsconfigs.AECLuxIndex", Float.class);
 
     public static final CaptureRequest.Key<Integer> sharpness_control = new CaptureRequest.Key<>(
             "org.codeaurora.qcamera3.sharpness.strength", Integer.class);
@@ -538,6 +551,7 @@ public class CaptureModule implements CameraModule, PhotoController,
     boolean mUnsupportedResolution = false;
     private boolean mExistAWBVendorTag = true;
     private boolean mExistAECWarmTag = true;
+    private boolean mExistAECFrameControlTag = true;
 
     private static final long SDCARD_SIZE_LIMIT = 4000 * 1024 * 1024L;
     private static final String sTempCropFilename = "crop-temp";
@@ -675,7 +689,9 @@ public class CaptureModule implements CameraModule, PhotoController,
     public static int be_b_statsdata[] = new int[BESTATS_DATA];
 
     // AWB Info
-    public static String[] awbinfo_data = new String[4];
+    private static String[] awbinfo_data = new String[4];
+    // AEC Info
+    private static String[] aecinfo_data = new String[10];
 
     private static final int SELFIE_FLASH_DURATION = 680;
     private static final int SESSION_CONFIGURE_TIMEOUT_MS = 3000;
@@ -911,6 +927,7 @@ public class CaptureModule implements CameraModule, PhotoController,
             if (id == getMainCameraId()) {
                 updateFocusStateChange(result);
                 updateAWBCCTAndgains(result);
+                updateAECGainAndExposure(result);
                 Face[] faces = result.get(CaptureResult.STATISTICS_FACES);
                 if (BSGC_DEBUG)
                     Log.d(BSGC_TAG,"onCaptureCompleted Detected Face size = " + Integer.toString(faces == null? 0 : faces.length));
@@ -1121,6 +1138,39 @@ public class CaptureModule implements CameraModule, PhotoController,
             }
         } else {
             mUI.updateAWBInfoVisibility(View.GONE);
+        }
+
+        // AEC Info display
+        if (stats_visualizer.contains("4")) {
+            if (mAecFramecontrolLinearGain != null &&
+                    mAecFramecontrolSensitivity != null &&
+                    mAecFramecontrolExosureTime != null) {
+                try {
+                    aecinfo_data[0] = Float.toString(mAecFramecontrolLuxIndex);
+                    aecinfo_data[1] = String.format("%.5f", mAecFramecontrolLinearGain[0]);
+                    aecinfo_data[2] = String.format("%.5f", mAecFramecontrolLinearGain[1]);
+                    aecinfo_data[3] = String.format("%.5f", mAecFramecontrolLinearGain[2]);
+                    aecinfo_data[4] = String.format("%.2E", mAecFramecontrolSensitivity[0]);
+                    aecinfo_data[5] = String.format("%.2E", mAecFramecontrolSensitivity[1]);
+                    aecinfo_data[6] = String.format("%.2E", mAecFramecontrolSensitivity[2]);
+                    aecinfo_data[7] = Long.toString(mAecFramecontrolExosureTime[0]);
+                    aecinfo_data[8] = Long.toString(mAecFramecontrolExosureTime[1]);
+                    aecinfo_data[9] = Long.toString(mAecFramecontrolExosureTime[2]);
+                    synchronized (aecinfo_data) {
+                        mActivity.runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                mUI.updateAECInfoVisibility(View.VISIBLE);
+                                mUI.updateAecInfoText(aecinfo_data);
+                            }
+                        });
+                    }
+                } catch (IllegalArgumentException e) {
+                    e.printStackTrace();
+                }
+            }
+        } else {
+            mUI.updateAECInfoVisibility(View.GONE);
         }
     }
 
@@ -6933,6 +6983,25 @@ public class CaptureModule implements CameraModule, PhotoController,
                 mExistAECWarmTag = false;
                 e.printStackTrace();
             } catch(NullPointerException e) {
+            }
+        }
+        return result;
+    }
+
+    private boolean updateAECGainAndExposure(CaptureResult captureResult) {
+        boolean result = false;
+        if (captureResult != null) {
+            try {
+                if (mExistAECFrameControlTag) {
+                    mAecFramecontrolExosureTime = captureResult.get(aec_frame_control_exposure_time);
+                    mAecFramecontrolLinearGain = captureResult.get(aec_frame_control_linear_gain);
+                    mAecFramecontrolSensitivity = captureResult.get(aec_frame_control_sensitivity);
+                    mAecFramecontrolLuxIndex = captureResult.get(aec_frame_control_lux_index);
+                }
+                result = true;
+            } catch (IllegalArgumentException e) {
+                mExistAECFrameControlTag = false;
+                e.printStackTrace();
             }
         }
         return result;
