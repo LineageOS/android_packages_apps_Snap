@@ -1279,22 +1279,26 @@ public class SettingsManager implements ListMenu.SettingsListener {
             String cameraIdString = "camera " + i +" facing:" +
                     (facing == CameraCharacteristics.LENS_FACING_FRONT ? "front" : "back");
             fullEntries[i] = "camera " + i +" facing:"+cameraIdString;
-            Byte cameraType = mCharacteristics.get(i).get(CaptureModule.logical_camera_type);
-            if (cameraType != null) {
-                switch (cameraType) {
-                    case CaptureModule.TYPE_DEFAULT:
-                        cameraIdString += " Default";
-                        break;
-                    case CaptureModule.TYPE_RTB:
-                        cameraIdString += " RTB";
-                        break;
-                    case CaptureModule.TYPE_SAT:
-                        cameraIdString += " SAT";
-                        break;
-                    case CaptureModule.TYPE_VR360:
-                        cameraIdString += " VR360";
-                        break;
+            try {
+                Byte cameraType = mCharacteristics.get(i).get(CaptureModule.logical_camera_type);
+                if (cameraType != null) {
+                    switch (cameraType) {
+                        case CaptureModule.TYPE_DEFAULT:
+                            cameraIdString += " Default";
+                            break;
+                        case CaptureModule.TYPE_RTB:
+                            cameraIdString += " RTB";
+                            break;
+                        case CaptureModule.TYPE_SAT:
+                            cameraIdString += " SAT";
+                            break;
+                        case CaptureModule.TYPE_VR360:
+                            cameraIdString += " VR360";
+                            break;
+                    }
                 }
+            } catch(IllegalArgumentException e) {
+                Log.e(TAG, "buildCameraId no vendorTag :" + CaptureModule.logical_camera_type);
             }
             fullEntries[i] = cameraIdString;
             fullEntryValues[i] = "" + i;

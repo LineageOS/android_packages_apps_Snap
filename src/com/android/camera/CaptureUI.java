@@ -696,6 +696,9 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
         if (mZoomSeekBar != null) {
             mZoomSeekBar.setVisibility(View.GONE);
         }
+        if (mZoomSwitch != null) {
+            mZoomSwitch.setVisibility(View.GONE);
+        }
     }
 
     public void showZoomSeekBar() {
@@ -707,6 +710,9 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
         }
         if (mZoomSeekBar != null) {
             mZoomSeekBar.setVisibility(View.VISIBLE);
+        }
+        if (mZoomSwitch != null) {
+            mZoomSwitch.setVisibility(View.VISIBLE);
         }
     }
 
