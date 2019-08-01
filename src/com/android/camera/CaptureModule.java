@@ -3819,14 +3819,14 @@ public class CaptureModule implements CameraModule, PhotoController,
         if (isExitCamera) {
             stopBackgroundThread();
         }
-        mLastJpegData = null;
         setProModeVisible();
-        mJpegImageData = null;
         closeVideoFileDescriptor();
-        if (mIntentMode != CaptureModule.INTENT_MODE_NORMAL && isExitCamera) {
+        if (mIntentMode != CaptureModule.INTENT_MODE_NORMAL
+                && isExitCamera && mJpegImageData != null) {
             mActivity.setResultEx(Activity.RESULT_CANCELED, new Intent());
             mActivity.finish();
         }
+        mJpegImageData = null;
     }
 
     public void onResumeBeforeSuper() {
