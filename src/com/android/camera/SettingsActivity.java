@@ -674,6 +674,9 @@ public class SettingsActivity extends PreferenceActivity {
                 add(SettingsManager.KEY_AF_MODE);
                 add(SettingsManager.KEY_CAPTURE_MFNR_VALUE);
                 add(SettingsManager.KEY_QCFA);
+                add(SettingsManager.KEY_FACE_DETECTION_MODE);
+                add(SettingsManager.KEY_BSGC_DETECTION);
+                add(SettingsManager.KEY_FACIAL_CONTOUR);
             }
         };
         final ArrayList<String> proModeOnlyList = new ArrayList<String>() {
