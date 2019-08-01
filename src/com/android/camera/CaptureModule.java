@@ -4473,15 +4473,15 @@ public class CaptureModule implements CameraModule, PhotoController,
                     Log.d(BSGC_TAG,"smileConfidenceArray="+Arrays.toString(smileConfidenceArray));
                 for (int i = 0; i < size; i++) {
                     ExtendedFace tmp = new ExtendedFace(i);
-                    if (bsgEnable) {
+                    try {
                         tmp.setBlinkDetected(blinkDetectedArray[i]);
                         tmp.setBlinkDegree(blinkDegreesArray[2 * i], blinkDegreesArray[2 * i + 1]);
                         tmp.setGazeDirection(gazeDirectionArray[3 * i], gazeDirectionArray[3 * i + 1], gazeDirectionArray[3 * i + 2]);
                         tmp.setGazeAngle(gazeAngleArray[i]);
                         tmp.setSmileDegree(smileDegreeArray[i]);
                         tmp.setSmileConfidence(smileConfidenceArray[i]);
-                        extendedFaces[i] = tmp;
-                    }
+                    } catch (ArrayIndexOutOfBoundsException e) {}
+                    extendedFaces[i] = tmp;
                 }
             }
             if (contourEnable || facePointEnable) {
