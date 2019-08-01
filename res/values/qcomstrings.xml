@@ -1331,10 +1331,12 @@
     <string name="pref_camera2_stats_visualizer_entry_be_stats" translatable="false">BE Stats</string>
     <string name="pref_camera2_stats_visualizer_entry_hist_stats" translatable="false">Hist Stats</string>
     <string name="pref_camera2_stats_visualizer_entry_awb_info" translatable="false">AWB Info</string>
+    <string name="pref_camera2_stats_visualizer_entry_aec_info" translatable="false">AEC Info</string>
     <string name="pref_camera2_stats_visualizer_entry_value_enable_bg" translatable="false">0</string>
     <string name="pref_camera2_stats_visualizer_entry_value_enable_be" translatable="false">1</string>
     <string name="pref_camera2_stats_visualizer_entry_value_enable_hist" translatable="false">2</string>
     <string name="pref_camera2_stats_visualizer_entry_value_enable_awb" translatable="false">3</string>
+    <string name="pref_camera2_stats_visualizer_entry_value_enable_aec" translatable="false">4</string>
     <string name="stats_visualizer_bg_label">BG GraphView</string>
     <string name="stats_visualizer_be_label">BE GraphView</string>
 
