@@ -122,6 +122,7 @@
     <string name="pref_camera_hfr_entry_hsr_90">Wysoka szybkość 90 FPS</string>
     <string name="pref_camera_hfr_entry_hsr_120">Wysoka szybkość 120 FPS</string>
     <string name="pref_camera_hfr_entry_hsr_240">Wysoka szybkość: 240 FPS</string>
+    <string name="pref_camera_hfr_entry_hsr_480">Duża prędkość 480 FPS</string>
     <string name="pref_camera_noise_reduction_title">Redukcja szumów</string>
     <string name="pref_camera_noise_reduction_entry_off">Wyłączone</string>
     <string name="pref_camera_noise_reduction_entry_fast">Szybka</string>
@@ -421,6 +422,7 @@
     <string name="pref_camera2_video_hdr_entry_enable">Włączone</string>
     <string name="pref_camera2_video_hdr_entry_disable">Wyłączone</string>
     <string name="pref_camera2_stats_visualizer_entry_disable">Wyłącz wszystkie</string>
+    <string name="pref_camera2_stats_visualizer_entry_be_stats">BE statystyki</string>
     <string name="pref_camera2_capture_mfnr_title">Redukcja szumów przez łączenie wielu zdjęć</string>
     <string name="pref_camera2_capture_mfnr_entry_enable">Włączone</string>
     <string name="pref_camera2_capture_mfnr_entry_disable">Wyłączone</string>

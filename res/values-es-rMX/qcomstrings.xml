@@ -82,9 +82,11 @@
     <string name="pref_camera_hfr_entry_3x">Cámara lenta a 90 FPS</string>
     <string name="pref_camera_hfr_entry_4x">Cámara lenta a 120 FPS</string>
     <string name="pref_camera_hfr_entry_8x">Cámara lenta a 240 FPS</string>
+    <string name="pref_camera_hfr_entry_16x">Cámara lenta a 480 FPS</string>
     <string name="pref_camera_hfr_entry_hsr_60">Alta velocidad a 60 FPS</string>
     <string name="pref_camera_hfr_entry_hsr_90">Alta velocidad a 60 FPS</string>
     <string name="pref_camera_hfr_entry_hsr_120">Alta velocidad a 120 FPS</string>
+    <string name="pref_camera_hfr_entry_hsr_480">Alta velocidad a 480 FPS</string>
     <string name="pref_camera_noise_reduction_entry_off">Desactivada</string>
     <string name="pref_camera_see_more_entry_off">Desactivada</string>
     <string name="pref_camera_denoise_title">Reducción de ruido</string>

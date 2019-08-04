@@ -78,11 +78,11 @@
     <string name="flash_on">Blitz udløst</string>
     <string name="flash_off">Ingen blitz</string>
     <string name="unknown">Ukendt</string>
-    <string name="try_to_set_local_album_available_offline">Dette element er gemt lokalt og er tilgængeligt offline.</string>
+    <string name="try_to_set_local_album_available_offline">        Dette element er lagret lokalt og tilgængeligt offline.</string>
     <string name="please_wait">Vent</string>
-    <string name="rendering_photo_sphere">Gengiver billedboble</string>
+    <string name="rendering_photo_sphere">Gengiver billedsfære</string>
     <string name="camera_error_title">Kamerafejl</string>
-    <string name="cannot_connect_camera">Der kan ikke oprettes forbindelse til kameraet.</string>
+    <string name="cannot_connect_camera">Kan ikke forbinde til kameraet.</string>
     <string name="camera_disabled">Kameraet er deaktiveret på grund af sikkerhedspolitikker.</string>
     <string name="error_permissions">App\'en har ikke de nødvendige tilladelser for at køre. Kontrollér venligst dine tilladelsesindstillinger.</string>
     <string name="dialog_dismiss">Afvis</string>
@@ -161,7 +161,7 @@
     <string name="pref_camera_countdown_label_three">3 SEKUNDER</string>
     <string name="pref_camera_countdown_label_ten">10 SEKUNDER</string>
     <string name="pref_camera_countdown_label_fifteen">15 SEKUNDER</string>
-    <string name="not_selectable_in_scene_mode">Denne indstilling kan ikke vælges i motivtilstand.</string>
+    <string name="not_selectable_in_scene_mode">Ikke-valgbart i sceneri-tilstand.</string>
     <string name="HDR_disable_continuous_shot">Aktivering af HDR vil deaktivere kontinuerlig optagelse.</string>
     <string name="advanced_capture_disable_continuous_shot">Aktivering af avanceret optagelse vil deaktivere kontinuerlig optagelse.</string>
     <string name="video_quality_4k_disable_IS">Aktivering af 4K-videokvalitet vil deaktivere billedstabilisering.</string>
@@ -208,7 +208,7 @@
     <string name="accessibility_shutter_button">Lukker</string>
     <string name="accessibility_menu_button">Menuknap</string>
     <string name="accessibility_mode_picker">Valg af kamera, video eller panorama</string>
-    <string name="accessibility_check_box">Afkrydsningsfeltet for %1$s</string>
+    <string name="accessibility_check_box">%1$s-afkrydsningsfelt</string>
     <string name="accessibility_switch_to_camera">Skift til billede</string>
     <string name="accessibility_switch_to_video">Skift til video</string>
     <string name="accessibility_switch_to_panorama">Skift til panorama</string>
