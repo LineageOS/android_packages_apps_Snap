@@ -167,6 +167,7 @@
     <string name="pref_camera2_camera2_entry_enable">Aktivizo</string>
     <string name="pref_camera2_camera2_entry_disable">Çaktivizo</string>
     <string name="pref_camera2_mono_only_title">Vetëm mono</string>
+    <string name="pref_camera2_mono_only_entry_on">Aktive</string>
     <string name="pref_camera2_mono_only_entry_off">Inaktiv</string>
     <string name="pref_camera2_mono_preview_title">Shikim paraprak Monokromatik</string>
     <string name="pref_camera2_mono_preview_entry_on">Aktiv</string>
@@ -179,6 +180,7 @@
     <string name="pref_camera2_mpo_entry_on">Aktiv</string>
     <string name="pref_camera2_mpo_entry_off">Inaktiv</string>
     <string name="pref_camera2_makeup_title">Makijazhi</string>
+    <string name="pref_camera2_makeup_entry_on">Aktive</string>
     <string name="pref_camera2_makeup_entry_off">Inaktiv</string>
     <string name="pref_camera2_noise_reduction_title">Reduktimi i zhurmave</string>
     <string name="pref_camera2_noise_reduction_entry_off">Inaktiv</string>
@@ -188,6 +190,7 @@
     <string name="pref_camera2_videosnap_entry_enable">Aktivizo</string>
     <string name="pref_camera2_videosnap_entry_disable">Çaktivizo</string>
     <string name="pref_camera2_trackingfocus_title">Ndjekja e fokusit</string>
+    <string name="pref_camera2_trackingfocus_entry_on">Aktive</string>
     <string name="pref_camera2_trackingfocus_entry_off">Inaktiv</string>
     <string name="pref_camera_scenemode_entry_bestpicture">Fotoja më e mirë</string>
     <string name="bestpicture_done">U KRYE</string>
@@ -195,5 +198,7 @@
     <string name="pref_camera2_shutter_sound_entry_on">Aktiv</string>
     <string name="pref_camera2_shutter_sound_entry_off">Inaktiv</string>
     <string name="pref_camera2_shutter_sound_title">Tingulli i shkrepjes</string>
+    <string name="pref_camera2_initial_camera_entry_bayer">Filtri Bayer</string>
     <string name="pref_camera2_initial_camera_entry_mono">Mono</string>
+    <string name="pref_camera2_initial_camera_entry_front">Përpara</string>
 </resources>

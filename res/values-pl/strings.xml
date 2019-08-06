@@ -21,6 +21,12 @@
     <string name="details_hms">%1$d:%2$02d:%3$02d</string>
     <string name="set_image">Ustaw zdjęcie jako</string>
     <string name="delete">Usuń</string>
+    <plurals name="delete_selection">
+        <item quantity="one">Usunąć wybrany element?</item>
+        <item quantity="few">Usunąć wybrane elementy?</item>
+        <item quantity="many">Usunąć wybrane elementy?</item>
+        <item quantity="other">Usunąć wybranych elementów?</item>
+    </plurals>
     <string name="share">Udostępnij</string>
     <string name="share_panorama">Udostępnij panoramę</string>
     <string name="share_as_photo">Udostępnij jako zdjęcie</string>
@@ -28,6 +34,24 @@
     <string name="undo">COFNIJ</string>
     <string name="details">Szczegóły</string>
     <string name="close">Zamknij</string>
+    <plurals name="number_of_items_selected">
+        <item quantity="one">%1$d wybrany</item>
+        <item quantity="few">%1$d wybrane</item>
+        <item quantity="many">%1$d wybranych</item>
+        <item quantity="other">%1$d wybranych</item>
+    </plurals>
+    <plurals name="number_of_albums_selected">
+        <item quantity="one">%1$d wybrany</item>
+        <item quantity="few">%1$d wybrane</item>
+        <item quantity="many">%1$d wybranych</item>
+        <item quantity="other">%1$d wybranych</item>
+    </plurals>
+    <plurals name="number_of_groups_selected">
+        <item quantity="one">%1$d wybrana</item>
+        <item quantity="few">%1$d wybrane</item>
+        <item quantity="many">%1$d wybranych</item>
+        <item quantity="other">%1$d wybranych</item>
+    </plurals>
     <string name="show_on_map">Pokaż na mapie</string>
     <string name="rotate_left">Obróć w lewo</string>
     <string name="rotate_right">Obróć w prawo</string>
@@ -82,6 +106,12 @@
     <string name="pref_camera_recordlocation_title">Lokalizacja GPS</string>
     <string name="pref_camera_location_label">LOKALIZACJA</string>
     <string name="pref_camera_timer_title">Samowyzwalacz</string>
+    <plurals name="pref_camera_timer_entry">
+        <item quantity="one">1 sekunda</item>
+        <item quantity="few">%d sekundy</item>
+        <item quantity="many">%d sekund</item>
+        <item quantity="other">%d sekund</item>
+    </plurals>
     <string name="pref_camera_timer_sound_title">Sygnał odliczania</string>
     <string name="pref_camera_savepath_title">Pamięć</string>
     <string name="pref_camera_savepath_entry_0">Telefon</string>

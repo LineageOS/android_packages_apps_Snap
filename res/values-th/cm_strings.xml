@@ -85,4 +85,6 @@
     <string name="pref_camera_focustime_entry_infinite">ไม่จำกัด</string>
     <string name="pref_camera_shutter_speed_title">ความเร็วชัตเตอร์</string>
     <string name="auto_hdr_enabled">ออโต้ HDR เปิดใช้อยู่</string>
+    <string name="developer_menu_enabled">คุณได้เปิดการตั้งค่ากล้องขั้นสูง</string>
+    <string name="developer_menu_disabled">คุณได้ปิดการตั้งค่ากล้องขั้นสูง</string>
 </resources>

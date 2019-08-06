@@ -230,7 +230,6 @@
     <string name="pref_video_time_lapse_frame_interval_720000">12 ನಿಮಿಷಗಳು</string>
     <string name="pref_video_time_lapse_frame_interval_900000">15 ನಿಮಿಷಗಳು</string>
     <string name="pref_video_time_lapse_frame_interval_1440000">24 ನಿಮಿಷಗಳು</string>
-    <string name="pref_video_time_lapse_frame_interval_1800000">0.5 ಗಂಟೆಗಳು</string>
     <string name="pref_video_time_lapse_frame_interval_3600000">1 ಗಂಟೆ</string>
     <string name="pref_video_time_lapse_frame_interval_5400000">1.5 ಗಂಟೆ</string>
     <string name="pref_video_time_lapse_frame_interval_7200000">2 ಗಂಟೆಗಳು</string>

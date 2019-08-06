@@ -54,6 +54,8 @@
     <string name="pref_camera_manual_focus_entry_scale_mode">Skalningsläge</string>
     <string name="pref_camera_manual_focus_entry_diopter_mode">Dioptri läge</string>
     <string name="pref_camera_manual_focus_entry_off">Av</string>
+    <string name="pref_camera_instant_capture_entry_aggressive_aec" translatable="true">Aggressiv AEC</string>
+    <string name="pref_camera_instant_capture_entry_fast_aec" translatable="true">Snabb AEC</string>
     <string name="pref_camera_instant_capture_entry_disable" translatable="true">Avaktivera</string>
     <string name="pref_camera_zsl_entry_off">Av</string>
     <string name="pref_camera_zsl_entry_on">På</string>
@@ -97,6 +99,7 @@
     <string name="error_app_unsupported_hsr">Höghastighetsläge stöds inte för den valda videostorleken. Välj en lägre videostorlek</string>
     <string name="error_app_unsupported_hfr_codec">Bara H264 videokodning stöds när HFR är på</string>
     <string name="error_app_unsupported">Videoupplösningen fungerar inte med denna kodek</string>
+    <string name="error_app_unsupported_profile">Videoprofil stöds inte</string>
     <string name="error_app_unsupported_raw">RAW bildformat stöds inte i läget ingen slutarfördröjning. Välj JPEG</string>
     <string name="pref_camera_ae_bracket_hdr_entry_ae_bracket">Automatisk exponeringsvariation</string>
     <string name="pref_camera_ae_bracket_hdr_title">Automatisk exponeringsvariation</string>
@@ -110,6 +113,8 @@
     <string name="pref_camera_hfr_entry_hsr_60">Höghastighet 60 FPS</string>
     <string name="pref_camera_hfr_entry_hsr_90">Höghastighet 90 FPS</string>
     <string name="pref_camera_hfr_entry_hsr_120">Höghastighet 120 FPS</string>
+    <string name="pref_camera_hfr_entry_hsr_240">Höghastighet 240 FPS</string>
+    <string name="pref_camera_noise_reduction_title">Brusreducering</string>
     <string name="pref_camera_noise_reduction_entry_off">Av</string>
     <string name="pref_camera_noise_reduction_entry_fast">Snabb</string>
     <string name="pref_camera_noise_reduction_entry_high_quality">Hög kvalitet</string>
@@ -233,21 +238,27 @@
     <string name="all_in_focus">Allt i fokus</string>
     <string name="refocus_toast">För att återfokusera senaste bilden, klicka här</string>
     <string name="help_menu_ok">OK</string>
+    <string name="help_menu_scene_mode_2">Scenläge</string>
     <string name="help_menu_color_filter_2">filter</string>
     <string name="help_menu_color_filter_3">till</string>
+    <string name="help_menu_color_filter_4">förbättra bilder</string>
+    <string name="help_menu_beautify_1">Förbättra porträtt</string>
     <string name="help_menu_switcher_1">Byt till</string>
     <string name="help_menu_switcher_2">mellan</string>
     <string name="pref_camera2_camera2_title">Camera2-läge</string>
     <string name="pref_camera2_camera2_entry_enable">Aktivera</string>
     <string name="pref_camera2_camera2_entry_disable">Avaktivera</string>
     <string name="pref_camera2_mono_only_title">Endast mono</string>
+    <string name="pref_camera2_mono_only_entry_on">På</string>
     <string name="pref_camera2_mono_only_entry_off">Av</string>
     <string name="pref_camera2_mono_preview_entry_on">På</string>
     <string name="pref_camera2_mono_preview_entry_off">Av</string>
     <string name="pref_camera2_clearsight_entry_on">På</string>
     <string name="pref_camera2_clearsight_entry_off">Av</string>
+    <string name="pref_camera2_mpo_title">MPO-format</string>
     <string name="pref_camera2_mpo_entry_on">På</string>
     <string name="pref_camera2_mpo_entry_off">Av</string>
+    <string name="pref_camera2_makeup_entry_on">På</string>
     <string name="pref_camera2_makeup_entry_off">Av</string>
     <string name="pref_camera2_noise_reduction_title">Brusreducering</string>
     <string name="pref_camera2_noise_reduction_entry_off">Av</string>
@@ -255,6 +266,7 @@
     <string name="pref_camera2_noise_reduction_entry_high_quality">Hög kvalite</string>
     <string name="pref_camera2_videosnap_entry_enable">Aktivera</string>
     <string name="pref_camera2_videosnap_entry_disable">Avaktivera</string>
+    <string name="pref_camera2_trackingfocus_entry_on">På</string>
     <string name="pref_camera2_trackingfocus_entry_off">Av</string>
     <string name="pref_camera_scenemode_entry_bestpicture">Bästa bild</string>
     <string name="bestpicture_done">KLAR</string>

@@ -177,7 +177,7 @@
     <string name="pref_camera_id_label_back">AURREKO KAMERA</string>
     <string name="pref_camera_id_label_front">ATZEKO KAMERA</string>
     <string name="dialog_ok">ADOS</string>
-    <string name="spaceIsLow_content" product="default">SD txartela lekurik gabe geratzen ari da. Aldatu kalitate ezarpenak edo fitxategiren bat ezabatu.</string>
+    <string name="spaceIsLow_content" product="default">Zure SD txartela lekurik gabe geratzen ari da. Aldatu kalitate ezarpenak edo ezabatu fitxategiren bat.</string>
     <string name="video_reach_size_limit">Tamaina mugara heldu da.</string>
     <string name="pano_too_fast_prompt">Azkarregi</string>
     <string name="pano_dialog_prepare_preview">Panorama prestatzen</string>
