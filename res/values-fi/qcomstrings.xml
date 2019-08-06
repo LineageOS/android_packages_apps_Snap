@@ -93,7 +93,7 @@
     <string name="pref_camera_selfiemirror_title">Selfiepeili</string>
     <string name="pref_camera_selfiemirror_entry_enable">Ota käyttöön</string>
     <string name="pref_camera_selfiemirror_entry_disable">Poista käytöstä</string>
-    <string name="pref_camera_shuttersound_title">Sulkijan nopeus</string>
+    <string name="pref_camera_shuttersound_title">Sulkijan ääni</string>
     <string name="pref_camera_shuttersound_entry_enable">Ota käyttöön</string>
     <string name="pref_camera_shuttersound_entry_disable">Poistettu käytöstä</string>
     <string name="error_app_unsupported_hfr_selection">Suurnopeus-/Hidastuskuvaus ei ole tuettu käytettäessä DIS:iä tai TimeLapsea</string>
