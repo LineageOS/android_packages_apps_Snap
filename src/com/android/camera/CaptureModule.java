@@ -3264,8 +3264,16 @@ public class CaptureModule implements CameraModule, PhotoController,
                                                 "raw");
                                         image.close();
                                     } else {
-                                        ExifInterface exif = Exif.getExif(bytes);
-                                        int orientation = Exif.getOrientation(exif);
+                                        int orientation = 0;
+                                        ExifInterface exif = null;
+                                        if (image.getFormat() != ImageFormat.HEIC) {
+                                            exif = Exif.getExif(bytes);
+                                            orientation = Exif.getOrientation(exif);
+                                        } else {
+                                            orientation = CameraUtil.getJpegRotation(getMainCameraId(),mOrientation);
+                                        }
+
+
 
                                         if (mIntentMode != CaptureModule.INTENT_MODE_NORMAL) {
                                             mJpegImageData = bytes;
