@@ -357,9 +357,9 @@ public class Camera2FaceView extends FaceView {
                         Log.e(TAG, "smile: " + exFace.getSmileDegree() + "," +
                                 exFace.getSmileConfidence());
                         if (exFace.getSmileDegree() < smile_threashold_no_smile) {
-                            point[0] = face.getMouthPosition().x + dx - delta_x;
+                            point[0] = face.getMouthPosition().x - delta_x;
                             point[1] = face.getMouthPosition().y;
-                            point[2] = face.getMouthPosition().x + dx + delta_x;
+                            point[2] = face.getMouthPosition().x + delta_x;
                             point[3] = face.getMouthPosition().y;
                             Matrix faceMatrix = new Matrix();
                             faceMatrix.preRotate(exFace.getRollDirection(),
