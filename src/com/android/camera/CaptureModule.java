@@ -238,6 +238,8 @@ public class CaptureModule implements CameraModule, PhotoController,
     private AtomicInteger mNumFramesArrived = new AtomicInteger(0);
     private final int MAX_IMAGEREADERS = 10;
 
+    private boolean mIsRTBCameraId = false;
+
     /** For temporary save warmstart gains and cct value*/
     private float mRGain = -1.0f;
     private float mGGain = -1.0f;
@@ -2283,7 +2285,12 @@ public class CaptureModule implements CameraModule, PhotoController,
 
     private boolean setUpLocalMode(int cameraId, CameraCharacteristics characteristics,
                                 boolean[] removeList, boolean isFirstDefault, String physicalId) {
-        Byte type = characteristics.get(CaptureModule.logical_camera_type);
+        Byte type = 0;
+        try {
+            type = characteristics.get(logical_camera_type);
+        } catch (IllegalArgumentException e) {
+            Log.e(TAG, "setUpLocalMode no vendorTag logical_camera_type:" + logical_camera_type);
+        }
         Log.d(TAG,"init cameraId " + cameraId + " | logical_camera_type = " + type +
                 " | physical id = " + physicalId);
         int facing = characteristics.get(CameraCharacteristics.LENS_FACING);
@@ -4108,6 +4115,7 @@ public class CaptureModule implements CameraModule, PhotoController,
         Log.d(TAG, "onResume " + (mCurrentSceneMode != null ? mCurrentSceneMode.mode : "null")
         + (resumeFromRestartAll ? " isResumeFromRestartAll" : ""));
         reinit();
+        checkRTBCameraId();
         if (!isBackCamera() && !frontIsAllowed()) {
             Log.d(TAG, "Current Mode " + mCurrentSceneMode.mode + "not support Front camera");
             if (!resumeFromRestartAll) {
@@ -4163,6 +4171,7 @@ public class CaptureModule implements CameraModule, PhotoController,
         });
         mUI.enableShutter(true);
         setProModeVisible();
+        updateZoomSeekBarVisible();
 
         String scene = mSettingsManager.getValue(SettingsManager.KEY_SCENE_MODE);
         if (Integer.parseInt(scene) != SettingsManager.SCENE_MODE_UBIFOCUS_INT) {
@@ -4177,6 +4186,32 @@ public class CaptureModule implements CameraModule, PhotoController,
             } else {
                 mActivity.onModuleSelected(ModuleSwitcher.PANOCAPTURE_MODULE_INDEX);
             }
+        }
+    }
+
+    private void checkRTBCameraId() {
+        CameraManager manager = (CameraManager) mActivity.getSystemService(Context.CAMERA_SERVICE);
+        CameraCharacteristics characteristics;
+        try {
+            characteristics = manager.getCameraCharacteristics(String.valueOf(CURRENT_ID));
+            Byte cameraType = characteristics.get(CaptureModule.logical_camera_type);
+            Log.v(TAG, "checkRTBCameraId cameraType :" + cameraType);
+            if (cameraType != null) {
+                switch (cameraType) {
+                    case CaptureModule.TYPE_DEFAULT:
+                    case CaptureModule.TYPE_SAT:
+                    case CaptureModule.TYPE_VR360:
+                        mIsRTBCameraId = false;
+                        break;
+                    case CaptureModule.TYPE_RTB:
+                        mIsRTBCameraId = true;
+                        break;
+                }
+            }
+        } catch (CameraAccessException e) {
+            e.printStackTrace();
+        } catch (IllegalArgumentException e) {
+            Log.e(TAG, "checkRTBCameraId no vendorTag logical_camera_type:" + logical_camera_type);
         }
     }
 
@@ -4277,6 +4312,7 @@ public class CaptureModule implements CameraModule, PhotoController,
 
     @Override
     public void onZoomChanged(float requestedZoom) {
+        if (mIsRTBCameraId) return;
         mZoomValue = requestedZoom;
         mUI.updateZoomSeekBar(mZoomValue);
         applyZoomAndUpdate();
@@ -8218,7 +8254,7 @@ public class CaptureModule implements CameraModule, PhotoController,
 
     public void updateZoomSeekBarVisible() {
         if (mCurrentSceneMode.mode == CameraMode.PRO_MODE ||
-                mCurrentSceneMode.mode == CameraMode.RTB) {
+                mCurrentSceneMode.mode == CameraMode.RTB || mIsRTBCameraId) {
             mUI.hideZoomSeekBar();
         } else {
             mUI.showZoomSeekBar();
