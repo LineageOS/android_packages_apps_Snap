@@ -78,7 +78,6 @@ import android.os.ParcelFileDescriptor;
 import android.os.SystemClock;
 import android.os.SystemProperties;
 import android.provider.MediaStore;
-import android.provider.Settings;
 import android.util.Log;
 import android.util.Range;
 import android.util.Size;
@@ -482,6 +481,7 @@ public class CaptureModule implements CameraModule, PhotoController,
     private boolean[] mTakingPicture = new boolean[MAX_NUM_CAM];
     private int mControlAFMode = CameraMetadata.CONTROL_AF_MODE_CONTINUOUS_PICTURE;
     private int mLastResultAFState = -1;
+    private boolean isFlashRequiredInDriver = false;
     private Rect[] mCropRegion = new Rect[MAX_NUM_CAM];
     private Rect[] mOriginalCropRegion = new Rect[MAX_NUM_CAM];
     private boolean mAutoFocusRegionSupported;
@@ -2423,6 +2423,11 @@ public class CaptureModule implements CameraModule, PhotoController,
                 if (mLongshotActive) {
                     parallelLockFocusExposure(cameraId);
                 } else {
+                    if (mPreviewCaptureResult != null) {
+                        Integer aeState = mPreviewCaptureResult.get(CaptureResult.CONTROL_AE_STATE);
+                        isFlashRequiredInDriver = aeState != null &&
+                                aeState == CameraMetadata.CONTROL_AE_STATE_FLASH_REQUIRED;
+                    }
                     lockFocus(cameraId);
                 }
             }
@@ -3121,6 +3126,7 @@ public class CaptureModule implements CameraModule, PhotoController,
 
             mState[id] = STATE_WAITING_PRECAPTURE;
             mCaptureSession[id].capture(request, mCaptureCallback, mCameraHandler);
+            isFlashRequiredInDriver = false;
         } catch (CameraAccessException | IllegalStateException e) {
             e.printStackTrace();
         }
@@ -3364,6 +3370,7 @@ public class CaptureModule implements CameraModule, PhotoController,
      */
     public void unlockFocus(int id) {
         Log.d(TAG, "unlockFocus " + id);
+        isFlashRequiredInDriver = false;
         if (!checkSessionAndBuilder(mCaptureSession[id], mPreviewRequestBuilder[id])) {
             return;
         }
@@ -3625,7 +3632,7 @@ public class CaptureModule implements CameraModule, PhotoController,
 
     private void applySettingsForPrecapture(CaptureRequest.Builder builder, int id) {
         String redeye = mSettingsManager.getValue(SettingsManager.KEY_REDEYE_REDUCTION);
-        if (redeye != null && redeye.equals("on")) {
+        if (redeye != null && redeye.equals("on") && !isFlashRequiredInDriver) {
             if (DEBUG)
             Log.d(TAG, "Red Eye Reduction is On. " +
                     "Don't set CONTROL_AE_PRECAPTURE_TRIGGER to Start");
