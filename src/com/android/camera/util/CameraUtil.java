@@ -1510,7 +1510,7 @@ public class CameraUtil {
         return Collections.unmodifiableList(requestList);
     }
 
-    private static int getHighSpeedVideoConfigsLists(int cameraId) {
+    public static int getHighSpeedVideoConfigsLists(int cameraId) {
         int optimalSizeIndex = -1;
         SettingsManager settingsManager = SettingsManager.getInstance();
         int[] table = settingsManager.getHighSpeedVideoConfigs(cameraId);
