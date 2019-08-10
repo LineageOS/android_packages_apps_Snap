@@ -21,253 +21,184 @@
     limitations under the License.
 -->
 <resources>
-  <!-- Preferences -->
-  <!-- Video quality setting entry. Videos will be recorded in VGA quality. [CHAR LIMIT=24] -->
-  <!-- Video quality setting entry. Videos will be recorded in CIF quality. [CHAR LIMIT=24] -->
-  <!-- Video quality setting entry. Videos will be recorded in QVGA quality. [CHAR LIMIT=24] -->
-  <!-- Video quality setting entry. Videos will be recorded in QCIF quality. [CHAR LIMIT=24] -->
-  <!-- Auto exposure -->
-  <string name="pref_camera_autoexposure_title">Expunere automată</string>
-  <string name="pref_camera_autoexposure_entry_centerweighted">Balansare centrată</string>
-  <string name="pref_camera_autoexposure_entry_frameaverage">Media cadrului</string>
-  <string name="pref_camera_autoexposure_entry_spotmetering">Măsurare punctuală</string>
-  <!-- Video codec -->
-  <string name="pref_camera_videoencoder_title">Codec video</string>
-  <!-- Audio codec -->
-  <string name="pref_camera_audioencoder_title">Codec audio</string>
-  <!-- Skin tone enhancement -->
-  <string name="pref_camera_skinToneEnhancement_title">Îmbunătățire ton piele</string>
-  <!-- Zero shutter lag-->
-  <string name="pref_camera_zsl_title">Întârziere declanșator zero</string>
-  <!-- Autofocus zone -->
-  <string name="pref_camera_selectablezoneaf_title">Zona de autofocus</string>
-  <string name="pref_camera_selectablezoneaf_entry_auto">Auto</string>
-  <string name="pref_camera_selectablezoneaf_entry_centerweighted">Balansare centrată</string>
-  <string name="pref_camera_selectablezoneaf_entry_frameaverage">Media cadrului</string>
-  <string name="pref_camera_selectablezoneaf_entry_spotmetering">Măsurare punctuală</string>
-  <!-- Advanced features -->
-  <string name="pref_camera_advanced_features_title">Caracteristici avansate</string>
-  <string name="pref_camera_advanced_feature_entry_none">Fără</string>
-  <string name="pref_camera_advanced_feature_entry_multi_touch_focus">Focalizare Multi-touch</string>
-  <!-- Manual exposure -->
-  <string name="pref_camera_manual_exp_title">Expunere manuală</string>
-  <string name="pref_camera_manual_exp_entry_ISO_priority">Prioritate ISO</string>
-  <string name="pref_camera_manual_exp_entry_exptime_priority">Prioritate timp de expunere</string>
-  <string name="pref_camera_manual_exp_entry_user_setting">Setare utilizator</string>
-  <string name="pref_camera_manual_exp_entry_off">Oprit</string>
-  <!-- Manual white balance -->
-  <string name="pref_camera_manual_wb_title">Balans de alb manual</string>
-  <string name="pref_camera_manual_wb_entry_color_temperature">Temperatura culorii</string>
-  <string name="pref_camera_manual_wb_entry_rbgb_gains">RBGB gains</string>
-  <string name="pref_camera_manual_wb_entry_off">Oprit</string>
-  <!-- Manual focus -->
-  <string name="pref_camera_manual_focus_title">Focalizare manuală</string>
-  <string name="pref_camera_manual_focus_entry_scale_mode">Mod scară</string>
-  <string name="pref_camera_manual_focus_entry_diopter_mode">Mod dioptrie</string>
-  <string name="pref_camera_manual_focus_entry_off">Oprit</string>
-  <!-- Still More -->
-  <!-- Video HDR-->
-  <string name="pref_camera_video_hdr_title">Video HDR</string>
-  <!-- CDS mode-->
-  <string name="pref_camera_cds_title">Mod CDS</string>
-  <string name="pref_camera_cds_entry_auto">Automat</string>
-  <!-- Video CDS-->
-  <string name="pref_camera_video_cds_title">Mod video CDS</string>
-  <string name="pref_camera_video_cds_entry_auto">Automat</string>
-  <!-- TNR-->
-  <string name="pref_camera_tnr_title">Mod TNR</string>
-  <!-- Video TNR -->
-  <string name="pref_camera_video_tnr_title">Mod video TNR</string>
-  <!-- Face detection -->
-  <string name="pref_camera_facedetection_title">Detectare față</string>
-  <!-- Selfie Flash -->
-  <string name="pref_selfie_flash_title">Flash pentru selfie</string>
-  <!-- Red eye reduction -->
-  <string name="pref_camera_redeyereduction_title">Reducerea efectului de ochi roșii</string>
-  <!-- AE bracketing -->
-  <string name="pref_camera_ae_bracket_hdr_title">AE bracketing</string>
-  <!-- High-framerate recording -->
-  <string name="pref_camera_hfr_title">Înregistrare cu frecvență mare de cadre</string>
-  <string name="pref_camera_hfr_entry_off">Oprit</string>
-  <string name="pref_camera_hfr_entry_2x">Mișcare lentă 60 FPS</string>
-  <string name="pref_camera_hfr_entry_3x">Mișcare lentă 90 FPS</string>
-  <string name="pref_camera_hfr_entry_4x">Mișcare lentă 120 FPS</string>
-  <string name="pref_camera_hfr_entry_8x">Mișcare lentă 240 FPS</string>
-  <string name="pref_camera_hfr_entry_hsr_60">Viteză mărită 60 FPS</string>
-  <string name="pref_camera_hfr_entry_hsr_90">Viteză mărită 90 FPS</string>
-  <string name="pref_camera_hfr_entry_hsr_120">Viteză mărită 120 FPS</string>
-  <!-- See More -->
-  <!-- Denoise -->
-  <string name="pref_camera_denoise_title">Înlăturare zgomot</string>
-  <!-- ISO -->
-  <string name="pref_camera_iso_title">ISO</string>
-  <string name="pref_camera_iso_entry_auto">Auto</string>
-  <string name="pref_camera_iso_entry_isodeblur">Auto (HJR)</string>
-  <string name="pref_camera_iso_entry_iso50">ISO50</string>
-  <string name="pref_camera_iso_entry_iso100">ISO100</string>
-  <string name="pref_camera_iso_entry_iso125">ISO125</string>
-  <string name="pref_camera_iso_entry_iso150">ISO150</string>
-  <string name="pref_camera_iso_entry_iso200">ISO200</string>
-  <string name="pref_camera_iso_entry_iso250">ISO250</string>
-  <string name="pref_camera_iso_entry_iso300">ISO300</string>
-  <string name="pref_camera_iso_entry_iso320">ISO320</string>
-  <string name="pref_camera_iso_entry_iso350">ISO350</string>
-  <string name="pref_camera_iso_entry_iso400">ISO400</string>
-  <string name="pref_camera_iso_entry_iso450">ISO450</string>
-  <string name="pref_camera_iso_entry_iso500">ISO500</string>
-  <string name="pref_camera_iso_entry_iso600">ISO600</string>
-  <string name="pref_camera_iso_entry_iso640">ISO640</string>
-  <string name="pref_camera_iso_entry_iso700">ISO700</string>
-  <string name="pref_camera_iso_entry_iso800">ISO800</string>
-  <string name="pref_camera_iso_entry_iso1000">ISO1000</string>
-  <string name="pref_camera_iso_entry_iso1200">ISO1200</string>
-  <string name="pref_camera_iso_entry_iso1250">ISO1250</string>
-  <string name="pref_camera_iso_entry_iso1500">ISO1500</string>
-  <string name="pref_camera_iso_entry_iso1600">ISO1600</string>
-  <string name="pref_camera_iso_entry_iso2000">ISO2000</string>
-  <string name="pref_camera_iso_entry_iso2500">ISO2500</string>
-  <string name="pref_camera_iso_entry_iso2700">ISO2700</string>
-  <string name="pref_camera_iso_entry_iso3200">ISO3200</string>
-  <string name="pref_camera_iso_entry_iso6400">ISO6400</string>
-  <string name="pref_camera_iso_entry_iso12800">ISO12800</string>
-  <!-- Antibanding -->
-  <string name="pref_camera_antibanding_title">Antibanding</string>
-  <string name="pref_camera_antibanding_entry_0">Automat</string>
-  <string name="pref_camera_antibanding_entry_1">50 Hz (Europa)</string>
-  <string name="pref_camera_antibanding_entry_2">60 Hz (SUA)</string>
-  <!-- Color effect -->
-  <string name="pref_camera_coloreffect_title">Efect de culoare</string>
-  <string name="pref_camera_coloreffect_entry_none">Niciunul</string>
-  <string name="pref_camera_coloreffect_entry_mono">Mono</string>
-  <string name="pref_camera_coloreffect_entry_sepia">Sepia</string>
-  <string name="pref_camera_coloreffect_entry_negative">Negativ</string>
-  <!-- Color effect that overexposes and reverses some of the tones. -->
-  <string name="pref_camera_coloreffect_entry_solarize">Solarizare</string>
-  <string name="pref_camera_coloreffect_entry_posterize">Posterizare</string>
-  <string name="pref_camera_coloreffect_entry_aqua">Aqua</string>
-  <string name="pref_camera_coloreffect_entry_emboss">Gravare</string>
-  <string name="pref_camera_coloreffect_entry_sketch">Schițare</string>
-  <string name="pref_camera_coloreffect_entry_neon">Neon</string>
-  <string name="pref_camera_coloreffect_entry_pastel">Pastel</string>
-  <string name="pref_camera_coloreffect_entry_mosaic">Mozaic</string>
-  <string name="pref_camera_coloreffect_entry_redtint">Tentă roșie</string>
-  <string name="pref_camera_coloreffect_entry_bluetint">Tentă albastră</string>
-  <string name="pref_camera_coloreffect_entry_greentint">Tentă verde</string>
-  <!-- Stabilization -->
-  <string name="pref_camera_dis_title">Stabilizare video</string>
-  <!-- Face recognition -->
-  <string name="pref_camera_facerc_title">Recunoașterea feței</string>
-  <!-- Sharpness -->
-  <string name="pref_camera_sharpness_title">Claritate</string>
-  <string name="pref_camera_sharpness_entry_level0">Nivel 0</string>
-  <string name="pref_camera_sharpness_entry_level1">Nivel 1</string>
-  <string name="pref_camera_sharpness_entry_level2">Nivel 2 (implicit)</string>
-  <string name="pref_camera_sharpness_entry_level3">Nivel 3</string>
-  <string name="pref_camera_sharpness_entry_level4">Nivel 4</string>
-  <string name="pref_camera_sharpness_entry_level5">Nivel 5</string>
-  <string name="pref_camera_sharpness_entry_level6">Nivel 6</string>
-  <!-- Contrast -->
-  <string name="pref_camera_contrast_title">Contrast</string>
-  <string name="pref_camera_contrast_entry_level0">Nivel 0</string>
-  <string name="pref_camera_contrast_entry_level1">Nivel 1</string>
-  <string name="pref_camera_contrast_entry_level2">Nivel 2</string>
-  <string name="pref_camera_contrast_entry_level3">Nivel 3</string>
-  <string name="pref_camera_contrast_entry_level4">Nivel 4</string>
-  <string name="pref_camera_contrast_entry_level5">Nivel 5 (implicit)</string>
-  <string name="pref_camera_contrast_entry_level6">Nivel 6</string>
-  <string name="pref_camera_contrast_entry_level7">Nivel 7</string>
-  <string name="pref_camera_contrast_entry_level8">Nivel 8</string>
-  <string name="pref_camera_contrast_entry_level9">Nivel 9</string>
-  <string name="pref_camera_contrast_entry_level10">Nivel 10</string>
-  <!-- Saturation -->
-  <string name="pref_camera_saturation_title">Saturație</string>
-  <string name="pref_camera_saturation_entry_level0">Nivel 0</string>
-  <string name="pref_camera_saturation_entry_level1">Nivel 1</string>
-  <string name="pref_camera_saturation_entry_level2">Nivel 2</string>
-  <string name="pref_camera_saturation_entry_level3">Nivel 3</string>
-  <string name="pref_camera_saturation_entry_level4">Nivel 4</string>
-  <string name="pref_camera_saturation_entry_level5">Nivel 5 (implicit)</string>
-  <string name="pref_camera_saturation_entry_level6">Nivel 6</string>
-  <string name="pref_camera_saturation_entry_level7">Nivel 7</string>
-  <string name="pref_camera_saturation_entry_level8">Nivel 8</string>
-  <string name="pref_camera_saturation_entry_level9">Nivel 9</string>
-  <string name="pref_camera_saturation_entry_level10">Nivel 10</string>
-  <!-- Picture format -->
-  <string name="pref_camera_picture_format_title">Formatul pozei</string>
-  <!-- Picture quality -->
-  <string name="pref_camera_jpegquality_title">Calitatea imaginii</string>
-  <string name="pref_camera_jpegquality_entry_0">55%</string>
-  <string name="pref_camera_jpegquality_entry_1">65% (normal)</string>
-  <string name="pref_camera_jpegquality_entry_2">75% (fină)</string>
-  <string name="pref_camera_jpegquality_entry_3">85% (super fină)</string>
-  <string name="pref_camera_jpegquality_entry_4">95%</string>
-  <string name="pref_camera_jpegquality_entry_5">100%</string>
-  <!-- Histogram -->
-  <string name="pref_camera_histogram_title">Histogramă</string>
-  <!-- Auto scene detection -->
-  <string name="pref_camera_scenedetect_title">Detectare automată a scenei</string>
-  <!-- Continuous shot -->
-  <string name="pref_camera_longshot_title">Captură continuă</string>
-  <!-- Auto HDR -->
-  <string name="pref_camera_auto_hdr_title">Auto HDR</string>
-  <!-- HDR mode -->
-  <string name="pref_camera_hdr_mode_title">Mod HDR</string>
-  <string name="pref_camera_hdr_mode_entry_sensor">Senzor HDR</string>
-  <string name="pref_camera_hdr_mode_entry_multi_frame">HDR multi-cadru</string>
-  <!-- HDR needs 1x frame -->
-  <string name="pref_camera_hdr_need_1x_title">HDR are nevoie de 1x cadru</string>
-  <!-- Video rotation -->
-  <string name="pref_camera_video_rotation_title">Rotire video</string>
-  <string name="pref_camera_video_rotation_entry_0">0 grade</string>
-  <string name="pref_camera_video_rotation_entry_90">90 de grade</string>
-  <string name="pref_camera_video_rotation_entry_180">180 de grade</string>
-  <string name="pref_camera_video_rotation_entry_270">270 de grade</string>
-  <!-- Storage location -->
-  <string name="pref_camera_savepath_title">Amplasarea stocării</string>
-  <string name="pref_camera_savepath_entry_0">Stocare internă</string>
-  <string name="pref_camera_savepath_entry_1">Card SD</string>
-  <!-- Misc -->
-  <!-- The alias of CameraActivity for gesture operation -->
-  <string name="camera_gesture_title">Lansare cameră foto</string>
-  <string name="all_in_focus">Tot în focus</string>
-  <string name="refocus_toast">Pentru a refocaliza ultima poză, apăsați aici</string>
-  <!-- Toast messages -->
-  <!-- The message is shown in toast when the app encounters an unsupported selection for High-framerate recording mode -->
-  <string name="error_app_unsupported_hfr_selection">Înregistrarea cu frecvenţă mare de cadre nu este suportată atunci când utilizaţi Stabilizare/Time lapse/HDR.</string>
-  <!-- The message is shown in dialog when the app encounters an unsupported resolution for Slow motion mode -->
-  <string name="error_app_unsupported_hfr">Modul mișcare lentă nu este suportat pentru dimensiunea video selectată. Selectați o dimensiune video mai mică</string>
-  <!-- The message is shown in toast when the app encounters an unsupported resolution for Stabilization mode -->
-  <string name="error_app_unsupported_dis">Stabilizarea nu este suportată pentru dimensiunea video selectată. Selectați o dimensiune video mai mică</string>
-  <!-- The message is shown in dialog when the app encounters an unsupported resolution for High speed mode -->
-  <string name="error_app_unsupported_hsr">Modul viteză mare nu este suportat pentru dimensiunea video selectată. Selectați o dimensiune video mai mică</string>
-  <!-- The message is shown in dialog when the app encounters an unsupported video codec for HFR mode -->
-  <string name="error_app_unsupported_hfr_codec">Numai codarea video H264 este suportată atunci când HFR este PORNIT</string>
-  <!-- The message is shown in dialog when the app encounters an unsupported video resolution-->
-  <string name="error_app_unsupported">Rezoluția video nu este suportată de acest tip de encoder</string>
-  <!--The message is shown in dialog when the raw snapshot is selected in Zero shutter lag mode-->
-  <string name="error_app_unsupported_raw">Formatul de imagine brut nu este suportat în modul Zero shutter lag. Selectaţi JPEG</string>
-  <string name="msg_cancel_longshot_for_limited_memory">Fără memorie, se anulează captura continuă</string>
-  <!-- Toast showing non-supported functionality for flash in AE bracket -->
-  <string name="flash_aebracket_message">Blițul nu este suportat în modul AE bracketing</string>
-  <!-- toast message for storage location switch -->
-  <string name="on_switch_save_path_to_sdcard">Spațiul stocării interne nu este suficient, comutat stocarea pe cardul SD</string>
-  <!-- The message is shown in toast when click showOnMap Menu and there is no map app -->
-  <string name="map_activity_not_found_err">Nu există nicio aplicație cu hărți instalată care să arate locația</string>
-  <!-- Continous shot enable message -->
-  <string name="longshot_enable_message">Caracteristicile avansate nu sunt suportate în modul captură continuă</string>
-  <!-- Advance features enable message -->
-  <string name="advance_feature_enable_msg">Captura continuă nu este suportată când caracteristicile avansate sunt activate</string>
-  <!-- Toast after enable HDR function to inform continuous shot has disabled -->
-  <string name="HDR_disable_continuous_shot">Activând HDR veți dezactiva captura continuă</string>
-  <!-- Toast after enable advanced capture function to inform continuous shot has disabled -->
-  <string name="advanced_capture_disable_continuous_shot">Activând captura avansată veți dezactiva captura continuă</string>
-  <!-- Toast after enable 2k4k video quality to inform IS has disabled -->
-  <string name="video_quality_4k_disable_IS">Activarea dimensiunii video 4k va dezactiva stabilizarea</string>
-  <!-- Toast after 2k4k video is enabled to inform SeeMore has been disabled -->
-  <string name="video_quality_4k_disable_SeeMore">SeeMore nu poate fi activat în timpul video-ului 4k</string>
-  <!-- Toast after SeeMore has been enabled to show CDS is disabled -->
-  <string name="disable_CDS_during_SeeMore">Activând SeeMore veți dezactiva CDS</string>
-  <!-- Toast after SeeMore has been enabled to show TNR is disabled -->
-  <string name="disable_TNR_during_SeeMore">Activând SeeMore veți dezactiva TNR</string>
-  <!-- TODO: Remove these? -->
+    <string name="pref_camera_autoexposure_title">Expunere automată</string>
+    <string name="pref_camera_autoexposure_entry_centerweighted">Balansare centrată</string>
+    <string name="pref_camera_autoexposure_entry_frameaverage">Media cadrului</string>
+    <string name="pref_camera_autoexposure_entry_spotmetering">Măsurare punctuală</string>
+    <string name="pref_camera_videoencoder_title">Codec video</string>
+    <string name="pref_camera_audioencoder_title">Codec audio</string>
+    <string name="pref_camera_skinToneEnhancement_title">Îmbunătățire ton piele</string>
+    <string name="pref_camera_zsl_title">Întârziere declanșator zero</string>
+    <string name="pref_camera_selectablezoneaf_title">Zona de autofocus</string>
+    <string name="pref_camera_selectablezoneaf_entry_auto">Auto</string>
+    <string name="pref_camera_selectablezoneaf_entry_centerweighted">Balansare centrată</string>
+    <string name="pref_camera_selectablezoneaf_entry_frameaverage">Media cadrului</string>
+    <string name="pref_camera_selectablezoneaf_entry_spotmetering">Măsurare punctuală</string>
+    <string name="pref_camera_advanced_features_title">Caracteristici avansate</string>
+    <string name="pref_camera_advanced_feature_entry_none">Fără</string>
+    <string name="pref_camera_advanced_feature_entry_multi_touch_focus">Focalizare Multi-touch</string>
+    <string name="pref_camera_manual_exp_title">Expunere manuală</string>
+    <string name="pref_camera_manual_exp_entry_ISO_priority">Prioritate ISO</string>
+    <string name="pref_camera_manual_exp_entry_exptime_priority">Prioritate timp de expunere</string>
+    <string name="pref_camera_manual_exp_entry_user_setting">Setare utilizator</string>
+    <string name="pref_camera_manual_exp_entry_off">Oprit</string>
+    <string name="pref_camera_manual_wb_title">Balans de alb manual</string>
+    <string name="pref_camera_manual_wb_entry_color_temperature">Temperatura culorii</string>
+    <string name="pref_camera_manual_wb_entry_rbgb_gains">RBGB gains</string>
+    <string name="pref_camera_manual_wb_entry_off">Oprit</string>
+    <string name="pref_camera_manual_focus_title">Focalizare manuală</string>
+    <string name="pref_camera_manual_focus_entry_scale_mode">Mod scară</string>
+    <string name="pref_camera_manual_focus_entry_diopter_mode">Mod dioptrie</string>
+    <string name="pref_camera_manual_focus_entry_off">Oprit</string>
+    <string name="pref_camera_video_hdr_title">Video HDR</string>
+    <string name="pref_camera_cds_title">Mod CDS</string>
+    <string name="pref_camera_cds_entry_auto">Automat</string>
+    <string name="pref_camera_video_cds_title">Mod video CDS</string>
+    <string name="pref_camera_video_cds_entry_auto">Automat</string>
+    <string name="pref_camera_tnr_title">Mod TNR</string>
+    <string name="pref_camera_video_tnr_title">Mod video TNR</string>
+    <string name="pref_camera_facedetection_title">Detectare față</string>
+    <string name="pref_selfie_flash_title">Flash pentru selfie</string>
+    <string name="pref_camera_redeyereduction_title">Reducerea efectului de ochi roșii</string>
+    <string name="pref_camera_ae_bracket_hdr_title">AE bracketing</string>
+    <string name="pref_camera_hfr_title">Înregistrare cu frecvență mare de cadre</string>
+    <string name="pref_camera_hfr_entry_off">Oprit</string>
+    <string name="pref_camera_hfr_entry_2x">Mișcare lentă 60 FPS</string>
+    <string name="pref_camera_hfr_entry_3x">Mișcare lentă 90 FPS</string>
+    <string name="pref_camera_hfr_entry_4x">Mișcare lentă 120 FPS</string>
+    <string name="pref_camera_hfr_entry_8x">Mișcare lentă 240 FPS</string>
+    <string name="pref_camera_hfr_entry_hsr_60">Viteză mărită 60 FPS</string>
+    <string name="pref_camera_hfr_entry_hsr_90">Viteză mărită 90 FPS</string>
+    <string name="pref_camera_hfr_entry_hsr_120">Viteză mărită 120 FPS</string>
+    <string name="pref_camera_denoise_title">Înlăturare zgomot</string>
+    <string name="pref_camera_iso_title">ISO</string>
+    <string name="pref_camera_iso_entry_auto">Auto</string>
+    <string name="pref_camera_iso_entry_isodeblur">Auto (HJR)</string>
+    <string name="pref_camera_iso_entry_iso50">ISO50</string>
+    <string name="pref_camera_iso_entry_iso100">ISO100</string>
+    <string name="pref_camera_iso_entry_iso125">ISO125</string>
+    <string name="pref_camera_iso_entry_iso150">ISO150</string>
+    <string name="pref_camera_iso_entry_iso200">ISO200</string>
+    <string name="pref_camera_iso_entry_iso250">ISO250</string>
+    <string name="pref_camera_iso_entry_iso300">ISO300</string>
+    <string name="pref_camera_iso_entry_iso320">ISO320</string>
+    <string name="pref_camera_iso_entry_iso350">ISO350</string>
+    <string name="pref_camera_iso_entry_iso400">ISO400</string>
+    <string name="pref_camera_iso_entry_iso450">ISO450</string>
+    <string name="pref_camera_iso_entry_iso500">ISO500</string>
+    <string name="pref_camera_iso_entry_iso600">ISO600</string>
+    <string name="pref_camera_iso_entry_iso640">ISO640</string>
+    <string name="pref_camera_iso_entry_iso700">ISO700</string>
+    <string name="pref_camera_iso_entry_iso800">ISO800</string>
+    <string name="pref_camera_iso_entry_iso1000">ISO1000</string>
+    <string name="pref_camera_iso_entry_iso1200">ISO1200</string>
+    <string name="pref_camera_iso_entry_iso1250">ISO1250</string>
+    <string name="pref_camera_iso_entry_iso1500">ISO1500</string>
+    <string name="pref_camera_iso_entry_iso1600">ISO1600</string>
+    <string name="pref_camera_iso_entry_iso2000">ISO2000</string>
+    <string name="pref_camera_iso_entry_iso2500">ISO2500</string>
+    <string name="pref_camera_iso_entry_iso2700">ISO2700</string>
+    <string name="pref_camera_iso_entry_iso3200">ISO3200</string>
+    <string name="pref_camera_iso_entry_iso6400">ISO6400</string>
+    <string name="pref_camera_iso_entry_iso12800">ISO12800</string>
+    <string name="pref_camera_antibanding_title">Antibanding</string>
+    <string name="pref_camera_antibanding_entry_0">Automat</string>
+    <string name="pref_camera_antibanding_entry_1">50 Hz (Europa)</string>
+    <string name="pref_camera_antibanding_entry_2">60 Hz (SUA)</string>
+    <string name="pref_camera_coloreffect_title">Efect de culoare</string>
+    <string name="pref_camera_coloreffect_entry_none">Niciunul</string>
+    <string name="pref_camera_coloreffect_entry_mono">Mono</string>
+    <string name="pref_camera_coloreffect_entry_sepia">Sepia</string>
+    <string name="pref_camera_coloreffect_entry_negative">Negativ</string>
+    <string name="pref_camera_coloreffect_entry_solarize">Solarizare</string>
+    <string name="pref_camera_coloreffect_entry_posterize">Posterizare</string>
+    <string name="pref_camera_coloreffect_entry_aqua">Aqua</string>
+    <string name="pref_camera_coloreffect_entry_emboss">Gravare</string>
+    <string name="pref_camera_coloreffect_entry_sketch">Schițare</string>
+    <string name="pref_camera_coloreffect_entry_neon">Neon</string>
+    <string name="pref_camera_coloreffect_entry_pastel">Pastel</string>
+    <string name="pref_camera_coloreffect_entry_mosaic">Mozaic</string>
+    <string name="pref_camera_coloreffect_entry_redtint">Tentă roșie</string>
+    <string name="pref_camera_coloreffect_entry_bluetint">Tentă albastră</string>
+    <string name="pref_camera_coloreffect_entry_greentint">Tentă verde</string>
+    <string name="pref_camera_dis_title">Stabilizare video</string>
+    <string name="pref_camera_facerc_title">Recunoașterea feței</string>
+    <string name="pref_camera_sharpness_title">Claritate</string>
+    <string name="pref_camera_sharpness_entry_level0">Nivel 0</string>
+    <string name="pref_camera_sharpness_entry_level1">Nivel 1</string>
+    <string name="pref_camera_sharpness_entry_level2">Nivel 2 (implicit)</string>
+    <string name="pref_camera_sharpness_entry_level3">Nivel 3</string>
+    <string name="pref_camera_sharpness_entry_level4">Nivel 4</string>
+    <string name="pref_camera_sharpness_entry_level5">Nivel 5</string>
+    <string name="pref_camera_sharpness_entry_level6">Nivel 6</string>
+    <string name="pref_camera_contrast_title">Contrast</string>
+    <string name="pref_camera_contrast_entry_level0">Nivel 0</string>
+    <string name="pref_camera_contrast_entry_level1">Nivel 1</string>
+    <string name="pref_camera_contrast_entry_level2">Nivel 2</string>
+    <string name="pref_camera_contrast_entry_level3">Nivel 3</string>
+    <string name="pref_camera_contrast_entry_level4">Nivel 4</string>
+    <string name="pref_camera_contrast_entry_level5">Nivel 5 (implicit)</string>
+    <string name="pref_camera_contrast_entry_level6">Nivel 6</string>
+    <string name="pref_camera_contrast_entry_level7">Nivel 7</string>
+    <string name="pref_camera_contrast_entry_level8">Nivel 8</string>
+    <string name="pref_camera_contrast_entry_level9">Nivel 9</string>
+    <string name="pref_camera_contrast_entry_level10">Nivel 10</string>
+    <string name="pref_camera_saturation_title">Saturație</string>
+    <string name="pref_camera_saturation_entry_level0">Nivel 0</string>
+    <string name="pref_camera_saturation_entry_level1">Nivel 1</string>
+    <string name="pref_camera_saturation_entry_level2">Nivel 2</string>
+    <string name="pref_camera_saturation_entry_level3">Nivel 3</string>
+    <string name="pref_camera_saturation_entry_level4">Nivel 4</string>
+    <string name="pref_camera_saturation_entry_level5">Nivel 5 (implicit)</string>
+    <string name="pref_camera_saturation_entry_level6">Nivel 6</string>
+    <string name="pref_camera_saturation_entry_level7">Nivel 7</string>
+    <string name="pref_camera_saturation_entry_level8">Nivel 8</string>
+    <string name="pref_camera_saturation_entry_level9">Nivel 9</string>
+    <string name="pref_camera_saturation_entry_level10">Nivel 10</string>
+    <string name="pref_camera_picture_format_title">Formatul pozei</string>
+    <string name="pref_camera_jpegquality_title">Calitatea imaginii</string>
+    <string name="pref_camera_jpegquality_entry_0">55%</string>
+    <string name="pref_camera_jpegquality_entry_1">65% (normal)</string>
+    <string name="pref_camera_jpegquality_entry_2">75% (fină)</string>
+    <string name="pref_camera_jpegquality_entry_3">85% (super fină)</string>
+    <string name="pref_camera_jpegquality_entry_4">95%</string>
+    <string name="pref_camera_jpegquality_entry_5">100%</string>
+    <string name="pref_camera_histogram_title">Histogramă</string>
+    <string name="pref_camera_scenedetect_title">Detectare automată a scenei</string>
+    <string name="pref_camera_longshot_title">Captură continuă</string>
+    <string name="pref_camera_auto_hdr_title">Auto HDR</string>
+    <string name="pref_camera_hdr_mode_title">Mod HDR</string>
+    <string name="pref_camera_hdr_mode_entry_sensor">Senzor HDR</string>
+    <string name="pref_camera_hdr_mode_entry_multi_frame">HDR multi-cadru</string>
+    <string name="pref_camera_hdr_need_1x_title">HDR are nevoie de 1x cadru</string>
+    <string name="pref_camera_video_rotation_title">Rotire video</string>
+    <string name="pref_camera_video_rotation_entry_0">0 grade</string>
+    <string name="pref_camera_video_rotation_entry_90">90 de grade</string>
+    <string name="pref_camera_video_rotation_entry_180">180 de grade</string>
+    <string name="pref_camera_video_rotation_entry_270">270 de grade</string>
+    <string name="pref_camera_savepath_title">Amplasarea stocării</string>
+    <string name="pref_camera_savepath_entry_0">Stocare internă</string>
+    <string name="pref_camera_savepath_entry_1">Card SD</string>
+    <string name="camera_gesture_title">Lansare cameră foto</string>
+    <string name="all_in_focus">Tot în focus</string>
+    <string name="refocus_toast">Pentru a refocaliza ultima poză, apăsați aici</string>
+    <string name="error_app_unsupported_hfr_selection">Înregistrarea cu frecvenţă mare de cadre nu este suportată atunci când utilizaţi Stabilizare/Time lapse/HDR.</string>
+    <string name="error_app_unsupported_hfr">Modul mișcare lentă nu este suportat pentru dimensiunea video selectată. Selectați o dimensiune video mai mică</string>
+    <string name="error_app_unsupported_dis">Stabilizarea nu este suportată pentru dimensiunea video selectată. Selectați o dimensiune video mai mică</string>
+    <string name="error_app_unsupported_hsr">Modul viteză mare nu este suportat pentru dimensiunea video selectată. Selectați o dimensiune video mai mică</string>
+    <string name="error_app_unsupported_hfr_codec">Numai codarea video H264 este suportată atunci când HFR este PORNIT</string>
+    <string name="error_app_unsupported">Rezoluția video nu este suportată de acest tip de encoder</string>
+    <string name="error_app_unsupported_raw">Formatul de imagine brut nu este suportat în modul Zero shutter lag. Selectaţi JPEG</string>
+    <string name="msg_cancel_longshot_for_limited_memory">Fără memorie, se anulează captura continuă</string>
+    <string name="flash_aebracket_message">Blițul nu este suportat în modul AE bracketing</string>
+    <string name="on_switch_save_path_to_sdcard">Spațiul stocării interne nu este suficient, comutat stocarea pe cardul SD</string>
+    <string name="map_activity_not_found_err">Nu există nicio aplicație cu hărți instalată care să arate locația</string>
+    <string name="longshot_enable_message">Caracteristicile avansate nu sunt suportate în modul captură continuă</string>
+    <string name="advance_feature_enable_msg">Captura continuă nu este suportată când caracteristicile avansate sunt activate</string>
+    <string name="HDR_disable_continuous_shot">Activând HDR veți dezactiva captura continuă</string>
+    <string name="advanced_capture_disable_continuous_shot">Activând captura avansată veți dezactiva captura continuă</string>
+    <string name="video_quality_4k_disable_IS">Activarea dimensiunii video 4k va dezactiva stabilizarea</string>
+    <string name="video_quality_4k_disable_SeeMore">SeeMore nu poate fi activat în timpul video-ului 4k</string>
+    <string name="disable_CDS_during_SeeMore">Activând SeeMore veți dezactiva CDS</string>
+    <string name="disable_TNR_during_SeeMore">Activând SeeMore veți dezactiva TNR</string>
 </resources>

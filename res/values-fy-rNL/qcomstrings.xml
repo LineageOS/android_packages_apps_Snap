@@ -21,73 +21,104 @@
     limitations under the License.
 -->
 <resources>
-  <!-- Preferences -->
-  <!-- Video quality setting entry. Videos will be recorded in VGA quality. [CHAR LIMIT=24] -->
-  <!-- Video quality setting entry. Videos will be recorded in CIF quality. [CHAR LIMIT=24] -->
-  <!-- Video quality setting entry. Videos will be recorded in QVGA quality. [CHAR LIMIT=24] -->
-  <!-- Video quality setting entry. Videos will be recorded in QCIF quality. [CHAR LIMIT=24] -->
-  <!-- Auto exposure -->
-  <!-- Video codec -->
-  <!-- Audio codec -->
-  <!-- Skin tone enhancement -->
-  <!-- Zero shutter lag-->
-  <!-- Autofocus zone -->
-  <!-- Advanced features -->
-  <!-- Manual exposure -->
-  <!-- Manual white balance -->
-  <!-- Manual focus -->
-  <!-- Still More -->
-  <!-- Video HDR-->
-  <!-- CDS mode-->
-  <!-- Video CDS-->
-  <!-- TNR-->
-  <!-- Video TNR -->
-  <!-- Face detection -->
-  <!-- Selfie Flash -->
-  <!-- Red eye reduction -->
-  <!-- AE bracketing -->
-  <!-- High-framerate recording -->
-  <!-- See More -->
-  <!-- Denoise -->
-  <!-- ISO -->
-  <!-- Antibanding -->
-  <!-- Color effect -->
-  <!-- Color effect that overexposes and reverses some of the tones. -->
-  <!-- Stabilization -->
-  <!-- Face recognition -->
-  <!-- Sharpness -->
-  <!-- Contrast -->
-  <!-- Saturation -->
-  <!-- Picture format -->
-  <!-- Picture quality -->
-  <!-- Histogram -->
-  <!-- Auto scene detection -->
-  <!-- Continuous shot -->
-  <!-- Auto HDR -->
-  <!-- HDR mode -->
-  <!-- HDR needs 1x frame -->
-  <!-- Video rotation -->
-  <!-- Storage location -->
-  <!-- Misc -->
-  <!-- The alias of CameraActivity for gesture operation -->
-  <!-- Toast messages -->
-  <!-- The message is shown in toast when the app encounters an unsupported selection for High-framerate recording mode -->
-  <!-- The message is shown in dialog when the app encounters an unsupported resolution for Slow motion mode -->
-  <!-- The message is shown in toast when the app encounters an unsupported resolution for Stabilization mode -->
-  <!-- The message is shown in dialog when the app encounters an unsupported resolution for High speed mode -->
-  <!-- The message is shown in dialog when the app encounters an unsupported video codec for HFR mode -->
-  <!-- The message is shown in dialog when the app encounters an unsupported video resolution-->
-  <!--The message is shown in dialog when the raw snapshot is selected in Zero shutter lag mode-->
-  <!-- Toast showing non-supported functionality for flash in AE bracket -->
-  <!-- toast message for storage location switch -->
-  <!-- The message is shown in toast when click showOnMap Menu and there is no map app -->
-  <!-- Continous shot enable message -->
-  <!-- Advance features enable message -->
-  <!-- Toast after enable HDR function to inform continuous shot has disabled -->
-  <!-- Toast after enable advanced capture function to inform continuous shot has disabled -->
-  <!-- Toast after enable 2k4k video quality to inform IS has disabled -->
-  <!-- Toast after 2k4k video is enabled to inform SeeMore has been disabled -->
-  <!-- Toast after SeeMore has been enabled to show CDS is disabled -->
-  <!-- Toast after SeeMore has been enabled to show TNR is disabled -->
-  <!-- TODO: Remove these? -->
+    <string name="pref_camera_autoexposure_title">Automatyske beljochting</string>
+    <string name="pref_camera_autoexposure_entry_centerweighted">Sintrum weagen</string>
+    <string name="pref_camera_autoexposure_entry_frameaverage">Byldgemiddelde</string>
+    <string name="pref_camera_autoexposure_entry_spotmetering">Spotmjitting</string>
+    <string name="pref_camera_videoencoder_title">Fideocodec</string>
+    <string name="pref_camera_audioencoder_title">Audiocodec</string>
+    <string name="pref_camera_skinToneEnhancement_title">Hûdskleurferbettering</string>
+    <string name="pref_camera_zsl_title">Gjin ûntspanfertraging (ZSL)</string>
+    <string name="pref_camera_selectablezoneaf_title">Selektearbere autofokus-sône</string>
+    <string name="pref_camera_selectablezoneaf_entry_auto">Automatysk</string>
+    <string name="pref_camera_selectablezoneaf_entry_centerweighted">Sintrum weagen</string>
+    <string name="pref_camera_selectablezoneaf_entry_frameaverage">Byldgemiddelde</string>
+    <string name="pref_camera_selectablezoneaf_entry_spotmetering">Spotmjitting</string>
+    <string name="pref_camera_advanced_features_title">Avansearre funksjes</string>
+    <string name="pref_camera_advanced_feature_entry_none">Gjin</string>
+    <string name="pref_camera_advanced_feature_entry_multi_touch_focus">Multi-touch Focus</string>
+    <string name="pref_camera_manual_exp_title">Hânmjittige beljochting</string>
+    <string name="pref_camera_manual_exp_entry_ISO_priority">ISO-prioriteit</string>
+    <string name="pref_camera_manual_exp_entry_exptime_priority">Beljochtingstiid-prioriteit</string>
+    <string name="pref_camera_manual_exp_entry_user_setting">Brûkersynstelling</string>
+    <string name="pref_camera_manual_exp_entry_off">Ut</string>
+    <string name="pref_camera_manual_wb_title">Hânmjittige wytbalâns</string>
+    <string name="pref_camera_manual_wb_entry_color_temperature">Kleurtemperatuer</string>
+    <string name="pref_camera_manual_wb_entry_rbgb_gains">RBGB fersterking</string>
+    <string name="pref_camera_manual_wb_entry_off">Ut</string>
+    <string name="pref_camera_manual_focus_title">Hânmjittich skerpstelle</string>
+    <string name="pref_camera_manual_focus_entry_scale_mode">Skealmodus</string>
+    <string name="pref_camera_manual_focus_entry_diopter_mode">Dioptrymodus</string>
+    <string name="pref_camera_manual_focus_entry_off">Ut</string>
+    <string name="pref_camera_video_hdr_title">Fideo (HDR)</string>
+    <string name="pref_camera_cds_title">CDS-modus</string>
+    <string name="pref_camera_cds_entry_auto">Automatysk</string>
+    <string name="pref_camera_video_cds_title">Fideo CDS-modus</string>
+    <string name="pref_camera_video_cds_entry_auto">Automatysk</string>
+    <string name="pref_camera_tnr_title">TNR-modus</string>
+    <string name="pref_camera_video_tnr_title">Fideo TDR-modus</string>
+    <string name="pref_camera_facedetection_title">Gesichtswerkenning</string>
+    <string name="pref_selfie_flash_title">Selfie-flits</string>
+    <string name="pref_camera_redeyereduction_title">Reade eagen ferminderje</string>
+    <string name="pref_camera_ae_bracket_hdr_title">Beljochtingsrige (AEB)</string>
+    <string name="pref_camera_hfr_title">Opname mei hege byldsnelheid</string>
+    <string name="pref_camera_hfr_entry_off">Ut</string>
+    <string name="pref_camera_hfr_entry_2x">Slow motion 60 fps</string>
+    <string name="pref_camera_hfr_entry_3x">Slow motion 90 fps</string>
+    <string name="pref_camera_hfr_entry_4x">Slow motion 120 fps</string>
+    <string name="pref_camera_hfr_entry_8x">Slow motion 240 fps</string>
+    <string name="pref_camera_hfr_entry_hsr_60">Hege snelheid 60 fps</string>
+    <string name="pref_camera_hfr_entry_hsr_90">Hege snelheid 90 fps</string>
+    <string name="pref_camera_hfr_entry_hsr_120">Hege snelheid 120 fps</string>
+    <string name="pref_camera_denoise_title">Rûsbeheining</string>
+    <string name="pref_camera_dis_title">Stabilisaasje</string>
+    <string name="pref_camera_facerc_title">Gesichtswerkenning</string>
+    <string name="pref_camera_sharpness_title">Skerpte</string>
+    <string name="pref_camera_sharpness_entry_level0">Nivo 0</string>
+    <string name="pref_camera_sharpness_entry_level1">Nivo 1</string>
+    <string name="pref_camera_sharpness_entry_level2">Nivo 2 (standert)</string>
+    <string name="pref_camera_sharpness_entry_level3">Nivo 3</string>
+    <string name="pref_camera_sharpness_entry_level4">Nivo 4</string>
+    <string name="pref_camera_sharpness_entry_level5">Nivo 5</string>
+    <string name="pref_camera_sharpness_entry_level6">Nivo 6</string>
+    <string name="pref_camera_contrast_title">Kontrast</string>
+    <string name="pref_camera_contrast_entry_level0">Nivo 0</string>
+    <string name="pref_camera_contrast_entry_level1">Nivo 1</string>
+    <string name="pref_camera_contrast_entry_level2">Nivo 2</string>
+    <string name="pref_camera_contrast_entry_level3">Nivo 3</string>
+    <string name="pref_camera_contrast_entry_level4">Nivo 4</string>
+    <string name="pref_camera_contrast_entry_level5">Nivo 5 (standert)</string>
+    <string name="pref_camera_contrast_entry_level6">Nivo 6</string>
+    <string name="pref_camera_contrast_entry_level7">Nivo 7</string>
+    <string name="pref_camera_contrast_entry_level8">Nivo 8</string>
+    <string name="pref_camera_contrast_entry_level9">Nivo 9</string>
+    <string name="pref_camera_contrast_entry_level10">Nivo 10</string>
+    <string name="pref_camera_saturation_title">Sêding</string>
+    <string name="pref_camera_saturation_entry_level0">Nivo 0</string>
+    <string name="pref_camera_saturation_entry_level1">Nivo 1</string>
+    <string name="pref_camera_saturation_entry_level2">Nivo 2</string>
+    <string name="pref_camera_saturation_entry_level3">Nivo 3</string>
+    <string name="pref_camera_saturation_entry_level4">Nivo 4</string>
+    <string name="pref_camera_saturation_entry_level5">Nivo 5 (standert)</string>
+    <string name="pref_camera_saturation_entry_level6">Nivo 6</string>
+    <string name="pref_camera_saturation_entry_level7">Nivo 7</string>
+    <string name="pref_camera_saturation_entry_level8">Nivo 8</string>
+    <string name="pref_camera_saturation_entry_level9">Nivo 9</string>
+    <string name="pref_camera_saturation_entry_level10">Nivo 10</string>
+    <string name="pref_camera_picture_format_title">Bestânsformaat</string>
+    <string name="pref_camera_jpegquality_title">Byldkwaliteit</string>
+    <string name="pref_camera_jpegquality_entry_0">55%</string>
+    <string name="pref_camera_jpegquality_entry_1">65% (normaal)</string>
+    <string name="pref_camera_jpegquality_entry_2">75% (fyn)</string>
+    <string name="pref_camera_jpegquality_entry_3">85% (superfyn)</string>
+    <string name="pref_camera_jpegquality_entry_4">95%</string>
+    <string name="pref_camera_jpegquality_entry_5">100%</string>
+    <string name="pref_camera_histogram_title">Histogram</string>
+    <string name="pref_camera_scenedetect_title">Automatyske sênedeteksje</string>
+    <string name="pref_camera_longshot_title">Kontinue opname</string>
+    <string name="pref_camera_auto_hdr_title">Auto-HDR</string>
+    <string name="pref_camera_hdr_mode_title">HDR-modus</string>
+    <string name="pref_camera_hdr_mode_entry_sensor">Sensor HDR</string>
+    <string name="pref_camera_hdr_mode_entry_multi_frame">Multi-frame HDR</string>
+    <string name="pref_camera_hdr_need_1x_title">HDR hat 1x byld nedich</string>
 </resources>
