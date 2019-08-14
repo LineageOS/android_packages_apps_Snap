@@ -5058,7 +5058,8 @@ public class CaptureModule implements CameraModule, PhotoController,
                 int deviceSocId = mSettingsManager.getDeviceSocId();
                 if (deviceSocId == SettingsManager.TALOS_SOCID ||
                         deviceSocId == SettingsManager.MOOREA_SOCID ||
-                        deviceSocId == SettingsManager.SAIPAN_SOCID) {
+                        deviceSocId == SettingsManager.SAIPAN_SOCID ||
+                        deviceSocId == SettingsManager.SM6250_SOCID) {
                     List list = CameraUtil
                             .createHighSpeedRequestList(mVideoRecordRequestBuilder.build());
                     mCurrentSession.setRepeatingBurst(list,mCaptureCallback, mCameraHandler);
