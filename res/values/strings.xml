@@ -287,6 +287,8 @@
     <!-- Settings screen, Picture size title -->
     <string name="pref_camera_picturesize_title">Picture size</string>
     <!-- Settings screen, dialog choice for 48 megapixels picture size [CHAR LIMIT=20] -->
+    <string name="pref_camera_picturesize_entry_256mp">256M pixels</string>
+    <!-- Settings screen, dialog choice for 48 megapixels picture size [CHAR LIMIT=20] -->
     <string name="pref_camera_picturesize_entry_48mp">48M pixels</string>
     <!-- Settings screen, dialog choice for 32 megapixels picture size [CHAR LIMIT=20] -->
     <string name="pref_camera_picturesize_entry_32mp">32M pixels</string>
