@@ -3294,7 +3294,9 @@ public class CaptureModule implements CameraModule, PhotoController,
                                             if (mLongshotActive) {
                                                 mLastJpegData = bytes;
                                             } else {
-                                                mActivity.updateThumbnail(bytes);
+                                                if (imageFormat != ImageFormat.HEIC){
+                                                    mActivity.updateThumbnail(bytes);
+                                                }
                                             }
                                         }
                                         image.close();
