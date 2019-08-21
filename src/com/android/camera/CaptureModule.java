@@ -1018,7 +1018,7 @@ public class CaptureModule implements CameraModule, PhotoController,
                 }
                 if (result.get(t2t_tracker_result_roi) != null) {
                     resultROI = result.get(t2t_tracker_result_roi);
-                    mT2TFocusRenderer.updateTrackerRect(resultROI);
+                    mT2TFocusRenderer.updateTrackerRect(resultROI, trackerScore);
                 }
                 if(DEBUG) {
                     Log.v(TAG, "updateT2tTrackerView mT2TTrackState :" + mT2TTrackState +

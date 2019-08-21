@@ -88,6 +88,7 @@ public class TouchTrackFocusRenderer extends OverlayRenderer implements FocusInd
     protected Paint mPaint;
 
     private Rect mRectActiveArray=new Rect();
+    private int mTrackerScore = 0;
     protected int mUncroppedWidth;
     protected int mUncroppedHeight;
     protected int mDisplayOrientation;
@@ -140,11 +141,12 @@ public class TouchTrackFocusRenderer extends OverlayRenderer implements FocusInd
         update();
     }
 
-    public void updateTrackerRect(int[] rectInts) {
+    public void updateTrackerRect(int[] rectInts, int trackerScore) {
         if (mRectActiveArray == null) {
             mRectActiveArray = new Rect();
         }
         mStatus = STATUS_TRACKING;
+        mTrackerScore = trackerScore;
         mRectActiveArray.set(rectInts[0], rectInts[1], rectInts[0] + rectInts[2],
                 rectInts[1] + rectInts[3]);
         if (DEBUG) {
@@ -248,7 +250,11 @@ public class TouchTrackFocusRenderer extends OverlayRenderer implements FocusInd
             }
         } else if (mStatus == STATUS_TRACKING) {
             if (mRect != null) {
-                mPaint.setColor(Color.GREEN);
+                if (mTrackerScore > 80) {
+                    mPaint.setColor(Color.GREEN);
+                } else{
+                    mPaint.setColor(Color.YELLOW);
+                }
                 canvas.drawRect(mRect, mPaint);
             }
         } else if (mStatus == STATUS_INPUT) {
