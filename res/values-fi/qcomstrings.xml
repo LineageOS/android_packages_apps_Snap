@@ -416,12 +416,17 @@
     <string name="pref_camera2_initial_camera_entry_mono">Mono</string>
     <string name="pref_camera2_initial_camera_entry_front">Etupuoli</string>
     <string name="pref_camera2_eis_title">Videon digitaalinen kuvanvakautus</string>
+    <string name="pref_camera2_eis_entry_v3_set_when_pause">V3 ja aseta kun tauko</string>
     <string name="pref_camera2_eis_entry_disable">Poistettu käytöstä</string>
+    <string name="pref_camera2_fovc_title">Video FOVC</string>
     <string name="pref_camera2_fovc_entry_enable">Ota käyttöön</string>
     <string name="pref_camera2_fovc_entry_disable">Poistettu käytöstä</string>
     <string name="pref_camera2_video_hdr_entry_enable">Ota käyttöön</string>
     <string name="pref_camera2_video_hdr_entry_disable">Poistettu käytöstä</string>
+    <string name="pref_camera2_stats_visualizer_title">Tilastojen visualisointi</string>
     <string name="pref_camera2_stats_visualizer_entry_disable">Poista kaikki käytöstä</string>
+    <string name="pref_camera2_stats_visualizer_entry_bg_stats">BG tilastot</string>
+    <string name="pref_camera2_stats_visualizer_entry_be_stats">BE tilastot</string>
     <string name="pref_camera2_capture_mfnr_title">Monikehyksinen kohinanvaimennus</string>
     <string name="pref_camera2_capture_mfnr_entry_enable">Ota käyttöön</string>
     <string name="pref_camera2_capture_mfnr_entry_disable">Poistettu käytöstä</string>

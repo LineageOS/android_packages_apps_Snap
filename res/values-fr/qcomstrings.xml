@@ -429,6 +429,7 @@
     <string name="pref_camera2_stats_visualizer_entry_disable">Tout désactiver</string>
     <string name="pref_camera2_stats_visualizer_entry_bg_stats">Statistiques BG</string>
     <string name="pref_camera2_stats_visualizer_entry_be_stats">Statistiques BE</string>
+    <string name="pref_camera2_stats_visualizer_entry_hist_stats">Historique</string>
     <string name="pref_camera2_capture_mfnr_title">Réduction du bruit Multi-images</string>
     <string name="pref_camera2_capture_mfnr_entry_enable">Activé</string>
     <string name="pref_camera2_capture_mfnr_entry_disable">Désactivé</string>
