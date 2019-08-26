@@ -2977,6 +2977,7 @@ public class CaptureModule implements CameraModule, PhotoController,
                     } else {
                         enableShutterAndVideoOnUiThread(id);
                     }
+                    Log.d(TAG,"onShutterButtonRelease");
                     if (mSettingsManager.isHeifWriterEncoding()) {
                         if (mHeifImage != null) {
                             try {
@@ -6233,6 +6234,8 @@ public class CaptureModule implements CameraModule, PhotoController,
                     + mActivity.getStorageSpaceBytes());
             return;
         }
+
+        Log.d(TAG,"onShutterButtonClick");
 
         if (mCurrentSceneMode.mode == CameraMode.HFR ||
                 mCurrentSceneMode.mode == CameraMode.VIDEO) {
