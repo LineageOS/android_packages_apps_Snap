@@ -57,7 +57,6 @@ import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.ImageFormat;
-import android.media.audiofx.PresetReverb;
 import android.os.Bundle;
 import android.preference.ListPreference;
 import android.preference.MultiSelectListPreference;
@@ -65,7 +64,6 @@ import android.preference.Preference;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceGroup;
 import android.preference.PreferenceActivity;
-import android.preference.PreferenceManager;
 import android.preference.PreferenceScreen;
 import android.preference.SwitchPreference;
 import android.view.Window;
@@ -182,9 +180,28 @@ public class SettingsActivity extends PreferenceActivity {
                 if ( (pref.getKey().equals(SettingsManager.KEY_MANUAL_WB)) ) {
                     updateManualWBSettings();
                 }
+
+                if ((pref.getKey().equals(SettingsManager.KEY_ZSL) ||
+                        pref.getKey().equals(SettingsManager.KEY_PICTURE_FORMAT))) {
+                    updateFormatPreference();
+                }
             }
         }
     };
+
+    private void updateFormatPreference() {
+        ListPreference formatPref = (ListPreference)findPreference(SettingsManager.KEY_PICTURE_FORMAT);
+        ListPreference ZSLPref = (ListPreference) findPreference(SettingsManager.KEY_ZSL);
+        if (formatPref == null || ZSLPref ==null) {
+            return;
+        }
+        if("app-zsl".equals(ZSLPref.getValue())){
+            formatPref.setValue("0");
+            formatPref.setEnabled(false);
+        } else {
+            formatPref.setEnabled(true);
+        }
+    }
 
     private void UpdateManualExposureSettings() {
         //dismiss all popups first, because we need to show edit dialog
@@ -844,6 +861,7 @@ public class SettingsActivity extends PreferenceActivity {
         updatePictureSizePreferenceButton();
         updateVideoHDRPreference();
         updateFaceDetectionPreference();
+        updateFormatPreference();
 
         Map<String, SettingsManager.Values> map = mSettingsManager.getValuesMap();
         if (map == null) return;
