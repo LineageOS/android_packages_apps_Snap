@@ -258,6 +258,7 @@ public class CameraActivity extends Activity
     private ImageView mThumbnail;
     private UpdateThumbnailTask mUpdateThumbnailTask;
     private CircularDrawable mThumbnailDrawable;
+    private Bitmap mThumbnailBitmap;
     // FilmStripView.setDataAdapter fires 2 onDataLoaded calls before any data is actually loaded
     // Keep track of data request here to avoid creating useless UpdateThumbnailTask.
     private boolean mDataRequested;
@@ -750,6 +751,9 @@ public class CameraActivity extends Activity
 
     public void updateThumbnail(final Bitmap bitmap) {
         if (bitmap == null) return;
+        if (mThumbnailBitmap != null)
+            mThumbnailBitmap.recycle();
+        mThumbnailBitmap = bitmap;
         mThumbnailDrawable = new CircularDrawable(bitmap);
         if (mThumbnail != null) {
             mThumbnail.setImageDrawable(mThumbnailDrawable);
@@ -925,9 +929,11 @@ public class CameraActivity extends Activity
             if (orientation != 0) {
                 Matrix matrix = new Matrix();
                 matrix.setRotate(orientation);
-                bitmap = Bitmap.createBitmap(bitmap, 0, 0,
+                bitmap =  Bitmap.createBitmap(bitmap, 0, 0,
                         bitmap.getWidth(), bitmap.getHeight(), matrix, false);
             }
+            if (decoder != null)
+                decoder.recycle();
             return bitmap;
         }
     }
