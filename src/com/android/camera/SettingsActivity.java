@@ -82,6 +82,7 @@ public class SettingsActivity extends PreferenceActivity {
     private boolean mDeveloperMenuEnabled;
     private int privateCounter = 0;
     private final int DEVELOPER_MENU_TOUCH_COUNT = 10;
+    private final String[] NOT_HIGH_SPEES_SESSION = {"off","hfr60","hsr60"};
 
     private SharedPreferences.OnSharedPreferenceChangeListener mSharedPreferenceChangeListener
             = new SharedPreferences.OnSharedPreferenceChangeListener() {
@@ -151,6 +152,10 @@ public class SettingsActivity extends PreferenceActivity {
                     mSettingsManager.updatePictureAndVideoSize();
                     updatePreference(SettingsManager.KEY_PICTURE_SIZE);
                     updatePreference(SettingsManager.KEY_VIDEO_QUALITY);
+                }
+
+                if ( pref.getKey().equals(SettingsManager.KEY_VIDEO_HIGH_FRAME_RATE)){
+                    updateFaceDetectionPreference();
                 }
 
                 if ( (pref.getKey().equals(SettingsManager.KEY_MANUAL_WB)) ) {
@@ -816,6 +821,7 @@ public class SettingsActivity extends PreferenceActivity {
         updateMultiPreference(SettingsManager.KEY_STATS_VISUALIZER_VALUE);
         updatePictureSizePreferenceButton();
         updateVideoHDRPreference();
+        updateFaceDetectionPreference();
 
         Map<String, SettingsManager.Values> map = mSettingsManager.getValuesMap();
         if (map == null) return;
@@ -876,6 +882,28 @@ public class SettingsActivity extends PreferenceActivity {
             return;
         }
         pref.setEnabled(mSettingsManager.isZZHDRSupported());
+    }
+
+    private void updateFaceDetectionPreference() {
+        ListPreference prf_hfr = (ListPreference)findPreference(
+                SettingsManager.KEY_VIDEO_HIGH_FRAME_RATE);
+        SwitchPreference prf_fd = (SwitchPreference)findPreference(
+                SettingsManager.KEY_FACE_DETECTION);
+        if (prf_hfr == null)
+            return;
+        boolean highSpeedSession = true;
+        for (String value:NOT_HIGH_SPEES_SESSION)
+            if (value.equals(prf_hfr.getValue()))
+                highSpeedSession = false;
+
+        if (prf_fd != null) {
+            if (highSpeedSession){
+                prf_fd.setChecked(false);
+                prf_fd.setEnabled(false);
+            } else {
+                prf_fd.setEnabled(true);
+            }
+        }
     }
 
     private void updatePreferenceButton(String key) {
