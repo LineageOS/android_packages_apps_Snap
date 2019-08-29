@@ -1333,6 +1333,7 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
             case RTB:
             case SAT:
                 mFilterModeSwitcher.setVisibility(View.VISIBLE);
+                mSceneModeSwitcher.setVisibility(View.VISIBLE);
                 mVideoButton.setVisibility(View.INVISIBLE);
                 mFlashButton.setVisibility(View.INVISIBLE);
                 mMuteButton.setVisibility(View.INVISIBLE);
