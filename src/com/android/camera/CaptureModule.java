@@ -665,6 +665,7 @@ public class CaptureModule implements CameraModule, PhotoController,
     private CaptureRequest.Builder mVideoRecordRequestBuilder;
     private CaptureRequest.Builder mVideoPreviewRequestBuilder;
     private Surface mVideoPreviewSurface;
+    private Surface mMediaRecorderSurface;
     private boolean mCameraModeSwitcherAllowed = true;
 
     private static final int STATS_DATA = 768;
@@ -1967,7 +1968,8 @@ public class CaptureModule implements CameraModule, PhotoController,
             }
             mVideoPreviewSurface = surface;
             mFrameProcessor.setOutputSurface(surface);
-            mFrameProcessor.setVideoOutputSurface(mMediaRecorder.getSurface());
+            mMediaRecorderSurface = mMediaRecorder.getSurface();
+            mFrameProcessor.setVideoOutputSurface(mMediaRecorderSurface);
             createVideoSnapshotImageReader();
             mVideoRecordRequestBuilder = mCameraDevice[cameraId].createCaptureRequest(CameraDevice.TEMPLATE_RECORD);
             mVideoRecordRequestBuilder.setTag(cameraId);
@@ -2129,7 +2131,7 @@ public class CaptureModule implements CameraModule, PhotoController,
         applyAERegions(mPreviewRequestBuilder[id], id);
         mPreviewRequestBuilder[id].setTag(id);
         try {
-            if (isSSMEnabled()) {
+            if (isSSMEnabled() && (mIsPreviewingVideo || mIsRecordingVideo)) {
                 mCaptureSession[id].setRepeatingBurst(createSSMBatchRequest(mVideoRecordRequestBuilder),
                         mCaptureCallback, mCameraHandler);
             } else if (mCaptureSession[id] instanceof CameraConstrainedHighSpeedCaptureSession) {
@@ -4997,13 +4999,12 @@ public class CaptureModule implements CameraModule, PhotoController,
 
     private List<CaptureRequest> createSSMBatchRequest(CaptureRequest.Builder requestBuilder) {
         List<CaptureRequest> ssmRequests = new ArrayList<CaptureRequest>();
-        Surface ssmVideoSurface = mMediaRecorder.getSurface();
         requestBuilder.removeTarget(mVideoPreviewSurface);
-        requestBuilder.removeTarget(ssmVideoSurface);
+        requestBuilder.removeTarget(mMediaRecorderSurface);
         requestBuilder.addTarget(mVideoPreviewSurface);
         ssmRequests.add(requestBuilder.build());
         requestBuilder.removeTarget(mVideoPreviewSurface);
-        requestBuilder.addTarget(ssmVideoSurface);
+        requestBuilder.addTarget(mMediaRecorderSurface);
         int mSSMBatchSize = CameraUtil.getHighSpeedVideoConfigsLists(getMainCameraId());
         if (DEBUG) {
             Log.d(TAG, "mSSMBatchSize is " + mSSMBatchSize);
@@ -5094,7 +5095,6 @@ public class CaptureModule implements CameraModule, PhotoController,
             Toast.makeText(mActivity, "Video Failed", Toast.LENGTH_SHORT).show();
         }
     };
-
 
     private void createCameraSessionWithSessionConfiguration(int cameraId,
                  List<OutputConfiguration> outConfigurations, CameraCaptureSession.StateCallback listener,
@@ -5730,6 +5730,7 @@ public class CaptureModule implements CameraModule, PhotoController,
                         mCurrentSession.capture(mVideoRecordRequestBuilder.build(), mCaptureCallback,
                                 mCameraHandler);
                     }
+                    Log.d(TAG, "Set endofstream TAG is done from APP");
                 }
                 if (!isStopRecord) {
                     //is pause record
@@ -5750,12 +5751,7 @@ public class CaptureModule implements CameraModule, PhotoController,
                             mCaptureCallback, mCameraHandler);
                 }
             }
-        } catch (CameraAccessException e) {
-            stopRecordingVideo(getMainCameraId());
-            e.printStackTrace();
-        } catch (IllegalStateException e) {
-            e.printStackTrace();
-        } catch (NullPointerException e) {
+        } catch (CameraAccessException | IllegalStateException | NullPointerException e) {
             e.printStackTrace();
         }
     }
@@ -7077,7 +7073,7 @@ public class CaptureModule implements CameraModule, PhotoController,
                     mAecFramecontrolLuxIndex = captureResult.get(aec_frame_control_lux_index);
                 }
                 result = true;
-            } catch (IllegalArgumentException e) {
+            } catch (IllegalArgumentException|NullPointerException e) {
                 mExistAECFrameControlTag = false;
                 e.printStackTrace();
             }
@@ -8155,7 +8151,8 @@ public class CaptureModule implements CameraModule, PhotoController,
     }
 
     public boolean isSSMEnabled() {
-        return mSuperSlomoCapture && (int)mHighSpeedFPSRange.getUpper() > NORMAL_SESSION_MAX_FPS;
+        return mSuperSlomoCapture && (int)mHighSpeedFPSRange.getUpper() > NORMAL_SESSION_MAX_FPS
+                && (mCurrentSceneMode.mode == CameraMode.HFR);
     }
 
     /**
