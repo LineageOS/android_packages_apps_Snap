@@ -804,14 +804,14 @@ public class SettingsActivity extends PreferenceActivity {
                 pref.setEntries(mSettingsManager.getEntries(key));
                 pref.setEntryValues(mSettingsManager.getEntryValues(key));
                 String values = mSettingsManager.getValue(key);
+                Set<String> valueSet = new HashSet<String>();
                 if (values != null) {
-                    Set<String> valueSet = new HashSet<String>();
                     String[] splitValues = values.split(";");
                     for (String str : splitValues) {
                         valueSet.add(str);
                     }
-                    pref.setValues(valueSet);
                 }
+                pref.setValues(valueSet);
             }
         }
     }
