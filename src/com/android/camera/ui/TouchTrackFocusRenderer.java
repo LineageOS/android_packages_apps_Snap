@@ -56,7 +56,7 @@ import com.android.camera.util.PersistUtil;
 import org.codeaurora.snapcam.R;
 import org.codeaurora.snapcam.wrapper.ExtendedFaceWrapper;
 
-public class TouchTrackFocusRenderer extends OverlayRenderer implements FocusIndicator {
+public class TouchTrackFocusRenderer extends View implements FocusIndicator {
     protected static final String TAG = "CAM_TouchTrackFocusRenderer";
     public static final boolean DEBUG =
             (PersistUtil.getCamera2Debug() == PersistUtil.CAMERA2_DEBUG_DUMP_LOG) ||
@@ -102,7 +102,11 @@ public class TouchTrackFocusRenderer extends OverlayRenderer implements FocusInd
 
     private static final int SIDE_LENGTH = 125;
 
-    public TouchTrackFocusRenderer(CameraActivity activity, CaptureModule module, CaptureUI ui) {
+    public TouchTrackFocusRenderer(Context context, AttributeSet attrs) {
+        super(context, attrs);
+    }
+
+    public void init(CameraActivity activity, CaptureModule module, CaptureUI ui) {
         mActivity = activity;
         mModule = module;
         mUI = ui;
@@ -115,9 +119,8 @@ public class TouchTrackFocusRenderer extends OverlayRenderer implements FocusInd
         mPaint.setStrokeCap(Paint.Cap.ROUND);
     }
 
-    @Override
     public void setVisible(boolean visible) {
-        super.setVisible(visible);
+        setVisibility(visible ? View.VISIBLE : View.GONE);
         if(!visible) {
             mStatus = STATUS_INIT;
             mInX = 0;
@@ -129,7 +132,6 @@ public class TouchTrackFocusRenderer extends OverlayRenderer implements FocusInd
         mSurfaceDim = new Rect(left, top, right, bottom);
     }
 
-    @Override
     public boolean handlesTouch() {
         return true;
     }
@@ -138,7 +140,7 @@ public class TouchTrackFocusRenderer extends OverlayRenderer implements FocusInd
         mInX = x;
         mInY = y;
         mStatus = STATUS_INPUT;
-        update();
+        invalidate();
     }
 
     public void updateTrackerRect(int[] rectInts, int trackerScore) {
@@ -167,7 +169,7 @@ public class TouchTrackFocusRenderer extends OverlayRenderer implements FocusInd
     private void putRegisteredCords() {
         mActivity.runOnUiThread(new Runnable() {
             public void run() {
-                update();
+                invalidate();
             }
         });
     }
@@ -182,9 +184,6 @@ public class TouchTrackFocusRenderer extends OverlayRenderer implements FocusInd
         int rw, rh;
         rw = mUncroppedWidth;
         rh = mUncroppedHeight;
-        if (DEBUG) {
-            Log.v(TAG, "onDraw mUncropped width x height:" + rw + " x " + rh);
-        }
         mRect.set(mRectActiveArray);
         if (((rh > rw) && ((mDisplayOrientation == 0) || (mDisplayOrientation == 180)))
                 || ((rw > rh) && ((mDisplayOrientation == 90) || (mDisplayOrientation == 270)))) {
@@ -192,10 +191,7 @@ public class TouchTrackFocusRenderer extends OverlayRenderer implements FocusInd
             rw = rh;
             rh = temp;
         }
-        if (DEBUG) {
-            Log.v(TAG, "onDraw mCameraBound w*h :" + mCameraBound.width() +
-                    "x" + mCameraBound.height());
-        }
+
         /*if (rw * mCameraBound.width() != mCameraBound.height() * rh) {
             if (rw == rh || (rh * 288 == rw * 352) || (rh * 480 == rw * 800)) {
                 rh = rw * mCameraBound.width() / mCameraBound.height();
@@ -204,34 +200,24 @@ public class TouchTrackFocusRenderer extends OverlayRenderer implements FocusInd
             }
         }*/
         CameraUtil.prepareMatrix(mMatrix, mMirror, mDisplayOrientation, rw, rh);
-        if (DEBUG) {
-            Log.d(TAG, "T2T renderer onDraw rw  :" + rw + " rh  " + rh + " mirror " +
-                    mMirror + " DisplayOrientation " + mDisplayOrientation);
-        }
+
         // mMatrix assumes that the face coordinates are from -1000 to 1000.
         // so translate the face coordination to match the assumption.
         Matrix translateMatrix = new Matrix();
         translateMatrix.preTranslate(-mCameraBound.width() / 2f, -mCameraBound.height() / 2f);
         translateMatrix.postScale(2000f / mCameraBound.width(), 2000f / mCameraBound.height());
+
         int dx = (getWidth() - rw) / 2;
         int dy = (getHeight() - rh) / 2;
-        if (DEBUG) {
-            Log.v(TAG, "onDraw width*height :" + getWidth() + " * " + getHeight());
-            Log.v(TAG, "onDraw rw " + rw + " rh " + rh);
-            Log.v(TAG, "onDraw dx " + dx + " dy " + dy);
-        }
         dx -= (rw - mUncroppedWidth) / 2;
         dy -= (rh - mUncroppedHeight) / 2;
-        if (DEBUG) {
-            Log.v(TAG, "onDraw dx * dy: " + dx + " * " + dy);
-            Log.v(TAG, "onDraw mOriginalCameraBound l:"  +mOriginalCameraBound.left +
-                    " t:" + mOriginalCameraBound.top);
-        }
-        // T2T indicator is directional. Rotate the matrix and the canvas
+
+        // Focus indicator is directional. Rotate the matrix and the canvas
         // so it looks correctly in all orientations.
         canvas.save();
         mMatrix.postRotate(mOrientation);
         canvas.rotate(-mOrientation);
+
         mRect.offset(-mOriginalCameraBound.left, -mOriginalCameraBound.top);
         if (mZoom != 1.0f) {
             mRect.left = mRect.left - mCameraBound.left;
