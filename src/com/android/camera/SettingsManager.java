@@ -53,6 +53,7 @@ import android.util.Size;
 import android.media.EncoderCapabilities;
 import android.media.EncoderCapabilities.VideoEncoderCap;
 
+import com.android.camera.app.CameraApp;
 import com.android.camera.imageprocessor.filter.BestpictureFilter;
 import com.android.camera.imageprocessor.filter.BlurbusterFilter;
 import com.android.camera.imageprocessor.filter.ChromaflashFilter;
@@ -2255,6 +2256,24 @@ public class SettingsManager implements ListMenu.SettingsListener {
         videoDuration.reloadInitialEntriesAndEntryValues();
         if (filterUnsupportedOptions(videoDuration, getSupportedVideoDurationFor480())) {
             mFilteredKeys.add(videoDuration.getKey());
+        }
+    }
+
+    public void filterPictureFormatByIntent(int captureMode){
+        ListPreference pictureFormat = mPreferenceGroup.findPreference(KEY_PICTURE_FORMAT);
+        if (pictureFormat != null){
+            if (captureMode != CaptureModule.INTENT_MODE_NORMAL) {
+                String[] formats = mContext.getResources().getStringArray(
+                        R.array.pref_camera2_picture_format_entryvalues);
+                List<String> avaliableFormat = new ArrayList<String>();
+                if (formats != null && formats[0] != null){
+                    avaliableFormat.add(formats[0]);
+                    if (filterUnsupportedOptions(pictureFormat,
+                            avaliableFormat)) {
+                        mFilteredKeys.add(pictureFormat.getKey());
+                    }
+                }
+            }
         }
     }
 
