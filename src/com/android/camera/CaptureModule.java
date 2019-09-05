@@ -5269,7 +5269,7 @@ public class CaptureModule implements CameraModule, PhotoController,
                     mUI.resetPauseButton();
                     mRecordingTotalTime = 0L;
                     mRecordingStartTime = SystemClock.uptimeMillis();
-                    if (mHighSpeedCapture) {
+                    if (isHighSpeedRateCapture()) {
                         mUI.enableShutter(false);
                     }
                     mUI.showRecordingUI(true, false);
@@ -6236,7 +6236,7 @@ public class CaptureModule implements CameraModule, PhotoController,
 
         if (mCurrentSceneMode.mode == CameraMode.HFR ||
                 mCurrentSceneMode.mode == CameraMode.VIDEO) {
-            if (!mHighSpeedCapture) {
+            if (!isHighSpeedRateCapture()) {
                 if (mUI.isShutterEnabled()) {
                     captureVideoSnapshot(getMainCameraId());
                 }
