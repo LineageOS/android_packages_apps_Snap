@@ -6672,6 +6672,7 @@ public class CaptureModule implements CameraModule, PhotoController,
             int colorTempValue = Integer.parseInt(pref.getString(
                     SettingsManager.KEY_MANUAL_WB_TEMPERATURE_VALUE, "-1"));
             if (colorTempValue != -1) {
+                request.set(CaptureRequest.CONTROL_AWB_MODE, CaptureRequest.CONTROL_AWB_MODE_OFF);
                 VendorTagUtil.setWbColorTemperatureValue(request, colorTempValue);
             }
         } else if (manualWBMode.equals(gainMode)) {
