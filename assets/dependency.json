@@ -156,8 +156,7 @@
   },
   "pref_camera2_capture_mfnr_key":
   {
-    "1":{"pref_camera2_zsl_key":"disable",
-         "pref_camera2_longshot_key":"off",
+    "1":{"pref_camera2_longshot_key":"off",
          "pref_camera2_manual_exp_key":"off",
          "pref_camera2_selfiemirror_key":"off"},
     "0":{}

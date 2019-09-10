@@ -78,6 +78,7 @@ import android.text.InputType;
 
 import org.codeaurora.snapcam.R;
 import com.android.camera.util.CameraUtil;
+import com.android.camera.CaptureModule.CameraMode;
 import com.android.camera.ui.RotateTextToast;
 import com.android.camera.util.PersistUtil;
 
@@ -180,21 +181,62 @@ public class SettingsActivity extends PreferenceActivity {
                         pref.getKey().equals(SettingsManager.KEY_PICTURE_FORMAT))) {
                     updateFormatPreference();
                 }
+
+                if(pref.getKey().equals(SettingsManager.KEY_CAPTURE_MFNR_VALUE)) {
+                    updateZslPreference();
+                }
             }
         }
     };
 
+    private boolean isMFNREnabled() {
+        boolean mfnrEnable = false;
+        String mfnrValue = mSettingsManager.getValue(SettingsManager.KEY_CAPTURE_MFNR_VALUE);
+        if (mfnrValue != null) {
+            mfnrEnable = mfnrValue.equals("1");
+        }
+        return mfnrEnable;
+    }
+
+    private void updateZslPreference() {
+        ListPreference ZSLPref = (ListPreference) findPreference(SettingsManager.KEY_ZSL);
+        List<String> key_zsl = new ArrayList<String>(Arrays.asList("Off", "HAL-ZSL" ));
+        List<String> value_zsl = new ArrayList<String>(Arrays.asList( "disable", "hal-zsl"));
+
+        if (ZSLPref != null) {
+            if (!isMFNREnabled()) {
+                key_zsl.add("APP-ZSL");
+                value_zsl.add("app-zsl");
+            }
+            ZSLPref.setEntries(key_zsl.toArray(new CharSequence[key_zsl.size()]));
+            ZSLPref.setEntryValues(value_zsl.toArray(new CharSequence[value_zsl.size()]));
+            int idx = ZSLPref.findIndexOfValue(ZSLPref.getValue());;
+            if (idx < 0 ) {
+                idx = 0;
+            }
+            ZSLPref.setValueIndex(idx);
+        }
+    }
+
     private void updateFormatPreference() {
         ListPreference formatPref = (ListPreference)findPreference(SettingsManager.KEY_PICTURE_FORMAT);
         ListPreference ZSLPref = (ListPreference) findPreference(SettingsManager.KEY_ZSL);
+        ListPreference mfnrPref = (ListPreference) findPreference(SettingsManager.KEY_CAPTURE_MFNR_VALUE);
+
         if (formatPref == null || ZSLPref ==null) {
             return;
         }
         if("app-zsl".equals(ZSLPref.getValue())){
             formatPref.setValue("0");
             formatPref.setEnabled(false);
+            if (mfnrPref != null) {
+                mfnrPref.setEnabled(false);
+            }
         } else {
             formatPref.setEnabled(true);
+            if (mfnrPref != null) {
+                mfnrPref.setEnabled(true);
+            }
         }
     }
 
@@ -716,6 +758,7 @@ public class SettingsActivity extends PreferenceActivity {
                 add(SettingsManager.KEY_FACE_DETECTION_MODE);
                 add(SettingsManager.KEY_BSGC_DETECTION);
                 add(SettingsManager.KEY_FACIAL_CONTOUR);
+                add(SettingsManager.KEY_ZSL);
             }
         };
         final ArrayList<String> proModeOnlyList = new ArrayList<String>() {
@@ -908,6 +951,7 @@ public class SettingsActivity extends PreferenceActivity {
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
         }
+        updateZslPreference();
     }
 
     private void updateVideoHDRPreference() {
