@@ -1670,10 +1670,26 @@ public class SettingsManager implements ListMenu.SettingsListener {
             res.add(getSupportedQcfaDimension(cameraId));
         }
 
+        VideoCapabilities heifCap = null;
+        if (isHeifEnabled) {
+            MediaCodecList list = new MediaCodecList(MediaCodecList.REGULAR_CODECS);
+            for (MediaCodecInfo info :list.getCodecInfos()) {
+                if (info.isEncoder() && info.getName().contains("heic")){
+                    heifCap = info.getCapabilitiesForType(
+                            MediaFormat.MIMETYPE_IMAGE_ANDROID_HEIC).getVideoCapabilities();
+                    Log.d(TAG,"supported heif height range ="+heifCap.getSupportedHeights().toString() +
+                            " width range ="+heifCap.getSupportedWidths().toString());
+                }
+            }
+        }
+
         if (sizes != null) {
             for (int i = 0; i < sizes.length; i++) {
-                if (isHeifEnabled && (Math.min(sizes[i].getWidth(),sizes[i].getHeight()) < 512)) {
-                    continue;
+                if (isHeifEnabled && heifCap != null ){
+                    if (!heifCap.getSupportedWidths().contains(sizes[i].getWidth()) ||
+                        !heifCap.getSupportedHeights().contains(sizes[i].getHeight())){
+                        continue;
+                    }
                 }
                 if (isDeepportrait &&
                         (Math.min(sizes[i].getWidth(),sizes[i].getHeight()) < 720 ||
@@ -1686,8 +1702,15 @@ public class SettingsManager implements ListMenu.SettingsListener {
         }
 
         Size[] highResSizes = map.getHighResolutionOutputSizes(ImageFormat.JPEG);
+
         if (highResSizes != null) {
             for (int i = 0; i < highResSizes.length; i++) {
+                if (isHeifEnabled && heifCap != null) {
+                    if (!heifCap.getSupportedWidths().contains(highResSizes[i].getWidth()) ||
+                            !heifCap.getSupportedHeights().contains(highResSizes[i].getHeight())){
+                        continue;
+                    }
+                }
                 res.add(highResSizes[i].toString());
             }
         }
@@ -1735,10 +1758,25 @@ public class SettingsManager implements ListMenu.SettingsListener {
                 CameraCharacteristics.SCALER_STREAM_CONFIGURATION_MAP);
         Size[] sizes = map.getOutputSizes(MediaRecorder.class);
         boolean isHeifEnabled = getSavePictureFormat() == HEIF_FORMAT;
+        VideoCapabilities heifCap = null;
+        if (isHeifEnabled) {
+            MediaCodecList list = new MediaCodecList(MediaCodecList.REGULAR_CODECS);
+            for (MediaCodecInfo info :list.getCodecInfos()) {
+                if (info.isEncoder() && info.getName().contains("heic")){
+                    heifCap = info.getCapabilitiesForType(
+                            MediaFormat.MIMETYPE_IMAGE_ANDROID_HEIC).getVideoCapabilities();
+                    Log.d(TAG,"supported heif height range ="+heifCap.getSupportedHeights().toString() +
+                            " width range ="+heifCap.getSupportedWidths().toString());
+                }
+            }
+        }
         List<String> res = new ArrayList<>();
         for (int i = 0; i < sizes.length; i++) {
-            if (isHeifEnabled && (Math.min(sizes[i].getWidth(),sizes[i].getHeight()) < 512)) {
-                continue;
+            if (isHeifEnabled && heifCap != null ){
+                if (!heifCap.getSupportedWidths().contains(sizes[i].getWidth()) ||
+                        !heifCap.getSupportedHeights().contains(sizes[i].getHeight())){
+                    continue;
+                }
             }
             if (CameraSettings.VIDEO_QUALITY_TABLE.containsKey(sizes[i].toString())) {
                 Integer profile = CameraSettings.VIDEO_QUALITY_TABLE.get(sizes[i].toString());
