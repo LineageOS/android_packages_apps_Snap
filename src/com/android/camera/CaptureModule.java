@@ -951,6 +951,9 @@ public class CaptureModule implements CameraModule, PhotoController,
                     SettingsManager.KEY_STATS_VISUALIZER_VALUE);
             if (stats_visualizer != null) {
                 updateStatsView(stats_visualizer,result);
+            } else {
+                mUI.updateAWBInfoVisibility(View.GONE);
+                mUI.updateAECInfoVisibility(View.GONE);
             }
         }
     };
