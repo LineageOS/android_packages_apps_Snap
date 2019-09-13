@@ -341,6 +341,14 @@ public class CaptureModule implements CameraModule, PhotoController,
         new CaptureResult.Key<>("org.codeaurora.qcamera3.bayer_exposure.height", int.class);
     public static CaptureResult.Key<Integer> beWidth =
         new CaptureResult.Key<>("org.codeaurora.qcamera3.bayer_exposure.width", int.class);
+    public static CaptureResult.Key<Float> roiBeX =
+        new CaptureResult.Key<>("org.codeaurora.qcamera3.bayer_exposure.roi_be_x", Float.class);
+    public static CaptureResult.Key<Float> roiBeY =
+        new CaptureResult.Key<>("org.codeaurora.qcamera3.bayer_exposure.roi_be_y", Float.class);
+    public static CaptureResult.Key<Float> roiBeWidth =
+        new CaptureResult.Key<>("org.codeaurora.qcamera3.bayer_exposure.roi_be_width", Float.class);
+    public static CaptureResult.Key<Float> roiBeHeight =
+        new CaptureResult.Key<>("org.codeaurora.qcamera3.bayer_exposure.roi_be_height", Float.class);
 
     public static CaptureResult.Key<Byte> isHdr =
             new CaptureResult.Key<>("org.codeaurora.qcamera3.stats.is_hdr_scene", Byte.class);
@@ -1066,17 +1074,14 @@ public class CaptureModule implements CameraModule, PhotoController,
                     System.arraycopy(bgGStats, 0, bg_g_statsdata, 0, BGSTATS_DATA);
                     System.arraycopy(bgBStats, 0, bg_b_statsdata, 0, BGSTATS_DATA);
 
-                    for (int el = 0; el < 3072; el++)
-                    {
+                    for (int el = 0; el < 3072; el++) {
                         r = bg_r_statsdata[el] >> 6;
                         g = bg_g_statsdata[el] >> 6;
                         b = bg_b_statsdata[el] >> 6;
 
-                        for (int hi = 0; hi < 10; hi++)
-                        {
-                            for (int wi = 0; wi < 10; wi++)
-                            {
-                                index               = 10*(int)(el/64) + 48*10*hi + 48*10*10*(el%64) + wi;
+                        for (int hi = 0; hi < 10; hi++) {
+                            for (int wi = 0; wi < 10; wi++) {
+                                index = 10 * (int) (el / 64) + 48 * 10 * hi + 48 * 10 * 10 * (el % 64) + wi;
                                 bg_statsdata[index] = Color.argb(255, r, g, b);
                             }
                         }
@@ -1091,12 +1096,21 @@ public class CaptureModule implements CameraModule, PhotoController,
             int[] beRStats = null;
             int[] beGStats = null;
             int[] beBStats = null;
-            try{
+            float norm_roi_x = 0.0f;
+            float norm_roi_y = 0.0f;
+            float norm_roi_dx = 0.0f;
+            float norm_roi_dy = 0.0f;
+            try {
                 beRStats = result.get(CaptureModule.beRStats);
                 beGStats = result.get(CaptureModule.beGStats);
                 beBStats = result.get(CaptureModule.beBStats);
-            }catch (IllegalArgumentException e) {
-                e.printStackTrace();
+
+                norm_roi_x = result.get(CaptureModule.roiBeX);
+                norm_roi_y = result.get(CaptureModule.roiBeY);
+                norm_roi_dx = result.get(CaptureModule.roiBeWidth);
+                norm_roi_dy = result.get(CaptureModule.roiBeHeight);
+            } catch (IllegalArgumentException e) {
+                Log.e(TAG, "there is no vendor roiBeX/roiBeY/roiBeWidth/roiBeHeight");
             }
 
             if (beRStats != null && beGStats != null && beBStats != null && mBEStatson) {
@@ -1105,18 +1119,28 @@ public class CaptureModule implements CameraModule, PhotoController,
                     System.arraycopy(beGStats, 0, be_g_statsdata, 0, BESTATS_DATA);
                     System.arraycopy(beBStats, 0, be_b_statsdata, 0, BESTATS_DATA);
 
-                    for (int el = 0; el < 3072; el++)
-                    {
+                    int roi_x = (int)(norm_roi_x * 64.0f);
+                    int roi_y = (int)(norm_roi_y * 48.0f);
+                    int roi_w = (int)((norm_roi_x + norm_roi_dx) * 64.0f);
+                    int roi_h = (int)((norm_roi_y + norm_roi_dy) * 48.0f);
+
+                    for (int el = 0; el < 3072; el++) {
                         r = be_r_statsdata[el] >> 6;
                         g = be_g_statsdata[el] >> 6;
                         b = be_b_statsdata[el] >> 6;
 
-                        for (int hi = 0; hi < 10; hi++)
-                        {
-                            for (int wi = 0; wi < 10; wi++)
-                            {
-                                index               = 10*(int)(el/64) + 48*10*hi + 48*10*10*(el%64) + wi;
+                        for (int hi = 0; hi < 10; hi++) {
+                            for (int wi = 0; wi < 10; wi++) {
+                                index = 10 * (int) (el / 64) + 48 * 10 * hi + 48 * 10 * 10 * (el % 64) + wi;
                                 be_statsdata[index] = Color.argb(255, r, g, b);
+                                if (roi_w > 0 && roi_h > 0 &&
+                                        ((el % 64 == roi_x && el / 64 >= roi_y && el / 64 <= roi_h)
+                                                || (el % 64 == roi_w && el / 64 >= roi_y && el / 64 <= roi_h) ||
+                                                (el / 64 == roi_y && el % 64 >= roi_x && el % 64 <= roi_w) ||
+                                                (el / 64 == roi_h && el % 64 >= roi_x && el % 64 <= roi_w))) {
+                                    // red color for ROI border
+                                    be_statsdata[index] = Color.argb(255, 255, 0, 0);
+                                }
                             }
                         }
                     }
