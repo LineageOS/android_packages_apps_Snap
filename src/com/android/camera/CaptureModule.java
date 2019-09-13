@@ -4989,6 +4989,7 @@ public class CaptureModule implements CameraModule, PhotoController,
         int zoom = Integer.parseInt(zoomStr);
         if ( zoom !=0 ) {
             mZoomValue = (float)zoom;
+            mUI.updateZoomSeekBar(mZoomValue);
         }else{
             mZoomValue = 1.0f;
         }

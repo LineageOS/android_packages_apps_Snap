@@ -960,7 +960,10 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
 
         Float zoomMax = mSettingsManager.getMaxZoom(id);
         mZoomRenderer.setZoomMax(zoomMax);
-        mZoomRenderer.setZoom(1f);
+        String zoomStr = mSettingsManager.getValue(SettingsManager.KEY_ZOOM);
+        int zoom = Integer.parseInt(zoomStr);
+
+        mZoomRenderer.setZoom(zoom > 1 ? zoom : 1f);
         mZoomRenderer.setOnZoomChangeListener(new ZoomChangeListener());
     }
 
