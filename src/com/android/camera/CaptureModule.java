@@ -3655,6 +3655,8 @@ public class CaptureModule implements CameraModule, PhotoController,
             throw new RuntimeException("Interrupted while trying to lock camera closing.", e);
         } catch (CameraAccessException e) {
             e.printStackTrace();
+        } catch (IllegalStateException e) {
+            e.printStackTrace();
         } finally {
             mCurrentSessionClosed = true;
             mCameraOpenCloseLock.release();
