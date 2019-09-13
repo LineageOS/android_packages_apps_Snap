@@ -3379,8 +3379,16 @@ public class CaptureModule implements CameraModule, PhotoController,
                         byte[] bytes = new byte[buffer.remaining()];
                         buffer.get(bytes);
 
-                        ExifInterface exif = Exif.getExif(bytes);
-                        int orientation = Exif.getOrientation(exif);
+                        int orientation = 0;
+                        ExifInterface exif = null;
+                        if (image.getFormat() != ImageFormat.HEIC){
+                            exif = Exif.getExif(bytes);
+                            orientation = Exif.getOrientation(exif);
+                        } else {
+                            orientation = CameraUtil.getJpegRotation(getMainCameraId(),mOrientation);
+                        }
+
+
 
                         String saveFormat = image.getFormat() == ImageFormat.HEIC? "heic" : "jpeg";
 
@@ -3388,7 +3396,9 @@ public class CaptureModule implements CameraModule, PhotoController,
                                 null, image.getWidth(), image.getHeight(), orientation, exif,
                                 mOnMediaSavedListener, mContentResolver, saveFormat);
 
-                        mActivity.updateThumbnail(bytes);
+                        if (image.getFormat() != ImageFormat.HEIC){
+                            mActivity.updateThumbnail(bytes);
+                        }
                         image.close();
                     }
                 }, mImageAvailableHandler);
