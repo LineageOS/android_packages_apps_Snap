@@ -4731,6 +4731,10 @@ public class CaptureModule implements CameraModule, PhotoController,
 
     @Override
     public void setPreferenceForTest(String key, String value) {
+        if (SettingsManager.KEY_ZOOM.equals(key)){
+            onZoomChanged(Float.parseFloat(value));
+            return;
+        }
         mSettingsManager.setValue(key, value);
     }
 
