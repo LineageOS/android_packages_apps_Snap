@@ -5598,6 +5598,10 @@ public class CaptureModule implements CameraModule, PhotoController,
                         (CameraConstrainedHighSpeedCaptureSession) mCurrentSession;
                 List requestList = session.createHighSpeedRequestList(captureRequest);
                 session.setRepeatingBurst(requestList, mCaptureCallback, mCameraHandler);
+            } else if (isSSMEnabled()) {
+                mCurrentSession.setRepeatingBurst(createSSMBatchRequest(mIsRecordingVideo ?
+                                mVideoRecordRequestBuilder : mVideoPreviewRequestBuilder),
+                                mCaptureCallback, mCameraHandler);
             } else {
                 mCurrentSession.setRepeatingRequest(captureRequest, mCaptureCallback,
                         mCameraHandler);
@@ -6839,6 +6843,9 @@ public class CaptureModule implements CameraModule, PhotoController,
                             .createHighSpeedRequestList(mPreviewRequestBuilder[id].build());
                     ((CameraConstrainedHighSpeedCaptureSession) session).setRepeatingBurst(list
                             , mCaptureCallback, mCameraHandler);
+                } else if (isSSMEnabled()) {
+                    session.setRepeatingBurst(createSSMBatchRequest(mPreviewRequestBuilder[id]),
+                            mCaptureCallback, mCameraHandler);
                 } else {
                     mCaptureSession[id].setRepeatingRequest(mPreviewRequestBuilder[id]
                             .build(), mCaptureCallback, mCameraHandler);
@@ -7717,6 +7724,9 @@ public class CaptureModule implements CameraModule, PhotoController,
                                         mPreviewRequestBuilder[cameraId].build());
                         mCaptureSession[cameraId].setRepeatingBurst(list, mCaptureCallback,
                                 mCameraHandler);
+                    } else if (isSSMEnabled()) {
+                        mCaptureSession[cameraId].setRepeatingBurst(createSSMBatchRequest(
+                                mPreviewRequestBuilder[cameraId]), mCaptureCallback, mCameraHandler);
                     } else {
                         mCaptureSession[cameraId].setRepeatingRequest(mPreviewRequestBuilder[cameraId]
                                 .build(), mCaptureCallback, mCameraHandler);
