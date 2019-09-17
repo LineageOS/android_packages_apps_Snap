@@ -166,5 +166,18 @@
   {
     "enable":{"pref_camera2_longshot_key":"off"},
     "disable":{}
+  },
+  "pref_camera2_hfr_key":
+  {
+    "hfr90":{"pref_camera2_dis_key":"off"},
+    "hfr120":{"pref_camera2_dis_key":"off"},
+    "hfr240":{"pref_camera2_dis_key":"off"},
+    "hfr480":{"pref_camera2_dis_key":"off"},
+    "hfr960":{"pref_camera2_dis_key":"off"},
+    "hsr90":{"pref_camera2_dis_key":"off"},
+    "hsr120":{"pref_camera2_dis_key":"off"},
+    "hsr240":{"pref_camera2_dis_key":"off"},
+    "hsr480":{"pref_camera2_dis_key":"off"},
+    "hsr960":{"pref_camera2_dis_key":"off"}
   }
 }

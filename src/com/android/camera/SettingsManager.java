@@ -623,21 +623,30 @@ public class SettingsManager implements ListMenu.SettingsListener {
         JSONObject dependencyList = getDependencyList(changedPrefKey, value);
         JSONObject originalDependencyList = getDependencyList(changedPrefKey, prevValue);
 
-        Iterator<String> it = originalDependencyList.keys();
-        while (it.hasNext()) {
-            turnOn.add(it.next());
+        Iterator<String> it = null;
+        if (originalDependencyList != null) {
+            it = originalDependencyList.keys();
+            while (it != null && it.hasNext()) {
+                turnOn.add(it.next());
+            }
         }
-        it = dependencyList.keys();
-        while (it.hasNext()) {
-            turnOff.add(it.next());
+        if (dependencyList != null) {
+            it = dependencyList.keys();
+            while (it != null && it.hasNext()) {
+                turnOff.add(it.next());
+            }
         }
-        it = originalDependencyList.keys();
-        while (it.hasNext()) {
-            turnOff.remove(it.next());
+        if (originalDependencyList != null) {
+            it = originalDependencyList.keys();
+            while (it != null && it.hasNext()) {
+                turnOff.remove(it.next());
+            }
         }
-        it = dependencyList.keys();
-        while (it.hasNext()) {
-            turnOn.remove(it.next());
+        if (dependencyList != null) {
+            it = dependencyList.keys();
+            while (it != null && it.hasNext()) {
+                turnOn.remove(it.next());
+            }
         }
 
         for (String keyToTurnOn: turnOn) {
