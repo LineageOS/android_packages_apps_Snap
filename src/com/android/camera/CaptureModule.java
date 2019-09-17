@@ -1831,6 +1831,7 @@ public class CaptureModule implements CameraModule, PhotoController,
                             } catch (IllegalArgumentException e) {
                                 e.printStackTrace();
                             }
+                            mCurrentSessionClosed = false;
                         }
 
                         @Override
@@ -2050,7 +2051,6 @@ public class CaptureModule implements CameraModule, PhotoController,
                                                 + e.getMessage());
                                         e.printStackTrace();
                                     }
-
                                 }
 
                                 @Override
@@ -2094,6 +2094,7 @@ public class CaptureModule implements CameraModule, PhotoController,
             e.printStackTrace();
             quitVideoToPhotoWithError(e.getMessage());
         }
+        mCurrentSessionClosed = false;
     }
 
     private int getSensorTableHFRRange() {
@@ -5939,7 +5940,7 @@ public class CaptureModule implements CameraModule, PhotoController,
     }
 
     private void closePreviewSession() {
-        Log.d(TAG, "closePreviewSession");
+        Log.d(TAG, "closePreviewSession: currentsession:" +mCurrentSession + ",currentclosed:" + mCurrentSessionClosed );
         if (mCurrentSession == null || mCurrentSessionClosed) {
             return;
         }
@@ -5961,7 +5962,8 @@ public class CaptureModule implements CameraModule, PhotoController,
         } catch (CameraAccessException e) {
             e.printStackTrace();
         }
-        mCurrentSession.close();
+        //if have this, video switch to photo, photo will have no preview
+        //mCurrentSession.close();
         mCurrentSessionClosed = true;
         mCurrentSession = null;
     }
