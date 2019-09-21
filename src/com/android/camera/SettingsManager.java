@@ -102,6 +102,8 @@ public class SettingsManager implements ListMenu.SettingsListener {
 
     public static final int TALOS_SOCID = 355;
     public static final int MOOREA_SOCID = 365;
+    public static final int SAIPAN_SOCID = 400;
+    public static final int SM6250_SOCID = 407;
 
     // Custom-Scenemodes start from 100
     public static final int SCENE_MODE_CUSTOM_START = 100;
