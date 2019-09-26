@@ -1972,7 +1972,6 @@ public class CaptureModule implements CameraModule, PhotoController,
             mActivity.runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    mUI.setPreviewSize(mVideoPreviewSize.getWidth(), mVideoPreviewSize.getHeight());
                     mUI.resetTrackingFocus();
                 }
             });
@@ -4089,10 +4088,8 @@ public class CaptureModule implements CameraModule, PhotoController,
             height = previewSize.y;
         }
 
-        Log.d(TAG, "updatePreviewSize final preview size = " + width + ", " + height);
-
         mPreviewSize = new Size(width, height);
-        if (mCurrentSceneMode.mode == CameraMode.VIDEO) {
+        if (mCurrentSceneMode.mode == CameraMode.VIDEO || mCurrentSceneMode.mode == CameraMode.HFR) {
             mUI.setPreviewSize(mVideoPreviewSize.getWidth(), mVideoPreviewSize.getHeight());
         } else if (!mDeepPortraitMode) {
             mUI.setPreviewSize(mPreviewSize.getWidth(), mPreviewSize.getHeight());
@@ -4942,8 +4939,7 @@ public class CaptureModule implements CameraModule, PhotoController,
             mVideoSize = new Size(videoSize2.x, videoSize2.y);
         }
         if (DEBUG) {
-            Log.v(TAG, "updateVideoSize mVideoSize = " + mVideoSize +
-                    ", videoSize :" + videoSize);
+            Log.v(TAG, "updateVideoSize mVideoSize = " + mVideoSize + ", videoSize :" + videoSize);
         }
         Size[] prevSizes = mSettingsManager.getSupportedOutputSize(getMainCameraId(),
                 MediaRecorder.class);
