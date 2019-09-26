@@ -2059,6 +2059,14 @@ public class CaptureModule implements CameraModule, PhotoController,
                     mUI.resetTrackingFocus();
                 }
             });
+
+            try {
+                waitForPreviewSurfaceReady();
+            } catch (RuntimeException e) {
+                Log.v(TAG, "createSessionForVideo: normal status occur " +
+                        "Time out waiting for surface ");
+            }
+
             List<Surface> surfaces = new ArrayList<>();
             Surface surface = getPreviewSurfaceForSession(cameraId);
             mFrameProcessor.onOpen(getFrameProcFilterId(), mVideoSize);
