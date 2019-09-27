@@ -701,7 +701,6 @@ public class SettingsActivity extends PreferenceActivity {
                 add(SettingsManager.KEY_ANTI_BANDING_LEVEL);
                 add(SettingsManager.KEY_STATS_VISUALIZER_VALUE);
                 add(SettingsManager.KEY_SAVERAW);
-                add(SettingsManager.KEY_HDR);
                 add(SettingsManager.KEY_AUTO_HDR);
                 add(SettingsManager.KEY_MANUAL_EXPOSURE);
                 add(SettingsManager.KEY_SHARPNESS_CONTROL_MODE);
@@ -785,7 +784,9 @@ public class SettingsActivity extends PreferenceActivity {
             case SAT:
                 removePreferenceGroup("video", parentPre);
                 if (mDeveloperMenuEnabled) {
-                    addDeveloperOptions(developer, multiCameraSettingList);
+                    ArrayList<String> SATList = new ArrayList<>(multiCameraSettingList);
+                    SATList.add(SettingsManager.KEY_HDR);
+                    addDeveloperOptions(developer, SATList);
                 }
                 break;
             case PRO_MODE:
