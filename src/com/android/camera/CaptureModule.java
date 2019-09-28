@@ -2090,7 +2090,7 @@ public class CaptureModule implements CameraModule, PhotoController,
                     }
                 }
             }
-        } catch (CameraAccessException | IOException | IllegalArgumentException e) {
+        } catch (CameraAccessException | IOException | IllegalArgumentException | NullPointerException | IllegalStateException e) {
             e.printStackTrace();
             quitVideoToPhotoWithError(e.getMessage());
         }
@@ -4207,7 +4207,9 @@ public class CaptureModule implements CameraModule, PhotoController,
         msg.what = OPEN_CAMERA;
         msg.arg1 = mCurrentSceneMode.getCurrentId();
         Log.d(TAG,"open is "+msg.arg1);
-        mCameraHandler.sendMessage(msg);
+        if (mCameraHandler != null) {
+            mCameraHandler.sendMessage(msg);
+        }
         if (mDeepPortraitMode) {
             mUI.startDeepPortraitMode(mPreviewSize);
             if (mUI.getGLCameraPreview() != null) {
