@@ -324,6 +324,8 @@ public class PhotoModule
                     : null;
 
     private final CameraErrorCallback mErrorCallback = new CameraErrorCallback();
+    private final StatsCallback mStatsCallback = new StatsCallback();
+    private final MetaDataCallback mMetaDataCallback = new MetaDataCallback();
     private long mFocusStartTime;
     private long mShutterCallbackTime;
     private long mPostViewPictureCallbackTime;
@@ -1142,6 +1144,69 @@ public class PhotoModule
             }
         }
     }
+    private final class StatsCallback
+           implements android.hardware.Camera.CameraDataCallback {
+            @Override
+        public void onCameraData(int [] data, android.hardware.Camera camera) {
+            //if(!mPreviewing || !mHiston || !mFirstTimeInitialized){
+            if(!mHiston || !mFirstTimeInitialized){
+                return;
+            }
+            /*The first element in the array stores max hist value . Stats data begin from second value*/
+            synchronized(statsdata) {
+                System.arraycopy(data,0,statsdata,0,STATS_DATA);
+            }
+            mActivity.runOnUiThread(new Runnable() {
+                public void run() {
+                    if(mGraphView != null)
+                        mGraphView.PreviewChanged();
+                }
+           });
+        }
+    }
+
+    private final class MetaDataCallback
+           implements android.hardware.Camera.CameraMetaDataCallback{
+        @Override
+        public void onCameraMetaData (byte[] data, android.hardware.Camera camera) {
+            int metadata[] = new int[3];
+            if (data.length >= 12) {
+                for (int i =0;i<3;i++) {
+                    metadata[i] = byteToInt( (byte []) data, i*4);
+                }
+                /* Checking if the meta data is for auto HDR */
+                if (metadata[0] == 3) {
+                    if (metadata[2] == 1) {
+                        mAutoHdrEnable = true;
+                        mActivity.runOnUiThread(new Runnable() {
+                            public void run() {
+                                if (mDrawAutoHDR != null)
+                                    mDrawAutoHDR.AutoHDR();
+                            }
+                        });
+                    }
+                    else {
+                        mAutoHdrEnable = false;
+                        mActivity.runOnUiThread(new Runnable() {
+                            public void run() {
+                                if (mDrawAutoHDR != null)
+                                    mDrawAutoHDR.AutoHDR();
+                            }
+                        });
+                    }
+                }
+            }
+        }
+
+        private int byteToInt (byte[] b, int offset) {
+            int value = 0;
+            for (int i = 0; i < 4; i++) {
+                int shift = (4 - 1 - i) * 8;
+                value += (b[(3-i) + offset] & 0x000000FF) << shift;
+            }
+            return value;
+        }
+    }
 
     private final class PostViewPictureCallback
             implements CameraPictureCallback {
@@ -1641,6 +1706,7 @@ public class PhotoModule
         if(mHiston) {
             if (mSnapshotMode != CameraInfoWrapper.CAMERA_SUPPORT_MODE_ZSL) {
                 mHiston = false;
+                mCameraDevice.setHistogramMode(null);
             }
             mActivity.runOnUiThread(new Runnable() {
                 public void run() {
@@ -3513,6 +3579,7 @@ public class PhotoModule
                     }
                 });
                 mParameters.setSceneMode("asd");
+                mCameraDevice.setMetadataCb(mMetaDataCallback);
             }
             else {
                 mAutoHdrEnable = false;
@@ -3614,6 +3681,7 @@ public class PhotoModule
                         }
                     }
                 });
+                mCameraDevice.setHistogramMode(mStatsCallback);
                 mHiston = true;
             } else {
                 mHiston = false;
@@ -3623,6 +3691,7 @@ public class PhotoModule
                              mGraphView.setVisibility(View.INVISIBLE);
                          }
                     });
+                mCameraDevice.setHistogramMode(null);
             }
         }
 
