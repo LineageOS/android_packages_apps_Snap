@@ -46,9 +46,45 @@ import android.hardware.Camera.ShutterCallback;
 import android.util.Log;
 import android.view.SurfaceHolder;
 
+import android.hardware.Camera.CameraMetaDataCallback;
+import android.hardware.Camera.CameraDataCallback;
+
 public class CameraWrapper extends Wrapper{
 
     private static Method method_setMetadataCb = null;
+    public static final void setMetadataCb(Camera camera, CameraMetaDataCallback cb){
+        if ( DEBUG ){
+            Log.e(TAG, "" + Camera.class + " no setMetadataCb");
+            return;
+        }
+        try{
+            if ( method_setMetadataCb == null ){
+                method_setMetadataCb = Camera.class.getMethod("setMetadataCb",
+                        android.hardware.Camera.CameraMetaDataCallback.class);
+            }
+            method_setMetadataCb.invoke(camera, cb);
+        }catch (Exception exception){
+            exception.printStackTrace();
+        }
+    }
+
+
+    private static Method method_setHistogramMode = null;
+    public static final void setHistogramMode(Camera camera, CameraDataCallback cb) {
+        if ( DEBUG ){
+            Log.e(TAG, "" + Camera.class + " no setHistogramMode");
+            return;
+        }
+        try{
+            if ( method_setHistogramMode == null ){
+                method_setHistogramMode = Camera.class.getMethod("setHistogramMode",
+                        CameraDataCallback.class);
+            }
+            method_setHistogramMode.invoke(camera, cb);
+        }catch (Exception exception){
+            exception.printStackTrace();
+        }
+    }
 
     private static Method method_sendHistogramData = null;
     public static final void sendHistogramData(Camera camera){
