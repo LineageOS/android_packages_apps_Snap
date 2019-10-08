@@ -2254,11 +2254,13 @@ public class PhotoModule
 
         int[] iconIds = new int[numOfCams];
         String[] entries = new String[numOfCams];
+        String[] values = new String[numOfCams];
         String[] labels = new String[numOfCams];
         int[] largeIconIds = new int[numOfCams];
 
         for(int i=0;i<numOfCams;i++) {
             CameraHolder.CameraInfo info = CameraHolder.instance().getCameraInfo()[i];
+            values[i] = Integer.toString(i);
             if(info.facing == CameraHolder.CameraInfo.CAMERA_FACING_BACK) {
                 iconIds[i] = R.drawable.ic_switch_back;
                 entries[i] = mActivity.getResources().getString(R.string.pref_camera_id_entry_back);
@@ -2274,6 +2276,7 @@ public class PhotoModule
 
         switchIconPref.setIconIds(iconIds);
         switchIconPref.setEntries(entries);
+        switchIconPref.setEntryValues(values);
         switchIconPref.setLabels(labels);
         switchIconPref.setLargeIconIds(largeIconIds);
 
