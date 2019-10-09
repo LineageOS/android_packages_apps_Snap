@@ -287,6 +287,13 @@ public class Storage {
             } else {
                 return DIRECTORY + '/' + title + suffix;
             }
+        } else if (pictureFormat.equalsIgnoreCase("yuv")){
+            String suffix = ".yuv";
+            if (isSaveSDCard() && SDCard.instance().isWriteable()) {
+                return SDCard.instance().getDirectory() + '/' + title + suffix;
+            } else {
+                return DIRECTORY + '/' + title + suffix;
+            }
         } else {
             return RAW_DIRECTORY + '/' + title + ".raw";
         }
