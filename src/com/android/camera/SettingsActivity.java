@@ -856,6 +856,7 @@ public class SettingsActivity extends PreferenceActivity {
         updatePictureSizePreferenceButton();
         updateVideoHDRPreference();
         updateFormatPreference();
+        updateStoragePreference();
 
         Map<String, SettingsManager.Values> map = mSettingsManager.getValuesMap();
         if (map == null) return;
@@ -907,6 +908,18 @@ public class SettingsActivity extends PreferenceActivity {
             findPreference("version_info").setSummary(versionName);
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
+        }
+    }
+
+    private void updateStoragePreference() {
+        boolean isWrite = SDCard.instance().isWriteable();
+        ListPreference pref = (ListPreference)findPreference(SettingsManager.KEY_CAMERA_SAVEPATH);
+        if (pref == null) {
+            return;
+        }
+        pref.setEnabled(isWrite);
+        if (!isWrite) {
+            updatePreference(SettingsManager.KEY_CAMERA_SAVEPATH);
         }
     }
 
