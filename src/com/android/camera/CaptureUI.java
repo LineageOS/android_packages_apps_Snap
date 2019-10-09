@@ -2374,7 +2374,7 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
         if (switchCamera) {
             mModule.selectCameraMode(photoModeIndex);
         } else {
-            mModule.setCurrentSceneModeOnly(photoModeIndex);
+            mModule.setNextSceneMode(photoModeIndex);
         }
     }
 

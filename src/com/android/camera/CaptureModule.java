@@ -527,6 +527,7 @@ public class CaptureModule implements CameraModule, PhotoController,
     private String[] mSelectableModes = {"Video", "HFR", "Photo", "Bokeh", "SAT", "ProMode"};
     private ArrayList<SceneModule> mSceneCameraIds = new ArrayList<>();
     private SceneModule mCurrentSceneMode;
+    private int mNextModeIndex = 1;
     private int mCurrentModeIndex = 1;
     private int mLastT2tTrackState = -1;
     private int mT2TTrackState = 0;
@@ -2360,7 +2361,7 @@ public class CaptureModule implements CameraModule, PhotoController,
                     if (mCurrentSceneMode == null) {
                         int index = mIntentMode == INTENT_MODE_VIDEO ?
                                 CameraMode.VIDEO.ordinal() : CameraMode.DEFAULT.ordinal();
-                        mCurrentModeIndex = index;
+                        mCurrentModeIndex =  mNextModeIndex = index;
                         mCurrentSceneMode = mSceneCameraIds.get(index);
                     }
                 }
@@ -4175,9 +4176,9 @@ public class CaptureModule implements CameraModule, PhotoController,
     }
 
     private void onResumeAfterSuper(boolean resumeFromRestartAll) {
-        Log.d(TAG, "onResume " + (mCurrentSceneMode != null ? mCurrentSceneMode.mode : "null")
-        + (resumeFromRestartAll ? " isResumeFromRestartAll" : ""));
         reinit();
+        Log.d(TAG, "onResume " + (mCurrentSceneMode != null ? mCurrentSceneMode.mode : "null")
+                + (resumeFromRestartAll ? " isResumeFromRestartAll" : ""));
         checkRTBCameraId();
         if (!isBackCamera() && !frontIsAllowed()) {
             Log.d(TAG, "Current Mode " + mCurrentSceneMode.mode + "not support Front camera");
@@ -5779,6 +5780,9 @@ public class CaptureModule implements CameraModule, PhotoController,
                         List requestList = CameraUtil.createHighSpeedRequestList(
                                 mVideoRecordRequestBuilder.build());
                         mCurrentSession.captureBurst(requestList, mCaptureCallback, mCameraHandler);
+                    } else if (isSSMEnabled()) {
+                        mCurrentSession.captureBurst(createSSMBatchRequest(mVideoRecordRequestBuilder),
+                                mCaptureCallback, mCameraHandler);
                     } else {
                         mCurrentSession.capture(mVideoRecordRequestBuilder.build(), mCaptureCallback,
                                 mCameraHandler);
@@ -5957,7 +5961,7 @@ public class CaptureModule implements CameraModule, PhotoController,
                 List requestList = CameraUtil.createHighSpeedRequestList(
                         mVideoRecordRequestBuilder.build());
                 mCurrentSession.captureBurst(requestList, mCaptureCallback, mCameraHandler);
-            } else {
+            } else if (!isSSMEnabled()){
                 mCurrentSession.capture(mVideoRecordRequestBuilder.build(), mCaptureCallback,
                         mCameraHandler);
             }
@@ -7804,7 +7808,7 @@ public class CaptureModule implements CameraModule, PhotoController,
         Log.d(TAG, "restart all");
         onPauseBeforeSuper();
         onPauseAfterSuper(false);
-        reinit();
+        setCurrentSceneModeOnly(mNextModeIndex);
         onResumeBeforeSuper();
         onResumeAfterSuper(true);
         setRefocusLastTaken(false);
@@ -8330,12 +8334,13 @@ public class CaptureModule implements CameraModule, PhotoController,
             return -1;
         }
         setCameraModeSwitcherAllowed(false);
-        setCurrentSceneModeOnly(mode);
+        setNextSceneMode(mode);
+        SceneModule nextSceneMode = mSceneCameraIds.get(mode);
         String value = mSettingsManager.getValue(SettingsManager.KEY_FRONT_REAR_SWITCHER_VALUE);
         if (value != null && value.equals("front") &&
-                (mCurrentSceneMode.mode == CameraMode.RTB ||
-                mCurrentSceneMode.mode == CameraMode.SAT ||
-                mCurrentSceneMode.mode == CameraMode.PRO_MODE)) {
+                (nextSceneMode.mode == CameraMode.RTB ||
+                 nextSceneMode.mode == CameraMode.SAT ||
+                 nextSceneMode.mode == CameraMode.PRO_MODE)) {
             mSettingsManager.setValue(SettingsManager.KEY_FRONT_REAR_SWITCHER_VALUE, "rear");
         } else {
             restartAll();
@@ -8359,6 +8364,10 @@ public class CaptureModule implements CameraModule, PhotoController,
         mCurrentModeIndex = mode;
         CURRENT_ID = mCurrentSceneMode.getCurrentId();
         CURRENT_MODE = mCurrentSceneMode.mode;
+    }
+
+    public void setNextSceneMode(int index) {
+        mNextModeIndex = index;
     }
 
     public int getCurrentModeIndex() {
