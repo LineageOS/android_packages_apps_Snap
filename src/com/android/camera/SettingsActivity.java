@@ -158,22 +158,23 @@ public class SettingsActivity extends PreferenceActivity {
                 SettingsManager.Values values = map.get(state.key);
                 boolean enabled = values.overriddenValue == null;
                 Preference pref = findPreference(state.key);
-                if ( pref == null ) return;
+                Log.i(TAG, "onsettingschange:" + pref.getKey());
+                if (pref == null) return;
 
                 pref.setEnabled(enabled);
 
-                if ( pref.getKey().equals(SettingsManager.KEY_MANUAL_EXPOSURE) ) {
+                if (pref.getKey().equals(SettingsManager.KEY_MANUAL_EXPOSURE)) {
                     UpdateManualExposureSettings();
                 }
 
-                if ( pref.getKey().equals(SettingsManager.KEY_QCFA) ||
-                        pref.getKey().equals(SettingsManager.KEY_PICTURE_FORMAT) ) {
+                if (pref.getKey().equals(SettingsManager.KEY_QCFA) ||
+                        pref.getKey().equals(SettingsManager.KEY_PICTURE_FORMAT)) {
                     mSettingsManager.updatePictureAndVideoSize();
                     updatePreference(SettingsManager.KEY_PICTURE_SIZE);
                     updatePreference(SettingsManager.KEY_VIDEO_QUALITY);
                 }
 
-                if ( (pref.getKey().equals(SettingsManager.KEY_MANUAL_WB)) ) {
+                if ((pref.getKey().equals(SettingsManager.KEY_MANUAL_WB))) {
                     updateManualWBSettings();
                 }
 
@@ -184,6 +185,10 @@ public class SettingsActivity extends PreferenceActivity {
 
                 if(pref.getKey().equals(SettingsManager.KEY_CAPTURE_MFNR_VALUE)) {
                     updateZslPreference();
+                }
+
+                if (pref.getKey().equals(SettingsManager.KEY_TONE_MAPPING)) {
+                    updateToneMappingSettings();
                 }
             }
         }
@@ -613,6 +618,156 @@ public class SettingsActivity extends PreferenceActivity {
         }
     }
 
+    private void updateToneMappingSettings() {
+        Log.i(TAG,"updateToneMappingSettings");
+        final AlertDialog.Builder alert = new AlertDialog.Builder(SettingsActivity.this);
+        LinearLayout linear = new LinearLayout(SettingsActivity.this);
+        linear.setOrientation(1);
+        alert.setTitle("TONE MAPPING Settings");
+        alert.setNegativeButton("Cancel",new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog,int id) {
+                dialog.cancel();
+            }
+        });
+
+        String offMode = this.getString(R.string.pref_camera_tone_mapping_value_off);
+        String userSettingMode = this.getString(R.string.pref_camera_tone_mapping_value_user_setting);
+
+        final String toneMappingMode = mSettingsManager.getValue(SettingsManager.KEY_TONE_MAPPING);
+
+        Log.v(TAG, "toneMappingMode selected = " + toneMappingMode);
+        if (!offMode.equals(toneMappingMode) && !userSettingMode.equals(toneMappingMode)) {
+            showToneMappingDialog(linear, alert, toneMappingMode);
+        } else if(userSettingMode.equals(toneMappingMode)){
+            showToneMappingUserSettingDialog(linear, alert);
+        }
+    }
+    private void showToneMappingUserSettingDialog(LinearLayout linear, AlertDialog.Builder alert){
+        SharedPreferences.Editor editor = mLocalSharedPref.edit();
+        final TextView darkBoostText = new TextView(SettingsActivity.this);
+        final TextView darkBoostValue = new TextView(SettingsActivity.this);
+        final EditText darkBoostInput = new EditText(SettingsActivity.this);
+        final TextView fourthToneText = new TextView(SettingsActivity.this);
+        final TextView fourthToneValue = new TextView(SettingsActivity.this);
+        final EditText fourthToneInput = new EditText(SettingsActivity.this);
+        int floatType = InputType.TYPE_NUMBER_FLAG_DECIMAL | InputType.TYPE_CLASS_NUMBER;
+        darkBoostInput.setInputType(floatType);
+        fourthToneInput.setInputType(floatType);
+
+        float darkBoost = mLocalSharedPref.getFloat(SettingsManager.KEY_TONE_MAPPING_DARK_BOOST, -1.0f);
+        float fourthTone = mLocalSharedPref.getFloat(SettingsManager.KEY_TONE_MAPPING_FOURTH_TONE, -1.0f);
+        if (darkBoost == -1.0) {
+            darkBoostValue.setText(" Current Dark boost offset is " );
+        } else {
+            darkBoostValue.setText(" Current Dark boost offset is " + darkBoost);
+        }
+        if (fourthTone == -1.0) {
+            fourthToneValue.setText(" Current Fourth tone anchor is " );
+        } else {
+            fourthToneValue.setText(" Current Fourth tone anchor is " + fourthTone);
+        }
+        final float[] toneMappingRange = {0.0f, 1.0f};
+        alert.setMessage("Enter tone mapping value in the range of " + toneMappingRange[0]+ " to " + toneMappingRange[1]);
+        linear.addView(darkBoostText);
+        linear.addView(darkBoostInput);
+        linear.addView(darkBoostValue);
+        linear.addView(fourthToneText);
+        linear.addView(fourthToneInput);
+        linear.addView(fourthToneValue);
+        alert.setView(linear);
+        alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                float darkBoost = -1.0f;
+                float fourthTone = -1.0f;
+                String darkBoostStr = darkBoostInput.getText().toString();
+                String fourthToneStr = fourthToneInput.getText().toString();
+                if (darkBoostStr.length() > 0) {
+                    darkBoost = Float.parseFloat(darkBoostStr);
+                }
+                if (fourthToneStr.length() > 0) {
+                    fourthTone = Float.parseFloat(fourthToneStr);
+                }
+
+                if (darkBoost <= toneMappingRange[1] && darkBoost >= toneMappingRange[0]) {
+                    Log.v(TAG, "Setting darkBoost value : " + darkBoost);
+                    editor.putFloat(SettingsManager.KEY_TONE_MAPPING_DARK_BOOST, darkBoost);
+                } else {
+                    RotateTextToast.makeText(SettingsActivity.this, "Invalid darkBoost value:",
+                            Toast.LENGTH_SHORT).show();
+                }
+                if (fourthTone <= toneMappingRange[1] && fourthTone >= toneMappingRange[0]) {
+                    Log.v(TAG, "Setting fourthTone value : " + fourthTone);
+                    editor.putFloat(SettingsManager.KEY_TONE_MAPPING_FOURTH_TONE, fourthTone);
+                } else {
+                    RotateTextToast.makeText(SettingsActivity.this, "Invalid fourthTone value:",
+                            Toast.LENGTH_SHORT).show();
+                }
+                editor.apply();
+            }
+        });
+        alert.show();
+    }
+
+    private void showToneMappingDialog(LinearLayout linear, AlertDialog.Builder alert, String mode){
+        SharedPreferences.Editor editor = mLocalSharedPref.edit();
+        final TextView toneMappingText = new TextView(SettingsActivity.this);
+        final TextView toneMappingValue = new TextView(SettingsActivity.this);
+        final EditText toneMappingInput = new EditText(SettingsActivity.this);
+        int floatType = InputType.TYPE_NUMBER_FLAG_DECIMAL | InputType.TYPE_CLASS_NUMBER;
+        toneMappingInput.setInputType(floatType);
+        float currentToneValue = -1.0f;
+        String darkBoost = this.getString(R.string.pref_camera_tone_mapping_value_dark_boost_offset);
+        String fourthTone = this.getString(R.string.pref_camera_tone_mapping_value_fourth_tone_anchor);
+        String toastString = "tone mapping";
+
+        if (mode.equals(darkBoost)) {
+            currentToneValue = mLocalSharedPref.getFloat(
+                    SettingsManager.KEY_TONE_MAPPING_DARK_BOOST, -1.0f);
+            toastString = this.getString(R.string.pref_camera_tone_mapping_entry_dark_boost_offset);
+        } else if (mode.equals(fourthTone)) {
+            currentToneValue = mLocalSharedPref.getFloat(
+                    SettingsManager.KEY_TONE_MAPPING_FOURTH_TONE, -1.0f);
+            toastString = this.getString(R.string.pref_camera_tone_mapping_entry_fourth_tone_anchor);
+        }
+
+        if (currentToneValue == -1.0) {
+            toneMappingValue.setText(" Current " + toastString + " is " );
+        } else {
+            toneMappingValue.setText(" Current " + toastString + " is " + currentToneValue);
+        }
+
+        final float[] toneMappingRange = {0.0f, 1.0f};
+        alert.setMessage("Enter " + toastString+ " in the range of " + toneMappingRange[0]+ " to " + toneMappingRange[1]);
+        linear.addView(toneMappingText);
+        linear.addView(toneMappingInput);
+        linear.addView(toneMappingValue);
+        alert.setView(linear);
+        alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                float toneMapping = -1.0f;
+                String toneMappingStr = toneMappingInput.getText().toString();
+                if (toneMappingStr.length() > 0) {
+                    toneMapping = Float.parseFloat(toneMappingStr);
+                }
+
+                if (toneMapping <= toneMappingRange[1] && toneMapping >= toneMappingRange[0]) {
+                    Log.v(TAG, "Setting toneMapping value : " + toneMapping);
+                    if (mode.equals(darkBoost)) {
+                        final String key = SettingsManager.KEY_TONE_MAPPING_DARK_BOOST;
+                        editor.putFloat(key, toneMapping);
+                    } else if (mode.equals(fourthTone)) {
+                        final String key = SettingsManager.KEY_TONE_MAPPING_FOURTH_TONE;
+                        editor.putFloat(key, toneMapping);
+                    }
+                    editor.apply();
+                } else {
+                    RotateTextToast.makeText(SettingsActivity.this, "Invalid toneMapping value:",
+                            Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+        alert.show();
+    }
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -759,6 +914,7 @@ public class SettingsActivity extends PreferenceActivity {
                 add(SettingsManager.KEY_BSGC_DETECTION);
                 add(SettingsManager.KEY_FACIAL_CONTOUR);
                 add(SettingsManager.KEY_ZSL);
+                add(SettingsManager.KEY_TONE_MAPPING);
             }
         };
         final ArrayList<String> proModeOnlyList = new ArrayList<String>() {
@@ -810,6 +966,7 @@ public class SettingsActivity extends PreferenceActivity {
                         videoAddList.add(SettingsManager.KEY_FACE_DETECTION_MODE);
                         videoAddList.add(SettingsManager.KEY_FACIAL_CONTOUR);
                     }
+                    videoAddList.add(SettingsManager.KEY_TONE_MAPPING);
                     addDeveloperOptions(developer, videoAddList);
                 }
                 removePreference(mode == VIDEO ?
@@ -838,6 +995,7 @@ public class SettingsActivity extends PreferenceActivity {
                     if (DEV_LEVEL_ALL) {
                         proModeOnlyList.add(SettingsManager.KEY_SWITCH_CAMERA);
                     }
+                    proModeOnlyList.add(SettingsManager.KEY_TONE_MAPPING);
                     addDeveloperOptions(developer, proModeOnlyList);
                 }
                 break;
@@ -895,6 +1053,7 @@ public class SettingsActivity extends PreferenceActivity {
         updatePreference(SettingsManager.KEY_ZOOM);
         updatePreference(SettingsManager.KEY_VIDEO_DURATION);
         updatePreference(SettingsManager.KEY_SWITCH_CAMERA);
+        updatePreference(SettingsManager.KEY_TONE_MAPPING);
         updateMultiPreference(SettingsManager.KEY_STATS_VISUALIZER_VALUE);
         updatePictureSizePreferenceButton();
         updateVideoHDRPreference();

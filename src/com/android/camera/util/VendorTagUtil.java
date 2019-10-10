@@ -66,6 +66,10 @@ public class VendorTagUtil {
             new CaptureRequest.Key<>("org.codeaurora.qcamera3.manualWB.partial_mwb_mode", Integer.class);
     private static CaptureRequest.Key<Byte> HDRVideoMode =
             new CaptureRequest.Key<>("org.quic.camera2.streamconfigs.HDRVideoMode", Byte.class);
+    private static CaptureRequest.Key<Float> TONE_MAPPING_DARK_BOOST =
+            new CaptureRequest.Key<>("org.codeaurora.qcamera3.tmcusercontrol.dark_boost_offset", Float.class);
+    private static CaptureRequest.Key<Float> TONE_MAPPING_FOURTH_TONE =
+            new CaptureRequest.Key<>("org.codeaurora.qcamera3.tmcusercontrol.fourth_tone_anchor", Float.class);
 
     private static final int MANUAL_WB_DISABLE_MODE = 0;
     private static final int MANUAL_WB_CCT_MODE = 1;
@@ -191,6 +195,23 @@ public class VendorTagUtil {
     public static void setMWBDisableMode(CaptureRequest.Builder builder) {
         if (isPartialWBModeSupported(builder)) {
             builder.set(PARTIAL_MANUAL_WB_MODE, MANUAL_WB_DISABLE_MODE);
+        }
+    }
+
+    public static void setToneMappingDisableMode(CaptureRequest.Builder builder) {
+        float defaultValue = -1.0f;
+        setToneMappingDarkBoostValue(builder, defaultValue);
+        setToneMappingFourthToneValue(builder, defaultValue);
+    }
+
+    public static void setToneMappingDarkBoostValue(CaptureRequest.Builder builder, float value) {
+        if (isSupported(builder, TONE_MAPPING_DARK_BOOST)) {
+            builder.set(TONE_MAPPING_DARK_BOOST, value);
+        }
+    }
+    public static void setToneMappingFourthToneValue(CaptureRequest.Builder builder, float value) {
+        if (isSupported(builder, TONE_MAPPING_FOURTH_TONE)) {
+            builder.set(TONE_MAPPING_FOURTH_TONE, value);
         }
     }
 
