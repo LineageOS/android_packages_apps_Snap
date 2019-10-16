@@ -147,6 +147,12 @@
     "on":{"pref_camera2_longshot_key":"off"},
     "off":{}
   },
+  "pref_camera2_zsl_key":
+  {
+    "app-zsl": {"pref_camera2_saveraw_key": "disable"},
+    "hal-zsl": {},
+    "disable": {}
+  },
   "pref_camera2_videoencoder_key":
   {
     "mpeg-4-sp":{"pref_camera2_videoencoderprofile_key":"off"},
