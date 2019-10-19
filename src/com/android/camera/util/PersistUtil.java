@@ -59,6 +59,8 @@ public class PersistUtil {
             SystemProperties.get("persist.sys.camera.video.size", "");
     private static final boolean PERSIST_CAMERA_CAMERA2 =
             SystemProperties.getBoolean("persist.sys.camera.camera2", true);
+    private static final boolean PERSIST_YUV_CALLBACK_ENABLE =
+            SystemProperties.getBoolean("persist.sys.camera.yuvcallback",false);
     private static final boolean PERSIST_CAMERA_ZSL =
             SystemProperties.getBoolean("persist.sys.camera.zsl.disabled", false);
     private static final int PERSIST_CAMERA_CANCEL_TOUCHFOCUS_DELAY =
@@ -204,6 +206,10 @@ public class PersistUtil {
 
     public static int getDevOptionLevel() {
         return PERSIST_CAMERA_DEV_DEBUG_OPTION;
+    }
+
+    public static boolean getYUVCallbackEnable() {
+        return PERSIST_YUV_CALLBACK_ENABLE;
     }
 
     public static float getStillmoreBrColor(){
