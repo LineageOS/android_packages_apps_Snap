@@ -2884,6 +2884,7 @@ public class CaptureModule implements CameraModule, PhotoController,
                         }
                     });
                 }
+                mLongshoting = false;
             }
 
             @Override
@@ -2917,6 +2918,7 @@ public class CaptureModule implements CameraModule, PhotoController,
                         }
                     });
                 }
+                mLongshoting = false;
             }
 
             @Override
