@@ -1059,6 +1059,7 @@ public class SettingsActivity extends PreferenceActivity {
         updatePictureSizePreferenceButton();
         updateVideoHDRPreference();
         updateFormatPreference();
+        updateStoragePreference();
 
         Map<String, SettingsManager.Values> map = mSettingsManager.getValuesMap();
         if (map == null) return;
@@ -1112,6 +1113,18 @@ public class SettingsActivity extends PreferenceActivity {
             e.printStackTrace();
         }
         updateZslPreference();
+    }
+
+    private void updateStoragePreference() {
+        boolean isWrite = SDCard.instance().isWriteable();
+        ListPreference pref = (ListPreference)findPreference(SettingsManager.KEY_CAMERA_SAVEPATH);
+        if (pref == null) {
+            return;
+        }
+        pref.setEnabled(isWrite);
+        if (!isWrite) {
+            updatePreference(SettingsManager.KEY_CAMERA_SAVEPATH);
+        }
     }
 
     private void updateVideoHDRPreference() {

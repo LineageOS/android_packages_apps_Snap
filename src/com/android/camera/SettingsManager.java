@@ -927,6 +927,7 @@ public class SettingsManager implements ListMenu.SettingsListener {
             }
         }
         // filter unsupported preferences
+        ListPreference savePath = mPreferenceGroup.findPreference(KEY_CAMERA_SAVEPATH);
         ListPreference forceAUX = mPreferenceGroup.findPreference(KEY_FORCE_AUX);
         ListPreference whiteBalance = mPreferenceGroup.findPreference(KEY_WHITE_BALANCE);
         ListPreference flashMode = mPreferenceGroup.findPreference(KEY_FLASH_MODE);
@@ -966,6 +967,13 @@ public class SettingsManager implements ListMenu.SettingsListener {
             mFilteredKeys.add(forceAUX.getKey());
         }
         buildCameraId();
+
+        if (savePath != null) {
+            if (filterUnsupportedOptions(savePath, getSupportedSavePaths(cameraId))) {
+                mFilteredKeys.add(savePath.getKey());
+            }
+        }
+
 
         if (whiteBalance != null) {
             if (filterUnsupportedOptions(whiteBalance, getSupportedWhiteBalanceModes(cameraId))) {
@@ -1911,6 +1919,16 @@ public class SettingsManager implements ListMenu.SettingsListener {
     public float getMinimumFocusDistance(int cameraId) {
         return mCharacteristics.get(cameraId)
                 .get(CameraCharacteristics.LENS_INFO_MINIMUM_FOCUS_DISTANCE);
+    }
+
+    private List<String> getSupportedSavePaths(int cameraId) {
+        boolean writeable = SDCard.instance().isWriteable();
+        List<String> savePaths = new ArrayList<>();
+        savePaths.add("" + 0);
+        if (writeable) {
+            savePaths.add("" + 1);
+        }
+        return savePaths;
     }
 
     private List<String> getSupportedWhiteBalanceModes(int cameraId) {
