@@ -191,6 +191,11 @@ public class SettingsManager implements ListMenu.SettingsListener {
     public static final String KEY_MANUAL_GAINS_VALUE = "pref_camera2_manual_gains_key";
     public static final String KEY_MANUAL_EXPOSURE_VALUE = "pref_camera2_manual_exposure_key";
 
+    //tone mapping
+    public static final String KEY_TONE_MAPPING = "pref_camera2_tone_mapping_key";
+    public static final String KEY_TONE_MAPPING_DARK_BOOST = "pref_camera2_tone_mapping_dark_boost";
+    public static final String KEY_TONE_MAPPING_FOURTH_TONE = "pref_camera2_tone_mapping_fourth_tone";
+
     public static final String AUTO_TEST_WRITE_CONTENT = "auto_test_write_content";
 
     public static final String KEY_MANUAL_WB = "pref_camera2_manual_wb_key";

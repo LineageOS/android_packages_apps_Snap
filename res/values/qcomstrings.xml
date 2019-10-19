@@ -1361,5 +1361,18 @@
     <string name="pref_camera2_abort_captures_entry_value_enable" translatable="false">1</string>
     <string name="pref_camera2_abort_captures_entry_value_disable" translatable="false">0</string>
 
+    <!-- tone mapping -->
+    <string name="pref_camera_tone_mapping_default">off</string>
+	<string name="pref_camera_tone_mapping_title">Tone Mapping</string>
+    <!-- tone mapping entry-->
+    <string name="pref_camera_tone_mapping_entry_dark_boost_offset">Dark boost offset</string>
+    <string name="pref_camera_tone_mapping_entry_fourth_tone_anchor">Fourth tone anchor</string>
+	<string name="pref_camera_tone_mapping_entry_user_setting">User setting</string>
+    <string name="pref_camera_tone_mapping_entry_off">Off</string>
+    <!-- tone mapping entry value-->
+    <string name="pref_camera_tone_mapping_value_dark_boost_offset">dark_boost_offset</string>
+    <string name="pref_camera_tone_mapping_value_fourth_tone_anchor">fourth_tone_anchor</string>
+    <string name="pref_camera_tone_mapping_value_user_setting">user_setting</string>
+    <string name="pref_camera_tone_mapping_value_off">off</string>
 </resources>
 

@@ -3809,6 +3809,7 @@ public class CaptureModule implements CameraModule, PhotoController,
         applyBGStats(builder);
         applyBEStats(builder);
         applyWbColorTemperature(builder);
+        applyToneMapping(builder);
     }
 
     /**
@@ -5528,6 +5529,7 @@ public class CaptureModule implements CameraModule, PhotoController,
         applyVideoHDR(builder);
         applyEarlyPCR(builder);
         applyTouchTrackFocus(builder);
+        applyToneMapping(builder);
     }
 
     private void applyVideoHDR(CaptureRequest.Builder builder) {
@@ -6697,6 +6699,35 @@ public class CaptureModule implements CameraModule, PhotoController,
         } else {
             VendorTagUtil.setMWBDisableMode(request);
         }
+    }
+
+    private void applyToneMapping(CaptureRequest.Builder request) {
+        final SharedPreferences pref = mActivity.getSharedPreferences(
+                ComboPreferences.getLocalSharedPreferencesName(mActivity,
+                        mSettingsManager.getCurrentPrepNameKey()), Context.MODE_PRIVATE);
+        String mode = mSettingsManager.getValue(SettingsManager.KEY_TONE_MAPPING);
+
+        String darkBoost = mActivity.getString(R.string.pref_camera_tone_mapping_value_dark_boost_offset);
+        String fourthTone = mActivity.getString(R.string.pref_camera_tone_mapping_value_fourth_tone_anchor);
+        String userSetting = mActivity.getString(R.string.pref_camera_tone_mapping_value_user_setting);
+
+        float currentDarkBoostValue = -1.0f;
+        float currentFourthToneValue = -1.0f;
+        if (mode.equals(darkBoost)) {
+            currentDarkBoostValue = pref.getFloat(SettingsManager.KEY_TONE_MAPPING_DARK_BOOST, -1.0f);
+            VendorTagUtil.setToneMappingDarkBoostValue(request, currentDarkBoostValue);
+        } else if (mode.equals(fourthTone)) {
+            currentFourthToneValue = pref.getFloat(SettingsManager.KEY_TONE_MAPPING_FOURTH_TONE, -1.0f);
+            VendorTagUtil.setToneMappingFourthToneValue(request, currentFourthToneValue);
+        }else if (mode.equals(userSetting)){
+            currentDarkBoostValue = pref.getFloat(SettingsManager.KEY_TONE_MAPPING_DARK_BOOST, -1.0f);
+            VendorTagUtil.setToneMappingDarkBoostValue(request, currentDarkBoostValue);
+            currentFourthToneValue = pref.getFloat(SettingsManager.KEY_TONE_MAPPING_FOURTH_TONE, -1.0f);
+            VendorTagUtil.setToneMappingFourthToneValue(request, currentFourthToneValue);
+        } else {
+            VendorTagUtil.setToneMappingDisableMode(request);
+        }
+        Log.i(TAG,"applyToneMapping, mode:" + mode + ",currentDarkBoostValue:" + currentDarkBoostValue + ",currentFourthToneValue:" + currentFourthToneValue);
     }
 
     private void updateGraghViewVisibility(final int visibility) {
