@@ -32,6 +32,7 @@ package com.android.camera;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.ImageFormat;
+import android.graphics.Point;
 import android.graphics.Rect;
 import android.hardware.camera2.CameraAccessException;
 import android.hardware.camera2.CameraCharacteristics;
@@ -247,6 +248,7 @@ public class SettingsManager implements ListMenu.SettingsListener {
     private Set<String> mFilteredKeys;
     private int[] mExtendedHFRSize;//An array of pairs (fps, maxW, maxH)
     private int mDeviceSocId = -1;
+    private Map<String,VideoEisConfig> mVideoEisConfigs;
     private ArrayList<String> mPrepNameKeys;
 
     private static Map<String, Set<String>> VIDEO_ENCODER_PROFILE_TABLE = new HashMap<>();
@@ -541,6 +543,7 @@ public class SettingsManager implements ListMenu.SettingsListener {
         initializeValueMap();
         filterChromaflashPictureSizeOptions();
         filterHeifSizeOptions();
+        mVideoEisConfigs = getVideoEisConfigs(cameraId);
     }
 
     private Size parseSize(String value) {
@@ -2486,6 +2489,140 @@ public class SettingsManager implements ListMenu.SettingsListener {
                 ComboPreferences.getGlobalSharedPreferencesName(mContext),
                 Context.MODE_PRIVATE);
         return sp.getBoolean(SettingsManager.KEY_DEVELOPER_MENU, false);
+    }
+
+    private HashMap<String,VideoEisConfig> getVideoEisConfigs(int cameraId) {
+        int[] configs = null;
+        try{
+            configs = mCharacteristics.get(cameraId).get(CaptureModule.eis_config_table);
+        }catch (IllegalArgumentException e){
+
+        }
+        HashMap<String,VideoEisConfig> ret = new HashMap<>();
+        if (configs == null || configs.length == 0 || configs.length%6 != 0)
+            return null;
+        for (int i=0; i < configs.length; i+=6){
+            VideoEisConfig videoEisConfig = new VideoEisConfig();
+            videoEisConfig.setVideoSize(new Size(configs[i],configs[i+1]));
+            videoEisConfig.setVideoFPS(configs[i+2]);
+            videoEisConfig.setMaxPreviewFPS(configs[i+3]);
+            videoEisConfig.setLiveshotSupported(configs[i+4] == 1);
+            videoEisConfig.setEISSupported(configs[i+5] == 1);
+            String key =VideoEisConfig.getKey(videoEisConfig.getVideoSize(),videoEisConfig.getVideoFPS());
+            ret.put(key,videoEisConfig);
+        }
+        return ret;
+    }
+
+    public VideoEisConfig getVideoEisConfig(Size size,int FPS){
+        String key = VideoEisConfig.getKey(size,FPS);
+        if (mVideoEisConfigs != null){
+            return mVideoEisConfigs.get(key);
+        }
+        return null;
+    }
+
+    public Size getVideoSize(){
+        Size videoSize;
+        String videoSizeString = getValue(SettingsManager.KEY_VIDEO_QUALITY);
+        videoSize = parsePictureSize(videoSizeString);
+        Point videoSize2 = PersistUtil.getCameraVideoSize();
+        if (videoSize2 != null) {
+            videoSize = new Size(videoSize2.x, videoSize2.y);
+        }
+        return videoSize;
+    }
+
+    public Size parsePictureSize(String value) {
+        int indexX = value.indexOf('x');
+        int width = Integer.parseInt(value.substring(0, indexX));
+        int height = Integer.parseInt(value.substring(indexX + 1));
+        return new Size(width, height);
+    }
+
+    public boolean isHFRLiveshotSupported(){
+        if (PersistUtil.isPersistVideoLiveshot())
+            return true;
+        int fps = getVideoFPS();
+        SettingsManager.VideoEisConfig config =
+                getVideoEisConfig(getVideoSize(),fps);
+        if(config != null && config.isLiveshotSupported()){
+            return true;
+        }
+        return false;
+    }
+
+    public boolean isEISSupported(){
+        if (PersistUtil.isPersistVideoEis())
+            return true;
+        int fps = getVideoFPS();
+        SettingsManager.VideoEisConfig config =
+                getVideoEisConfig(getVideoSize(),fps);
+        if(config != null && config.isEISSupported()){
+            return true;
+        }
+        return false;
+    }
+
+    public int getVideoFPS(){
+        String fpsStr = getValue(SettingsManager.KEY_VIDEO_HIGH_FRAME_RATE);
+        int fpsRate = 30;
+        if (fpsStr != null && !fpsStr.equals("off")) {
+            fpsRate = Integer.parseInt(fpsStr.substring(3));
+        }
+        return fpsRate;
+    }
+
+    public static class VideoEisConfig{
+        private Size mVideoSize;
+        private int mVideoFPS;
+        private int mMaxPreviewFPS;
+        private boolean mIsLiveshotSupported;
+        private boolean mIsEISSupported;
+
+        public Size getVideoSize() {
+            return mVideoSize;
+        }
+
+        public void setVideoSize(Size mVideoSize) {
+            this.mVideoSize = mVideoSize;
+        }
+
+        public int getVideoFPS() {
+            return mVideoFPS;
+        }
+
+        public void setVideoFPS(int mVideoFPS) {
+            this.mVideoFPS = mVideoFPS;
+        }
+
+        public int getMaxPreviewFPS() {
+            return mMaxPreviewFPS;
+        }
+
+        public void setMaxPreviewFPS(int mMaxPreviewFPS) {
+            this.mMaxPreviewFPS = mMaxPreviewFPS;
+        }
+
+        public boolean isLiveshotSupported() {
+            return mIsLiveshotSupported;
+        }
+
+        public void setLiveshotSupported(boolean mIsLiveshotSupported) {
+            this.mIsLiveshotSupported = mIsLiveshotSupported;
+        }
+
+        public boolean isEISSupported() {
+            return mIsEISSupported;
+        }
+
+        public void setEISSupported(boolean mIsEISSupported) {
+            this.mIsEISSupported = mIsEISSupported;
+        }
+
+        public static String getKey(Size size,int FPS){
+            return size.toString()+"-"+String.valueOf(FPS);
+        }
     }
 
 }

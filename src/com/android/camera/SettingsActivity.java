@@ -191,6 +191,20 @@ public class SettingsActivity extends PreferenceActivity {
                 if (pref.getKey().equals(SettingsManager.KEY_TONE_MAPPING)) {
                     updateToneMappingSettings();
                 }
+
+                if(pref.getKey().equals(SettingsManager.KEY_VIDEO_QUALITY) ||
+                   pref.getKey().equals(SettingsManager.KEY_VIDEO_HIGH_FRAME_RATE)){
+                    ListPreference eisPref = (ListPreference)findPreference(
+                            SettingsManager.KEY_EIS_VALUE);
+                    if (eisPref != null){
+                        if (!mSettingsManager.isEISSupported()){
+                            eisPref.setValue("disable");
+                            eisPref.setEnabled(false);
+                        } else {
+                            eisPref.setEnabled(true);
+                        }
+                    }
+                }
             }
         }
     };
