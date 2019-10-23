@@ -1217,7 +1217,7 @@ public class SettingsActivity extends PreferenceActivity {
         int cameraId = mSettingsManager.getCurrentCameraId();
         Size[] rawSize = mSettingsManager.getSupportedOutputSize(cameraId,
                 ImageFormat.RAW10);
-        if (rawSize == null) {
+        if (mDeveloperMenuEnabled && rawSize == null) {
             Preference p = findPreference(SettingsManager.KEY_SAVERAW);
             if (p != null) {
                 p.setEnabled(false);
