@@ -2251,7 +2251,7 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
     }
 
     public void showSurfaceView() {
-        Log.d(TAG, "showSurfaceView");
+        Log.d(TAG, "showSurfaceView" + mPreviewWidth+" "+mPreviewHeight);
         mSurfaceView.getHolder().setFixedSize(mPreviewWidth, mPreviewHeight);
         mSurfaceView.setAspectRatio(mPreviewHeight, mPreviewWidth);
         mSurfaceView.setVisibility(View.VISIBLE);

@@ -742,6 +742,8 @@ public class CaptureModule implements CameraModule, PhotoController,
 
     private CamGLRenderer mRenderer;
     private boolean mDeepPortraitMode = false;
+    private boolean mIsCloseCamera = true;
+    private int mOringalCameraId;
 
     private class SelfieThread extends Thread {
         public void run() {
@@ -1834,8 +1836,8 @@ public class CaptureModule implements CameraModule, PhotoController,
         }
     }
     private void createSession(final int id) {
+        Log.d(TAG, "createSession,id: " + id + ",mPaused:" + mPaused + ",mCameraOpened:" + !mCameraOpened[id] + ",mCameraDevice:"+ (mCameraDevice[id] == null));
         if (mPaused || !mCameraOpened[id] || (mCameraDevice[id] == null)) return;
-        Log.d(TAG, "createSession " + id);
         List<Surface> list = new LinkedList<Surface>();
         mState[id] = STATE_PREVIEW;
         mControlAFMode = CaptureRequest.CONTROL_AF_MODE_CONTINUOUS_PICTURE;
@@ -1988,10 +1990,8 @@ public class CaptureModule implements CameraModule, PhotoController,
                         if (mSaveRaw) {
                             mPreviewRequestBuilder[id].addTarget(mRawImageReader[id].getSurface());
                         }
-                        mCameraDevice[id].createReprocessableCaptureSession(
-                                new InputConfiguration(mImageReader[id].getWidth(),
-                                mImageReader[id].getHeight(), mImageReader[id].getImageFormat()),
-                                list, captureSessionCallback, mCameraHandler);
+                        mCameraDevice[id].createReprocessableCaptureSession(new InputConfiguration(mImageReader[id].getWidth(),
+                                mImageReader[id].getHeight(), mImageReader[id].getImageFormat()), list, captureSessionCallback, mCameraHandler);
                     } else {
                         if (mSettingsManager.isHeifWriterEncoding() && outputConfigurations != null) {
                             mCameraDevice[id].createCaptureSessionByOutputConfigurations(outputConfigurations,
@@ -4070,6 +4070,15 @@ public class CaptureModule implements CameraModule, PhotoController,
         mUI.onPause();
         if (mIsRecordingVideo) {
             stopRecordingVideo(getMainCameraId());
+        } else if (!mIsCloseCamera){
+            if (mCurrentSession != null) {
+                try {
+                    mCurrentSession.abortCaptures();
+                    mCurrentSession.stopRepeating();
+                } catch (CameraAccessException|IllegalStateException e) {
+                    e.printStackTrace();
+                }
+            }
         }
         if (mIsPreviewingVideo && !mIsRecordingVideo) {
             exitVideoModule();
@@ -4103,18 +4112,21 @@ public class CaptureModule implements CameraModule, PhotoController,
         if (mInitHeifWriter != null) {
             mInitHeifWriter.close();
         }
-        closeCamera();
+        if(mIsCloseCamera) {
+            closeCamera();
+            mUI.showPreviewCover();
+            mUI.hideSurfaceView();
+        }
         resetAudioMute();
         mUI.releaseSoundPool();
-        mUI.showPreviewCover();
         if (mUI.getGLCameraPreview() != null) {
             mUI.getGLCameraPreview().onPause();
         }
-        mUI.hideSurfaceView();
+
         mZoomValue = 1f;
         mUI.updateZoomSeekBar(1.0f);
         mFirstPreviewLoaded = false;
-        if (isExitCamera) {
+        if (isExitCamera && mIsCloseCamera) {
             stopBackgroundThread();
         }
         setProModeVisible();
@@ -4136,14 +4148,18 @@ public class CaptureModule implements CameraModule, PhotoController,
         }
         mPaused = false;
         for (int i = 0; i < MAX_NUM_CAM; i++) {
-            mCameraOpened[i] = false;
+            if(mIsCloseCamera) {
+                mCameraOpened[i] = false;
+            }
             mTakingPicture[i] = false;
         }
         for (int i = 0; i < MAX_NUM_CAM; i++) {
             mState[i] = STATE_PREVIEW;
         }
         mLongshotActive = false;
-        updatePreviewSurfaceReadyState(false);
+        if(mIsCloseCamera) {
+            updatePreviewSurfaceReadyState(false);
+        }
     }
 
     private void cancelTouchFocus() {
@@ -4356,10 +4372,11 @@ public class CaptureModule implements CameraModule, PhotoController,
         reinit();
         Log.d(TAG, "onResume " + (mCurrentSceneMode != null ? mCurrentSceneMode.mode : "null")
                 + (resumeFromRestartAll ? " isResumeFromRestartAll" : ""));
+        mOringalCameraId = CURRENT_ID;
         checkRTBCameraId();
         if (!isBackCamera() && !frontIsAllowed()) {
             Log.d(TAG, "Current Mode " + mCurrentSceneMode.mode + "not support Front camera");
-            if (!resumeFromRestartAll) {
+            if (!resumeFromRestartAll && mIsCloseCamera) {
                 startBackgroundThread();
             }
             mUI.switchToPhotoModeDueToError(true);
@@ -4381,12 +4398,14 @@ public class CaptureModule implements CameraModule, PhotoController,
         }
         openProcessors();
         loadSoundPoolResource();
-        Message msg = Message.obtain();
-        msg.what = OPEN_CAMERA;
-        msg.arg1 = mCurrentSceneMode.getCurrentId();
-        Log.d(TAG,"open is "+msg.arg1);
-        if (mCameraHandler != null) {
-            mCameraHandler.sendMessage(msg);
+        if(mIsCloseCamera) {
+            Message msg = Message.obtain();
+            msg.what = OPEN_CAMERA;
+            msg.arg1 = mCurrentSceneMode.getCurrentId();
+            Log.d(TAG, "open is " + msg.arg1);
+            if (mCameraHandler != null) {
+                mCameraHandler.sendMessage(msg);
+            }
         }
         if (mDeepPortraitMode) {
             mUI.startDeepPortraitMode(mPreviewSize);
@@ -4430,6 +4449,9 @@ public class CaptureModule implements CameraModule, PhotoController,
             } else {
                 mActivity.onModuleSelected(ModuleSwitcher.PANOCAPTURE_MODULE_INDEX);
             }
+        }
+        if(!mIsCloseCamera){
+            createSessions();
         }
     }
 
@@ -8099,21 +8121,31 @@ public class CaptureModule implements CameraModule, PhotoController,
 
     public void restartAll() {
         Log.d(TAG, "restart all");
-        onPauseBeforeSuper();
-        onPauseAfterSuper(false);
         setCurrentSceneModeOnly(mNextModeIndex);
+        onPauseBeforeSuper();
+        if(mOringalCameraId == CURRENT_ID){
+            mIsCloseCamera = false;
+        }else{
+            mIsCloseCamera = true;
+        }
+        if(!mIsCloseCamera){
+            mUI.showPreviewCover();
+        }
+        onPauseAfterSuper(false);
         onResumeBeforeSuper();
         onResumeAfterSuper(true);
         setRefocusLastTaken(false);
+        mIsCloseCamera = true;
     }
 
     public void restartSession(boolean isSurfaceChanged) {
         Log.d(TAG, "restartSession isSurfaceChanged = " + isSurfaceChanged);
         if (isAllSessionClosed()) return;
-
+        if(!mIsCloseCamera) {
+            reinit();
+        }
         closeProcessors();
         closeSessions();
-
         if(isSurfaceChanged) {
             //run in UI thread
             mHandler.post(new Runnable() {
@@ -8124,7 +8156,9 @@ public class CaptureModule implements CameraModule, PhotoController,
                 }
             });
         }
-
+        if(!mIsCloseCamera) {
+            updatePreviewSurfaceReadyState(false);
+        }
         initializeValues();
         updatePreviewSize();
         openProcessors();
