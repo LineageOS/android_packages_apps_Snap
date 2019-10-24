@@ -1083,6 +1083,15 @@
     <string name="pref_camera2_touch_track_focus_off" translatable="true">Disable</string>
     <string name="pref_camera2_touch_track_focus_title" translatable="true">Touch Track Focus</string>
 
+    <string name="pref_camera2_multi_cameras_default" translatable="true">off</string>
+    <string name="pref_camera2_multi_cameras_value_on" translatable="true">on</string>
+    <string name="pref_camera2_multi_cameras_value_off" translatable="true">off</string>
+
+    <string name="pref_camera2_multi_cameras_entry_on" translatable="true">Enable</string>
+    <string name="pref_camera2_multi_cameras_entry_off" translatable="true">Disable</string>
+    <string name="pref_camera2_multi_cameras_title" translatable="true">Multi Cameras</string>
+
+
     <string name="pref_camera2_timer_entry_off" translatable="true">Off</string>
     <string name="pref_camera2_timer_entry_2sec" translatable="true">2 seconds</string>
     <string name="pref_camera2_timer_entry_5sec" translatable="true">5 seconds</string>
@@ -1376,5 +1385,14 @@
     <string name="pref_camera_tone_mapping_value_fourth_tone_anchor">fourth_tone_anchor</string>
     <string name="pref_camera_tone_mapping_value_user_setting">user_setting</string>
     <string name="pref_camera_tone_mapping_value_off">off</string>
+
+    <!-- Multi camera value -->
+    <string name="pref_multi_camera_picturesize_default" translatable="false">1920x1080</string>
+    <string name="pref_multi_camera_video_quality_default" translatable="false">1920x1080</string>
+
+    <string name="pref_multi_camera_hal_zsl_title">HAL ZSL</string>
+    <string name="pref_multi_camera_picturesize1_title">"Picture1 size"</string>
+    <string name="pref_multi_camera_picturesize2_title">"Picture2 size"</string>
+    <string name="pref_multi_camera_picturesize3_title">"Picture3 size"</string>
 </resources>
 

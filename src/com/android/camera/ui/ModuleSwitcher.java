@@ -54,7 +54,8 @@ public class ModuleSwitcher extends RotateImageView
     public static final int LIGHTCYCLE_MODULE_INDEX = 3;
     public static final int GCAM_MODULE_INDEX = 4;
     public static final int CAPTURE_MODULE_INDEX = 5;
-    public static final int PANOCAPTURE_MODULE_INDEX = 6;
+    public static final int MULTIE_CAMERA_MODULE_INDEX = 6;
+    public static final int PANOCAPTURE_MODULE_INDEX = 7;
 
     private boolean mTouchEnabled = true;
     private boolean mIsVisible = true;

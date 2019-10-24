@@ -551,5 +551,14 @@
             android:layout="@layout/preference"
             android:summary="%s"/>
 
+        <ListPreference
+            android:key="pref_camera2_multi_cameras_key"
+            android:defaultValue="@string/pref_camera2_multi_cameras_default"
+            android:title="@string/pref_camera2_multi_cameras_title"
+            android:entries="@array/pref_camera2_multi_cameras_entries"
+            android:entryValues="@array/pref_camera2_multi_cameras_entryvalues"
+            android:layout="@layout/preference"
+            android:summary="%s"/>
+
     </PreferenceCategory>
 </PreferenceScreen>

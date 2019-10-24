@@ -105,6 +105,7 @@ import com.android.camera.data.MediaDetails;
 import com.android.camera.data.SimpleViewData;
 import com.android.camera.exif.ExifInterface;
 import com.android.camera.tinyplanet.TinyPlanetFragment;
+import com.android.camera.multi.MultiCameraModule;
 import com.android.camera.ui.ModuleSwitcher;
 import com.android.camera.ui.DetailsDialog;
 import com.android.camera.ui.FilmStripView;
@@ -206,6 +207,7 @@ public class CameraActivity extends Activity
     private VideoModule mVideoModule;
     private WideAnglePanoramaModule mPanoModule;
     private CaptureModule mCaptureModule;
+    private MultiCameraModule mMultiCameraModule;
     private PanoCaptureModule mPano2Module;
     private FrameLayout mAboveFilmstripControlLayout;
     private FrameLayout mCameraRootFrame;
@@ -213,6 +215,7 @@ public class CameraActivity extends Activity
     private View mCameraVideoModuleRootView;
     private View mCameraPanoModuleRootView;
     private View mCameraCaptureModuleRootView;
+    private View mMultiCameraModuleRootView;
     private FilmStripView mFilmStripView;
     private ProgressBar mBottomProgress;
     private View mPanoStitchingPanel;
@@ -246,6 +249,7 @@ public class CameraActivity extends Activity
     private Intent mPanoramaShareIntent;
     private LocalMediaObserver mLocalImagesObserver;
     private LocalMediaObserver mLocalVideosObserver;
+    private SettingsManager mSettingsManager;
 
     private final int DEFAULT_SYSTEM_UI_VISIBILITY = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN;
 
@@ -803,6 +807,7 @@ public class CameraActivity extends Activity
         // Only handle OnDataInserted if it's video.
         // Photo and Panorama have their own way of updating thumbnail.
         if (!videoOnly || (mCurrentModule instanceof VideoModule) ||
+                (mCurrentModule instanceof MultiCameraModule) ||
                 ((mCurrentModule instanceof CaptureModule) && videoOnly)) {
             (new UpdateThumbnailTask(null, true)).execute();
         }
@@ -1545,6 +1550,7 @@ public class CameraActivity extends Activity
         mCameraVideoModuleRootView = rootLayout.findViewById(R.id.camera_video_root);
         mCameraPanoModuleRootView = rootLayout.findViewById(R.id.camera_pano_root);
         mCameraCaptureModuleRootView = rootLayout.findViewById(R.id.camera_capture_root);
+        mMultiCameraModuleRootView = rootLayout.findViewById(R.id.multi_camera_root);
 
         int moduleIndex = -1;
         if (MediaStore.INTENT_ACTION_VIDEO_CAMERA.equals(getIntent().getAction())
@@ -1848,13 +1854,24 @@ public class CameraActivity extends Activity
             Log.v(TAG, "onResume: No camera devices connected.");
             finish();
         }
-        SettingsManager settingsManager = SettingsManager.getInstance();
-        if (settingsManager == null) {
-            SettingsManager.createInstance(this);
+        mSettingsManager = SettingsManager.getInstance();
+        if (mSettingsManager == null) {
+            mSettingsManager = SettingsManager.createInstance(this);
         }
         // Hide action bar first since we are in full screen mode first, and
         // switch the system UI to lights-out mode.
         this.setSystemBarsVisibility(false);
+
+        if (isMultiCamersEnable() && mCurrentModule != mMultiCameraModule) {
+            setModuleFromIndex(ModuleSwitcher.MULTIE_CAMERA_MODULE_INDEX);
+        }
+        if (!isMultiCamersEnable() && mCurrentModule == mMultiCameraModule) {
+            boolean cam2on = PersistUtil.getCamera2Mode();
+            CameraHolder.setCamera2Mode(this, cam2on);
+            if (cam2on) {
+                setModuleFromIndex(ModuleSwitcher.CAPTURE_MODULE_INDEX);
+            }
+        }
 
         UsageStatistics.onEvent(UsageStatistics.COMPONENT_CAMERA,
                 UsageStatistics.ACTION_FOREGROUNDED, this.getClass().getSimpleName());
@@ -1889,6 +1906,19 @@ public class CameraActivity extends Activity
         mLocalVideosObserver.setActivityPaused(false);
         if (PersistUtil.isTraceEnable())
             Trace.endSection();
+    }
+
+    private boolean isMultiCamersEnable() {
+        boolean result = true;
+        String value = mSettingsManager.getValue(SettingsManager.KEY_MULTI_CAMERAS_MODE);
+        if (value != null) {
+            result = value.equals(getResources().getString(
+                    R.string.pref_camera2_multi_cameras_value_on));
+        } else {
+            result = false;
+        }
+        Log.v(TAG, "isMultiCamersEnable :" + result);
+        return result;
     }
 
     private boolean cameraConnected() {
@@ -2006,7 +2036,7 @@ public class CameraActivity extends Activity
         }
     }
 
-    protected void updateStorageSpaceAndHint() {
+    public void updateStorageSpaceAndHint() {
         updateStorageSpace();
         updateStorageHint(mStorageSpaceBytes);
     }
@@ -2161,6 +2191,7 @@ public class CameraActivity extends Activity
         mCameraVideoModuleRootView.setVisibility(View.GONE);
         mCameraPanoModuleRootView.setVisibility(View.GONE);
         mCameraCaptureModuleRootView.setVisibility(View.GONE);
+        mMultiCameraModuleRootView.setVisibility(View.GONE);
         mCurrentModuleIndex = moduleIndex;
         switch (moduleIndex) {
             case ModuleSwitcher.VIDEO_MODULE_INDEX:
@@ -2203,6 +2234,17 @@ public class CameraActivity extends Activity
                 }
                 mCurrentModule = mCaptureModule;
                 mCameraCaptureModuleRootView.setVisibility(View.VISIBLE);
+                break;
+
+            case ModuleSwitcher.MULTIE_CAMERA_MODULE_INDEX:
+                if(mMultiCameraModule == null) {
+                    mMultiCameraModule = new MultiCameraModule();
+                    mMultiCameraModule.init(this, mMultiCameraModuleRootView);
+                } else {
+                    mMultiCameraModule.reinit();
+                }
+                mCurrentModule = mMultiCameraModule;
+                mMultiCameraModuleRootView.setVisibility(View.VISIBLE);
                 break;
 
             case ModuleSwitcher.PANOCAPTURE_MODULE_INDEX:

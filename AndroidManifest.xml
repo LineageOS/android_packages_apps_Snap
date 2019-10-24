@@ -114,6 +114,17 @@
         </activity>
 
         <activity
+            android:theme="@style/Theme.Settings"
+            android:name="com.android.camera.multi.MultiSettingsActivity"
+            android:clearTaskOnLaunch="true"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:icon="@mipmap/ic_launcher_camera"
+            android:label="@string/snapcam_app_name"
+            android:launchMode="singleTop"
+            android:parentActivityName="com.android.camera.CameraActivity">
+        </activity>
+
+        <activity
             android:theme="@android:style/Theme.Material.Light.NoActionBar.Fullscreen"
             android:name="com.android.camera.SceneModeActivity"
             android:clearTaskOnLaunch="true"
