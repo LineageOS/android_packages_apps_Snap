@@ -20,6 +20,10 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 
+import com.android.camera.util.CameraUtil;
+
+import org.codeaurora.snapcam.R;
+
 /**
  * {@code CameraButtonIntentReceiver} is invoked when the camera button is
  * long-pressed.
@@ -35,6 +39,9 @@ public class CameraButtonIntentReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
         // Try to get the camera hardware
+        boolean mCamera2enabled = CameraUtil.isCamera2Supported(context) &&
+                context.getResources().getBoolean(R.bool.support_camera_api_v2);
+        CameraHolder.setCamera2Mode(context, mCamera2enabled);
         CameraHolder holder = CameraHolder.instance();
         ComboPreferences pref = new ComboPreferences(context);
         int cameraId = CameraSettings.readPreferredCameraId(pref);
