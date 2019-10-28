@@ -5491,6 +5491,7 @@ public class CaptureModule implements CameraModule, PhotoController,
             Log.w(TAG, "Storage issue, ignore the start request");
             mStartRecPending = false;
             mIsRecordingVideo = false;
+            Toast.makeText(mActivity,R.string.storage_not_enough,Toast.LENGTH_SHORT).show();
             return false;
         }
 
@@ -6476,7 +6477,7 @@ public class CaptureModule implements CameraModule, PhotoController,
             if (!startRecordingVideo(getMainCameraId())) {
                 // Show ui when start recording failed.
                 mUI.showUIafterRecording();
-                releaseMediaRecorder();
+                mFrameProcessor.setVideoOutputSurface(null);
             }
         } else if (mMediaRecorderStarted) {
             stopRecordingVideo(getMainCameraId());
