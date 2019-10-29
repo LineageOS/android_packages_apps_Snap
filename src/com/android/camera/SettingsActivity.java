@@ -179,7 +179,8 @@ public class SettingsActivity extends PreferenceActivity {
                 }
 
                 if ((pref.getKey().equals(SettingsManager.KEY_ZSL) ||
-                        pref.getKey().equals(SettingsManager.KEY_PICTURE_FORMAT))) {
+                        pref.getKey().equals(SettingsManager.KEY_PICTURE_FORMAT)) ||
+                        pref.getKey().equals(SettingsManager.KEY_SELFIEMIRROR)) {
                     updateFormatPreference();
                 }
 
@@ -227,11 +228,12 @@ public class SettingsActivity extends PreferenceActivity {
         ListPreference formatPref = (ListPreference)findPreference(SettingsManager.KEY_PICTURE_FORMAT);
         ListPreference ZSLPref = (ListPreference) findPreference(SettingsManager.KEY_ZSL);
         ListPreference mfnrPref = (ListPreference) findPreference(SettingsManager.KEY_CAPTURE_MFNR_VALUE);
-
+        SwitchPreference selfiePref = (SwitchPreference) findPreference(SettingsManager.KEY_SELFIEMIRROR);
         if (formatPref == null || ZSLPref ==null) {
             return;
         }
-        if("app-zsl".equals(ZSLPref.getValue())){
+        if("app-zsl".equals(ZSLPref.getValue()) ||
+                (selfiePref != null && selfiePref.isChecked())){
             formatPref.setValue("0");
             formatPref.setEnabled(false);
             if (mfnrPref != null) {
