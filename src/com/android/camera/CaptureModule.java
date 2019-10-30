@@ -240,6 +240,9 @@ public class CaptureModule implements CameraModule, PhotoController,
 
     private boolean mIsRTBCameraId = false;
 
+    private SharedPreferences mGlobalSharedPref = null;
+    private boolean mSupportT2TFocus = true;
+
     /** For temporary save warmstart gains and cct value*/
     private float mRGain = -1.0f;
     private float mGGain = -1.0f;
@@ -1025,6 +1028,29 @@ public class CaptureModule implements CameraModule, PhotoController,
         }
     }
 
+    private void updateSupportT2TFocus(CaptureResult result) {
+        if (mGlobalSharedPref == null) {
+            mGlobalSharedPref = mActivity.getSharedPreferences(
+                    ComboPreferences.getGlobalSharedPreferencesName(mActivity),
+                    Context.MODE_PRIVATE);
+
+        }
+        int isSupport = mGlobalSharedPref.getInt(SettingsManager.KEY_SUPPORT_T2T_FOCUS, -1);
+        if (isSupport == -1) {
+            try {
+                result.get(t2t_tracker_status);
+            } catch (IllegalArgumentException e) {
+                mSupportT2TFocus = false;
+            }
+
+            SharedPreferences.Editor editor = mGlobalSharedPref.edit();
+            editor.putInt(SettingsManager.KEY_SUPPORT_T2T_FOCUS,
+                    (mSupportT2TFocus ? SettingsManager.TOUCH_TRACK_FOCUS_ENABLE :
+                            SettingsManager.TOUCH_TRACK_FOCUS_DISABLE));
+            editor.apply();
+        }
+    }
+
     private void updateT2tTrackerView(CaptureResult result) {
         int[] resultROI = null;
         int trackerScore = -1;
@@ -1032,6 +1058,7 @@ public class CaptureModule implements CameraModule, PhotoController,
             mT2TFocusRenderer = getT2TFocusRenderer();
             updateT2TTracking();
         }
+        updateSupportT2TFocus(result);
         if (mT2TFocusRenderer.isShown()) {
             updateT2TTracking();
             try{
