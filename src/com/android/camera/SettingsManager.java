@@ -1091,6 +1091,9 @@ public class SettingsManager implements ListMenu.SettingsListener {
             filterVideoEncoderProfileOptions();
         } else if (pref.getKey().equals(KEY_PICTURE_FORMAT)) {
             filterHeifSizeOptions();
+        } else if (pref.getKey().equals(KEY_DIS) ||
+                pref.getKey().equals(KEY_EIS_VALUE)) {
+            filterVideoEncoderOptions();
         }
     }
 
@@ -1979,6 +1982,23 @@ public class SettingsManager implements ListMenu.SettingsListener {
                 }
             }
         }
+
+        ListPreference videoQuality = mPreferenceGroup.findPreference(KEY_VIDEO_QUALITY);
+        String videoSize = videoQuality.getValue();
+        int indexX = videoSize.indexOf('x');
+        int width = Integer.parseInt(videoSize.substring(0, indexX));
+        int height = Integer.parseInt(videoSize.substring(indexX + 1));
+        // Video quality less than 720P
+        boolean isLess720P = width < 1280 && height < 720;
+
+        ListPreference disPref = mPreferenceGroup.findPreference(KEY_DIS);
+        ListPreference eisPref = mPreferenceGroup.findPreference(KEY_EIS_VALUE);
+        if (isLess720P &&
+                "on".equals(disPref.getValue()) &&
+                !("disable".equals(eisPref.getValue()))) {
+            supported.remove("mpeg-4-sp");
+        }
+
         return supported;
     }
 

@@ -159,6 +159,12 @@ public class SettingsActivity extends PreferenceActivity {
                 if ( (pref.getKey().equals(SettingsManager.KEY_MANUAL_WB)) ) {
                     updateManualWBSettings();
                 }
+
+                if (pref.getKey().equals(SettingsManager.KEY_VIDEO_QUALITY) ||
+                        pref.getKey().equals(SettingsManager.KEY_DIS) ||
+                        pref.getKey().equals(SettingsManager.KEY_EIS_VALUE)) {
+                    updatePreference(SettingsManager.KEY_VIDEO_ENCODER);
+                }
             }
         }
     };
