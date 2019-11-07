@@ -1735,7 +1735,12 @@ public class SettingsManager implements ListMenu.SettingsListener {
     public Size[] getSupportedOutputSize(int cameraId, Class cl) {
         StreamConfigurationMap map = mCharacteristics.get(cameraId).get(
                 CameraCharacteristics.SCALER_STREAM_CONFIGURATION_MAP);
-        return map.getOutputSizes(cl);
+        Size[] normal = map.getOutputSizes(cl);
+        Size[] high = map.getHighResolutionOutputSizes(ImageFormat.PRIVATE);
+        Size[] ret = new Size[normal.length+high.length];
+        System.arraycopy(normal,0,ret,0,normal.length);
+        System.arraycopy(high,0,ret,normal.length,high.length);
+        return ret;
     }
 
     private List<String> getSupportedVideoDuration() {
