@@ -48,7 +48,7 @@ public class Wrapper{
             try {
                 value = (int) field.get(null);
             }catch (Exception exception){
-                exception.printStackTrace();
+                if (DEBUG) exception.printStackTrace();
             }
         }
         return value;
@@ -60,7 +60,7 @@ public class Wrapper{
             try {
                 value = (String) field.get(null);
             }catch (Exception exception){
-                exception.printStackTrace();
+                if (DEBUG) exception.printStackTrace();
             }
         }
         return value;
@@ -77,7 +77,7 @@ public class Wrapper{
             field = classInstance.getField(name);
             Log.d(TAG, "getField:" + classInstance + " " + name);
         }catch (Exception exception){
-            exception.printStackTrace();
+            if (DEBUG) exception.printStackTrace();
         }
         return field;
     }
