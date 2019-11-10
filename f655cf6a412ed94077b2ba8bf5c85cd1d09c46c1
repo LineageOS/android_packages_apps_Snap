@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cede971b_34d7243b",
+        "filename": "src/com/android/camera/CameraButtonIntentReceiver.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2019-11-10T17:48:03Z",
+      "side": 1,
+      "message": "these can be local variables!",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 44
+      },
+      "revId": "f655cf6a412ed94077b2ba8bf5c85cd1d09c46c1",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2a39e689_8a27e7de",
+        "filename": "src/com/android/camera/CameraButtonIntentReceiver.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2019-11-10T17:48:03Z",
+      "side": 1,
+      "message": "supported \u0026\u0026 supported \u003d enabled?\nboolean shouldEnableCam2 \u003d CameraUtil.isCamera2Supported(context) \u0026\u0026\n        context.getResources().getBoolean(R.bool.support_camera_api_v2);",
+      "range": {
+        "startLine": 49,
+        "startChar": 8,
+        "endLine": 50,
+        "endChar": 80
+      },
+      "revId": "f655cf6a412ed94077b2ba8bf5c85cd1d09c46c1",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
