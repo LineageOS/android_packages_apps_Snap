@@ -3118,7 +3118,7 @@ public class CaptureModule implements CameraModule, PhotoController,
         } catch (InterruptedException e) {
             mCameraOpenCloseLock.release();
             throw new RuntimeException("Interrupted while trying to lock camera closing.", e);
-        } catch (CameraAccessException e) {
+        } catch (CameraAccessException | IllegalStateException e) {
             e.printStackTrace();
         } finally {
             mCameraOpenCloseLock.release();
@@ -5180,7 +5180,13 @@ public class CaptureModule implements CameraModule, PhotoController,
         boolean noNeedEndOfStreamInHFR = mHighSpeedCapture &&
                 ((int)mHighSpeedFPSRange.getUpper() >= HIGH_SESSION_MAX_FPS);
         if (noNeedEndofStreamWhenPause || noNeedEndOfStreamInHFR) {
-            mMediaRecorder.pause();
+            try{
+                mMediaRecorder.pause();
+            } catch (IllegalStateException e){
+                e.printStackTrace();
+                mMediaRecorderPausing = false;
+            }
+
         } else {
             setEndOfStream(false, false);
         }
