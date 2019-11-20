@@ -98,7 +98,6 @@ public class SettingsManager implements ListMenu.SettingsListener {
 
     public static final int SCENE_MODE_AUTO_INT = 0;
     public static final int SCENE_MODE_NIGHT_INT = 5;
-    public static final int SCENE_MODE_HDR_INT = 18;
 
     public static final int TALOS_SOCID = 355;
     public static final int MOOREA_SOCID = 365;
@@ -1838,10 +1837,7 @@ public class SettingsManager implements ListMenu.SettingsListener {
         if (DeepPortraitFilter.isSupportedStatic()) modes.add(SCENE_MODE_DEEPPORTRAIT_INT+"");
         modes.add("" + SCENE_MODE_PROMODE_INT);
         for (int mode : sceneModes) {
-            //remove scene mode like "Sunset", "Night" such as, only keep "HDR" mode 	1889
-            if (mode == SCENE_MODE_HDR_INT) {
-                modes.add("" + mode);
-            }
+            modes.add("" + mode);
         }
         return modes;
     }
