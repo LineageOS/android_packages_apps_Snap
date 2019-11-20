@@ -2168,10 +2168,7 @@ public class SettingsManager implements ListMenu.SettingsListener {
         if (DeepZoomFilter.isSupportedStatic()) modes.add(SCENE_MODE_DEEPZOOM_INT + "");
         if (DeepPortraitFilter.isSupportedStatic()) modes.add(SCENE_MODE_DEEPPORTRAIT_INT+"");
         for (int mode : sceneModes) {
-            //remove scene mode like "Sunset", "Night" such as, only keep "HDR" mode 	1889
-            if (mode == SCENE_MODE_HDR_INT) {
-                modes.add("" + mode);
-            }
+            modes.add("" + mode);
         }
         return modes;
     }

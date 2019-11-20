@@ -241,7 +241,6 @@ public class SettingsActivity extends PreferenceActivity {
         CaptureModule.CameraMode mode =
                 (CaptureModule.CameraMode) getIntent().getSerializableExtra(CAMERA_MODULE);
         if((ZSLPref != null && "app-zsl".equals(ZSLPref.getValue())) ||
-                (sceneMode != null && Integer.valueOf(sceneMode) == SettingsManager.SCENE_MODE_HDR_INT) ||
                 (selfiePref != null && selfiePref.isChecked()) ||
                 (mode != null &&
                         (mode == SAT || mode == RTB || mSettingsManager.isSATCamera(cameraId)))){
