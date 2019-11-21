@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9762d6cb_002f47f8",
+        "filename": "src/com/android/camera/CaptureModule.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1176,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2019-11-21T14:53:57Z",
+      "side": 1,
+      "message": "With the change that you\u0027re proposing, this codepath will no longer be executed.",
+      "range": {
+        "startLine": 1176,
+        "startChar": 12,
+        "endLine": 1176,
+        "endChar": 30
+      },
+      "revId": "d14473e38bedee49707a5cd6acaf429cfde5e6e7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
