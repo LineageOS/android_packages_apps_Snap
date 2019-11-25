@@ -8117,12 +8117,12 @@ public class CaptureModule implements CameraModule, PhotoController,
     public void restartAll() {
         Log.d(TAG, "restart all");
         setCurrentSceneModeOnly(mNextModeIndex);
-        onPauseBeforeSuper();
         if(mOringalCameraId == CURRENT_ID){
             mIsCloseCamera = false;
         }else{
             mIsCloseCamera = true;
         }
+        onPauseBeforeSuper();
         if(!mIsCloseCamera){
             mUI.showPreviewCover();
         }
