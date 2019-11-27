@@ -2597,28 +2597,26 @@ public class SettingsManager implements ListMenu.SettingsListener {
         return new Size(width, height);
     }
 
-    public boolean isHFRLiveshotSupported(){
+    public boolean isLiveshotSupported(Size videoSize, int fps){
         if (PersistUtil.isPersistVideoLiveshot())
             return true;
-        int fps = getVideoFPS();
         SettingsManager.VideoEisConfig config =
-                getVideoEisConfig(getVideoSize(),fps);
-        if(config != null && config.isLiveshotSupported()){
-            return true;
+                getVideoEisConfig(videoSize,fps);
+        if(config != null ){
+            return config.isLiveshotSupported();
         }
-        return false;
+        return true;
     }
 
-    public boolean isEISSupported(){
+    public boolean isEISSupported(Size videoSize,int fps){
         if (PersistUtil.isPersistVideoEis())
             return true;
-        int fps = getVideoFPS();
         SettingsManager.VideoEisConfig config =
-                getVideoEisConfig(getVideoSize(),fps);
-        if(config != null && config.isEISSupported()){
-            return true;
+                getVideoEisConfig(videoSize,fps);
+        if(config != null){
+            return config.isEISSupported();
         }
-        return false;
+        return true;
     }
 
     public int getVideoFPS(){
@@ -2679,6 +2677,16 @@ public class SettingsManager implements ListMenu.SettingsListener {
 
         public static String getKey(Size size,int FPS){
             return size.toString()+"-"+String.valueOf(FPS);
+        }
+
+        @Override
+        public String toString() {
+            StringBuilder builder = new StringBuilder();
+            builder.append(" VideoSize="+mVideoSize.toString());
+            builder.append(" VideoFPS="+mVideoFPS);
+            builder.append(" LiveshotSupported="+mIsLiveshotSupported);
+            builder.append(" EISSupported="+mIsEISSupported);
+            return builder.toString();
         }
     }
 
