@@ -4001,7 +4001,8 @@ public class CaptureModule implements CameraModule, PhotoController,
         if (scene == null) return false;
         int mode = Integer.parseInt(scene);
         if (mode != CaptureRequest.CONTROL_SCENE_MODE_DISABLED
-                && mode < SettingsManager.SCENE_MODE_CUSTOM_START)
+                && mode < SettingsManager.SCENE_MODE_CUSTOM_START
+                && mode != SettingsManager.SCENE_MODE_HDR_INT)
             return true;
         return false;
     }
