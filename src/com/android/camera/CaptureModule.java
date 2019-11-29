@@ -2941,7 +2941,7 @@ public class CaptureModule implements CameraModule, PhotoController,
                     CaptureRequest.CONTROL_AF_MODE_OFF : afMode);
             mTakingPicture[id] = false;
             enableShutterAndVideoOnUiThread(id);
-        } catch (NullPointerException | IllegalStateException | CameraAccessException e) {
+        } catch (NullPointerException | IllegalStateException | CameraAccessException | IllegalArgumentException e) {
             Log.w(TAG, "Session is already closed");
         }
     }
