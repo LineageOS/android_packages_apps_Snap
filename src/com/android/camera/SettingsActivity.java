@@ -156,6 +156,12 @@ public class SettingsActivity extends PreferenceActivity {
                             pref, "Off", "0");
                 }
 
+                if ((pref.getKey().equals(SettingsManager.KEY_ZSL) ||
+                        pref.getKey().equals(SettingsManager.KEY_PICTURE_FORMAT)) ||
+                        pref.getKey().equals(SettingsManager.KEY_SELFIEMIRROR)) {
+                    updateFormatPreference();
+                }
+
                 if ( (pref.getKey().equals(SettingsManager.KEY_MANUAL_WB)) ) {
                     updateManualWBSettings();
                 }
@@ -169,6 +175,7 @@ public class SettingsActivity extends PreferenceActivity {
             }
         }
     };
+
 
     /**
      * This method is to enable or disable the option which is conflict with changed setting
@@ -186,6 +193,29 @@ public class SettingsActivity extends PreferenceActivity {
             conflictPref.setEnabled(false);
         } else {
             conflictPref.setEnabled(true);
+        }
+    }
+
+    private void updateFormatPreference() {
+        ListPreference formatPref = (ListPreference)findPreference(SettingsManager.KEY_PICTURE_FORMAT);
+        ListPreference ZSLPref = (ListPreference) findPreference(SettingsManager.KEY_ZSL);
+        ListPreference mfnrPref = (ListPreference) findPreference(SettingsManager.KEY_CAPTURE_MFNR_VALUE);
+        SwitchPreference selfiePref = (SwitchPreference) findPreference(SettingsManager.KEY_SELFIEMIRROR);
+        if (formatPref == null) {
+            return;
+        }
+        if((ZSLPref != null && "app-zsl".equals(ZSLPref.getValue())) ||
+                (selfiePref != null && selfiePref.isChecked())){
+            formatPref.setValue("0");
+            formatPref.setEnabled(false);
+            if (mfnrPref != null) {
+                mfnrPref.setEnabled(false);
+            }
+        } else {
+            formatPref.setEnabled(true);
+            if (mfnrPref != null) {
+                mfnrPref.setEnabled(true);
+            }
         }
     }
 
