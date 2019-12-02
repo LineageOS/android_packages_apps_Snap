@@ -556,6 +556,23 @@ public class SettingsManager implements ListMenu.SettingsListener {
         return isBurstShotSupported;
     }
 
+    public boolean isCameraFDSupported(){
+        if(CaptureModule.CURRENT_MODE == CaptureModule.CameraMode.HFR ||
+                CaptureModule.CURRENT_MODE == CaptureModule.CameraMode.VIDEO){
+            return true;
+        }
+        boolean isCameraFDSupported = false;
+        isCameraFDSupported = PersistUtil.isCameraFDSupported();
+        try {
+            isCameraFDSupported =
+                    mCharacteristics.get(mCameraId).get(CaptureModule.is_camera_fd_supported) == 1;
+        } catch (IllegalArgumentException e){
+            Log.d(TAG,"isVideoFDSupported no vendor tag");
+            isCameraFDSupported = true;
+        }
+        return isCameraFDSupported;
+    }
+
     public int getmaxBurstShotFPS(){
         int maxBurstShotFPS = 0;
         try {
@@ -1181,7 +1198,8 @@ public class SettingsManager implements ListMenu.SettingsListener {
         }
 
         if (faceDetection != null) {
-            if (!isFaceDetectionSupported(cameraId) || !isFDRenderingInVideoUISupported()) {
+            if (!isFaceDetectionSupported(cameraId) || !isFDRenderingInVideoUISupported() ||
+            !isCameraFDSupported()) {
                 removePreference(mPreferenceGroup, KEY_FACE_DETECTION);
             }
         }

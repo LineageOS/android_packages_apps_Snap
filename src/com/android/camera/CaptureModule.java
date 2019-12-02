@@ -476,6 +476,8 @@ public class CaptureModule implements CameraModule, PhotoController,
 
     public static final CameraCharacteristics.Key<int[]> eis_config_table = new CameraCharacteristics.Key<>(
             "org.quic.camera2.VideoConfigurations.info.VideoConfigurationsTable",int[].class);
+    public static final CameraCharacteristics.Key<Byte> is_camera_fd_supported = new CameraCharacteristics.Key<>(
+            "org.quic.camera.FDRendering.isFDRenderingInCameraUISupported",byte.class);
 
     public static final CaptureRequest.Key<Byte> sensor_mode_fs =
             new CaptureRequest.Key<>("org.quic.camera.SensorModeFS ", byte.class);
