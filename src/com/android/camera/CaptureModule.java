@@ -2981,7 +2981,7 @@ public class CaptureModule implements CameraModule, PhotoController,
         }
     }
 
-    private boolean isMFNREnabled() {
+    public boolean isMFNREnabled() {
         boolean mfnrEnable = false;
         if (mSettingsManager != null) {
             String mfnrValue = mSettingsManager.getValue(SettingsManager.KEY_CAPTURE_MFNR_VALUE);
