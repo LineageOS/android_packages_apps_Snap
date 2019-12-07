@@ -610,6 +610,8 @@ public class CameraUtil {
         // Try to find an size match aspect ratio and size
         for (int i = 0; i < sizes.length; i++) {
             Point size = sizes[i];
+            if(size == null)
+                continue;
             double ratio = (double) size.x / size.y;
             if (Math.abs(ratio - targetRatio) > ASPECT_TOLERANCE) continue;
 
@@ -681,6 +683,8 @@ public class CameraUtil {
         // Try to find an size match aspect ratio and size
         for (int i = 0; i < sizes.length; i++) {
             Point size = sizes[i];
+            if (size == null)
+                continue;
             double ratio = (double) size.x / size.y;
             if (Math.abs(ratio - targetRatio) > ASPECT_TOLERANCE) continue;
 

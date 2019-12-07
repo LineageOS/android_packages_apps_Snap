@@ -4191,12 +4191,6 @@ public class CaptureModule implements CameraModule, PhotoController,
             width = mVideoSize.getWidth();
             height = mVideoSize.getHeight();
         }
-        int[] maxPreviewSize = mSettingsManager.getMaxPreviewSize();
-        if (maxPreviewSize != null) {
-            width = maxPreviewSize[0];
-            height = maxPreviewSize[1];
-        }
-
         Point previewSize = PersistUtil.getCameraPreviewSize();
         if (previewSize != null) {
             width = previewSize.x;
@@ -8016,24 +8010,54 @@ public class CaptureModule implements CameraModule, PhotoController,
 
         double targetRatio = (double) pictureSize.getWidth() / pictureSize.getHeight();
         int index = 0;
+        int point_max[]  = mSettingsManager.getMaxPreviewSize();
+        int max_size = -1;
+        if (point_max != null){
+            max_size = point_max[0] * point_max[1];
+        }
         for (Size s : prevSizes) {
+            if (max_size != -1){
+                int size = s.getWidth() * s.getHeight();
+                if (s.getWidth() == s.getHeight()){
+                    if (s.getWidth() > Math.max(point_max[0],point_max[1]))
+                        continue;
+                } else if (size > max_size || size == 0) {
+                    continue;
+                }
+            }
             points[index++] = new Point(s.getWidth(), s.getHeight());
         }
 
         int optimalPickIndex = CameraUtil.getOptimalPreviewSize(mActivity, points, targetRatio);
-        return (optimalPickIndex == -1) ? null : prevSizes[optimalPickIndex];
+        return (optimalPickIndex == -1) ? null :
+                new Size(points[optimalPickIndex].x,points[optimalPickIndex].y);
     }
 
     private Size getOptimalVideoPreviewSize(Size VideoSize, Size[] prevSizes) {
         Point[] points = new Point[prevSizes.length];
 
         int index = 0;
+        int point_max[]  = mSettingsManager.getMaxPreviewSize();
+        int max_size = -1;
+        if (point_max != null){
+            max_size = point_max[0] * point_max[1];
+        }
         for (Size s : prevSizes) {
+            if (max_size != -1){
+                int size = s.getWidth() * s.getHeight();
+                if (s.getWidth() == s.getHeight()){
+                    if (s.getWidth() > Math.max(point_max[0],point_max[1]))
+                        continue;
+                } else if (size > max_size || size == 0) {
+                    continue;
+                }
+            }
             points[index++] = new Point(s.getWidth(), s.getHeight());
         }
 
         int optimalPickIndex = CameraUtil.getOptimalVideoPreviewSize(mActivity, points, VideoSize);
-        return (optimalPickIndex == -1) ? null : prevSizes[optimalPickIndex];
+        return (optimalPickIndex == -1) ? null :
+                new Size(points[optimalPickIndex].x,points[optimalPickIndex].y);
     }
 
     public TrackingFocusRenderer getTrackingForcusRenderer() {
