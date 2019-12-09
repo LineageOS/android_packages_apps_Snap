@@ -156,18 +156,26 @@ public class SettingsActivity extends PreferenceActivity {
                             pref, "Off", "0");
                 }
 
+                if ((pref.getKey().equals(SettingsManager.KEY_ZSL) ||
+                        pref.getKey().equals(SettingsManager.KEY_PICTURE_FORMAT)) ||
+                        pref.getKey().equals(SettingsManager.KEY_SELFIEMIRROR)) {
+                    updateFormatPreference();
+                }
+
                 if ( (pref.getKey().equals(SettingsManager.KEY_MANUAL_WB)) ) {
                     updateManualWBSettings();
                 }
 
-                if (pref.getKey().equals(SettingsManager.KEY_VIDEO_QUALITY) ||
-                        pref.getKey().equals(SettingsManager.KEY_DIS) ||
+                if (pref.getKey().equals(SettingsManager.KEY_DIS) ||
                         pref.getKey().equals(SettingsManager.KEY_EIS_VALUE)) {
-                    updatePreference(SettingsManager.KEY_VIDEO_ENCODER);
+                    mSettingsManager.filterEISVideQualityOptions();
+                    updatePreference(SettingsManager.KEY_VIDEO_QUALITY);
                 }
+
             }
         }
     };
+
 
     /**
      * This method is to enable or disable the option which is conflict with changed setting
@@ -185,6 +193,29 @@ public class SettingsActivity extends PreferenceActivity {
             conflictPref.setEnabled(false);
         } else {
             conflictPref.setEnabled(true);
+        }
+    }
+
+    private void updateFormatPreference() {
+        ListPreference formatPref = (ListPreference)findPreference(SettingsManager.KEY_PICTURE_FORMAT);
+        ListPreference ZSLPref = (ListPreference) findPreference(SettingsManager.KEY_ZSL);
+        ListPreference mfnrPref = (ListPreference) findPreference(SettingsManager.KEY_CAPTURE_MFNR_VALUE);
+        SwitchPreference selfiePref = (SwitchPreference) findPreference(SettingsManager.KEY_SELFIEMIRROR);
+        if (formatPref == null) {
+            return;
+        }
+        if((ZSLPref != null && "app-zsl".equals(ZSLPref.getValue())) ||
+                (selfiePref != null && selfiePref.isChecked())){
+            formatPref.setValue("0");
+            formatPref.setEnabled(false);
+            if (mfnrPref != null) {
+                mfnrPref.setEnabled(false);
+            }
+        } else {
+            formatPref.setEnabled(true);
+            if (mfnrPref != null) {
+                mfnrPref.setEnabled(true);
+            }
         }
     }
 
@@ -804,14 +835,14 @@ public class SettingsActivity extends PreferenceActivity {
                 pref.setEntries(mSettingsManager.getEntries(key));
                 pref.setEntryValues(mSettingsManager.getEntryValues(key));
                 String values = mSettingsManager.getValue(key);
+                Set<String> valueSet = new HashSet<String>();
                 if (values != null) {
-                    Set<String> valueSet = new HashSet<String>();
                     String[] splitValues = values.split(";");
                     for (String str : splitValues) {
                         valueSet.add(str);
                     }
-                    pref.setValues(valueSet);
                 }
+                pref.setValues(valueSet);
             }
         }
     }

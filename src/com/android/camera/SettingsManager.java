@@ -1091,9 +1091,6 @@ public class SettingsManager implements ListMenu.SettingsListener {
             filterVideoEncoderProfileOptions();
         } else if (pref.getKey().equals(KEY_PICTURE_FORMAT)) {
             filterHeifSizeOptions();
-        } else if (pref.getKey().equals(KEY_DIS) ||
-                pref.getKey().equals(KEY_EIS_VALUE)) {
-            filterVideoEncoderOptions();
         }
     }
 
@@ -1261,6 +1258,27 @@ public class SettingsManager implements ListMenu.SettingsListener {
                     getSupportedVideoEncoders())) {
                 mFilteredKeys.add(videoEncoder.getKey());
             }
+        }
+    }
+
+    private boolean getEISEnabled() {
+        boolean result = false;
+        ListPreference disPref = mPreferenceGroup.findPreference(KEY_DIS);
+        ListPreference eisPref = mPreferenceGroup.findPreference(KEY_EIS_VALUE);
+        if (disPref != null && eisPref != null) {
+            result = ("on".equals(disPref.getValue()) &&
+                    !("disable".equals(eisPref.getValue())));
+        }
+        return result;
+    }
+
+    public void filterEISVideQualityOptions() {
+        ListPreference videoQualityPref = mPreferenceGroup.findPreference(KEY_VIDEO_QUALITY);
+        if (videoQualityPref == null) return;
+        videoQualityPref.reloadInitialEntriesAndEntryValues();
+        if (filterUnsupportedOptions(videoQualityPref, getSupportedVideoSize(
+                getCurrentCameraId()))) {
+            mFilteredKeys.add(videoQualityPref.getKey());
         }
     }
 
@@ -1765,6 +1783,7 @@ public class SettingsManager implements ListMenu.SettingsListener {
         StreamConfigurationMap map = mCharacteristics.get(cameraId).get(
                 CameraCharacteristics.SCALER_STREAM_CONFIGURATION_MAP);
         Size[] sizes = map.getOutputSizes(MediaRecorder.class);
+        boolean eisEnabled = getEISEnabled();
         boolean isHeifEnabled = getSavePictureFormat() == HEIF_FORMAT;
         VideoCapabilities heifCap = null;
         if (isHeifEnabled) {
@@ -1783,6 +1802,13 @@ public class SettingsManager implements ListMenu.SettingsListener {
             if (isHeifEnabled && heifCap != null ){
                 if (!heifCap.getSupportedWidths().contains(sizes[i].getWidth()) ||
                         !heifCap.getSupportedHeights().contains(sizes[i].getHeight())){
+                    continue;
+                }
+            }
+            if (eisEnabled) {
+                // eis didn`t support less than 720P
+                if (Math.min(sizes[i].getWidth(),sizes[i].getHeight()) < 720 ||
+                        Math.max(sizes[i].getWidth(),sizes[i].getHeight()) < 1280) {
                     continue;
                 }
             }
@@ -1986,22 +2012,6 @@ public class SettingsManager implements ListMenu.SettingsListener {
                     supported.add(str);
                 }
             }
-        }
-
-        ListPreference videoQuality = mPreferenceGroup.findPreference(KEY_VIDEO_QUALITY);
-        String videoSize = videoQuality.getValue();
-        int indexX = videoSize.indexOf('x');
-        int width = Integer.parseInt(videoSize.substring(0, indexX));
-        int height = Integer.parseInt(videoSize.substring(indexX + 1));
-        // Video quality less than 720P
-        boolean isLess720P = width < 1280 && height < 720;
-
-        ListPreference disPref = mPreferenceGroup.findPreference(KEY_DIS);
-        ListPreference eisPref = mPreferenceGroup.findPreference(KEY_EIS_VALUE);
-        if (isLess720P &&
-                "on".equals(disPref.getValue()) &&
-                !("disable".equals(eisPref.getValue()))) {
-            supported.remove("mpeg-4-sp");
         }
 
         return supported;

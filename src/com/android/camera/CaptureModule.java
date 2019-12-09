@@ -833,6 +833,8 @@ public class CaptureModule implements CameraModule, PhotoController,
                     SettingsManager.KEY_STATS_VISUALIZER_VALUE);
             if (stats_visualizer != null) {
                 updateStatsView(stats_visualizer,result);
+            } else {
+                mUI.updateAWBInfoVisibility(View.GONE);
             }
         }
     };
@@ -2375,6 +2377,7 @@ public class CaptureModule implements CameraModule, PhotoController,
                         }
                     });
                 }
+                mLongshoting = false;
             }
 
             @Override
@@ -2408,6 +2411,7 @@ public class CaptureModule implements CameraModule, PhotoController,
                         }
                     });
                 }
+                mLongshoting = false;
             }
 
             @Override
@@ -2501,6 +2505,7 @@ public class CaptureModule implements CameraModule, PhotoController,
                     } else {
                         enableShutterAndVideoOnUiThread(id);
                     }
+                    Log.d(TAG,"onShutterButtonRelease");
                     if (mSettingsManager.getSavePictureFormat() == SettingsManager.HEIF_FORMAT) {
                         if (mHeifImage != null) {
                             try {
@@ -2938,7 +2943,7 @@ public class CaptureModule implements CameraModule, PhotoController,
                     CaptureRequest.CONTROL_AF_MODE_OFF : afMode);
             mTakingPicture[id] = false;
             enableShutterAndVideoOnUiThread(id);
-        } catch (NullPointerException | IllegalStateException | CameraAccessException e) {
+        } catch (NullPointerException | IllegalStateException | CameraAccessException | IllegalArgumentException e) {
             Log.w(TAG, "Session is already closed");
         }
     }
@@ -3118,7 +3123,7 @@ public class CaptureModule implements CameraModule, PhotoController,
         } catch (InterruptedException e) {
             mCameraOpenCloseLock.release();
             throw new RuntimeException("Interrupted while trying to lock camera closing.", e);
-        } catch (CameraAccessException e) {
+        } catch (CameraAccessException | IllegalStateException e) {
             e.printStackTrace();
         } finally {
             mCameraOpenCloseLock.release();
@@ -5180,7 +5185,13 @@ public class CaptureModule implements CameraModule, PhotoController,
         boolean noNeedEndOfStreamInHFR = mHighSpeedCapture &&
                 ((int)mHighSpeedFPSRange.getUpper() >= HIGH_SESSION_MAX_FPS);
         if (noNeedEndofStreamWhenPause || noNeedEndOfStreamInHFR) {
-            mMediaRecorder.pause();
+            try{
+                mMediaRecorder.pause();
+            } catch (IllegalStateException e){
+                e.printStackTrace();
+                mMediaRecorderPausing = false;
+            }
+
         } else {
             setEndOfStream(false, false);
         }
@@ -5702,6 +5713,7 @@ public class CaptureModule implements CameraModule, PhotoController,
                     + mActivity.getStorageSpaceBytes());
             return;
         }
+        Log.d(TAG,"onShutterButtonClick");
 
         if (mIsRecordingVideo) {
             if (mUI.isShutterEnabled()) {
