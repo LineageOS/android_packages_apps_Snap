@@ -4150,7 +4150,6 @@ public class CaptureModule implements CameraModule, PhotoController,
         }
         mLongshotActive = false;
         updatePreviewSurfaceReadyState(false);
-        updateMFNRText();
     }
 
     private void cancelTouchFocus() {
@@ -4427,6 +4426,7 @@ public class CaptureModule implements CameraModule, PhotoController,
         if (Integer.parseInt(scene) != SettingsManager.SCENE_MODE_UBIFOCUS_INT) {
             setRefocusLastTaken(false);
         }
+        updateMFNRText();//this must before showRelatedIcons, color filter based on mfnr
         mUI.showRelatedIcons(mCurrentSceneMode.mode);
         if(isPanoSetting(scene)) {
             if (mIntentMode != CaptureModule.INTENT_MODE_NORMAL) {
