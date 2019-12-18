@@ -834,7 +834,8 @@ public class SettingsManager implements ListMenu.SettingsListener {
     }
 
     public String getCurrentPrepNameKey() {
-        return String.valueOf(mCameraId) + String.valueOf(CaptureModule.CURRENT_MODE);
+        String facing = mPreferences.getGlobal().getString(KEY_FRONT_REAR_SWITCHER_VALUE, "rear");
+        return facing + String.valueOf(CaptureModule.CURRENT_MODE);
     }
 
     public String getValue(String key) {
