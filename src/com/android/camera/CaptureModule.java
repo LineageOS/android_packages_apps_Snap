@@ -2576,6 +2576,19 @@ public class CaptureModule implements CameraModule, PhotoController,
             return;
         }
         Log.d(TAG, "parallelLockFocusExposure " + id);
+
+        if (mState[id] == STATE_WAITING_TOUCH_FOCUS) {
+            String value = mSettingsManager.getValue(mCurrentSceneMode.mode == CameraMode.PRO_MODE ?
+                    SettingsManager.KEY_VIDEO_FLASH_MODE : SettingsManager.KEY_FLASH_MODE);
+            if (value != null && value.equals("on")) {
+                cancelAFTrigger();
+            }
+            mCameraHandler.removeMessages(CANCEL_TOUCH_FOCUS, mCameraId[id]);
+            mState[id] = STATE_WAITING_AF_LOCKING;
+            mLockRequestHashCode[id] = 0;
+            return;
+        }
+
         try {
             // start repeating request to get AF/AE state updates
             // for mono when mono preview is off.
@@ -2596,12 +2609,6 @@ public class CaptureModule implements CameraModule, PhotoController,
         }
 
         mTakingPicture[id] = true;
-        if (mState[id] == STATE_WAITING_TOUCH_FOCUS) {
-            mCameraHandler.removeMessages(CANCEL_TOUCH_FOCUS, mCameraId[id]);
-            mState[id] = STATE_WAITING_AF_LOCKING;
-            mLockRequestHashCode[id] = 0;
-            return;
-        }
 
         try {
             mState[id] = STATE_WAITING_AF_AE_LOCK;
@@ -7545,6 +7552,29 @@ public class CaptureModule implements CameraModule, PhotoController,
         }
     }
 
+    private void applyFlashForAFTrigger(CaptureRequest.Builder request, int id) {
+        if (mSettingsManager.isFlashSupported(id)) {
+            String value = mSettingsManager.getValue(mCurrentSceneMode.mode == CameraMode.PRO_MODE ?
+                    SettingsManager.KEY_VIDEO_FLASH_MODE : SettingsManager.KEY_FLASH_MODE);
+            String redeye = mSettingsManager.getValue(SettingsManager.KEY_REDEYE_REDUCTION);
+            mIsAutoFlash = false;
+            if (redeye != null && redeye.equals("on") && !mLongshotActive) {
+                request.set(CaptureRequest.CONTROL_AE_MODE,
+                        CaptureRequest.CONTROL_AE_MODE_ON_AUTO_FLASH_REDEYE);
+            } else if (value != null) {
+                switch (value) {
+                    case "on":
+                        Log.d(TAG, "applyFlashForAFTrigger change AE and FLASH mode" );
+                        request.set(CaptureRequest.CONTROL_AE_MODE, CaptureRequest.CONTROL_AE_MODE_ON_ALWAYS_FLASH);
+                        request.set(CaptureRequest.FLASH_MODE, CaptureRequest.FLASH_MODE_SINGLE);
+                        break;
+                }
+            }
+        } else {
+            request.set(CaptureRequest.FLASH_MODE, CaptureRequest.FLASH_MODE_OFF);
+        }
+    }
+
     private void addPreviewSurface(CaptureRequest.Builder builder, List<Surface> surfaceList, int id) {
         if (isBackCamera() && getCameraMode() == DUAL_MODE && id == MONO_ID) {
             if(surfaceList != null) {
@@ -7716,6 +7746,23 @@ public class CaptureModule implements CameraModule, PhotoController,
         mAERegions[id] = afaeRectangle(x, y, width, height, 1.5f, mCropRegion[id], id);
         mCameraHandler.removeMessages(CANCEL_TOUCH_FOCUS, mCameraId[id]);
         autoFocusTrigger(id);
+    }
+
+    private void cancelAFTrigger() {
+        int id = mCurrentSceneMode.getCurrentId();
+        if (mState[id] == STATE_WAITING_TOUCH_FOCUS) {
+            try {
+                if (mPreviewRequestBuilder[id] != null) {
+                    mPreviewRequestBuilder[id].set(CaptureRequest.CONTROL_AF_TRIGGER,
+                            CaptureRequest.CONTROL_AF_TRIGGER_CANCEL);
+                    applyCommonSettings(mPreviewRequestBuilder[id], id);
+                    applyFlashForAFTrigger(mPreviewRequestBuilder[id], id);//apply flash mode and AEmode for this temp builder
+                    mCaptureSession[id].capture(mPreviewRequestBuilder[id].build(), mCaptureCallback, mCameraHandler);
+                }
+            } catch (CameraAccessException | IllegalStateException | IllegalArgumentException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     private void cancelTouchFocus(int id) {
