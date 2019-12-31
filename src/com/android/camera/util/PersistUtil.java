@@ -144,6 +144,10 @@ public class PersistUtil {
             SystemProperties.getBoolean("persist.sys.camera.ssm.enable", false);
     private static final boolean PERSIST_FD_RENDERING_SUPPORTED =
             SystemProperties.getBoolean("persist.sys.camera.isFDRenderingSupported", false);
+    private static final boolean PERSIST_CAM_FD_SUPPORTED =
+            SystemProperties.getBoolean("persist.sys.camera.isCamFDSupported", false);
+
+
 
     public static int getMemoryLimit() {
         return PERSIST_MEMORY_LIMIT;
@@ -375,4 +379,6 @@ public class PersistUtil {
     }
 
     public static boolean isFDRENDERINGSUPPORTED() {return PERSIST_FD_RENDERING_SUPPORTED; }
+
+    public static boolean isCameraFDSupported() {return PERSIST_CAM_FD_SUPPORTED; }
 }
