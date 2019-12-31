@@ -2986,10 +2986,13 @@ public class CaptureModule implements CameraModule, PhotoController,
                     }
 
                 }
-
-                mLongshoting = false;
-                mNumFramesArrived.getAndSet(0);
-                unlockFocus(getMainCameraId());
+                if (mNumFramesArrived.get() < mShotNum && mLongshotActive) {
+                    captureStillPicture(CURRENT_ID);
+                }else {
+                    mLongshoting = false;
+                    mNumFramesArrived.getAndSet(0);
+                    unlockFocus(getMainCameraId());
+                }
             }
         };
 
@@ -3002,7 +3005,8 @@ public class CaptureModule implements CameraModule, PhotoController,
             burstShotFpsNums = (int)(30/mSettingsManager.getmaxBurstShotFPS()) - 1;
         }
         burstShotFpsNums = PersistUtil.isBurstShotFpsNums() > 0 ? PersistUtil.isBurstShotFpsNums() : burstShotFpsNums;
-        for (int i = 0; i < PersistUtil.getLongshotShotLimit(); i++) {
+        int totalNums = PersistUtil.getLongshotShotLimit()/(burstShotFpsNums + 1);
+        for (int i = 0; i < totalNums; i++) {
             for (int j = 0; j < burstShotFpsNums; j++) {
                 mPreviewRequestBuilder[id].setTag("preview");
                 burstList.add(mPreviewRequestBuilder[id].build());
