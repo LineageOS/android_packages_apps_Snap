@@ -158,9 +158,8 @@ public class SettingsActivity extends PreferenceActivity {
                 SettingsManager.Values values = map.get(state.key);
                 boolean enabled = values.overriddenValue == null;
                 Preference pref = findPreference(state.key);
-                Log.i(TAG, "onsettingschange:" + pref.getKey());
                 if (pref == null) return;
-
+                Log.i(TAG, "onsettingschange:" + pref.getKey());
                 pref.setEnabled(enabled);
 
                 if (pref.getKey().equals(SettingsManager.KEY_MANUAL_EXPOSURE)) {
