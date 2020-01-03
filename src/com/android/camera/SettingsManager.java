@@ -2579,8 +2579,8 @@ public class SettingsManager implements ListMenu.SettingsListener {
         for (int i=0; i < configs.length; i+=6){
             VideoEisConfig videoEisConfig = new VideoEisConfig();
             videoEisConfig.setVideoSize(new Size(configs[i],configs[i+1]));
-            videoEisConfig.setVideoFPS(configs[i+2]);
-            videoEisConfig.setMaxPreviewFPS(configs[i+3]);
+            videoEisConfig.setMaxPreviewFPS(configs[i+2]);
+            videoEisConfig.setVideoFPS(configs[i+3]);
             videoEisConfig.setLiveshotSupported(configs[i+4] == 1);
             videoEisConfig.setEISSupported(configs[i+5] == 1);
             String key =VideoEisConfig.getKey(videoEisConfig.getVideoSize(),videoEisConfig.getVideoFPS());
