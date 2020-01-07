@@ -3700,6 +3700,15 @@ public class CaptureModule implements CameraModule, PhotoController,
         }
     }
 
+    private void enableVideoButton(boolean enable) {
+        mActivity.runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                mUI.enableVideo(enable);
+            }
+        });
+    }
+
     private boolean isMFNREnabled() {
         boolean mfnrEnable = false;
         if (mSettingsManager != null) {
@@ -4393,6 +4402,9 @@ public class CaptureModule implements CameraModule, PhotoController,
         Log.d(TAG, "onResume " + (mCurrentSceneMode != null ? mCurrentSceneMode.mode : "null")
                 + (resumeFromRestartAll ? " isResumeFromRestartAll" : ""));
         mOringalCameraId = CURRENT_ID;
+        if(mCurrentSceneMode.mode == CameraMode.VIDEO){
+            enableVideoButton(false);//disable the video button before media recorder is ready
+        }
         checkRTBCameraId();
         if (!isBackCamera() && !frontIsAllowed()) {
             Log.d(TAG, "Current Mode " + mCurrentSceneMode.mode + "not support Front camera");
@@ -4436,7 +4448,6 @@ public class CaptureModule implements CameraModule, PhotoController,
         } else {
             mUI.showSurfaceView();
             mUI.stopDeepPortraitMode();
-            mUI.enableVideo(true);
         }
 
         if (!mFirstTimeInitialized) {
@@ -5340,6 +5351,7 @@ public class CaptureModule implements CameraModule, PhotoController,
         @Override
         public void onConfigured(CameraCaptureSession cameraCaptureSession) {
             Log.d(TAG, "mSessionListener session onConfigured");
+            enableVideoButton(true);
             setCameraModeSwitcherAllowed(true);
             int cameraId = getMainCameraId();
             mCurrentSession = cameraCaptureSession;
@@ -5382,6 +5394,7 @@ public class CaptureModule implements CameraModule, PhotoController,
 
         @Override
         public void onConfigureFailed(CameraCaptureSession cameraCaptureSession) {
+            enableVideoButton(true);
             setCameraModeSwitcherAllowed(true);
             Toast.makeText(mActivity, "Video Failed", Toast.LENGTH_SHORT).show();
         }
