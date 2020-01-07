@@ -7625,7 +7625,7 @@ public class CaptureModule implements CameraModule, PhotoController,
         if (DEBUG) {
             Log.d(TAG, "triggerFocusAtPoint " + x + " " + y + " " + id);
         }
-        if (mCropRegion[id] == null) {
+        if (mCropRegion[id] == null || mOriginalCropRegion[id] == null) {
             Log.d(TAG, "crop region is null at " + id);
             mInTAF = false;
             return;
