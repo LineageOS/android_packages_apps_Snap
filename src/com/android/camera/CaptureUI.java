@@ -689,6 +689,9 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
                 mSurfaceViewMono.setVisibility(View.GONE);
             }
         }
+        if(mModule.isMFNREnabled() && mModule.getMainCameraId() ==  android.hardware.Camera.CameraInfo.CAMERA_FACING_FRONT){
+            mFilterModeSwitcher.setVisibility(View.INVISIBLE);
+        }
     }
 
     public void initializeProMode(boolean promode) {

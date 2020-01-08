@@ -128,7 +128,10 @@ public class SettingsActivity extends PreferenceActivity {
             Map<String, SettingsManager.Values> map = mSettingsManager.getValuesMap();
             for( SettingsManager.SettingState state : settings) {
                 SettingsManager.Values values = map.get(state.key);
-                boolean enabled = values.overriddenValue == null;
+                boolean enabled = false;
+                if (values != null) {
+                    enabled = values.overriddenValue == null;
+                }
                 Preference pref = findPreference(state.key);
                 if ( pref == null ) return;
 
