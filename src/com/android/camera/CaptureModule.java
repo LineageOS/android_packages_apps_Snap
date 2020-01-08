@@ -729,6 +729,7 @@ public class CaptureModule implements CameraModule, PhotoController,
     private static final int SESSION_CONFIGURE_TIMEOUT_MS = 3000;
 
     private SoundClips.Player mSoundPlayer;
+    private Size mSupportedMaxPreviewSize;
     private Size mSupportedMaxPictureSize;
     private Size mSupportedRawPictureSize;
 
@@ -3000,16 +3001,39 @@ public class CaptureModule implements CameraModule, PhotoController,
             }
         };
 
-
+    private int calculateMaxFps(){
+        int maxFps = mSettingsManager.getmaxBurstShotFPS();
+        double dp = 1000000.00;
+        if(maxFps > 0) {
+            double size = mPictureSize.getWidth() * mPictureSize.getHeight() /dp;
+            double maxsizefloat = mSupportedMaxPictureSize.getWidth() * mSupportedMaxPictureSize.getHeight()/dp;
+            double maxSize = Math.ceil(maxsizefloat);
+            int sizemid = (int)(maxSize*3/4);
+            int sizemin = (int)(maxSize/2);
+            if (DEBUG) {
+                Log.i(TAG, "maxsize:" + mSupportedMaxPictureSize.getWidth() + ",height:" + mSupportedMaxPictureSize.getHeight() + "maxsize:" + maxSize);
+                Log.i(TAG, "size:" + mPictureSize.getWidth() + ",height:" + mPictureSize.getHeight() + ",size:" + size);
+                Log.i(TAG, "sizemid:" + sizemid + ",sizemin:" + sizemin );
+            }
+            if(size > sizemid && size <= maxSize){
+                maxFps = 2;
+            }else if(size > sizemin && size <= sizemid){
+                maxFps = 3;
+            }else if (size <= sizemin) {
+                maxFps = 4;
+            }
+        }
+        return maxFps;
+    }
 
     private void captureStillPictureForLongshot(CaptureRequest.Builder captureBuilder, int id) throws CameraAccessException{
         List<CaptureRequest> burstList = new ArrayList<>();
         int burstShotFpsNums = 0;
-        if(mSettingsManager.getmaxBurstShotFPS() > 0){
-            burstShotFpsNums = (int)(30/mSettingsManager.getmaxBurstShotFPS()) - 1;
+        if(calculateMaxFps() > 0){
+            burstShotFpsNums = (int)(30/calculateMaxFps()) - 1;
         }
         burstShotFpsNums = PersistUtil.isBurstShotFpsNums() > 0 ? PersistUtil.isBurstShotFpsNums() : burstShotFpsNums;
-        int totalNums = PersistUtil.getLongshotShotLimit()/(burstShotFpsNums + 1);
+        int totalNums = (int)(PersistUtil.getLongshotShotLimit()/(burstShotFpsNums + 1));
         for (int i = 0; i < totalNums; i++) {
             for (int j = 0; j < burstShotFpsNums; j++) {
                 mPreviewRequestBuilder[id].setTag("preview");
@@ -3297,8 +3321,8 @@ public class CaptureModule implements CameraModule, PhotoController,
                     if ((imageFormat == ImageFormat.YUV_420_888 || imageFormat == ImageFormat.PRIVATE)
                             && i == getMainCameraId()) {
                         if(mPostProcessor.isZSLEnabled()) {
-                            mImageReader[i] = ImageReader.newInstance(mSupportedMaxPictureSize.getWidth(),
-                                    mSupportedMaxPictureSize.getHeight(), imageFormat, MAX_IMAGEREADERS + 2);
+                            mImageReader[i] = ImageReader.newInstance(mSupportedMaxPreviewSize.getWidth(),
+                                    mSupportedMaxPreviewSize.getHeight(), imageFormat, MAX_IMAGEREADERS + 2);
                         } else {
                             mImageReader[i] = ImageReader.newInstance(mPictureSize.getWidth(),
                                     mPictureSize.getHeight(), imageFormat, MAX_IMAGEREADERS + 2);
@@ -3309,7 +3333,7 @@ public class CaptureModule implements CameraModule, PhotoController,
                             mPostProcessor.setRawImageReader(mRawImageReader[i]);
                         }
                         mImageReader[i].setOnImageAvailableListener(mPostProcessor.getImageHandler(), mImageAvailableHandler);
-                        mPostProcessor.onImageReaderReady(mImageReader[i], mSupportedMaxPictureSize, mPictureSize);
+                        mPostProcessor.onImageReaderReady(mImageReader[i], mSupportedMaxPreviewSize, mPictureSize);
                     } else if (i == getMainCameraId()) {
                         mImageReader[i] = ImageReader.newInstance(mPictureSize.getWidth(),
                                 mPictureSize.getHeight(), imageFormat, MAX_IMAGEREADERS);
@@ -5013,9 +5037,19 @@ public class CaptureModule implements CameraModule, PhotoController,
                 SurfaceHolder.class);
         List<Size> prevSizeList = Arrays.asList(prevSizes);
         prevSizeList.sort((o1,o2) -> o2.getWidth()*o2.getHeight() - o1.getWidth()*o1.getHeight());
-        mSupportedMaxPictureSize = prevSizeList.get(0);
+        mSupportedMaxPreviewSize = prevSizeList.get(0);
+        Size[] picSize = mSettingsManager.getSupportedOutputSize(getMainCameraId(), ImageFormat.JPEG);
+        Size[] highResSizes = mSettingsManager.getHighResolutionOutputSize(getMainCameraId());
+        Size[] allPicSizes = new Size[picSize.length + highResSizes.length];
+        System.arraycopy(picSize, 0, allPicSizes, 0, picSize.length);
+        System.arraycopy(highResSizes, 0, allPicSizes, picSize.length, highResSizes.length);
+        List<Size> allPicSizesList = Arrays.asList(allPicSizes);
+        allPicSizesList.sort((o1,o2) -> o2.getWidth()*o2.getHeight() - o1.getWidth()*o1.getHeight());
+        mSupportedMaxPictureSize = allPicSizesList.get(0);
         Size[] yuvSizes = mSettingsManager.getSupportedOutputSize(getMainCameraId(), ImageFormat.PRIVATE);
         List<Size> yuvSizeList = Arrays.asList(yuvSizes);
+        if(DEBUG)
+            Log.i(TAG,"mSupportedMaxPreviewSize:" + mSupportedMaxPreviewSize + ",mSupportedMaxPictureSize:" + mSupportedMaxPictureSize);
         yuvSizeList.sort((o1,o2) -> o2.getWidth()*o2.getHeight() - o1.getWidth()*o1.getHeight());
         for (int i = 0; i< mYUVCount; i++) {
             mYUVsize[i] = yuvSizeList.get(0);
