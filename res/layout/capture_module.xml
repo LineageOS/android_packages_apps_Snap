@@ -113,7 +113,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="68dip"
-            android:layout_marginLeft="260dip"
+            android:layout_marginLeft="200dip"
             android:textSize="15sp"
             android:visibility="gone"
             android:text="@string/stats_visualizer_be_label"/>
@@ -123,7 +123,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="88dip"
-            android:layout_marginLeft="260dip" />
+            android:layout_marginLeft="200dip" />
         <LinearLayout
             android:id="@+id/stats_awb_info"
             android:layout_marginTop="68dip"

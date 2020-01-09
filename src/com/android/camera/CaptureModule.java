@@ -702,20 +702,21 @@ public class CaptureModule implements CameraModule, PhotoController,
     private boolean mInTAF = false;
 
     // BG stats
-    private static final int BGSTATS_DATA = 64*48;
-    public static final int BGSTATS_WIDTH = 480;
-    public static final int BGSTATS_HEIGHT = 640;
-    public static int bg_statsdata[]   = new int[BGSTATS_DATA*10*10];
+    private static final int BGSTATS_DATA = 16*16;
+    public static final int SCALE_STATS = 20;
+    public static final int BGSTATS_WIDTH = 16*SCALE_STATS;
+    public static final int BGSTATS_HEIGHT = 16*SCALE_STATS;
+    public static int bg_statsdata[]   = new int[BGSTATS_DATA*SCALE_STATS*SCALE_STATS];
     public static int bg_r_statsdata[] = new int[BGSTATS_DATA];
     public static int bg_g_statsdata[] = new int[BGSTATS_DATA];
     public static int bg_b_statsdata[] = new int[BGSTATS_DATA];
     public static String bgstatsdata_string = new String();
 
     // BE stats
-    private static final int BESTATS_DATA = 64*48;
-    public static final int BESTATS_WIDTH = 480;
-    public static final int BESTATS_HEIGHT = 640;
-    public static int be_statsdata[]   = new int[BESTATS_DATA*10*10];
+    private static final int BESTATS_DATA = 16*16;
+    public static final int BESTATS_WIDTH = 16*SCALE_STATS;
+    public static final int BESTATS_HEIGHT = 16*SCALE_STATS;
+    public static int be_statsdata[]   = new int[BESTATS_DATA*SCALE_STATS*SCALE_STATS];
     public static int be_r_statsdata[] = new int[BESTATS_DATA];
     public static int be_g_statsdata[] = new int[BESTATS_DATA];
     public static int be_b_statsdata[] = new int[BESTATS_DATA];
@@ -1086,6 +1087,7 @@ public class CaptureModule implements CameraModule, PhotoController,
                 bgRStats = result.get(CaptureModule.bgRStats);
                 bgGStats = result.get(CaptureModule.bgGStats);
                 bgBStats = result.get(CaptureModule.bgBStats);
+
             } catch (IllegalArgumentException e) {
                 e.printStackTrace();
             }
@@ -1095,14 +1097,15 @@ public class CaptureModule implements CameraModule, PhotoController,
                     System.arraycopy(bgGStats, 0, bg_g_statsdata, 0, BGSTATS_DATA);
                     System.arraycopy(bgBStats, 0, bg_b_statsdata, 0, BGSTATS_DATA);
 
-                    for (int el = 0; el < 3072; el++) {
-                        r = bg_r_statsdata[el] >> 6;
-                        g = bg_g_statsdata[el] >> 6;
-                        b = bg_b_statsdata[el] >> 6;
+                    for (int el = 0; el < 256; el++) {
 
-                        for (int hi = 0; hi < 10; hi++) {
-                            for (int wi = 0; wi < 10; wi++) {
-                                index = 10 * (int) (el / 64) + 48 * 10 * hi + 48 * 10 * 10 * (el % 64) + wi;
+                        r = bg_r_statsdata[el];
+                        g = bg_g_statsdata[el];
+                        b = bg_b_statsdata[el];
+
+                        for (int hi = 0; hi < SCALE_STATS; hi++) {
+                            for (int wi = 0; wi < SCALE_STATS; wi++) {
+                                index = SCALE_STATS * (int) (el / 16) + 16 * SCALE_STATS * hi + 16 * SCALE_STATS * SCALE_STATS * (el % 16) + wi;
                                 bg_statsdata[index] = Color.argb(255, r, g, b);
                             }
                         }
@@ -1140,25 +1143,25 @@ public class CaptureModule implements CameraModule, PhotoController,
                     System.arraycopy(beGStats, 0, be_g_statsdata, 0, BESTATS_DATA);
                     System.arraycopy(beBStats, 0, be_b_statsdata, 0, BESTATS_DATA);
 
-                    int roi_x = (int)(norm_roi_x * 64.0f);
-                    int roi_y = (int)(norm_roi_y * 48.0f);
-                    int roi_w = (int)((norm_roi_x + norm_roi_dx) * 64.0f);
-                    int roi_h = (int)((norm_roi_y + norm_roi_dy) * 48.0f);
+                    int roi_x = (int)(norm_roi_x * 16.0f);
+                    int roi_y = (int)(norm_roi_y * 16.0f);
+                    int roi_w = (int)((norm_roi_x + norm_roi_dx) * 16.0f);
+                    int roi_h = (int)((norm_roi_y + norm_roi_dy) * 16.0f);
 
-                    for (int el = 0; el < 3072; el++) {
-                        r = be_r_statsdata[el] >> 6;
-                        g = be_g_statsdata[el] >> 6;
-                        b = be_b_statsdata[el] >> 6;
+                    for (int el = 0; el < 256; el++) {
+                        r = be_r_statsdata[el];
+                        g = be_g_statsdata[el];
+                        b = be_b_statsdata[el];
 
-                        for (int hi = 0; hi < 10; hi++) {
-                            for (int wi = 0; wi < 10; wi++) {
-                                index = 10 * (int) (el / 64) + 48 * 10 * hi + 48 * 10 * 10 * (el % 64) + wi;
+                        for (int hi = 0; hi < SCALE_STATS; hi++) {
+                            for (int wi = 0; wi < SCALE_STATS; wi++) {
+                                index = SCALE_STATS * (int) (el / 16) + 16 * SCALE_STATS * hi + 16 * SCALE_STATS * SCALE_STATS * (el % 16) + wi;
                                 be_statsdata[index] = Color.argb(255, r, g, b);
                                 if (roi_w > 0 && roi_h > 0 &&
-                                        ((el % 64 == roi_x && el / 64 >= roi_y && el / 64 <= roi_h)
-                                                || (el % 64 == roi_w && el / 64 >= roi_y && el / 64 <= roi_h) ||
-                                                (el / 64 == roi_y && el % 64 >= roi_x && el % 64 <= roi_w) ||
-                                                (el / 64 == roi_h && el % 64 >= roi_x && el % 64 <= roi_w))) {
+                                        ((el % 16 == roi_x && el / 16 >= roi_y && el / 16 <= roi_h)
+                                                || (el % 16 == roi_w && el / 16 >= roi_y && el / 16 <= roi_h) ||
+                                                (el / 16 == roi_y && el % 16 >= roi_x && el % 16 <= roi_w) ||
+                                                (el / 16 == roi_h && el % 16 >= roi_x && el % 16 <= roi_w))) {
                                     // red color for ROI border
                                     be_statsdata[index] = Color.argb(255, 255, 0, 0);
                                 }
@@ -8740,7 +8743,7 @@ class Camera2BGBitMap extends View {
             final Canvas cavas = mCanvas;
             cavas.drawColor(0xFFAAAAAA);
             synchronized(CaptureModule.bg_statsdata){
-                mBitmap.setPixels(CaptureModule.bg_statsdata, 0, 48*10, 0, 0, 48*10, 64*10);
+                mBitmap.setPixels(CaptureModule.bg_statsdata, 0, 16*CaptureModule.SCALE_STATS, 0, 0, 16*CaptureModule.SCALE_STATS, 16*CaptureModule.SCALE_STATS);
             }
             canvas.drawBitmap(mBitmap, 0, 0, null);
         }
@@ -8806,7 +8809,7 @@ class Camera2BEBitMap extends View {
             final Canvas cavas = mCanvas;
             cavas.drawColor(0xFFAAAAAA);
             synchronized(CaptureModule.be_statsdata){
-            mBitmap.setPixels(CaptureModule.be_statsdata, 0, 48*10, 0, 0, 48*10, 64*10);
+            mBitmap.setPixels(CaptureModule.be_statsdata, 0, 16*CaptureModule.SCALE_STATS, 0, 0, 16*CaptureModule.SCALE_STATS, 16*CaptureModule.SCALE_STATS);
             }
             canvas.drawBitmap(mBitmap, 0, 0, null);
         }
