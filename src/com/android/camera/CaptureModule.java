@@ -3034,10 +3034,14 @@ public class CaptureModule implements CameraModule, PhotoController,
         }
         burstShotFpsNums = PersistUtil.isBurstShotFpsNums() > 0 ? PersistUtil.isBurstShotFpsNums() : burstShotFpsNums;
         int totalNums = (int)(PersistUtil.getLongshotShotLimit()/(burstShotFpsNums + 1));
+        CaptureRequest.Builder builder = getRequestBuilder(id);
+        addPreviewSurface(builder, null, id);
+        applyCommonSettings(builder, id);
+        applyFlash(builder, id);
         for (int i = 0; i < totalNums; i++) {
             for (int j = 0; j < burstShotFpsNums; j++) {
-                mPreviewRequestBuilder[id].setTag("preview");
-                burstList.add(mPreviewRequestBuilder[id].build());
+                builder.setTag("preview");
+                burstList.add(builder.build());
             }
             captureBuilder.setTag("capture");
             burstList.add(captureBuilder.build());
