@@ -1348,6 +1348,10 @@ public class PostProcessor{
     private native int nativeResizeImage(byte[] oldBuf, byte[] newBuf, int oldWidth, int oldHeight, int oldStride, int newWidth, int newHeight);
     private native int nativeFlipNV21(byte[] buf, int stride, int height, int gap, boolean isVertical);
     static {
-        System.loadLibrary("jni_imageutil");
+        try {
+            System.loadLibrary("jni_imageutil");
+        } catch (UnsatisfiedLinkError e){
+            e.printStackTrace();
+        }
     }
 }

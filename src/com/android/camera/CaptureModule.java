@@ -77,6 +77,7 @@ import android.os.Message;
 import android.os.ParcelFileDescriptor;
 import android.os.SystemClock;
 import android.os.SystemProperties;
+import android.os.Trace;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.util.Range;
@@ -1725,6 +1726,8 @@ public class CaptureModule implements CameraModule, PhotoController,
     }
 
     private void createSessions() {
+        if(PersistUtil.isTraceEnable())
+            Trace.beginSection("createSessions");
         if (mPaused || !mCamerasOpened || mTempHoldVideoInVideoIntent) return;
         final int cameraId = mCurrentSceneMode.getCurrentId();
         Log.d(TAG,"createSessions : Current SceneMode is "+mCurrentSceneMode.mode);
@@ -1741,6 +1744,8 @@ public class CaptureModule implements CameraModule, PhotoController,
             default:
                 createSession(cameraId);
         }
+        if (PersistUtil.isTraceEnable())
+            Trace.endSection();
     }
 
     private CaptureRequest.Builder getRequestBuilder(int id) throws CameraAccessException {
@@ -3401,6 +3406,8 @@ public class CaptureModule implements CameraModule, PhotoController,
                         ImageAvailableListener listener = new ImageAvailableListener(i) {
                             @Override
                             public void onImageAvailable(ImageReader reader) {
+                                if (PersistUtil.isTraceEnable())
+                                    Trace.beginSection("onImageAvailable save iamge");
                                 if (captureWaitImageReceive()) {
                                     mHandler.post(new Runnable() {
                                         @Override
@@ -3477,6 +3484,8 @@ public class CaptureModule implements CameraModule, PhotoController,
                                         image.close();
                                     }
                                 }
+                                if (PersistUtil.isTraceEnable())
+                                    Trace.endSection();
                             }
                         };
                         mImageReader[i].setOnImageAvailableListener(listener, mImageAvailableHandler);
@@ -6470,6 +6479,8 @@ public class CaptureModule implements CameraModule, PhotoController,
     }
 
     public void onVideoButtonClick() {
+        if (PersistUtil.isTraceEnable())
+            Trace.beginSection("onVideoButtonClick recording");
         if (!isRecorderReady() || getCameraMode() == DUAL_MODE) return;
 
         if (!mIsRecordingVideo) {
@@ -6481,10 +6492,14 @@ public class CaptureModule implements CameraModule, PhotoController,
         } else if (mMediaRecorderStarted) {
             stopRecordingVideo(getMainCameraId());
         }
+        if (PersistUtil.isTraceEnable())
+            Trace.endSection();
     }
 
     @Override
     public void onShutterButtonClick() {
+        if (PersistUtil.isTraceEnable())
+            Trace.beginSection("onShutterButtonClick capture");
         if (mActivity.getStorageSpaceBytes() <= Storage.LOW_STORAGE_THRESHOLD_BYTES) {
             Log.i(TAG, "Not enough space or storage not ready. remaining="
                     + mActivity.getStorageSpaceBytes());
@@ -6517,6 +6532,8 @@ public class CaptureModule implements CameraModule, PhotoController,
             }
             checkSelfieFlashAndTakePicture();
         }
+        if (PersistUtil.isTraceEnable())
+            Trace.endSection();
     }
 
     private void warningToast(final String msg) {
@@ -6551,6 +6568,8 @@ public class CaptureModule implements CameraModule, PhotoController,
 
     @Override
     public void onShutterButtonLongClick() {
+        if (PersistUtil.isTraceEnable())
+            Trace.beginSection("onShutterButtonLongClick longshot");
         if (isBackCamera() && getCameraMode() == DUAL_MODE) return;
 
         if (isLongShotSettingEnabled()) {
@@ -6583,6 +6602,8 @@ public class CaptureModule implements CameraModule, PhotoController,
         } else {
             RotateTextToast.makeText(mActivity, "Long shot not support", Toast.LENGTH_SHORT).show();
         }
+        if (PersistUtil.isTraceEnable())
+            Trace.endSection();
     }
 
     private void estimateJpegFileSize() {

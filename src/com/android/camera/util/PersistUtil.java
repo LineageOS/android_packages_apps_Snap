@@ -144,6 +144,8 @@ public class PersistUtil {
             SystemProperties.getBoolean("persist.sys.camera.ssm.enable", false);
     private static final boolean PERSIST_FD_RENDERING_SUPPORTED =
             SystemProperties.getBoolean("persist.sys.camera.isFDRenderingSupported", false);
+    private static final boolean PERSIST_TRACE_ENABLE =
+            SystemProperties.getBoolean("persist.sys.camera.trace",false);
     private static final boolean PERSIST_CAM_FD_SUPPORTED =
             SystemProperties.getBoolean("persist.sys.camera.isCamFDSupported", false);
 
@@ -379,6 +381,8 @@ public class PersistUtil {
     }
 
     public static boolean isFDRENDERINGSUPPORTED() {return PERSIST_FD_RENDERING_SUPPORTED; }
+
+    public static boolean isTraceEnable() {return PERSIST_TRACE_ENABLE;};
 
     public static boolean isCameraFDSupported() {return PERSIST_CAM_FD_SUPPORTED; }
 }
