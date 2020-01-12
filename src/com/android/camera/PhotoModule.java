@@ -54,7 +54,6 @@ import android.os.Looper;
 import android.os.Message;
 import android.os.MessageQueue;
 import android.os.SystemClock;
-import android.os.SystemProperties;
 import android.preference.PreferenceManager;
 import android.provider.MediaStore;
 import android.util.DisplayMetrics;
@@ -226,7 +225,6 @@ public class PhotoModule
 
     private static final boolean PERSIST_SKIP_MEM_CHECK = PersistUtil.isSkipMemoryCheckEnabled();
 
-    private static final String PERSIST_LONGSHOT_MAX_SNAP = "persist.camera.longshot.max";
     private static int mLongShotMaxSnap = -1;
 
     // Constant from android.hardware.Camera.Parameters
@@ -3855,7 +3853,7 @@ public class PhotoModule
         Log.v(TAG, "Bokeh Mode = " + bokehMode + " bokehMpo = " + bokehMpo +
                 " bokehBlurDegree = " + bokehBlurDegree);
 
-        mLongShotMaxSnap = SystemProperties.getInt(PERSIST_LONGSHOT_MAX_SNAP, -1);
+        mLongShotMaxSnap = PersistUtil.getLongshotShotLimit();
         mParameters.set("max-longshot-snap",mLongShotMaxSnap);
     }
 
