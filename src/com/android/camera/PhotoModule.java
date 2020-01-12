@@ -227,7 +227,6 @@ public class PhotoModule
 
     private static final boolean PERSIST_SKIP_MEM_CHECK = PersistUtil.isSkipMemoryCheckEnabled();
 
-    private static final String PERSIST_LONGSHOT_MAX_SNAP = "persist.camera.longshot.max";
     private static int mLongShotMaxSnap = -1;
 
     // Constant from android.hardware.Camera.Parameters
@@ -1870,8 +1869,7 @@ public class PhotoModule
         }
 
         if (mCameraState == LONGSHOT) {
-            mLongShotCaptureCountLimit = SystemProperties.getInt(
-                                    "persist.camera.longshot.shotnum", 0);
+            mLongShotCaptureCountLimit = PersistUtil.getLongshotShotLimit();
             mLongShotCaptureCount = 1;
             if(mLongshotSave) {
                 mCameraDevice.takePicture(mHandler,
@@ -3870,7 +3868,7 @@ public class PhotoModule
         Log.v(TAG, "Bokeh Mode = " + bokehMode + " bokehMpo = " + bokehMpo +
                 " bokehBlurDegree = " + bokehBlurDegree);
 
-        mLongShotMaxSnap = SystemProperties.getInt(PERSIST_LONGSHOT_MAX_SNAP, -1);
+        mLongShotMaxSnap = PersistUtil.getLongshotShotMaxSnap();
         mParameters.set("max-longshot-snap",mLongShotMaxSnap);
     }
 
@@ -4102,7 +4100,7 @@ public class PhotoModule
         //value: 2 - 720x480
         //value: 3 - 1280x720
         //value: 4 - 1920x1080
-        int preview_resolution = SystemProperties.getInt("persist.camera.preview.size", 0);
+        int preview_resolution = PersistUtil.getPreviewSize();
         switch (preview_resolution) {
             case 1: {
                 optimalSize.width = 640;
