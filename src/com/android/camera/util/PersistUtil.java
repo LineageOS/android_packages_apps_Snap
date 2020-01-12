@@ -149,6 +149,8 @@ public class PersistUtil {
             getBoolean("persist.sys.camera.isCamFDSupported", false);
     private static final int PERSIST_MCTF_VALUE =
             getInt("persist.sys.camera.sessionParameters.mctf", 0);
+    private static final int PERSIST_LONGSHOT_MAX_SNAP =
+            getInt("persist.sys.camera.longshot.max", -1);
 
 
     public static int getMemoryLimit() {
@@ -429,5 +431,9 @@ public class PersistUtil {
 
     public static int mctfValue() {
         return PERSIST_MCTF_VALUE;
+    }
+
+    public static int getLongshotShotMaxSnap() {
+        return PERSIST_LONGSHOT_MAX_SNAP;
     }
 }
