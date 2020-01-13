@@ -6442,6 +6442,7 @@ public class CaptureModule implements CameraModule, PhotoController,
         // finished. If not, cancel the previous countdown and start a new one.
         if (mUI.isCountingDown()) {
             mUI.cancelCountDown();
+            return;
         }
         if (seconds > 0) {
             mUI.startCountDown(seconds, true);
