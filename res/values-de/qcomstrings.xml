@@ -413,7 +413,6 @@
     <string name="pref_camera2_afmode_entry_continuous_picture">Serienbild</string>
     <string name="pref_camera2_afmode_entry_edof">Erweiterte Tiefenschärfe</string>
     <string name="pref_camera2_switch_camera_title">Kamera nach ID wechseln</string>
-    <string name="pref_camera2_switch_camera_title">Kamera nach ID wechseln</string>
     <string name="pref_camera2_initial_camera_entry_bayer">Bayer</string>
     <string name="pref_camera2_initial_camera_entry_mono">Schwarzweiß</string>
     <string name="pref_camera2_initial_camera_entry_front">Frontkamera</string>

@@ -414,7 +414,6 @@
     <string name="pref_camera2_afmode_entry_continuous_picture">Continuous picture</string>
     <string name="pref_camera2_afmode_entry_edof">Extended depth of focus</string>
     <string name="pref_camera2_switch_camera_title">Switch camera by ID</string>
-    <string name="pref_camera2_switch_camera_title">Switch camera by ID</string>
     <string name="pref_camera2_initial_camera_entry_bayer">Bayer</string>
     <string name="pref_camera2_initial_camera_entry_mono">Mono</string>
     <string name="pref_camera2_initial_camera_entry_front">Front</string>

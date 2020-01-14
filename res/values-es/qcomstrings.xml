@@ -402,7 +402,6 @@
     <string name="pref_camera2_afmode_entry_disable">Desactivado</string>
     <string name="pref_camera2_afmode_entry_off">Apagar</string>
     <string name="pref_camera2_switch_camera_title">Cambiar cámara por ID</string>
-    <string name="pref_camera2_switch_camera_title">Cambiar cámara por ID</string>
     <string name="pref_camera2_initial_camera_entry_bayer">Bayer</string>
     <string name="pref_camera2_initial_camera_entry_mono">Mono</string>
     <string name="pref_camera2_initial_camera_entry_front">Frontal</string>

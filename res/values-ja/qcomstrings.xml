@@ -415,7 +415,6 @@
     <string name="pref_camera2_afmode_entry_continuous_picture">連写撮影</string>
     <string name="pref_camera2_afmode_entry_edof">焦点深度拡張</string>
     <string name="pref_camera2_switch_camera_title">ID でカメラを切り替え</string>
-    <string name="pref_camera2_switch_camera_title">ID でカメラを切り替え</string>
     <string name="pref_camera2_initial_camera_entry_bayer">ベイヤー</string>
     <string name="pref_camera2_initial_camera_entry_mono">モノクロ</string>
     <string name="pref_camera2_initial_camera_entry_front">フロント</string>

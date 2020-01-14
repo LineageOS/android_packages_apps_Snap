@@ -413,7 +413,6 @@
     <string name="pref_camera2_afmode_entry_continuous_picture">連拍相片</string>
     <string name="pref_camera2_afmode_entry_edof">景深延伸</string>
     <string name="pref_camera2_switch_camera_title">透過 ID 切換相機</string>
-    <string name="pref_camera2_switch_camera_title">透過 ID 切換相機</string>
     <string name="pref_camera2_initial_camera_entry_bayer">Bayer</string>
     <string name="pref_camera2_initial_camera_entry_mono">單色</string>
     <string name="pref_camera2_initial_camera_entry_front">前面</string>

@@ -413,7 +413,6 @@
     <string name="pref_camera2_afmode_entry_continuous_picture">الصورة المستمرة</string>
     <string name="pref_camera2_afmode_entry_edof">عمق متوسع للتركيز</string>
     <string name="pref_camera2_switch_camera_title">تبديل الكاميرا بمعرف</string>
-    <string name="pref_camera2_switch_camera_title">تبديل الكاميرا بمعرف</string>
     <string name="pref_camera2_initial_camera_entry_bayer">باير</string>
     <string name="pref_camera2_initial_camera_entry_mono">أُحادي</string>
     <string name="pref_camera2_initial_camera_entry_front">الأمامية</string>

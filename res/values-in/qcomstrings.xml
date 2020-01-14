@@ -406,7 +406,6 @@
     <string name="pref_camera2_afmode_entry_disable">Dimatikan</string>
     <string name="pref_camera2_afmode_entry_off">Tidak aktif</string>
     <string name="pref_camera2_switch_camera_title">Beralih kamera dengan ID</string>
-    <string name="pref_camera2_switch_camera_title">Beralih kamera dengan ID</string>
     <string name="pref_camera2_initial_camera_entry_bayer">Bayer</string>
     <string name="pref_camera2_initial_camera_entry_mono">Satu</string>
     <string name="pref_camera2_initial_camera_entry_front">Depan</string>

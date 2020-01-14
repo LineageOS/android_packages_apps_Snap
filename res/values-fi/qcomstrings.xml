@@ -411,7 +411,6 @@
     <string name="pref_camera2_afmode_entry_continuous_picture">Jatkuva kuva</string>
     <string name="pref_camera2_afmode_entry_edof">Laajennettu tarkennuksen syvyys</string>
     <string name="pref_camera2_switch_camera_title">Vaihda kameraa ID:llä</string>
-    <string name="pref_camera2_switch_camera_title">Vaihda kameraa ID:llä</string>
     <string name="pref_camera2_initial_camera_entry_bayer">Bayer</string>
     <string name="pref_camera2_initial_camera_entry_mono">Mono</string>
     <string name="pref_camera2_initial_camera_entry_front">Etupuoli</string>

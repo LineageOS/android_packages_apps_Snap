@@ -281,8 +281,8 @@
     <string name="pref_camera2_afmode_entry_disable">E çaktivizuar</string>
     <string name="pref_camera2_afmode_entry_off">Inaktiv</string>
     <string name="pref_camera2_afmode_entry_continuous_video">Video të vazhdueshme</string>
+    <string name="pref_camera2_afmode_entry_continuous_picture">Fotografi e vazhdueshme</string>
     <string name="pref_camera2_afmode_entry_edof">Fokusim i zgjeruar i thellësisë</string>
-    <string name="pref_camera2_switch_camera_title">Ndrysho kamerat me ID</string>
     <string name="pref_camera2_switch_camera_title">Ndrysho kamerat me ID</string>
     <string name="pref_camera2_initial_camera_entry_bayer">Filtri Bayer</string>
     <string name="pref_camera2_initial_camera_entry_mono">Mono</string>

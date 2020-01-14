@@ -413,7 +413,6 @@
     <string name="pref_camera2_afmode_entry_continuous_picture">Foto contínua</string>
     <string name="pref_camera2_afmode_entry_edof">Profundidade de foco estendida</string>
     <string name="pref_camera2_switch_camera_title">Trocar de câmera usando o ID</string>
-    <string name="pref_camera2_switch_camera_title">Trocar de câmera usando o ID</string>
     <string name="pref_camera2_initial_camera_entry_bayer">Bayer</string>
     <string name="pref_camera2_initial_camera_entry_mono">Monocromático</string>
     <string name="pref_camera2_initial_camera_entry_front">Frontal</string>
@@ -427,6 +426,8 @@
     <string name="pref_camera2_video_hdr_entry_disable">Desligado</string>
     <string name="pref_camera2_stats_visualizer_title">Visualizar estatísticas</string>
     <string name="pref_camera2_stats_visualizer_entry_disable">Desativar todas</string>
+    <string name="pref_camera2_stats_visualizer_entry_bg_stats">Estatísticas BG</string>
+    <string name="pref_camera2_stats_visualizer_entry_be_stats">Estatísticas BE</string>
     <string name="pref_camera2_stats_visualizer_entry_hist_stats">Estatísticas de histograma</string>
     <string name="pref_camera2_capture_mfnr_title">Redução de ruído multiquadros</string>
     <string name="pref_camera2_capture_mfnr_entry_enable">Ligado</string>

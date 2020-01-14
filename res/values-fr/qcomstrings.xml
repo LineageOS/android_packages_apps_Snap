@@ -413,7 +413,6 @@
     <string name="pref_camera2_afmode_entry_continuous_picture">Photo en continu</string>
     <string name="pref_camera2_afmode_entry_edof">Profondeur de foyer étendue</string>
     <string name="pref_camera2_switch_camera_title">Changer d\'appareil photo par ID</string>
-    <string name="pref_camera2_switch_camera_title">Changer d\'appareil photo par ID</string>
     <string name="pref_camera2_initial_camera_entry_bayer">Bayer</string>
     <string name="pref_camera2_initial_camera_entry_mono">Mono</string>
     <string name="pref_camera2_initial_camera_entry_front">Avant</string>

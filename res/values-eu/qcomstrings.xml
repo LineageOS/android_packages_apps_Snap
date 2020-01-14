@@ -413,7 +413,6 @@
     <string name="pref_camera2_afmode_entry_continuous_picture">Argazki jarraitua</string>
     <string name="pref_camera2_afmode_entry_edof">Hedatu fokuaren sakonera</string>
     <string name="pref_camera2_switch_camera_title">Txandakatu kamera ID-aren arabera</string>
-    <string name="pref_camera2_switch_camera_title">Txandakatu kamera ID-aren arabera</string>
     <string name="pref_camera2_initial_camera_entry_bayer">Bayer</string>
     <string name="pref_camera2_initial_camera_entry_mono">Mono</string>
     <string name="pref_camera2_initial_camera_entry_front">Aurrekoa</string>

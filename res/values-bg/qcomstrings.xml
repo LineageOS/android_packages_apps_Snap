@@ -414,7 +414,6 @@
     <string name="pref_camera2_afmode_entry_continuous_picture">Непрекъснати снимки</string>
     <string name="pref_camera2_afmode_entry_edof">Разширена дълбочина на фокуса</string>
     <string name="pref_camera2_switch_camera_title">Превключване на камера чрез ID</string>
-    <string name="pref_camera2_switch_camera_title">Превключване на камера чрез ID</string>
     <string name="pref_camera2_initial_camera_entry_bayer">Bayer</string>
     <string name="pref_camera2_initial_camera_entry_mono">Моно</string>
     <string name="pref_camera2_initial_camera_entry_front">Предна</string>

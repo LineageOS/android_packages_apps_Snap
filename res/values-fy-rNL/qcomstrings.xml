@@ -42,6 +42,7 @@
     <string name="pref_camera_manual_exp_entry_ISO_priority">ISO-prioriteit</string>
     <string name="pref_camera_manual_exp_entry_exptime_priority">Beljochtingstiid-prioriteit</string>
     <string name="pref_camera_manual_exp_entry_user_setting">Brûkersynstelling</string>
+    <string name="pref_camera_manual_exp_entry_gains_priority">Krijt prioriteit</string>
     <string name="pref_camera_manual_exp_entry_off">Ut</string>
     <string name="pref_camera_manual_wb_title">Hânmjittige wytbalâns</string>
     <string name="pref_camera_manual_wb_entry_color_temperature">Kleurtemperatuer</string>
@@ -75,9 +76,11 @@
     <string name="pref_camera_hfr_entry_3x">Slow motion 90 fps</string>
     <string name="pref_camera_hfr_entry_4x">Slow motion 120 fps</string>
     <string name="pref_camera_hfr_entry_8x">Slow motion 240 fps</string>
+    <string name="pref_camera_hfr_entry_16x">Slow motion 480 FPS</string>
     <string name="pref_camera_hfr_entry_hsr_60">Hege snelheid 60 fps</string>
     <string name="pref_camera_hfr_entry_hsr_90">Hege snelheid 90 fps</string>
     <string name="pref_camera_hfr_entry_hsr_120">Hege snelheid 120 fps</string>
+    <string name="pref_camera_hfr_entry_hsr_480">Hege snelheid 480 FPS</string>
     <string name="pref_camera_noise_reduction_entry_off">Ut</string>
     <string name="pref_camera_see_more_entry_off">Ut</string>
     <string name="pref_camera_denoise_title">Rûsbeheining</string>
@@ -139,6 +142,9 @@
     <string name="pref_camera2_trackingfocus_entry_off">Ut</string>
     <string name="pref_camera2_shutter_sound_entry_off">Ut</string>
     <string name="pref_camera2_timer_entry_off">Ut</string>
+    <string name="pref_camera2_scene_mode_pro_instructional_content">Mei de Pro-modus kinn jo hânmjittich de ynstellingen foar de ISO, beljochting, wytbalâns en fokus bepale. Jo hawwe maklik tagong ta al dizze avansearre ynstellingen.</string>
+    <string name="pref_camera2_scene_mode_deepzoom_instructional_content">Yn de DeepZoom modus kinne jo in foto meitsje mei 2x of 4x zoom.</string>
+    <string name="pref_camera2_scene_mode_deepportrait_instructional_content">Yn de DeepPortrait-modus kinne jo selfies meitsje mei in ûnskerpe eftergrûn. Brûk de skowregeler om de krekte ûnskerpte yn te stellen.</string>
     <string name="pref_camera2_saturation_level_title">Sêding</string>
     <string name="pref_camera2_saturation_level_entry_0">Nivo 0</string>
     <string name="pref_camera2_saturation_level_entry_1">Nivo 1</string>
@@ -158,6 +164,20 @@
     <string name="pref_camera_zoom_entry_off">Ut</string>
     <string name="pref_camera2_zsl_title">Gjin ûntspanfertraging (ZSL)</string>
     <string name="pref_camera2_zsl_entry_disable">Ut</string>
+    <string name="pref_camera2_videoencoderprofile_title">Encoder-profyl</string>
     <string name="pref_camera2_sharpness_control_entry_level2">Nivo 2</string>
     <string name="pref_camera2_afmode_entry_off">Ut</string>
+    <string name="pref_camera2_afmode_entry_continuous_video">Kontinue fideo</string>
+    <string name="pref_camera2_afmode_entry_continuous_picture">Kontinue byld</string>
+    <string name="pref_camera2_afmode_entry_edof">Utwreide skerptedjipte</string>
+    <string name="pref_camera2_eis_title">Fideo EIS</string>
+    <string name="pref_camera2_eis_entry_v3_set_when_pause">V3 en op pauze sette</string>
+    <string name="pref_camera2_fovc_title">Fideo FOVC</string>
+    <string name="pref_camera2_stats_visualizer_title">Statistiken fisualisearder</string>
+    <string name="pref_camera2_stats_visualizer_entry_disable">Alle útskeakelje</string>
+    <string name="pref_camera2_stats_visualizer_entry_bg_stats">BG-statistiken</string>
+    <string name="pref_camera2_stats_visualizer_entry_be_stats">BE-statistiken</string>
+    <string name="pref_camera2_stats_visualizer_entry_hist_stats">Histogram-statistiken</string>
+    <string name="pref_camera2_capture_mfnr_title">Rûsûnderdrukking (kontinue)</string>
+    <string name="pref_camera2_capture_mfsr_title">Multi-frame superresolúsje</string>
 </resources>

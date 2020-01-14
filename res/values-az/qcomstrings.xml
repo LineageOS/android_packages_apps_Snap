@@ -414,7 +414,6 @@
     <string name="pref_camera2_afmode_entry_continuous_picture">Fasiləsiz şəkil</string>
     <string name="pref_camera2_afmode_entry_edof">Genişləndirilmiş fokus dərinliyi</string>
     <string name="pref_camera2_switch_camera_title">Kameranı istifadəçiyə görə dəyişdir</string>
-    <string name="pref_camera2_switch_camera_title">Kameranı istifadəçiyə görə dəyişdir</string>
     <string name="pref_camera2_initial_camera_entry_bayer">Bayer</string>
     <string name="pref_camera2_initial_camera_entry_mono">Mono</string>
     <string name="pref_camera2_initial_camera_entry_front">Ön</string>
