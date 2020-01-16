@@ -1066,11 +1066,12 @@ public class CaptureModule implements CameraModule, PhotoController,
             try{
                 if (result.get(t2t_tracker_status) != null) {
                     mT2TTrackState = result.get(t2t_tracker_status);
-                    if (mLastT2tTrackState != mT2TTrackState &&
-                            mT2TTrackState >= TouchTrackFocusRenderer.TRACKER_CMD_REG) {
-                        // as long as State is 1 (registering) or 2 (registered) or 3 (tracking)
-                        // we should be able to turn the "trigger" back to 0 (SYNC)
-                        updateTouchFocusState(TouchTrackFocusRenderer.TRACKER_CMD_SYNC);
+                    if (mLastT2tTrackState != mT2TTrackState) {
+                        if (mT2TTrackState >= TouchTrackFocusRenderer.TRACKER_CMD_REG) {
+                            // as long as State is 1 (registering) or 2 (registered) or 3 (tracking)
+                            // we should be able to turn the "trigger" back to 0 (SYNC)
+                            updateTouchFocusState(TouchTrackFocusRenderer.TRACKER_CMD_SYNC);
+                        }
                         mLastT2tTrackState = mT2TTrackState;
                     }
                 }
