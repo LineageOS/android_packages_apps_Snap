@@ -1577,6 +1577,7 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
     public void showUIAfterCountDown() {
         hideCameraControls(false);
         mGestures.setZoomOnly(false);
+        updateMenus();
     }
 
     public void hideCameraControls(boolean hide) {
