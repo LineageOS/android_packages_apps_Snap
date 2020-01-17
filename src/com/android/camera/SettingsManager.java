@@ -1933,6 +1933,12 @@ public class SettingsManager implements ListMenu.SettingsListener {
         return map.getOutputSizes(cl);
     }
 
+    public Size[] getHighResolutionOutputSize(int cameraId){
+        StreamConfigurationMap map = mCharacteristics.get(cameraId).get(
+                CameraCharacteristics.SCALER_STREAM_CONFIGURATION_MAP);
+        return map.getHighResolutionOutputSizes(ImageFormat.JPEG);
+    }
+
     private List<String> getSupportedVideoDuration() {
         int[] videoDurations = {-1, 10, 30, 0};
         List<String> modes = new ArrayList<>();
