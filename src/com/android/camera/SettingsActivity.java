@@ -969,9 +969,6 @@ public class SettingsActivity extends PreferenceActivity {
                     }
                     videoAddList.addAll(videoOnlyList);
                     videoAddList.add(SettingsManager.KEY_ANTI_BANDING_LEVEL);
-                    if (mSettingsManager.getInitialCameraId() == CaptureModule.FRONT_ID) {
-                        videoAddList.remove(SettingsManager.KEY_EIS_VALUE);
-                    }
                     if (mode == VIDEO) {
                         videoAddList.add(SettingsManager.KEY_BSGC_DETECTION);
                         videoAddList.add(SettingsManager.KEY_FACE_DETECTION_MODE);
