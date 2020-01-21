@@ -4153,7 +4153,6 @@ public class CaptureModule implements CameraModule, PhotoController,
             mState[i] = STATE_PREVIEW;
         }
         mLongshotActive = false;
-        updateZoom();
         updatePreviewSurfaceReadyState(false);
         updateMFNRText();
     }
@@ -4427,7 +4426,7 @@ public class CaptureModule implements CameraModule, PhotoController,
         mUI.enableShutter(true);
         setProModeVisible();
         updateZoomSeekBarVisible();
-
+        updateZoom();//update zoom after mSettingsManager init
         String scene = mSettingsManager.getValue(SettingsManager.KEY_SCENE_MODE);
         if (Integer.parseInt(scene) != SettingsManager.SCENE_MODE_UBIFOCUS_INT) {
             setRefocusLastTaken(false);
@@ -5249,10 +5248,10 @@ public class CaptureModule implements CameraModule, PhotoController,
         int zoom = Integer.parseInt(zoomStr);
         if ( zoom !=0 ) {
             mZoomValue = (float)zoom;
-            mUI.updateZoomSeekBar(mZoomValue);
         }else{
             mZoomValue = 1.0f;
         }
+        mUI.updateZoomSeekBar(mZoomValue);
         if (isDeepZoom()) {
             mZoomValue = mUI.getDeepZoomValue();
         }
@@ -8678,6 +8677,7 @@ public class CaptureModule implements CameraModule, PhotoController,
         }
         updateZoomSeekBarVisible();
         mUI.updateZoomSeekBar(1.0f);
+        updateZoom();
         return 1;
     }
 
