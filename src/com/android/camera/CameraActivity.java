@@ -19,6 +19,7 @@ package com.android.camera;
 import android.hardware.camera2.CameraAccessException;
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.os.Trace;
 import android.view.Display;
 import android.graphics.Point;
 import android.Manifest;
@@ -1487,6 +1488,8 @@ public class CameraActivity extends Activity
     @Override
     public void onCreate(Bundle state) {
         super.onCreate(state);
+        if (PersistUtil.isTraceEnable())
+            Trace.beginSection("CameraActivity onCreate");
         try {
             //Print version info here
             String versionName = getPackageManager().getPackageInfo(getPackageName(), 0).versionName;
@@ -1688,6 +1691,9 @@ public class CameraActivity extends Activity
         if (mAutoTestEnabled) {
             registerAutoTestReceiver();
         }
+
+        if (PersistUtil.isTraceEnable())
+            Trace.endSection();
     }
 
     private void setRotationAnimation() {
@@ -1818,6 +1824,8 @@ public class CameraActivity extends Activity
 
     @Override
     public void onResume() {
+        if (PersistUtil.isTraceEnable())
+            Trace.beginSection("CameraActivity onResume");
         if (mSecureCamera && !hasCriticalPermissions()) {
             super.onResume();
             showOpenCameraErrorDialog();
@@ -1873,6 +1881,8 @@ public class CameraActivity extends Activity
         }
         mLocalImagesObserver.setActivityPaused(false);
         mLocalVideosObserver.setActivityPaused(false);
+        if (PersistUtil.isTraceEnable())
+            Trace.endSection();
     }
 
     private boolean cameraConnected() {
