@@ -1653,10 +1653,6 @@ public class SettingsManager implements ListMenu.SettingsListener {
                                 rate = String.valueOf(r.getUpper());
                                 supported.add("hfr" + rate);
                                 supported.add("hsr" + rate);
-                                if (PersistUtil.isSSMEnabled() && !above1080p) {
-                                    supported.add("2x_" + rate);
-                                    supported.add("4x_" + rate);
-                                }
                             }
                         }
                     }
@@ -1675,10 +1671,6 @@ public class SettingsManager implements ListMenu.SettingsListener {
                                     videoSize.getWidth(), videoSize.getHeight(), mExtendedHFRSize[i + 2])) {
                                 supported.add(item);
                                 supported.add("hsr" + mExtendedHFRSize[i + 2]);
-                                if (PersistUtil.isSSMEnabled() && !above1080p) {
-                                    supported.add("2x_" + mExtendedHFRSize[i + 2]);
-                                    supported.add("4x_" + mExtendedHFRSize[i + 2]);
-                                }
                             }
                         }
                     }
