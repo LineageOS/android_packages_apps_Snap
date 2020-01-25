@@ -2079,10 +2079,6 @@ public class CaptureModule implements CameraModule, PhotoController,
             mIsPreviewingVideo = true;
             if (ApiHelper.isAndroidPOrHigher()) {
                 if (isHighSpeedRateCapture()) {
-                    if (mSettingsManager.isLiveshotSupported(mVideoSize,
-                            mSettingsManager.getVideoFPS())){
-                        surfaces.add(mVideoSnapshotImageReader.getSurface());
-                    }
                     CaptureRequest initialRequest = mVideoRecordRequestBuilder.build();
                     int optionMode = isSSMEnabled() ? STREAM_CONFIG_SSM : SESSION_HIGH_SPEED;
                     buildConstrainedCameraSession(mCameraDevice[cameraId], optionMode,
@@ -2093,9 +2089,6 @@ public class CaptureModule implements CameraModule, PhotoController,
                 }
             } else {
                 if (isHighSpeedRateCapture()) {
-                    if (mSettingsManager.isLiveshotSupported(mVideoSize,mSettingsManager.getVideoFPS())){
-                        surfaces.add(mVideoSnapshotImageReader.getSurface());
-                    }
                     mCameraDevice[cameraId].createConstrainedHighSpeedCaptureSession(surfaces, new
                             CameraConstrainedHighSpeedCaptureSession.StateCallback() {
 
