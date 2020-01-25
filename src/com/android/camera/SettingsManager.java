@@ -2651,6 +2651,16 @@ public class SettingsManager implements ListMenu.SettingsListener {
         return true;
     }
 
+    public int getVideoPreviewFPS(Size videoSize,int fps) {
+        int previewFPS = 60;
+        SettingsManager.VideoEisConfig config =
+                getVideoEisConfig(videoSize,fps);
+        if (config != null)
+            previewFPS = config.getMaxPreviewFPS();
+        Log.d(TAG,"videoSize="+videoSize.toString()+" fps="+fps+ " previewFPS="+previewFPS);
+        return previewFPS;
+    }
+
     public int getVideoFPS(){
         String fpsStr = getValue(SettingsManager.KEY_VIDEO_HIGH_FRAME_RATE);
         int fpsRate = 30;
