@@ -4072,7 +4072,6 @@ public class CaptureModule implements CameraModule, PhotoController,
     public void onPauseBeforeSuper() {
         cancelTouchFocus();
         mPaused = true;
-        writeXMLForWarmAwb();
         mToast = null;
         mUI.onPause();
         if (mIsRecordingVideo) {
@@ -4100,6 +4099,9 @@ public class CaptureModule implements CameraModule, PhotoController,
 
     private void onPauseAfterSuper(boolean isExitCamera) {
         Log.d(TAG, "onPause " + (isExitCamera ? "exit camera" : ""));
+        if (isExitCamera) {
+            writeXMLForWarmAwb();
+        }
         if (mLocationManager != null) mLocationManager.recordLocation(false);
         if(isClearSightOn()) {
             ClearSightImageProcessor.getInstance().close();
@@ -7397,7 +7399,7 @@ public class CaptureModule implements CameraModule, PhotoController,
         return result;
     }
 
-    private void writeXMLForWarmAwb() {
+    public void writeXMLForWarmAwb() {
         final SharedPreferences pref = mActivity.getSharedPreferences(
                 ComboPreferences.getLocalSharedPreferencesName(mActivity,
                         mSettingsManager.getCurrentPrepNameKey()), Context.MODE_PRIVATE);

@@ -1154,7 +1154,9 @@ public class SettingsActivity extends PreferenceActivity {
                 ImageFormat.RAW10);
         if (rawSize == null) {
             Preference p = findPreference(SettingsManager.KEY_SAVERAW);
-            p.setEnabled(false);
+            if (p != null) {
+                p.setEnabled(false);
+            }
         }
 
         try {
