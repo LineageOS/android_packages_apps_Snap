@@ -3041,25 +3041,16 @@ public class CaptureModule implements CameraModule, PhotoController,
 
     private int calculateMaxFps(){
         int maxFps = mSettingsManager.getmaxBurstShotFPS();
-        double dp = 1000000.00;
         if(maxFps > 0) {
-            double size = mPictureSize.getWidth() * mPictureSize.getHeight() /dp;
-            double maxsizefloat = mSupportedMaxPictureSize.getWidth() * mSupportedMaxPictureSize.getHeight()/dp;
-            double maxSize = Math.ceil(maxsizefloat);
-            int sizemid = (int)(maxSize*3/4);
-            int sizemin = (int)(maxSize/2);
+            double size = mPictureSize.getWidth() * mPictureSize.getHeight();
+            double maxsizefloat = mSupportedMaxPictureSize.getWidth() * mSupportedMaxPictureSize.getHeight();
+            maxFps = (int)Math.round((maxsizefloat * maxFps) / size);
             if (DEBUG) {
-                Log.i(TAG, "maxsize:" + mSupportedMaxPictureSize.getWidth() + ",height:" + mSupportedMaxPictureSize.getHeight() + "maxsize:" + maxSize);
+                Log.i(TAG, "maxsize:" + mSupportedMaxPictureSize.getWidth() + ",height:" + mSupportedMaxPictureSize.getHeight() + "maxsize:" + maxsizefloat);
                 Log.i(TAG, "size:" + mPictureSize.getWidth() + ",height:" + mPictureSize.getHeight() + ",size:" + size);
-                Log.i(TAG, "sizemid:" + sizemid + ",sizemin:" + sizemin );
+                Log.i(TAG,"maxFps:" + maxFps);
             }
-            if(size > sizemid && size <= maxSize){
-                maxFps = 2;
-            }else if(size > sizemin && size <= sizemid){
-                maxFps = 3;
-            }else if (size <= sizemin) {
-                maxFps = 4;
-            }
+            maxFps = maxFps > 30 ? 30 : maxFps;
         }
         return maxFps;
     }
