@@ -2630,7 +2630,7 @@ public class SettingsManager implements ListMenu.SettingsListener {
     }
 
     public boolean isLiveshotSupported(Size videoSize, int fps){
-        if( CaptureModule.CURRENT_MODE == CaptureModule.CameraMode.HFR){
+        if(CaptureModule.CURRENT_MODE == CaptureModule.CameraMode.HFR && fps > 60){
             return false;
         }
         if (PersistUtil.isPersistVideoLiveshot())
