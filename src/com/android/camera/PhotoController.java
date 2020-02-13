@@ -57,6 +57,8 @@ public interface PhotoController extends OnShutterButtonListener {
 
     public void onSingleTapUp(View view, int x, int y);
 
+    public void onLongPress(View view, int x, int y);
+
     public void onCountDownFinished();
 
     public void onScreenSizeChanged(int width, int height);

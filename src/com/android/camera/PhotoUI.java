@@ -751,6 +751,10 @@ public class PhotoUI implements PieListener,
         mController.onSingleTapUp(view, x, y);
     }
 
+    @Override
+    public void onLongPress(View view, int x, int y) {
+    }
+
     public boolean onBackPressed() {
         if (mMenu != null && mMenu.handleBackKey()) {
             return true;

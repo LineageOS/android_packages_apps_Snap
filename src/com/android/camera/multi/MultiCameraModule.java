@@ -345,6 +345,10 @@ public class MultiCameraModule implements CameraModule, PhotoController {
     }
 
     @Override
+    public void onLongPress(View view, int x, int y) {
+    }
+
+    @Override
     public void onPreviewTextureCopied() {
 
     }

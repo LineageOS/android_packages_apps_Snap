@@ -578,6 +578,10 @@ public class VideoModule implements CameraModule,
         takeASnapshot();
     }
 
+    @Override
+    public void onLongPress(View view, int x, int y) {
+    }
+
     private void takeASnapshot() {
         // Only take snapshots if video snapshot is supported by device
         if (CameraUtil.isVideoSnapshotSupported(mParameters) && !mIsVideoCaptureIntent) {

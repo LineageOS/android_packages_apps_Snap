@@ -1251,6 +1251,10 @@ public class WideAnglePanoramaModule
     }
 
     @Override
+    public void onLongPress(View view, int x, int y) {
+    }
+
+    @Override
     public void onPreviewTextureCopied() {
     }
 

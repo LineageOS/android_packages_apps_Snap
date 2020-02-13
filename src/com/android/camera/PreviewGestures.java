@@ -20,6 +20,7 @@ import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.ScaleGestureDetector;
 import android.view.View;
+import android.util.Log;
 
 import com.android.camera.ui.PieRenderer;
 import com.android.camera.ui.RenderOverlay;
@@ -68,8 +69,10 @@ public class PreviewGestures
         @Override
         public void onLongPress (MotionEvent e) {
             // Open pie
+            Log.i(TAG,"onlongpress, mPie:" + mPie);
             if (!mZoomOnly && mPie != null && !mPie.showsItems()) {
                 openPie();
+                mTapListener.onLongPress(null, (int) e.getX(), (int) e.getY());
             }
         }
 
@@ -187,6 +190,7 @@ public class PreviewGestures
 
     public interface SingleTapListener {
         public void onSingleTapUp(View v, int x, int y);
+        public void onLongPress(View v, int x, int y);
     }
 
     public PreviewGestures(CameraActivity ctx, SingleTapListener tapListener,

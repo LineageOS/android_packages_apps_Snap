@@ -979,6 +979,10 @@ public class VideoUI implements PieRenderer.PieListener,
         mController.onSingleTapUp(view, x, y);
     }
 
+    @Override
+    public void onLongPress(View view, int x, int y) {
+    }
+
     public void showRecordingUI(boolean recording) {
         mRecordingStarted = recording;
         mMenuButton.setVisibility(recording ? View.GONE : View.VISIBLE);
