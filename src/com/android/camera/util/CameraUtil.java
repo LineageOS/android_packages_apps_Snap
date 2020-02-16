@@ -641,6 +641,8 @@ public class CameraUtil {
             minDiff = Double.MAX_VALUE;
             for (int i = 0; i < sizes.length; i++) {
                 Point size = sizes[i];
+                if (size == null)
+                    continue;
                 if (Math.abs(size.y - targetHeight) < minDiff) {
                     optimalSizeIndex = i;
                     minDiff = Math.abs(size.y - targetHeight);
