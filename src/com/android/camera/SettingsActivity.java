@@ -147,6 +147,12 @@ public class SettingsActivity extends PreferenceActivity {
                     updatePreferenceButton(dependentKey);
                 }
             }
+            if (key.equals(SettingsManager.KEY_CAPTURE_MFNR_VALUE) ) {
+                if(isMFNREnabled()){
+                    ListPreference manualexp = (ListPreference) findPreference(SettingsManager.KEY_MANUAL_EXPOSURE);
+                    manualexp.setEnabled(false);
+                }
+            }
         }
     };
 
