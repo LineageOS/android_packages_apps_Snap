@@ -1871,6 +1871,9 @@ public class CaptureModule implements CameraModule, PhotoController,
                                 // Finally, we start displaying the camera preview.
                                 // for cases where we are in dual mode with mono preview off,
                                 // don't set repeating request for mono
+                                if(mCaptureSession[id] == null){
+                                    return;
+                                }
                                 if(id == MONO_ID && !canStartMonoPreview()
                                         && getCameraMode() == DUAL_MODE) {
                                     mCaptureSession[id].capture(mPreviewRequestBuilder[id]
