@@ -6101,7 +6101,7 @@ public class CaptureModule implements CameraModule, PhotoController,
             try {
                 mCurrentSession.abortCaptures();
                 Log.d(TAG, "stopRecordingVideo call abortCaptures ");
-            } catch (CameraAccessException e) {
+            } catch (CameraAccessException|IllegalStateException e) {
                 e.printStackTrace();
             }
         }
@@ -6173,7 +6173,7 @@ public class CaptureModule implements CameraModule, PhotoController,
                 mCurrentSession.capture(mVideoRecordRequestBuilder.build(), mCaptureCallback,
                         mCameraHandler);
             }
-        } catch (CameraAccessException e) {
+        } catch (CameraAccessException | IllegalStateException e) {
             e.printStackTrace();
         }
         //if have this, video switch to photo, photo will have no preview
