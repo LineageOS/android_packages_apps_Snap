@@ -5979,16 +5979,21 @@ public class CaptureModule implements CameraModule, PhotoController,
                     } catch (IllegalArgumentException illegalArgumentException) {
                         Log.w(TAG, "can not find vendor tag: org.quic.camera.recording.endOfStream");
                     }
-                    if (mCurrentSession instanceof CameraConstrainedHighSpeedCaptureSession) {
-                        List requestList = CameraUtil.createHighSpeedRequestList(
-                                mVideoRecordRequestBuilder.build());
-                        mCurrentSession.captureBurst(requestList, mCaptureCallback, mCameraHandler);
-                    } else if (isSSMEnabled()) {
-                        mCurrentSession.captureBurst(createSSMBatchRequest(mVideoRecordRequestBuilder),
-                                mCaptureCallback, mCameraHandler);
-                    } else {
-                        mCurrentSession.capture(mVideoRecordRequestBuilder.build(), mCaptureCallback,
-                                mCameraHandler);
+                    try {
+                        if (mCurrentSession instanceof CameraConstrainedHighSpeedCaptureSession) {
+                            List requestList = CameraUtil.createHighSpeedRequestList(
+                                    mVideoRecordRequestBuilder.build());
+                            mCurrentSession.captureBurst(requestList, mCaptureCallback, mCameraHandler);
+                        } else if (isSSMEnabled()) {
+                            mCurrentSession.captureBurst(createSSMBatchRequest(mVideoRecordRequestBuilder),
+                                    mCaptureCallback, mCameraHandler);
+                        } else {
+                            mCurrentSession.capture(mVideoRecordRequestBuilder.build(), mCaptureCallback,
+                                    mCameraHandler);
+                        }
+                    } catch (UnsupportedOperationException exception) {
+                        Log.w(TAG, " UnsupportedOperationException ");
+                        exception.printStackTrace();
                     }
                     Log.d(TAG, "Set endofstream TAG is done from APP");
                 }
