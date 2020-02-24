@@ -105,4 +105,22 @@
 
     </com.android.camera.ui.RotateLayout>
 
+    <com.android.camera.ui.RotateLayout
+        android:id="@+id/zoom_seekbar_layout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+
+        <TextView
+            android:id="@+id/zoom_seekbar_value"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:drawableTop="@drawable/promode_manual"
+            android:focusable="true"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_weight="1"/>
+
+    </com.android.camera.ui.RotateLayout>
+
 </LinearLayout>

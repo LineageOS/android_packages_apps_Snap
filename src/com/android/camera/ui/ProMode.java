@@ -56,6 +56,7 @@ public class ProMode extends View {
     public static final int MANUAL_MODE = 1;
     public static final int WHITE_BALANCE_MODE = 2;
     public static final int ISO_MODE = 3;
+    public static final int ZOOM_MODE = 4;
     private static final int DRAG_Y_THRESHOLD = 100;
     private static final int DRAG_X_THRESHOLD = 30;
     private static final int BLUE = 0xff4693fb;
@@ -70,6 +71,7 @@ public class ProMode extends View {
     private int mCurveLeft;
     private int mCurveRight;
     private float mSlider = -1;
+    private float mZoomSlider = -1;
     private Paint mPaint = new Paint();
     private int mNums;
     private int mIndex;
@@ -102,6 +104,7 @@ public class ProMode extends View {
         init(WHITE_BALANCE_MODE);
         init(ISO_MODE);
         mUI.updateProModeText(MANUAL_MODE, "Manual");
+        mUI.updateProModeText(ZOOM_MODE, "Zoom");
     }
 
     private void init(int mode) {
@@ -129,6 +132,16 @@ public class ProMode extends View {
             mPaint.setColor(BLUE);
             if (mSlider >= 0f) {
                 mCurveMeasure.getPosTan(mCurveMeasure.getLength() * mSlider, curveCoordinate, null);
+                canvas.drawCircle(curveCoordinate[0], curveCoordinate[1], SELECTED_DOT_SIZE,
+                        mPaint);
+            }
+        } else if (mMode == ZOOM_MODE) {
+            mPaint.setColor(Color.WHITE);
+            canvas.drawCircle(mCurveLeft, mCurveY, DOT_SIZE, mPaint);
+            canvas.drawCircle(mCurveRight, mCurveY, DOT_SIZE, mPaint);
+            mPaint.setColor(BLUE);
+            if (mZoomSlider >= 0f) {
+                mCurveMeasure.getPosTan(mCurveMeasure.getLength() * mZoomSlider, curveCoordinate, null);
                 canvas.drawCircle(curveCoordinate[0], curveCoordinate[1], SELECTED_DOT_SIZE,
                         mPaint);
             }
@@ -194,7 +207,7 @@ public class ProMode extends View {
         mMode = mode;
         if (lastMode == MANUAL_MODE && mode != MANUAL_MODE) {
             //set key focus value to notify capture module to reset focus mode
-            mSettingsManager.setFocusSliderValue(SettingsManager.KEY_FOCUS_DISTANCE, true,
+            mSettingsManager.setProModeSliderValue(SettingsManager.KEY_FOCUS_DISTANCE, true,
                     -1f);
         }
         removeViews();
@@ -207,13 +220,35 @@ public class ProMode extends View {
         mIndex = -1;
         String key = currentKey();
         if (mMode == MANUAL_MODE) {
-            float value = mSettingsManager.getFocusSliderValue(SettingsManager.KEY_FOCUS_DISTANCE);
+            float value = mSettingsManager.getProModeSliderValue(SettingsManager.KEY_FOCUS_DISTANCE,
+                    0.5f);
             setSlider(value,true);
             int stride = mCurveRight - mCurveLeft;
             for (int i = 0; i < 2; i++) {
                 TextView v = new TextView(mContext);
                 String s = "infinity";
                 if (i == 1) s = "macro";
+                v.setText(s);
+                v.setTextColor(Color.WHITE);
+                v.measure(0, 0);
+                ViewGroup.LayoutParams lp = new ViewGroup.LayoutParams(v.getMeasuredWidth(),
+                        v.getMeasuredHeight());
+                v.setLayoutParams(lp);
+                v.setX(mCurveLeft + i * stride - v.getMeasuredWidth() / 2);
+                v.setY(mCurveY - 2 * v.getMeasuredHeight());
+                mParent.addView(v);
+                mAddedViews.add(v);
+            }
+        } else if (mMode == ZOOM_MODE) {
+            int stride = mCurveRight - mCurveLeft;
+            float zoomMax = mSettingsManager.getmZoomMaxValue();
+            float value = mSettingsManager.getProModeSliderValue(SettingsManager.KEY_ZOOM_LEVEL,
+                    0f);
+            setZoomSlider(value, true);
+            for (int i = 0; i < 2; i++) {
+                TextView v = new TextView(mContext);
+                String s = "1.0X";
+                if (i == 1) s = String.valueOf(zoomMax) + "X";
                 v.setText(s);
                 v.setTextColor(Color.WHITE);
                 v.measure(0, 0);
@@ -252,8 +287,6 @@ public class ProMode extends View {
                     v.setX(mPoints[i].x - v.getMeasuredWidth() / 2);
                     v.setY(mPoints[i].y - 2 * v.getMeasuredHeight());
                 }
-
-
                 mParent.addView(v);
                 mAddedViews.add(v);
             }
@@ -293,11 +326,19 @@ public class ProMode extends View {
         invalidate();
     }
 
-    public void setSlider(float slider,boolean forceNotify) {
+    private void setSlider(float slider, boolean forceNotify) {
         mSlider = slider;
-        mSettingsManager.setFocusSliderValue(SettingsManager.KEY_FOCUS_DISTANCE, forceNotify,
+        mSettingsManager.setProModeSliderValue(SettingsManager.KEY_FOCUS_DISTANCE, forceNotify,
                 mSlider);
         mUI.updateProModeText(mMode, "Manual");
+        invalidate();
+    }
+
+    private void setZoomSlider(float slider, boolean forceNotify) {
+        mZoomSlider = slider;
+        mSettingsManager.setProModeSliderValue(SettingsManager.KEY_ZOOM_LEVEL, forceNotify,
+                mZoomSlider);
+        mUI.updateProModeText(mMode, "Zoom");
         invalidate();
     }
 
@@ -346,6 +387,11 @@ public class ProMode extends View {
             float slider = getSlider(event.getX(), event.getY());
             if (slider >= 0) {
                 setSlider(slider,false);
+            }
+        } else if (mMode == ZOOM_MODE) {
+            float slider = getSlider(event.getX(), event.getY());
+            if (slider >= 0) {
+                setZoomSlider(slider, false);
             }
         } else {
             int idx = findButton(event.getX(), event.getY());

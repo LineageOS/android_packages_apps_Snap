@@ -102,11 +102,13 @@ public class OneUICameraControls extends RotatableLayout {
     private TextView mManualText;
     private TextView mWhiteBalanceText;
     private TextView mIsoText;
+    private TextView mZoomSeekbarText;
     private boolean mProModeOn = false;
     private RotateLayout mExposureRotateLayout;
     private RotateLayout mManualRotateLayout;
     private RotateLayout mWhiteBalanceRotateLayout;
     private RotateLayout mIsoRotateLayout;
+    private RotateLayout mZoomSeekBarLayout;
 
     public OneUICameraControls(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -171,6 +173,7 @@ public class OneUICameraControls extends RotatableLayout {
         mManualText = (TextView) findViewById(R.id.manual_value);
         mWhiteBalanceText = (TextView) findViewById(R.id.white_balance_value);
         mIsoText = (TextView) findViewById(R.id.iso_value);
+        mZoomSeekbarText = (TextView) findViewById(R.id.zoom_seekbar_value);
         mProMode = (ProMode) findViewById(R.id.promode_slider);
         mProMode.initialize(this);
 
@@ -178,6 +181,7 @@ public class OneUICameraControls extends RotatableLayout {
         mManualRotateLayout = (RotateLayout) findViewById(R.id.manual_rotate_layout);
         mWhiteBalanceRotateLayout = (RotateLayout) findViewById(R.id.white_balance_rotate_layout);
         mIsoRotateLayout = (RotateLayout) findViewById(R.id.iso_rotate_layout);
+        mZoomSeekBarLayout = (RotateLayout) findViewById(R.id.zoom_seekbar_layout);
 
         mExposureText.setOnClickListener(new OnClickListener() {
             @Override
@@ -231,7 +235,19 @@ public class OneUICameraControls extends RotatableLayout {
                 }
             }
         });
-
+        mZoomSeekbarText.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                resetProModeIcons();
+                int mode = mProMode.getMode();
+                if (mode == ProMode.ZOOM_MODE) {
+                    mProMode.setMode(ProMode.NO_MODE);
+                } else {
+                    mZoomSeekbarText.setSelected(true);
+                    mProMode.setMode(ProMode.ZOOM_MODE);
+                }
+            }
+        });
         mViews = new View[]{
                 mSceneModeSwitcher, mFilterModeSwitcher, mFrontBackSwitcher,
                 mFlashButton, mShutter,
@@ -514,6 +530,7 @@ public class OneUICameraControls extends RotatableLayout {
         mManualRotateLayout.setOrientation(orientation, animation);
         mWhiteBalanceRotateLayout.setOrientation(orientation, animation);
         mIsoRotateLayout.setOrientation(orientation, animation);
+        mZoomSeekBarLayout.setOrientation(orientation, animation);
         mProMode.setOrientation(orientation);
         layoutRemaingPhotos();
     }
@@ -577,15 +594,17 @@ public class OneUICameraControls extends RotatableLayout {
         mManualText.setSelected(false);
         mWhiteBalanceText.setSelected(false);
         mIsoText.setSelected(false);
+        mZoomSeekbarText.setSelected(false);
     }
 
     private void setProModeParameters() {
         int width = (mWidth > mHeight) ? mHeight : mWidth;
-        ViewGroup.LayoutParams lp = new ViewGroup.LayoutParams(width/ 4, width/ 4);
+        ViewGroup.LayoutParams lp = new ViewGroup.LayoutParams(width/ 5, width/ 5);
         mExposureText.setLayoutParams(lp);
         mManualText.setLayoutParams(lp);
         mWhiteBalanceText.setLayoutParams(lp);
         mIsoText.setLayoutParams(lp);
+        mZoomSeekbarText.setLayoutParams(lp);
     }
 
     private void initializeProMode(boolean promode) {
@@ -612,6 +631,8 @@ public class OneUICameraControls extends RotatableLayout {
             case ProMode.ISO_MODE:
                 mIsoText.setText(value);
                 break;
+            case ProMode.ZOOM_MODE:
+                mZoomSeekbarText.setText(value);
         }
     }
 }
