@@ -5140,10 +5140,6 @@ public class CaptureModule implements CameraModule, PhotoController,
         Size[] prevSizes = mSettingsManager.getSupportedOutputSize(getMainCameraId(),
                 MediaRecorder.class);
         mVideoPreviewSize = getOptimalVideoPreviewSize(mVideoSize, prevSizes);
-        int[] maxPreviewSize = mSettingsManager.getMaxPreviewSize();
-        if (maxPreviewSize != null) {
-            mVideoPreviewSize = new Size(maxPreviewSize[0], maxPreviewSize[1]);
-        }
         Point previewSize = PersistUtil.getCameraPreviewSize();
         if (previewSize != null) {
             mVideoPreviewSize = new Size(previewSize.x, previewSize.y);
