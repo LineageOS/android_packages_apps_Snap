@@ -560,23 +560,26 @@ public class SettingsManager implements ListMenu.SettingsListener {
         return isBurstShotSupported;
     }
 
-    public boolean isCameraFDSupported(){
-        if(CaptureModule.CURRENT_MODE == CaptureModule.CameraMode.HFR ||
-                CaptureModule.CURRENT_MODE == CaptureModule.CameraMode.VIDEO){
-            return true;
+    public boolean isFDRenderingAtPreview(){
+        boolean isFDRenderingInUI = false;
+        if( CaptureModule.CURRENT_MODE == CaptureModule.CameraMode.VIDEO ||
+                CaptureModule.CURRENT_MODE == CaptureModule.CameraMode.HFR) {
+            isFDRenderingInUI = isFDRenderingInVideoUISupported();
+        }else{
+            isFDRenderingInUI = isCameraFDSupported();
         }
+        return isFDRenderingInUI;
+    }
 
+    public boolean isCameraFDSupported(){
         boolean isCameraFDSupported = false;
         isCameraFDSupported = PersistUtil.isCameraFDSupported();
-        try {
-            isCameraFDSupported =
-                    mCharacteristics.get(mCameraId).get(CaptureModule.is_camera_fd_supported) == 1;
-        } catch (IllegalArgumentException e){
-            Log.d(TAG,"isVideoFDSupported no vendor tag");
-            if (CaptureModule.CURRENT_MODE == CaptureModule.CameraMode.RTB ||
-            CaptureModule.CURRENT_MODE == CaptureModule.CameraMode.SAT){
-                isCameraFDSupported = false;
-            } else {
+        if(!isCameraFDSupported) {
+            try {
+                isCameraFDSupported =
+                        mCharacteristics.get(mCameraId).get(CaptureModule.is_camera_fd_supported) == 1;
+            } catch (IllegalArgumentException e) {
+                Log.d(TAG, "isCameraFDSupported no vendor tag");
                 isCameraFDSupported = true;
             }
         }
@@ -1209,8 +1212,7 @@ public class SettingsManager implements ListMenu.SettingsListener {
         }
 
         if (faceDetection != null) {
-            if (!isFaceDetectionSupported(cameraId) || !isFDRenderingInVideoUISupported() ||
-            !isCameraFDSupported()) {
+            if (!isFaceDetectionSupported(cameraId)) {
                 removePreference(mPreferenceGroup, KEY_FACE_DETECTION);
             }
         }
@@ -1791,14 +1793,11 @@ public class SettingsManager implements ListMenu.SettingsListener {
         return false;
     }
     private boolean isFDRenderingInVideoUISupported(){
-        if( CaptureModule.CURRENT_MODE != CaptureModule.CameraMode.VIDEO){
-            return true;
-        }
         boolean isFDRenderingInVideoUISupported = false;
         isFDRenderingInVideoUISupported = PersistUtil.isFDRENDERINGSUPPORTED();
         if(!isFDRenderingInVideoUISupported) {
             try {
-                isFDRenderingInVideoUISupported = mCharacteristics.get(mCameraId).get(CaptureModule.is_FD_Rendering_In_Video_UI_Supported) == 1 ? true : false;
+                isFDRenderingInVideoUISupported = mCharacteristics.get(mCameraId).get(CaptureModule.is_FD_Rendering_In_Video_UI_Supported) == 1;
             } catch (IllegalArgumentException e) {
                 isFDRenderingInVideoUISupported = true;
                 Log.e(TAG, "isFDRenderingInVideoUISupported no vendorTag isFDRenderingInVideoUISupported:");
