@@ -74,7 +74,8 @@
     ,
     "18":
     {"pref_camera2_coloreffect_key":"0",
-      "pref_camera2_zsl_key":"disable"}
+      "pref_camera2_zsl_key":"disable",
+      "pref_camera2_picture_format_key":"0"}
     ,
     "100":
     {"pref_camera2_longshot_key":"off",
