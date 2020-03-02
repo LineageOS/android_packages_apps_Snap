@@ -221,6 +221,7 @@ public class CaptureModule implements CameraModule, PhotoController,
     private static final int STATE_AF_AE_LOCKED = 6;
     private static final int STATE_WAITING_AF_LOCKING = 7;
     private static final int STATE_WAITING_AF_AE_LOCK = 8;
+    private static final int STATE_WAITING_AE_PRECAPTURE = 9;
     private static final String TAG = "SnapCam_CaptureModule";
 
     // Used for check memory status for longshot mode
@@ -1457,6 +1458,16 @@ public class CaptureModule implements CameraModule, PhotoController,
                 parallelLockFocusExposure(getMainCameraId());
                 break;
             }
+            case STATE_WAITING_AE_PRECAPTURE: {
+                Log.d(TAG, "STATE_WAITING_AE_PRECAPTURE id: " + id + " aeState:" + aeState);
+                if (aeState == null ||
+                        aeState == CaptureResult.CONTROL_AE_STATE_PRECAPTURE ||
+                        aeState == CaptureResult.CONTROL_AE_STATE_FLASH_REQUIRED ||
+                        aeState == CaptureResult.CONTROL_AE_STATE_CONVERGED) {
+                    parallelLockFocusExposure(getMainCameraId());
+                }
+                break;
+            }
             case STATE_WAITING_AF_AE_LOCK: {
                 Log.d(TAG, "STATE_WAITING_AF_AE_LOCK id: " + id + " afState: " + afState +
                         " aeState:" + aeState);
@@ -2588,10 +2599,11 @@ public class CaptureModule implements CameraModule, PhotoController,
             String value = mSettingsManager.getValue(mCurrentSceneMode.mode == CameraMode.PRO_MODE ?
                     SettingsManager.KEY_VIDEO_FLASH_MODE : SettingsManager.KEY_FLASH_MODE);
             if (value != null && value.equals("on")) {
-                cancelAFTrigger();
+                mState[id] = STATE_WAITING_AE_PRECAPTURE;
+            } else {
+                mState[id] = STATE_WAITING_AF_LOCKING;
             }
             mCameraHandler.removeMessages(CANCEL_TOUCH_FOCUS, mCameraId[id]);
-            mState[id] = STATE_WAITING_AF_LOCKING;
             mLockRequestHashCode[id] = 0;
             return;
         }
@@ -3910,6 +3922,7 @@ public class CaptureModule implements CameraModule, PhotoController,
     private void applySettingsForUnlockFocus(CaptureRequest.Builder builder, int id) {
         builder.set(CaptureRequest.CONTROL_AF_TRIGGER,
                 CaptureRequest.CONTROL_AF_TRIGGER_CANCEL);
+        applyFlash(builder, id);
         applyCommonSettings(builder, id);
     }
 
@@ -7765,23 +7778,6 @@ public class CaptureModule implements CameraModule, PhotoController,
         mAERegions[id] = afaeRectangle(x, y, width, height, 1.5f, mCropRegion[id], id);
         mCameraHandler.removeMessages(CANCEL_TOUCH_FOCUS, mCameraId[id]);
         autoFocusTrigger(id);
-    }
-
-    private void cancelAFTrigger() {
-        int id = mCurrentSceneMode.getCurrentId();
-        if (mState[id] == STATE_WAITING_TOUCH_FOCUS) {
-            try {
-                if (mPreviewRequestBuilder[id] != null) {
-                    mPreviewRequestBuilder[id].set(CaptureRequest.CONTROL_AF_TRIGGER,
-                            CaptureRequest.CONTROL_AF_TRIGGER_CANCEL);
-                    applyCommonSettings(mPreviewRequestBuilder[id], id);
-                    applyFlashForAFTrigger(mPreviewRequestBuilder[id], id);//apply flash mode and AEmode for this temp builder
-                    mCaptureSession[id].capture(mPreviewRequestBuilder[id].build(), mCaptureCallback, mCameraHandler);
-                }
-            } catch (CameraAccessException | IllegalStateException | IllegalArgumentException e) {
-                e.printStackTrace();
-            }
-        }
     }
 
     private void cancelTouchFocus(int id) {
