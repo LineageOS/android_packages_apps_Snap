@@ -89,6 +89,8 @@ import java.util.Map;
 import java.util.Set;
 import java.util.Arrays;
 
+import static com.android.camera.CaptureModule.CameraMode.RTB;
+import static com.android.camera.CaptureModule.CameraMode.SAT;
 import static com.android.camera.CaptureModule.CameraMode.VIDEO;
 
 public class SettingsActivity extends PreferenceActivity {
@@ -241,18 +243,29 @@ public class SettingsActivity extends PreferenceActivity {
         ListPreference ZSLPref = (ListPreference) findPreference(SettingsManager.KEY_ZSL);
         ListPreference mfnrPref = (ListPreference) findPreference(SettingsManager.KEY_CAPTURE_MFNR_VALUE);
         SwitchPreference selfiePref = (SwitchPreference) findPreference(SettingsManager.KEY_SELFIEMIRROR);
-        if (formatPref == null || ZSLPref ==null) {
+        if (formatPref == null)
             return;
-        }
-        if("app-zsl".equals(ZSLPref.getValue()) ||
-                (selfiePref != null && selfiePref.isChecked())){
+
+        CaptureModule.CameraMode mode =
+                (CaptureModule.CameraMode) getIntent().getSerializableExtra(CAMERA_MODULE);
+        if((ZSLPref != null && "app-zsl".equals(ZSLPref.getValue())) ||
+                (selfiePref != null && selfiePref.isChecked()) ||
+                (mode != null && (mode == SAT || mode == RTB))){
             formatPref.setValue("0");
             formatPref.setEnabled(false);
+        } else {
+            formatPref.setEnabled(true);
+        }
+
+        if (mfnrPref == null)
+            return;
+
+        if((ZSLPref != null &&"app-zsl".equals(ZSLPref.getValue())) ||
+                (selfiePref != null && selfiePref.isChecked())){
             if (mfnrPref != null) {
                 mfnrPref.setEnabled(false);
             }
         } else {
-            formatPref.setEnabled(true);
             if (mfnrPref != null) {
                 mfnrPref.setEnabled(true);
             }
