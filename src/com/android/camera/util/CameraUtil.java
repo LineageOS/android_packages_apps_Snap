@@ -40,6 +40,7 @@ import android.hardware.camera2.CameraCharacteristics;
 import android.location.Location;
 import android.media.MediaRecorder;
 import android.net.Uri;
+import android.os.Bundle;
 import android.os.Handler;
 import android.os.ParcelFileDescriptor;
 import android.telephony.TelephonyManager;
@@ -205,6 +206,12 @@ public class CameraUtil {
     private static final String EXTRAS_CAMERA_FACING =
             "android.intent.extras.CAMERA_FACING";
 
+    private static final String EXTRAS_CAMERA_ID =
+            "android.intent.extras.CAMERA_ID";
+
+    private static final String EXTRAS_USE_FRONT_CAMERA=
+            "com.google.assistant.extra.USE_FRONT_CAMERA";
+    
     private static float sPixelDensity = 1;
     private static ImageFileNamer sImageFileNamer;
 
@@ -826,8 +833,10 @@ public class CameraUtil {
 
         int intentCameraId =
                 currentActivity.getIntent().getIntExtra(CameraUtil.EXTRAS_CAMERA_FACING, -1);
+        boolean openFront = currentActivity.getIntent().getBooleanExtra(
+                CameraUtil.EXTRAS_USE_FRONT_CAMERA,false);
 
-        if (isFrontCameraIntent(intentCameraId)) {
+        if (isFrontCameraIntent(intentCameraId) || openFront) {
             // Check if the front camera exist
             int frontCameraId = CameraHolder.instance().getFrontCameraId();
             if (frontCameraId != -1) {
@@ -844,6 +853,15 @@ public class CameraUtil {
     }
     public static int getFacingOfIntentExtras(Activity currentActivity) {
         int facing = currentActivity.getIntent().getIntExtra(CameraUtil.EXTRAS_CAMERA_FACING, -1);
+        Bundle extra = currentActivity.getIntent().getExtras();
+        if (extra != null && extra.get(CameraUtil.EXTRAS_USE_FRONT_CAMERA) != null){
+            boolean isFront = extra.getBoolean(CameraUtil.EXTRAS_USE_FRONT_CAMERA);
+            if(isFront){
+                return FACING_FRONT;
+            } else {
+                return FACING_BACK;
+            }
+        }
         if (isFrontCameraIntent(facing)) {
             return FACING_FRONT;
         }
