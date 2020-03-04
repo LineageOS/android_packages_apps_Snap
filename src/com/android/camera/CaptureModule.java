@@ -2752,11 +2752,14 @@ public class CaptureModule implements CameraModule, PhotoController,
             applySettingsForAutoFocus(builder, id);
             builder.set(CaptureRequest.CONTROL_AF_MODE, CaptureRequest.CONTROL_AF_MODE_AUTO);
             mState[id] = STATE_WAITING_TOUCH_FOCUS;
-            if (mCurrentSceneMode != null && (mCurrentSceneMode.mode == CameraMode.VIDEO ||
-                    mCurrentSceneMode.mode == CameraMode.HFR)) {
-                updateVideoFlash();
+            applyFlash(builder, id);//apply flash mode and AEmode for this temp builder
+            if (mCurrentSceneMode.mode == CameraMode.HFR && isHighSpeedRateCapture()) {
+                List<CaptureRequest> tafBuilderList = isSSMEnabled() ?
+                        createSSMBatchRequest(builder) :
+                        ((CameraConstrainedHighSpeedCaptureSession) mCaptureSession[id]).
+                        createHighSpeedRequestList(builder.build());
+                mCaptureSession[id].captureBurst(tafBuilderList, mCaptureCallback, mCameraHandler);
             } else {
-                applyFlash(builder, id);//apply flash mode and AEmode for this temp builder
                 mCaptureSession[id].capture(builder.build(), mCaptureCallback, mCameraHandler);
             }
             setAFModeToPreview(id, mControlAFMode);
