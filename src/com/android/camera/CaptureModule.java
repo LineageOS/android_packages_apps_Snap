@@ -2752,7 +2752,12 @@ public class CaptureModule implements CameraModule, PhotoController,
             applySettingsForAutoFocus(builder, id);
             builder.set(CaptureRequest.CONTROL_AF_MODE, CaptureRequest.CONTROL_AF_MODE_AUTO);
             mState[id] = STATE_WAITING_TOUCH_FOCUS;
-            applyFlash(builder, id);//apply flash mode and AEmode for this temp builder
+            if (mCurrentSceneMode.mode == CameraMode.VIDEO ||
+                    mCurrentSceneMode.mode == CameraMode.HFR) {
+                applyVideoFlash(builder, id);
+            } else {
+                applyFlash(builder, id);//apply flash mode and AEmode for this temp builder
+            }
             if (mCurrentSceneMode.mode == CameraMode.HFR && isHighSpeedRateCapture()) {
                 List<CaptureRequest> tafBuilderList = isSSMEnabled() ?
                         createSSMBatchRequest(builder) :
@@ -3964,7 +3969,7 @@ public class CaptureModule implements CameraModule, PhotoController,
         builder.set(CaptureRequest.CONTROL_MODE, CaptureRequest.CONTROL_MODE_AUTO);
         applyFaceDetection(builder);
         applyColorEffect(builder);
-        applyVideoFlash(builder);
+        applyVideoFlash(builder, id);
         applyVideoStabilization(builder);
         applyVideoEIS(builder);
     }
@@ -5761,7 +5766,7 @@ public class CaptureModule implements CameraModule, PhotoController,
         applyVideoStabilization(builder);
         applyNoiseReduction(builder);
         applyColorEffect(builder);
-        applyVideoFlash(builder);
+        applyVideoFlash(builder, cameraId);
         applyFaceDetection(builder);
         applyZoom(builder, cameraId);
         applyVideoEncoderProfile(builder);
@@ -5830,10 +5835,10 @@ public class CaptureModule implements CameraModule, PhotoController,
         }
     }
 
-    private void updateVideoFlash() {
+    private void updateVideoFlash(int id) {
         if (!mIsRecordingVideo && !mIsPreviewingVideo) return;
-        applyVideoFlash(mVideoRecordRequestBuilder);
-        applyVideoFlash(mVideoPreviewRequestBuilder);
+        applyVideoFlash(mVideoRecordRequestBuilder, id);
+        applyVideoFlash(mVideoPreviewRequestBuilder, id);
         CaptureRequest captureRequest = null;
         try {
             if (mMediaRecorderPausing) {
@@ -5859,11 +5864,16 @@ public class CaptureModule implements CameraModule, PhotoController,
         }
     }
 
-    private void applyVideoFlash(CaptureRequest.Builder builder) {
-        String value = mSettingsManager.getValue(SettingsManager.KEY_VIDEO_FLASH_MODE);
-        if (value == null) return;
-        builder.set(CaptureRequest.FLASH_MODE, value.equals("on") ?
-                CaptureRequest.FLASH_MODE_TORCH : CaptureRequest.FLASH_MODE_OFF);
+    private void applyVideoFlash(CaptureRequest.Builder builder, int id) {
+        if (mSettingsManager.isFlashSupported(id)) {
+            String value = mSettingsManager.getValue(SettingsManager.KEY_VIDEO_FLASH_MODE);
+            if (value == null) return;
+            builder.set(CaptureRequest.FLASH_MODE, value.equals("on") ?
+                    CaptureRequest.FLASH_MODE_TORCH : CaptureRequest.FLASH_MODE_OFF);
+        } else {
+            builder.set(CaptureRequest.FLASH_MODE, CaptureRequest.FLASH_MODE_OFF);
+        }
+
     }
 
     private void applyNoiseReduction(CaptureRequest.Builder builder) {
@@ -7962,7 +7972,7 @@ public class CaptureModule implements CameraModule, PhotoController,
                             break;
                         case VIDEO:
                         case HFR:
-                            updateVideoFlash();
+                            updateVideoFlash(getMainCameraId());
                             break;
                     }
                     return;
