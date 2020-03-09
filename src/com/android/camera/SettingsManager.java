@@ -551,7 +551,7 @@ public class SettingsManager implements ListMenu.SettingsListener {
     }
 
     public boolean isBurstShotSupported(){
-        boolean isBurstShotSupported = false;
+        boolean isBurstShotSupported = true;
         try {
             isBurstShotSupported = mCharacteristics.get(mCameraId).get(CaptureModule.is_burstshot_supported) == 1 ? true : false;
         } catch (IllegalArgumentException e) {
