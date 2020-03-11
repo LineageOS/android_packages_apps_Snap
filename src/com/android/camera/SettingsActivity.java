@@ -149,12 +149,6 @@ public class SettingsActivity extends PreferenceActivity {
                     updatePreferenceButton(dependentKey);
                 }
             }
-            if (key.equals(SettingsManager.KEY_CAPTURE_MFNR_VALUE) ) {
-                if(isMFNREnabled()){
-                    ListPreference manualexp = (ListPreference) findPreference(SettingsManager.KEY_MANUAL_EXPOSURE);
-                    manualexp.setEnabled(false);
-                }
-            }
         }
     };
 
@@ -1214,15 +1208,12 @@ public class SettingsActivity extends PreferenceActivity {
     private void updatePreferenceButton(String key) {
         Preference pref =  findPreference(key);
         if (pref != null ) {
+            pref.setEnabled(false);
             if( pref instanceof ListPreference) {
                 ListPreference pref2 = (ListPreference) pref;
-                if (pref2.getEntryValues().length == 1) {
-                    pref2.setEnabled(false);
-                } else {
-                    pref2.setEnabled(true);
+                if (pref2.getEntryValues().length > 1) {
+                    updatePreference(key);
                 }
-            }else {
-                pref.setEnabled(false);
             }
         }
     }

@@ -185,5 +185,9 @@
     "hsr240":{"pref_camera2_dis_key":"off"},
     "hsr480":{"pref_camera2_dis_key":"off"},
     "hsr960":{"pref_camera2_dis_key":"off"}
+  },
+  "pref_camera2_dis_key":
+  {
+    "on": {"pref_camera2_video_time_lapse_frame_interval_key": "0"}
   }
 }
