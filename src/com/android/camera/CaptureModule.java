@@ -2261,31 +2261,6 @@ public class CaptureModule implements CameraModule, PhotoController,
         }
     }
 
-    public void setFlashModeToPreview(int id, boolean isFlashOn) {
-        if (DEBUG) {
-            Log.d(TAG, "setFlashModeToPreview " + isFlashOn);
-        }
-        if (!checkSessionAndBuilder(mCaptureSession[id], mPreviewRequestBuilder[id])) {
-            return;
-        }
-        if (isFlashOn) {
-            mPreviewRequestBuilder[id].set(CaptureRequest.CONTROL_AE_MODE, CaptureRequest.CONTROL_AE_MODE_ON_ALWAYS_FLASH);
-            mPreviewRequestBuilder[id].set(CaptureRequest.FLASH_MODE, CaptureRequest.FLASH_MODE_SINGLE);
-        } else {
-            mPreviewRequestBuilder[id].set(CaptureRequest.CONTROL_AE_MODE, CaptureRequest.CONTROL_AE_MODE_ON);
-            mPreviewRequestBuilder[id].set(CaptureRequest.FLASH_MODE, CaptureRequest.FLASH_MODE_OFF);
-        }
-        applyAFRegions(mPreviewRequestBuilder[id], id);
-        applyAERegions(mPreviewRequestBuilder[id], id);
-        mPreviewRequestBuilder[id].setTag(id);
-        try {
-            mCaptureSession[id].setRepeatingRequest(mPreviewRequestBuilder[id]
-                    .build(), mCaptureCallback, mCameraHandler);
-        } catch (CameraAccessException | IllegalStateException e) {
-            e.printStackTrace();
-        }
-    }
-
     public void setFocusDistanceToPreview(int id, float fd) {
         if (!checkSessionAndBuilder(mCaptureSession[id], mPreviewRequestBuilder[id])) {
             return;
@@ -2613,14 +2588,6 @@ public class CaptureModule implements CameraModule, PhotoController,
             if(id == MONO_ID && !canStartMonoPreview()) {
                 mCaptureSession[id].setRepeatingRequest(mPreviewRequestBuilder[id]
                         .build(), mCaptureCallback, mCameraHandler);
-            } else {
-                // for longshot flash, need to re-configure the preview flash mode.
-                if (mLongshotActive && isFlashOn(id)) {
-                    mCaptureSession[id].stopRepeating();
-                    applyFlash(mPreviewRequestBuilder[id], id);
-                    mCaptureSession[id].setRepeatingRequest(mPreviewRequestBuilder[id]
-                            .build(), mCaptureCallback, mCameraHandler);
-                }
             }
         } catch (CameraAccessException e) {
             e.printStackTrace();
@@ -2645,6 +2612,11 @@ public class CaptureModule implements CameraModule, PhotoController,
                 applySettingsForLockExposure(mPreviewRequestBuilder[id], id);
                 mCaptureSession[id].setRepeatingRequest(mPreviewRequestBuilder[id].build(),
                         mCaptureCallback, mCameraHandler);
+            } else {
+                // for longshot flash, need to re-configure the preview flash mode.
+                applyFlash(mPreviewRequestBuilder[id], id);
+                mCaptureSession[id].setRepeatingRequest(mPreviewRequestBuilder[id]
+                        .build(), mCaptureCallback, mCameraHandler);
             }
 
             if(mHiston) {
