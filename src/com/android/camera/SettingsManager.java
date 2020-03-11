@@ -99,6 +99,7 @@ public class SettingsManager implements ListMenu.SettingsListener {
 
     public static final int SCENE_MODE_AUTO_INT = 0;
     public static final int SCENE_MODE_NIGHT_INT = 5;
+    public static final int SCENE_MODE_HDR_INT = 18;
 
     public static final int TALOS_SOCID = 355;
     public static final int MOOREA_SOCID = 365;
