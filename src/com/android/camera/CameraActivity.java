@@ -681,7 +681,8 @@ public class CameraActivity extends Activity
         View decorView = getWindow().getDecorView();
         int currentSystemUIVisibility = decorView.getSystemUiVisibility();
         int systemUIVisibility = DEFAULT_SYSTEM_UI_VISIBILITY;
-        int systemUINotVisible = View.SYSTEM_UI_FLAG_LOW_PROFILE | View.SYSTEM_UI_FLAG_FULLSCREEN;
+        int systemUINotVisible = View.SYSTEM_UI_FLAG_LOW_PROFILE | View.SYSTEM_UI_FLAG_FULLSCREEN |
+                View.SYSTEM_UI_FLAG_HIDE_NAVIGATION | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
 
         int newSystemUIVisibility = systemUIVisibility
                 | (visible ? View.SYSTEM_UI_FLAG_VISIBLE : systemUINotVisible);
