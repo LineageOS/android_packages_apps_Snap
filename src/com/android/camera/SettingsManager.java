@@ -1243,6 +1243,27 @@ public class SettingsManager implements ListMenu.SettingsListener {
         }
     }
 
+    private boolean getEISEnabled() {
+        boolean result = false;
+        ListPreference disPref = mPreferenceGroup.findPreference(KEY_DIS);
+        ListPreference eisPref = mPreferenceGroup.findPreference(KEY_EIS_VALUE);
+        if (disPref != null && eisPref != null) {
+            result = ("on".equals(disPref.getValue()) &&
+                    !("disable".equals(eisPref.getValue())));
+        }
+        return result;
+    }
+
+    public void filterEISVideQualityOptions() {
+        ListPreference videoQualityPref = mPreferenceGroup.findPreference(KEY_VIDEO_QUALITY);
+        if (videoQualityPref == null) return;
+        videoQualityPref.reloadInitialEntriesAndEntryValues();
+        if (filterUnsupportedOptions(videoQualityPref, getSupportedVideoSize(
+                getCurrentCameraId()))) {
+            mFilteredKeys.add(videoQualityPref.getKey());
+        }
+    }
+
     private void filterChromaflashPictureSizeOptions() {
         String scene = getValue(SettingsManager.KEY_SCENE_MODE);
         ListPreference picturePref = mPreferenceGroup.findPreference(KEY_PICTURE_SIZE);
@@ -1691,10 +1712,26 @@ public class SettingsManager implements ListMenu.SettingsListener {
             res.add(getSupportedQcfaDimension(cameraId));
         }
 
+        VideoCapabilities heifCap = null;
+        if (isHeifEnabled) {
+            MediaCodecList list = new MediaCodecList(MediaCodecList.REGULAR_CODECS);
+            for (MediaCodecInfo info :list.getCodecInfos()) {
+                if (info.isEncoder() && info.getName().contains("heic")){
+                    heifCap = info.getCapabilitiesForType(
+                            MediaFormat.MIMETYPE_IMAGE_ANDROID_HEIC).getVideoCapabilities();
+                    Log.d(TAG,"supported heif height range ="+heifCap.getSupportedHeights().toString() +
+                            " width range ="+heifCap.getSupportedWidths().toString());
+                }
+            }
+        }
+
         if (sizes != null) {
             for (int i = 0; i < sizes.length; i++) {
-                if (isHeifEnabled && (Math.min(sizes[i].getWidth(),sizes[i].getHeight()) < 512)) {
-                    continue;
+                if (isHeifEnabled && heifCap != null ){
+                    if (!heifCap.getSupportedWidths().contains(sizes[i].getWidth()) ||
+                        !heifCap.getSupportedHeights().contains(sizes[i].getHeight())){
+                        continue;
+                    }
                 }
                 if (isDeepportrait &&
                         (Math.min(sizes[i].getWidth(),sizes[i].getHeight()) < 720 ||
@@ -1707,8 +1744,15 @@ public class SettingsManager implements ListMenu.SettingsListener {
         }
 
         Size[] highResSizes = map.getHighResolutionOutputSizes(ImageFormat.JPEG);
+
         if (highResSizes != null) {
             for (int i = 0; i < highResSizes.length; i++) {
+                if (isHeifEnabled && heifCap != null) {
+                    if (!heifCap.getSupportedWidths().contains(highResSizes[i].getWidth()) ||
+                            !heifCap.getSupportedHeights().contains(highResSizes[i].getHeight())){
+                        continue;
+                    }
+                }
                 res.add(highResSizes[i].toString());
             }
         }
@@ -1730,18 +1774,46 @@ public class SettingsManager implements ListMenu.SettingsListener {
     public Size[] getSupportedOutputSize(int cameraId, Class cl) {
         StreamConfigurationMap map = mCharacteristics.get(cameraId).get(
                 CameraCharacteristics.SCALER_STREAM_CONFIGURATION_MAP);
-        return map.getOutputSizes(cl);
+        Size[] normal = map.getOutputSizes(cl);
+        Size[] high = map.getHighResolutionOutputSizes(ImageFormat.PRIVATE);
+        Size[] ret = new Size[normal.length+high.length];
+        System.arraycopy(normal,0,ret,0,normal.length);
+        System.arraycopy(high,0,ret,normal.length,high.length);
+        return ret;
     }
 
     private List<String> getSupportedVideoSize(int cameraId) {
         StreamConfigurationMap map = mCharacteristics.get(cameraId).get(
                 CameraCharacteristics.SCALER_STREAM_CONFIGURATION_MAP);
         Size[] sizes = map.getOutputSizes(MediaRecorder.class);
+        boolean eisEnabled = getEISEnabled();
         boolean isHeifEnabled = getSavePictureFormat() == HEIF_FORMAT;
+        VideoCapabilities heifCap = null;
+        if (isHeifEnabled) {
+            MediaCodecList list = new MediaCodecList(MediaCodecList.REGULAR_CODECS);
+            for (MediaCodecInfo info :list.getCodecInfos()) {
+                if (info.isEncoder() && info.getName().contains("heic")){
+                    heifCap = info.getCapabilitiesForType(
+                            MediaFormat.MIMETYPE_IMAGE_ANDROID_HEIC).getVideoCapabilities();
+                    Log.d(TAG,"supported heif height range ="+heifCap.getSupportedHeights().toString() +
+                            " width range ="+heifCap.getSupportedWidths().toString());
+                }
+            }
+        }
         List<String> res = new ArrayList<>();
         for (int i = 0; i < sizes.length; i++) {
-            if (isHeifEnabled && (Math.min(sizes[i].getWidth(),sizes[i].getHeight()) < 512)) {
-                continue;
+            if (isHeifEnabled && heifCap != null ){
+                if (!heifCap.getSupportedWidths().contains(sizes[i].getWidth()) ||
+                        !heifCap.getSupportedHeights().contains(sizes[i].getHeight())){
+                    continue;
+                }
+            }
+            if (eisEnabled) {
+                // eis didn`t support less than 720P
+                if (Math.min(sizes[i].getWidth(),sizes[i].getHeight()) < 720 ||
+                        Math.max(sizes[i].getWidth(),sizes[i].getHeight()) < 1280) {
+                    continue;
+                }
             }
             if (CameraSettings.VIDEO_QUALITY_TABLE.containsKey(sizes[i].toString())) {
                 Integer profile = CameraSettings.VIDEO_QUALITY_TABLE.get(sizes[i].toString());
@@ -1956,6 +2028,7 @@ public class SettingsManager implements ListMenu.SettingsListener {
                 }
             }
         }
+
         return supported;
     }
 

@@ -72,21 +72,25 @@
                 <intent-filter>
                     <action android:name="android.media.action.VIDEO_CAMERA" />
                     <category android:name="android.intent.category.DEFAULT" />
+                    <category android:name="android.intent.category.VOICE"/>
                 </intent-filter>
 
                 <intent-filter>
                     <action android:name="android.media.action.VIDEO_CAPTURE" />
                     <category android:name="android.intent.category.DEFAULT" />
+                    <category android:name="android.intent.category.VOICE"/>
                 </intent-filter>
 
                 <intent-filter>
                     <action android:name="android.media.action.IMAGE_CAPTURE" />
                     <category android:name="android.intent.category.DEFAULT" />
+                    <category android:name="android.intent.category.VOICE"/>
                 </intent-filter>
 
                 <intent-filter>
                     <action android:name="android.media.action.STILL_IMAGE_CAMERA" />
                     <category android:name="android.intent.category.DEFAULT" />
+                    <category android:name="android.intent.category.VOICE"/>
                 </intent-filter>
 
                 <meta-data
