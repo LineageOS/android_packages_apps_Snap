@@ -2589,7 +2589,7 @@ public class CaptureModule implements CameraModule, PhotoController,
     private void parallelLockFocusExposure(int id) {
         if (mActivity == null || mCameraDevice[id] == null
                 || !checkSessionAndBuilder(mCaptureSession[id], mPreviewRequestBuilder[id])) {
-            enableShutterAndVideoOnUiThread(id);
+            enableShutterAndVideoOnUiThread(id,true);
             warningToast("Camera is not ready yet to take a picture.");
             return;
         }
@@ -2672,7 +2672,7 @@ public class CaptureModule implements CameraModule, PhotoController,
     private void lockFocus(int id) {
         if (mActivity == null || mCameraDevice[id] == null
                 || !checkSessionAndBuilder(mCaptureSession[id], mPreviewRequestBuilder[id])) {
-            enableShutterAndVideoOnUiThread(id);
+            enableShutterAndVideoOnUiThread(id,true);
             warningToast("Camera is not ready yet to take a picture.");
             return;
         }
@@ -2810,7 +2810,7 @@ public class CaptureModule implements CameraModule, PhotoController,
         try {
             if (null == mActivity || null == mCameraDevice[id]
                     || !checkSessionAndBuilder(mCaptureSession[id], mPreviewRequestBuilder[id])) {
-                enableShutterAndVideoOnUiThread(id);
+                enableShutterAndVideoOnUiThread(id,true);
                 mLongshotActive = false;
                 warningToast("Camera is not ready yet to take a picture.");
                 return;
@@ -3132,7 +3132,7 @@ public class CaptureModule implements CameraModule, PhotoController,
                                             CaptureRequest request,
                                             CaptureFailure result) {
                     Log.d(TAG, "captureStillPictureForCommon onCaptureFailed: " + id);
-                    enableShutterAndVideoOnUiThread(id);
+                    enableShutterAndVideoOnUiThread(id, true);
                 }
 
                 @Override
@@ -3142,7 +3142,7 @@ public class CaptureModule implements CameraModule, PhotoController,
                     if (mUI.getCurrentProMode() != ProMode.MANUAL_MODE) {
                         unlockFocus(id);
                     } else {
-                        enableShutterAndVideoOnUiThread(id);
+                        enableShutterAndVideoOnUiThread(id,false);
                     }
                     Log.d(TAG,"onShutterButtonRelease");
                     if (mSettingsManager.isHeifWriterEncoding()) {
@@ -3662,7 +3662,7 @@ public class CaptureModule implements CameraModule, PhotoController,
             setAFModeToPreview(id, mUI.getCurrentProMode() == ProMode.MANUAL_MODE ?
                     CaptureRequest.CONTROL_AF_MODE_OFF : afMode);
             mTakingPicture[id] = false;
-            enableShutterAndVideoOnUiThread(id);
+            enableShutterAndVideoOnUiThread(id,false);
         } catch (NullPointerException | IllegalStateException | CameraAccessException e) {
             Log.w(TAG, "Session is already closed");
         }
@@ -3682,13 +3682,13 @@ public class CaptureModule implements CameraModule, PhotoController,
         }
     }
 
-    private void enableShutterAndVideoOnUiThread(int id) {
+    private void enableShutterAndVideoOnUiThread(int id,boolean force) {
         if (id == getMainCameraId()) {
             mActivity.runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
                     mUI.stopSelfieFlash();
-                    if (!captureWaitImageReceive()) {
+                    if (force || !captureWaitImageReceive()) {
                         mUI.enableShutter(true);
                     }
                     if (mDeepPortraitMode) {
