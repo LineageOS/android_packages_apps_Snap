@@ -5544,6 +5544,7 @@ public class CaptureModule implements CameraModule, PhotoController,
             Log.w(TAG, "Storage issue, ignore the start request");
             mStartRecPending = false;
             mIsRecordingVideo = false;
+            mIsPreviewingVideo = true;
             Toast.makeText(mActivity,R.string.storage_not_enough,Toast.LENGTH_SHORT).show();
             return false;
         }
