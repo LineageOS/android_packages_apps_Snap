@@ -491,13 +491,14 @@ public class CaptureModule implements CameraModule, PhotoController,
     // Touch Track Focus
     public static final CaptureRequest.Key<Byte> t2t_enable = new CaptureRequest.Key<>(
             "org.quic.camera2.objectTrackingConfig.Enable", Byte.class);
-    /*public static final CaptureRequest.Key<MeteringRectangle[]> t2t_register_roi = new CaptureRequest.Key<>(
-            "org.quic.camera2.objectTracking.RegisterROI", MeteringRectangle[].class);*/
     public static final CaptureRequest.Key<int[]> t2t_register_roi = new CaptureRequest.Key<>(
             "org.quic.camera2.objectTrackingConfig.RegisterROI", int[].class);
     public static final CaptureRequest.Key<Integer> t2t_cmd_trigger = new CaptureRequest.Key<>(
             "org.quic.camera2.objectTrackingConfig.CmdTrigger", Integer.class);
 
+    public static final CameraCharacteristics.Key<Byte> is_t2t_supported =
+            new CameraCharacteristics.Key<>(
+                    "org.quic.camera2.objectTrackingResults.TrackerEnable", byte.class);
     private static final CaptureResult.Key<Integer> t2t_tracker_status =
             new CaptureResult.Key<>("org.quic.camera2.objectTrackingResults.TrackerStatus", Integer.class);
     private static final CaptureResult.Key<int[]> t2t_tracker_result_roi =
@@ -1053,7 +1054,6 @@ public class CaptureModule implements CameraModule, PhotoController,
             } catch (IllegalArgumentException e) {
                 mSupportT2TFocus = false;
             }
-
             SharedPreferences.Editor editor = mGlobalSharedPref.edit();
             editor.putInt(SettingsManager.KEY_SUPPORT_T2T_FOCUS,
                     (mSupportT2TFocus ? SettingsManager.TOUCH_TRACK_FOCUS_ENABLE :

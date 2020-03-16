@@ -571,6 +571,18 @@ public class SettingsManager implements ListMenu.SettingsListener {
         return isFDRenderingInUI;
     }
 
+    public boolean isT2TSupported() {
+        boolean supportted = true;
+        try {
+            supportted =
+                    (mCharacteristics.get(mCameraId).get(CaptureModule.is_t2t_supported) == 1);
+        } catch (IllegalArgumentException e) {
+            Log.d(TAG, "isT2TSupported no vendor tag");
+            supportted = true;
+        }
+        return supportted;
+    }
+
     public boolean isCameraFDSupported(){
         boolean isCameraFDSupported = false;
         isCameraFDSupported = PersistUtil.isCameraFDSupported();

@@ -999,9 +999,10 @@ public class SettingsActivity extends PreferenceActivity {
                 ComboPreferences.getGlobalSharedPreferencesName(this),Context.MODE_PRIVATE);
         int isSupportT2T = pref.getInt(
                 SettingsManager.KEY_SUPPORT_T2T_FOCUS, -1);
+        boolean isSupportedT2T = mSettingsManager.isT2TSupported();
 
         if (mSettingsManager.getInitialCameraId() == CaptureModule.FRONT_ID ||
-                (isSupportT2T == SettingsManager.TOUCH_TRACK_FOCUS_DISABLE)) {
+                (isSupportT2T == SettingsManager.TOUCH_TRACK_FOCUS_DISABLE) || !isSupportedT2T) {
             removePreference(SettingsManager.KEY_TOUCH_TRACK_FOCUS, photoPre);
             removePreference(SettingsManager.KEY_TOUCH_TRACK_FOCUS, videoPre);
         }
