@@ -469,8 +469,8 @@ public class CaptureModule implements CameraModule, PhotoController,
             new CaptureRequest.Key<>("org.quic.camera.eis3enable.EISV3Enable", byte.class);
     public static final CaptureRequest.Key<Byte> recording_end_stream =
             new CaptureRequest.Key<>("org.quic.camera.recording.endOfStream", byte.class);
-    public static final CaptureRequest.Key<Byte> earlyPCR =
-            new CaptureRequest.Key<>("org.quic.camera.EarlyPCRenable.EarlyPCRenable", byte.class);
+    public static final CaptureRequest.Key<Integer> earlyPCR =
+            new CaptureRequest.Key<>("org.codeaurora.qcamera3.sessionParameters.numPCRsBeforeStreamOn", Integer.class);
     private static final CaptureResult.Key<Byte> is_depth_focus =
             new CaptureResult.Key<>("org.quic.camera.isDepthFocus.isDepthFocus", byte.class);
     private static final CaptureRequest.Key<Byte> capture_burst_fps =
@@ -2018,7 +2018,7 @@ public class CaptureModule implements CameraModule, PhotoController,
                     if (ApiHelper.isAndroidPOrHigher() && outputConfigurations != null) {
                         Log.i(TAG,"list size:" + list.size());
                         createCameraSessionWithSessionConfiguration(id, outputConfigurations,
-                                captureSessionCallback, mCameraHandler, mPreviewRequestBuilder[id].build());
+                                captureSessionCallback, mCameraHandler, mPreviewRequestBuilder[id]);
                     } else {
                         mCameraDevice[id].createCaptureSession(list, captureSessionCallback, mCameraHandler);
                     }
@@ -2096,13 +2096,12 @@ public class CaptureModule implements CameraModule, PhotoController,
             mIsPreviewingVideo = true;
             if (ApiHelper.isAndroidPOrHigher()) {
                 if (isHighSpeedRateCapture()) {
-                    CaptureRequest initialRequest = mVideoRecordRequestBuilder.build();
                     int optionMode = isSSMEnabled() ? STREAM_CONFIG_SSM : SESSION_HIGH_SPEED;
                     buildConstrainedCameraSession(mCameraDevice[cameraId], optionMode,
-                            surfaces, mSessionListener, mCameraHandler, initialRequest);
+                            surfaces, mSessionListener, mCameraHandler, mVideoRecordRequestBuilder);
                 } else {
                     configureCameraSessionWithParameters(cameraId, surfaces,
-                            mSessionListener, mCameraHandler, mVideoRecordRequestBuilder.build());
+                            mSessionListener, mCameraHandler, mVideoRecordRequestBuilder);
                 }
             } else {
                 if (isHighSpeedRateCapture()) {
@@ -5390,7 +5389,9 @@ public class CaptureModule implements CameraModule, PhotoController,
 
     private void createCameraSessionWithSessionConfiguration(int cameraId,
                  List<OutputConfiguration> outConfigurations, CameraCaptureSession.StateCallback listener,
-                 Handler handler, CaptureRequest initialRequest) {
+                 Handler handler, CaptureRequest.Builder initialRequest) {
+        applyEarlyPCR(initialRequest);
+
         int opMode = SESSION_REGULAR;
         String valueFS2 = mSettingsManager.getValue(SettingsManager.KEY_SENSOR_MODE_FS2_VALUE);
         if (valueFS2 != null) {
@@ -5399,6 +5400,7 @@ public class CaptureModule implements CameraModule, PhotoController,
                 opMode |= STREAM_CONFIG_MODE_FS2;
             }
         }
+
         Log.v(TAG, " createCameraSessionWithSessionConfiguration opMode: " + opMode);
         Method method_setSessionParameters = null;
         Method method_createCaptureSession = null;
@@ -5412,7 +5414,7 @@ public class CaptureModule implements CameraModule, PhotoController,
                 method_setSessionParameters = clazz.getDeclaredMethod(
                         "setSessionParameters", CaptureRequest.class);
             }
-            method_setSessionParameters.invoke(sessionConfig, initialRequest);
+            method_setSessionParameters.invoke(sessionConfig, initialRequest.build());
             method_createCaptureSession = CameraDevice.class.getDeclaredMethod(
                     "createCaptureSession", clazz);
             method_createCaptureSession.invoke(mCameraDevice[cameraId], sessionConfig);
@@ -5424,7 +5426,8 @@ public class CaptureModule implements CameraModule, PhotoController,
 
     private void configureCameraSessionWithParameters(int cameraId,
             List<Surface> outputSurfaces, CameraCaptureSession.StateCallback listener,
-            Handler handler, CaptureRequest initialRequest) throws CameraAccessException {
+            Handler handler, CaptureRequest.Builder initialRequest) throws CameraAccessException {
+        applyEarlyPCR(initialRequest);
         List<OutputConfiguration> outConfigurations = new ArrayList<>(outputSurfaces.size());
         if (mSettingsManager.isLiveshotSupported(mVideoSize,mSettingsManager.getVideoFPS())){
             if (mSettingsManager.isHeifWriterEncoding() && mLiveShotInitHeifWriter != null) {
@@ -5471,7 +5474,7 @@ public class CaptureModule implements CameraModule, PhotoController,
                 method_setSessionParameters = clazz.getDeclaredMethod(
                         "setSessionParameters", CaptureRequest.class);
             }
-            method_setSessionParameters.invoke(sessionConfig, initialRequest);
+            method_setSessionParameters.invoke(sessionConfig, initialRequest.build());
             method_createCaptureSession = CameraDevice.class.getDeclaredMethod(
                     "createCaptureSession", clazz);
             method_createCaptureSession.invoke(mCameraDevice[cameraId], sessionConfig);
@@ -5482,7 +5485,8 @@ public class CaptureModule implements CameraModule, PhotoController,
 
     private void buildConstrainedCameraSession(CameraDevice camera, int optionMode,
             List<Surface> outputSurfaces, CameraCaptureSession.StateCallback sessionListener,
-        Handler handler, CaptureRequest initialRequest) throws CameraAccessException {
+        Handler handler, CaptureRequest.Builder initialRequest) throws CameraAccessException {
+        applyEarlyPCR(initialRequest);
 
         List<OutputConfiguration> outConfigurations = new ArrayList<>(outputSurfaces.size());
         for (Surface surface : outputSurfaces) {
@@ -5499,7 +5503,7 @@ public class CaptureModule implements CameraModule, PhotoController,
                 method_setSessionParameters = clazz.getDeclaredMethod(
                         "setSessionParameters", CaptureRequest.class);
             }
-            method_setSessionParameters.invoke(sessionConfig, initialRequest);
+            method_setSessionParameters.invoke(sessionConfig, initialRequest.build());
 
             method_createCaptureSession = CameraDevice.class.getDeclaredMethod(
                     "createCaptureSession", clazz);
@@ -5762,6 +5766,7 @@ public class CaptureModule implements CameraModule, PhotoController,
     private void applyVideoCommentSettings(CaptureRequest.Builder builder, int cameraId) {
         builder.set(CaptureRequest.CONTROL_MODE, CaptureRequest.CONTROL_MODE_AUTO);
         builder.set(CaptureRequest.CONTROL_AE_MODE, CaptureRequest.CONTROL_AE_MODE_ON);
+        applyEarlyPCR(builder);
         applyAntiBandingLevel(builder);
         applyVideoStabilization(builder);
         applyNoiseReduction(builder);
@@ -5772,7 +5777,6 @@ public class CaptureModule implements CameraModule, PhotoController,
         applyVideoEncoderProfile(builder);
         applyVideoEIS(builder);
         applyVideoHDR(builder);
-        applyEarlyPCR(builder);
         applyTouchTrackFocus(builder);
         applyToneMapping(builder);
     }
@@ -6849,9 +6853,8 @@ public class CaptureModule implements CameraModule, PhotoController,
 
     private void applyEarlyPCR(CaptureRequest.Builder request) {
         try {
-            request.set(CaptureModule.earlyPCR, (byte) (mHighSpeedCapture ? 0x00 : 0x01));
+            request.set(CaptureModule.earlyPCR, 1);
         } catch (IllegalArgumentException e) {
-            e.printStackTrace();
         }
     }
 
