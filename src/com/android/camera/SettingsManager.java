@@ -2364,6 +2364,7 @@ public class SettingsManager implements ListMenu.SettingsListener {
         return  modes;
     }
 
+
     public List<String> getSupportedAntiBandingLevelAvailableModes(int cameraId) {
         int[] antiBandingLevelAvailableModes = mCharacteristics.get(cameraId).get(
                 CameraCharacteristics.CONTROL_AE_AVAILABLE_ANTIBANDING_MODES);
@@ -2415,19 +2416,28 @@ public class SettingsManager implements ListMenu.SettingsListener {
         return getSavePictureFormat() == HEIF_FORMAT;
     }
 
-    public List<String> getSupportedPictureFormat(int cameraId){
+    public List<String> getSupportedPictureFormat(int cameraId) {
         byte supportHeic = 1;
-        try{
+        try {
             supportHeic = mCharacteristics.get(cameraId).get(CaptureModule.heic_support_enable);
-        } catch (Exception e){
+        } catch (Exception e) {
         }
 
         ArrayList<String> ret = new ArrayList<String>();
         ret.add(String.valueOf(SettingsManager.JPEG_FORMAT));
-        if (supportHeic == 1){
+        if (supportHeic == 1) {
             ret.add(String.valueOf(SettingsManager.HEIF_FORMAT));
         }
         return ret;
+    }
+
+    public boolean isSATCamera(int cameraId){
+        try{
+            int type = mCharacteristics.get(cameraId).get(CaptureModule.logical_camera_type);
+            return type == CaptureModule.TYPE_SAT;
+        }catch (Exception e){
+        }
+        return false;
     }
 
     public boolean isZSLInHALEnabled(){

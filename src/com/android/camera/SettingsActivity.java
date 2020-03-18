@@ -233,6 +233,7 @@ public class SettingsActivity extends PreferenceActivity {
     }
 
     private void updateFormatPreference() {
+        int cameraId = mSettingsManager.getCurrentCameraId();
         ListPreference formatPref = (ListPreference)findPreference(SettingsManager.KEY_PICTURE_FORMAT);
         ListPreference ZSLPref = (ListPreference) findPreference(SettingsManager.KEY_ZSL);
         ListPreference mfnrPref = (ListPreference) findPreference(SettingsManager.KEY_CAPTURE_MFNR_VALUE);
@@ -246,7 +247,8 @@ public class SettingsActivity extends PreferenceActivity {
         if((ZSLPref != null && "app-zsl".equals(ZSLPref.getValue())) ||
                 (sceneMode != null && Integer.valueOf(sceneMode) == SettingsManager.SCENE_MODE_HDR_INT) ||
                 (selfiePref != null && selfiePref.isChecked()) ||
-                (mode != null && (mode == SAT || mode == RTB))){
+                (mode != null &&
+                        (mode == SAT || mode == RTB || mSettingsManager.isSATCamera(cameraId)))){
             formatPref.setValue("0");
             formatPref.setEnabled(false);
         } else {
