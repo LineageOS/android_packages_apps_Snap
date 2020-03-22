@@ -14,5 +14,6 @@
      limitations under the License.
 -->
 <resources>
-    <string name="quick_reader_permission_rationale_message">Kamera-adgang behøves for at skanne stregkoden</string>
+    <string name="quick_reader_permission_rationale_positive">Faighnich dhìom a-rithist</string>
+    <string name="quick_reader_scanned_text_negative">Co-roinn</string>
 </resources>
