@@ -206,6 +206,7 @@
     <string name="effect_silly_faces">GEKKE GEZICHTEN</string>
     <string name="effect_background">ACHTERGROND</string>
     <string name="accessibility_shutter_button">Sluiter</string>
+    <string name="accessibility_exit_best_mode_button">Beste-foto-modus afsluiten</string>
     <string name="accessibility_menu_button">Menuknop</string>
     <string name="accessibility_mode_picker">Camera-, video- of panoramakiezer</string>
     <string name="accessibility_check_box">%1$s selectievakje</string>
