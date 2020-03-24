@@ -322,7 +322,11 @@ public class SettingsActivity extends PreferenceActivity {
                     String iso = ISOinput.getText().toString();
                     Log.v(TAG, "string iso length " + iso.length() + ", iso :" + iso);
                     if (iso.length() > 0) {
-                        newISO = Integer.parseInt(iso);
+                        try {
+                            newISO = Integer.parseInt(iso);
+                        } catch(NumberFormatException e) {
+                            Log.w(TAG, "ISOinput type incorrect value entered ");
+                        }
                     }
                     if (newISO <= isoRange[1] && newISO >= isoRange[0]) {
                         editor.putString(SettingsManager.KEY_MANUAL_ISO_VALUE, iso);
@@ -407,7 +411,11 @@ public class SettingsActivity extends PreferenceActivity {
                     String iso = ISOinput.getText().toString();
                     Log.v(TAG, "string iso length " + iso.length() + ", iso :" + iso);
                     if (iso.length() > 0) {
-                        newISO = Integer.parseInt(iso);
+                        try {
+                            newISO = Integer.parseInt(iso);
+                        } catch(NumberFormatException e) {
+                            Log.w(TAG, "ISOinput type incorrect value entered ");
+                        }
                     }
                     if (newISO <= isoRange[1] && newISO >= isoRange[0]) {
                         editor.putString(SettingsManager.KEY_MANUAL_ISO_VALUE, iso);
@@ -476,7 +484,11 @@ public class SettingsActivity extends PreferenceActivity {
                 String gain = gainsInput.getText().toString();
                 Log.v(TAG, "string gain length " + gain.length() + ", gain :" + gain);
                 if (gain.length() > 0) {
-                    newGain = Float.parseFloat(gain);
+                    try {
+                        newGain = Float.parseFloat(gain);
+                    } catch(NumberFormatException e) {
+                        Log.w(TAG, "gainsInput type incorrect value ");
+                    }
                 }
                 if (newGain <= gainsRange[1] && newGain >= gainsRange[0]) {
                     editor.putFloat(SettingsManager.KEY_MANUAL_GAINS_VALUE, newGain);
@@ -561,13 +573,25 @@ public class SettingsActivity extends PreferenceActivity {
                 String ggainStr = gGainInput.getText().toString();
                 String bgainStr = bGainInput.getText().toString();
                 if (rgainStr.length() > 0) {
-                    rGain = Float.parseFloat(rgainStr);
+                    try {
+                        rGain = Float.parseFloat(rgainStr);
+                    } catch(NumberFormatException e) {
+                        Log.w(TAG, "rGainInput type incorrect value ");
+                    }
                 }
                 if (ggainStr.length() > 0) {
-                    gGain = Float.parseFloat(ggainStr);
+                    try {
+                        gGain = Float.parseFloat(ggainStr);
+                    } catch (NumberFormatException e) {
+                        Log.w(TAG, "gGainInput type incorrect value ");
+                    }
                 }
                 if (bgainStr.length() > 0) {
-                    bGain = Float.parseFloat(bgainStr);
+                    try {
+                        bGain = Float.parseFloat(bgainStr);
+                    } catch(NumberFormatException e) {
+                        Log.w(TAG, "bGainInput type incorrect value ");
+                    }
                 }
                 if (gainsRange == null) {
                     RotateTextToast.makeText(SettingsActivity.this, "Gains Range is NULL, " +
@@ -596,6 +620,13 @@ public class SettingsActivity extends PreferenceActivity {
                             Toast.LENGTH_SHORT).show();
                 }
                 editor.apply();
+            }
+        });
+        alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog,int id) {
+                editor.putString(SettingsManager.KEY_MANUAL_WB, "off");
+                editor.apply();
+                dialog.cancel();
             }
         });
         alert.show();
@@ -647,7 +678,11 @@ public class SettingsActivity extends PreferenceActivity {
                     int newCCT = -1;
                     String cct = CCTinput.getText().toString();
                     if (cct.length() > 0) {
-                        newCCT = Integer.parseInt(cct);
+                        try {
+                            newCCT = Integer.parseInt(cct);
+                        } catch (NumberFormatException e) {
+                            Log.w(TAG, "CCTinput type incorrect value ");
+                        }
                     }
                     if (wbRange == null) {
                         RotateTextToast.makeText(SettingsActivity.this, "CCT Range is NULL, " +
@@ -667,6 +702,8 @@ public class SettingsActivity extends PreferenceActivity {
             });
             alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog,int id) {
+                    editor.putString(SettingsManager.KEY_MANUAL_WB, "off");
+                    editor.apply();
                     dialog.cancel();
                 }
             });
@@ -742,10 +779,18 @@ public class SettingsActivity extends PreferenceActivity {
                 String darkBoostStr = darkBoostInput.getText().toString();
                 String fourthToneStr = fourthToneInput.getText().toString();
                 if (darkBoostStr.length() > 0) {
-                    darkBoost = Float.parseFloat(darkBoostStr);
+                    try {
+                        darkBoost = Float.parseFloat(darkBoostStr);
+                    } catch (NumberFormatException e) {
+                        Log.w(TAG, "darkBoostInput type incorrect value ");
+                    }
                 }
                 if (fourthToneStr.length() > 0) {
-                    fourthTone = Float.parseFloat(fourthToneStr);
+                    try {
+                        fourthTone = Float.parseFloat(fourthToneStr);
+                    } catch (NumberFormatException e) {
+                        Log.w(TAG, "fourthToneInput type incorrect value ");
+                    }
                 }
 
                 if (darkBoost <= toneMappingRange[1] && darkBoost >= toneMappingRange[0]) {
