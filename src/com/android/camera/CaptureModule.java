@@ -748,7 +748,6 @@ public class CaptureModule implements CameraModule, PhotoController,
     private CamGLRenderer mRenderer;
     private boolean mDeepPortraitMode = false;
     private boolean mIsCloseCamera = true;
-    private int mOringalCameraId;
 
     private class SelfieThread extends Thread {
         public void run() {
@@ -2290,10 +2289,19 @@ public class CaptureModule implements CameraModule, PhotoController,
         }
     }
 
+    private void reinitSceneMode() {
+        mCurrentSceneMode = mSceneCameraIds.get(mNextModeIndex);
+        mCurrentModeIndex = mNextModeIndex;
+        CURRENT_MODE = mCurrentSceneMode.mode;
+        CURRENT_ID = mCurrentSceneMode.getNextCameraId(CURRENT_MODE);
+        Log.d(TAG, "reinitSceneMode: CURRENT_ID :" + CURRENT_ID);
+        mSettingsManager.init();
+    }
+
     public void reinit() {
         CURRENT_ID = mCurrentSceneMode.getCurrentId();
         CURRENT_MODE = mCurrentSceneMode.mode;
-        Log.d(TAG,"reinit: CURRENT_ID camera id " + CURRENT_ID);
+        Log.d(TAG, "reinit: CURRENT_ID :" + CURRENT_ID);
         mSettingsManager.init();
     }
 
@@ -4387,10 +4395,8 @@ public class CaptureModule implements CameraModule, PhotoController,
     }
 
     private void onResumeAfterSuper(boolean resumeFromRestartAll) {
-        reinit();
         Log.d(TAG, "onResume " + (mCurrentSceneMode != null ? mCurrentSceneMode.mode : "null")
                 + (resumeFromRestartAll ? " isResumeFromRestartAll" : ""));
-        mOringalCameraId = CURRENT_ID;
         if(mCurrentSceneMode.mode == CameraMode.VIDEO){
             enableVideoButton(false);//disable the video button before media recorder is ready
         }
@@ -8141,9 +8147,9 @@ public class CaptureModule implements CameraModule, PhotoController,
     }
 
     public void restartAll() {
-        Log.d(TAG, "restart all");
-        setCurrentSceneModeOnly(mNextModeIndex);
-        if(mOringalCameraId == CURRENT_ID){
+        int nextCameraId = getNextScreneModeId(mNextModeIndex);
+        Log.d(TAG, "restart all CURRENT_ID :" + CURRENT_ID + " nextCameraId :" + nextCameraId);
+        if(CURRENT_ID == nextCameraId){
             mIsCloseCamera = false;
         }else{
             mIsCloseCamera = true;
@@ -8153,6 +8159,7 @@ public class CaptureModule implements CameraModule, PhotoController,
             mUI.showPreviewCover();
         }
         onPauseAfterSuper(false);
+        reinitSceneMode();
         onResumeBeforeSuper();
         onResumeAfterSuper(true);
         setRefocusLastTaken(false);
@@ -8742,11 +8749,9 @@ public class CaptureModule implements CameraModule, PhotoController,
         }
     }
 
-    public void setCurrentSceneModeOnly(int mode) {
-        mCurrentSceneMode = mSceneCameraIds.get(mode);
-        mCurrentModeIndex = mode;
-        CURRENT_ID = mCurrentSceneMode.getCurrentId();
-        CURRENT_MODE = mCurrentSceneMode.mode;
+    private int getNextScreneModeId(int mode) {
+        SceneModule nextSceneModule = mSceneCameraIds.get(mode);
+        return nextSceneModule.getNextCameraId(nextSceneModule.mode);
     }
 
     public void setNextSceneMode(int index) {
@@ -8786,6 +8791,26 @@ public class CaptureModule implements CameraModule, PhotoController,
                     cameraId = Integer.valueOf(value);
                 }
                 if (swithCameraId != -1){
+                    cameraId = swithCameraId;
+                }
+            }
+            return cameraId;
+        }
+
+        public int getNextCameraId(CameraMode nextMode) {
+            int cameraId = isBackCamera() ? rearCameraId : frontCameraId;
+            cameraId = isForceAUXOn(this.mode) ? auxCameraId : cameraId;
+            if ((this.mode == CameraMode.DEFAULT || this.mode == CameraMode.VIDEO ||
+                    this.mode == CameraMode.HFR || this.mode == CameraMode.PRO_MODE)
+                    && (mSettingsManager.isDeveloperEnabled() || swithCameraId != -1)) {
+                final SharedPreferences pref = mActivity.getSharedPreferences(
+                        ComboPreferences.getLocalSharedPreferencesName(mActivity,
+                                mSettingsManager.getNextPrepNameKey(nextMode)), Context.MODE_PRIVATE);
+                String value = pref.getString(SettingsManager.KEY_SWITCH_CAMERA, null);
+                if (value != null && !value.equals("-1")) {
+                    cameraId = Integer.valueOf(value);
+                }
+                if (swithCameraId != -1) {
                     cameraId = swithCameraId;
                 }
             }
