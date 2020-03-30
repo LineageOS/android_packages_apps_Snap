@@ -6474,13 +6474,13 @@ public class CaptureModule implements CameraModule, PhotoController,
         mMediaRecorder.setOnInfoListener(this);
     }
 
-    private void prepareMediaRecorder() {
+    private void prepareMediaRecorder() throws IOException {
         try {
             mMediaRecorder.prepare();
         } catch (IOException e) {
             Log.e(TAG, "prepare failed for " + mVideoFilename, e);
             releaseMediaRecorder();
-            throw new RuntimeException(e);
+            throw new IOException(e);
         }
     }
 
