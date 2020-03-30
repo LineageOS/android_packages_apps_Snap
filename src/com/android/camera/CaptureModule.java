@@ -3114,12 +3114,14 @@ public class CaptureModule implements CameraModule, PhotoController,
                 public void onCaptureSequenceCompleted(CameraCaptureSession session, int
                         sequenceId, long frameNumber) {
                     Log.d(TAG, "captureStillPictureForCommon onCaptureSequenceCompleted: " + id);
-                    if (mUI.getCurrentProMode() != ProMode.MANUAL_MODE) {
-                        unlockFocus(id);
-                    } else {
-                        enableShutterAndVideoOnUiThread(id,false);
+                    if (!captureWaitImageReceive()) {
+                        if (mUI.getCurrentProMode() != ProMode.MANUAL_MODE) {
+                            unlockFocus(id);
+                        } else {
+                            enableShutterAndVideoOnUiThread(id,false);
+                        }
+                        Log.d(TAG,"onShutterButtonRelease");
                     }
-                    Log.d(TAG,"onShutterButtonRelease");
                     if (mSettingsManager.isHeifWriterEncoding()) {
                         if (mHeifImage != null) {
                             try {
@@ -3384,10 +3386,6 @@ public class CaptureModule implements CameraModule, PhotoController,
                                             }
                                         });
                                     }
-//                                    final Image image = reader.acquireNextImage();
-//                                    byte[] bytes = getYUVFromImage(image);
-//                                    mActivity.getMediaSaveService().addRawImage(bytes, title, "yuv");
-//                                    image.close();
                                 }
                             };
 
@@ -3409,6 +3407,7 @@ public class CaptureModule implements CameraModule, PhotoController,
                                             mUI.enableShutter(true);
                                         }
                                     });
+                                    unlockFocus(mCamId);
                                 }
                                 Log.d(TAG, "image available for cam: " + mCamId);
                                 Image image = reader.acquireNextImage();
