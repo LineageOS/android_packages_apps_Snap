@@ -1195,6 +1195,7 @@ public class SettingsActivity extends PreferenceActivity {
                 ((SwitchPreference) p).setEnabled(true);
             } else if (p instanceof ListPreference) {
                 ListPreference pref = (ListPreference) p;
+                pref.setEnabled(true);
                 pref.setValue(value);
                 if (pref.getEntryValues().length == 1) {
                     pref.setEnabled(false);
