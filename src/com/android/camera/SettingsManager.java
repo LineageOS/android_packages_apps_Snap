@@ -1056,6 +1056,7 @@ public class SettingsManager implements ListMenu.SettingsListener {
         ListPreference zoom = mPreferenceGroup.findPreference(KEY_ZOOM);
         ListPreference qcfa = mPreferenceGroup.findPreference(KEY_QCFA);
         ListPreference bsgc = mPreferenceGroup.findPreference(KEY_BSGC_DETECTION);
+        ListPreference pictureFormat = mPreferenceGroup.findPreference(KEY_PICTURE_FORMAT);
         ListPreference faceDetectionMode = mPreferenceGroup.findPreference(KEY_FACE_DETECTION_MODE);
         ListPreference fsMode = mPreferenceGroup.findPreference(KEY_SENSOR_MODE_FS2_VALUE);
 
@@ -1255,6 +1256,13 @@ public class SettingsManager implements ListMenu.SettingsListener {
             if (filterUnsupportedOptions(zoom,
                     getSupportedZoomLevel(cameraId))) {
                 mFilteredKeys.add(zoom.getKey());
+            }
+        }
+
+        if (pictureFormat != null){
+            if (filterUnsupportedOptions(pictureFormat,
+                    getSupportedPictureFormat(cameraId))){
+                mFilteredKeys.add(pictureSize.getKey());
             }
         }
 
@@ -2405,6 +2413,21 @@ public class SettingsManager implements ListMenu.SettingsListener {
     public boolean isHeifHALEncoding() {
         //HAL encoding by default on Android Q
         return getSavePictureFormat() == HEIF_FORMAT;
+    }
+
+    public List<String> getSupportedPictureFormat(int cameraId){
+        byte supportHeic = 1;
+        try{
+            supportHeic = mCharacteristics.get(cameraId).get(CaptureModule.heic_support_enable);
+        } catch (Exception e){
+        }
+
+        ArrayList<String> ret = new ArrayList<String>();
+        ret.add(String.valueOf(SettingsManager.JPEG_FORMAT));
+        if (supportHeic == 1){
+            ret.add(String.valueOf(SettingsManager.HEIF_FORMAT));
+        }
+        return ret;
     }
 
     public boolean isZSLInHALEnabled(){
