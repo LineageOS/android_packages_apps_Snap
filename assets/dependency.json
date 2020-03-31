@@ -165,12 +165,14 @@
   {
     "1":{"pref_camera2_longshot_key":"off",
          "pref_camera2_manual_exp_key":"off",
-         "pref_camera2_selfiemirror_key":"off"},
+         "pref_camera2_selfiemirror_key":"off",
+         "pref_camera2_saveraw_key": "disable"},
     "0":{}
   },
   "pref_camera2_saveraw_key":
   {
-    "enable":{"pref_camera2_longshot_key":"off"},
+    "enable":{"pref_camera2_longshot_key":"off",
+              "pref_camera2_capture_mfnr_key":"0"},
     "disable":{}
   },
   "pref_camera2_hfr_key":
