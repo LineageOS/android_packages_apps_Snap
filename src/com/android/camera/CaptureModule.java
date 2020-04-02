@@ -508,6 +508,8 @@ public class CaptureModule implements CameraModule, PhotoController,
             new CaptureResult.Key<>("org.quic.camera2.objectTrackingResults.ResultROI", int[].class);
     private static final CaptureResult.Key<Integer> t2t_tracker_score =
             new CaptureResult.Key<>("org.quic.camera2.objectTrackingResults.TrackerScore", Integer.class);
+    public static final CameraCharacteristics.Key<Integer> mfnr_type =
+            new CameraCharacteristics.Key<>("org.quic.camera.swcapabilities.MFNRType", Integer.class);
 
     private TouchTrackFocusRenderer mT2TFocusRenderer;
     private boolean mIsDepthFocus = false;
@@ -562,6 +564,13 @@ public class CaptureModule implements CameraModule, PhotoController,
         SAT,
         PRO_MODE
     }
+
+    public enum MFNRSupportValues {
+        NoMFNRSupport, ///< No MFNR Support
+        HWMFNRSupport,     ///< Hardware MFNR Support
+        SWMFNRSupport,     ///< Software MFNR Support
+    }
+
     private View mRootView;
     private CaptureUI mUI;
     private CameraActivity mActivity;

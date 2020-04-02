@@ -1185,6 +1185,7 @@ public class SettingsActivity extends PreferenceActivity {
         updateFormatPreference();
         updateEISPreference();
         updateStoragePreference();
+        updateMfnrPreference();
 
         Map<String, SettingsManager.Values> map = mSettingsManager.getValuesMap();
         if (map == null) return;
@@ -1250,6 +1251,26 @@ public class SettingsActivity extends PreferenceActivity {
         pref.setEnabled(isWrite);
         if (!isWrite) {
             updatePreference(SettingsManager.KEY_CAMERA_SAVEPATH);
+        }
+    }
+
+    private void updateMfnrPreference(){
+        CaptureModule.CameraMode mode =
+                (CaptureModule.CameraMode) getIntent().getSerializableExtra(CAMERA_MODULE);
+        boolean mIsVideoFlash = mode == CaptureModule.CameraMode.VIDEO ||
+                mode == CaptureModule.CameraMode.PRO_MODE ||
+                mode == CaptureModule.CameraMode.HFR;
+        String key;
+        if (mIsVideoFlash) {
+            key = SettingsManager.KEY_VIDEO_FLASH_MODE;
+        } else {
+            key = SettingsManager.KEY_FLASH_MODE;
+        }
+        int flashValue = mSettingsManager.getValueIndex(key);
+        ListPreference mfnrPref = (ListPreference) findPreference(SettingsManager.KEY_CAPTURE_MFNR_VALUE);
+
+        if (mfnrPref != null && flashValue != 0) {
+            mfnrPref.setEnabled(false);
         }
     }
 

@@ -76,7 +76,8 @@ public class FlashToggleButton extends RotateImageView {
                 manualExposureMode.equals(userSetting) ||
                 CaptureModule.CURRENT_MODE == CaptureModule.CameraMode.PRO_MODE ||
                 CaptureModule.CURRENT_MODE == CaptureModule.CameraMode.RTB ||
-                CaptureModule.CURRENT_MODE == CaptureModule.CameraMode.SAT) {
+                CaptureModule.CURRENT_MODE == CaptureModule.CameraMode.SAT ||
+                (mSettingsManager.isSWMFNRSupported() && mSettingsManager.isMFNREnabled())) {
             setVisibility(GONE);
             return;
         } else {

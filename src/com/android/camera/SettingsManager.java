@@ -2619,6 +2619,26 @@ public class SettingsManager implements ListMenu.SettingsListener {
         init();
     }
 
+    public boolean isSWMFNRSupported(){
+        boolean isSWMFNRSupported = false;
+        try {
+            isSWMFNRSupported = mCharacteristics.get(mCameraId).get(CaptureModule.mfnr_type) == CaptureModule.MFNRSupportValues.SWMFNRSupport.ordinal();
+            Log.i(TAG,"mfnr type:" + mCharacteristics.get(mCameraId).get(CaptureModule.mfnr_type));
+        } catch (IllegalArgumentException e) {
+            Log.d(TAG, "isSWMFNRSupported no vendor tag");
+        }
+        return isSWMFNRSupported;
+    }
+
+    public boolean isMFNREnabled() {
+        boolean mfnrEnable = false;
+        String mfnrValue = getValue(SettingsManager.KEY_CAPTURE_MFNR_VALUE);
+        if (mfnrValue != null) {
+            mfnrEnable = mfnrValue.equals("1");
+        }
+        return mfnrEnable;
+    }
+
     private void clearPerCameraPreferences() {
         String[] preferencesNames = ComboPreferences.getSharedPreferencesNames(mContext, mPrepNameKeys);
         for ( String name : preferencesNames ) {
