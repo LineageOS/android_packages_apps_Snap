@@ -1192,10 +1192,8 @@ public class SettingsActivity extends PreferenceActivity {
             String value = disabled ? values.overriddenValue : values.value;
             if (p instanceof SwitchPreference) {
                 ((SwitchPreference) p).setChecked(isOn(value));
-                ((SwitchPreference) p).setEnabled(true);
             } else if (p instanceof ListPreference) {
                 ListPreference pref = (ListPreference) p;
-                pref.setEnabled(true);
                 pref.setValue(value);
                 if (pref.getEntryValues().length == 1) {
                     pref.setEnabled(false);
@@ -1366,6 +1364,21 @@ public class SettingsActivity extends PreferenceActivity {
     private void restoreSettings() {
         mSettingsManager.restoreSettings();
         filterPreferences();
+        restoreAllPreference();
         initializePreferences();
+    }
+
+    private void restoreAllPreference(){
+        Map<String, SettingsManager.Values> map = mSettingsManager.getValuesMap();
+        if (map == null) return;
+        Set<Map.Entry<String, SettingsManager.Values>> set = map.entrySet();
+
+        for (Map.Entry<String, SettingsManager.Values> entry : set) {
+            String key = entry.getKey();
+            Preference p = findPreference(key);
+            if (p == null) continue;
+
+            p.setEnabled(true);
+        }
     }
 }
