@@ -1004,7 +1004,7 @@ public class SettingsActivity extends PreferenceActivity {
                 add(SettingsManager.KEY_SATURATION_LEVEL);
                 add(SettingsManager.KEY_ANTI_BANDING_LEVEL);
                 add(SettingsManager.KEY_STATS_VISUALIZER_VALUE);
-                add(SettingsManager.KEY_SAVERAW);
+//                add(SettingsManager.KEY_SAVERAW);
                 add(SettingsManager.KEY_AUTO_HDR);
                 add(SettingsManager.KEY_MANUAL_EXPOSURE);
                 add(SettingsManager.KEY_SHARPNESS_CONTROL_MODE);
