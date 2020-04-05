@@ -81,8 +81,6 @@ public class FrameProcessor {
     private ListeningTask mListeningTask;
     private RenderScript mRs;
     private Activity mActivity;
-    ScriptC_YuvToRgb mRsYuvToRGB;
-    ScriptC_rotator mRsRotator;
     private Size mSize;
     private Object mAllocationLock = new Object();
     private boolean mIsAllocationEverUsed;
@@ -108,8 +106,6 @@ public class FrameProcessor {
         mFinalFilters = new ArrayList<ImageFilter>();
 
         mRs = RenderScript.create(mActivity);
-        mRsYuvToRGB = new ScriptC_YuvToRgb(mRs);
-            mRsRotator = new ScriptC_rotator(mRs);
     }
 
     private void init(Size previewDim) {
@@ -158,11 +154,6 @@ public class FrameProcessor {
         Type.Builder nv21TypeBuilder = new Type.Builder(mRs, Element.U8(mRs));
         nv21TypeBuilder.setX(width * height * 3 / 2);
         mProcessAllocation = Allocation.createTyped(mRs, nv21TypeBuilder.create(), Allocation.USAGE_SCRIPT);
-        mRsRotator.set_gIn(mInputAllocation);
-        mRsRotator.set_gOut(mProcessAllocation);
-        mRsRotator.set_width(width);
-        mRsRotator.set_height(height);
-        mRsRotator.set_pad(stridePad);
         int degree = 90;
         if(mModule.getMainCameraCharacteristics() != null) {
             degree = mModule.getMainCameraCharacteristics().
@@ -171,10 +162,6 @@ public class FrameProcessor {
                 degree = Math.abs(degree - 90);
             }
         }
-        mRsRotator.set_degree(degree);
-        mRsYuvToRGB.set_gIn(mProcessAllocation);
-        mRsYuvToRGB.set_width(height);
-        mRsYuvToRGB.set_height(width);
     }
 
     public ArrayList<ImageFilter> getFrameFilters() {
@@ -491,8 +478,6 @@ public class FrameProcessor {
                     createAllocation(stride, height, stride - width);
                 }
                 mInputAllocation.copyFrom(yvuBytes);
-                mRsRotator.forEach_rotate90andMerge(mInputAllocation);
-                mRsYuvToRGB.forEach_nv21ToRgb(mOutputAllocation);
                 mOutputAllocation.ioSend();
                 if (mVideoOutputAllocation != null) {
                     mVideoOutputAllocation.copyFrom(mOutputAllocation);
