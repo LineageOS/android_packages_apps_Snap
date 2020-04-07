@@ -191,5 +191,13 @@
   "pref_camera2_dis_key":
   {
     "on": {"pref_camera2_video_time_lapse_frame_interval_key": "0"}
+  },
+  "pref_camera2_auto_hdr_key":
+  {
+    "enable":{"pref_camera2_picture_format_key":"0"}
+  },
+  "pref_camera2_picture_format_key":
+  {
+    "1":{"pref_camera2_auto_hdr_key":"disable"}
   }
 }
