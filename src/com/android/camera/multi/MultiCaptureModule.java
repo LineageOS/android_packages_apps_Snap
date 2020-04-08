@@ -66,11 +66,16 @@ import com.android.camera.exif.ExifInterface;
 import com.android.camera.PhotoModule.NamedImages;
 import com.android.camera.PhotoModule.NamedImages.NamedEntity;
 import com.android.camera.util.CameraUtil;
+import com.android.camera.util.PersistUtil;
 import org.codeaurora.snapcam.R;
 
 public class MultiCaptureModule implements MultiCamera {
 
     private static final String TAG = "SnapCam_MultiCaptureModule";
+
+    private static final boolean DEBUG =
+            (PersistUtil.getCamera2Debug() == PersistUtil.CAMERA2_DEBUG_DUMP_LOG) ||
+                    (PersistUtil.getCamera2Debug() == PersistUtil.CAMERA2_DEBUG_DUMP_ALL);
 
     private static final int WAIT_SURFACE = 0;
     private static final int OPEN_CAMERA = 1;
@@ -464,7 +469,9 @@ public class MultiCaptureModule implements MultiCamera {
         private void process(CaptureResult result) {
             Integer afState = result.get(CaptureResult.CONTROL_AF_STATE);
             Integer aeState = result.get(CaptureResult.CONTROL_AE_STATE);
-            Log.v(TAG, "process afState :" + afState + ", aeState :" + aeState);
+            if (DEBUG) {
+                Log.v(TAG, "process afState :" + afState + ", aeState :" + aeState);
+            }
         }
 
         @Override
