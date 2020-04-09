@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2017 The LineageOS Project
+ * Copyright (C) 2019-2020 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -74,7 +74,8 @@ public class ScannerActivity extends Activity implements ZXingScannerView.Result
         super.onCreate(savedInstance);
 
         Intent intent = getIntent();
-        if (intent.getBooleanExtra(SECURE_CAMERA_EXTRA, false)) {
+        final boolean isSecure = intent.getBooleanExtra(SECURE_CAMERA_EXTRA, false);
+        if (isSecure) {
             // Change the window flags so that secure camera can show when locked
             Window win = getWindow();
             WindowManager.LayoutParams params = win.getAttributes();
@@ -90,7 +91,13 @@ public class ScannerActivity extends Activity implements ZXingScannerView.Result
         mFlashIcon = (ImageView) findViewById(R.id.action_flash);
         ImageView closeIcon = (ImageView) findViewById(R.id.action_close);
 
-        mIdentifyLayout.setOnClickListener(v -> sHelper.run(this));
+        mIdentifyLayout.setOnClickListener(v -> {
+            if (isSecure) {
+                showClickErrorDialog();
+            } else {
+                sHelper.run(this);
+            }
+        });
         mFlashIcon.setOnClickListener(v -> toggleFlash());
         closeIcon.setOnClickListener(v -> finish());
 
@@ -205,6 +212,13 @@ public class ScannerActivity extends Activity implements ZXingScannerView.Result
                         (dialog, i) -> openSettings())
                 .setNegativeButton(R.string.quick_reader_action_dismiss,
                         (dialog, i) -> finish())
+                .show();
+    }
+
+    private void showClickErrorDialog() {
+        new AlertDialog.Builder(this)
+                .setMessage(R.string.quick_reader_only_unlocked)
+                .setPositiveButton(R.string.quick_reader_action_dismiss, null)
                 .show();
     }
 
