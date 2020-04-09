@@ -47,4 +47,7 @@
     <string name="quick_reader_share_title">Share with\u2026</string>
     <!-- QuickReader: toast shown when the scanned text has been copied to the clipboard -->
     <string name="quick_reader_copied_message">Copied to clipboard</string>
+
+    <!-- QuickReader: Action is only allowed when performed unlocked -->
+    <string name="quick_reader_only_unlocked">This action can only be performed with the device unlocked</string>
 </resources>
