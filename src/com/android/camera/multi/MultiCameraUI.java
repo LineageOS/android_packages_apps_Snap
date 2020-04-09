@@ -55,6 +55,8 @@ public class MultiCameraUI implements PreviewGestures.SingleTapListener,
 
     private static final String TAG = "SnapCam_MultiCameraUI";
 
+    private static final int MAX_NUM_CAM = 16;
+
     private static final int PREVIEW_WIDTH = 1024;
     private static final int PREVIEW_HIEGHT = 768;
 
@@ -101,6 +103,9 @@ public class MultiCameraUI implements PreviewGestures.SingleTapListener,
     private RecyclerView mModeSelectLayout;
     private Camera2ModeAdapter mCameraModeAdapter;
 
+    private int mPreviewWidths[] = new int[MAX_NUM_CAM];
+    private int mPreviewHeights[] = new int[MAX_NUM_CAM];
+
     public MultiCameraUI(CameraActivity activity, final MultiCameraModule module, View parent) {
         mActivity = activity;
         mModule = module;
@@ -134,6 +139,24 @@ public class MultiCameraUI implements PreviewGestures.SingleTapListener,
         mModule.onButtonContinue();
     }
 
+    public void showSurfaceView(int index) {
+        Log.d(TAG, "showSurfaceView" + mPreviewWidths[index] + " " + mPreviewHeights[index]);
+        mSurfaceViewList.get(index).getHolder().setFixedSize(mPreviewWidths[index], mPreviewHeights[index]);
+        mSurfaceViewList.get(index).setAspectRatio(mPreviewHeights[index], mPreviewWidths[index]);
+        mSurfaceViewList.get(index).setVisibility(View.VISIBLE);
+    }
+
+    public boolean setPreviewSize(int index, int width, int height) {
+        Log.d(TAG, "setPreviewSize " + width + " " + height);
+        boolean changed = (width != mPreviewWidths[index]) || (height != mPreviewHeights[index]);
+        mPreviewWidths[index] = width;
+        mPreviewHeights[index] = height;
+        if (changed) {
+            showSurfaceView(index);
+        }
+        return changed;
+    }
+
     private void initPreviewSurface() {
         // Multi camera preview
         mMainPreviewSurface = (AutoFitSurfaceView) mRootView.findViewById(R.id.main_preview_content);
@@ -150,13 +173,6 @@ public class MultiCameraUI implements PreviewGestures.SingleTapListener,
         mFirstSurfaceHolder.addCallback(mFirstHolderCallback);
         mSecondSurfaceHolder = mSecondPreviewSurface.getHolder();
         mSecondSurfaceHolder.addCallback(mSecondHolderCallback);
-
-        mMainSurfaceHolder.setFixedSize(PREVIEW_WIDTH, PREVIEW_HIEGHT);
-        mMainPreviewSurface.setAspectRatio(PREVIEW_HIEGHT, PREVIEW_WIDTH);
-        mFirstSurfaceHolder.setFixedSize(PREVIEW_WIDTH, PREVIEW_HIEGHT);
-        mFirstPreviewSurface.setAspectRatio(PREVIEW_HIEGHT, PREVIEW_WIDTH);
-        mSecondSurfaceHolder.setFixedSize(PREVIEW_WIDTH, PREVIEW_HIEGHT);
-        mSecondPreviewSurface.setAspectRatio(PREVIEW_HIEGHT, PREVIEW_WIDTH);
 
         mMainPreviewSurface.addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
             @Override

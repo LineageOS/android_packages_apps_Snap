@@ -22,6 +22,7 @@ import android.content.Context;
 import android.content.ContentResolver;
 import android.content.SharedPreferences;
 import android.graphics.ImageFormat;
+import android.graphics.Point;
 import android.hardware.camera2.CameraDevice;
 import android.hardware.camera2.CameraManager;
 import android.hardware.camera2.CameraAccessException;
@@ -95,6 +96,10 @@ public class MultiCaptureModule implements MultiCamera {
     private CameraCaptureSession[] mCameraCaptureSessions = new CameraCaptureSession[MAX_NUM_CAM];
     private ImageReader[] mImageReaders = new ImageReader[MAX_NUM_CAM];
 
+    private Size mPreviewSizes[] = new Size[MAX_NUM_CAM];
+    private Size mPictureSizes[] = new Size[MAX_NUM_CAM];
+    private int[][] mMaxPreviewSize = new int[MAX_NUM_CAM][];
+
     private Handler mCameraHandler;
     private HandlerThread mCameraThread;
 
@@ -136,17 +141,28 @@ public class MultiCaptureModule implements MultiCamera {
         mLocalSharedPref = mActivity.getSharedPreferences(
                 ComboPreferences.getLocalSharedPreferencesName(mActivity,
                         "multi" + mMultiCameraModule.getCurrenCameraMode()), Context.MODE_PRIVATE);
-        initializeCameraCharacteristics();
+        initCameraCharacteristics();
         startBackgroundThread();
     }
 
     @Override
-    public void onResume() {
+    public void onResume(String[] ids) {
+        for (String id : ids) {
+            mCameraIDList.add(id);
+        }
         // Set up sound playback for shutter button, video record and video stop
         if (mSoundPlayer == null) {
             mSoundPlayer = SoundClips.getPlayer(mActivity);
         }
         startBackgroundThread();
+        initCameraCharacteristics();
+        for (String id : ids) {
+            int cameraId = Integer.parseInt(id);
+            updatePictureSize(cameraId);
+            int index = mCameraIDList.indexOf(id);
+            mMultiCameraUI.setPreviewSize(index, mPreviewSizes[cameraId].getWidth(),
+                    mPreviewSizes[cameraId].getHeight());
+        }
     }
 
     @Override
@@ -165,9 +181,6 @@ public class MultiCaptureModule implements MultiCamera {
 
     @Override
     public boolean openCamera(String[] ids) {
-        for (String id : ids) {
-            mCameraIDList.add(id);
-        }
         Message msg = Message.obtain();
         msg.what = OPEN_CAMERA;
         if (mCameraHandler != null) {
@@ -268,6 +281,45 @@ public class MultiCaptureModule implements MultiCamera {
         }
     }
 
+    private Size[] getSupportedOutputSize(int cameraId, Class cl) {
+        StreamConfigurationMap map = mCharacteristics.get(cameraId).get(
+                CameraCharacteristics.SCALER_STREAM_CONFIGURATION_MAP);
+        Size[] normal = map.getOutputSizes(cl);
+        Size[] high = map.getHighResolutionOutputSizes(ImageFormat.PRIVATE);
+        Size[] ret = new Size[normal.length + high.length];
+        System.arraycopy(normal, 0, ret, 0, normal.length);
+        System.arraycopy(high, 0, ret, normal.length, high.length);
+        return ret;
+    }
+
+    private Size getOptimalPreviewSize(int id, Size pictureSize, Size[] prevSizes) {
+        Point[] points = new Point[prevSizes.length];
+
+        double targetRatio = (double) pictureSize.getWidth() / pictureSize.getHeight();
+        int index = 0;
+        int point_max[]  = mMaxPreviewSize[id];
+        int max_size = -1;
+        if (point_max != null){
+            max_size = point_max[0] * point_max[1];
+        }
+        for (Size s : prevSizes) {
+            if (max_size != -1){
+                int size = s.getWidth() * s.getHeight();
+                if (s.getWidth() == s.getHeight()){
+                    if (s.getWidth() > Math.max(point_max[0],point_max[1]))
+                        continue;
+                } else if (size > max_size || size == 0) {
+                    continue;
+                }
+            }
+            points[index++] = new Point(s.getWidth(), s.getHeight());
+        }
+
+        int optimalPickIndex = CameraUtil.getOptimalPreviewSize(mActivity, points, targetRatio);
+        return (optimalPickIndex == -1) ? null :
+                new Size(points[optimalPickIndex].x,points[optimalPickIndex].y);
+    }
+
     private class MyCameraHandler extends Handler {
 
         public MyCameraHandler(Looper looper) {
@@ -312,11 +364,11 @@ public class MultiCaptureModule implements MultiCamera {
 
         @Override
         public void onOpened(CameraDevice cameraDevice) {
-            int id = Integer.parseInt(cameraDevice.getId());
+            final int id = Integer.parseInt(cameraDevice.getId());
             mCameraDevices[id] = cameraDevice;
             Log.d(TAG, "onOpened " + id);
             mCameraOpenCloseLock.release();
-            createImageReader(id);
+            //updatePictureSize(id);
             createCameraPreviewSession(id);
             mActivity.runOnUiThread(new Runnable() {
                 @Override
@@ -488,17 +540,21 @@ public class MultiCaptureModule implements MultiCamera {
 
     };
 
-    private void createImageReader(int id) {
+    private void updatePictureSize(int id) {
         String defaultSize = mActivity.getString(R.string.pref_multi_camera_picturesize_default);
         int index = mCameraIDList.indexOf(String.valueOf(id));
         String pictureSize = mLocalSharedPref.getString(
                 MultiSettingsActivity.KEY_PICTURE_SIZES.get(index), defaultSize);
-        Size size = parsePictureSize(pictureSize);
-        Log.v(TAG, " createImageReader size :" + size.getWidth() + "x" + size.getHeight());
-        mImageReaders[id] = ImageReader.newInstance(size.getWidth(), size.getHeight(),
-                ImageFormat.JPEG, /*maxImages*/2);
+        mPictureSizes[id] = parsePictureSize(pictureSize);
+        Log.v(TAG, " updatePictureSize size :" + mPictureSizes[id].getWidth() + "x"
+                + mPictureSizes[id].getHeight());
+        mImageReaders[id] = ImageReader.newInstance(mPictureSizes[id].getWidth(),
+                mPictureSizes[id].getHeight(), ImageFormat.JPEG, /*maxImages*/2);
         mImageReaders[id].setOnImageAvailableListener(
                 mOnImageAvailableListener, mMultiCameraModule.getMyCameraHandler());
+
+        Size[] prevSizes = getSupportedOutputSize(id, SurfaceHolder.class);
+        mPreviewSizes[id] = getOptimalPreviewSize(id, mPictureSizes[id], prevSizes);
     }
 
     private final ImageReader.OnImageAvailableListener mOnImageAvailableListener
@@ -543,7 +599,7 @@ public class MultiCaptureModule implements MultiCamera {
                     mActivity.updateThumbnail(bytes);
                 }
                 image.close();
-                mMultiCameraModule.updateTakingPicture(false);
+                mMultiCameraModule.updateTakingPicture();
             }
         }
 
@@ -732,7 +788,7 @@ public class MultiCaptureModule implements MultiCamera {
         return new Size(width, height);
     }
 
-    private void initializeCameraCharacteristics() {
+    private void initCameraCharacteristics() {
         mCharacteristics = new ArrayList<>();
         CameraManager manager = (CameraManager) mActivity.getSystemService(Context.CAMERA_SERVICE);
         try {
@@ -743,15 +799,15 @@ public class MultiCaptureModule implements MultiCamera {
                 CameraCharacteristics characteristics
                         = manager.getCameraCharacteristics(cameraId);
                 mCharacteristics.add(i, characteristics);
-                int[] maxPreviewSize = null;
                 try {
-                    maxPreviewSize = characteristics.get(CaptureModule.max_preview_size);
+                    mMaxPreviewSize[i] = characteristics.get(CaptureModule.max_preview_size);
                 } catch (IllegalArgumentException e) {
                     Log.e(TAG, "getMaxPreviewSize no vendorTag max_preview_size:");
                 }
-                if (maxPreviewSize != null) {
+                if (mMaxPreviewSize[i] != null) {
                     Log.d(TAG, " init cameraId :" + cameraId + ", i :" + i +
-                            ", maxPreviewSize :" + maxPreviewSize[0]+ "x" + maxPreviewSize[1]);
+                            ", maxPreviewSize :" + mMaxPreviewSize[i][0]+ "x" +
+                            mMaxPreviewSize[i][1]);
                 }
             }
         } catch (CameraAccessException e) {

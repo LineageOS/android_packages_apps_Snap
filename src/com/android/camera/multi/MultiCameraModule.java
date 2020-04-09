@@ -86,6 +86,7 @@ public class MultiCameraModule implements CameraModule, PhotoController {
     private ArrayList<SceneModule> mSceneCameraIds = new ArrayList<>();
     private String[] mSelectableModes = {"Video", "Photo"};
     private SceneModule mCurrentSceneMode;
+    private String[] mCameraIds = new String[2];
 
     public static int CURRENT_ID = 0;
     public static CameraMode CURRENT_MODE = CameraMode.DEFAULT;
@@ -183,8 +184,7 @@ public class MultiCameraModule implements CameraModule, PhotoController {
 
     public void onVideoButtonClick() {
         Log.d(TAG, "onVideoButtonClick");
-        String[] cameraIds = {"0", "2"};
-        mMultiCamera.onVideoButtonClick(cameraIds);
+        mMultiCamera.onVideoButtonClick(mCameraIds);
     }
 
     public boolean isTakingPicture() {
@@ -198,7 +198,7 @@ public class MultiCameraModule implements CameraModule, PhotoController {
         return mMultiCamera.isRecordingVideo();
     }
 
-    public void updateTakingPicture(boolean update) {
+    public void updateTakingPicture() {
         for (int i = 0; i < mTakingPicture.length; i++) {
             mTakingPicture[i] = false;
         }
@@ -218,14 +218,12 @@ public class MultiCameraModule implements CameraModule, PhotoController {
 
     public void onButtonPause() {
         Log.v(TAG, "onButtonPause");
-        String[] cameraIds = {"0", "2"};
-        mMultiCamera.onButtonPause(cameraIds);
+        mMultiCamera.onButtonPause(mCameraIds);
     }
 
     public void onButtonContinue() {
         Log.v(TAG, "onButtonContinue");
-        String[] cameraIds = {"0", "2"};
-        mMultiCamera.onButtonContinue(cameraIds);
+        mMultiCamera.onButtonContinue(mCameraIds);
     }
 
     public int[] getOpenCameraIdList() {
@@ -286,7 +284,9 @@ public class MultiCameraModule implements CameraModule, PhotoController {
     @Override
     public void onResumeAfterSuper() {
         Log.d(TAG, " onResumeAfterSuper ");
-        mMultiCamera.onResume();
+        mCameraIds[0] = "0";
+        mCameraIds[1] = "2";
+        mMultiCamera.onResume(mCameraIds);
         Message msg = Message.obtain();
         msg.what = OPEN_CAMERA;
         if (mCameraHandler != null) {
@@ -511,9 +511,8 @@ public class MultiCameraModule implements CameraModule, PhotoController {
     @Override
     public void onShutterButtonClick() {
         Log.d(TAG, "onShutterButtonClick");
-        String[] cameraIds = {"0", "2"};
-        mMultiCamera.onShutterButtonClick(cameraIds);
-        for (String CameraId : cameraIds) {
+        mMultiCamera.onShutterButtonClick(mCameraIds);
+        for (String CameraId : mCameraIds) {
             int id = Integer.parseInt(CameraId);
             mTakingPicture[id] = true;
         }
@@ -637,8 +636,7 @@ public class MultiCameraModule implements CameraModule, PhotoController {
             switch (msg.what) {
                 case OPEN_CAMERA:
                     if (mMultiCamera != null) {
-                        String[] cameraIds = {"0", "2"};
-                        mMultiCamera.openCamera(cameraIds);
+                        mMultiCamera.openCamera(mCameraIds);
                     }
                     break;
             }

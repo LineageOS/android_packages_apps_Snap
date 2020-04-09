@@ -24,6 +24,7 @@ import android.content.ContentValues;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.ImageFormat;
+import android.graphics.Point;
 import android.hardware.camera2.CameraAccessException;
 import android.hardware.camera2.CameraCaptureSession;
 import android.hardware.camera2.CameraCharacteristics;
@@ -150,6 +151,8 @@ public class MultiVideoModule implements MultiCamera, LocationManager.Listener,
     private CamcorderProfile mProfile;
 
     private Size[] mVideoSize = new Size[MAX_NUM_CAM];
+    private Size mPreviewSizes[] = new Size[MAX_NUM_CAM];
+    private int[][] mMaxPreviewSize = new int[MAX_NUM_CAM][];
 
     private boolean mCaptureTimeLapse = false;
     // Default 0. If it is larger than 0, the camcorder is in time lapse mode.
@@ -210,11 +213,14 @@ public class MultiVideoModule implements MultiCamera, LocationManager.Listener,
                 ComboPreferences.getLocalSharedPreferencesName(mActivity,
                         "multi" + mMultiCameraModule.getCurrenCameraMode()), Context.MODE_PRIVATE);
         startBackgroundThread();
-        initializeCameraCharacteristics();
+        initCameraCharacteristics();
     }
 
     @Override
-    public void onResume() {
+    public void onResume(String[] ids) {
+        for (String id : ids) {
+            mCameraIDList.add(id);
+        }
         // Set up sound playback for video record and video stop
         if (mSoundPlayer == null) {
             mSoundPlayer = SoundClips.getPlayer(mActivity);
@@ -222,6 +228,13 @@ public class MultiVideoModule implements MultiCamera, LocationManager.Listener,
         mPaused = false;
         initializeValues();
         startBackgroundThread();
+        for (String id : ids) {
+            int cameraId = Integer.parseInt(id);
+            updateVideoSize(cameraId);
+            int index = mCameraIDList.indexOf(id);
+            mMultiCameraUI.setPreviewSize(index, mPreviewSizes[cameraId].getWidth(),
+                    mPreviewSizes[cameraId].getHeight());
+        }
     }
 
     @Override
@@ -468,7 +481,7 @@ public class MultiVideoModule implements MultiCamera, LocationManager.Listener,
         characteristics = null;
     }
 
-    private void initializeCameraCharacteristics() {
+    private void initCameraCharacteristics() {
         mCharacteristics = new ArrayList<>();
         CameraManager manager = (CameraManager) mActivity.getSystemService(Context.CAMERA_SERVICE);
         try {
@@ -479,15 +492,15 @@ public class MultiVideoModule implements MultiCamera, LocationManager.Listener,
                 CameraCharacteristics characteristics
                         = manager.getCameraCharacteristics(cameraId);
                 mCharacteristics.add(i, characteristics);
-                int[] maxPreviewSize = null;
                 try {
-                    maxPreviewSize = characteristics.get(CaptureModule.max_preview_size);
+                    mMaxPreviewSize[i] = characteristics.get(CaptureModule.max_preview_size);
                 } catch (IllegalArgumentException e) {
                     Log.e(TAG, "getMaxPreviewSize no vendorTag max_preview_size:");
                 }
-                if (maxPreviewSize != null) {
+                if (mMaxPreviewSize[i] != null) {
                     Log.d(TAG, " init cameraId :" + cameraId + ", i :" + i +
-                            ", maxPreviewSize :" + maxPreviewSize[0]+ "x" + maxPreviewSize[1]);
+                            ", maxPreviewSize :" + mMaxPreviewSize[i][0]+ "x" +
+                            mMaxPreviewSize[i][1]);
                 }
             }
         } catch (CameraAccessException e) {
@@ -573,7 +586,6 @@ public class MultiVideoModule implements MultiCamera, LocationManager.Listener,
             int id = Integer.parseInt(cameraDevice.getId());
             mCameraDevices[id] = cameraDevice;
             Log.d(TAG, "onOpened " + id);
-            updateVideoSize(id);
             mCameraOpenCloseLock.release();
             createCameraPreviewSession(id);
             mActivity.runOnUiThread(new Runnable() {
@@ -675,6 +687,47 @@ public class MultiVideoModule implements MultiCamera, LocationManager.Listener,
         mVideoSize[id] = size;
         Log.v(TAG, " updateVideoSize size :" + mVideoSize[id].getWidth() + "x" +
                 mVideoSize[id].getHeight());
+
+        Size[] prevSizes = getSupportedOutputSize(id, MediaRecorder.class);
+        mPreviewSizes[id] = getOptimalVideoPreviewSize(id, mVideoSize[id], prevSizes);
+    }
+
+    private Size[] getSupportedOutputSize(int cameraId, Class cl) {
+        StreamConfigurationMap map = mCharacteristics.get(cameraId).get(
+                CameraCharacteristics.SCALER_STREAM_CONFIGURATION_MAP);
+        Size[] normal = map.getOutputSizes(cl);
+        Size[] high = map.getHighResolutionOutputSizes(ImageFormat.PRIVATE);
+        Size[] ret = new Size[normal.length + high.length];
+        System.arraycopy(normal, 0, ret, 0, normal.length);
+        System.arraycopy(high, 0, ret, normal.length, high.length);
+        return ret;
+    }
+
+    private Size getOptimalVideoPreviewSize(int id, Size VideoSize, Size[] prevSizes) {
+        Point[] points = new Point[prevSizes.length];
+
+        int index = 0;
+        int point_max[] = mMaxPreviewSize[id];
+        int max_size = -1;
+        if (point_max != null) {
+            max_size = point_max[0] * point_max[1];
+        }
+        for (Size s : prevSizes) {
+            if (max_size != -1) {
+                int size = s.getWidth() * s.getHeight();
+                if (s.getWidth() == s.getHeight()) {
+                    if (s.getWidth() > Math.max(point_max[0], point_max[1]))
+                        continue;
+                } else if (size > max_size || size == 0) {
+                    continue;
+                }
+            }
+            points[index++] = new Point(s.getWidth(), s.getHeight());
+        }
+
+        int optimalPickIndex = CameraUtil.getOptimalVideoPreviewSize(mActivity, points, VideoSize);
+        return (optimalPickIndex == -1) ? null :
+                new Size(points[optimalPickIndex].x, points[optimalPickIndex].y);
     }
 
     /**
@@ -812,7 +865,7 @@ public class MultiVideoModule implements MultiCamera, LocationManager.Listener,
 
         @Override
         public void onImageAvailable(ImageReader reader) {
-            Log.v(TAG, "onImageAvailable ...");
+            Log.v(TAG, " onImageAvailable ...");
             Image image = reader.acquireNextImage();
             long imageTime = System.currentTimeMillis();
             mNamedImages.nameNewImage(imageTime);
@@ -833,6 +886,7 @@ public class MultiVideoModule implements MultiCamera, LocationManager.Listener,
                     mOnMediaSavedListener, mContentResolver, saveFormat);
             mActivity.updateThumbnail(bytes);
             image.close();
+            mMultiCameraModule.updateTakingPicture();
         }
     };
 
