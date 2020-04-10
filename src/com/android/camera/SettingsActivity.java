@@ -1269,7 +1269,7 @@ public class SettingsActivity extends PreferenceActivity {
         int flashValue = mSettingsManager.getValueIndex(key);
         ListPreference mfnrPref = (ListPreference) findPreference(SettingsManager.KEY_CAPTURE_MFNR_VALUE);
 
-        if (mfnrPref != null && flashValue != 0) {
+        if (mfnrPref != null && (flashValue != 0 && flashValue != -1)) {
             mfnrPref.setEnabled(false);
         }
     }
