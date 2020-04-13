@@ -3095,6 +3095,7 @@ public class CaptureModule implements CameraModule, PhotoController,
 
     private void captureStillPictureForCommon(CaptureRequest.Builder captureBuilder, int id) throws CameraAccessException{
         checkAndPlayShutterSound(id);
+        if(mLongshoting) mLongshoting = false;
         if(isMpoOn()) {
             mCaptureStartTime = System.currentTimeMillis();
             mMpoSaveHandler.obtainMessage(MpoSaveHandler.MSG_CONFIGURE,
