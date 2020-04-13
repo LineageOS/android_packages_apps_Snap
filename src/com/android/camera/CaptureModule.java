@@ -3446,9 +3446,7 @@ public class CaptureModule implements CameraModule, PhotoController,
                                     NamedEntity name = mNamedImages.getNextNameEntity();
                                     String title = (name == null) ? null : name.title;
                                     long date = (name == null) ? -1 : name.date;
-
                                     byte[] bytes = getJpegData(image);
-
                                     Log.i(TAG, "image format:" + image.getFormat());
                                     if (image.getFormat() == ImageFormat.RAW10) {
                                         mActivity.getMediaSaveService().addRawImage(bytes, title,
@@ -3466,9 +3464,6 @@ public class CaptureModule implements CameraModule, PhotoController,
                                         } else {
                                             orientation = CameraUtil.getJpegRotation(getMainCameraId(),mOrientation);
                                         }
-
-
-
                                         if (mIntentMode != CaptureModule.INTENT_MODE_NORMAL) {
                                             mJpegImageData = bytes;
                                             if (!mQuickCapture) {
@@ -3787,6 +3782,19 @@ public class CaptureModule implements CameraModule, PhotoController,
         }
     }
 
+    private void closeImageReader() {
+        for (int i = MAX_NUM_CAM - 1; i >= 0; i--) {
+            if (null != mImageReader[i]) {
+                mImageReader[i].close();
+                mImageReader[i] = null;
+            }
+        }
+        if (null != mVideoSnapshotImageReader) {
+            mVideoSnapshotImageReader.close();
+            mVideoSnapshotImageReader = null;
+        }
+    }
+
     /**
      * Closes the current {@link CameraDevice}.
      */
@@ -3828,11 +3836,6 @@ public class CaptureModule implements CameraModule, PhotoController,
                     mCameraOpened[i] = false;
                     mCaptureSession[i] = null;
                 }
-
-                if (null != mImageReader[i]) {
-                    mImageReader[i].close();
-                    mImageReader[i] = null;
-                }
             }
 
             mIsLinked = false;
@@ -3840,11 +3843,6 @@ public class CaptureModule implements CameraModule, PhotoController,
             if (null != mMediaRecorder) {
                 mMediaRecorder.release();
                 mMediaRecorder = null;
-            }
-
-            if (null != mVideoSnapshotImageReader) {
-                mVideoSnapshotImageReader.close();
-                mVideoSnapshotImageReader = null;
             }
         } catch (InterruptedException e) {
             mCameraOpenCloseLock.release();
@@ -4164,6 +4162,7 @@ public class CaptureModule implements CameraModule, PhotoController,
             mActivity.setResultEx(Activity.RESULT_CANCELED, new Intent());
             mActivity.finish();
         }
+        closeImageReader();
         mJpegImageData = null;
     }
 
