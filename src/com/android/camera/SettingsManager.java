@@ -604,7 +604,9 @@ public class SettingsManager implements ListMenu.SettingsListener {
                 isCameraFDSupported =
                         mCharacteristics.get(mCameraId).get(CaptureModule.is_camera_fd_supported) == 1;
             } catch (IllegalArgumentException e) {
-                Log.d(TAG, "isCameraFDSupported no vendor tag");
+                if (DEBUG) {
+                    Log.w(TAG, "isCameraFDSupported no vendor tag");
+                }
                 isCameraFDSupported = true;
             }
         }
@@ -874,6 +876,11 @@ public class SettingsManager implements ListMenu.SettingsListener {
     public String getCurrentPrepNameKey() {
         String facing = mPreferences.getGlobal().getString(KEY_FRONT_REAR_SWITCHER_VALUE, "rear");
         return facing + String.valueOf(CaptureModule.CURRENT_MODE);
+    }
+
+    public String getNextPrepNameKey(CaptureModule.CameraMode nextMode) {
+        String facing = mPreferences.getGlobal().getString(KEY_FRONT_REAR_SWITCHER_VALUE, "rear");
+        return facing + String.valueOf(nextMode);
     }
 
     public String getValue(String key) {
@@ -1833,7 +1840,9 @@ public class SettingsManager implements ListMenu.SettingsListener {
                 isFDRenderingInVideoUISupported = mCharacteristics.get(mCameraId).get(CaptureModule.is_FD_Rendering_In_Video_UI_Supported) == 1;
             } catch (IllegalArgumentException e) {
                 isFDRenderingInVideoUISupported = true;
-                Log.e(TAG, "isFDRenderingInVideoUISupported no vendorTag isFDRenderingInVideoUISupported:");
+                if (DEBUG) {
+                    Log.w(TAG, "isFDRenderingInVideoUISupported no vendorTag isFDRenderingInVideoUISupported:");
+                }
             }
         }
         return isFDRenderingInVideoUISupported;
