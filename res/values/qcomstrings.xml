@@ -1394,5 +1394,6 @@
     <string name="pref_multi_camera_picturesize1_title">"Picture1 size"</string>
     <string name="pref_multi_camera_picturesize2_title">"Picture2 size"</string>
     <string name="pref_multi_camera_picturesize3_title">"Picture3 size"</string>
+    <string name="lock_af_ae_label">AE/AF Lock</string>
 </resources>
 

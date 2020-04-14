@@ -53,6 +53,8 @@ public interface CameraModule {
 
     public void onSingleTapUp(View view, int x, int y);
 
+    public void onLongPress(View view, int x, int y);
+
     public void onPreviewTextureCopied();
 
     public void onCaptureTextureCopied();

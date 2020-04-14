@@ -2114,6 +2114,11 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
         mModule.onSingleTapUp(view, x, y);
     }
 
+    @Override
+    public void onLongPress(View view, int x, int y) {
+        mModule.onLongPress(view, x, y);
+    }
+
     public boolean isOverControlRegion(int[] xy) {
         int x = xy[0];
         int y = xy[1];

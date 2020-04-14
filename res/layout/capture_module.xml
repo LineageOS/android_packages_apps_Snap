@@ -117,6 +117,16 @@
             android:textSize="15sp"
             android:visibility="gone"
             android:text="@string/stats_visualizer_be_label"/>
+        <TextView
+            android:id="@+id/lock_af_ae_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="68dip"
+            android:layout_marginLeft="260dip"
+            android:textSize="15sp"
+            android:visibility="gone"
+            android:text="@string/lock_af_ae_label"/>
+
         <com.android.camera.Camera2BEBitMap
             android:id="@+id/be_stats_graph"
             android:visibility="gone"

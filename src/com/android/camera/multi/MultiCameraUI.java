@@ -527,4 +527,9 @@ public class MultiCameraUI implements PreviewGestures.SingleTapListener,
     public void onSingleTapUp(View view, int x, int y) {
         mModule.onSingleTapUp(view, x, y);
     }
+
+    @Override
+    public void onLongPress(View view, int x, int y) {
+        mModule.onLongPress(view, x, y);
+    }
 }
