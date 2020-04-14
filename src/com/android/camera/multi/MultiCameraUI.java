@@ -443,6 +443,7 @@ public class MultiCameraUI implements PreviewGestures.SingleTapListener,
     private void openSettingsMenu() {
         Intent intent = new Intent(mActivity, MultiSettingsActivity.class);
         intent.putExtra(MultiSettingsActivity.CAMERA_MODULE, mModule.getCurrenCameraMode());
+        intent.putExtra(MultiSettingsActivity.CAMERA_ID_LISTS, mModule.getOpenCameraIdList());
         mActivity.startActivity(intent);
     }
 

@@ -228,6 +228,13 @@ public class MultiCameraModule implements CameraModule, PhotoController {
         mMultiCamera.onButtonContinue(cameraIds);
     }
 
+    public int[] getOpenCameraIdList() {
+        int[] result = new int[2];
+        result[0] = 0;
+        result[1] = 2;
+        return result;
+    }
+
     public CameraMode getCurrenCameraMode() {
         if (mCurrentSceneMode == null) {
             Log.w(TAG, "getCurrenCameraMode mCurrentSceneMode is NULL retrun CameraMode.DEFAULT");

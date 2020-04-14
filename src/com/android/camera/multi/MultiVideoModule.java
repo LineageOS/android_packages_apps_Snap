@@ -89,6 +89,7 @@ import com.android.camera.Storage;
 import com.android.camera.Thumbnail;
 import com.android.camera.util.CameraUtil;
 import com.android.camera.util.SettingTranslation;
+import com.android.camera.util.PersistUtil;
 import com.android.camera.ui.RotateTextToast;
 
 import org.codeaurora.snapcam.R;
@@ -97,6 +98,10 @@ public class MultiVideoModule implements MultiCamera, LocationManager.Listener,
         MediaRecorder.OnErrorListener, MediaRecorder.OnInfoListener {
 
     private static final String TAG = "SnapCam_MultiVideoModule";
+
+    private static final boolean DEBUG =
+            (PersistUtil.getCamera2Debug() == PersistUtil.CAMERA2_DEBUG_DUMP_LOG) ||
+                    (PersistUtil.getCamera2Debug() == PersistUtil.CAMERA2_DEBUG_DUMP_ALL);
 
     private static final int SENSOR_ORIENTATION_DEFAULT_DEGREES = 90;
     private static final int SENSOR_ORIENTATION_INVERSE_DEGREES = 270;
@@ -144,7 +149,7 @@ public class MultiVideoModule implements MultiCamera, LocationManager.Listener,
     private LocationManager mLocationManager;
     private CamcorderProfile mProfile;
 
-    private Size mVideoSize;
+    private Size[] mVideoSize = new Size[MAX_NUM_CAM];
 
     private boolean mCaptureTimeLapse = false;
     // Default 0. If it is larger than 0, the camcorder is in time lapse mode.
@@ -666,8 +671,10 @@ public class MultiVideoModule implements MultiCamera, LocationManager.Listener,
         int index = mCameraIDList.indexOf(String.valueOf(id));
         String videoSize = mLocalSharedPref.getString(
                 MultiSettingsActivity.KEY_VIDEO_SIZES.get(index), defaultSize);
-        mVideoSize = parsePictureSize(videoSize);
-        Log.v(TAG, " updateVideoSize size :" + mVideoSize.getWidth() + "x" + mVideoSize.getHeight());
+        Size size = parsePictureSize(videoSize);
+        mVideoSize[id] = size;
+        Log.v(TAG, " updateVideoSize size :" + mVideoSize[id].getWidth() + "x" +
+                mVideoSize[id].getHeight());
     }
 
     /**
@@ -781,7 +788,9 @@ public class MultiVideoModule implements MultiCamera, LocationManager.Listener,
         private void process(CaptureResult result) {
             Integer afState = result.get(CaptureResult.CONTROL_AF_STATE);
             Integer aeState = result.get(CaptureResult.CONTROL_AE_STATE);
-            Log.v(TAG, "process afState :" + afState + ", aeState :" + aeState);
+            if (DEBUG) {
+                Log.v(TAG, "process afState :" + afState + ", aeState :" + aeState);
+            }
         }
 
         @Override
@@ -1188,7 +1197,7 @@ public class MultiVideoModule implements MultiCamera, LocationManager.Listener,
         mCurrentVideoValues[id].put(MediaStore.Video.Media.MIME_TYPE, mime);
         mCurrentVideoValues[id].put(MediaStore.Video.Media.DATA, path);
         mCurrentVideoValues[id].put(MediaStore.Video.Media.RESOLUTION,
-                "" + mVideoSize.getWidth() + "x" + mVideoSize.getHeight());
+                "" + mVideoSize[id].getWidth() + "x" + mVideoSize[id].getHeight());
         Location loc = mLocationManager.getCurrentLocation();
         if (loc != null) {
             mCurrentVideoValues[id].put(MediaStore.Video.Media.LATITUDE, loc.getLatitude());
@@ -1210,8 +1219,8 @@ public class MultiVideoModule implements MultiCamera, LocationManager.Listener,
             return;
         }
         Log.v(TAG, " setUpMediaRecorder " + id);
-        int size = CameraSettings.VIDEO_QUALITY_TABLE.get(mVideoSize.getWidth() + "x"
-                + mVideoSize.getHeight());
+        int size = CameraSettings.VIDEO_QUALITY_TABLE.get(mVideoSize[id].getWidth() + "x"
+                + mVideoSize[id].getHeight());
         if (CamcorderProfile.hasProfile(id, size)) {
             mProfile = CamcorderProfile.get(id, size);
         } else {
@@ -1233,7 +1242,7 @@ public class MultiVideoModule implements MultiCamera, LocationManager.Listener,
         mMediaRecorders[id].setOutputFile(mNextVideoAbsolutePaths[id]);
         mMediaRecorders[id].setVideoEncodingBitRate(10000000);
         mMediaRecorders[id].setVideoFrameRate(30);
-        mMediaRecorders[id].setVideoSize(mVideoSize.getWidth(), mVideoSize.getHeight());
+        mMediaRecorders[id].setVideoSize(mVideoSize[id].getWidth(), mVideoSize[id].getHeight());
         mMediaRecorders[id].setVideoEncoder(MediaRecorder.VideoEncoder.H264);
         mMediaRecorders[id].setAudioEncoder(mAudioEncoder);
         int rotation = CameraUtil.getJpegRotation(id, mOrientation);
