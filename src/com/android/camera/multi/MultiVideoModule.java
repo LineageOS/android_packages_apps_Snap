@@ -560,7 +560,8 @@ public class MultiVideoModule implements MultiCamera, LocationManager.Listener,
         if (mImageReaders[id] != null) {
             mImageReaders[id].close();
         }
-        mImageReaders[id] = ImageReader.newInstance(1920, 1080,
+        mImageReaders[id] = ImageReader.newInstance(mVideoSize[id].getWidth(),
+                mVideoSize[id].getHeight(),
                 ImageFormat.JPEG, /*maxImages*/2);
         mImageReaders[id].setOnImageAvailableListener(
                 mOnImageAvailableListener, mMultiCameraModule.getMyCameraHandler());
