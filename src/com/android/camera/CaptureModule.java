@@ -7261,6 +7261,13 @@ public class CaptureModule implements CameraModule, PhotoController,
                     mPreviewRequestBuilder[cameraId].set(
                             CaptureRequest.CONTROL_AF_MODE, mControlAFMode);
                 }
+                break;
+            case SettingsManager.KEY_ZOOM_LEVEL:
+                updatePreview = false;
+                if (mUI.getCurrentProMode() == ProMode.ZOOM_MODE) {
+                    onZoomChanged(mSettingsManager.getCalculatedZoomValue());
+                }
+                break;
         }
         return updatePreview;
     }
