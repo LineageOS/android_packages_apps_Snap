@@ -35,7 +35,7 @@ public interface MultiCamera {
 
     void onPause();
 
-    void onResume();
+    void onResume(String[] ids);
 
     void onButtonPause(String[] ids);
 
