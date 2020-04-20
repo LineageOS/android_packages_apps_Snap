@@ -2300,6 +2300,7 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
             if (mPieRenderer != null) {
                 mPieRenderer.setBlockFocus(false);
             }
+            mModule.onZoomEnd();
         }
 
         @Override
