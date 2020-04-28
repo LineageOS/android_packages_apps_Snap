@@ -347,6 +347,31 @@ public class Storage {
         }
     }
 
+    public static long getTotalSpace(){
+        String state = Environment.getExternalStorageState();
+        Log.d(TAG, "External storage state=" + state);
+        if (Environment.MEDIA_CHECKING.equals(state)) {
+            return PREPARING;
+        }
+        if (!Environment.MEDIA_MOUNTED.equals(state)) {
+            return UNAVAILABLE;
+        }
+
+        File dir = new File(DIRECTORY);
+        dir.mkdirs();
+        if (!dir.isDirectory() || !dir.canWrite()) {
+            return UNAVAILABLE;
+        }
+
+        try {
+            StatFs stat = new StatFs(Environment.getExternalStorageDirectory().getPath());
+            return stat.getBlockCount() * (long) stat.getBlockSize();
+        } catch (Exception e) {
+            Log.i(TAG, "Failed to access external storage", e);
+        }
+        return UNKNOWN_SIZE;
+    }
+
     public static boolean switchSavePath() {
         if (!isSaveSDCard()
                 && getInternalStorageAvailableSpace() <= LOW_STORAGE_THRESHOLD_BYTES

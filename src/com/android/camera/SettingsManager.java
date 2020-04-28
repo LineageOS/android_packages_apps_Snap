@@ -2637,6 +2637,8 @@ public class SettingsManager implements ListMenu.SettingsListener {
         try {
             isSWMFNRSupported = mCharacteristics.get(mCameraId).get(CaptureModule.mfnr_type) == CaptureModule.MFNRSupportValues.SWMFNRSupport.ordinal();
             Log.i(TAG,"mfnr type:" + mCharacteristics.get(mCameraId).get(CaptureModule.mfnr_type));
+            Log.i(TAG,"total space:" + Storage.getTotalSpace());
+            isSWMFNRSupported = isSWMFNRSupported && (Storage.getTotalSpace() > 2*1024*1024);
         } catch (IllegalArgumentException e) {
             Log.d(TAG, "isSWMFNRSupported no vendor tag");
         }
