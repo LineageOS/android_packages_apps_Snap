@@ -483,10 +483,17 @@ public class CaptureUI implements PreviewGestures.SingleTapListener,
             mReviewDoneButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    if (intentMode == CaptureModule.INTENT_MODE_CAPTURE) {
-                        mModule.onCaptureDone();
-                    } else if (intentMode == CaptureModule.INTENT_MODE_VIDEO) {
-                        mModule.onRecordingDone(true);
+                    switch (intentMode) {
+                        case CaptureModule.INTENT_MODE_CAPTURE:
+                        case CaptureModule.INTENT_MODE_CAPTURE_SECURE:
+                            mModule.onCaptureDone();
+                            break;
+                        case CaptureModule.INTENT_MODE_VIDEO:
+                            mModule.onRecordingDone(true);
+                            break;
+                        default:
+                            Log.w(TAG, "Not handling review of intent mode: " + intentMode);
+                            break;
                     }
                 }
             });
