@@ -112,9 +112,6 @@ public class MultiVideoModule implements MultiCamera, LocationManager.Listener,
     private static final int WAIT_SURFACE = 0;
     private static final int OPEN_CAMERA = 1;
 
-    private static final int CLEAR_SCREEN_DELAY = 4;
-    private static final int UPDATE_RECORD_TIME = 5;
-
     private static final int SCREEN_DELAY = 2 * 60 * 1000;
 
     private static final int MAX_NUM_CAM = 16;
@@ -973,6 +970,7 @@ public class MultiVideoModule implements MultiCamera, LocationManager.Listener,
                             mMultiCameraUI.resetPauseButton();
                             mMultiCameraUI.showRecordingUI(true);
                             updateRecordingTime(id);
+                            keepScreenOn();
                             Log.v(TAG, " startRecordingVideo done " + id);
                         }
                     });
@@ -1032,10 +1030,16 @@ public class MultiVideoModule implements MultiCamera, LocationManager.Listener,
                 }
     };
 
-    private void keepScreenOnAwhile() {
-        mMultiCameraModule.getMainHandler().removeMessages(CLEAR_SCREEN_DELAY);
+    private void keepScreenOn() {
+        mMultiCameraModule.getMainHandler().removeMessages(MultiCameraModule.CLEAR_SCREEN_DELAY);
         mActivity.getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-        mMultiCameraModule.getMainHandler().sendEmptyMessageDelayed(CLEAR_SCREEN_DELAY, SCREEN_DELAY);
+    }
+
+    private void keepScreenOnAwhile() {
+        mMultiCameraModule.getMainHandler().removeMessages(MultiCameraModule.CLEAR_SCREEN_DELAY);
+        mActivity.getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+        mMultiCameraModule.getMainHandler().sendEmptyMessageDelayed(
+                MultiCameraModule.CLEAR_SCREEN_DELAY, SCREEN_DELAY);
     }
 
     private void releaseMediaRecorder(int id) {
