@@ -2350,6 +2350,7 @@ public class CaptureModule implements CameraModule, PhotoController,
         mSettingsManager.registerListener(this);
         mSettingsManager.init();
         mFirstPreviewLoaded = false;
+        CURRENT_ID = 0;
         Log.d(TAG, "init");
         for (int i = 0; i < MAX_NUM_CAM; i++) {
             mCameraOpened[i] = false;
