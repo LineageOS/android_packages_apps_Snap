@@ -1596,6 +1596,14 @@ public class CaptureModule implements CameraModule, PhotoController,
         return value.equals("rear");
     }
 
+    private boolean isBackCameraId() {
+        final SharedPreferences pref = mActivity.getSharedPreferences(
+                ComboPreferences.getGlobalSharedPreferencesName(mActivity), Context.MODE_PRIVATE);
+        String value = pref.getString(SettingsManager.KEY_FRONT_REAR_SWITCHER_VALUE, null);
+        if (value == null) return true;
+        return value.equals("rear");
+    }
+
     public int getCameraMode() {
         String value = mSettingsManager.getValue(SettingsManager.KEY_SCENE_MODE);
         if (value != null && value.equals(SettingsManager.SCENE_MODE_DUAL_STRING)) return DUAL_MODE;
@@ -2309,9 +2317,13 @@ public class CaptureModule implements CameraModule, PhotoController,
         mSettingsManager = SettingsManager.getInstance();
         mSettingsManager.createCaptureModule(this);
         mSettingsManager.registerListener(this);
+        if (isBackCameraId()) {
+            CURRENT_ID = BACK_MODE;
+        } else {
+            CURRENT_ID = FRONT_MODE;
+        }
         mSettingsManager.init();
         mFirstPreviewLoaded = false;
-        CURRENT_ID = 0;
         Log.d(TAG, "init");
         for (int i = 0; i < MAX_NUM_CAM; i++) {
             mCameraOpened[i] = false;
