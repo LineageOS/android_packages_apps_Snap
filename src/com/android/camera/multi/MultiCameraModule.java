@@ -30,6 +30,7 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Looper;
 import android.os.Message;
+import android.view.WindowManager;
 import android.view.View;
 import android.view.KeyEvent;
 import android.view.OrientationEventListener;
@@ -52,6 +53,8 @@ public class MultiCameraModule implements CameraModule, PhotoController {
     private static final int MAX_NUM_CAM = 16;
 
     private static final int OPEN_CAMERA = 0;
+
+    public static final int CLEAR_SCREEN_DELAY = 101;
 
     private View mRootView;
     private MultiCameraUI mUI;
@@ -550,6 +553,11 @@ public class MultiCameraModule implements CameraModule, PhotoController {
         @Override
         public void handleMessage(Message msg) {
             switch (msg.what) {
+                case CLEAR_SCREEN_DELAY: {
+                    mActivity.getWindow().clearFlags(
+                            WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+                    break;
+                }
             }
         }
     }
