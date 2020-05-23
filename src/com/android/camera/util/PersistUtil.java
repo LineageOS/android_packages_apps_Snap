@@ -29,9 +29,10 @@
 package com.android.camera.util;
 
 import android.graphics.Point;
-import android.os.SystemProperties;
 import android.text.TextUtils;
 import android.util.Log;
+
+import java.lang.reflect.Method;
 
 public class PersistUtil {
 
@@ -44,110 +45,110 @@ public class PersistUtil {
     private static final int CAMERA_SENSOR_VERTICAL_ALIGNED = 1;
 
     private static final int PERSIST_MEMORY_LIMIT =
-            SystemProperties.getInt("persist.sys.camera.perf.memlimit", 60);
+            getInt("persist.sys.camera.perf.memlimit", 60);
     private static final String PERSIST_HFR_LIMIT =
-            SystemProperties.get("persist.sys.camera.hfr.rate", "");
+            get("persist.sys.camera.hfr.rate", "");
     private static final boolean PERSIST_SKIP_MEMORY_CHECK =
-            SystemProperties.getBoolean("persist.sys.camera.perf.skip_memck", false);
+            getBoolean("persist.sys.camera.perf.skip_memck", false);
     private static final int PERSIST_LONGSHOT_SHOT_LIMIT =
-            SystemProperties.getInt("persist.sys.camera.longshot.shotnum", 60);
+            getInt("persist.sys.camera.longshot.shotnum", 60);
     private static final String PERSIST_CAMERA_PREVIEW_SIZE =
-            SystemProperties.get("persist.sys.camera.preview.size", "");
+            get("persist.sys.camera.preview.size", "");
     private static final String PERSIST_CAMERA_VIDEO_SNAPSHOTSIZE =
-            SystemProperties.get("persist.sys.camera.video.snapshotsize", "");
+            get("persist.sys.camera.video.snapshotsize", "");
     private static final String PERSIST_CAMERA_VIDEO_SIZE =
-            SystemProperties.get("persist.sys.camera.video.size", "");
+            get("persist.sys.camera.video.size", "");
     private static final boolean PERSIST_CAMERA_CAMERA2 =
-            SystemProperties.getBoolean("persist.sys.camera.camera2", true);
+            getBoolean("persist.sys.camera.camera2", true);
     private static final boolean PERSIST_YUV_CALLBACK_ENABLE =
-            SystemProperties.getBoolean("persist.sys.camera.yuvcallback",false);
+            getBoolean("persist.sys.camera.yuvcallback",false);
     private static final boolean PERSIST_CAMERA_ZSL =
-            SystemProperties.getBoolean("persist.sys.camera.zsl.disabled", false);
+            getBoolean("persist.sys.camera.zsl.disabled", false);
     private static final int PERSIST_CAMERA_CANCEL_TOUCHFOCUS_DELAY =
-            SystemProperties.getInt("persist.sys.camera.focus_delay", 5000);
+            getInt("persist.sys.camera.focus_delay", 5000);
     private static final int PERSIST_CAMERA_DEBUG =
-            SystemProperties.getInt("persist.sys.camera.debug", 0);
+            getInt("persist.sys.camera.debug", 0);
     private static final boolean PERSIST_CAMERA_BSGC_DEBUG =
-            SystemProperties.getBoolean("persist.sys.camera.bsgc.debug", false);
+            getBoolean("persist.sys.camera.bsgc.debug", false);
     private static final int PERSIST_CAMERA_DEV_DEBUG_OPTION =
-            SystemProperties.getInt("persist.sys.camera.devoption.debug", 0);
+            getInt("persist.sys.camera.devoption.debug", 0);
     private static final String PERSIST_CAMERA_STILLMORE_BRCOLR =
-            SystemProperties.get("persist.sys.camera.stm_brcolor", "0.5");
+            get("persist.sys.camera.stm_brcolor", "0.5");
     private static final String PERSIST_CAMERA_STILLMORE_BRINTENSITY =
-            SystemProperties.get("persist.sys.camera.stm_brintensity", "0.6");
+            get("persist.sys.camera.stm_brintensity", "0.6");
     private static final String PERSIST_CAMERA_STILLMORE_SMOOTHINGINTENSITY =
-            SystemProperties.get("persist.sys.camera.stm_smooth", "0");
+            get("persist.sys.camera.stm_smooth", "0");
     private static final int PERSIST_CAMERA_STILLMORE_NUM_REQUIRED_IMAGE =
-            SystemProperties.getInt("persist.sys.camera.stm_img_nums", 5);
+            getInt("persist.sys.camera.stm_img_nums", 5);
     private static final String PERSIST_CAMERA_CS_BRINTENSITY_KEY =
-            SystemProperties.get("persist.sys.camera.sensor.brinten", "0.0");
+            get("persist.sys.camera.sensor.brinten", "0.0");
     private static final String PERSIST_CAMERA_CS_SMOOTH_KEY =
-            SystemProperties.get("persist.sys.camera.sensor.smooth", "0.5");
+            get("persist.sys.camera.sensor.smooth", "0.5");
     private static final int PERSIST_CAMERA_SENSOR_ALIGN_KEY =
-            SystemProperties.getInt("persist.sys.camera.sensor.align",
+            getInt("persist.sys.camera.sensor.align",
                     CAMERA_SENSOR_HORIZONTAL_ALIGNED);
     private static final int CIRCULAR_BUFFER_SIZE_PERSIST =
-            SystemProperties.getInt("persist.sys.camera.zsl.buffer.size", 5);
+            getInt("persist.sys.camera.zsl.buffer.size", 5);
     private static final int SAVE_TASK_MEMORY_LIMIT_IN_MB =
-            SystemProperties.getInt("persist.sys.camera.perf.memlimit", 120);
+            getInt("persist.sys.camera.perf.memlimit", 120);
     private static final boolean PERSIST_CAMERA_UI_AUTO_TEST_ENABLED =
-            SystemProperties.getBoolean("persist.sys.camera.ui.auto_test", false);
+            getBoolean("persist.sys.camera.ui.auto_test", false);
     private static final boolean PERSIST_CAMERA_SAVE_IN_SD_ENABLED =
-            SystemProperties.getBoolean("persist.sys.env.camera.saveinsd", false);
+            getBoolean("persist.sys.env.camera.saveinsd", false);
     private static final boolean PERSIST_LONG_SAVE_ENABLED =
-            SystemProperties.getBoolean("persist.sys.camera.longshot.save", false);
+            getBoolean("persist.sys.camera.longshot.save", false);
     private static final boolean PERSIST_CAMERA_PREVIEW_RESTART_ENABLED =
-            SystemProperties.getBoolean("persist.sys.camera.feature.restart", false);
+            getBoolean("persist.sys.camera.feature.restart", false);
     private static final boolean PERSIST_CAPTURE_ANIMATION_ENABLED =
-            SystemProperties.getBoolean("persist.sys.camera.capture.animate", true);
+            getBoolean("persist.sys.camera.capture.animate", true);
     private static final boolean PERSIST_SKIP_MEM_CHECK_ENABLED =
-            SystemProperties.getBoolean("persist.sys.camera.perf.skip_memck", false);
+            getBoolean("persist.sys.camera.perf.skip_memck", false);
     private static final boolean PERSIST_ZZHDR_ENABLED =
-            SystemProperties.getBoolean("persist.sys.camera.zzhdr.enable", false);
+            getBoolean("persist.sys.camera.zzhdr.enable", false);
     private static final boolean PERSIST_SEND_REQUEST_AFTER_FLUSH =
-            SystemProperties.getBoolean("persist.sys.camera.send_request_after_flush", false);
+            getBoolean("persist.sys.camera.send_request_after_flush", false);
     private static final int PERSIST_PREVIEW_SIZE =
-            SystemProperties.getInt("persist.sys.camera.preview.size", 0);
+            getInt("persist.sys.camera.preview.size", 0);
     private static final long PERSIST_TIMESTAMP_LIMIT =
-            SystemProperties.getLong("persist.sys.camera.cs.threshold", 10);
+            getInt("persist.sys.camera.cs.threshold", 10);
     private static final int PERSIST_BURST_COUNT =
-            SystemProperties.getInt("persist.sys.camera.cs.burstcount", 4);
+            getInt("persist.sys.camera.cs.burstcount", 4);
     private static final boolean PERSIST_DUMP_FRAMES_ENABLED =
-            SystemProperties.getBoolean("persist.sys.camera.cs.dumpframes", false);
+            getBoolean("persist.sys.camera.cs.dumpframes", false);
     private static final boolean PERSIST_DUMP_YUV_ENABLED =
-            SystemProperties.getBoolean("persist.sys.camera.cs.dumpyuv", false);
+            getBoolean("persist.sys.camera.cs.dumpyuv", false);
     private static final int PERSIST_CS_TIMEOUT =
-            SystemProperties.getInt("persist.sys.camera.cs.timeout", 300);
+            getInt("persist.sys.camera.cs.timeout", 300);
     private static final boolean PERSIST_DUMP_DEPTH_ENABLED =
-            SystemProperties.getBoolean("persist.sys.camera.cs.dumpdepth", false);
+            getBoolean("persist.sys.camera.cs.dumpdepth", false);
     private static final boolean PERSIST_DISABLE_QCOM_MISC_SETTING =
-            SystemProperties.getBoolean("persist.sys.camera.qcom.misc.disable", false);
+            getBoolean("persist.sys.camera.qcom.misc.disable", false);
     private static final int PREVIEW_FLIP_VALUE =
-            SystemProperties.getInt("persist.sys.debug.camera.preview.flip", 0);
+            getInt("persist.sys.debug.camera.preview.flip", 0);
     private static final int PERSIST_VIDEO_FLIP_VALUE =
-            SystemProperties.getInt("persist.sys.debug.camera.video.flip", 0);
+            getInt("persist.sys.debug.camera.video.flip", 0);
     private static final int PERSIST_PICTURE_FLIP_VALUE =
-            SystemProperties.getInt("persist.sys.debug.camera.picture.flip", 0);
+            getInt("persist.sys.debug.camera.picture.flip", 0);
     private static final boolean PERSIST_YV_12_FORMAT_ENABLED =
-            SystemProperties.getBoolean("persist.sys.camera.debug.camera.yv12", false);
+            getBoolean("persist.sys.camera.debug.camera.yv12", false);
     private static final String PERSIST_DISPLAY_UMAX =
-            SystemProperties.get("persist.sys.camera.display.umax", "");
+            get("persist.sys.camera.display.umax", "");
     private static final String PERSIST_DISPLAY_LMAX =
-            SystemProperties.get("persist.sys.camera.display.lmax", "");
+            get("persist.sys.camera.display.lmax", "");
     private static final boolean PERSIST_VIDEO_LIVESHOT =
-            SystemProperties.getBoolean("persist.sys.camera.video.liveshot",false);
+            getBoolean("persist.sys.camera.video.liveshot",false);
     private static final boolean PERSIST_VIDEO_EIS =
-            SystemProperties.getBoolean("persist.sys.camera.video.eis",false);
+            getBoolean("persist.sys.camera.video.eis",false);
     private static final int PERSIST_BURST_PREVIEW_REQUEST_NUMS =
-            SystemProperties.getInt("persist.sys.camera.burst.preview.nums", 0);
+            getInt("persist.sys.camera.burst.preview.nums", 0);
     private static final boolean PERSIST_SSM_ENABLE =
-            SystemProperties.getBoolean("persist.sys.camera.ssm.enable", false);
+            getBoolean("persist.sys.camera.ssm.enable", false);
     private static final boolean PERSIST_FD_RENDERING_SUPPORTED =
-            SystemProperties.getBoolean("persist.sys.camera.isFDRenderingSupported", false);
+            getBoolean("persist.sys.camera.isFDRenderingSupported", false);
     private static final boolean PERSIST_TRACE_ENABLE =
-            SystemProperties.getBoolean("persist.sys.camera.trace",false);
+            getBoolean("persist.sys.camera.trace",false);
     private static final boolean PERSIST_CAM_FD_SUPPORTED =
-            SystemProperties.getBoolean("persist.sys.camera.isCamFDSupported", false);
+            getBoolean("persist.sys.camera.isCamFDSupported", false);
 
 
 
@@ -167,7 +168,52 @@ public class PersistUtil {
         return PERSIST_LONGSHOT_SHOT_LIMIT;
     }
     public static int getLongshotShotLimit(int defaultValue) {
-        return SystemProperties.getInt("persist.sys.camera.longshot.shotnum", defaultValue);
+        return getInt("persist.sys.camera.longshot.shotnum", defaultValue);
+    }
+
+    private static Method getIntMethod = null;
+    private static Method getBooleanMethod = null;
+    private static Method getStringMethod = null;
+
+    private static int getInt(final String key, final int def) {
+        try {
+            if (getIntMethod == null) {
+                getIntMethod = Class.forName("android.os.SystemProperties")
+                        .getMethod("getInt", String.class, int.class);
+            }
+            return (int) getIntMethod.invoke(null, key, def);
+        } catch (Exception e) {
+            Log.e("Persist", "SystemProperties error: " + e.toString());
+            return def;
+        }
+    }
+
+    private static boolean getBoolean(final String key, final boolean def) {
+        try {
+            if (getBooleanMethod == null) {
+                getBooleanMethod = Class.forName("android.os.SystemProperties")
+                        .getMethod("getBoolean", String.class,boolean.class);
+            }
+
+            return (Boolean)getBooleanMethod.invoke(null, key, def);
+        } catch (Exception e) {
+            Log.e("Persist", "SystemProperties error: " + e.toString());
+            return def;
+        }
+    }
+
+    private static String get(final String key, final String def) {
+        try {
+            if (getStringMethod == null) {
+                getStringMethod = Class.forName("android.os.SystemProperties")
+                        .getMethod("get", String.class, String.class);
+            }
+
+            return (String)getStringMethod.invoke(null, key, def);
+        } catch (Exception e) {
+            Log.e("Persist", "SystemProperties error: " + e.toString());
+            return def;
+        }
     }
 
     public static Point getCameraPreviewSize() {

@@ -55,7 +55,6 @@ import android.view.WindowManager;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.widget.Toast;
-import android.os.SystemProperties;
 
 import com.android.camera.CameraActivity;
 import com.android.camera.CameraDisabledException;
@@ -86,8 +85,6 @@ import android.hardware.camera2.CameraAccessException;
 import android.hardware.camera2.CameraCaptureSession;
 import android.hardware.camera2.params.StreamConfigurationMap;
 import android.hardware.camera2.CaptureRequest;
-import android.hardware.camera2.impl.CameraMetadataNative;
-import android.hardware.camera2.utils.SurfaceUtils;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Iterator;
@@ -142,9 +139,6 @@ public class CameraUtil {
     public static final String SCENE_MODE_HDR = "hdr";
     public static final String TRUE = "true";
     public static final String FALSE = "false";
-
-    private static final Class<?>[] CTOR_SIGNATURE =
-            new Class[] {CaptureRequest.class, CameraMetadataNative.class, boolean.class, int.class};
 
     // Fields for the show-on-maps-functionality
     private static final String MAPS_PACKAGE_NAME = "com.google.android.apps.maps";
@@ -1443,97 +1437,6 @@ public class CameraUtil {
         }
     }
 
-    public static List<CaptureRequest> createHighSpeedRequestList(final CaptureRequest request)
-            throws CameraAccessException {
-        if (request == null) {
-            throw new IllegalArgumentException("Input capture request must not be null");
-        }
-        Set<String> physicalCameraIdSet = null;
-        Collection<Surface> outputSurfaces = request.getTargets();
-        Range<Integer> fpsRange = request.get(CaptureRequest.CONTROL_AE_TARGET_FPS_RANGE);
-
-        try {
-            StreamConfigurationMap config =
-                    SettingsManager.getInstance().getStreamConfigurationMap((int)request.getTag());
-            SurfaceUtils.checkConstrainedHighSpeedSurfaces(outputSurfaces, fpsRange, config);
-        } catch (IllegalArgumentException e) {
-            Log.w(TAG, " checkConstrainedHighSpeedSurfaces occur " + e.toString());
-        }
-
-        // Request list size: to limit the preview to 30fps, need use maxFps/30; to maximize
-        // the preview frame rate, should use maxBatch size for that high speed stream
-        // configuration. We choose the former for now.
-        int requestListSize = getHighSpeedVideoConfigsLists((int)request.getTag());
-        if (requestListSize == -1) {
-            requestListSize = fpsRange.getUpper() / 30;
-        }
-        List<CaptureRequest> requestList = new ArrayList<CaptureRequest>();
-
-        // Prepare the Request builders: need carry over the request controls.
-        // First, create a request builder that will only include preview or recording target.
-        CameraMetadataNative requestMetadata = new CameraMetadataNative(request.getNativeCopy());
-        // Note that after this step, the requestMetadata is mutated (swapped) and can not be used
-        // for next request builder creation.
-        CaptureRequest.Builder singleTargetRequestBuilder = constructorCaptureRequestBuilder(
-                requestMetadata, /*reprocess*/false, CameraCaptureSession.SESSION_ID_NONE,
-                request, physicalCameraIdSet);
-        singleTargetRequestBuilder.setTag(request.getTag());
-
-        // Overwrite the capture intent to make sure a good value is set.
-        Iterator<Surface> iterator = outputSurfaces.iterator();
-        Surface firstSurface = iterator.next();
-        Surface secondSurface = null;
-        if (outputSurfaces.size() == 1 && SurfaceUtils.isSurfaceForHwVideoEncoder(firstSurface)) {
-            singleTargetRequestBuilder.set(CaptureRequest.CONTROL_CAPTURE_INTENT,
-                    CaptureRequest.CONTROL_CAPTURE_INTENT_PREVIEW);
-        } else {
-            // Video only, or preview + video
-            singleTargetRequestBuilder.set(CaptureRequest.CONTROL_CAPTURE_INTENT,
-                    CaptureRequest.CONTROL_CAPTURE_INTENT_VIDEO_RECORD);
-        }
-        singleTargetRequestBuilder.setPartOfCHSRequestList(/*partOfCHSList*/true);
-
-        // Second, Create a request builder that will include both preview and recording targets.
-        CaptureRequest.Builder doubleTargetRequestBuilder = null;
-        if (outputSurfaces.size() == 2) {
-            // Have to create a new copy, the original one was mutated after a new
-            // CaptureRequest.Builder creation.
-            requestMetadata = new CameraMetadataNative(request.getNativeCopy());
-            doubleTargetRequestBuilder = constructorCaptureRequestBuilder(requestMetadata,
-                    /*reprocess*/false, CameraCaptureSession.SESSION_ID_NONE,
-                    request, physicalCameraIdSet);
-            doubleTargetRequestBuilder.setTag(request.getTag());
-            doubleTargetRequestBuilder.set(CaptureRequest.CONTROL_CAPTURE_INTENT,
-                    CaptureRequest.CONTROL_CAPTURE_INTENT_VIDEO_RECORD);
-            doubleTargetRequestBuilder.addTarget(firstSurface);
-            secondSurface = iterator.next();
-            doubleTargetRequestBuilder.addTarget(secondSurface);
-            doubleTargetRequestBuilder.setPartOfCHSRequestList(/*partOfCHSList*/true);
-            // Make sure singleTargetRequestBuilder contains only recording surface for
-            // preview + recording case.
-            Surface recordingSurface = firstSurface;
-            if (!SurfaceUtils.isSurfaceForHwVideoEncoder(recordingSurface)) {
-                recordingSurface = secondSurface;
-            }
-            singleTargetRequestBuilder.addTarget(recordingSurface);
-        } else {
-            // Single output case: either recording or preview.
-            singleTargetRequestBuilder.addTarget(firstSurface);
-        }
-
-        // Generate the final request list.
-        for (int i = 0; i < requestListSize; i++) {
-            if (i == 0 && doubleTargetRequestBuilder != null) {
-                // First request should be recording + preview request
-                requestList.add(doubleTargetRequestBuilder.build());
-            } else {
-                requestList.add(singleTargetRequestBuilder.build());
-            }
-        }
-
-        return Collections.unmodifiableList(requestList);
-    }
-
     public static int getHighSpeedVideoConfigsLists(int cameraId) {
         int optimalSizeIndex = -1;
         SettingsManager settingsManager = SettingsManager.getInstance();
@@ -1573,50 +1476,6 @@ public class CameraUtil {
         int width = Integer.parseInt(value.substring(0, indexX));
         int height = Integer.parseInt(value.substring(indexX + 1));
         return new android.util.Size(width, height);
-    }
-
-    private static CaptureRequest.Builder constructorCaptureRequestBuilder (
-            CameraMetadataNative requestMetadata, boolean reprocess, int SESSION_ID_NONE,
-            CaptureRequest request, Set<String> physicalCameraIdSet) {
-        CaptureRequest.Builder builder = null;
-        try {
-            Class clazz = Class.forName("android.hardware.camera2.CaptureRequest$Builder");
-            // for Android O, has 3 parameters
-            builder = (CaptureRequest.Builder) clazz.getConstructors()[0].newInstance(
-                    requestMetadata, reprocess, SESSION_ID_NONE);
-        } catch (ClassNotFoundException e) {
-            Log.v(TAG, "constructorCaptureRequestBuilder for AndroidO ClassNotFoundException "
-                    + e.toString());
-        } catch (Exception e) {
-            Log.v(TAG, "constructorCaptureRequestBuilder for AndroidO Exception " + e.toString());
-        }
-
-        if (builder == null) {
-            // for Android P has 5 parameters
-            String logicalCameraId = "-1";
-            try {
-                Method getLogicalCameraId = Class.forName("android.hardware.camera2.CaptureRequest")
-                        .getMethod("getLogicalCameraId");
-                logicalCameraId = (String) getLogicalCameraId.invoke(request);
-            } catch (NoSuchMethodException e) {
-                Log.v(TAG, "constructorCaptureRequestBuilder NoSuchMethodException"+ e.toString());
-            } catch (Exception e) {
-                Log.v(TAG, "constructorCaptureRequestBuilder logicalCameraId Exception"
-                        + e.toString());
-            }
-            try {
-                Class clazz = Class.forName("android.hardware.camera2.CaptureRequest$Builder");
-                Log.v(TAG, "logicalCameraId :" + logicalCameraId);
-                builder = (CaptureRequest.Builder) clazz.getConstructors()[0].newInstance(
-                        requestMetadata, reprocess, SESSION_ID_NONE,
-                        logicalCameraId, physicalCameraIdSet);
-            } catch (ClassNotFoundException e) {
-                Log.v(TAG, "constructorCaptureRequestBuilder ClassNotFoundException"+e.toString());
-            } catch (Exception e) {
-                Log.v(TAG, "constructorCaptureRequestBuilder Exception"+e.toString());
-            }
-        }
-        return builder;
     }
 
     public static int dip2px(Context context, float dpValue) {

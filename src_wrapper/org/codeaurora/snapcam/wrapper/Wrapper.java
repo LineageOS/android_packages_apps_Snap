@@ -34,12 +34,10 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
-import android.os.SystemProperties;
 import android.util.Log;
 
 public class Wrapper{
-    protected final static boolean DEBUG =
-            SystemProperties.getBoolean("persist.sys.camera.wrapper.debug", false);
+    protected final static boolean DEBUG = false;
     protected final static String TAG = "Wrapper";
 
     protected static int getFieldValue(Field field, int def){

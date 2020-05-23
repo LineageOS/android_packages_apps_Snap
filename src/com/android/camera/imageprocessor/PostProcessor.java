@@ -107,7 +107,7 @@ public class PostProcessor{
     public static final int FILTER_BLURBUSTER = 7;
     public static final int FILTER_DEEPZOOM = 8;
     public static final int FILTER_MAX = 9;
-
+    private static boolean mIsSupported = false;
     //BestPicture requires 10 which is the biggest among filters
     private static final int MAX_REQUIRED_IMAGE_NUM = 11;
     private int mCurrentNumImage = 0;
@@ -1254,26 +1254,6 @@ public class PostProcessor{
         return mTotalCaptureResultList.get(0);
     }
 
-    private ImageFilter.ResultImage resizeImage(ImageFilter.ResultImage oldImage, Size newSize) {
-        ImageFilter.ResultImage newImage = new ImageFilter.ResultImage(
-                ByteBuffer.allocateDirect(newSize.getWidth() * newSize.getHeight() * 3/2),
-                new Rect(0, 0,
-                        newSize.getWidth(), newSize.getHeight()),
-                newSize.getWidth(), newSize.getHeight(), newSize.getWidth());
-        int ratio = nativeResizeImage(oldImage.outBuffer.array(), newImage.outBuffer.array(),
-                oldImage.width, oldImage.height, oldImage.stride, newSize.getWidth(), newSize.getHeight());
-        newImage.outRoi = new Rect(oldImage.outRoi.left/ratio, oldImage.outRoi.top/ratio,
-                                       oldImage.outRoi.right/ratio, oldImage.outRoi.bottom/ratio);
-        if(newImage.width < newImage.outRoi.width()) {
-            newImage.outRoi.right = newImage.width;
-        }
-        if(newImage.height < newImage.outRoi.height()) {
-            newImage.outRoi.bottom = newImage.height;
-        }
-        Log.d(TAG, "Image is resized by SW with the ratio: "+ratio+" oldRoi: "+oldImage.outRoi.toString());
-        return newImage;
-    }
-
     ImageReader.OnImageAvailableListener processedImageAvailableListener = new ImageReader.OnImageAvailableListener() {
         @Override
         public void onImageAvailable(ImageReader reader) {
@@ -1315,7 +1295,7 @@ public class PostProcessor{
         BitmapOutputStream bos = new BitmapOutputStream(1024);
         YuvImage im = new YuvImage(resultImage.outBuffer.array(), ImageFormat.NV21,
                                     resultImage.width, resultImage.height, new int[]{resultImage.stride, resultImage.stride});
-        if(isSelfieMirrorOn() && !mController.isBackCamera()) {
+        if(isSelfieMirrorOn() && !mController.isBackCamera() && mIsSupported) {
             int t = resultImage.height - (resultImage.outRoi.top + resultImage.outRoi.height());
             resultImage.outRoi = new Rect(resultImage.outRoi.left, t, resultImage.outRoi.right , resultImage.outRoi.height() + t);
         }
@@ -1343,15 +1323,14 @@ public class PostProcessor{
             return buf;
         }
     }
-
-    private native int nativeNV21Split(byte[] srcYVU, ByteBuffer yBuf, ByteBuffer vuBuf, int width, int height, int srcStride, int dstStride);
-    private native int nativeResizeImage(byte[] oldBuf, byte[] newBuf, int oldWidth, int oldHeight, int oldStride, int newWidth, int newHeight);
     private native int nativeFlipNV21(byte[] buf, int stride, int height, int gap, boolean isVertical);
     static {
         try {
             System.loadLibrary("jni_imageutil");
-        } catch (UnsatisfiedLinkError e){
-            e.printStackTrace();
+            mIsSupported = true;
+        } catch (UnsatisfiedLinkError e) {
+            Log.d(TAG, e.toString());
+            mIsSupported = false;
         }
     }
 }

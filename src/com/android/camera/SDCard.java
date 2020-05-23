@@ -39,6 +39,7 @@ import android.os.storage.StorageManager;
 import android.util.Log;
 
 import java.io.File;
+import java.util.List;
 
 public class SDCard {
     private static final String TAG = "SDCard";
@@ -72,7 +73,7 @@ public class SDCard {
                 for (int i=0; i<dirs.length; i++) {
                     if (dirs[i] == null) continue;
                     dir = dirs[i].getAbsolutePath();
-                    if (dir.startsWith(mVolume.getPath())) {
+                    if (dir.startsWith(mVolume.getDirectory().toString())) {
                         mPath = dir;
                         break;
                     }
@@ -87,7 +88,7 @@ public class SDCard {
             return null;
         }
         if (mRawpath == null) {
-            mRawpath = mVolume.getPath() + "/DCIM/Camera/raw";
+            mRawpath = mVolume.getDirectory().toString() + "/DCIM/Camera/raw";
         }
         return mRawpath;
     }
@@ -118,9 +119,9 @@ public class SDCard {
     }
 
     private void initVolume() {
-        final StorageVolume[] volumes = mStorageManager.getVolumeList();
-        mVolume = (volumes.length > VOLUME_SDCARD_INDEX) ?
-                volumes[VOLUME_SDCARD_INDEX] : null;
+        List<StorageVolume> volumes = mStorageManager.getStorageVolumes();
+        mVolume = (volumes.size() > VOLUME_SDCARD_INDEX) ?
+                volumes.get(VOLUME_SDCARD_INDEX) : null;
         mPath = null;
         mRawpath = null;
     }

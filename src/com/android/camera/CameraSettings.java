@@ -30,8 +30,6 @@ import android.hardware.Camera.Parameters;
 import android.hardware.Camera.Size;
 import android.media.CamcorderProfile;
 import android.media.MediaRecorder;
-import android.media.EncoderCapabilities;
-import android.media.EncoderCapabilities.VideoEncoderCap;
 import java.util.HashMap;
 import android.util.Log;
 
@@ -48,7 +46,6 @@ import java.util.List;
 import java.util.Locale;
 import android.os.Build;
 import java.util.StringTokenizer;
-import android.os.SystemProperties;
 
 /**
  *  Provides utilities and keys for Camera settings.
@@ -741,14 +738,6 @@ public class CameraSettings {
 
     private static List<String> getSupportedVideoEncoders() {
         ArrayList<String> supported = new ArrayList<String>();
-        String str = null;
-        List<VideoEncoderCap> videoEncoders = EncoderCapabilities.getVideoEncoders();
-        for (VideoEncoderCap videoEncoder: videoEncoders) {
-            str = VIDEO_ENCODER_TABLE.get(videoEncoder.mCodec);
-            if (str != null) {
-                supported.add(str);
-            }
-        }
         return supported;
 
     }

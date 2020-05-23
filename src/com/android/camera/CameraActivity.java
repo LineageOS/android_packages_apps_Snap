@@ -68,7 +68,6 @@ import android.os.Looper;
 import android.os.Message;
 import android.os.PowerManager;
 import android.os.PowerManager.WakeLock;
-import android.os.SystemProperties;
 import android.preference.PreferenceManager;
 import android.provider.MediaStore;
 import android.util.Log;

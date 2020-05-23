@@ -44,7 +44,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.os.SystemProperties;
 import android.os.ParcelFileDescriptor;
 import android.os.SystemClock;
 import android.provider.MediaStore;
@@ -57,8 +56,6 @@ import android.view.SurfaceHolder;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Toast;
-import android.media.EncoderCapabilities;
-import android.media.EncoderCapabilities.VideoEncoderCap;
 
 import com.android.camera.CameraManager.CameraPictureCallback;
 import com.android.camera.CameraManager.CameraProxy;
@@ -223,11 +220,9 @@ public class VideoModule implements CameraModule,
     private static final int MAX_ZOOM = 10;
     private int[] mZoomIdxTbl = {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1};
 
-    private static final boolean PERSIST_4K_NO_LIMIT =
-            android.os.SystemProperties.getBoolean("persist.camcorder.4k.nolimit", false);
+    private static final boolean PERSIST_4K_NO_LIMIT = false;
 
-    private static final int PERSIST_EIS_MAX_FPS =
-            android.os.SystemProperties.getInt("persist.camcorder.eis.maxfps", 30);
+    private static final int PERSIST_EIS_MAX_FPS = 30;
 
     private final MediaSaveService.OnMediaSavedListener mOnVideoSavedListener =
             new MediaSaveService.OnMediaSavedListener() {
@@ -993,28 +988,6 @@ public class VideoModule implements CameraModule,
     }
 
     private boolean isSessionSupportedByEncoder(int w, int h, int fps) {
-        int expectedMBsPerSec = w * h * fps;
-
-        List<VideoEncoderCap> videoEncoders = EncoderCapabilities.getVideoEncoders();
-        for (VideoEncoderCap videoEncoder: videoEncoders) {
-            if (videoEncoder.mCodec == mVideoEncoder) {
-                int maxMBsPerSec = (videoEncoder.mMaxFrameWidth * videoEncoder.mMaxFrameHeight
-                        * videoEncoder.mMaxFrameRate);
-                if (expectedMBsPerSec > maxMBsPerSec) {
-                    Log.e(TAG,"Selected codec " + mVideoEncoder
-                            + " does not support width(" + w
-                            + ") X height ("+ h
-                            + "@ " + fps +" fps");
-                    Log.e(TAG, "Max capabilities: " +
-                            "MaxFrameWidth = " + videoEncoder.mMaxFrameWidth + " , " +
-                            "MaxFrameHeight = " + videoEncoder.mMaxFrameHeight + " , " +
-                            "MaxFrameRate = " + videoEncoder.mMaxFrameRate);
-                    return false;
-                } else {
-                    return true;
-                }
-            }
-        }
         return false;
     }
 
@@ -1504,31 +1477,6 @@ public class VideoModule implements CameraModule,
         videoWidth = mProfile.videoFrameWidth;
         videoHeight = mProfile.videoFrameHeight;
         mUnsupportedResolution = false;
-
-        //check if codec supports the resolution, otherwise throw toast
-        List<VideoEncoderCap> videoEncoders = EncoderCapabilities.getVideoEncoders();
-        for (VideoEncoderCap videoEncoder: videoEncoders) {
-            if (videoEncoder.mCodec == mVideoEncoder) {
-                if (videoWidth > videoEncoder.mMaxFrameWidth ||
-                        videoWidth < videoEncoder.mMinFrameWidth ||
-                        videoHeight > videoEncoder.mMaxFrameHeight ||
-                        videoHeight < videoEncoder.mMinFrameHeight) {
-                    Log.e(TAG, "Selected codec " + mVideoEncoder +
-                            " does not support "+ videoWidth + "x" + videoHeight
-                            + " resolution");
-                    Log.e(TAG, "Codec capabilities: " +
-                            "mMinFrameWidth = " + videoEncoder.mMinFrameWidth + " , " +
-                            "mMinFrameHeight = " + videoEncoder.mMinFrameHeight + " , " +
-                            "mMaxFrameWidth = " + videoEncoder.mMaxFrameWidth + " , " +
-                            "mMaxFrameHeight = " + videoEncoder.mMaxFrameHeight);
-                    mUnsupportedResolution = true;
-                    RotateTextToast.makeText(mActivity, R.string.error_app_unsupported,
-                            Toast.LENGTH_LONG).show();
-                    return;
-                }
-                break;
-            }
-        }
 
         long requestedSizeLimit = 0;
         closeVideoFileDescriptor();
@@ -2235,9 +2183,9 @@ public class VideoModule implements CameraModule,
         //value: 1 - FLIP_MODE_H
         //value: 2 - FLIP_MODE_V
         //value: 3 - FLIP_MODE_VH
-        int preview_flip_value = SystemProperties.getInt("debug.camera.preview.flip", 0);
-        int video_flip_value = SystemProperties.getInt("debug.camera.video.flip", 0);
-        int picture_flip_value = SystemProperties.getInt("debug.camera.picture.flip", 0);
+        int preview_flip_value = 0;
+        int video_flip_value = 0;
+        int picture_flip_value = 0;
         int rotation = CameraUtil.getJpegRotation(mCameraId, mOrientation);
         mParameters.setRotation(rotation);
         if (rotation == 90 || rotation == 270) {
@@ -2398,7 +2346,7 @@ public class VideoModule implements CameraModule,
         mUnsupportedHSRVideoSize = false;
         // To set preview format as YV12 , run command
         // "adb shell setprop "debug.camera.yv12" true"
-        String yv12formatset = SystemProperties.get("debug.camera.yv12");
+        String yv12formatset = "false";
         if(yv12formatset.equals("true")) {
             Log.v(TAG, "preview format set to YV12");
             mParameters.setPreviewFormat (ImageFormat.YV12);

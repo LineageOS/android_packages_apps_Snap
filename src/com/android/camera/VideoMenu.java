@@ -90,8 +90,7 @@ public class VideoMenu extends MenuController
     private static final int CLICK_THRESHOLD = 200;
     private int previewMenuSize;
 
-    private static final boolean PERSIST_4K_NO_LIMIT =
-            android.os.SystemProperties.getBoolean("persist.camcorder.4k.nolimit", false);
+    private static final boolean PERSIST_4K_NO_LIMIT = false;
 
     public VideoMenu(CameraActivity activity, VideoUI ui) {
         super(activity);
@@ -773,8 +772,7 @@ public class VideoMenu extends MenuController
         String videoHDR = videoHDRPref == null ? "off" : videoHDRPref.getValue();
         String frameIntervalStr = frameIntervalPref.getValue();
         int timeLapseInterval = Integer.parseInt(frameIntervalStr);
-        int PERSIST_EIS_MAX_FPS =  android.os.SystemProperties
-                .getInt("persist.camcorder.eis.maxfps", 30);
+        int PERSIST_EIS_MAX_FPS =  30;
         ListPreference hfrPref = mPreferenceGroup
                 .findPreference(CameraSettings.KEY_VIDEO_HIGH_FRAME_RATE);
         String highFrameRate;

@@ -603,7 +603,7 @@ public class WideAnglePanoramaUI implements
             Rect bounds = getBounds();
             int cx = bounds.centerX();
             int cy = bounds.centerY();
-            canvas.save(Canvas.MATRIX_SAVE_FLAG);
+            //canvas.save(Canvas.MATRIX_SAVE_FLAG);
             canvas.rotate(180, cx, cy);
             super.draw(canvas);
             canvas.restore();

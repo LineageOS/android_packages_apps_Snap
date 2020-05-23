@@ -30,6 +30,7 @@ package com.android.camera.util;
 
 import android.hardware.camera2.CameraMetadata;
 import android.media.MediaCodecInfo;
+import android.media.MediaFormat;
 import android.media.MediaRecorder;
 
 import java.util.HashMap;
@@ -41,6 +42,8 @@ public class SettingTranslation {
     private static final TwoWayMap AUDIO_ENCODER_TABLE = new TwoWayMap();
     private static final TwoWayMap NOISE_REDUCTION_TABLE = new TwoWayMap();
     private static final TwoWayMap VIDEO_ENCODER_PROFILE_TABLE = new TwoWayMap();
+    private static final TwoWayMap VIDEO_ENCODER_TYPE_TABLE =
+            new TwoWayMap();
 
     static {
         VIDEO_ENCODER_TABLE.put("default", MediaRecorder.VideoEncoder.DEFAULT);
@@ -76,6 +79,22 @@ public class SettingTranslation {
                 MediaCodecInfo.CodecProfileLevel.HEVCProfileMain10HDR10);
         VIDEO_ENCODER_PROFILE_TABLE.put("HEVCProfileMain10HDR10",
                 MediaCodecInfo.CodecProfileLevel.HEVCProfileMain10HDR10);
+        VIDEO_ENCODER_TYPE_TABLE.put(MediaFormat.MIMETYPE_VIDEO_AVC,
+                MediaRecorder.VideoEncoder.H264);
+        VIDEO_ENCODER_TYPE_TABLE.put(MediaFormat.MIMETYPE_VIDEO_H263,
+                MediaRecorder.VideoEncoder.H263);
+        VIDEO_ENCODER_TYPE_TABLE.put(MediaFormat.MIMETYPE_VIDEO_HEVC,
+                MediaRecorder.VideoEncoder.HEVC);
+        VIDEO_ENCODER_TYPE_TABLE.put(MediaFormat.MIMETYPE_VIDEO_MPEG4,
+                MediaRecorder.VideoEncoder.MPEG_4_SP);
+    }
+
+    public static int getVideoEncoderType(String key){
+        return VIDEO_ENCODER_TYPE_TABLE.get(key);
+    }
+
+    public static String getVideoEncoderType(int key){
+        return VIDEO_ENCODER_TYPE_TABLE.get(key);
     }
 
     public static int getVideoEncoder(String key) {

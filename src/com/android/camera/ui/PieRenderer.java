@@ -30,7 +30,6 @@ import android.graphics.PointF;
 import android.graphics.RectF;
 import android.os.Handler;
 import android.os.Message;
-import android.util.FloatMath;
 import android.view.MotionEvent;
 import android.view.ViewConfiguration;
 import android.view.animation.Animation;
@@ -387,7 +386,7 @@ public class PieRenderer extends OverlayRenderer
     }
 
     private void layoutLabel(int level) {
-        int x = mPieCenterX - (int) (FloatMath.sin(mCenterAngle - CENTER)
+        int x = mPieCenterX - (int) (Math.sin(mCenterAngle - CENTER)
                 * (mArcRadius + (level + 2) * mRadiusInc));
         int y = mArcCenterY - mArcRadius - (level + 2) * mRadiusInc;
         int w = mLabel.getIntrinsicWidth();
