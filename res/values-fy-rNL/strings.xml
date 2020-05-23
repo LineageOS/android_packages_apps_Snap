@@ -43,7 +43,7 @@
         <item quantity="one">%1$d selektearre</item>
         <item quantity="other">%1$d selektearre</item>
     </plurals>
-    <string name="show_on_map">Op kaart werjaan</string>
+    <string name="show_on_map">Op kaart toane</string>
     <string name="rotate_left">Linksom draaie</string>
     <string name="rotate_right">Rjochtsom draaie</string>
     <string name="edit">Bewurkje</string>

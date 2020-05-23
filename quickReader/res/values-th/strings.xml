@@ -15,4 +15,11 @@
 -->
 <resources>
     <string name="quick_reader_action_dismiss">ยกเลิก</string>
+    <string name="quick_reader_permission_rationale_positive">ถามอีกครั้ง</string>
+    <string name="quick_reader_permission_fatal_positive">เปิดการตั้งค่า</string>
+    <string name="quick_reader_scanned_text_positive">คัดลอก</string>
+    <string name="quick_reader_scanned_text_negative">แชร์</string>
+    <string name="quick_reader_share_title">แชร์กับ\u2026</string>
+    <string name="quick_reader_copied_message">ถูกคัดลอกไปยังคลิปบอร์ด</string>
+    <string name="quick_reader_only_unlocked">การกระทำนี้สามารถทำได้เมื่อปลดล็อกอุปกรณ์เท่านั้น</string>
 </resources>

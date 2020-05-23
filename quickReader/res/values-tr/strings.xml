@@ -27,4 +27,5 @@
     <string name="quick_reader_scanned_text_negative">Paylaş</string>
     <string name="quick_reader_share_title">\u2026 ile paylaş</string>
     <string name="quick_reader_copied_message">Panoya kopyalandı</string>
+    <string name="quick_reader_only_unlocked">Bu işlem sadece cihazın kilidi açıksa gerçekleştirilebilir.</string>
 </resources>
