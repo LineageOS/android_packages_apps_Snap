@@ -778,6 +778,13 @@ public class VideoModule implements CameraModule,
                 setFlipValue();
                 updatePowerMode();
                 mCameraDevice.setParameters(mParameters);
+ 
+                AudioManager am = (AudioManager)mActivity.getSystemService(Context.AUDIO_SERVICE);
+                int rotation = newOrientation;
+                if (rotation == 90 || rotation == 270) {
+                    rotation = (newOrientation + 180) % 360;
+                }
+                am.setParameters("rotation=" + rotation);
             }
             mUI.tryToCloseSubList();
             mUI.setOrientation(newOrientation, true);
