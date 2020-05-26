@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1da95cd0_d5c98c64",
+        "filename": "src/com/android/camera/VideoModule.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 781,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2020-05-26T10:09:28Z",
+      "side": 1,
+      "message": "Stray space.",
+      "range": {
+        "startLine": 781,
+        "startChar": 0,
+        "endLine": 781,
+        "endChar": 1
+      },
+      "revId": "f1a5e7e1019b0ed37868dcbeadf7aeabdb49638d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
