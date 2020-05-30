@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bb9db8ca_3cb459b3",
+        "filename": "src/com/android/camera/VideoModule.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 782,
+      "author": {
+        "id": 8461
+      },
+      "writtenOn": "2020-05-30T11:46:38Z",
+      "side": 1,
+      "message": "AudioManager.class",
+      "range": {
+        "startLine": 782,
+        "startChar": 75,
+        "endLine": 782,
+        "endChar": 96
+      },
+      "revId": "20deb51016472c860f084c66133013660feb48b2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "faddecc5_0313962b",
+        "filename": "src/com/android/camera/VideoModule.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 782,
+      "author": {
+        "id": 8461
+      },
+      "writtenOn": "2020-05-30T11:46:38Z",
+      "side": 1,
+      "message": "Once you change the parameter, this cast will be useless",
+      "range": {
+        "startLine": 782,
+        "startChar": 35,
+        "endLine": 782,
+        "endChar": 47
+      },
+      "revId": "20deb51016472c860f084c66133013660feb48b2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "96dd7aa4_8d949fdf",
+        "filename": "src/com/android/camera/VideoModule.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 787,
+      "author": {
+        "id": 8461
+      },
+      "writtenOn": "2020-05-30T11:46:38Z",
+      "side": 1,
+      "message": "Check for null am",
+      "range": {
+        "startLine": 787,
+        "startChar": 16,
+        "endLine": 787,
+        "endChar": 18
+      },
+      "revId": "20deb51016472c860f084c66133013660feb48b2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
