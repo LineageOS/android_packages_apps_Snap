@@ -596,6 +596,19 @@ public class SettingsManager implements ListMenu.SettingsListener {
         return supportted;
     }
 
+    public boolean isSwMctfSupported() {
+        boolean supportted = false;
+        try {
+            supportted =
+                    (mCharacteristics.get(mCameraId).get(CaptureModule.swmctf) == 1);
+        } catch (IllegalArgumentException e) {
+            Log.d(TAG, "swmctf no vendor tag");
+            supportted = true;
+        }
+        Log.i(TAG,"isSwMctfSupported:" + supportted);
+        return supportted;
+    }
+
     public boolean isCameraFDSupported(){
         boolean isCameraFDSupported = false;
         isCameraFDSupported = PersistUtil.isCameraFDSupported();
