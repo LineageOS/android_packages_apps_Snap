@@ -4281,7 +4281,7 @@ public class CaptureModule implements CameraModule, PhotoController,
             }
         } else {
             if (mState[getMainCameraId()] == STATE_WAITING_TOUCH_FOCUS ||
-                    mState[getMainCameraId()] == STATE_PREVIEW) {
+                    mState[getMainCameraId()] == STATE_PREVIEW || mLockAFAE) {
                 cancelTouchFocus(getMainCameraId());
             }
         }
@@ -4483,6 +4483,9 @@ public class CaptureModule implements CameraModule, PhotoController,
                 + (resumeFromRestartAll ? " isResumeFromRestartAll" : ""));
         if(mCurrentSceneMode.mode == CameraMode.VIDEO){
             enableVideoButton(false);//disable the video button before media recorder is ready
+        }
+        if (mCurrentSceneMode.mode != CameraMode.HFR){
+            mHighSpeedCapture = false;
         }
         checkRTBCameraId();
         if (!isBackCamera() && !frontIsAllowed()) {
@@ -8311,7 +8314,7 @@ public class CaptureModule implements CameraModule, PhotoController,
         }
         if(mLockAFAE) {
             mLockAFAE = false;
-            unlockFocus(mCurrentSceneMode.getCurrentId());
+            applySettingsForUnlockExposure(mPreviewRequestBuilder[CURRENT_ID], CURRENT_ID);
             updateLockAFAEVisibility();
         }
         onPauseBeforeSuper();
