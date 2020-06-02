@@ -4943,7 +4943,7 @@ public class CaptureModule implements CameraModule, PhotoController,
                 int[] contourPoints = captureResult.get(CaptureModule.contourPoints);
                 if (BSGC_DEBUG)
                     Log.d(BSGC_TAG,"contourPoints="+Arrays.toString(contourPoints));
-                int[] landmarkPoints = captureResult.get(CaptureResult.STATISTICS_FACE_LANDMARKS);
+                int[] landmarkPoints = null;//captureResult.get(CaptureResult.STATISTICS_FACE_LANDMARKS);
                 if (BSGC_DEBUG)
                     Log.d(BSGC_TAG,"landmarkPoints="+Arrays.toString(landmarkPoints));
                 ExtendedFace tmp;
