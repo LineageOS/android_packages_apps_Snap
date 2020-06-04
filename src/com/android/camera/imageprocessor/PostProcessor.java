@@ -782,6 +782,7 @@ public class PostProcessor{
         mSavingHander = new ProcessorHandler(mSavingHandlerThread.getLooper());
 
         mWatchdog = new WatchdogThread();
+        Log.i(TAG,"start watch dog");
         mWatchdog.start();
     }
 
@@ -867,6 +868,7 @@ public class PostProcessor{
                 mSavingHandlerThread = null;
                 mSavingHander = null;
             }
+            Log.i(TAG,"stop watch dog, " + mWatchdog);
             if(mWatchdog != null) {
                 mWatchdog.kill();
                 mWatchdog = null;
