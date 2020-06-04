@@ -567,7 +567,7 @@ public class SettingsManager implements ListMenu.SettingsListener {
         boolean isBurstShotSupported = true;
         try {
             isBurstShotSupported = mCharacteristics.get(mCameraId).get(CaptureModule.is_burstshot_supported) == 1 ? true : false;
-        } catch (IllegalArgumentException e) {
+        } catch (IllegalArgumentException | NullPointerException e) {
             Log.e(TAG, "isBurstShotSupported no vendor tag");
         }
         return isBurstShotSupported;
@@ -589,7 +589,7 @@ public class SettingsManager implements ListMenu.SettingsListener {
         try {
             supportted =
                     (mCharacteristics.get(mCameraId).get(CaptureModule.is_t2t_supported) == 1);
-        } catch (IllegalArgumentException e) {
+        } catch (IllegalArgumentException | NullPointerException e) {
             Log.d(TAG, "isT2TSupported no vendor tag");
             supportted = true;
         }
@@ -603,7 +603,7 @@ public class SettingsManager implements ListMenu.SettingsListener {
             try {
                 isCameraFDSupported =
                         mCharacteristics.get(mCameraId).get(CaptureModule.is_camera_fd_supported) == 1;
-            } catch (IllegalArgumentException e) {
+            } catch (IllegalArgumentException | NullPointerException e) {
                 if (DEBUG) {
                     Log.w(TAG, "isCameraFDSupported no vendor tag");
                 }
@@ -617,7 +617,7 @@ public class SettingsManager implements ListMenu.SettingsListener {
         int maxBurstShotFPS = 0;
         try {
             maxBurstShotFPS = mCharacteristics.get(mCameraId).get(CaptureModule.max_burstshot_fps);
-        } catch (IllegalArgumentException e) {
+        } catch (IllegalArgumentException | NullPointerException e) {
             Log.e(TAG, "getmaxBurstShotFPS no vendorTag maxBurstShotFPS:");
         }
         return maxBurstShotFPS;
@@ -627,7 +627,7 @@ public class SettingsManager implements ListMenu.SettingsListener {
         int[] maxPreviewSize = null;
         try {
             maxPreviewSize = mCharacteristics.get(mCameraId).get(CaptureModule.max_preview_size);
-        } catch (IllegalArgumentException e) {
+        } catch (IllegalArgumentException | NullPointerException e) {
             Log.e(TAG, "getMaxPreviewSize no vendorTag max_preview_size:");
         }
         return maxPreviewSize;
@@ -637,7 +637,7 @@ public class SettingsManager implements ListMenu.SettingsListener {
         boolean isLiveshotSizeSameAsVideoSize = false;
         try {
             isLiveshotSizeSameAsVideoSize = mCharacteristics.get(mCameraId).get(CaptureModule.is_liveshot_size_same_as_video) == 1 ? true : false;
-        } catch (IllegalArgumentException e) {
+        } catch (IllegalArgumentException | NullPointerException e) {
             Log.e(TAG, "isLiveshotSizeSameAsVideoSize no vendorTag isLiveshotSizeSameAsVideoSize:");
         }
         return isLiveshotSizeSameAsVideoSize;
