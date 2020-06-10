@@ -6235,7 +6235,7 @@ public class CaptureModule implements CameraModule, PhotoController,
                             mCaptureCallback, mCameraHandler);
                 }
             }
-        } catch (CameraAccessException | IllegalStateException | NullPointerException e) {
+        } catch (CameraAccessException | IllegalStateException | NullPointerException | IllegalArgumentException e) {
             e.printStackTrace();
         }
     }
