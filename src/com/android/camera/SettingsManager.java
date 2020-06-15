@@ -1841,7 +1841,7 @@ public class SettingsManager implements ListMenu.SettingsListener {
         if(!isFDRenderingInVideoUISupported) {
             try {
                 isFDRenderingInVideoUISupported = mCharacteristics.get(mCameraId).get(CaptureModule.is_FD_Rendering_In_Video_UI_Supported) == 1;
-            } catch (IllegalArgumentException e) {
+            } catch (IllegalArgumentException | NullPointerException e) {
                 isFDRenderingInVideoUISupported = true;
                 if (DEBUG) {
                     Log.w(TAG, "isFDRenderingInVideoUISupported no vendorTag isFDRenderingInVideoUISupported:");
@@ -2644,7 +2644,7 @@ public class SettingsManager implements ListMenu.SettingsListener {
             Log.i(TAG,"mfnr type:" + mCharacteristics.get(mCameraId).get(CaptureModule.mfnr_type));
             Log.i(TAG,"total space:" + Storage.getTotalSpace());
             isSWMFNRSupported = isSWMFNRSupported && (Storage.getTotalSpace() > 2*1024*1024);
-        } catch (IllegalArgumentException e) {
+        } catch (IllegalArgumentException| NullPointerException e) {
             Log.d(TAG, "isSWMFNRSupported no vendor tag");
         }
         return isSWMFNRSupported;
