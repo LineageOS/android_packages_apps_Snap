@@ -14,9 +14,15 @@
      limitations under the License.
 -->
 <resources>
+    <string name="accessibility_switch_to_qr">ตัวอ่าน QR</string>
     <string name="quick_reader_action_dismiss">ยกเลิก</string>
+    <string name="quick_reader_no_activity_found">แอปที่ติดตั้งไม่สามารถเปิดเนื้อหานี้ได้</string>
+    <string name="quick_reader_permission_error_title">เกิดข้อผิดพลาดในการอนุญาต</string>
+    <string name="quick_reader_permission_rationale_message">จำเป็นต้องมีการเข้าถึงกล้องเพื่อสแกนบาร์โค้ด</string>
     <string name="quick_reader_permission_rationale_positive">ถามอีกครั้ง</string>
+    <string name="quick_reader_permission_fatal_message">การเข้าถึงกล้องถูกปฏิเสธ โปรดอนุญาตจากการตั้งค่าของแอพ</string>
     <string name="quick_reader_permission_fatal_positive">เปิดการตั้งค่า</string>
+    <string name="quick_reader_scanned_text_title">ข้อความที่สแกน</string>
     <string name="quick_reader_scanned_text_positive">คัดลอก</string>
     <string name="quick_reader_scanned_text_negative">แชร์</string>
     <string name="quick_reader_share_title">แชร์กับ\u2026</string>

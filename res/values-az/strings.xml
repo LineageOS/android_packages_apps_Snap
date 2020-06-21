@@ -55,7 +55,7 @@
     <string name="title">Başlıq</string>
     <string name="description">Açıqlama</string>
     <string name="time">Vaxt</string>
-    <string name="location">Yer</string>
+    <string name="location">Yerləşmə</string>
     <string name="path">Yol</string>
     <string name="width">En</string>
     <string name="height">Hündürlük</string>
@@ -95,7 +95,7 @@
     <string name="pref_camera_id_entry_back">Arxa</string>
     <string name="pref_camera_id_entry_front">Ön</string>
     <string name="pref_camera_recordlocation_title">GPS yer təyini</string>
-    <string name="pref_camera_location_label">YER</string>
+    <string name="pref_camera_location_label">YERLƏŞMƏ</string>
     <string name="pref_camera_timer_title">Geri sayma taymeri</string>
     <plurals name="pref_camera_timer_entry">
         <item quantity="one">1 saniyə</item>

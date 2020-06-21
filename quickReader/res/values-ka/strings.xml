@@ -17,4 +17,5 @@
     <string name="accessibility_switch_to_qr">QR-წამკითხავი</string>
     <string name="quick_reader_permission_fatal_positive">პარამეტრების გახსნა</string>
     <string name="quick_reader_scanned_text_negative">გაზიარება</string>
+    <string name="quick_reader_only_unlocked">ეს მოქმედება, მხოლოდ გახსნილ მოწყობილობაზე შეიძლება შესრულდეს</string>
 </resources>
