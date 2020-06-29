@@ -3188,7 +3188,9 @@ public class CaptureModule implements CameraModule, PhotoController,
                     }
                 }
             } else {
-                captureBuilder.addTarget(mVideoSnapshotImageReader.getSurface());
+                if(mVideoSnapshotImageReader != null) {
+                    captureBuilder.addTarget(mVideoSnapshotImageReader.getSurface());
+                }
             }
             // send snapshot stream together with preview and video stream for snapshot request
             // stream is the surface for the app
