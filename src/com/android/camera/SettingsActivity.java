@@ -1269,7 +1269,9 @@ public class SettingsActivity extends PreferenceActivity {
         int flashValue = mSettingsManager.getValueIndex(key);
         ListPreference mfnrPref = (ListPreference) findPreference(SettingsManager.KEY_CAPTURE_MFNR_VALUE);
 
-        if (mfnrPref != null && (flashValue != 0 && flashValue != -1) && (mode != CaptureModule.CameraMode.RTB && mode != CaptureModule.CameraMode.SAT)) {
+        if (mfnrPref != null && (flashValue != 0 && flashValue != -1) &&
+            (mode != CaptureModule.CameraMode.RTB && mode != CaptureModule.CameraMode.SAT) &&
+            mSettingsManager.isSWMFNRSupported()) {
             mfnrPref.setEnabled(false);
         }
     }
