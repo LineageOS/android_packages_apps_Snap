@@ -3050,12 +3050,14 @@ public class CaptureModule implements CameraModule, PhotoController,
         if(calculateMaxFps() > 0){
             burstShotFpsNums = (int)(30/calculateMaxFps()) - 1;
         }
-        burstShotFpsNums = PersistUtil.isBurstShotFpsNums() > 0 ? PersistUtil.isBurstShotFpsNums() : burstShotFpsNums;
+        burstShotFpsNums = PersistUtil.isBurstShotFpsNums() > 1 ? PersistUtil.isBurstShotFpsNums() : burstShotFpsNums;
         int totalNums = (int)(PersistUtil.getLongshotShotLimit()/(burstShotFpsNums + 1));
         CaptureRequest.Builder builder = getRequestBuilder(id);
         addPreviewSurface(builder, null, id);
         applyCommonSettings(builder, id);
         applyFlash(builder, id);
+        if(totalNums < 60) totalNums = totalNums *2;
+        if (DEBUG) Log.i(TAG,"burstShotFpsNums:" + burstShotFpsNums + ",totalNums:" + totalNums);
         for (int i = 0; i < totalNums; i++) {
             for (int j = 0; j < burstShotFpsNums; j++) {
                 builder.setTag("preview");
@@ -3188,7 +3190,9 @@ public class CaptureModule implements CameraModule, PhotoController,
                     }
                 }
             } else {
-                captureBuilder.addTarget(mVideoSnapshotImageReader.getSurface());
+                if(mVideoSnapshotImageReader != null) {
+                    captureBuilder.addTarget(mVideoSnapshotImageReader.getSurface());
+                }
             }
             // send snapshot stream together with preview and video stream for snapshot request
             // stream is the surface for the app
