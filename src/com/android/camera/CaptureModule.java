@@ -6488,6 +6488,7 @@ public class CaptureModule implements CameraModule, PhotoController,
         mMediaRecorder.reset();
 
         updateHFRSetting();
+        mHighSpeedCapture = mHighSpeedCapture && (myExtras == null); //MMS not support high speed
         boolean hfr = mHighSpeedCapture && !mHighSpeedRecordingMode;
 
         if (CamcorderProfile.hasProfile(cameraId, size)) {

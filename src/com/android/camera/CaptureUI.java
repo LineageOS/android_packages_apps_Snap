@@ -1113,7 +1113,7 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
 
     public void showRecordingUI(boolean recording, boolean highspeed) {
         //this is handled in child thread, but mode has changed
-        if(mModule.CURRENT_MODE == CaptureModule.CameraMode.DEFAULT){
+        if(mModule.CURRENT_MODE == CaptureModule.CameraMode.DEFAULT && getCurrentIntentMode() != CaptureModule.INTENT_MODE_VIDEO){
             return;
         }
         if (recording) {
