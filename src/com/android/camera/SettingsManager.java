@@ -46,6 +46,7 @@ import android.media.MediaCodecList;
 import android.media.MediaFormat;
 import android.media.MediaRecorder;
 import android.media.CamcorderProfile;
+import android.os.Build;
 import android.preference.PreferenceManager;
 import android.util.Log;
 import android.util.Range;
@@ -257,6 +258,7 @@ public class SettingsManager implements ListMenu.SettingsListener {
     private Map<String,VideoEisConfig> mVideoEisConfigs;
     private ArrayList<String> mPrepNameKeys;
     private float mZoomMaxValue;
+    private boolean mHeifWriterSupported = false;
 
     private static Map<String, Set<String>> VIDEO_ENCODER_PROFILE_TABLE = new HashMap<>();
 
@@ -341,6 +343,7 @@ public class SettingsManager implements ListMenu.SettingsListener {
         }
 
         mDependency = parseJson("dependency.json");
+        mHeifWriterSupported = isHeifWriterSupported();
     }
 
     public static SettingsManager createInstance(Context context) {
@@ -2448,14 +2451,23 @@ public class SettingsManager implements ListMenu.SettingsListener {
         return Integer.valueOf(value);
     }
 
-    public boolean isHeifWriterEncoding() {
-        //disable on android P
+    public boolean isHeifWriterSupported() {
+        String product = Build.PRODUCT;
+        switch (product) {
+            case "atoll" :
+            case "msmnile" :
+            case "sm6150" :
+                return true;
+        }
         return false;
     }
 
+    public boolean isHeifWriterEncoding() {
+        return getSavePictureFormat() == HEIF_FORMAT && mHeifWriterSupported;
+    }
+
     public boolean isHeifHALEncoding() {
-        //HAL encoding by default on Android Q
-        return getSavePictureFormat() == HEIF_FORMAT;
+        return getSavePictureFormat() == HEIF_FORMAT && !mHeifWriterSupported;
     }
 
     public List<String> getSupportedPictureFormat(int cameraId) {
