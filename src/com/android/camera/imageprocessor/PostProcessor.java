@@ -1191,7 +1191,7 @@ public class PostProcessor{
                             }
                         }
 
-                        if(isSelfieMirrorOn() && !mController.isBackCamera()) {
+                        if(isSelfieMirrorOn() && !mController.isBackCamera() && mIsSupported) {
                             boolean isVertical = true;
                             if (mOrientation == 0 || mOrientation == 180) {
                                 isVertical = false;
