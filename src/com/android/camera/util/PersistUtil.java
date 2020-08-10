@@ -149,7 +149,8 @@ public class PersistUtil {
             getBoolean("persist.sys.camera.trace",false);
     private static final boolean PERSIST_CAM_FD_SUPPORTED =
             getBoolean("persist.sys.camera.isCamFDSupported", false);
-
+    private static final int PERSIST_MCTF_VALUE =
+            getInt("persist.sys.camera.sessionParameters.mctf", 0);
 
 
     public static int getMemoryLimit() {
@@ -431,4 +432,8 @@ public class PersistUtil {
     public static boolean isTraceEnable() {return PERSIST_TRACE_ENABLE;};
 
     public static boolean isCameraFDSupported() {return PERSIST_CAM_FD_SUPPORTED; }
+
+    public static int mctfValue() {
+        return PERSIST_MCTF_VALUE;
+    }
 }

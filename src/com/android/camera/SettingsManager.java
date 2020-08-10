@@ -596,6 +596,19 @@ public class SettingsManager implements ListMenu.SettingsListener {
         return supportted;
     }
 
+    public boolean isSwMctfSupported() {
+        boolean supportted = false;
+        try {
+            supportted =
+                    (mCharacteristics.get(mCameraId).get(CaptureModule.swmctf) == 1);
+        } catch (IllegalArgumentException e) {
+            Log.d(TAG, "swmctf no vendor tag");
+            supportted = true;
+        }
+        Log.i(TAG,"isSwMctfSupported:" + supportted);
+        return supportted;
+    }
+
     public boolean isCameraFDSupported(){
         boolean isCameraFDSupported = false;
         isCameraFDSupported = PersistUtil.isCameraFDSupported();
@@ -613,8 +626,8 @@ public class SettingsManager implements ListMenu.SettingsListener {
         return isCameraFDSupported;
     }
 
-    public int getmaxBurstShotFPS(){
-        int maxBurstShotFPS = 0;
+    public float getmaxBurstShotFPS(){
+        float maxBurstShotFPS = 0;
         try {
             maxBurstShotFPS = mCharacteristics.get(mCameraId).get(CaptureModule.max_burstshot_fps);
         } catch (IllegalArgumentException | NullPointerException e) {
