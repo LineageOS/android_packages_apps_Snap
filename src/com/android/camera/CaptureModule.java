@@ -2818,7 +2818,9 @@ public class CaptureModule implements CameraModule, PhotoController,
 
             CaptureRequest.Builder captureBuilder = getRequestBuilder(
                     CameraDevice.TEMPLATE_STILL_CAPTURE,id);
-
+            if(mLockAFAE){
+                applySettingsForLockExposure(captureBuilder, id);
+            }
             if (mSettingsManager.isZSLInHALEnabled() || isActionImageCapture()) {
                 captureBuilder.set(CaptureRequest.CONTROL_ENABLE_ZSL, true);
             } else {
@@ -3193,6 +3195,9 @@ public class CaptureModule implements CameraModule, PhotoController,
             captureBuilder.set(CaptureRequest.JPEG_THUMBNAIL_SIZE, mVideoSnapshotThumbSize);
             captureBuilder.set(CaptureRequest.JPEG_THUMBNAIL_QUALITY, (byte)80);
             applyVideoSnapshot(captureBuilder, id);
+            if(mLockAFAE) {
+                applySettingsForLockExposure(captureBuilder, id);
+            }
             applyZoom(captureBuilder, id);
             if (mHighSpeedCapture) {
                 captureBuilder.set(CaptureRequest.CONTROL_AE_TARGET_FPS_RANGE,
@@ -3682,15 +3687,19 @@ public class CaptureModule implements CameraModule, PhotoController,
             if(!mLockAFAE) {
                 mControlAFMode = CaptureRequest.CONTROL_AF_MODE_CONTINUOUS_PICTURE;
                 mIsAutoFocusStarted = false;
+            }
+            applyFlash(mPreviewRequestBuilder[id], id);
+            if(!mLockAFAE) {
                 applySettingsForUnlockExposure(mPreviewRequestBuilder[id], id);
+            }
+            if (mSettingsManager.isDeveloperEnabled()) {
+                applyCommonSettings(mPreviewRequestBuilder[id], id);
+            }
+            if(!mLockAFAE) {
                 int afMode = (mSettingsManager.isDeveloperEnabled() && getDevAfMode() != -1) ?
                         getDevAfMode() : mControlAFMode;
                 setAFModeToPreview(id, mUI.getCurrentProMode() == ProMode.MANUAL_MODE ?
                         CaptureRequest.CONTROL_AF_MODE_OFF : afMode);
-            }
-            applyFlash(mPreviewRequestBuilder[id], id);
-            if (mSettingsManager.isDeveloperEnabled()) {
-                applyCommonSettings(mPreviewRequestBuilder[id], id);
             }
             mTakingPicture[id] = false;
             enableShutterAndVideoOnUiThread(id,false);
