@@ -525,7 +525,6 @@ public class SettingsManager implements ListMenu.SettingsListener {
 
     private String[] getEntryValues(int id) {
         return mContext.getResources().getStringArray(id);
-
     }
 
     public List<String> getSupportList(List<String> supported, String[] supportList) {
