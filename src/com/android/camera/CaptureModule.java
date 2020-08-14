@@ -4507,7 +4507,8 @@ public class CaptureModule implements CameraModule, PhotoController,
         Log.d(TAG, "onResume " + (mCurrentSceneMode != null ? mCurrentSceneMode.mode : "null")
                 + (resumeFromRestartAll ? " isResumeFromRestartAll" : ""));
         reinit();
-        if(mCurrentSceneMode.mode == CameraMode.VIDEO){
+        if(mCurrentSceneMode.mode == CameraMode.VIDEO ||
+                mCurrentSceneMode.mode == CameraMode.HFR){
             enableVideoButton(false);//disable the video button before media recorder is ready
         }
         if (mCurrentSceneMode.mode != CameraMode.HFR){
