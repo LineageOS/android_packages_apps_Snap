@@ -604,7 +604,7 @@ public class SettingsManager implements ListMenu.SettingsListener {
         try {
             supportted =
                     (mCharacteristics.get(mCameraId).get(CaptureModule.swmctf) == 1);
-        } catch (IllegalArgumentException e) {
+        } catch (IllegalArgumentException | NullPointerException e) {
             Log.d(TAG, "swmctf no vendor tag");
             supportted = true;
         }
