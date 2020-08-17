@@ -3822,11 +3822,20 @@ public class CaptureModule implements CameraModule, PhotoController,
             if (null != mCaptureSession[i]) {
                 if (mCamerasOpened) {
                     try {
-                        mCaptureSession[i].capture(mPreviewRequestBuilder[i].build(), null,
-                                mCameraHandler);
+                        if (mCurrentSession instanceof CameraConstrainedHighSpeedCaptureSession) {
+                            List requestList = ((CameraConstrainedHighSpeedCaptureSession)
+                                    mCurrentSession).createHighSpeedRequestList(
+                                            mVideoRecordRequestBuilder.build());
+                            mCurrentSession.captureBurst(requestList, null, mCameraHandler);
+                        } else {
+                            mCaptureSession[i].capture(mPreviewRequestBuilder[i].build(), null,
+                                    mCameraHandler);
+                        }
                     } catch (CameraAccessException e) {
                         e.printStackTrace();
                     } catch (IllegalStateException e) {
+                        e.printStackTrace();
+                    } catch (IllegalArgumentException e) {
                         e.printStackTrace();
                     }
                 }
