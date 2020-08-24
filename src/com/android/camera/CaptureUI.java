@@ -789,6 +789,16 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
         });
     }
 
+    public void updateCameraSwitchEnable(boolean enable) {
+        mActivity.runOnUiThread(new Runnable() {
+            public void run() {
+                if(mFrontBackSwitcher != null) {
+                    mFrontBackSwitcher.setEnabled(enable);
+                }
+            }
+        });
+    }
+
     public void updateAECInfoVisibility(int visibility) {
         mActivity.runOnUiThread(new Runnable() {
             public void run() {

@@ -1047,8 +1047,10 @@ public class CaptureModule implements CameraModule, PhotoController,
                     if (mCurrentSession != null) {
                         List requestList = ((CameraConstrainedHighSpeedCaptureSession) mCurrentSession)
                                 .createHighSpeedRequestList(mPreviewRequestBuilder[id].build());
-                        mCurrentSession.setRepeatingBurst(requestList, mCaptureCallback,
-                                mCameraHandler);
+                        if (mCurrentSession != null) {
+                            mCurrentSession.setRepeatingBurst(requestList, mCaptureCallback,
+                                    mCameraHandler);
+                        }
                     }
                 } else {
                     if (mCurrentSession != null) {
@@ -4515,7 +4517,10 @@ public class CaptureModule implements CameraModule, PhotoController,
     private void onResumeAfterSuper(boolean resumeFromRestartAll) {
         Log.d(TAG, "onResume " + (mCurrentSceneMode != null ? mCurrentSceneMode.mode : "null")
                 + (resumeFromRestartAll ? " isResumeFromRestartAll" : ""));
-        if(mCurrentSceneMode.mode == CameraMode.VIDEO){
+        reinit();
+        setCameraModeSwitcherAllowed(false);
+        if(mCurrentSceneMode.mode == CameraMode.VIDEO ||
+                mCurrentSceneMode.mode == CameraMode.HFR){
             enableVideoButton(false);//disable the video button before media recorder is ready
         }
         if (mCurrentSceneMode.mode != CameraMode.HFR){
@@ -9035,6 +9040,7 @@ public class CaptureModule implements CameraModule, PhotoController,
 
     public void setCameraModeSwitcherAllowed(boolean allow) {
         mCameraModeSwitcherAllowed = allow;
+        mUI.updateCameraSwitchEnable(allow);
     }
 
     public boolean getCameraModeSwitcherAllowed() {
