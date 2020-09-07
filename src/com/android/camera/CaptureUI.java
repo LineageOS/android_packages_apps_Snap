@@ -789,6 +789,16 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
         });
     }
 
+    public void updateCameraSwitchEnable(boolean enable) {
+        mActivity.runOnUiThread(new Runnable() {
+            public void run() {
+                if(mFrontBackSwitcher != null) {
+                    mFrontBackSwitcher.setEnabled(enable);
+                }
+            }
+        });
+    }
+
     public void updateAECInfoVisibility(int visibility) {
         mActivity.runOnUiThread(new Runnable() {
             public void run() {
@@ -1113,7 +1123,7 @@ public class CaptureUI implements FocusOverlayManager.FocusUI,
 
     public void showRecordingUI(boolean recording, boolean highspeed) {
         //this is handled in child thread, but mode has changed
-        if(mModule.CURRENT_MODE == CaptureModule.CameraMode.DEFAULT){
+        if(mModule.CURRENT_MODE == CaptureModule.CameraMode.DEFAULT && getCurrentIntentMode() != CaptureModule.INTENT_MODE_VIDEO){
             return;
         }
         if (recording) {

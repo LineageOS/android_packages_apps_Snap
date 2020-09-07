@@ -782,6 +782,7 @@ public class PostProcessor{
         mSavingHander = new ProcessorHandler(mSavingHandlerThread.getLooper());
 
         mWatchdog = new WatchdogThread();
+        Log.i(TAG,"start watch dog");
         mWatchdog.start();
     }
 
@@ -867,6 +868,7 @@ public class PostProcessor{
                 mSavingHandlerThread = null;
                 mSavingHander = null;
             }
+            Log.i(TAG,"stop watch dog, " + mWatchdog);
             if(mWatchdog != null) {
                 mWatchdog.kill();
                 mWatchdog = null;
@@ -1191,7 +1193,7 @@ public class PostProcessor{
                             }
                         }
 
-                        if(isSelfieMirrorOn() && !mController.isBackCamera()) {
+                        if(isSelfieMirrorOn() && !mController.isBackCamera() && mIsSupported) {
                             boolean isVertical = true;
                             if (mOrientation == 0 || mOrientation == 180) {
                                 isVertical = false;
