@@ -94,8 +94,8 @@
     <string name="pref_camera_selfiemirror_entry_enable">Omogoči</string>
     <string name="pref_camera_selfiemirror_entry_disable">Onemogoči</string>
     <string name="pref_camera_shuttersound_title">Zvok sprožilca</string>
-    <string name="pref_camera_shuttersound_entry_enable">Omogočen</string>
-    <string name="pref_camera_shuttersound_entry_disable">Onemogočen</string>
+    <string name="pref_camera_shuttersound_entry_enable">Omogočeno</string>
+    <string name="pref_camera_shuttersound_entry_disable">Onemogočeno</string>
     <string name="error_app_unsupported_hfr_selection">Počasni posnetek ni podprt ob uporabi ustalitve/časovnega zamika/HDR-a.</string>
     <string name="error_app_unsupported_hfr">Počasni posnetek ni podprt za izbrano ločljivost</string>
     <string name="error_app_unsupported_dis">Ustalitev ni podprta v izbrani ločljivosti videoposnetka. Izberite nižjo ločljivost</string>
@@ -404,7 +404,7 @@
     <string name="pref_camera2_zsl_entry_app_zsl">Programski ZSL</string>
     <string name="pref_camera2_zsl_entry_hal_zsl">Strojni ZSL</string>
     <string name="pref_camera2_videoencoderprofile_title">Profil kodirnika</string>
-    <string name="pref_camera2_afmode_entry_disable">Onemogočen</string>
+    <string name="pref_camera2_afmode_entry_disable">Onemogočeno</string>
     <string name="pref_camera2_afmode_entry_off">Izklopljeno</string>
     <string name="pref_camera2_afmode_entry_continuous_video">Neprekinjen videoposnetek</string>
     <string name="pref_camera2_afmode_entry_continuous_picture">Neprekinjena slika</string>
@@ -415,12 +415,12 @@
     <string name="pref_camera2_initial_camera_entry_front">Sprednja</string>
     <string name="pref_camera2_eis_title">EIS za videoposnetke</string>
     <string name="pref_camera2_eis_entry_v3_set_when_pause">V3 in nastavi ob premoru</string>
-    <string name="pref_camera2_eis_entry_disable">Onemogočen</string>
+    <string name="pref_camera2_eis_entry_disable">Onemogočeno</string>
     <string name="pref_camera2_fovc_title">FOVC za videoposnetke</string>
-    <string name="pref_camera2_fovc_entry_enable">Omogočen</string>
-    <string name="pref_camera2_fovc_entry_disable">Onemogočen</string>
-    <string name="pref_camera2_video_hdr_entry_enable">Omogočen</string>
-    <string name="pref_camera2_video_hdr_entry_disable">Onemogočen</string>
+    <string name="pref_camera2_fovc_entry_enable">Omogočeno</string>
+    <string name="pref_camera2_fovc_entry_disable">Onemogočeno</string>
+    <string name="pref_camera2_video_hdr_entry_enable">Omogočeno</string>
+    <string name="pref_camera2_video_hdr_entry_disable">Onemogočeno</string>
     <string name="pref_camera2_picture_format_title">Oblika slike</string>
     <string name="pref_camera2_stats_visualizer_title">Vizualizator statistik</string>
     <string name="pref_camera2_stats_visualizer_entry_bg_stats">BG statistike</string>
@@ -429,12 +429,12 @@
     <string name="stats_visualizer_bg_label">Pogled BG histograma</string>
     <string name="stats_visualizer_be_label">Pogled BE histograma</string>
     <string name="pref_camera2_capture_mfnr_title">Večslikovno zmanjševanje šuma</string>
-    <string name="pref_camera2_capture_mfnr_entry_enable">Omogočen</string>
-    <string name="pref_camera2_capture_mfnr_entry_disable">Onemogočen</string>
+    <string name="pref_camera2_capture_mfnr_entry_enable">Omogočeno</string>
+    <string name="pref_camera2_capture_mfnr_entry_disable">Onemogočeno</string>
     <string name="pref_camera2_fs2_title">Hitri sprožilec</string>
-    <string name="pref_camera2_fs2_entry_enable">Omogočen</string>
-    <string name="pref_camera2_fs2_entry_disable">Onemogočen</string>
+    <string name="pref_camera2_fs2_entry_enable">Omogočeno</string>
+    <string name="pref_camera2_fs2_entry_disable">Onemogočeno</string>
     <string name="pref_camera2_abort_captures_title">Prekini zajemanja</string>
-    <string name="pref_camera2_abort_captures_entry_enable">Omogočen</string>
-    <string name="pref_camera2_abort_captures_entry_disable">Onemogočen</string>
+    <string name="pref_camera2_abort_captures_entry_enable">Omogočeno</string>
+    <string name="pref_camera2_abort_captures_entry_disable">Onemogočeno</string>
 </resources>
