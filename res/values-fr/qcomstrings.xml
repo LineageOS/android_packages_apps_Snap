@@ -426,11 +426,15 @@
     <string name="pref_camera2_stats_visualizer_entry_bg_stats">Statistiques BG</string>
     <string name="pref_camera2_stats_visualizer_entry_be_stats">Statistiques BE</string>
     <string name="pref_camera2_stats_visualizer_entry_hist_stats">Historique</string>
+    <string name="stats_visualizer_bg_label">Vue graphique BG</string>
+    <string name="stats_visualizer_be_label">Vue graphique BE</string>
     <string name="pref_camera2_capture_mfnr_title">Réduction du bruit Multi-images</string>
     <string name="pref_camera2_capture_mfnr_entry_enable">Activé</string>
     <string name="pref_camera2_capture_mfnr_entry_disable">Désactivé</string>
+    <string name="pref_camera2_fs2_title">Obturateur rapide</string>
     <string name="pref_camera2_fs2_entry_enable">Activé</string>
     <string name="pref_camera2_fs2_entry_disable">Désactivé</string>
+    <string name="pref_camera2_abort_captures_title">Abandonner les captures</string>
     <string name="pref_camera2_abort_captures_entry_enable">Activé</string>
     <string name="pref_camera2_abort_captures_entry_disable">Désactivé</string>
 </resources>
