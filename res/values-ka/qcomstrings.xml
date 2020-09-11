@@ -23,6 +23,12 @@
     <string name="pref_camera_manual_exp_entry_gains_priority">მგრძნობიარობის უპირატესობა</string>
     <string name="pref_camera_hfr_entry_16x">შენელებული მოძრაობა 480 FPS</string>
     <string name="pref_camera_hfr_entry_hsr_480">მაღალი სიჩქარე 480 FPS</string>
+    <string name="pref_camera_video_rotation_title">ვიდეოს შებრუნება</string>
+    <string name="pref_camera_video_rotation_label">ვიდეოს შებრუნება</string>
+    <string name="pref_camera_video_rotation_entry_0">0 გრადუსი</string>
+    <string name="pref_camera_video_rotation_entry_90">90 გრადუსი</string>
+    <string name="pref_camera_video_rotation_entry_180">180 გრადუსი</string>
+    <string name="pref_camera_video_rotation_entry_270">270 გრადუსი</string>
     <string name="text_tsmakeup_alert_title">გაფრთხილება</string>
     <string name="text_tsmakeup_alert_quit">გაუქმება</string>
     <string name="pref_camera2_timer_entry_2sec">2 წამი</string>

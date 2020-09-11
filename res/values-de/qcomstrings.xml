@@ -414,6 +414,7 @@
     <string name="pref_camera2_initial_camera_entry_mono">Schwarzweiß</string>
     <string name="pref_camera2_initial_camera_entry_front">Frontkamera</string>
     <string name="pref_camera2_eis_title">Video-Bildstabilisator</string>
+    <string name="pref_camera2_eis_entry_v3_set_when_pause">V3 und bei Pause einstellen</string>
     <string name="pref_camera2_eis_entry_disable">Deaktiviert</string>
     <string name="pref_camera2_fovc_title">Video-Sichtfeld</string>
     <string name="pref_camera2_fovc_entry_enable">Aktiviert</string>
@@ -421,6 +422,9 @@
     <string name="pref_camera2_video_hdr_entry_enable">Aktiviert</string>
     <string name="pref_camera2_video_hdr_entry_disable">Deaktiviert</string>
     <string name="pref_camera2_picture_format_title">Bildformat</string>
+    <string name="pref_camera2_stats_visualizer_title">Statistik-Visualisierer</string>
+    <string name="pref_camera2_stats_visualizer_entry_bg_stats">BG-Statistiken</string>
+    <string name="pref_camera2_stats_visualizer_entry_be_stats">BE-Statistiken</string>
     <string name="pref_camera2_stats_visualizer_entry_hist_stats">Histogramm-Statistiken</string>
     <string name="pref_camera2_capture_mfnr_title">Rauschunterdrückung (Serienaufnahme)</string>
     <string name="pref_camera2_capture_mfnr_entry_enable">Aktiviert</string>

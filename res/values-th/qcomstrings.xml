@@ -60,6 +60,7 @@
     <string name="pref_camera_instant_capture_entry_disable">ปิด</string>
     <string name="pref_camera_zsl_entry_off">ปิด</string>
     <string name="pref_camera_zsl_entry_on">เปิด</string>
+    <string name="scene_enable_message">HDR ไม่สนับสนุนในโหมดถ่ายภาพอื่นนอกเหนือจาก Auto</string>
     <string name="pref_camera_video_hdr_entry_off">ปิด</string>
     <string name="pref_camera_video_hdr_entry_on">เปิด</string>
     <string name="pref_camera_cds_entry_off">ปิด</string>
@@ -103,6 +104,7 @@
     <string name="pref_camera_ae_bracket_hdr_entry_ae_bracket">การถ่ายภาพคร่อม AE</string>
     <string name="pref_camera_ae_bracket_hdr_title">การถ่ายภาพคร่อม AE</string>
     <string name="pref_camera_ae_bracket_hdr_entry_on">เปิด</string>
+    <string name="err_app_unsupport_ae_bracket_code">ยังไม่รองรับการถ่ายคร่อม AE</string>
     <string name="pref_camera_hfr_title">การเคลื่อนไหวช้า</string>
     <string name="pref_camera_hfr_entry_off">ปิด</string>
     <string name="pref_camera_hfr_entry_2x">การเคลื่อนไหวช้า 60 FPS</string>
@@ -260,6 +262,7 @@
     <string name="text_tsmakeup_beautify_toast">ตกแต่งให้สวยงาม</string>
     <string name="all_in_focus">โฟกัสทุกตำแหน่ง</string>
     <string name="refocus_toast">ในการโฟกัสภาพล่าสุดใหม่ แตะที่นี่</string>
+    <string name="refocus_prompt_message">ด้วย UbiFocus กล้องของคุณจะถ่ายภาพได้ 5 ภาพ ทุกครั้งที่คุณกดปุ่มชัตเตอร์ ภาพทั้งหมด 5 ภาพจะรวมกันเป็นภาพ 1 ภาพซึ่งทุกสิ่งทุกอย่างอยู่ในโฟกัส คุณสามารถเลือกโฟกัสใหม่หลังจากที่ถ่ายภาพแล้ว</string>
     <string name="camera_thermal_shutdown">โทรศัพท์ร้อนเกินไป กำลังปิดกล้อง</string>
     <string name="camera_server_died">มีเดียเซิร์ฟเวอร์ล้มเหลว กำลังปิดกล้อง</string>
     <string name="camera_unknown_error">ข้อผิดพลาดที่ไม่รู้จัก กำลังปิดกล้อง</string>
@@ -275,11 +278,15 @@
     <string name="pref_camera2_mono_preview_entry_off">ปิด</string>
     <string name="pref_camera2_clearsight_entry_on">เปิด</string>
     <string name="pref_camera2_clearsight_entry_off">ปิด</string>
+    <string name="clearsight_capture_success">ClearSight จับภาพสำเร็จ</string>
+    <string name="clearsight_capture_fail">ClearSight จับภาพล้มเหลว</string>
+    <string name="pref_camera2_mpo_title">รูปแบบ MPO</string>
     <string name="pref_camera2_mpo_entry_on">เปิด</string>
     <string name="pref_camera2_mpo_entry_off">ปิด</string>
     <string name="pref_camera2_makeup_title">แต่งหน้า</string>
     <string name="pref_camera2_makeup_entry_on">เปิด</string>
     <string name="pref_camera2_makeup_entry_off">ปิด</string>
+    <string name="pref_camera2_noise_reduction_title">ลดนอยส์</string>
     <string name="pref_camera2_noise_reduction_entry_off">ปิด</string>
     <string name="pref_camera2_noise_reduction_entry_fast">เร็ว</string>
     <string name="pref_camera2_noise_reduction_entry_high_quality">คุณภาพสูง</string>
