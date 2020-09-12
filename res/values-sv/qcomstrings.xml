@@ -109,10 +109,12 @@
     <string name="pref_camera_hfr_entry_3x">Slow Motion 90 FPS</string>
     <string name="pref_camera_hfr_entry_4x">Slow Motion 120 FPS</string>
     <string name="pref_camera_hfr_entry_8x">Slow Motion 240 FPS</string>
+    <string name="pref_camera_hfr_entry_16x">Långsam rörelse 480 FPS</string>
     <string name="pref_camera_hfr_entry_hsr_60">Höghastighet 60 FPS</string>
     <string name="pref_camera_hfr_entry_hsr_90">Höghastighet 90 FPS</string>
     <string name="pref_camera_hfr_entry_hsr_120">Höghastighet 120 FPS</string>
     <string name="pref_camera_hfr_entry_hsr_240">Höghastighet 240 FPS</string>
+    <string name="pref_camera_hfr_entry_hsr_480">Hög hastighet 480 FPS</string>
     <string name="pref_camera_noise_reduction_title">Brusreducering</string>
     <string name="pref_camera_noise_reduction_entry_off">Av</string>
     <string name="pref_camera_noise_reduction_entry_fast">Snabb</string>
@@ -359,6 +361,7 @@
     <string name="pref_camera2_afmode_entry_off">Av</string>
     <string name="pref_camera2_afmode_entry_continuous_video">Kontinuerlig video</string>
     <string name="pref_camera2_afmode_entry_continuous_picture">Kontinuerlig bild</string>
+    <string name="pref_camera2_afmode_entry_edof">Utökat fokusdjup</string>
     <string name="pref_camera2_switch_camera_title">Byt kamera beroende på ID</string>
     <string name="pref_camera2_initial_camera_entry_mono">Mono</string>
     <string name="pref_camera2_eis_title">EIS-video</string>

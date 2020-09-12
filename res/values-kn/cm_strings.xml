@@ -80,6 +80,7 @@
     <string name="pref_camera_focustime_entry_0">೦ಕ್ಷ</string>
     <string name="pref_camera_focustime_entry_3">3s</string>
     <string name="pref_camera_focustime_entry_5">5ಸೆ</string>
+    <string name="pref_camera_focustime_entry_10">10ಸೆ</string>
     <string name="pref_camera_focustime_entry_infinite">ಅನಂತ</string>
     <string name="pref_camera_shutter_speed_title">ಶಟರ್ ವೇಗ</string>
     <string name="developer_menu_enabled">ನೀವು ಸುಧಾರಿತ ಕ್ಯಾಮರಾ ಆಯ್ಕೆಗಳನ್ನು ಸಶಕ್ತಿಸಿದ್ದೀರಿ</string>

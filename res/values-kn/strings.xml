@@ -31,6 +31,18 @@
     <string name="undo">ರದ್ದು</string>
     <string name="details">ವಿವರಗಳು</string>
     <string name="close">ಮುಚ್ಚು</string>
+    <plurals name="number_of_items_selected">
+        <item quantity="one">%1$d ಆಯ್ಕೆಯಾಗಿದೆ</item>
+        <item quantity="other">%1$d ಆಯ್ಕೆಯಾಗಿದೆ</item>
+    </plurals>
+    <plurals name="number_of_albums_selected">
+        <item quantity="one">%1$d ಆಯ್ಕೆಯಾಗಿದೆ</item>
+        <item quantity="other">%1$d ಆಯ್ಕೆಯಾಗಿದೆ</item>
+    </plurals>
+    <plurals name="number_of_groups_selected">
+        <item quantity="one">%1$d ಆಯ್ಕೆಯಾಗಿದೆ</item>
+        <item quantity="other">%1$d ಆಯ್ಕೆಯಾಗಿದೆ</item>
+    </plurals>
     <string name="show_on_map">ನಕ್ಷೆಯಲ್ಲಿ ತೋರಿಸಿ</string>
     <string name="rotate_left">ಎಡಕ್ಕೆ ತಿರುಗಿಸಿ</string>
     <string name="rotate_right">ಬಲಕ್ಕೆ ತಿರುಗಿಸಿ</string>
@@ -139,6 +151,7 @@
     <string name="pref_camera_countdown_label_off">ಟೈಮರ್ ಆಫ್</string>
     <string name="pref_camera_countdown_label_one">೧ ಕ್ಷಣ</string>
     <string name="pref_camera_countdown_label_three">3 ಸೆಕೆಂಡುಗಳು</string>
+    <string name="pref_camera_countdown_label_ten">10 ಸೆಕೆಂಡುಗಳು</string>
     <string name="pref_camera_countdown_label_fifteen">15 ಸೆಕೆಂಡುಗಳು</string>
     <string name="not_selectable_in_scene_mode">ದೃಶ್ಯ ಮೋಡ್‌ನಲ್ಲಿ ಆಯ್ಕೆ ಮಾಡಬಹುದಾದ್ದಲ್ಲ.</string>
     <string name="pref_exposure_title">ಎಕ್ಸ್ ಪೋಶರ್</string>
@@ -179,6 +192,7 @@
     <string name="accessibility_exit_best_mode_button">ಉತ್ತಮ ಚಿತ್ರ ರೀತಿಯಿಂದ ನಿರ್ಗಮಿಸು</string>
     <string name="accessibility_menu_button">ಮೆನು ಬಟನ್</string>
     <string name="accessibility_mode_picker">ಕ್ಯಾಮರಾ, ವೀಡಿಯೋ, ಅಥವಾ ಸಮಗ್ರ ನೋಟ ಸೆಲೆಕ್ಟರ್</string>
+    <string name="accessibility_check_box">%1$s ಚೆಕ್ ಬಾಕ್ಸ್</string>
     <string name="accessibility_switch_to_camera">ಫೊಟೋಕ್ಕೆ ಬದಲಾಯಿಸಿ</string>
     <string name="accessibility_switch_to_video">ವೀಡಿಯೋಕ್ಕೆ ಬದಲಾಯಿಸಿ</string>
     <string name="accessibility_switch_to_panorama">ಸಮಗ್ರ ನೋಟಕ್ಕೆ ಬದಲಾಯಿಸಿ</string>
@@ -192,29 +206,39 @@
     <string name="pref_video_time_lapse_frame_interval_off">ಆಫ್ ಆಗಿದೆ</string>
     <string name="pref_video_time_lapse_frame_interval_500">೦.೫ ಕ್ಷಣಗಳು</string>
     <string name="pref_video_time_lapse_frame_interval_1000">೧ ಕ್ಷಣ</string>
+    <string name="pref_video_time_lapse_frame_interval_1500">1.5 ಸೆಕೆಂಡುಗಳು</string>
     <string name="pref_video_time_lapse_frame_interval_2000">2 ಸೆಕೆಂಡುಗಳು</string>
     <string name="pref_video_time_lapse_frame_interval_2500">2.5 ಸೆಕೆಂಡುಗಳು</string>
     <string name="pref_video_time_lapse_frame_interval_3000">3 ಸೆಕೆಂಡುಗಳು</string>
     <string name="pref_video_time_lapse_frame_interval_4000">4 ಸೆಕೆಂಡುಗಳು</string>
     <string name="pref_video_time_lapse_frame_interval_5000">5 ಸೆಕೆಂಡುಗಳು</string>
     <string name="pref_video_time_lapse_frame_interval_6000">6 ಸೆಕೆಂಡುಗಳು</string>
+    <string name="pref_video_time_lapse_frame_interval_10000">10 ಸೆಕೆಂಡುಗಳು</string>
+    <string name="pref_video_time_lapse_frame_interval_12000">12 ಸೆಕೆಂಡುಗಳು</string>
     <string name="pref_video_time_lapse_frame_interval_15000">15 ಸೆಕೆಂಡುಗಳು</string>
     <string name="pref_video_time_lapse_frame_interval_24000">24 ಸೆಕೆಂಡುಗಳು</string>
+    <string name="pref_video_time_lapse_frame_interval_30000">0.5 ನಿಮಿಷಗಳು</string>
     <string name="pref_video_time_lapse_frame_interval_60000">೧ ನಿಮಿಷ</string>
+    <string name="pref_video_time_lapse_frame_interval_90000">1.5 ನಿಮಿಷಗಳು</string>
     <string name="pref_video_time_lapse_frame_interval_120000">2 ನಿಮಿಷಗಳು</string>
     <string name="pref_video_time_lapse_frame_interval_150000">2.5 ನಿಮಿಷಗಳು</string>
     <string name="pref_video_time_lapse_frame_interval_180000">3 ನಿಮಿಷಗಳು</string>
     <string name="pref_video_time_lapse_frame_interval_240000">4 ನಿಮಿಷಗಳು</string>
     <string name="pref_video_time_lapse_frame_interval_300000">5 ನಿಮಿಷಗಳು</string>
     <string name="pref_video_time_lapse_frame_interval_360000">6 ನಿಮಿಷಗಳು</string>
+    <string name="pref_video_time_lapse_frame_interval_600000">10 ನಿಮಿಷಗಳು</string>
+    <string name="pref_video_time_lapse_frame_interval_720000">12 ನಿಮಿಷಗಳು</string>
     <string name="pref_video_time_lapse_frame_interval_900000">15 ನಿಮಿಷಗಳು</string>
     <string name="pref_video_time_lapse_frame_interval_1440000">24 ನಿಮಿಷಗಳು</string>
+    <string name="pref_video_time_lapse_frame_interval_3600000">1 ಗಂಟೆ</string>
+    <string name="pref_video_time_lapse_frame_interval_5400000">1.5 ಗಂಟೆ</string>
     <string name="pref_video_time_lapse_frame_interval_7200000">2 ಗಂಟೆಗಳು</string>
     <string name="pref_video_time_lapse_frame_interval_9000000">2.5 ಗಂಟೆಗಳು</string>
     <string name="pref_video_time_lapse_frame_interval_10800000">3 ಗಂಟೆಗಳು</string>
     <string name="pref_video_time_lapse_frame_interval_14400000">4 ಗಂಟೆಗಳು</string>
     <string name="pref_video_time_lapse_frame_interval_18000000">5 ಗಂಟೆಗಳು</string>
     <string name="pref_video_time_lapse_frame_interval_21600000">6 ಗಂಟೆಗಳು</string>
+    <string name="pref_video_time_lapse_frame_interval_43200000">12 ಗಂಟೆಗಳು</string>
     <string name="pref_video_time_lapse_frame_interval_54000000">15 ಗಂಟೆಗಳು</string>
     <string name="pref_video_time_lapse_frame_interval_86400000">24 ಗಂಟೆಗಳು</string>
     <string name="time_lapse_seconds">ಸೆಕೆಂಡುಗಳು</string>
@@ -243,9 +267,17 @@
     <string name="pref_camera2_category_system">ವ್ಯವಸ್ಥೆ</string>
     <string name="pref_camera2_restore_default">ಇದ್ದಾಯ್ಕೆ ಮರುಸ್ಥಾಪನೆ</string>
     <string name="pref_camera2_restore_default_hint">ತಿಟ್ಟುಕದ ಇದ್ದಾಯ್ಕೆಗಳನ್ನು ಪುನಃಸ್ಥಾಪಿಸಲಾಗುವುದು</string>
+    <plurals name="save_best_dialog_content">
+        <item quantity="one">10 ಚಿತ್ರಗಳಲ್ಲಿ %1$d ನ್ನು ಉಳಿಸಿ ಉಳಿದವುಗಳನ್ನು ಅಳಿಸಲಾಗುವುದು</item>
+        <item quantity="other">10 ಚಿತ್ರಗಳಲ್ಲಿ %1$d ನ್ನು ಉಳಿಸಿ ಉಳಿದವುಗಳನ್ನು ಅಳಿಸಲಾಗುವುದು</item>
+    </plurals>
     <string name="save_best_dialog_title">ಆಯ್ಕೆ ಮಾಡಿದ ಚಿತ್ರಗಳನ್ನು ಉಳಿಸುವುದೇ?</string>
     <string name="save_best_dialog_positive_bt">ಸರಿ</string>
     <string name="save_best_dialog_native_bt">ರದ್ದು</string>
+    <plurals name="save_best_image_toast">
+        <item quantity="one">೧೦ರಲ್ಲಿ %1$d ಚಿತ್ರವನ್ನು ಉಳಿಸಲಾಗಿದೆ.</item>
+        <item quantity="other">೧೦ರಲ್ಲಿ %1$d ಚಿತ್ರಗಳನ್ನು ಉಳಿಸಲಾಗಿದೆ.</item>
+    </plurals>
     <string name="dialog_do_not_show">ಪುನಃ ತೋರಿಸದಿರು</string>
     <string name="delete_best_dialog_title">ಎಲ್ಲಾ ಅಳಿಸಲೇ?</string>
     <string name="delete_best_dialog_content">ನೀವು ಸೆರೆಹಿಡಿದ ಎಲ್ಲಾ ೧೦ ಚಿತ್ರಗಳನ್ನು ಅಳಿಸಲು ಖಚಿತವೇ?</string>

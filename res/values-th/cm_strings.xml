@@ -39,6 +39,7 @@
     <string name="pref_camera_scenemode_entry_fireworks">ดอกไม้ไฟ</string>
     <string name="pref_camera_scenemode_entry_flowers">ดอกไม้</string>
     <string name="pref_camera_scenemode_entry_handheldtwilight">ถ่ายยามเย็นไม่ใช้ขาตั้งกล้อง</string>
+    <string name="pref_camera_scenemode_entry_highsensitivity">ความไวสูง</string>
     <string name="pref_camera_scenemode_entry_indoor">ในร่ม</string>
     <string name="pref_camera_scenemode_entry_landscape">ทิวทัศน์</string>
     <string name="pref_camera_scenemode_entry_mix_illuminant">แสงแบบผสม</string>

@@ -25,6 +25,7 @@
     <string name="pref_camera_powermode_entry_np">Energji normale</string>
     <string name="pref_camera_skinToneEnhancement_entry_enable">Aktivizo</string>
     <string name="pref_camera_skinToneEnhancement_entry_disable">Çaktivizo</string>
+    <string name="pref_camera_manual_exp_entry_gains_priority">Merr përparësi</string>
     <string name="pref_camera_manual_exp_entry_off">Inaktiv</string>
     <string name="pref_camera_manual_wb_entry_off">Inaktiv</string>
     <string name="pref_camera_manual_focus_entry_off">Inaktiv</string>
@@ -286,6 +287,8 @@
     <string name="pref_camera2_initial_camera_entry_bayer">Filtri Bayer</string>
     <string name="pref_camera2_initial_camera_entry_mono">Mono</string>
     <string name="pref_camera2_initial_camera_entry_front">Përpara</string>
+    <string name="pref_camera2_eis_title">Stabilizim Elektronik të Imazhit Video</string>
+    <string name="pref_camera2_eis_entry_v3_set_when_pause">V3 dhe vendos kur të pezullohet</string>
     <string name="pref_camera2_eis_entry_disable">E çaktivizuar</string>
     <string name="pref_camera2_fovc_title">Fusha e Shikimit Video</string>
     <string name="pref_camera2_fovc_entry_enable">E aktivizuar</string>

@@ -20,6 +20,36 @@
     limitations under the License.
 -->
 <resources>
+    <string name="pref_camera_manual_exp_entry_gains_priority">მგრძნობიარობის უპირატესობა</string>
+    <string name="pref_camera_hfr_entry_16x">შენელებული მოძრაობა 480 FPS</string>
+    <string name="pref_camera_hfr_entry_hsr_480">მაღალი სიჩქარე 480 FPS</string>
+    <string name="pref_camera_video_rotation_title">ვიდეოს შებრუნება</string>
+    <string name="pref_camera_video_rotation_label">ვიდეოს შებრუნება</string>
+    <string name="pref_camera_video_rotation_entry_0">0 გრადუსი</string>
+    <string name="pref_camera_video_rotation_entry_90">90 გრადუსი</string>
+    <string name="pref_camera_video_rotation_entry_180">180 გრადუსი</string>
+    <string name="pref_camera_video_rotation_entry_270">270 გრადუსი</string>
     <string name="text_tsmakeup_alert_title">გაფრთხილება</string>
     <string name="text_tsmakeup_alert_quit">გაუქმება</string>
+    <string name="pref_camera2_timer_entry_2sec">2 წამი</string>
+    <string name="pref_camera2_timer_entry_5sec">5 წამი</string>
+    <string name="pref_camera2_timer_entry_10sec">10 წამი</string>
+    <string name="panocapture_direction_is_not_determined">მუდმივად ამოძრავეთ ერთი მიმართულებით.</string>
+    <string name="pref_camera2_scene_mode_pro_instructional_content">პროფესიონალურ რეჟიმში, შეგეძლებათ ხელით გამართოთ ISO, დაყოვნება, განათება და სიმკვეთრე. მარტივი წვდომა გექნებათ, ყველა ამ დამატებით პარამეტრებთან.</string>
+    <string name="pref_camera2_scene_mode_deepzoom_instructional_content">DeepZoom-რეჟიმით, შეგეძლებათ გადაიღოთ სურათი გაუმჯობესებული 2x ან 4x მოახლოებით.</string>
+    <string name="pref_camera2_scene_mode_deepportrait_instructional_content">DeepPortrait-რეჟიმით, შეგეძლებათ გადაიღოთ სელფი გაბუნდოვნებული ფონით. გაბუნდოვნების სიდიდე შეგიძლიათ ცვალოთ რბიის მეშვეობით.</string>
+    <string name="pref_camera2_videoencoderprofile_title">დამშიფრავის პროფილი</string>
+    <string name="pref_camera2_afmode_entry_continuous_video">უწყვეტი ვიდეო</string>
+    <string name="pref_camera2_afmode_entry_continuous_picture">უწყვეტი სურათი</string>
+    <string name="pref_camera2_afmode_entry_edof">სიმკვეთრის გაზრდილი სიღრმე</string>
+    <string name="pref_camera2_eis_title">ვიდეოს EIS (რყევის შემცირება)</string>
+    <string name="pref_camera2_eis_entry_v3_set_when_pause">V3 და მითითება შეჩერებისას</string>
+    <string name="pref_camera2_fovc_title">გადაღების ხედვის კუთხე</string>
+    <string name="pref_camera2_stats_visualizer_title">სტატისტიკის გამოსახვა</string>
+    <string name="pref_camera2_stats_visualizer_entry_disable">ყველას გამორთვა</string>
+    <string name="pref_camera2_stats_visualizer_entry_bg_stats">BG-სტატისტიკა</string>
+    <string name="pref_camera2_stats_visualizer_entry_be_stats">BE-სტატისტიკა</string>
+    <string name="pref_camera2_stats_visualizer_entry_hist_stats">ჰისტოგრამის სტატისტიკა</string>
+    <string name="pref_camera2_capture_mfnr_title">მრავალკადრიანი ხმაურის შემცირება</string>
+    <string name="pref_camera2_capture_mfsr_title">მრავალკადრიანი ზეგაფართოება</string>
 </resources>
