@@ -16,6 +16,8 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name">An camara</string>
     <string name="video_camera_label">Camara video</string>
+    <string name="details_ms">%1$02d:%2$02d</string>
+    <string name="details_hms">%1$d:%2$02d:%3$02d</string>
     <string name="set_image">Cleachd an dealbh mar</string>
     <string name="delete">Sguab às</string>
     <plurals name="delete_selection">
@@ -76,6 +78,8 @@
     <string name="focal_length">Faid an fhòcais</string>
     <string name="white_balance">Am balans geal</string>
     <string name="exposure_time">Faid an deisearais</string>
+    <string name="iso">ISO</string>
+    <string name="unit_mm">mm</string>
     <string name="manual">A làimh</string>
     <string name="auto">Fèin-obrachail</string>
     <string name="flash_on">Solas-boillsgidh air</string>
@@ -98,6 +102,7 @@
     <string name="pref_camera_id_title">Tagh camara</string>
     <string name="pref_camera_id_entry_back">Cùl</string>
     <string name="pref_camera_id_entry_front">Beul</string>
+    <string name="pref_camera_recordlocation_title">Ionad GPS</string>
     <string name="pref_camera_location_label">IONAD</string>
     <string name="pref_camera_timer_title">Tìmear cunntaidh sìos</string>
     <plurals name="pref_camera_timer_entry">
@@ -107,6 +112,8 @@
         <item quantity="other">%d diog</item>
     </plurals>
     <string name="pref_camera_timer_sound_title">Dèan bìd rè a’ chunntaidh sìos</string>
+    <string name="pref_camera_savepath_title">Stòras</string>
+    <string name="pref_camera_savepath_entry_0">Fòn</string>
     <string name="pref_camera_savepath_entry_1">Cairt SD</string>
     <string name="setting_off">Dheth</string>
     <string name="setting_on">Air</string>
@@ -118,8 +125,10 @@
     <string name="pref_camera_focusmode_title">Modh an fhòcais</string>
     <string name="pref_camera_focusmode_entry_auto">Fèin-obrachail</string>
     <string name="pref_camera_focusmode_entry_infinity">Neo-chrìochnachd</string>
+    <string name="pref_camera_focusmode_entry_macro">Macro</string>
     <string name="pref_camera_focusmode_label_auto">FÈIN-OBRACHAIL</string>
     <string name="pref_camera_focusmode_label_infinity">NEO-CHRÌOCHNACHD</string>
+    <string name="pref_camera_focusmode_label_macro">MACRO</string>
     <string name="pref_camera_flashmode_title">Solas-boillsgidh</string>
     <string name="pref_camera_flashmode_entry_auto">Fèin-obrachail</string>
     <string name="pref_camera_flashmode_entry_on">Air</string>
@@ -141,6 +150,8 @@
     <string name="pref_camera_whitebalance_label_cloudy">NEULACH</string>
     <string name="pref_camera_scenemode_title">Am modh seallaidh</string>
     <string name="pref_camera_scenemode_entry_auto">Fèin-obrachail</string>
+    <string name="pref_camera_scenemode_entry_hdr_plus">HDR+</string>
+    <string name="pref_camera_scenemode_entry_hdr">HDR</string>
     <string name="pref_camera_scenemode_entry_turn_hdr_plus_on">HDR+ AIR</string>
     <string name="pref_camera_scenemode_entry_turn_hdr_plus_off">HDR+ DHETH</string>
     <string name="pref_camera_scenemode_entry_turn_hdr_on">HDR AIR</string>
@@ -160,8 +171,18 @@
     <string name="pref_camera_countdown_label_ten">10 DIOGAN</string>
     <string name="pref_camera_countdown_label_fifteen">15 DIOGAN</string>
     <string name="not_selectable_in_scene_mode">Cha ghabh a thaghadh sa mhodh seallaidh.</string>
+    <string name="HDR_disable_continuous_shot">Cuiridh HDR modh an deilbh leantainnich à comas.</string>
+    <string name="advanced_capture_disable_continuous_shot">Cuiridh an glacadh adhartach modh an deilbh leantainnich à comas.</string>
+    <string name="video_quality_4k_disable_IS">Cuiridh càileachd video 4k bunailteachadh an deilbh à comas.</string>
+    <string name="video_quality_4k_disable_SeeMore">Chan urrainn dhut SeeMore a chur an comas rè video 4k.</string>
+    <string name="disable_CDS_during_HighQualityNoiseReduction">Cuiridh glanadh faraim le càileachd àrd CDS à comas.</string>
+    <string name="disable_TNR_during_HighQualityNoiseReduction">Cuiridh glanadh faraim le càileachd àrd TNR à comas.</string>
+    <string name="disable_CDS_during_SeeMore">Cuiridh SeeMore CDS à comas.</string>
+    <string name="disable_TNR_during_SeeMore">Cuiridh SeeMore TNR à comas.</string>
+    <string name="disable_NR_during_SeeMore">Cuiridh SeeMore glanadh an fharaim à comas.</string>
     <string name="pref_exposure_title">Deisearas</string>
     <string name="pref_exposure_label">DEISEARAS</string>
+    <string name="pref_camera_hdr_label">HDR</string>
     <string name="pref_camera_id_label_back">CAMARA BEÒIL</string>
     <string name="pref_camera_id_label_front">CAMARA CÙIL</string>
     <string name="dialog_ok">Ceart ma-thà</string>
@@ -270,6 +291,8 @@
     <string name="cannot_load_image">Chan urrainn dhuinn an dealbh a luchdadh!</string>
     <string name="switch_photo_filmstrip">Sealladh stiall film</string>
     <string name="setting_wallpaper">A’ suidheachadh a’ phàipeir-bhalla</string>
+    <string name="remaining_photos_format">%d air fhàgail</string>
+    <string name="makeup_video_size_limit">Chan obraich a’ mhaise ach air meud VGA ann an clàradh video.</string>
     <string name="pref_camera2_category_system">An siostam</string>
     <string name="pref_camera2_restore_default">Aisig na bun-roghainnean</string>
     <string name="pref_camera2_restore_default_hint">Thèid roghainnean a’ chamara aiseag air na bun-roghainnean</string>

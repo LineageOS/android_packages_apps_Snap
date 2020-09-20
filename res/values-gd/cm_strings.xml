@@ -18,6 +18,7 @@
     <string name="pref_camera_aspectratio_wide">Leathann</string>
     <string name="pref_camera_megapixel_format">(<xliff:g id="ratio" example="16:9">%1$s</xliff:g>) <xliff:g id="pixels">%2$1.1f</xliff:g> meaga-piogsail</string>
     <string name="pref_camera_scenemode_entry_antimotionblur">Ìsleachadh sgleò a’ ghluasaid</string>
+    <string name="pref_camera_scenemode_entry_aqua">Aqua</string>
     <string name="pref_camera_scenemode_entry_ar">Fìorachd leasaichte</string>
     <string name="pref_camera_scenemode_entry_asd">An dealbh as fheàrr</string>
     <string name="pref_camera_scenemode_entry_baby">Leanabh</string>
@@ -38,6 +39,7 @@
     <string name="pref_camera_scenemode_entry_fireworks">Cleasan-teine</string>
     <string name="pref_camera_scenemode_entry_flowers">Blàthan</string>
     <string name="pref_camera_scenemode_entry_handheldtwilight">Glòmanaich san làmh</string>
+    <string name="pref_camera_scenemode_entry_highsensitivity">Mothalachd àrd</string>
     <string name="pref_camera_scenemode_entry_indoor">Taobh a-staigh</string>
     <string name="pref_camera_scenemode_entry_landscape">Dreach-tìre</string>
     <string name="pref_camera_scenemode_entry_mix_illuminant">Solas measgaichte</string>
