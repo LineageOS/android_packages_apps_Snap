@@ -346,6 +346,17 @@ public class SettingsManager implements ListMenu.SettingsListener {
         mHeifWriterSupported = isHeifWriterSupported();
     }
 
+    public void reloadCharacteristics(int cameraId){
+        CameraManager manager = (CameraManager) mContext.getSystemService(Context.CAMERA_SERVICE);
+        try {
+            CameraCharacteristics characteristics
+                    = manager.getCameraCharacteristics(String.valueOf(cameraId));
+            mCharacteristics.set(cameraId, characteristics);
+        } catch (CameraAccessException e) {
+            e.printStackTrace();
+        }
+    }
+
     public static SettingsManager createInstance(Context context) {
         if (sInstance == null) {
             sInstance = new SettingsManager(context.getApplicationContext());
@@ -445,6 +456,7 @@ public class SettingsManager implements ListMenu.SettingsListener {
         final int cameraId = getInitialCameraId();
         setLocalIdAndInitialize(cameraId);
         autoTestBroadcast(cameraId);
+        reloadCharacteristics(cameraId);
     }
 
     public void reinit(int cameraId) {

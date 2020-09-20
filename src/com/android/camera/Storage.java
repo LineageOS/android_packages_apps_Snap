@@ -295,6 +295,8 @@ public class Storage {
                 return DIRECTORY + '/' + title + suffix;
             }
         } else {
+            File dir = new File(RAW_DIRECTORY);
+            dir.mkdirs();
             return RAW_DIRECTORY + '/' + title + ".raw";
         }
     }

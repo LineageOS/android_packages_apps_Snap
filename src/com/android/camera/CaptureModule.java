@@ -5526,9 +5526,6 @@ public class CaptureModule implements CameraModule, PhotoController,
             List<CaptureRequest> slowMoRequests = null;
             try {
                 setUpVideoCaptureRequestBuilder(mVideoRecordRequestBuilder, cameraId);
-                int deviceSocId = mSettingsManager.getDeviceSocId();
-                int preivewFPS = mSettingsManager.getVideoPreviewFPS(mVideoSize,
-                        mSettingsManager.getVideoFPS());
                 if (isHighSpeedRateCapture()) {
                     slowMoRequests = mSuperSlomoCapture ?
                             createSSMBatchRequest(mVideoRecordRequestBuilder) :
@@ -5536,12 +5533,25 @@ public class CaptureModule implements CameraModule, PhotoController,
                                     .createHighSpeedRequestList(mVideoRecordRequestBuilder.build());
                     mCurrentSession.setRepeatingBurst(slowMoRequests, mCaptureCallback, mCameraHandler);
                 } else {
-                    mCurrentSession.setRepeatingRequest(mVideoRecordRequestBuilder.build(),
-                            mCaptureCallback, mCameraHandler);
+                    int previewFPS = mSettingsManager.getVideoPreviewFPS(mVideoSize,
+                            mSettingsManager.getVideoFPS());
+                    if (previewFPS == 30 && mHighSpeedCaptureRate == 60) {
+                        List<CaptureRequest> burstList = new ArrayList<>();
+                        burstList.add(mVideoRecordRequestBuilder.build());
+                        mVideoRecordRequestBuilder.removeTarget(mVideoPreviewSurface);
+                        burstList.add(mVideoRecordRequestBuilder.build());
+                        mCurrentSession.setRepeatingBurst(burstList, mCaptureCallback, mCameraHandler);
+                        mVideoRecordRequestBuilder.addTarget(mVideoPreviewSurface);
+                    } else {
+                        mCurrentSession.setRepeatingRequest(mVideoRecordRequestBuilder.build(),
+                                mCaptureCallback, mCameraHandler);
+                    }
                 }
             } catch (CameraAccessException e) {
                 e.printStackTrace();
             } catch (IllegalStateException e) {
+                e.printStackTrace();
+            } catch (NullPointerException e) {
                 e.printStackTrace();
             }
         }
