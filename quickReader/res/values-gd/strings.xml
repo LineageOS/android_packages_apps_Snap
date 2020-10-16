@@ -14,6 +14,17 @@
      limitations under the License.
 -->
 <resources>
+    <string name="accessibility_switch_to_qr">Leughadair QR</string>
+    <string name="quick_reader_action_dismiss">Leig seachad</string>
+    <string name="quick_reader_no_activity_found">Chan eil aplacaid stàlaichte ann a dh’fhosglas an t-susbaint seo</string>
+    <string name="quick_reader_permission_error_title">Mearachd le cead</string>
+    <string name="quick_reader_permission_rationale_message">Tha feum air inntrigeadh chan chamara gus am bàr-chòd a sganadh</string>
     <string name="quick_reader_permission_rationale_positive">Faighnich dhìom a-rithist</string>
+    <string name="quick_reader_permission_fatal_message">Chaidh inntrigeadh dhan chamara a dhiùltadh. Ceadaich e o roghainnean na h-aplacaid</string>
+    <string name="quick_reader_permission_fatal_positive">Fosgail na roghainnean</string>
+    <string name="quick_reader_scanned_text_title">Teacsa air a sganadh</string>
+    <string name="quick_reader_scanned_text_positive">Dèan lethbhreac</string>
     <string name="quick_reader_scanned_text_negative">Co-roinn</string>
+    <string name="quick_reader_share_title">Co-roinn le\u2026</string>
+    <string name="quick_reader_copied_message">Chaidh lethbhreac dheth a chur air an stòr-bhòrd</string>
 </resources>
