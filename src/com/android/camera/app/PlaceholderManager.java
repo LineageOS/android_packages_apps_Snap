@@ -147,8 +147,7 @@ public class PlaceholderManager implements ImageTaskManager {
         }
 
         Uri uri =
-                Storage.addImage(mContext.getContentResolver(), title, timestamp, null, 0, null,
-                        placeholder, width, height, PLACEHOLDER_MIME_TYPE);
+                Storage.addImage(mContext, null, null, null, PLACEHOLDER_MIME_TYPE);
 
         if (uri == null) {
             return null;
@@ -167,7 +166,7 @@ public class PlaceholderManager implements ImageTaskManager {
     public void replacePlaceholder(Session session, Location location, int orientation,
             ExifInterface exif, byte[] jpeg, int width, int height, String mimeType) {
 
-        Storage.updateImage(session.outputUri, mContext.getContentResolver(), session.outputTitle,
+        Storage.updateImage(session.outputUri, mContext, session.outputTitle,
                 session.time, location, orientation, exif, jpeg, width, height, mimeType);
 
         synchronized (mListenerRefs) {
