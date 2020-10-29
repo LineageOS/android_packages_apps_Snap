@@ -43,6 +43,7 @@ LOCAL_PRIVATE_PLATFORM_APIS := true
 LOCAL_CERTIFICATE := platform
 
 LOCAL_AAPT_FLAGS += --rename-manifest-package org.lineageos.snap
+LOCAL_MANIFEST_PACKAGE_NAME := org.lineageos.snap
 
 #LOCAL_SDK_VERSION := current
 LOCAL_RENDERSCRIPT_TARGET_API := 23
