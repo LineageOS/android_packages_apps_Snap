@@ -604,7 +604,6 @@ public class CaptureModule implements CameraModule, PhotoController,
     private boolean mExistAECWarmTag = true;
     private boolean mExistAECFrameControlTag = true;
 
-    private static final long SDCARD_SIZE_LIMIT = 4000 * 1024 * 1024L;
     private static final String sTempCropFilename = "crop-temp";
     private static final int REQUEST_CROP = 1000;
     private int mIntentMode = INTENT_MODE_NORMAL;
@@ -4567,7 +4566,6 @@ public class CaptureModule implements CameraModule, PhotoController,
             mSoundPlayer = SoundClips.getPlayer(mActivity);
         }
 
-        updateSaveStorageState();
         setDisplayOrientation();
         if (!resumeFromRestartAll) {
             startBackgroundThread();
@@ -5287,13 +5285,6 @@ public class CaptureModule implements CameraModule, PhotoController,
     @Override
     public void resizeForPreviewAspectRatio() {
 
-    }
-
-    @Override
-    public void onSwitchSavePath() {
-        mSettingsManager.setValue(SettingsManager.KEY_CAMERA_SAVEPATH, "1");
-        RotateTextToast.makeText(mActivity, R.string.on_switch_save_path_to_sdcard,
-                Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -6495,12 +6486,7 @@ public class CaptureModule implements CameraModule, PhotoController,
         String title = createName(dateTaken);
         String filename = title + CameraUtil.convertOutputFormatToFileExt(outputFileFormat);
         String mime = CameraUtil.convertOutputFormatToMimeType(outputFileFormat);
-        String path;
-        if (Storage.isSaveSDCard() && SDCard.instance().isWriteable()) {
-            path = SDCard.instance().getDirectory() + '/' + filename;
-        } else {
-            path = Storage.DIRECTORY + '/' + filename;
-        }
+        String path = Storage.DIRECTORY + '/' + filename;
         mCurrentVideoValues = new ContentValues(9);
         mCurrentVideoValues.put(MediaStore.Video.Media.TITLE, title);
         mCurrentVideoValues.put(MediaStore.Video.Media.DISPLAY_NAME, filename);
@@ -6705,9 +6691,6 @@ public class CaptureModule implements CameraModule, PhotoController,
             maxFileSize = requestedSizeLimit;
         }
 
-        if (Storage.isSaveSDCard() && maxFileSize > SDCARD_SIZE_LIMIT) {
-            maxFileSize = SDCARD_SIZE_LIMIT;
-        }
         Log.i(TAG, "MediaRecorder setMaxFileSize: " + maxFileSize);
         try {
             mMediaRecorder.setMaxFileSize(maxFileSize);
@@ -8195,10 +8178,6 @@ public class CaptureModule implements CameraModule, PhotoController,
             }
             Log.d(TAG, "CaptureModule onSettingsChanged, key = " + key);
             switch (key) {
-                case SettingsManager.KEY_CAMERA_SAVEPATH:
-                    Storage.setSaveSDCard(value.equals("1"));
-                    mActivity.updateStorageSpaceAndHint();
-                    continue;
                 case SettingsManager.KEY_JPEG_QUALITY:
                     estimateJpegFileSize();
                     continue;
@@ -8665,7 +8644,7 @@ public class CaptureModule implements CameraModule, PhotoController,
         }
         mUI.showUIafterRecording();
         if (what == MediaRecorder.MEDIA_RECORDER_ERROR_UNKNOWN) {
-            // We may have run out of space on the sdcard.
+            // We may have run out of storage space.
             mActivity.updateStorageSpaceAndHint();
         } else {
            warningToast("MediaRecorder error. what=" + what + ". extra=" + extra);
@@ -8694,11 +8673,6 @@ public class CaptureModule implements CameraModule, PhotoController,
         byte[] bytes = new byte[buffer.remaining()];
         buffer.get(bytes);
         return bytes;
-    }
-
-    private void updateSaveStorageState() {
-        Storage.setSaveSDCard(mSettingsManager.getValue(SettingsManager
-                .KEY_CAMERA_SAVEPATH).equals("1"));
     }
 
     public void startPlayVideoActivity() {

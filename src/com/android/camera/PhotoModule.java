@@ -616,8 +616,6 @@ public class PhotoModule
         mBlurDegreeProgressBar = (SeekBar)mRootView.findViewById(R.id.blur_degree_bar);
         mBlurDegreeProgressBar.setOnSeekBarChangeListener(mBlurDegreeListener);
         mBlurDegreeProgressBar.setMax(100);
-        Storage.setSaveSDCard(
-            mPreferences.getString(CameraSettings.KEY_CAMERA_SAVEPATH, "0").equals("1"));
 
         // LGE HDR mode
         if (mApplicationContext != null) {
@@ -909,19 +907,6 @@ public class PhotoModule
         Size size = mParameters.getPreviewSize();
         Log.i(TAG, "Using preview width = " + size.width + "& height = " + size.height);
         mUI.setAspectRatio((float) size.width / size.height);
-    }
-
-    @Override
-    public void onSwitchSavePath() {
-        if (mUI.mMenuInitialized) {
-            mUI.setPreference(CameraSettings.KEY_CAMERA_SAVEPATH, "1");
-        } else {
-            mPreferences.edit()
-                    .putString(CameraSettings.KEY_CAMERA_SAVEPATH, "1")
-                    .apply();
-        }
-        RotateTextToast.makeText(mActivity, R.string.on_switch_save_path_to_sdcard,
-                Toast.LENGTH_SHORT).show();
     }
 
     // Snapshots can only be taken after this is called. It should be called
@@ -1275,7 +1260,6 @@ public class PhotoModule
             }
 
             String dstPath = Storage.DIRECTORY;
-            File sdCard = android.os.Environment.getExternalStorageDirectory();
             File dstFile = new File(dstPath);
             if (dstFile == null) {
                 Log.e(TAG, "Destination file path invalid");
@@ -4977,13 +4961,6 @@ public class PhotoModule
         if (CameraSettings.KEY_MANUAL_FOCUS.equals(pref.getKey())) {
             UpdateManualFocusSettings();
             return;
-        }
-
-        if (CameraSettings.KEY_CAMERA_SAVEPATH.equals(pref.getKey())) {
-            Storage.setSaveSDCard(
-                    mPreferences.getString(CameraSettings.KEY_CAMERA_SAVEPATH, "0").equals("1"));
-            mActivity.updateStorageSpaceAndHint();
-            updateRemainingPhotos();
         }
 
         if (!CameraSettings.hasChromaFlashScene(mActivity) &&

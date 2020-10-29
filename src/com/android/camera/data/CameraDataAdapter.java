@@ -27,7 +27,6 @@ import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
 
-import com.android.camera.SDCard;
 import com.android.camera.Storage;
 import com.android.camera.app.PlaceholderManager;
 import com.android.camera.ui.FilmStripView.ImageData;
@@ -280,8 +279,7 @@ public class CameraDataAdapter implements LocalDataAdapter {
     }
 
     private static String[] getCameraPath() {
-        String[] cameraPath =
-                {Storage.DIRECTORY + "/%", SDCard.instance().getDirectory() + "/%"};
+        String[] cameraPath = { Storage.DIRECTORY + "/%" };
         return cameraPath;
     }
 
