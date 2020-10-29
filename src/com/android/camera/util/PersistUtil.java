@@ -79,8 +79,6 @@ public class PersistUtil {
             SystemProperties.getInt("persist.sys.camera.perf.memlimit", 60);
     private static final boolean PERSIST_CAMERA_UI_AUTO_TEST_ENABLED =
             SystemProperties.getBoolean("persist.sys.camera.ui.auto_test", false);
-    private static final boolean PERSIST_CAMERA_SAVE_IN_SD_ENABLED =
-            SystemProperties.getBoolean("persist.sys.env.camera.saveinsd", false);
     private static final boolean PERSIST_LONG_SAVE_ENABLED =
             SystemProperties.getBoolean("persist.sys.camera.longshot.save", false);
     private static final boolean PERSIST_CAMERA_PREVIEW_RESTART_ENABLED =
@@ -217,10 +215,6 @@ public class PersistUtil {
 
     public static boolean isAutoTestEnabled(){
         return PERSIST_CAMERA_UI_AUTO_TEST_ENABLED;
-    }
-
-    public static boolean isSaveInSdEnabled(){
-        return PERSIST_CAMERA_SAVE_IN_SD_ENABLED;
     }
 
     public static boolean isLongSaveEnabled(){

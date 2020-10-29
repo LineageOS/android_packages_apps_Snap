@@ -49,7 +49,6 @@ import com.android.camera.CameraManager.CameraProxy;
 import com.android.camera.app.OrientationManager;
 import com.android.camera.data.LocalData;
 import com.android.camera.exif.ExifInterface;
-import com.android.camera.ui.RotateTextToast;
 import com.android.camera.util.CameraUtil;
 import com.android.camera.util.UsageStatistics;
 import org.codeaurora.snapcam.R;
@@ -1013,13 +1012,6 @@ public class WideAnglePanoramaModule
 
     @Override
     public void resizeForPreviewAspectRatio() {
-    }
-
-    @Override
-    public void onSwitchSavePath() {
-        mPreferences.getGlobal().edit().putString(CameraSettings.KEY_CAMERA_SAVEPATH, "1").apply();
-        RotateTextToast.makeText(mActivity, R.string.on_switch_save_path_to_sdcard,
-                Toast.LENGTH_SHORT).show();
     }
 
     @Override
