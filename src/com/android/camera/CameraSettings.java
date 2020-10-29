@@ -95,7 +95,6 @@ public class CameraSettings {
     public static final String KEY_POWER_MODE = "pref_camera_powermode_key";
     public static final String KEY_PICTURE_FORMAT = "pref_camera_pictureformat_key";
     public static final String KEY_ZSL = "pref_camera_zsl_key";
-    public static final String KEY_CAMERA_SAVEPATH = "pref_camera_savepath_key";
     public static final String KEY_FILTER_MODE = "pref_camera_filter_mode_key";
     public static final String KEY_COLOR_EFFECT = "pref_camera_coloreffect_key";
     public static final String KEY_VIDEOCAMERA_COLOR_EFFECT = "pref_camera_video_coloreffect_key";
@@ -1138,7 +1137,6 @@ public class CameraSettings {
         ListPreference seeMoreMode = group.findPreference(KEY_SEE_MORE);
         ListPreference videoEncoder = group.findPreference(KEY_VIDEO_ENCODER);
         ListPreference noiseReductionMode = group.findPreference(KEY_NOISE_REDUCTION);
-        ListPreference savePath = group.findPreference(KEY_CAMERA_SAVEPATH);
 
         // Since the screen could be loaded from different resources, we need
         // to check if the preference is available here
@@ -1260,35 +1258,6 @@ public class CameraSettings {
         }
         if (powerShutter != null && CameraUtil.hasCameraKey()) {
             removePreference(group, powerShutter.getKey());
-        }
-
-        if (PersistUtil.isSaveInSdEnabled()) {
-            final String CAMERA_SAVEPATH_SDCARD = "1";
-            final int CAMERA_SAVEPATH_SDCARD_IDX = 1;
-            final int CAMERA_SAVEPATH_PHONE_IDX = 0;
-
-            SharedPreferences pref = group.getSharedPreferences();
-            String savePathValue = null;
-            if (pref != null) {
-                savePathValue = pref.getString(KEY_CAMERA_SAVEPATH, CAMERA_SAVEPATH_SDCARD);
-            }
-            if (savePath != null && CAMERA_SAVEPATH_SDCARD.equals(savePathValue)) {
-                // If sdCard is present, set sdCard as default save path.
-                // Only for the first time when camera start.
-                if (SDCard.instance().isWriteable()) {
-                    Log.d(TAG, "set Sdcard as save path.");
-                    savePath.setValueIndex(CAMERA_SAVEPATH_SDCARD_IDX);
-                } else {
-                    Log.d(TAG, "set Phone as save path when sdCard is unavailable.");
-                    savePath.setValueIndex(CAMERA_SAVEPATH_PHONE_IDX);
-                }
-            }
-        }
-        if (savePath != null) {
-            Log.d(TAG, "check storage menu " +  SDCard.instance().isWriteable());
-            if (!SDCard.instance().isWriteable()) {
-                removePreference(group, savePath.getKey());
-            }
         }
 
         qcomInitPreferences(group);
