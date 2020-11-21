@@ -1,0 +1,22 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dd8f40f1_2bfe053a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 24812
+      },
+      "writtenOn": "2020-11-21T05:27:09Z",
+      "side": 1,
+      "message": "In fact, in 17.1 \u003e Camera (Snap) \u003e hamburger \u003e Storage \u003e if you select SD Card the photos are saved to /external sdcard I.D./Android/Data/org.lineageos.snap/Files/ but taping on the thumbnail of the photo you just took mistakenly opens /storage/emulated/0/DCIM/Camera/.\n\nAdditionally, Gallery does not see that Files folder but Simple Gallery does. The Files explorer (com.android.documentsui) \u003e hamburger \u003e Images also does not show that Files folder but you can navigate to the folder \u0026 see them with thumbnails.\n\nPrior to upgrading from 16.0 to 17.1 I had thousands of images in Files which were shown in Gallery but that album disappeared while the album Files shows correctly in Simple Gallery.\n\nTested on Galaxy S5 G900M LineageOS 17.1 build 2020-11-15 + Open GApps Pico and https://github.com/SimpleMobileTools/Simple-Gallery",
+      "parentUuid": "",
+      "revId": "dff66466741f5a1307c938fdd87fa775189a5816",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
