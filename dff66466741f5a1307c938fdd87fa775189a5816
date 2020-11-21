@@ -17,6 +17,24 @@
       "revId": "dff66466741f5a1307c938fdd87fa775189a5816",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fd18355b_57fb0a4a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 27072
+      },
+      "writtenOn": "2020-11-21T12:41:31Z",
+      "side": 1,
+      "message": "Gallery doesn\u0027t see the images / photos there simply because it respects the .nomedia in the /externalSD/Android/data/",
+      "parentUuid": "dd8f40f1_2bfe053a",
+      "revId": "dff66466741f5a1307c938fdd87fa775189a5816",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }
