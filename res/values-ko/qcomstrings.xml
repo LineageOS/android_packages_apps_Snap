@@ -46,6 +46,7 @@
     <string name="pref_camera_manual_exp_entry_ISO_priority">ISO 우선 순위</string>
     <string name="pref_camera_manual_exp_entry_exptime_priority">노출 시간 우선 순위</string>
     <string name="pref_camera_manual_exp_entry_user_setting">사용자 설정</string>
+    <string name="pref_camera_manual_exp_entry_gains_priority">이익 우선</string>
     <string name="pref_camera_manual_exp_entry_off">끄기</string>
     <string name="pref_camera_manual_wb_title">수동 화이트 밸런스</string>
     <string name="pref_camera_manual_wb_entry_color_temperature">색 온도</string>
@@ -413,6 +414,7 @@
     <string name="pref_camera2_initial_camera_entry_mono">모노</string>
     <string name="pref_camera2_initial_camera_entry_front">전면</string>
     <string name="pref_camera2_eis_title">비디오 EIS(전자 손 떨림 방지)</string>
+    <string name="pref_camera2_eis_entry_v3_set_when_pause">일시 정지시 V3 실행</string>
     <string name="pref_camera2_eis_entry_disable">사용 안 함</string>
     <string name="pref_camera2_fovc_title">비디오 FOVC</string>
     <string name="pref_camera2_fovc_entry_enable">사용</string>

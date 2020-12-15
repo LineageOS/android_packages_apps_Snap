@@ -86,5 +86,9 @@
     <string name="pref_camera2_stats_visualizer_entry_bg_stats">BG statistika</string>
     <string name="pref_camera2_stats_visualizer_entry_be_stats">BE statistika</string>
     <string name="pref_camera2_stats_visualizer_entry_hist_stats">Hist statistika</string>
+    <string name="stats_visualizer_bg_label">BG graafiku vaade</string>
+    <string name="stats_visualizer_be_label">BE graafiku vaade</string>
     <string name="pref_camera2_capture_mfnr_title">Mitmikkaadri mürasummutus</string>
+    <string name="pref_camera2_fs2_title">Kiire katik</string>
+    <string name="pref_camera2_abort_captures_title">Katkesta pildistamine</string>
 </resources>

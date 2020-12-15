@@ -46,6 +46,7 @@
     <string name="pref_camera_manual_exp_entry_ISO_priority">ISO:n tärkeys</string>
     <string name="pref_camera_manual_exp_entry_exptime_priority">Valotusajan tärkeys</string>
     <string name="pref_camera_manual_exp_entry_user_setting">Käyttäjäasetukset</string>
+    <string name="pref_camera_manual_exp_entry_gains_priority">GAIN ensisijainen</string>
     <string name="pref_camera_manual_exp_entry_off">Pois käyt.</string>
     <string name="pref_camera_manual_wb_title">Manuaalinen valkotasapaino</string>
     <string name="pref_camera_manual_wb_entry_color_temperature">Värilämpötila</string>
@@ -424,11 +425,16 @@
     <string name="pref_camera2_stats_visualizer_title">Tilastojen visualisointi</string>
     <string name="pref_camera2_stats_visualizer_entry_bg_stats">BG tilastot</string>
     <string name="pref_camera2_stats_visualizer_entry_be_stats">BE tilastot</string>
+    <string name="pref_camera2_stats_visualizer_entry_hist_stats">Hist tilastot</string>
+    <string name="stats_visualizer_bg_label">BG graafinäkymä</string>
+    <string name="stats_visualizer_be_label">BE graafinäkymä</string>
     <string name="pref_camera2_capture_mfnr_title">Monikehyksinen kohinanvaimennus</string>
     <string name="pref_camera2_capture_mfnr_entry_enable">Ota käyttöön</string>
     <string name="pref_camera2_capture_mfnr_entry_disable">Poistettu käytöstä</string>
+    <string name="pref_camera2_fs2_title">Nopea suljin</string>
     <string name="pref_camera2_fs2_entry_enable">Ota käyttöön</string>
     <string name="pref_camera2_fs2_entry_disable">Poistettu käytöstä</string>
+    <string name="pref_camera2_abort_captures_title">Keskeytä kuvaus</string>
     <string name="pref_camera2_abort_captures_entry_enable">Ota käyttöön</string>
     <string name="pref_camera2_abort_captures_entry_disable">Poistettu käytöstä</string>
 </resources>
