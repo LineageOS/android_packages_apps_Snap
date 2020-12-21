@@ -2334,11 +2334,19 @@ public class CaptureModule implements CameraModule, PhotoController,
         mSettingsManager = SettingsManager.getInstance();
         mSettingsManager.createCaptureModule(this);
         mSettingsManager.registerListener(this);
-        if (isBackCameraId()) {
-            CURRENT_ID = BACK_MODE;
-        } else {
-            CURRENT_ID = FRONT_MODE;
+
+        SceneModule module;
+        for (int i = 0; i < mSelectableModes.length; i++) {
+            module = new SceneModule();
+            module.mode = CameraMode.values()[i];
+            mSceneCameraIds.add(module);
+            if (module.mode == CURRENT_MODE) {
+                mCurrentModeIndex = i;
+            }
         }
+        mCurrentSceneMode = mSceneCameraIds.get(mCurrentModeIndex);
+        CURRENT_ID = mCurrentSceneMode.getNextCameraId(CURRENT_MODE);
+
         mSettingsManager.init();
         mFirstPreviewLoaded = false;
         Log.d(TAG, "init");
@@ -2348,12 +2356,6 @@ public class CaptureModule implements CameraModule, PhotoController,
         }
         for (int i = 0; i < MAX_NUM_CAM; i++) {
             mState[i] = STATE_PREVIEW;
-        }
-        SceneModule module;
-        for (int i = 0; i < mSelectableModes.length; i++) {
-            module = new SceneModule();
-            module.mode = CameraMode.values()[i];
-            mSceneCameraIds.add(module);
         }
         mPostProcessor = new PostProcessor(mActivity, this);
         mFrameProcessor = new FrameProcessor(mActivity, this);
