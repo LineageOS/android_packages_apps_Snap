@@ -330,7 +330,7 @@ public class MultiCameraUI implements PreviewGestures.SingleTapListener,
     public void showRecordingUI(boolean recording) {
         if (recording) {
             mCameraControls.setVideoMode(true);
-            mVideoButton.setImageResource(R.drawable.video_stop);
+            mVideoButton.setImageResource(R.drawable.shutter_button_video_stop);
             mPauseButton.setVisibility(View.VISIBLE);
             mRecordingTimeView.setText("00:00");
             mRecordingTimeRect.setVisibility(View.VISIBLE);
