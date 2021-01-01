@@ -241,7 +241,6 @@
     <string name="pref_camera_auto_hdr_title">자동 HDR</string>
     <string name="pref_camera_auto_hdr_entry_enable">사용</string>
     <string name="pref_camera_auto_hdr_entry_disable">사용 안 함</string>
-    <string name="on_switch_save_path_to_sdcard">내부 저장공간이 충분하지 않습니다. 저장소를 SD 카드로 변경하세요</string>
     <string name="pref_camera_hdr_mode_title">HDR 모드</string>
     <string name="pref_camera_hdr_mode_entry_sensor">센서 HDR</string>
     <string name="pref_camera_hdr_mode_entry_multi_frame">멀티 프레임 HDR</string>

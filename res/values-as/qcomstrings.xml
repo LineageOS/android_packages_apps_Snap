@@ -170,7 +170,6 @@
     <string name="msg_cancel_longshot_for_limited_memory">মেম\'ৰী শেষ হৈ আহিছে, নিৰবিচ্ছিন্ন মোড বাতিল কৰি আছে</string>
     <string name="flash_aebracket_message">AE ব্ৰেকেটিং মোডত ফ্লাশ্ব সমৰ্থিত নহয়</string>
     <string name="pref_camera_auto_hdr_title">স্বয়ং HDR</string>
-    <string name="on_switch_save_path_to_sdcard">আভ্যন্তৰীণ ষ্ট\'ৰেজ পৰ্যাপ্ত নহয়, ষ্ট\'ৰেজ অৱস্থান কাৰ্ডলৈ পৰিৱৰ্তন কৰক</string>
     <string name="pref_camera_hdr_mode_title">HDR মোড</string>
     <string name="pref_camera_hdr_mode_entry_sensor">চেনচৰ HDR</string>
     <string name="pref_camera_hdr_mode_entry_multi_frame">মাল্টিফ্ৰেম HDR</string>

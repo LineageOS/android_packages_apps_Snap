@@ -107,9 +107,6 @@
         <item quantity="other">%d секунди</item>
     </plurals>
     <string name="pref_camera_timer_sound_title">Звучно одбројавање</string>
-    <string name="pref_camera_savepath_title">Складиште</string>
-    <string name="pref_camera_savepath_entry_0">Телефон</string>
-    <string name="pref_camera_savepath_entry_1">SD картица</string>
     <string name="setting_off">Искључено</string>
     <string name="setting_on">Укључено</string>
     <string name="pref_video_quality_title">Квалитет видео снимка</string>

@@ -185,7 +185,6 @@
     <string name="msg_cancel_longshot_for_limited_memory">मेमरी संपत आली आहे, निरंतर शॉट रद्द करत आहे</string>
     <string name="flash_aebracket_message">AE ब्रॅकेटिंग मोडमध्ये फ्लॅश समर्थित नाही</string>
     <string name="pref_camera_auto_hdr_title">ऑटो HDR</string>
-    <string name="on_switch_save_path_to_sdcard">अंतर्गत संग्रह स्थान पुरेशी नाही, संग्रह स्थान SD कार्डला स्विच केले</string>
     <string name="pref_camera_hdr_mode_title">HDR mode</string>
     <string name="pref_camera_hdr_mode_entry_sensor">सेन्सर HDR</string>
     <string name="pref_camera_hdr_mode_entry_multi_frame">बहु-चौकट HDR</string>

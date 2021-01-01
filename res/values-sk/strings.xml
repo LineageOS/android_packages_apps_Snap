@@ -112,9 +112,6 @@
         <item quantity="other">%d sekúnd</item>
     </plurals>
     <string name="pref_camera_timer_sound_title">Zvuk odpočítavania</string>
-    <string name="pref_camera_savepath_title">Úložisko</string>
-    <string name="pref_camera_savepath_entry_0">Telefón</string>
-    <string name="pref_camera_savepath_entry_1">Karta SD</string>
     <string name="setting_off">Vypnuté</string>
     <string name="setting_on">Zapnuté</string>
     <string name="pref_video_quality_title">Kvalita videa</string>

@@ -97,9 +97,6 @@
         <item quantity="other">%d 秒</item>
     </plurals>
     <string name="pref_camera_timer_sound_title">倒数时中发出提示音</string>
-    <string name="pref_camera_savepath_title">存储</string>
-    <string name="pref_camera_savepath_entry_0">手机</string>
-    <string name="pref_camera_savepath_entry_1">SD 卡</string>
     <string name="setting_off">关</string>
     <string name="setting_on">开</string>
     <string name="pref_video_quality_title">视频画质</string>

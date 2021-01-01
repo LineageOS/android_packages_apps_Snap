@@ -102,9 +102,6 @@
         <item quantity="other">%d segundo</item>
     </plurals>
     <string name="pref_camera_timer_sound_title">Soinua egin atzera-kontaketan</string>
-    <string name="pref_camera_savepath_title">Biltegiratzea</string>
-    <string name="pref_camera_savepath_entry_0">Telefonoa</string>
-    <string name="pref_camera_savepath_entry_1">SD txartela</string>
     <string name="setting_off">Ez</string>
     <string name="setting_on">Bai</string>
     <string name="pref_video_quality_title">Bideo kalitatea</string>

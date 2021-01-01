@@ -185,7 +185,6 @@
     <string name="msg_cancel_longshot_for_limited_memory">நினைவகம் குறைபாட்டுடன் தொடர்கிறது, தொடர்ச்சியான ஷாட் ரத்துசெய்யப்படுகிறது</string>
     <string name="flash_aebracket_message">AE பிரேக்கெட்டிங் பயன்முறையில் ஃப்ளாஷ் ஆதரிக்கப்படவில்லை</string>
     <string name="pref_camera_auto_hdr_title">தானியக்க HDR</string>
-    <string name="on_switch_save_path_to_sdcard">உட்புற சேமிப்பக இடம் போதுமானதாக இல்லை, சேமிப்பு இடத்தை SD கார்டுக்கு நிலைமாற்றியது</string>
     <string name="pref_camera_hdr_mode_title">HDR பயன்முறை</string>
     <string name="pref_camera_hdr_mode_entry_sensor">உணர்கருவி HDR</string>
     <string name="pref_camera_hdr_mode_entry_multi_frame">பல சட்ட HDR</string>

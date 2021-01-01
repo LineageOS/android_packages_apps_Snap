@@ -32,8 +32,6 @@
         <item quantity="one">1 segundu</item>
         <item quantity="other">%d segundos</item>
     </plurals>
-    <string name="pref_camera_savepath_entry_0">Telèfonu</string>
-    <string name="pref_camera_savepath_entry_1">Ischeda SD</string>
     <string name="setting_off">Istudadu</string>
     <string name="setting_on">Allutu</string>
     <string name="pref_camera_flashmode_entry_on">Allutu</string>

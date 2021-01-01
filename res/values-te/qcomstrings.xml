@@ -185,7 +185,6 @@
     <string name="msg_cancel_longshot_for_limited_memory">మెమరీ అయిపోతూ ఉంది, కొనసాగించు షాట్ ను రద్దుచేస్తోంది</string>
     <string name="flash_aebracket_message">AE బ్రాకెటింగ్ మోడ్ లో ఫ్లాష్ అనేదానికి మద్దతు లేదు</string>
     <string name="pref_camera_auto_hdr_title">ఆటో HDR</string>
-    <string name="on_switch_save_path_to_sdcard">అంతర్గత నిల్వ స్థలం తగినంతగా లేదు, నిల్వ స్థానాన్ని SD కార్డుకు మార్చండి</string>
     <string name="pref_camera_hdr_mode_title">HDR మోడ్</string>
     <string name="pref_camera_hdr_mode_entry_sensor">సెన్సర్ HDR</string>
     <string name="pref_camera_hdr_mode_entry_multi_frame">మల్టి-ఫ్రేం HDR</string>

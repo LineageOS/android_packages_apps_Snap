@@ -97,9 +97,6 @@
         <item quantity="other">%d detik</item>
     </plurals>
     <string name="pref_camera_timer_sound_title">Bip penghitungan</string>
-    <string name="pref_camera_savepath_title">Penyimpanan</string>
-    <string name="pref_camera_savepath_entry_0">Telepon</string>
-    <string name="pref_camera_savepath_entry_1">Kartu SD</string>
     <string name="setting_off">Mati</string>
     <string name="setting_on">Hidup</string>
     <string name="pref_video_quality_title">Kualitas video</string>

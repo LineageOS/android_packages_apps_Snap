@@ -238,7 +238,6 @@
     <string name="pref_camera_auto_hdr_title">Авто HDR</string>
     <string name="pref_camera_auto_hdr_entry_enable">Увімкнути</string>
     <string name="pref_camera_auto_hdr_entry_disable">Вимкнути</string>
-    <string name="on_switch_save_path_to_sdcard">Внутрішньої пам\'яті недостатньо, вибрано збереження на SD-карту</string>
     <string name="pref_camera_hdr_mode_title">Режим HDR</string>
     <string name="pref_camera_hdr_mode_entry_sensor">Датчик HDR</string>
     <string name="pref_camera_hdr_mode_entry_multi_frame">Мультикадровий HDR</string>

@@ -102,9 +102,6 @@
         <item quantity="other">%d segundos</item>
     </plurals>
     <string name="pref_camera_timer_sound_title">Usar pitíu</string>
-    <string name="pref_camera_savepath_title">Almacenamientu</string>
-    <string name="pref_camera_savepath_entry_0">Teléfonu</string>
-    <string name="pref_camera_savepath_entry_1">Tarxeta SD</string>
     <string name="setting_off">Non</string>
     <string name="setting_on">Activáu</string>
     <string name="pref_video_quality_title">Calidá de videu</string>

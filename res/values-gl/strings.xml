@@ -102,9 +102,6 @@
         <item quantity="other">%d segundos</item>
     </plurals>
     <string name="pref_camera_timer_sound_title">Pitar na conta atrás</string>
-    <string name="pref_camera_savepath_title">Almacenamento</string>
-    <string name="pref_camera_savepath_entry_0">Teléfono</string>
-    <string name="pref_camera_savepath_entry_1">Tarxeta SD</string>
     <string name="setting_off">Apagar</string>
     <string name="setting_on">Aceso</string>
     <string name="pref_video_quality_title">Calidade do vídeo</string>

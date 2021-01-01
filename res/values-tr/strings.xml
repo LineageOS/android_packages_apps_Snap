@@ -102,9 +102,6 @@
         <item quantity="other">%d saniye</item>
     </plurals>
     <string name="pref_camera_timer_sound_title">Geri sayımda bip sesi çıkar</string>
-    <string name="pref_camera_savepath_title">Depolama</string>
-    <string name="pref_camera_savepath_entry_0">Telefon</string>
-    <string name="pref_camera_savepath_entry_1">SD Kart</string>
     <string name="setting_off">Kapalı</string>
     <string name="setting_on">Açık</string>
     <string name="pref_video_quality_title">Video kalitesi</string>

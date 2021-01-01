@@ -102,9 +102,6 @@
         <item quantity="other">%d seconds</item>
     </plurals>
     <string name="pref_camera_timer_sound_title">Beep during countdown</string>
-    <string name="pref_camera_savepath_title">Storage</string>
-    <string name="pref_camera_savepath_entry_0">Phone</string>
-    <string name="pref_camera_savepath_entry_1">SD Card</string>
     <string name="setting_off">Off</string>
     <string name="setting_on">On</string>
     <string name="pref_video_quality_title">Video quality</string>

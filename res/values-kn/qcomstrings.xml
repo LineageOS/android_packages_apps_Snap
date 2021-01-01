@@ -187,7 +187,6 @@
     <string name="msg_cancel_longshot_for_limited_memory">ಮೆಮೊರಿ ಖಾಲಿಯಾಗಿದೆ, ನಿರಂತರ ಶಾಟ್‌ ಅನ್ನು ರದ್ದುಗೊಳಿಸಲಾಗುತ್ತಿದೆ</string>
     <string name="flash_aebracket_message">AE ಬ್ರಾಕೆಟಿಂಗ್‌ ವಿಧಾನದಲ್ಲಿ ಫ್ಲಾಶ್‌ ಬೆಂಬಲಿಸುತ್ತಿಲ್ಲ</string>
     <string name="pref_camera_auto_hdr_title">ಸ್ವಯಂ HDR</string>
-    <string name="on_switch_save_path_to_sdcard">ಆಂತರಿಕ ಸಂಗ್ರಹ ಸ್ಥಳಾವಕಾಶ ಸಾಲುತ್ತಿಲ್ಲ, ಸಂಗ್ರಹ ಸ್ಥಳವನ್ನು SD ಕಾರ್ಡ್‌ಗೆ ಬದಲಿಸಲಾಗಿದೆ</string>
     <string name="pref_camera_hdr_mode_title">HDR ಮೋಡ್‌</string>
     <string name="pref_camera_hdr_mode_entry_sensor">ಸೆನ್ಸರ್‌ HDR</string>
     <string name="pref_camera_hdr_mode_entry_multi_frame">ಮಲ್ಟಿ-ಫ್ರೇಮ್‌ HDR</string>

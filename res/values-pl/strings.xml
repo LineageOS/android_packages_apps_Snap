@@ -112,9 +112,6 @@
         <item quantity="other">%d sekund</item>
     </plurals>
     <string name="pref_camera_timer_sound_title">Sygnał odliczania</string>
-    <string name="pref_camera_savepath_title">Pamięć</string>
-    <string name="pref_camera_savepath_entry_0">Telefon</string>
-    <string name="pref_camera_savepath_entry_1">Karta SD</string>
     <string name="setting_off">Wyłączone</string>
     <string name="setting_on">Włączone</string>
     <string name="pref_video_quality_title">Jakość filmu</string>

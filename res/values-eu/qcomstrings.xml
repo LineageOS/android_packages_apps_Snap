@@ -241,7 +241,6 @@
     <string name="pref_camera_auto_hdr_title">HDR automatikoa</string>
     <string name="pref_camera_auto_hdr_entry_enable">Gaitu</string>
     <string name="pref_camera_auto_hdr_entry_disable">Desgaitu</string>
-    <string name="on_switch_save_path_to_sdcard">Barne biltegiratzea ez da nahikoa, biltegiratze kokapena SD txartelera aldatu da</string>
     <string name="pref_camera_hdr_mode_title">HDR modua</string>
     <string name="pref_camera_hdr_mode_entry_sensor">Sentsore HDRa</string>
     <string name="pref_camera_hdr_mode_entry_multi_frame">Hainbat fotogramako HDR</string>

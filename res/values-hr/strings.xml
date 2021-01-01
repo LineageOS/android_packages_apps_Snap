@@ -107,9 +107,6 @@
         <item quantity="other">%d sekundi</item>
     </plurals>
     <string name="pref_camera_timer_sound_title">Zvuk odbrojavanja</string>
-    <string name="pref_camera_savepath_title">Pohrana</string>
-    <string name="pref_camera_savepath_entry_0">Telefon</string>
-    <string name="pref_camera_savepath_entry_1">SD kartica</string>
     <string name="setting_off">Isključeno</string>
     <string name="setting_on">Uključeno</string>
     <string name="pref_video_quality_title">Kvaliteta videozapisa</string>

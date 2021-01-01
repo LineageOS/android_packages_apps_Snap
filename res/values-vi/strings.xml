@@ -97,9 +97,6 @@
         <item quantity="other">%d giây</item>
     </plurals>
     <string name="pref_camera_timer_sound_title">Tiếng bíp khi đếm ngược</string>
-    <string name="pref_camera_savepath_title">Lưu trữ</string>
-    <string name="pref_camera_savepath_entry_0">Điện thoại</string>
-    <string name="pref_camera_savepath_entry_1">Thẻ SD</string>
     <string name="setting_off">Tắt</string>
     <string name="setting_on">Bật</string>
     <string name="pref_video_quality_title">Chất lượng video</string>

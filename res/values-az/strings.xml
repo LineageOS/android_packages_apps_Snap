@@ -102,9 +102,6 @@
         <item quantity="other">%d saniyə</item>
     </plurals>
     <string name="pref_camera_timer_sound_title">Geri sayma zamanı siqnal</string>
-    <string name="pref_camera_savepath_title">Anbar</string>
-    <string name="pref_camera_savepath_entry_0">Telefon</string>
-    <string name="pref_camera_savepath_entry_1">SD Kart</string>
     <string name="setting_off">Bağlı</string>
     <string name="setting_on">Açıq</string>
     <string name="pref_video_quality_title">Video keyfiyyəti</string>

@@ -102,9 +102,6 @@
         <item quantity="other">%d seconden</item>
     </plurals>
     <string name="pref_camera_timer_sound_title">Pieptoon bij aftellen</string>
-    <string name="pref_camera_savepath_title">Opslag</string>
-    <string name="pref_camera_savepath_entry_0">Telefoon</string>
-    <string name="pref_camera_savepath_entry_1">SD-kaart</string>
     <string name="setting_off">Uit</string>
     <string name="setting_on">Aan</string>
     <string name="pref_video_quality_title">Videokwaliteit</string>
