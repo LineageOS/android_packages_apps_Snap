@@ -416,6 +416,7 @@
     <string name="pref_camera2_initial_camera_entry_mono">Mono</string>
     <string name="pref_camera2_initial_camera_entry_front">Blaen</string>
     <string name="pref_camera2_eis_title">Fideo EIS</string>
+    <string name="pref_camera2_eis_entry_v3_set_when_pause">V3 a gosod pan oedi</string>
     <string name="pref_camera2_eis_entry_disable">Wedi\'i analluogi</string>
     <string name="pref_camera2_fovc_title">Fideo FOVC</string>
     <string name="pref_camera2_fovc_entry_enable">Wedi\'i alluogi</string>

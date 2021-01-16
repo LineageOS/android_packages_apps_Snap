@@ -88,8 +88,8 @@
     <string name="pref_selfie_flash_entry_off">Izklopljeno</string>
     <string name="pref_selfie_flash_entry_on">Vklopljeno</string>
     <string name="pref_camera_redeyereduction_title">Zmanjšanje učinka rdečih oči</string>
-    <string name="pref_camera_redeyereduction_entry_enable">Omogoči</string>
-    <string name="pref_camera_redeyereduction_entry_disable">Onemogoči</string>
+    <string name="pref_camera_redeyereduction_entry_enable">Omogočeno</string>
+    <string name="pref_camera_redeyereduction_entry_disable">Onemogočeno</string>
     <string name="pref_camera_selfiemirror_title">Ogledalo samoposnetka</string>
     <string name="pref_camera_selfiemirror_entry_enable">Omogoči</string>
     <string name="pref_camera_selfiemirror_entry_disable">Onemogoči</string>
