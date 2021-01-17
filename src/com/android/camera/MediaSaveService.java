@@ -291,8 +291,14 @@ public class MediaSaveService extends Service {
 
             // combine to single mpo
             String path = Storage.generateFilepath(title, pictureFormat);
-            MpoInterface.writeMpo(mpo, path);
-            return Storage.addImage(MediaSaveService.this, path);
+            int size = MpoInterface.writeMpo(mpo, path);
+            // Try to get the real image size after add exif.
+            File f = new File(path);
+            if (f.exists() && f.isFile()) {
+                size = (int) f.length();
+            }
+            return Storage.addImage(resolver, title, date, loc, orientation, null,
+                    size, path, width, height, pictureFormat);
         }
 
         @Override
@@ -378,7 +384,9 @@ public class MediaSaveService extends Service {
 
         @Override
         protected Uri doInBackground(Void... params) {
-            return Storage.addImage(MediaSaveService.this, path);
+            return Storage.addHeifImage(
+                    resolver,title,date,loc,orientation,exif,path,
+                    width,height,quality,pictureFormat);
         }
 
         @Override
@@ -430,7 +438,8 @@ public class MediaSaveService extends Service {
                 width = options.outWidth;
                 height = options.outHeight;
             }
-            return Storage.addImage(MediaSaveService.this, title, exif, data, pictureFormat);
+            return Storage.addImage(
+                    resolver, title, date, loc, orientation, exif, data, width, height, pictureFormat);
         }
 
         @Override
@@ -506,7 +515,8 @@ public class MediaSaveService extends Service {
                 width = options.outWidth;
                 height = options.outHeight;
             }
-            return Storage.addImage(MediaSaveService.this, title, exif, data, pictureFormat);
+            return Storage.addImage(
+                    resolver, title, date, loc, orientation, exif, data, width, height, pictureFormat);
         }
 
         @Override
