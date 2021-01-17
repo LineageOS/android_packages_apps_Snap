@@ -886,7 +886,9 @@ public class WideAnglePanoramaModule
                 Log.e(TAG, "Cannot set exif for " + filepath, e);
                 Storage.writeFile(filepath, jpegData);
             }
-            return Storage.addImage(mActivity, filepath);
+            int jpegLength = (int) (new File(filepath).length());
+            return Storage.addImage(mContentResolver, filename, mTimeTaken, loc, orientation,
+                    jpegLength, filepath, width, height, LocalData.MIME_TYPE_JPEG);
         }
         return null;
     }
