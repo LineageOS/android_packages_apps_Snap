@@ -84,6 +84,7 @@ import com.android.camera.LocationManager;
 import com.android.camera.MediaSaveService;
 import com.android.camera.PhotoModule.NamedImages;
 import com.android.camera.PhotoModule.NamedImages.NamedEntity;
+import com.android.camera.SDCard;
 import com.android.camera.SoundClips;
 import com.android.camera.Storage;
 import com.android.camera.Thumbnail;
@@ -1225,7 +1226,12 @@ public class MultiVideoModule implements MultiCamera, LocationManager.Listener,
         String title = createName(dateTaken);
         String filename = title + "_"+ id + CameraUtil.convertOutputFormatToFileExt(outputFileFormat);
         String mime = CameraUtil.convertOutputFormatToMimeType(outputFileFormat);
-        String path = Storage.DIRECTORY + '/' + filename;
+        String path;
+        if (Storage.isSaveSDCard() && SDCard.instance().isWriteable()) {
+            path = SDCard.instance().getDirectory() + '/' + filename;
+        } else {
+            path = Storage.DIRECTORY + '/' + filename;
+        }
         mCurrentVideoValues[id] = new ContentValues(9);
         mCurrentVideoValues[id].put(MediaStore.Video.Media.TITLE, title);
         mCurrentVideoValues[id].put(MediaStore.Video.Media.DISPLAY_NAME, filename);
