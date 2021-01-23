@@ -1175,6 +1175,7 @@ public class SettingsActivity extends PreferenceActivity {
         updateZslPreference();
         updateFormatPreference();
         updateEISPreference();
+        updateStoragePreference();
         updateMfnrPreference();
 
         Map<String, SettingsManager.Values> map = mSettingsManager.getValuesMap();
@@ -1229,6 +1230,18 @@ public class SettingsActivity extends PreferenceActivity {
             findPreference("version_info").setSummary(versionName);
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
+        }
+    }
+
+    private void updateStoragePreference() {
+        boolean isWrite = SDCard.instance().isWriteable();
+        ListPreference pref = (ListPreference)findPreference(SettingsManager.KEY_CAMERA_SAVEPATH);
+        if (pref == null) {
+            return;
+        }
+        pref.setEnabled(isWrite);
+        if (!isWrite) {
+            updatePreference(SettingsManager.KEY_CAMERA_SAVEPATH);
         }
     }
 

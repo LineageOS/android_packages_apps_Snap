@@ -62,6 +62,16 @@ public class Storage {
     public static final long UNKNOWN_SIZE = -3L;
     public static final long LOW_STORAGE_THRESHOLD_BYTES = 60 * 1024 * 1024L;
 
+    private static boolean sSaveSDCard = false;
+
+    public static boolean isSaveSDCard() {
+        return sSaveSDCard;
+    }
+
+    public static void setSaveSDCard(boolean saveSDCard) {
+        sSaveSDCard = saveSDCard;
+    }
+
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     private static void setImageSize(ContentValues values, int width, int height) {
         // The two fields are available since ICS but got published in JB
@@ -272,10 +282,18 @@ public class Storage {
             }else if(pictureFormat.equalsIgnoreCase("heics")) {
                 suffix = ".heics";
             }
-            return DIRECTORY + '/' + title + suffix;
+            if (isSaveSDCard() && SDCard.instance().isWriteable()) {
+                return SDCard.instance().getDirectory() + '/' + title + suffix;
+            } else {
+                return DIRECTORY + '/' + title + suffix;
+            }
         } else if (pictureFormat.equalsIgnoreCase("yuv")){
             String suffix = ".yuv";
-            return DIRECTORY + '/' + title + suffix;
+            if (isSaveSDCard() && SDCard.instance().isWriteable()) {
+                return SDCard.instance().getDirectory() + '/' + title + suffix;
+            } else {
+                return DIRECTORY + '/' + title + suffix;
+            }
         } else {
             File dir = new File(RAW_DIRECTORY);
             dir.mkdirs();
@@ -283,7 +301,22 @@ public class Storage {
         }
     }
 
-    public static long getAvailableSpace() {
+    private static long getSDCardAvailableSpace() {
+        if (SDCard.instance().isWriteable()) {
+            File dir = new File(SDCard.instance().getDirectory());
+            dir.mkdirs();
+            try {
+                StatFs stat = new StatFs(SDCard.instance().getDirectory());
+                long ret = stat.getAvailableBlocks() * (long) stat.getBlockSize();
+                return ret;
+            } catch (Exception e) {
+            }
+            return UNKNOWN_SIZE;
+        }
+        return UNKNOWN_SIZE;
+    }
+
+    private static long getInternalStorageAvailableSpace() {
         String state = Environment.getExternalStorageState();
         Log.d(TAG, "External storage state=" + state);
         if (Environment.MEDIA_CHECKING.equals(state)) {
@@ -306,6 +339,14 @@ public class Storage {
             Log.i(TAG, "Failed to access external storage", e);
         }
         return UNKNOWN_SIZE;
+    }
+
+    public static long getAvailableSpace() {
+        if (isSaveSDCard()) {
+            return getSDCardAvailableSpace();
+        } else {
+            return getInternalStorageAvailableSpace();
+        }
     }
 
     public static long getTotalSpace(){
@@ -331,6 +372,16 @@ public class Storage {
             Log.i(TAG, "Failed to access external storage", e);
         }
         return UNKNOWN_SIZE;
+    }
+
+    public static boolean switchSavePath() {
+        if (!isSaveSDCard()
+                && getInternalStorageAvailableSpace() <= LOW_STORAGE_THRESHOLD_BYTES
+                && getSDCardAvailableSpace() > LOW_STORAGE_THRESHOLD_BYTES) {
+            setSaveSDCard(true);
+            return true;
+        }
+        return false;
     }
 
     /**

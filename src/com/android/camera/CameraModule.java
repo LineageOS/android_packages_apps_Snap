@@ -73,6 +73,8 @@ public interface CameraModule {
 
     public void resizeForPreviewAspectRatio();
 
+    public void onSwitchSavePath();
+
     public void waitingLocationPermissionResult(boolean waiting);
 
     public void enableRecordingLocation(boolean enable);

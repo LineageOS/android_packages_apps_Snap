@@ -108,6 +108,8 @@ public class VideoModule implements CameraModule,
 
     private static final int SCREEN_DELAY = 2 * 60 * 1000;
 
+    private static final int SDCARD_SIZE_LIMIT = 4000 * 1024 * 1024;
+
     private static final long SHUTTER_BUTTON_TIMEOUT = 0L; // 0ms
 
     /**
@@ -135,6 +137,7 @@ public class VideoModule implements CameraModule,
 
     private ComboPreferences mPreferences;
     private PreferenceGroup mPreferenceGroup;
+    private boolean mSaveToSDCard = false;
 
     // Preference must be read before starting preview. We check this before starting
     // preview.
@@ -539,6 +542,9 @@ public class VideoModule implements CameraModule,
 
         mContentResolver = mActivity.getContentResolver();
 
+        Storage.setSaveSDCard(
+            mPreferences.getString(CameraSettings.KEY_CAMERA_SAVEPATH, "0").equals("1"));
+        mSaveToSDCard = Storage.isSaveSDCard();
         // Surface texture is from camera screen nail and startPreview needs it.
         // This must be done before startPreview.
         mIsVideoCaptureIntent = isVideoCaptureIntent();
@@ -1198,6 +1204,13 @@ public class VideoModule implements CameraModule,
     }
 
     @Override
+    public void onSwitchSavePath() {
+        mUI.setPreference(CameraSettings.KEY_CAMERA_SAVEPATH, "1");
+        RotateTextToast.makeText(mActivity, R.string.on_switch_save_path_to_sdcard,
+                Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
     public void installIntentFilter() {
         if(mReceiver != null)
             return;
@@ -1782,6 +1795,10 @@ public class VideoModule implements CameraModule,
             maxFileSize = requestedSizeLimit;
         }
 
+        if (Storage.isSaveSDCard() && maxFileSize > SDCARD_SIZE_LIMIT) {
+            maxFileSize = SDCARD_SIZE_LIMIT;
+        }
+
         try {
             mMediaRecorder.setMaxFileSize(maxFileSize);
         } catch (RuntimeException exception) {
@@ -1849,7 +1866,12 @@ public class VideoModule implements CameraModule,
         // Used when emailing.
         String filename = title + convertOutputFormatToFileExt(outputFileFormat);
         String mime = convertOutputFormatToMimeType(outputFileFormat);
-        String path = Storage.DIRECTORY + '/' + filename;
+        String path = null;
+        if (Storage.isSaveSDCard() && SDCard.instance().isWriteable()) {
+            path = SDCard.instance().getDirectory() + '/' + filename;
+        } else {
+            path = Storage.DIRECTORY + '/' + filename;
+        }
         mCurrentVideoValues = new ContentValues(9);
         mCurrentVideoValues.put(Video.Media.TITLE, title);
         mCurrentVideoValues.put(Video.Media.DISPLAY_NAME, filename);
@@ -1927,7 +1949,7 @@ public class VideoModule implements CameraModule,
         stopVideoRecording();
         mUI.showUIafterRecording();
         if (what == MediaRecorder.MEDIA_RECORDER_ERROR_UNKNOWN) {
-            // We may have run out of storage space.
+            // We may have run out of space on the sdcard.
             mActivity.updateStorageSpaceAndHint();
         }
     }
@@ -3046,6 +3068,8 @@ public class VideoModule implements CameraModule,
                 setCameraParameters(false);
             }
             mRestartPreview = false;
+            Storage.setSaveSDCard(
+                mPreferences.getString(CameraSettings.KEY_CAMERA_SAVEPATH, "0").equals("1"));
             mActivity.updateStorageSpaceAndHint();
             mActivity.initPowerShutter(mPreferences);
             mActivity.initMaxBrightness(mPreferences);

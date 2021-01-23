@@ -170,6 +170,8 @@ public class CameraActivity extends Activity
     private static final int HIDE_ACTION_BAR = 1;
     private static final long SHOW_ACTION_BAR_TIMEOUT_MS = 3000;
 
+    private static final int SWITCH_SAVE_PATH = 2;
+
     /** Permission request code */
     private static final int PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION = 1;
 
@@ -351,6 +353,24 @@ public class CameraActivity extends Activity
                 }
             };
 
+    // update the status of storage space when SD card status changed.
+    private BroadcastReceiver mSDcardMountedReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            Log.d(TAG, "SDcard status changed, update storage space");
+            updateStorageSpaceAndHint();
+        }
+    };
+
+    private void registerSDcardMountedReceiver() {
+        // filter for SDcard status
+        IntentFilter filter = new IntentFilter(Intent.ACTION_MEDIA_MOUNTED);
+        filter.addAction(Intent.ACTION_MEDIA_SHARED);
+        filter.addAction(Intent.ACTION_MEDIA_UNMOUNTED);
+        filter.addDataScheme("file");
+        registerReceiver(mSDcardMountedReceiver, filter);
+    }
+
     private class MainHandler extends Handler {
         public MainHandler(Looper looper) {
             super(looper);
@@ -361,6 +381,8 @@ public class CameraActivity extends Activity
             if (msg.what == HIDE_ACTION_BAR) {
                 removeMessages(HIDE_ACTION_BAR);
                 CameraActivity.this.setSystemBarsVisibility(false);
+            }else if ( msg.what == SWITCH_SAVE_PATH ) {
+                mCurrentModule.onSwitchSavePath();
             }
         }
     }
@@ -1701,6 +1723,7 @@ public class CameraActivity extends Activity
         int offset = lower * 7 / 100;
         SETTING_LIST_WIDTH_1 = lower / 2 + offset;
         SETTING_LIST_WIDTH_2 = lower / 2 - offset;
+        registerSDcardMountedReceiver();
 
         mAutoTestEnabled = PersistUtil.isAutoTestEnabled();
 
@@ -1961,6 +1984,8 @@ public class CameraActivity extends Activity
             Log.d(TAG, "wake lock release");
         }
         if (mCursor != null) {
+            unregisterReceiver(mSDcardMountedReceiver);
+
             mCursor.close();
             mCursor=null;
         }
@@ -2025,6 +2050,10 @@ public class CameraActivity extends Activity
     protected long updateStorageSpace() {
         synchronized (mStorageSpaceLock) {
             mStorageSpaceBytes = Storage.getAvailableSpace();
+            if (Storage.switchSavePath()) {
+                mStorageSpaceBytes = Storage.getAvailableSpace();
+                mMainHandler.sendEmptyMessage(SWITCH_SAVE_PATH);
+            }
             return mStorageSpaceBytes;
         }
     }
@@ -2037,6 +2066,9 @@ public class CameraActivity extends Activity
 
     public void updateStorageSpaceAndHint() {
         if (mIsStartup) {
+            if (!SDCard.instance().isWriteable()) {
+                Storage.setSaveSDCard(false);
+            }
             mIsStartup = false;
         }
         updateStorageSpace();
