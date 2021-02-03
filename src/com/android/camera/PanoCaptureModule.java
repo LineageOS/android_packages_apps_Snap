@@ -681,6 +681,11 @@ public class PanoCaptureModule implements CameraModule, PhotoController {
     }
 
     @Override
+    public void onSwitchSavePath() {
+
+    }
+
+    @Override
     public void waitingLocationPermissionResult(boolean waiting) {
 
     }
