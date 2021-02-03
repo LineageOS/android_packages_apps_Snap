@@ -125,6 +125,7 @@ public class SettingsManager implements ListMenu.SettingsListener {
     public static final String SCENE_MODE_DUAL_STRING = "100";
     public static final String SCENE_MODE_SUNSET_STRING = "10";
     public static final String SCENE_MODE_LANDSCAPE_STRING = "4";
+    public static final String KEY_CAMERA_SAVEPATH = "pref_camera2_savepath_key";
     public static final String KEY_RECORD_LOCATION = "pref_camera2_recordlocation_key";
     public static final String KEY_JPEG_QUALITY = "pref_camera2_jpegquality_key";
     public static final String KEY_FOCUS_MODE = "pref_camera2_focusmode_key";
