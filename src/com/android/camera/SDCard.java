@@ -104,9 +104,9 @@ public class SDCard {
     }
 
     private void initVolume() {
-        List<StorageVolume> volumes = mStorageManager.getStorageVolumes();
-        mVolume = (volumes.size() > VOLUME_SDCARD_INDEX) ?
-                volumes.get(VOLUME_SDCARD_INDEX) : null;
+        final StorageVolume[] volumes = mStorageManager.getVolumeList();
+        mVolume = (volumes.length > VOLUME_SDCARD_INDEX) ?
+                volumes[VOLUME_SDCARD_INDEX] : null;
         mPath = null;
         mRawpath = null;
     }
