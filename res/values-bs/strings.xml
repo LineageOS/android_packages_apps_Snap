@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2007 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="pref_camera2_category_system">Sistem</string>
+    <string name="save_best_dialog_title">Spremi odabrane slike?</string>
+    <string name="save_best_dialog_native_bt">Otkaži</string>
+    <plurals name="save_best_image_toast">
+        <item quantity="one">%1$d od 10 slika spremljeno.</item>
+        <item quantity="few">%1$d od 10 slika spremljeno.</item>
+        <item quantity="other">%1$d od 10 slika spremljeno.</item>
+    </plurals>
+    <string name="dialog_do_not_show">Ne prikazuj ponovo</string>
+    <string name="delete_best_dialog_title">Obrisati sve?</string>
+    <string name="delete_best_dialog_content">Jeste li sigurni da želite obrisati svih 10 slika?</string>
+    <string name="delete_best_dialog_native_bt">Otkaži</string>
+    <string name="delete_all_best_dialog_title">Obrisati sve?</string>
+    <string name="delete_all_best_dialog_content">Jeste li sigurni da želite obrisati sve slike?</string>
+    <string name="delete_all_best_dialog_native_bt">Otkaži</string>
+    <string name="delete_all_best_dialog_positive_bt">Obriši sve</string>
+    <string name="overflow_best_item1">Spremi sve</string>
+    <string name="overflow_best_item2">Obriši sve</string>
+    <string name="settings_title">Postavke</string>
+</resources>

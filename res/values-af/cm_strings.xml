@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2013-2015 The CyanogenMod Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="pref_camera_aspectratio_wide">Breed</string>
+    <string name="pref_camera_megapixel_format">(<xliff:g id="ratio" example="16:9">%1$s</xliff:g>) <xliff:g id="pixels">%2$1.1f</xliff:g> megapieksels</string>
+    <string name="pref_camera_scenemode_entry_antimotionblur">Verminder vervaag beweging</string>
+    <string name="pref_camera_scenemode_entry_aqua">Aqua</string>
+    <string name="pref_camera_scenemode_entry_ar">Augmented realiteit</string>
+    <string name="pref_camera_scenemode_entry_asd">Beste Skoot</string>
+    <string name="pref_camera_scenemode_entry_baby">Baba</string>
+    <string name="pref_camera_scenemode_entry_backgroundblur">Vervaag agtergrond</string>
+    <string name="pref_camera_scenemode_entry_backlight">Agtergrond verligting</string>
+    <string name="pref_camera_scenemode_entry_backlightportrait">Portret agtergrond verligting</string>
+    <string name="pref_camera_scenemode_entry_barcode">Strepieskode</string>
+    <string name="pref_camera_scenemode_entry_beach">Strand</string>
+    <string name="pref_camera_scenemode_entry_beauty">Skoonheids</string>
+    <string name="pref_camera_scenemode_entry_candlelight">Kerslig</string>
+    <string name="pref_camera_scenemode_entry_cine">Fliek</string>
+    <string name="pref_camera_scenemode_entry_closeup">Naby</string>
+    <string name="pref_camera_scenemode_entry_dark">Donker</string>
+    <string name="pref_camera_scenemode_entry_dish">Skottel</string>
+    <string name="pref_camera_scenemode_entry_duskdawn">Skemer</string>
+    <string name="pref_camera_scenemode_entry_document">Dokument</string>
+    <string name="pref_camera_scenemode_entry_fallcolor">Herfs kleur</string>
+    <string name="pref_camera_scenemode_entry_fireworks">Vuurwerke</string>
+    <string name="pref_camera_scenemode_entry_flowers">Blomme</string>
+    <string name="pref_camera_scenemode_entry_handheldtwilight">Draagbare skemer</string>
+    <string name="pref_camera_scenemode_entry_highsensitivity">Hoë sensitiwiteit</string>
+    <string name="pref_camera_scenemode_entry_indoor">Binnenshuis</string>
+    <string name="pref_camera_scenemode_entry_landscape">Landskap</string>
+    <string name="pref_camera_scenemode_entry_mix_illuminant">Gemengde verligting</string>
+    <string name="pref_camera_scenemode_entry_mood">Stemming</string>
+    <string name="pref_camera_scenemode_entry_nightportrait">Nag portret</string>
+    <string name="pref_camera_scenemode_entry_nightindoor">Nag binnenshuis</string>
+    <string name="pref_camera_scenemode_entry_oldfilm">Ou film</string>
+    <string name="pref_camera_scenemode_entry_pet">Troeteldier</string>
+    <string name="pref_camera_scenemode_entry_portrait">Portret</string>
+    <string name="pref_camera_scenemode_entry_snow">Sneeu</string>
+    <string name="pref_camera_scenemode_entry_softskin">Sagte vel</string>
+    <string name="pref_camera_scenemode_entry_sports">Sport</string>
+    <string name="pref_camera_scenemode_entry_spotlight">Kollig</string>
+    <string name="pref_camera_scenemode_entry_steadyphoto">Bestendige foto</string>
+    <string name="pref_camera_scenemode_entry_supernight">Donker nag</string>
+    <string name="pref_camera_scenemode_entry_sweepstitch">Sweep stik</string>
+    <string name="pref_camera_scenemode_entry_text">Teks</string>
+    <string name="pref_camera_scenemode_entry_theatre">Teater</string>
+    <string name="pref_camera_scenemode_entry_whiteboard">Witbord</string>
+    <string name="pref_camera_focusmode_entry_continuous">Aaneenlopend</string>
+    <string name="pref_camera_focusmode_entry_mw_continuous">Aaneenlopend (MW)</string>
+    <string name="pref_camera_focusmode_entry_extended">Uitgebreide</string>
+    <string name="pref_camera_focusmode_entry_facedetect">Herken gesig</string>
+    <string name="pref_camera_focusmode_entry_facepriority">Gesig prioriteit</string>
+    <string name="pref_camera_focusmode_entry_fixed">Vasgestel</string>
+    <string name="pref_camera_focusmode_entry_normal">Normaal</string>
+    <string name="pref_camera_focusmode_entry_portrait">Portret</string>
+    <string name="pref_camera_focusmode_entry_hyperfocal">Hiper fokaal</string>
+    <string name="pref_camera_coloreffect_entry_washed">Gewas</string>
+    <string name="pref_camera_coloreffect_entry_vintage_warm">Verouderd warm</string>
+    <string name="pref_camera_coloreffect_entry_vintage_cold">Verouderd koud</string>
+    <string name="pref_camera_coloreffect_entry_point_blue">Blou punt</string>
+    <string name="pref_camera_coloreffect_entry_point_green">Geel punt</string>
+    <string name="pref_camera_coloreffect_entry_point_red_yellow">Rooi-geel punt</string>
+    <string name="pref_camera_coloreffect_entry_cartoonize">Strokiesprent-agtig</string>
+    <string name="pref_camera_flashmode_entry_redeye">Rooi Oog</string>
+    <string name="pref_camera_flashmode_label_redeye">ROOI OOG</string>
+    <string name="pref_camera_power_shutter_title">Krag knoppie</string>
+    <string name="pref_camera_max_brightness_title">Helder skerm</string>
+    <string name="pref_camera_focustime_title">Duur van raak fokus</string>
+    <string name="pref_camera_focustime_entry_0">0s</string>
+    <string name="pref_camera_focustime_entry_3">3s</string>
+    <string name="pref_camera_focustime_entry_5">5s</string>
+    <string name="pref_camera_focustime_entry_10">10s</string>
+    <string name="pref_camera_focustime_entry_infinite">Oneindig</string>
+    <string name="pref_camera_shutter_speed_title">Sluiter spoed</string>
+    <string name="developer_menu_enabled">Jy het gevorderde kamera opsies geaktiveer</string>
+    <string name="developer_menu_disabled">Jy het gevorderde kamera opsies gedeaktiveer</string>
+</resources>

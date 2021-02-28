@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2013-2015 The CyanogenMod Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="pref_camera_aspectratio_wide">רחב</string>
+    <string name="pref_camera_megapixel_format">(<xliff:g id="ratio" example="16:9">%1$s </xliff:g>) <xliff:g id="pixels">%2$1.1f </xliff:g> מגה פיקסל</string>
+    <string name="pref_camera_scenemode_entry_antimotionblur">הפחתת טשטוש תנועה</string>
+    <string name="pref_camera_scenemode_entry_aqua">מים</string>
+    <string name="pref_camera_scenemode_entry_ar">מציאות מוגברת</string>
+    <string name="pref_camera_scenemode_entry_asd">הצילום הכי מוצלח</string>
+    <string name="pref_camera_scenemode_entry_baby">תינוק</string>
+    <string name="pref_camera_scenemode_entry_backgroundblur">טשטוש רקע</string>
+    <string name="pref_camera_scenemode_entry_backlight">תאורה אחורית</string>
+    <string name="pref_camera_scenemode_entry_backlightportrait">דיוקן תאורה אחורית</string>
+    <string name="pref_camera_scenemode_entry_barcode">ברקוד</string>
+    <string name="pref_camera_scenemode_entry_beach">חוף</string>
+    <string name="pref_camera_scenemode_entry_beauty">יופי</string>
+    <string name="pref_camera_scenemode_entry_candlelight">אור נרות</string>
+    <string name="pref_camera_scenemode_entry_cine">קולנוע</string>
+    <string name="pref_camera_scenemode_entry_closeup">תקריב</string>
+    <string name="pref_camera_scenemode_entry_dark">חשכה</string>
+    <string name="pref_camera_scenemode_entry_dish">קעור</string>
+    <string name="pref_camera_scenemode_entry_duskdawn">דמדומי שחר</string>
+    <string name="pref_camera_scenemode_entry_document">מסמך</string>
+    <string name="pref_camera_scenemode_entry_fallcolor">צבעי סתיו</string>
+    <string name="pref_camera_scenemode_entry_fireworks">זיקוקים</string>
+    <string name="pref_camera_scenemode_entry_flowers">פרחים</string>
+    <string name="pref_camera_scenemode_entry_handheldtwilight">בין-ערביים</string>
+    <string name="pref_camera_scenemode_entry_highsensitivity">רגישות גבוהה</string>
+    <string name="pref_camera_scenemode_entry_indoor">בתוך מבנים</string>
+    <string name="pref_camera_scenemode_entry_landscape">נוף/רוחב</string>
+    <string name="pref_camera_scenemode_entry_mix_illuminant">תאורה מעורבת</string>
+    <string name="pref_camera_scenemode_entry_mood">מצב רוח</string>
+    <string name="pref_camera_scenemode_entry_nightportrait">דיוקן לילה</string>
+    <string name="pref_camera_scenemode_entry_nightindoor">לילה בתוך מבנה</string>
+    <string name="pref_camera_scenemode_entry_oldfilm">סרט ישן</string>
+    <string name="pref_camera_scenemode_entry_pet">חיית מחמד</string>
+    <string name="pref_camera_scenemode_entry_portrait">דיוקן</string>
+    <string name="pref_camera_scenemode_entry_snow">שלג</string>
+    <string name="pref_camera_scenemode_entry_softskin">עור רך</string>
+    <string name="pref_camera_scenemode_entry_sports">ספורט</string>
+    <string name="pref_camera_scenemode_entry_spotlight">זרקורים</string>
+    <string name="pref_camera_scenemode_entry_steadyphoto">צילום יציב</string>
+    <string name="pref_camera_scenemode_entry_supernight">לילה אפל</string>
+    <string name="pref_camera_scenemode_entry_sweepstitch">תפירה פנורמית</string>
+    <string name="pref_camera_scenemode_entry_text">טקסט</string>
+    <string name="pref_camera_scenemode_entry_theatre">תיאטרון</string>
+    <string name="pref_camera_scenemode_entry_whiteboard">לוח ציור</string>
+    <string name="pref_camera_focusmode_entry_continuous">רציף</string>
+    <string name="pref_camera_focusmode_entry_mw_continuous">רציף (MW)</string>
+    <string name="pref_camera_focusmode_entry_extended">מורחב</string>
+    <string name="pref_camera_focusmode_entry_facedetect">זיהוי פנים</string>
+    <string name="pref_camera_focusmode_entry_facepriority">עדיפות לפנים</string>
+    <string name="pref_camera_focusmode_entry_fixed">קבוע</string>
+    <string name="pref_camera_focusmode_entry_normal">רגיל</string>
+    <string name="pref_camera_focusmode_entry_portrait">דיוקן</string>
+    <string name="pref_camera_focusmode_entry_hyperfocal">מיקוד יתר</string>
+    <string name="pref_camera_coloreffect_entry_washed">דהוי</string>
+    <string name="pref_camera_coloreffect_entry_vintage_warm">וינטג\' חם</string>
+    <string name="pref_camera_coloreffect_entry_vintage_cold">וינטג\' קר</string>
+    <string name="pref_camera_coloreffect_entry_point_blue">הצבע הכחול</string>
+    <string name="pref_camera_coloreffect_entry_point_green">הצבע הירוק</string>
+    <string name="pref_camera_coloreffect_entry_point_red_yellow">הצבע האדום-צהוב</string>
+    <string name="pref_camera_coloreffect_entry_cartoonize">אפקט קומיקס</string>
+    <string name="pref_camera_flashmode_entry_redeye">עיניים אדומות</string>
+    <string name="pref_camera_flashmode_label_redeye">עיניים אדומות</string>
+    <string name="pref_camera_power_shutter_title">צילום בלחיצה על לחצן ההפעלה</string>
+    <string name="pref_camera_max_brightness_title">בהירות מסך מירבית</string>
+    <string name="pref_camera_focustime_title">משך פוקוס</string>
+    <string name="pref_camera_focustime_entry_0">0 שנ\'</string>
+    <string name="pref_camera_focustime_entry_3">3 שנ\'</string>
+    <string name="pref_camera_focustime_entry_5">5 שנ\'</string>
+    <string name="pref_camera_focustime_entry_10">10 שנ\'</string>
+    <string name="pref_camera_focustime_entry_infinite">אינסופי</string>
+    <string name="pref_camera_shutter_speed_title">מהירות צמצם</string>
+    <string name="developer_menu_enabled">הפעלת אפשרויות מצלמה מתקדמות</string>
+    <string name="developer_menu_disabled">כיבית אפשרויות מצלמה מתקדמות</string>
+    <string name="pref_camera2_preferences_category_developer">אפשרויות מתקדמות</string>
+</resources>

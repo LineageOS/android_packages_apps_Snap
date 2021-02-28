@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2013-2015 The CyanogenMod Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="pref_camera_aspectratio_wide">Larg</string>
+    <string name="pref_camera_megapixel_format">(<xliff:g id="ratio" example="16:9">%1$s</xliff:g>) <xliff:g id="pixels">%2$1.1f</xliff:g> megapixeli</string>
+    <string name="pref_camera_scenemode_entry_antimotionblur">Reducere neclaritate de la mișcare</string>
+    <string name="pref_camera_scenemode_entry_aqua">Aqua</string>
+    <string name="pref_camera_scenemode_entry_ar">Realitate augmentată</string>
+    <string name="pref_camera_scenemode_entry_asd">Cel mai bun cadru</string>
+    <string name="pref_camera_scenemode_entry_baby">Copil</string>
+    <string name="pref_camera_scenemode_entry_backgroundblur">Neclaritate de fundal</string>
+    <string name="pref_camera_scenemode_entry_backlight">Iluminare din spate</string>
+    <string name="pref_camera_scenemode_entry_backlightportrait">Portret cu iluminare din spate</string>
+    <string name="pref_camera_scenemode_entry_barcode">Cod de bare</string>
+    <string name="pref_camera_scenemode_entry_beach">Plajă</string>
+    <string name="pref_camera_scenemode_entry_beauty">Frumusețe</string>
+    <string name="pref_camera_scenemode_entry_candlelight">Lumina lumânării</string>
+    <string name="pref_camera_scenemode_entry_cine">Cine</string>
+    <string name="pref_camera_scenemode_entry_closeup">Prim-plan</string>
+    <string name="pref_camera_scenemode_entry_dark">Întunecat</string>
+    <string name="pref_camera_scenemode_entry_dish">Mâncare</string>
+    <string name="pref_camera_scenemode_entry_duskdawn">Zori-amurg</string>
+    <string name="pref_camera_scenemode_entry_document">Document</string>
+    <string name="pref_camera_scenemode_entry_fallcolor">Tomnatic</string>
+    <string name="pref_camera_scenemode_entry_fireworks">Artificii</string>
+    <string name="pref_camera_scenemode_entry_flowers">Flori</string>
+    <string name="pref_camera_scenemode_entry_handheldtwilight">Amurg portabil</string>
+    <string name="pref_camera_scenemode_entry_highsensitivity">Sensibilitate crescută</string>
+    <string name="pref_camera_scenemode_entry_indoor">Interior</string>
+    <string name="pref_camera_scenemode_entry_landscape">Peisaj</string>
+    <string name="pref_camera_scenemode_entry_mix_illuminant">Iluminare mixtă</string>
+    <string name="pref_camera_scenemode_entry_mood">Stare</string>
+    <string name="pref_camera_scenemode_entry_nightportrait">Portret nocturn</string>
+    <string name="pref_camera_scenemode_entry_nightindoor">Interior nocturn</string>
+    <string name="pref_camera_scenemode_entry_oldfilm">Film vechi</string>
+    <string name="pref_camera_scenemode_entry_pet">Animal de companie</string>
+    <string name="pref_camera_scenemode_entry_portrait">Portret</string>
+    <string name="pref_camera_scenemode_entry_snow">Zăpadă</string>
+    <string name="pref_camera_scenemode_entry_softskin">Piele fină</string>
+    <string name="pref_camera_scenemode_entry_sports">Sport</string>
+    <string name="pref_camera_scenemode_entry_spotlight">Reflector</string>
+    <string name="pref_camera_scenemode_entry_steadyphoto">Fotografie stabilă</string>
+    <string name="pref_camera_scenemode_entry_supernight">Noapte întunecată</string>
+    <string name="pref_camera_scenemode_entry_sweepstitch">Îmbinare panoramă</string>
+    <string name="pref_camera_scenemode_entry_text">Text</string>
+    <string name="pref_camera_scenemode_entry_theatre">Teatru</string>
+    <string name="pref_camera_scenemode_entry_whiteboard">Placă-albă</string>
+    <string name="pref_camera_focusmode_entry_continuous">Continuu</string>
+    <string name="pref_camera_focusmode_entry_mw_continuous">Continuu (MW)</string>
+    <string name="pref_camera_focusmode_entry_extended">Extins</string>
+    <string name="pref_camera_focusmode_entry_facedetect">Detectare față</string>
+    <string name="pref_camera_focusmode_entry_facepriority">Prioritate față</string>
+    <string name="pref_camera_focusmode_entry_fixed">Fix</string>
+    <string name="pref_camera_focusmode_entry_normal">Normal</string>
+    <string name="pref_camera_focusmode_entry_portrait">Portret</string>
+    <string name="pref_camera_focusmode_entry_hyperfocal">Hiperfocală</string>
+    <string name="pref_camera_coloreffect_entry_washed">Desaturat</string>
+    <string name="pref_camera_coloreffect_entry_vintage_warm">Vintage cald</string>
+    <string name="pref_camera_coloreffect_entry_vintage_cold">Vintage rece</string>
+    <string name="pref_camera_coloreffect_entry_point_blue">Punct albastru</string>
+    <string name="pref_camera_coloreffect_entry_point_green">Punct verde</string>
+    <string name="pref_camera_coloreffect_entry_point_red_yellow">Punct roșu-galben</string>
+    <string name="pref_camera_coloreffect_entry_cartoonize">Caricaturizare</string>
+    <string name="pref_camera_flashmode_entry_redeye">Ochi roșii</string>
+    <string name="pref_camera_flashmode_label_redeye">OCHI ROȘII</string>
+    <string name="pref_camera_power_shutter_title">Obturator buton de pornire</string>
+    <string name="pref_camera_max_brightness_title">Ecran iluminat maxim</string>
+    <string name="pref_camera_focustime_title">Durată focalizare tactilă</string>
+    <string name="pref_camera_focustime_entry_0">0s</string>
+    <string name="pref_camera_focustime_entry_3">3s</string>
+    <string name="pref_camera_focustime_entry_5">5s</string>
+    <string name="pref_camera_focustime_entry_10">10s</string>
+    <string name="pref_camera_focustime_entry_infinite">Infinit</string>
+    <string name="pref_camera_shutter_speed_title">Viteza obturatorului</string>
+    <string name="developer_menu_enabled">Ați activat opțiunile avansate ale camerei</string>
+    <string name="developer_menu_disabled">Ați dezactivat opțiunile avansate ale camerei</string>
+    <string name="pref_camera2_preferences_category_developer">Opțiuni avansate</string>
+</resources>

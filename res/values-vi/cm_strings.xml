@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2013-2015 The CyanogenMod Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="pref_camera_aspectratio_wide">Rộng</string>
+    <string name="pref_camera_megapixel_format">(<xliff:g id="ratio" example="16:9">%1$s</xliff:g>) <xliff:g id="pixels">%2$1.1f</xliff:g> megapixels</string>
+    <string name="pref_camera_scenemode_entry_antimotionblur">Giảm mờ chuyển động</string>
+    <string name="pref_camera_scenemode_entry_aqua">Nước</string>
+    <string name="pref_camera_scenemode_entry_ar">Tăng cường thực tế</string>
+    <string name="pref_camera_scenemode_entry_asd">Ảnh đẹp nhất</string>
+    <string name="pref_camera_scenemode_entry_baby">Trẻ con</string>
+    <string name="pref_camera_scenemode_entry_backgroundblur">Làm mờ nền</string>
+    <string name="pref_camera_scenemode_entry_backlight">Đèn nền</string>
+    <string name="pref_camera_scenemode_entry_backlightportrait">Đèn nền chân dung</string>
+    <string name="pref_camera_scenemode_entry_barcode">Mã vạch</string>
+    <string name="pref_camera_scenemode_entry_beach">Bãi biển</string>
+    <string name="pref_camera_scenemode_entry_beauty">Làm đẹp</string>
+    <string name="pref_camera_scenemode_entry_candlelight">Ánh sáng nến</string>
+    <string name="pref_camera_scenemode_entry_cine">Phim ảnh</string>
+    <string name="pref_camera_scenemode_entry_closeup">Cận cảnh</string>
+    <string name="pref_camera_scenemode_entry_dark">Tối</string>
+    <string name="pref_camera_scenemode_entry_dish">Món ăn</string>
+    <string name="pref_camera_scenemode_entry_duskdawn">Bình minh tối</string>
+    <string name="pref_camera_scenemode_entry_document">Tài liệu</string>
+    <string name="pref_camera_scenemode_entry_fallcolor">Màu mùa thu</string>
+    <string name="pref_camera_scenemode_entry_fireworks">Pháo hoa</string>
+    <string name="pref_camera_scenemode_entry_flowers">Hoa</string>
+    <string name="pref_camera_scenemode_entry_handheldtwilight">Đèn cầm tay</string>
+    <string name="pref_camera_scenemode_entry_highsensitivity">Độ nhạy cao</string>
+    <string name="pref_camera_scenemode_entry_indoor">Trong nhà</string>
+    <string name="pref_camera_scenemode_entry_landscape">Ngang</string>
+    <string name="pref_camera_scenemode_entry_mix_illuminant">Hỗn hợp ánh sáng</string>
+    <string name="pref_camera_scenemode_entry_mood">Tâm trạng</string>
+    <string name="pref_camera_scenemode_entry_nightportrait">Chân dung đêm</string>
+    <string name="pref_camera_scenemode_entry_nightindoor">Ban đêm trong nhà</string>
+    <string name="pref_camera_scenemode_entry_oldfilm">Phim cũ</string>
+    <string name="pref_camera_scenemode_entry_pet">Thú nuôi</string>
+    <string name="pref_camera_scenemode_entry_portrait">Dọc</string>
+    <string name="pref_camera_scenemode_entry_snow">Tuyết</string>
+    <string name="pref_camera_scenemode_entry_softskin">Làm mềm da</string>
+    <string name="pref_camera_scenemode_entry_sports">Thể thao</string>
+    <string name="pref_camera_scenemode_entry_spotlight">Tiêu điểm</string>
+    <string name="pref_camera_scenemode_entry_steadyphoto">Ổn định hình ảnh</string>
+    <string name="pref_camera_scenemode_entry_supernight">Đêm tối</string>
+    <string name="pref_camera_scenemode_entry_sweepstitch">Khâu quét</string>
+    <string name="pref_camera_scenemode_entry_text">Văn bản</string>
+    <string name="pref_camera_scenemode_entry_theatre">Nhà hát</string>
+    <string name="pref_camera_scenemode_entry_whiteboard">Bảng trắng</string>
+    <string name="pref_camera_focusmode_entry_continuous">Liên tục</string>
+    <string name="pref_camera_focusmode_entry_mw_continuous">Liên tục (MW)</string>
+    <string name="pref_camera_focusmode_entry_extended">Mở rộng</string>
+    <string name="pref_camera_focusmode_entry_facedetect">Nhận diện khuôn mặt</string>
+    <string name="pref_camera_focusmode_entry_facepriority">Ưu tiên khuôn mặt</string>
+    <string name="pref_camera_focusmode_entry_fixed">Cố định</string>
+    <string name="pref_camera_focusmode_entry_normal">Bình thường</string>
+    <string name="pref_camera_focusmode_entry_portrait">Dọc</string>
+    <string name="pref_camera_focusmode_entry_hyperfocal">Siêu lấy nét</string>
+    <string name="pref_camera_coloreffect_entry_washed">Xanh xao</string>
+    <string name="pref_camera_coloreffect_entry_vintage_warm">Màu ấm cổ điển</string>
+    <string name="pref_camera_coloreffect_entry_vintage_cold">Màu lạnh cổ điển</string>
+    <string name="pref_camera_coloreffect_entry_point_blue">Điểm màu xanh da trời</string>
+    <string name="pref_camera_coloreffect_entry_point_green">Điểm màu xanh lá cây</string>
+    <string name="pref_camera_coloreffect_entry_point_red_yellow">Điểm màu đỏ-vàng</string>
+    <string name="pref_camera_coloreffect_entry_cartoonize">Hoạt hình hóa</string>
+    <string name="pref_camera_flashmode_entry_redeye">Mắt đỏ</string>
+    <string name="pref_camera_flashmode_label_redeye">MẮT ĐỎ</string>
+    <string name="pref_camera_power_shutter_title">Chụp bằng nút nguồn</string>
+    <string name="pref_camera_max_brightness_title">Sáng màn hình</string>
+    <string name="pref_camera_focustime_title">Thời gian chạm lấy nét</string>
+    <string name="pref_camera_focustime_entry_0">0 giây</string>
+    <string name="pref_camera_focustime_entry_3">3 giây</string>
+    <string name="pref_camera_focustime_entry_5">5 giây</string>
+    <string name="pref_camera_focustime_entry_10">10 giây</string>
+    <string name="pref_camera_focustime_entry_infinite">Vô cực</string>
+    <string name="pref_camera_shutter_speed_title">Tốc độ chụp màn trập</string>
+    <string name="developer_menu_enabled">Bạn đã bật tùy chọn máy ảnh nâng cao</string>
+    <string name="developer_menu_disabled">Bạn đã tắt tùy chọn máy ảnh nâng cao</string>
+    <string name="pref_camera2_preferences_category_developer">Tùy chọn nâng cao</string>
+</resources>

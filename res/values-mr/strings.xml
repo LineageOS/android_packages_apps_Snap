@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2007 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name">कॅमेरा</string>
+    <string name="video_camera_label">कॅमकॉर्डर</string>
+    <string name="details_ms">%1$02d:%2$02d</string>
+    <string name="details_hms">%1$d:%2$02d:%3$02d</string>
+    <string name="set_image">चित्र या रूपात सेट करा</string>
+    <string name="delete">हटवायचे?</string>
+    <plurals name="delete_selection">
+        <item quantity="one">निवडलेला घटक हटवायचा?</item>
+        <item quantity="other">निवडलेले घटक हटवायचे?</item>
+    </plurals>
+    <string name="share">सामायिक करा</string>
+    <string name="share_panorama">पॅनोरामा शेअर करा</string>
+    <string name="share_as_photo">फोटो म्हणून शेअर करा</string>
+    <string name="deleted">हटविला</string>
+    <string name="undo">पुनर्स्थापित करा</string>
+    <string name="details">तपशील</string>
+    <string name="close">बंद करा</string>
+    <plurals name="number_of_items_selected">
+        <item quantity="one">%1$d निवडलेले</item>
+        <item quantity="other">%1$d निवडलेले</item>
+    </plurals>
+    <plurals name="number_of_albums_selected">
+        <item quantity="one">%1$d निवडलेले</item>
+        <item quantity="other">%1$d निवडलेले</item>
+    </plurals>
+    <plurals name="number_of_groups_selected">
+        <item quantity="one">%1$d निवडलेले</item>
+        <item quantity="other">%1$d निवडलेले</item>
+    </plurals>
+    <string name="show_on_map">नकाशावर दर्शवा</string>
+    <string name="rotate_left">डावीकडे फिरवा</string>
+    <string name="rotate_right">उजवीकडे फिरवा</string>
+    <string name="edit">संपादित करा</string>
+    <string name="crop_action">क्रॉप करा</string>
+    <string name="trim_action">ट्रिम करा</string>
+    <string name="set_as">हे म्हणून सेट करा</string>
+    <string name="video_err">व्हिडिओ प्ले करू शकत नाही.</string>
+    <string name="crop_saved">क्रॉप केलेल्या प्रतिमा <xliff:g id="folder_name">%s</xliff:g>वर जतन केल्या जातात.</string>
+    <string name="title">शीर्षक</string>
+    <string name="description">वर्णन</string>
+    <string name="time">वेळ</string>
+    <string name="location">स्थान</string>
+    <string name="path">मार्ग</string>
+    <string name="width">रुंदी</string>
+    <string name="height">उंची</string>
+    <string name="orientation">अभिमुखता</string>
+    <string name="duration">कालावधी</string>
+    <string name="mimetype">MIME प्रकार</string>
+    <string name="file_size">फाइल आकार</string>
+    <string name="maker">कर्ता</string>
+    <string name="model">मॉडेल:</string>
+    <string name="flash">फ्लॅश</string>
+    <string name="aperture">छिद्र</string>
+    <string name="focal_length">फोकल लेंथः</string>
+    <string name="white_balance">शुभ्रता संतुलन</string>
+    <string name="exposure_time">अनावरण वेळ</string>
+    <string name="iso">ISO</string>
+    <string name="unit_mm">मिमि</string>
+    <string name="manual">व्यक्तिचलित</string>
+    <string name="auto">ऑटो</string>
+    <string name="flash_on">फ्लॅश उडवला</string>
+    <string name="flash_off">फ्लॅश नाही</string>
+    <string name="unknown">अज्ञात</string>
+    <string name="try_to_set_local_album_available_offline">हा घटक स्थानिक पातळीवर जतन केला जातो आणि ऑफलाईन उपलब्ध आहे.</string>
+    <string name="please_wait">कृपया प्रतीक्षा करा</string>
+    <string name="rendering_photo_sphere">फोटो आवाका प्रस्तुत करणे</string>
+    <string name="camera_error_title">कॅमेरा त्रुटी</string>
+    <string name="cannot_connect_camera">कॅमेरासह कनेक्ट करू शकत नाही.</string>
+    <string name="camera_disabled">सुरक्षा धोरणांमुळे कॅमेरा अक्षम केलेला आहे.</string>
+    <string name="wait">कृपया प्रतीक्षा करा...</string>
+    <string name="no_storage" product="default">कॅमेरा वापरण्यापूर्वी SD कार्ड इन्सर्ट करा.</string>
+    <string name="preparing_sd" product="default">SD कार्ड तयार करीत आहे...</string>
+    <string name="access_sd_fail" product="default">SD कार्ड ऍक्सेस करू शकलो नाही.</string>
+    <string name="time_lapse_title">टाईम लॅप्स रेकॉर्डिंग</string>
+    <string name="capturing">कॅप्चर करत आहे</string>
+    <string name="pref_camera_id_title">कॅमेरा निवडा</string>
+    <string name="pref_camera_id_entry_back">परत</string>
+    <string name="pref_camera_id_entry_front">पुढील बाजू</string>
+    <string name="pref_camera_location_label">स्थान</string>
+    <string name="pref_camera_timer_title">काउंटडाउन टायमर</string>
+    <plurals name="pref_camera_timer_entry">
+        <item quantity="one">1 सेकंद</item>
+        <item quantity="other">%d सेकंद</item>
+    </plurals>
+    <string name="pref_camera_timer_sound_title">काउंटडाउन दरम्यान बीप करा</string>
+    <string name="setting_off">बंद</string>
+    <string name="setting_on">चालू</string>
+    <string name="pref_video_quality_title">व्हिडिओ गुणवत्ता</string>
+    <string name="pref_video_time_lapse_frame_interval_title">टाईम लॅप्स</string>
+    <string name="pref_camera_settings_category">कॅमेरा सेटिंग्ज</string>
+    <string name="pref_camcorder_settings_category">कॅमकॉर्डर सेटिंग्ज</string>
+    <string name="pref_camera_picturesize_title">चित्राचा आकार</string>
+    <string name="pref_camera_focusmode_title">फोकस मोड</string>
+    <string name="pref_camera_focusmode_entry_auto">ऑटो</string>
+    <string name="pref_camera_focusmode_entry_infinity">अनंतता</string>
+    <string name="pref_camera_focusmode_entry_macro">मॅक्रो</string>
+    <string name="pref_camera_focusmode_label_auto">स्वयंचलित</string>
+    <string name="pref_camera_focusmode_label_infinity">अनंतता</string>
+    <string name="pref_camera_focusmode_label_macro">मॅक्रो</string>
+    <string name="pref_camera_flashmode_title">फ्लॅश</string>
+    <string name="pref_camera_flashmode_entry_auto">ऑटो</string>
+    <string name="pref_camera_flashmode_entry_on">चालू</string>
+    <string name="pref_camera_flashmode_entry_off">बंद</string>
+    <string name="pref_camera_flashmode_label_auto">फ्लॅश ऑटो</string>
+    <string name="pref_camera_flashmode_label_on">फ्लॅश चालू</string>
+    <string name="pref_camera_flashmode_label_off">फ्लॅश बंद</string>
+    <string name="pref_camera_whitebalance_title">शुभ्रता संतुलन</string>
+    <string name="pref_camera_whitebalance_label">शुभ्रता संतुलन</string>
+    <string name="pref_camera_whitebalance_entry_auto">ऑटो</string>
+    <string name="pref_camera_whitebalance_entry_incandescent">इनकॅण्डेसेंट</string>
+    <string name="pref_camera_whitebalance_entry_daylight">दिनप्रकाश</string>
+    <string name="pref_camera_whitebalance_entry_fluorescent">फ्लुरोसंट</string>
+    <string name="pref_camera_whitebalance_entry_cloudy">ढगाळ</string>
+    <string name="pref_camera_whitebalance_label_auto">स्वयंचलित</string>
+    <string name="pref_camera_whitebalance_label_incandescent">इनकॅण्डेसेंट</string>
+    <string name="pref_camera_whitebalance_label_daylight">दिनप्रकाश</string>
+    <string name="pref_camera_whitebalance_label_fluorescent">फ्लुरोसंट</string>
+    <string name="pref_camera_whitebalance_label_cloudy">ढगाळ</string>
+    <string name="pref_camera_scenemode_title">दृश्य मोड</string>
+    <string name="pref_camera_scenemode_entry_auto">ऑटो</string>
+    <string name="pref_camera_scenemode_entry_hdr_plus">HDR+</string>
+    <string name="pref_camera_scenemode_entry_hdr">HDR</string>
+    <string name="pref_camera_scenemode_entry_turn_hdr_plus_on">HDR+ चालू</string>
+    <string name="pref_camera_scenemode_entry_turn_hdr_plus_off">HDR+ बंद</string>
+    <string name="pref_camera_scenemode_entry_turn_hdr_on">HDR चालू</string>
+    <string name="pref_camera_scenemode_entry_turn_hdr_off">HDR बंद</string>
+    <string name="pref_camera_scenemode_entry_action">क्रिया</string>
+    <string name="pref_camera_scenemode_entry_night">रात्र</string>
+    <string name="pref_camera_scenemode_entry_sunset">सुर्यास्त</string>
+    <string name="pref_camera_scenemode_entry_party">पक्ष</string>
+    <string name="pref_camera_scenemode_label_auto">काहीही नाही</string>
+    <string name="pref_camera_scenemode_label_action">क्रिया</string>
+    <string name="pref_camera_scenemode_label_night">रात्र</string>
+    <string name="pref_camera_scenemode_label_sunset">सुर्यास्त</string>
+    <string name="pref_camera_scenemode_label_party">पक्ष</string>
+    <string name="pref_camera_countdown_label_off">टायमर बंद</string>
+    <string name="pref_camera_countdown_label_one">1 सेकंद</string>
+    <string name="pref_camera_countdown_label_three">3 सेकंद</string>
+    <string name="pref_camera_countdown_label_ten">10 सेकंद</string>
+    <string name="pref_camera_countdown_label_fifteen">15 सेकंद</string>
+    <string name="not_selectable_in_scene_mode">दृश्य मोडमध्ये निवडण्यायोग्य नाही.</string>
+    <string name="pref_exposure_title">एक्सपोजर</string>
+    <string name="pref_exposure_label">एक्सपोजर</string>
+    <string name="pref_camera_hdr_label">HDR</string>
+    <string name="pref_camera_id_label_back">पुढील कॅमेरा</string>
+    <string name="pref_camera_id_label_front">मागील कॅमेरा</string>
+    <string name="dialog_ok">ठीक आहे</string>
+    <string name="spaceIsLow_content" product="default">तुमच्या SD कार्डवरील स्थान संपत आले आहे. गुणवत्ता सेटिंग बदला किंवा काही प्रतिमा किंवा इतर फाइल्स हटवा.</string>
+    <string name="video_reach_size_limit">आकारमान मर्यादा झाली.</string>
+    <string name="pano_too_fast_prompt">खूप जास्त जलद</string>
+    <string name="pano_dialog_prepare_preview">पॅनोरामा तयार करत आहे</string>
+    <string name="pano_dialog_panorama_failed">पॅनोरामा जतन करता आला नाही.</string>
+    <string name="pano_dialog_title">पॅनोरामा</string>
+    <string name="pano_capture_indication">पॅनोरामा कॅप्चर करत आहे</string>
+    <string name="pano_dialog_waiting_previous">मागील पॅनोरामाची प्रतिक्षा करत आहे</string>
+    <string name="pano_review_saving_indication_str">जतन करत आहे\u2026</string>
+    <string name="pano_review_rendering">पॅनोरामा प्रस्तुत करणे</string>
+    <string name="tap_to_focus">फोकस करण्यासाठी स्पर्श करा.</string>
+    <string name="pref_video_effect_title">प्रभाव</string>
+    <string name="effect_none">काहीही नाही</string>
+    <string name="effect_goofy_face_squeeze">आकुंचन करा</string>
+    <string name="effect_goofy_face_big_eyes">मोठे डोळे</string>
+    <string name="effect_goofy_face_big_mouth">मोठे तोंड</string>
+    <string name="effect_goofy_face_small_mouth">लहान तोंड</string>
+    <string name="effect_goofy_face_big_nose">लहान नाक</string>
+    <string name="effect_goofy_face_small_eyes">लहान डोळे</string>
+    <string name="effect_backdropper_space">अवकाशात</string>
+    <string name="effect_backdropper_sunset">सुर्यास्त</string>
+    <string name="effect_backdropper_gallery">तुमचा व्हिडिओ</string>
+    <string name="video_snapshot_hint">रेकॉर्डिंग करताना फोटो घेण्यासाठी स्पर्श करा.</string>
+    <string name="video_recording_started">व्हिडिओ रेकॉर्डिंग सुरू झाले आहे.</string>
+    <string name="video_recording_stopped">व्हिडिओ रेकॉर्डिंग थांबले आहे.</string>
+    <string name="clear_effects">प्रभाव साफ करा</string>
+    <string name="effect_silly_faces">गमतीदार चेहरे</string>
+    <string name="effect_background">पार्श्वभूमी</string>
+    <string name="accessibility_shutter_button">शटर</string>
+    <string name="accessibility_menu_button">मेनू बटण</string>
+    <string name="accessibility_mode_picker">कॅमेरा, व्हिडिओ किंवा पॅनोरामा निवडकर्ता</string>
+    <string name="accessibility_check_box">%1$s चौकटीत खूण करा</string>
+    <string name="accessibility_switch_to_camera">फोटोला स्विच करा</string>
+    <string name="accessibility_switch_to_video">व्हिडिओला स्विच करा</string>
+    <string name="accessibility_switch_to_panorama">पॅनोरामाला स्विच करा</string>
+    <string name="accessibility_switch_to_photo_sphere">फोटो आवाकाला स्विच करा</string>
+    <string name="accessibility_switch_to_gcam">उच्च गुणवत्ताला स्विच करा</string>
+    <string name="accessibility_review_cancel">पूर्वावलोकन रद्द केले</string>
+    <string name="accessibility_review_ok">पूर्वावलोकन केले</string>
+    <string name="accessibility_review_retake">पूर्वावलोकन पुन्हा घ्या</string>
+    <string name="capital_on">चालू</string>
+    <string name="capital_off">बंद</string>
+    <string name="pref_video_time_lapse_frame_interval_off">बंद</string>
+    <string name="pref_video_time_lapse_frame_interval_500">0.5 सेकंद</string>
+    <string name="pref_video_time_lapse_frame_interval_1000">1 सेकंद</string>
+    <string name="pref_video_time_lapse_frame_interval_1500">1.5 सेकंद</string>
+    <string name="pref_video_time_lapse_frame_interval_2000">2 सेकंद</string>
+    <string name="pref_video_time_lapse_frame_interval_2500">2.5 सेकंद</string>
+    <string name="pref_video_time_lapse_frame_interval_3000">3 सेकंद</string>
+    <string name="pref_video_time_lapse_frame_interval_4000">4 सेकंद</string>
+    <string name="pref_video_time_lapse_frame_interval_5000">5 सेकंद</string>
+    <string name="pref_video_time_lapse_frame_interval_6000">6 सेकंद</string>
+    <string name="pref_video_time_lapse_frame_interval_10000">10 सेकंद</string>
+    <string name="pref_video_time_lapse_frame_interval_12000">12 सेकंद</string>
+    <string name="pref_video_time_lapse_frame_interval_15000">15 सेकंद</string>
+    <string name="pref_video_time_lapse_frame_interval_24000">24 सेकंद</string>
+    <string name="pref_video_time_lapse_frame_interval_30000">0.5 मिनिटे</string>
+    <string name="pref_video_time_lapse_frame_interval_60000">1 मिनिट</string>
+    <string name="pref_video_time_lapse_frame_interval_90000">1.5 मिनिटे</string>
+    <string name="pref_video_time_lapse_frame_interval_120000">2 मिनिटे</string>
+    <string name="pref_video_time_lapse_frame_interval_150000">2.5 मिनिटे</string>
+    <string name="pref_video_time_lapse_frame_interval_180000">3 मिनिटे</string>
+    <string name="pref_video_time_lapse_frame_interval_240000">4 मिनिटे</string>
+    <string name="pref_video_time_lapse_frame_interval_300000">5 मिनिटे</string>
+    <string name="pref_video_time_lapse_frame_interval_360000">6 मिनिटे</string>
+    <string name="pref_video_time_lapse_frame_interval_600000">10 मिनिटे</string>
+    <string name="pref_video_time_lapse_frame_interval_720000">12 मिनिटे</string>
+    <string name="pref_video_time_lapse_frame_interval_900000">15 मिनिटे</string>
+    <string name="pref_video_time_lapse_frame_interval_1440000">24 मिनिटे</string>
+    <string name="pref_video_time_lapse_frame_interval_1800000">0.5 तास</string>
+    <string name="pref_video_time_lapse_frame_interval_3600000">1 तास</string>
+    <string name="pref_video_time_lapse_frame_interval_5400000">1.5 तास</string>
+    <string name="pref_video_time_lapse_frame_interval_7200000">2 तास</string>
+    <string name="pref_video_time_lapse_frame_interval_9000000">2.5 तास</string>
+    <string name="pref_video_time_lapse_frame_interval_10800000">3 तास</string>
+    <string name="pref_video_time_lapse_frame_interval_14400000">4 तास</string>
+    <string name="pref_video_time_lapse_frame_interval_18000000">5 तास</string>
+    <string name="pref_video_time_lapse_frame_interval_21600000">6 तास</string>
+    <string name="pref_video_time_lapse_frame_interval_36000000">10 तास</string>
+    <string name="pref_video_time_lapse_frame_interval_43200000">12 तास</string>
+    <string name="pref_video_time_lapse_frame_interval_54000000">15 तास</string>
+    <string name="pref_video_time_lapse_frame_interval_86400000">24 तास</string>
+    <string name="time_lapse_seconds">सेकंद</string>
+    <string name="time_lapse_minutes">मिनिटे</string>
+    <string name="time_lapse_hours">तास</string>
+    <string name="time_lapse_interval_set">पूर्ण केले</string>
+    <string name="set_time_interval">वेळ मध्यांतर सेट करा</string>
+    <string name="set_time_interval_help">टाईम लॅप्स वैशिष्ट्य बंद आहे. वेळ मध्यांतर सेट करण्यासाठी ते चालू करा.</string>
+    <string name="set_duration">सेकंदांमध्ये कालावधी सेट करा</string>
+    <string name="count_down_title_text">फोटो घेण्यासाठी काउंट डाउन करत आहे</string>
+    <string name="remember_location_title">फोटो स्थान आठवतात?</string>
+    <string name="remember_location_prompt">तुमचे फोटो आणि व्हिडिओ जिथे घेतले त्या स्थानांसह टॅग करा.\n\nइतर अनुप्रयोग तुमच्या जतन केलेल्या प्रतिमांसह ही माहिती ऍक्सेस करू शकतात.</string>
+    <string name="remember_location_no">नाही धन्यवाद</string>
+    <string name="remember_location_yes">होय</string>
+    <string name="camera_menu_more_label">अधिक पर्याय</string>
+    <string name="camera_menu_settings_label">सेटिंग्स</string>
+    <string name="create_tiny_planet">Tiny Planet तयार करा</string>
+    <string name="saving_tiny_planet">Tiny Planet जतन करत आहे...</string>
+    <string name="tiny_planet_zoom">झूम करा</string>
+    <string name="tiny_planet_rotate">चक्राकृती फिरवा</string>
+    <string name="crop_save">जतन करा</string>
+    <string name="cannot_load_image">प्रतिमा लोड करु शकत नाही!</string>
+    <string name="switch_photo_filmstrip">फिल्मस्ट्रिप दृश्य</string>
+    <string name="setting_wallpaper">वॉलपेपर सेट करत आहे</string>
+    <string name="save_best_dialog_positive_bt">ठीक आहे</string>
+    <string name="delete_best_dialog_positive_bt">हटवायचे?</string>
+</resources>

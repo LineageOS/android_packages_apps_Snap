@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2013-2015 The CyanogenMod Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="pref_camera_scenemode_entry_antimotionblur">ھەرىكەتلىك غۇۋالىقنى تۆۋەنلىتىش</string>
+    <string name="pref_camera_scenemode_entry_aqua">سۇ ئاستى</string>
+    <string name="pref_camera_scenemode_entry_ar">كۈچەيتىلگەن رىئاللىق</string>
+    <string name="pref_camera_scenemode_entry_asd">ئەڭ ياخشى سۈرەت</string>
+    <string name="pref_camera_scenemode_entry_baby">بوۋاق</string>
+    <string name="pref_camera_scenemode_entry_backgroundblur">تەگلىك غۇۋالاشتۇرۇش</string>
+    <string name="pref_camera_scenemode_entry_backlight">قارشى نۇر</string>
+    <string name="pref_camera_scenemode_entry_backlightportrait">ئارقىسى يورۇق سىما</string>
+    <string name="pref_camera_scenemode_entry_barcode">تاياقچە كود</string>
+    <string name="pref_camera_scenemode_entry_beach">دېڭىز ساھىلى</string>
+    <string name="pref_camera_scenemode_entry_beauty">گۈزەللىك</string>
+    <string name="pref_camera_scenemode_entry_candlelight">شام نۇرى</string>
+    <string name="pref_camera_scenemode_entry_cine">كىنوخانا</string>
+    <string name="pref_camera_scenemode_entry_closeup">مىكرو ئارلىق</string>
+    <string name="pref_camera_scenemode_entry_dark">قاراڭغۇ</string>
+    <string name="pref_camera_scenemode_entry_dish">يېمەكلىك</string>
+    <string name="pref_camera_scenemode_entry_duskdawn">كۈن پېتىش</string>
+    <string name="pref_camera_scenemode_entry_document">ھۆججەت</string>
+    <string name="pref_camera_scenemode_entry_fallcolor">كۈز پەسلى</string>
+    <string name="pref_camera_scenemode_entry_fireworks">پاتىلداق</string>
+    <string name="pref_camera_scenemode_entry_flowers">گۈللەر</string>
+    <string name="pref_camera_scenemode_entry_handheldtwilight">يۆتكىلىشچان كەچقۇېۇندىكى شەھەر</string>
+    <string name="pref_camera_scenemode_entry_indoor">ئۆي ئىچى</string>
+    <string name="pref_camera_scenemode_entry_landscape">مەنزىرە</string>
+    <string name="pref_camera_scenemode_entry_mix_illuminant">ئارىلاش نۇرلاندۇرۇش</string>
+    <string name="pref_camera_scenemode_entry_mood">كەيپىيات</string>
+    <string name="pref_camera_scenemode_entry_nightportrait">كېچە رەسىم</string>
+    <string name="pref_camera_scenemode_entry_nightindoor">كېچە ئۆي ئىچى</string>
+    <string name="pref_camera_scenemode_entry_oldfilm">كونا فىلىم</string>
+    <string name="pref_camera_scenemode_entry_pet">ئەرمەك ھايۋان</string>
+    <string name="pref_camera_scenemode_entry_portrait">سۈرەت</string>
+    <string name="pref_camera_scenemode_entry_snow">قار</string>
+    <string name="pref_camera_scenemode_entry_softskin">يۇمشاق تېرە</string>
+    <string name="pref_camera_scenemode_entry_sports">تەنتەربىيە</string>
+    <string name="pref_camera_scenemode_entry_spotlight">يورۇقلۇق يىغىش چىرىغى</string>
+    <string name="pref_camera_scenemode_entry_steadyphoto">مۇقىم سۈرەت</string>
+    <string name="pref_camera_scenemode_entry_supernight">قاراڭغۇ كېچە</string>
+    <string name="pref_camera_scenemode_entry_sweepstitch">سىزىق ئىزىنى سىكاننېرلاش</string>
+    <string name="pref_camera_scenemode_entry_text">تېكىست</string>
+    <string name="pref_camera_scenemode_entry_theatre">سەھنە</string>
+    <string name="pref_camera_scenemode_entry_whiteboard">ئاق تاختا</string>
+    <string name="pref_camera_focusmode_entry_continuous">ئۇدا</string>
+    <string name="pref_camera_focusmode_entry_mw_continuous">ئىزچىل(MW)</string>
+    <string name="pref_camera_focusmode_entry_extended">كېڭەيتىلگەن</string>
+    <string name="pref_camera_focusmode_entry_facedetect">چىراي بايقاش</string>
+    <string name="pref_camera_focusmode_entry_facepriority">چىراي ئالدىنلىقى</string>
+    <string name="pref_camera_focusmode_entry_fixed">مۇقىم</string>
+    <string name="pref_camera_focusmode_entry_normal">نورمال</string>
+    <string name="pref_camera_focusmode_entry_portrait">سۈرەت</string>
+    <string name="pref_camera_focusmode_entry_hyperfocal">يىراق فوكۇس ئارىلىقى</string>
+    <string name="pref_camera_coloreffect_entry_washed">ئېقىن يالاپ كېتىش</string>
+    <string name="pref_camera_coloreffect_entry_vintage_warm">قەدىمنى تەقلىد قىلغان ئىسسىق رەڭ</string>
+    <string name="pref_camera_coloreffect_entry_vintage_cold">قەدىمنى تەقلىد قىلغان سوغۇق رەڭ</string>
+    <string name="pref_camera_coloreffect_entry_point_blue">كۆك رەڭلىك چىكىت</string>
+    <string name="pref_camera_coloreffect_entry_point_green">يېشىل رەڭلىك چىكىت</string>
+    <string name="pref_camera_coloreffect_entry_point_red_yellow">قىزىل سېرىق رەڭلىك چىكىت</string>
+    <string name="pref_camera_coloreffect_entry_cartoonize">كارتون</string>
+    <string name="pref_camera_flashmode_entry_redeye">قىزىل كۆز</string>
+    <string name="pref_camera_flashmode_label_redeye">قىزىل كۆز</string>
+    <string name="pref_camera_power_shutter_title">توك مەنبە كۇنۇپكا تىزلەتمە ئىشىكى</string>
+    <string name="pref_camera_max_brightness_title">ئېكراننى ئەڭ يورۇق قىلىش</string>
+    <string name="pref_camera_focustime_title">فوكۇسنى چېكىپ داۋاملاشتۇرۇش ۋاقتى</string>
+    <string name="pref_camera_focustime_entry_0">0 سىكونت</string>
+    <string name="pref_camera_focustime_entry_3">3 سىكونت</string>
+    <string name="pref_camera_focustime_entry_5">5 سېكۇنت</string>
+    <string name="pref_camera_focustime_entry_10">10 سېكۇنت</string>
+    <string name="pref_camera_focustime_entry_infinite">چەكسىز</string>
+    <string name="pref_camera_shutter_speed_title">زاتۋور تېزلىكى</string>
+</resources>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright (c) 2012-2014, 2016-2017 The Linux Foundation. All rights reserved.
+
+    Not a Contribution.
+
+    Copyright (C) 2007 The Android Open Source Project
+    Copyright (C) 2017-2020 The LineageOS Project
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<resources>
+    <string name="pref_camera_powermode_title">পাওয়ার মোড</string>
+    <string name="pref_camera_powermode_entry_lp">সল্প ক্ষমতা</string>
+    <string name="pref_camera_powermode_entry_np">স্বাভাবিক ক্ষমতা</string>
+    <string name="pref_camera_skinToneEnhancement_entry_enable">সক্রিয় করুন</string>
+    <string name="pref_camera_skinToneEnhancement_entry_disable">নিক্রিয় করুন</string>
+    <string name="pref_camera_instant_capture_title">তাৎক্ষণিক ক্যাপচার করুন</string>
+    <string name="pref_camera_instant_capture_entry_aggressive_aec">অ্যাগ্রেসিভ AEC</string>
+    <string name="pref_camera_instant_capture_entry_fast_aec">দ্রুত AEC</string>
+    <string name="pref_camera_instant_capture_entry_disable">নিক্রিয় করুন</string>
+    <string name="pref_camera_zsl_entry_on">চালু করা হয়েছে</string>
+    <string name="hdr_enable_message">HDR সক্রিয় আছে, এখন শুধুমাত্র অটো সিনই সমর্থন করবে</string>
+    <string name="pref_camera_histogram_entry_disable">নিক্রিয় করা</string>
+    <string name="pref_camera_tsmakeup_level_clean">হালকা</string>
+    <string name="text_tsmakeup_alert_title">সতর্কতা</string>
+    <string name="text_tsmakeup_alert_msg">বিউটিফিকেশন ফিচারটির জন্য চেহারা শনাক্তকরণ সক্রিয় রাখুন । আপনি কি এটা এভাবেই রাখতে চান ?</string>
+    <string name="text_tsmakeup_alert_continue">বজায় রাখুন</string>
+    <string name="text_tsmakeup_alert_quit">বাতিল করুন</string>
+    <string name="text_tsmakeup_beautify_toast">বিউটিফাই</string>
+    <string name="refocus_prompt_message">UbiFocus ব্যাবহারের সময় আপনি ক্যামেরাতে একবার শাটার প্রেস করলে একসাথে ৫ টি ছবি উঠবে। সেই ৫ টি ছবি একসাথে একটি ছবি হিসাবে থাকবে, যেখানে সবকিছুই ফোকাসে থাকবে। আপনি ছবিটি তোলার পর ছবিটি আবার রি ফোকাস করতে পারবেন।</string>
+    <string name="camera_thermal_shutdown">ফোনটি অতিরিক্ত গরম হয়ে গেছে, তাই ক্যামেরা বন্ধ হয়ে যাচ্ছে ।</string>
+    <string name="camera_server_died">মিডিয়া সার্ভার না থাকার কারনে, ক্যামেরা বন্ধ হয়ে যাচ্ছে</string>
+    <string name="camera_unknown_error">অজানা কারনে, ক্যামেরা বন্ধ হচ্ছে।</string>
+    <string name="mute_button_desc">মিউট বাটন</string>
+    <string name="pref_camera2_camera2_title">ক্যামেরা2  মোড</string>
+    <string name="pref_camera2_camera2_entry_enable">সক্রিয়</string>
+    <string name="pref_camera2_camera2_entry_disable">নিক্রিয়</string>
+    <string name="pref_camera2_mono_only_title">একাই</string>
+    <string name="pref_camera2_mono_preview_title">একক প্রদর্শন</string>
+    <string name="pref_camera2_mono_preview_entry_on">অন</string>
+    <string name="pref_camera2_clearsight_entry_on">অন</string>
+    <string name="clearsight_capture_success">ClearSight ক্যাপচার সম্পন্ন হয়েছে</string>
+    <string name="clearsight_capture_fail">ClearSight ক্যাপচার ব্যার্থ হয়েছে</string>
+    <string name="pref_camera2_mpo_title">MPO ফরম্যাট</string>
+    <string name="pref_camera2_mpo_entry_on">অন</string>
+    <string name="pref_camera2_makeup_title">মেকাপ</string>
+    <string name="pref_camera2_noise_reduction_title">নয়েজ কমান</string>
+    <string name="pref_camera2_noise_reduction_entry_fast">দ্রুত</string>
+    <string name="pref_camera2_noise_reduction_entry_high_quality">খুবই ভালো মানের</string>
+    <string name="pref_camera2_videosnap_title">অটো স্ন্যাপশট সাইজ</string>
+    <string name="pref_camera2_videosnap_entry_enable">সক্রিয়</string>
+    <string name="pref_camera2_videosnap_entry_disable">নিক্রিয়</string>
+    <string name="pref_camera2_touch_track_focus_entry_on">সক্রিয়</string>
+    <string name="pref_camera2_touch_track_focus_off">নিক্রিয়</string>
+    <string name="pref_camera2_multi_cameras_entry_on">সক্রিয়</string>
+    <string name="pref_camera2_multi_cameras_entry_off">নিক্রিয়</string>
+    <string name="pref_camera_scenemode_entry_bestpicture">সবচেয়ে ভালো ছবি</string>
+    <string name="pref_camera_scenemode_entry_trackingfocus">ফোকাস ট্র্যাকিং</string>
+    <string name="bestpicture_done">হয়ে গেছে</string>
+    <string name="bestpicture_at_least_one_picture">অন্ততপক্ষে একটি ছবি পছন্দ করা হয়েছে।</string>
+    <string name="pref_camera2_shutter_sound_entry_on">অন</string>
+    <string name="pref_camera2_shutter_sound_title">শাটারের শব্দ</string>
+    <string name="makeup_ui_ok_button">ঠিক আছে</string>
+    <string name="pref_camera2_scene_mode_instructional_ok">ঠিক আছে</string>
+    <string name="pref_camera2_instant_aec_entry_disable">নিক্রিয়</string>
+    <string name="pref_camera2_instant_aec_entry_aggressive">অ্যাগ্রেসিভ AEC</string>
+    <string name="pref_camera2_instant_aec_entry_fast">দ্রুত AEC</string>
+    <string name="pref_camera2_histogram_entry_enable">সক্রিয়</string>
+    <string name="pref_camera2_histogram_entry_disable">নিক্রিয়</string>
+    <string name="pref_camera2_hdr_entry_enable">সক্রিয়</string>
+    <string name="pref_camera2_hdr_entry_disable">নিক্রিয়</string>
+    <string name="pref_camera2_auto_hdr_entry_enable">সক্রিয়</string>
+    <string name="pref_camera2_auto_hdr_entry_disable">নিক্রিয়</string>
+    <string name="pref_camera_bokeh_mode_entry_enable">সক্রিয়</string>
+    <string name="pref_camera_bokeh_mode_entry_disable">নিক্রিয়</string>
+    <string name="pref_camera_bokeh_mpo_entry_enable">সক্রিয়</string>
+    <string name="pref_camera_bokeh_mpo_entry_disable">নিক্রিয়</string>
+    <string name="pref_camera2_bsgc_entry_enable">সক্রিয়</string>
+    <string name="pref_camera2_bsgc_entry_disable">নিক্রিয়</string>
+    <string name="pref_camera2_force_aux_entry_on">অন</string>
+</resources>

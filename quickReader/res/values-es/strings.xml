@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) 2017 The LineageOS Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+         http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+    <string name="accessibility_switch_to_qr">Lector QR</string>
+    <string name="quick_reader_action_dismiss">Descartar</string>
+    <string name="quick_reader_no_activity_found">Ninguna aplicación instalada puede abrir este contenido</string>
+    <string name="quick_reader_permission_error_title">Error de permiso</string>
+    <string name="quick_reader_permission_rationale_message">Se necesita acceso a la cámara para escanear el código de barras</string>
+    <string name="quick_reader_permission_rationale_positive">Preguntar de nuevo</string>
+    <string name="quick_reader_permission_fatal_message">Se ha denegado el acceso a la cámara. Permítalo en la configuración de la aplicación</string>
+    <string name="quick_reader_permission_fatal_positive">Abrir la configuración</string>
+    <string name="quick_reader_scanned_text_title">Texto escaneado</string>
+    <string name="quick_reader_scanned_text_positive">Copiar</string>
+    <string name="quick_reader_scanned_text_negative">Compartir</string>
+    <string name="quick_reader_share_title">Compartir con\u2026</string>
+    <string name="quick_reader_copied_message">Copiado al portapapeles</string>
+</resources>

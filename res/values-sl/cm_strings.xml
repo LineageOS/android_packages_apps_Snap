@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2013-2015 The CyanogenMod Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="pref_camera_aspectratio_wide">Široko</string>
+    <string name="pref_camera_megapixel_format">(<xliff:g id="ratio" example="16:9">%1$s</xliff:g>) <xliff:g id="pixels">%2$1.1f</xliff:g> mio. sl. točk</string>
+    <string name="pref_camera_scenemode_entry_antimotionblur">Zmanjševanje zamegljenosti gibanja</string>
+    <string name="pref_camera_scenemode_entry_aqua">Akva</string>
+    <string name="pref_camera_scenemode_entry_ar">Izboljšana resničnost</string>
+    <string name="pref_camera_scenemode_entry_asd">Najboljši posnetek</string>
+    <string name="pref_camera_scenemode_entry_baby">Dojenček</string>
+    <string name="pref_camera_scenemode_entry_backgroundblur">Zamegljenost ozadja</string>
+    <string name="pref_camera_scenemode_entry_backlight">Osvetljeno ozadje</string>
+    <string name="pref_camera_scenemode_entry_backlightportrait">Portret z osvetljenim ozadjem</string>
+    <string name="pref_camera_scenemode_entry_barcode">Črtna koda</string>
+    <string name="pref_camera_scenemode_entry_beach">Plaža</string>
+    <string name="pref_camera_scenemode_entry_beauty">Lepotno</string>
+    <string name="pref_camera_scenemode_entry_candlelight">Umetna svetloba</string>
+    <string name="pref_camera_scenemode_entry_cine">Kinematografsko</string>
+    <string name="pref_camera_scenemode_entry_closeup">Od blizu</string>
+    <string name="pref_camera_scenemode_entry_dark">Temno</string>
+    <string name="pref_camera_scenemode_entry_dish">Jed</string>
+    <string name="pref_camera_scenemode_entry_duskdawn">Zora/Mrak</string>
+    <string name="pref_camera_scenemode_entry_document">Dokument</string>
+    <string name="pref_camera_scenemode_entry_fallcolor">Jesenske barve</string>
+    <string name="pref_camera_scenemode_entry_fireworks">Ognjemet</string>
+    <string name="pref_camera_scenemode_entry_flowers">Cvetje</string>
+    <string name="pref_camera_scenemode_entry_handheldtwilight">Ročni somrak</string>
+    <string name="pref_camera_scenemode_entry_highsensitivity">Visoka občutljivost</string>
+    <string name="pref_camera_scenemode_entry_indoor">Notranji</string>
+    <string name="pref_camera_scenemode_entry_landscape">Pokrajina</string>
+    <string name="pref_camera_scenemode_entry_mix_illuminant">Mešana svetloba</string>
+    <string name="pref_camera_scenemode_entry_mood">Razpoloženje</string>
+    <string name="pref_camera_scenemode_entry_nightportrait">Nočni portret</string>
+    <string name="pref_camera_scenemode_entry_nightindoor">Nočni notranji</string>
+    <string name="pref_camera_scenemode_entry_oldfilm">Star film</string>
+    <string name="pref_camera_scenemode_entry_pet">Domača žival</string>
+    <string name="pref_camera_scenemode_entry_portrait">Portret</string>
+    <string name="pref_camera_scenemode_entry_snow">Sneg</string>
+    <string name="pref_camera_scenemode_entry_softskin">Mehka koža</string>
+    <string name="pref_camera_scenemode_entry_sports">Šport</string>
+    <string name="pref_camera_scenemode_entry_spotlight">V žarišču</string>
+    <string name="pref_camera_scenemode_entry_steadyphoto">Mirna slika</string>
+    <string name="pref_camera_scenemode_entry_supernight">Temna noč</string>
+    <string name="pref_camera_scenemode_entry_sweepstitch">Šivanje potega</string>
+    <string name="pref_camera_scenemode_entry_text">Besedilo</string>
+    <string name="pref_camera_scenemode_entry_theatre">Gledališče</string>
+    <string name="pref_camera_scenemode_entry_whiteboard">Bela tabla</string>
+    <string name="pref_camera_focusmode_entry_continuous">Neprekinjeno</string>
+    <string name="pref_camera_focusmode_entry_mw_continuous">Neprekinjeno (MW)</string>
+    <string name="pref_camera_focusmode_entry_extended">Razširjeno</string>
+    <string name="pref_camera_focusmode_entry_facedetect">Zaznavanje obraza</string>
+    <string name="pref_camera_focusmode_entry_facepriority">Prednost obraza</string>
+    <string name="pref_camera_focusmode_entry_fixed">Pritrjeno</string>
+    <string name="pref_camera_focusmode_entry_normal">Običajno</string>
+    <string name="pref_camera_focusmode_entry_portrait">Portret</string>
+    <string name="pref_camera_focusmode_entry_hyperfocal">Hiperosredotočeno</string>
+    <string name="pref_camera_coloreffect_entry_washed">Oprano</string>
+    <string name="pref_camera_coloreffect_entry_vintage_warm">Toplo starodobno</string>
+    <string name="pref_camera_coloreffect_entry_vintage_cold">Hladno starodobno</string>
+    <string name="pref_camera_coloreffect_entry_point_blue">Poudarjanje modre barve</string>
+    <string name="pref_camera_coloreffect_entry_point_green">Poudarjanje zelene barve</string>
+    <string name="pref_camera_coloreffect_entry_point_red_yellow">Poudarjanje rdečo-rumene barve</string>
+    <string name="pref_camera_coloreffect_entry_cartoonize">Risani film</string>
+    <string name="pref_camera_flashmode_entry_redeye">Rdeče oči</string>
+    <string name="pref_camera_flashmode_label_redeye">RDEČE OČI</string>
+    <string name="pref_camera_power_shutter_title">Gumb za vklop kot sprožilec</string>
+    <string name="pref_camera_max_brightness_title">Svetel zaslon</string>
+    <string name="pref_camera_focustime_title">Trajanje izostritve ob dotiku</string>
+    <string name="pref_camera_focustime_entry_0">0 s</string>
+    <string name="pref_camera_focustime_entry_3">3 s</string>
+    <string name="pref_camera_focustime_entry_5">5 s</string>
+    <string name="pref_camera_focustime_entry_10">10 s</string>
+    <string name="pref_camera_focustime_entry_infinite">Neskončno</string>
+    <string name="pref_camera_shutter_speed_title">Hitrost zaslonke</string>
+    <string name="developer_menu_enabled">Omogočili ste napredne možnosti fotoaparata</string>
+    <string name="developer_menu_disabled">Onemogočili ste napredne možnosti fotoaparata</string>
+    <string name="pref_camera2_preferences_category_developer">Napredne možnosti</string>
+</resources>
