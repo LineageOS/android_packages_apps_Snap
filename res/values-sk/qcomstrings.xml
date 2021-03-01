@@ -425,11 +425,15 @@
     <string name="pref_camera2_stats_visualizer_entry_bg_stats">BG štatistiky</string>
     <string name="pref_camera2_stats_visualizer_entry_be_stats">BE štatistiky</string>
     <string name="pref_camera2_stats_visualizer_entry_hist_stats">Hist štatistiky</string>
+    <string name="stats_visualizer_bg_label">Zobrazenie BG grafu</string>
+    <string name="stats_visualizer_be_label">Zobrazenie BE grafu</string>
     <string name="pref_camera2_capture_mfnr_title">Redukcia šumu multirámca</string>
     <string name="pref_camera2_capture_mfnr_entry_enable">Zapnúť</string>
     <string name="pref_camera2_capture_mfnr_entry_disable">Vypnúť</string>
+    <string name="pref_camera2_fs2_title">Rýchla spúšť</string>
     <string name="pref_camera2_fs2_entry_enable">Zapnúť</string>
     <string name="pref_camera2_fs2_entry_disable">Vypnúť</string>
+    <string name="pref_camera2_abort_captures_title">Zrušiť zaznamenávanie</string>
     <string name="pref_camera2_abort_captures_entry_enable">Zapnúť</string>
     <string name="pref_camera2_abort_captures_entry_disable">Vypnúť</string>
 </resources>
