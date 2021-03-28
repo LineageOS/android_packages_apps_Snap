@@ -38,6 +38,7 @@ import android.util.Log;
 
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Set;
 
 import com.android.camera.CameraModule;
@@ -46,6 +47,8 @@ import com.android.camera.MediaSaveService;
 import com.android.camera.PhotoController;
 import com.android.camera.util.CameraUtil;
 import com.android.camera.data.Camera2ModeAdapter.OnItemClickListener;
+
+import org.codeaurora.snapcam.R;
 
 public class MultiCameraModule implements CameraModule, PhotoController {
 
@@ -88,6 +91,9 @@ public class MultiCameraModule implements CameraModule, PhotoController {
 
     private ArrayList<SceneModule> mSceneCameraIds = new ArrayList<>();
     private String[] mSelectableModes = {"Video", "Photo"};
+    private Integer[] mSelectableModeIcons = {
+            R.drawable.ic_switch_video,
+            R.drawable.ic_switch_camera};
     private SceneModule mCurrentSceneMode;
     private String[] mCameraIds = new String[2];
 
@@ -153,6 +159,14 @@ public class MultiCameraModule implements CameraModule, PhotoController {
 
     public int getCurrentModeIndex() {
         return mCurrentModeIndex;
+    }
+
+    public List<Integer> getCameraModeIconList() {
+        ArrayList<Integer> cameraModeIcons = new ArrayList<>();
+        for (SceneModule sceneModule : mSceneCameraIds) {
+            cameraModeIcons.add(mSelectableModeIcons[sceneModule.mode.ordinal()]);
+        }
+        return cameraModeIcons;
     }
 
     public void setCurrentSceneModeOnly(int mode) {
