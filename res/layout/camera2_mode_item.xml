@@ -29,15 +29,18 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/camera2_mode_item_root"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="@color/black">
 
-    <TextView
-        android:id="@+id/mode_text"
-        android:layout_width="80dp"
-        android:layout_height="32dp"
+    <com.android.camera.ui.RotateImageView
+        android:id="@+id/mode_icon"
+        android:padding="24dp"
         android:gravity="center"
         android:layout_gravity="center"
-        android:textSize="16sp"
-        android:textColor="@color/mode_text_selector"/>
+        android:scaleType="center"
+        android:selectable="true"
+        android:background="@drawable/bg_pressed"
+        android:layout_width="64dp"
+        android:layout_height="64dp" />
 
 </FrameLayout>

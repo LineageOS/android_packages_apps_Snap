@@ -16,6 +16,7 @@
 <resources>
     <color name="white">#fafafa</color>
     <color name="black">#212121</color>
+    <color name="real_black">#000000</color>
     <color name="grey">#e0e0e0</color>
 
     <color name="red">#F44336</color>

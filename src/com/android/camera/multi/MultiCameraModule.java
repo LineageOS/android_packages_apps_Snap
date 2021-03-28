@@ -21,6 +21,7 @@ package com.android.camera.multi;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.content.res.TypedArray;
 import android.graphics.Rect;
 import android.hardware.camera2.CameraManager;
 import android.hardware.camera2.CameraAccessException;
@@ -38,6 +39,7 @@ import android.util.Log;
 
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Set;
 
 import com.android.camera.CameraModule;
@@ -46,6 +48,8 @@ import com.android.camera.MediaSaveService;
 import com.android.camera.PhotoController;
 import com.android.camera.util.CameraUtil;
 import com.android.camera.data.Camera2ModeAdapter.OnItemClickListener;
+
+import org.codeaurora.snapcam.R;
 
 public class MultiCameraModule implements CameraModule, PhotoController {
 
@@ -153,6 +157,16 @@ public class MultiCameraModule implements CameraModule, PhotoController {
 
     public int getCurrentModeIndex() {
         return mCurrentModeIndex;
+    }
+
+    public List<Integer> getCameraModeIconList() {
+        ArrayList<Integer> cameraModeIcons = new ArrayList<>();
+        TypedArray ic = mActivity.getResources()
+                .obtainTypedArray(R.array.camera_modes_front);
+        for (SceneModule sceneModule : mSceneCameraIds) {
+            cameraModeIcons.add(ic.getResourceId(sceneModule.mode.ordinal(), 0));
+        }
+        return cameraModeIcons;
     }
 
     public void setCurrentSceneModeOnly(int mode) {
