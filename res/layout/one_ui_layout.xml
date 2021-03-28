@@ -31,7 +31,7 @@
     <com.android.camera.ui.FlashToggleButton
         android:id="@+id/flash_button"
         style="@style/OneUIMenuButton"
-        android:src="@drawable/flash" />
+        android:src="@drawable/ic_flash_on" />
 
     <com.android.camera.ui.RotateImageView
         android:id="@+id/mute_button"
@@ -90,15 +90,11 @@
         android:visibility="gone"
         android:src="@drawable/ic_menu_cancel_holo_light" />
 
+<!-- switcher -->
     <com.android.camera.ui.RotateImageView
         android:id="@+id/front_back_switcher"
-        android:layout_width="@dimen/one_ui_bottom_small"
-        android:layout_height="@dimen/one_ui_bottom_small"
-        android:focusable="true"
-        android:clickable="true"
-        android:scaleType="fitCenter"
-        android:visibility="gone"
-        android:src="@drawable/front_back_camera" />
+        style="@style/OneUIMenuButton"
+        android:src="@drawable/ic_switch_back" />
 
     <com.android.camera.ui.RotateImageView
         android:id="@+id/preview_thumb"
@@ -128,12 +124,12 @@
     <com.android.camera.ui.RotateImageView
         android:id="@+id/scene_mode_switcher"
         style="@style/OneUIMenuButton"
-        android:src="@drawable/more_options" />
+        android:src="@drawable/ic_settings_scenemode" />
 
     <com.android.camera.ui.RotateImageView
         android:id="@+id/filter_mode_switcher"
         style="@style/OneUIMenuButton"
-        android:src="@drawable/filters" />
+        android:src="@drawable/ic_settings_filter" />
 
     <com.android.camera.ui.RotateImageView
         android:id="@+id/ts_makeup_switcher"
@@ -141,7 +137,15 @@
 
     <com.android.camera.ui.RotateImageView
         android:id="@+id/settings"
-        style="@style/OneUIMenuButton" />
+        style="@style/OneUIMenuButton"
+        android:src="@drawable/ic_settings_advanced" />
+
+    <com.android.camera.ui.RotateImageView
+        android:id="@+id/mode_switcher"
+        style="@style/OneUIMenuButton"
+        android:src="@drawable/ic_switch_camera"
+        android:width="64dp"
+        android:height="64dp" />
 
     <LinearLayout
         android:id="@+id/remaining_photos"
@@ -181,6 +185,7 @@
         android:thumb="@drawable/ic_beautify_oval"
         android:id="@+id/deepportrait_seekbar"/>
 
+<!-- zoom is here -->
     <LinearLayout
         android:id="@+id/zoom_linearlayout"
         android:layout_width="wrap_content"
@@ -207,8 +212,6 @@
             android:minHeight="1dip"
             android:visibility="gone"
             android:layout_gravity="center_horizontal"
-            android:progressDrawable="@drawable/beautify_progressbar_style"
-            android:thumb="@drawable/ic_beautify_oval"
             android:id="@id/zoom_seekbar"/>
     </LinearLayout>
 
@@ -271,21 +274,13 @@
         </RelativeLayout>
     </LinearLayout>
 
-    <FrameLayout
-        android:layout_width="match_parent"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/mode_select_layout"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:layout_marginBottom="100dp"
-        android:background="@color/camera_control_bg_transparent">
-
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/mode_select_layout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal|bottom"
-            android:layout_centerHorizontal="true"
-            android:scrollbars="none" />
-
-    </FrameLayout>
+        android:layout_gravity="center_horizontal|bottom"
+        android:layout_centerHorizontal="true"
+        android:scrollbars="none"
+        android:visibility="gone" />
 
 </com.android.camera.ui.OneUICameraControls>
