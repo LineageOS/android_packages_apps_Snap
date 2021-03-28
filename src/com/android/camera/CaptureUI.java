@@ -427,7 +427,8 @@ public class CaptureUI implements PreviewGestures.SingleTapListener,
         mFlashButton = (FlashToggleButton) mRootView.findViewById(R.id.flash_button);
         mModeSelectLayout = (RecyclerView) mRootView.findViewById(R.id.mode_select_layout);
         mModeSelectLayout.setLayoutManager(new LinearLayoutManager(mActivity,
-                LinearLayoutManager.HORIZONTAL, false));
+                LinearLayoutManager.VERTICAL, false));
+        mModeSelectLayout.setVisibility(View.GONE);
         mCameraModeAdapter = new Camera2ModeAdapter(mModule.getCameraModeList());
         mCameraModeAdapter.setOnItemClickListener(mModule.getModeItemClickListener());
         mModeSelectLayout.setAdapter(mCameraModeAdapter);

@@ -34,6 +34,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.TextView;
 import org.codeaurora.snapcam.R;
 
@@ -64,7 +65,7 @@ public class Camera2ModeAdapter extends RecyclerView.Adapter<Camera2ModeAdapter.
     public void onBindViewHolder(ViewHolder holder, int position) {
         holder.mCameraModeText.setText(mModeList.get(position));
         holder.mCameraModeText.setSelected(mSelectedPos == position);
-        holder.mCameraModeText.setOnClickListener(new View.OnClickListener() {
+        holder.mCameraModeIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (mOnItemClickListener.onItemClick(position) >= 0) {
@@ -92,10 +93,12 @@ public class Camera2ModeAdapter extends RecyclerView.Adapter<Camera2ModeAdapter.
     class ViewHolder extends RecyclerView.ViewHolder{
 
         protected TextView mCameraModeText;
+        protected ImageView mCameraModeIcon;
 
         public ViewHolder(View itemView) {
             super(itemView);
             mCameraModeText = (TextView) itemView.findViewById(R.id.mode_text);
+            mCameraModeIcon = (ImageView) itemView.findViewById(R.id.mode_icon);
         }
     }
 }
