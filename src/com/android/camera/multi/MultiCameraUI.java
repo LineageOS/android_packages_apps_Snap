@@ -118,6 +118,7 @@ public class MultiCameraUI implements PreviewGestures.SingleTapListener,
         initShutterButton();
         initVideoButton();
         initVideoMuteButton();
+        initFlashButton();
         initializeThumbnail();
         hideMenuButton();
         initPauseButton();
@@ -213,11 +214,12 @@ public class MultiCameraUI implements PreviewGestures.SingleTapListener,
         mModeSelectLayout = (RecyclerView) mRootView.findViewById(R.id.mode_select_layout);
         mModeSelectLayout.setLayoutManager(new LinearLayoutManager(mActivity,
                 LinearLayoutManager.HORIZONTAL, false));
-        mCameraModeAdapter = new Camera2ModeAdapter(mModule.getCameraModeList());
+        mCameraModeAdapter = new Camera2ModeAdapter(mModule.getCameraModeList(),
+                mModule.getCameraModeIconList());
         mCameraModeAdapter.setSelectedPosition(1);
         mCameraModeAdapter.setOnItemClickListener(mModule.getModeItemClickListener());
         mModeSelectLayout.setAdapter(mCameraModeAdapter);
-        mModeSelectLayout.setVisibility(View.VISIBLE);
+        mModeSelectLayout.setVisibility(View.INVISIBLE);
 
         if (mGestures == null) {
             // this will handle gesture disambiguation and dispatching
@@ -238,7 +240,6 @@ public class MultiCameraUI implements PreviewGestures.SingleTapListener,
 
     private void initSettingsMenu() {
         mSettingsIcon = (ImageView) mRootView.findViewById(R.id.settings);
-        mSettingsIcon.setImageResource(R.drawable.settings);
         mSettingsIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -256,10 +257,20 @@ public class MultiCameraUI implements PreviewGestures.SingleTapListener,
         mPauseButton.setOnPauseButtonListener(this);
     }
 
-    private void hideMenuButton() {
+    private void initFlashButton() {
         if (mFlashButton == null) {
             mFlashButton = (FlashToggleButton) mRootView.findViewById(R.id.flash_button);
         }
+        mFlashButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                mCameraControls.closeModeSwitcher(true);
+                mFlashButton.handleClick();
+            }
+        });
+    }
+
+    private void hideMenuButton() {
         if (mFilterModeSwitcher == null) {
             mFilterModeSwitcher = mRootView.findViewById(R.id.filter_mode_switcher);
         }

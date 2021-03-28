@@ -985,11 +985,7 @@ public class CameraControls extends RotatableLayout {
         } else {
             int r = CameraUtil.determineRatio(ratio);
             mPreviewRatio = r;
-            if (mPreviewRatio == CameraUtil.RATIO_4_3 && mTopMargin != 0) {
-                mPaint.setColor(getResources().getColor(R.color.camera_control_bg_opaque));
-            } else {
-                mPaint.setColor(getResources().getColor(R.color.camera_control_bg_transparent));
-            }
+            mPaint.setColor(getResources().getColor(R.color.camera_control_bg));
         }
         requestLayout();
     }
