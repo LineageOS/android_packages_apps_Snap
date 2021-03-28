@@ -213,11 +213,11 @@ public class MultiCameraUI implements PreviewGestures.SingleTapListener,
         mModeSelectLayout = (RecyclerView) mRootView.findViewById(R.id.mode_select_layout);
         mModeSelectLayout.setLayoutManager(new LinearLayoutManager(mActivity,
                 LinearLayoutManager.HORIZONTAL, false));
-        mCameraModeAdapter = new Camera2ModeAdapter(mModule.getCameraModeList());
+        mCameraModeAdapter = new Camera2ModeAdapter(mModule.getCameraModeList(), mModule.getCameraModeIconList());
         mCameraModeAdapter.setSelectedPosition(1);
         mCameraModeAdapter.setOnItemClickListener(mModule.getModeItemClickListener());
         mModeSelectLayout.setAdapter(mCameraModeAdapter);
-        mModeSelectLayout.setVisibility(View.VISIBLE);
+        mModeSelectLayout.setVisibility(View.GONE);
 
         if (mGestures == null) {
             // this will handle gesture disambiguation and dispatching
@@ -267,6 +267,13 @@ public class MultiCameraUI implements PreviewGestures.SingleTapListener,
             mSceneModeSwitcher = mRootView.findViewById(R.id.scene_mode_switcher);
         }
         mFlashButton.setVisibility(View.INVISIBLE);
+        mFlashButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d("HERE", "onclick");
+                mModeSelectLayout.setVisibility(View.GONE);
+            }
+        });
         mFilterModeSwitcher.setVisibility(View.INVISIBLE);
         mSceneModeSwitcher.setVisibility(View.INVISIBLE);
     }
@@ -529,6 +536,7 @@ public class MultiCameraUI implements PreviewGestures.SingleTapListener,
 
     @Override
     public void onSingleTapUp(View view, int x, int y) {
+        Log.d("HERE", "singletapup");
         mModule.onSingleTapUp(view, x, y);
     }
 

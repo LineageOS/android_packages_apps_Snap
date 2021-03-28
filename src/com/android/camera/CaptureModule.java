@@ -558,6 +558,13 @@ public class CaptureModule implements CameraModule, PhotoController,
     private CameraDevice[] mCameraDevice = new CameraDevice[MAX_NUM_CAM];
     private String[] mCameraId = new String[MAX_NUM_CAM];
     private String[] mSelectableModes = {"Video", "HFR", "Photo", "Bokeh", "SAT", "ProMode"};
+    private Integer[] mSelectableModeIcons = {
+            R.drawable.ic_switch_video,
+            R.drawable.ic_switch_video,
+            R.drawable.ic_switch_camera,
+            R.drawable.ic_cam_switcher_qr,
+            R.drawable.ic_settings_saturation,
+            R.drawable.promode};
     private ArrayList<SceneModule> mSceneCameraIds = new ArrayList<>();
     private SceneModule mCurrentSceneMode;
     private int mNextModeIndex = 1;
@@ -4944,6 +4951,9 @@ public class CaptureModule implements CameraModule, PhotoController,
             return;
         }
         Log.d(TAG, "onSingleTapUp " + x + " " + y);
+
+        mUI.closeModeSwitcher();
+
         int currentId = mCurrentSceneMode.getCurrentId();
         if(mLockAFAE) {
             mLockAFAE = false;
@@ -6813,6 +6823,8 @@ public class CaptureModule implements CameraModule, PhotoController,
         }
 
         Log.d(TAG,"onShutterButtonClick");
+
+        mUI.closeModeSwitcher();
 
         if (mCurrentSceneMode.mode == CameraMode.HFR ||
                 mCurrentSceneMode.mode == CameraMode.VIDEO) {
@@ -8993,6 +9005,7 @@ public class CaptureModule implements CameraModule, PhotoController,
         updateZoomSeekBarVisible();
         mUI.updateZoomSeekBar(1.0f);
         updateZoom();
+        mUI.closeModeSwitcher();
         return 1;
     }
 
@@ -9028,6 +9041,14 @@ public class CaptureModule implements CameraModule, PhotoController,
 
     public String[] getSelectableModes() {
         return mSelectableModes;
+    }
+
+    public List<Integer> getCameraModeIconList() {
+        ArrayList<Integer> cameraModeIcons = new ArrayList<>();
+        for (SceneModule sceneModule : mSceneCameraIds) {
+            cameraModeIcons.add(mSelectableModeIcons[sceneModule.mode.ordinal()]);
+        }
+        return cameraModeIcons;
     }
 
     private class SceneModule {
