@@ -25,12 +25,15 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.Point;
+import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.util.TypedValue;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Display;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -45,7 +48,7 @@ public class OneUICameraControls extends RotatableLayout {
 
     private static final String TAG = "CAM_Controls";
 
-    private static final float TOP_PANEL_SPACE_NUM = 4f;
+    private static final float TOP_PANEL_SPACE_NUM = 5f;
     private static final float BOTTOM_PANEL_SPACE_NUM = 5f;
     private static final float PANEL_INDEX_0 = 0f;
     private static final float PANEL_INDEX_1 = 1f;
@@ -68,9 +71,11 @@ public class OneUICameraControls extends RotatableLayout {
     private View mMakeupSeekBarHighText;
     private View mMakeupSeekBarLayout;
     private View mCancelButton;
+    private View mModeSwitcher;
     private ViewGroup mProModeLayout;
     private View mSettingsButton;
 
+    private RecyclerView mModeSelectLayout;
     private ArrowTextView mRefocusToast;
 
     private static final int WIDTH_GRID = 5;
@@ -120,10 +125,12 @@ public class OneUICameraControls extends RotatableLayout {
         setClipChildren(false);
 
         setMeasureAllChildren(true);
-        mPaint.setColor(getResources().getColor(R.color.camera_control_bg_transparent));
+        mPaint.setColor(getResources().getColor(R.color.camera_control_bg));
 
-        mTop = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 64, getResources().getDisplayMetrics());
-        mBottom = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 100, getResources().getDisplayMetrics());
+        mTop = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 64,
+                getResources().getDisplayMetrics());
+        mBottom = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 100,
+                getResources().getDisplayMetrics());
         mVisible = true;
 
         Display display = ((Activity)context).getWindowManager().getDefaultDisplay();
@@ -167,6 +174,7 @@ public class OneUICameraControls extends RotatableLayout {
         mRemainingPhotos = (LinearLayout) findViewById(R.id.remaining_photos);
         mRemainingPhotosText = (TextView) findViewById(R.id.remaining_photos_text);
         mCancelButton = findViewById(R.id.cancel_button);
+        mModeSwitcher = findViewById(R.id.mode_switcher);
         mProModeLayout = (ViewGroup) findViewById(R.id.pro_mode_layout);
 
         mExposureText = (TextView) findViewById(R.id.exposure_value);
@@ -182,6 +190,9 @@ public class OneUICameraControls extends RotatableLayout {
         mWhiteBalanceRotateLayout = (RotateLayout) findViewById(R.id.white_balance_rotate_layout);
         mIsoRotateLayout = (RotateLayout) findViewById(R.id.iso_rotate_layout);
         mZoomSeekBarLayout = (RotateLayout) findViewById(R.id.zoom_seekbar_layout);
+
+        mModeSelectLayout = (RecyclerView) findViewById(R.id.mode_select_layout);
+        mModeSelectLayout.setVisibility(View.INVISIBLE);
 
         mExposureText.setOnClickListener(new OnClickListener() {
             @Override
@@ -250,8 +261,8 @@ public class OneUICameraControls extends RotatableLayout {
         });
         mViews = new View[]{
                 mSceneModeSwitcher, mFilterModeSwitcher, mFrontBackSwitcher,
-                mFlashButton,
-                mPreview, mPauseButton, mCancelButton, mSettingsButton
+                mFlashButton, mPreview, mPauseButton, mCancelButton,
+                mSettingsButton, mModeSwitcher
         };
         mBottomLargeSize = getResources().getDimensionPixelSize(
                 R.dimen.one_ui_bottom_large);
@@ -324,20 +335,13 @@ public class OneUICameraControls extends RotatableLayout {
         if(v == null) {
             return;
         }
-        int w = v.getMeasuredWidth();
         int h = v.getMeasuredHeight();
         if (top) {
             v.setY((mTop - h) / 2);
         } else {
             v.setY(mHeight - mBottom + (mBottom - h) / 2);
         }
-        float bW;
-        if (top) {
-            bW = mWidth / TOP_PANEL_SPACE_NUM;
-        } else {
-            bW = mWidth / BOTTOM_PANEL_SPACE_NUM;
-        }
-        v.setX(bW * idx + (bW - w) / 2);
+        v.setX(getLocationX(v, top, idx));
     }
 
     private void setLocationCustomBottom(View v, float x, float y) {
@@ -352,10 +356,32 @@ public class OneUICameraControls extends RotatableLayout {
         v.setX(bW * x);
     }
 
+    private float getLocationX(View v, boolean top, float idx) {
+        int w = v.getMeasuredWidth();
+        float bW;
+        if (top) {
+            bW = mWidth / TOP_PANEL_SPACE_NUM;
+        } else {
+            bW = mWidth / BOTTOM_PANEL_SPACE_NUM;
+        }
+        return (bW * idx + (bW - w) / 2);
+    }
+
+    private void setLocationCameraModePanel() {
+        if(mModeSelectLayout == null) {
+            return;
+        }
+        mModeSelectLayout.setY(mModeSwitcher.getY() - mModeSelectLayout.getMeasuredHeight()
+                + mModeSwitcher.getMeasuredHeight());
+        mModeSelectLayout.setX(getLocationX(mModeSelectLayout, true, 4f));
+    }
+
     private void setLocation(int w, int h) {
         int rotation = getUnifiedRotation();
         setLocation(mSceneModeSwitcher, true, PANEL_INDEX_0);
         setLocation(mFilterModeSwitcher, true, PANEL_INDEX_1);
+        setLocation(mModeSwitcher, false, 4f);
+        setLocationCameraModePanel();
         if (mIsVideoMode) {
             setLocation(mMute, true, PANEL_INDEX_1);
             setLocation(mFlashButton, true, PANEL_INDEX_2);
@@ -365,9 +391,9 @@ public class OneUICameraControls extends RotatableLayout {
             setLocation(mVideoShutter, false, PANEL_INDEX_2);
             setLocation(mExitBestPhotpMode ,false, PANEL_INDEX_4);
         } else {
-            setLocation(mFlashButton, true, PANEL_INDEX_2);
-            setLocation(mSettingsButton,true, PANEL_INDEX_3);
-            setLocation(mFrontBackSwitcher, false, 3.15f);
+            setLocation(mFlashButton, true, PANEL_INDEX_3);
+            setLocation(mSettingsButton,true, PANEL_INDEX_4);
+            setLocation(mFrontBackSwitcher, true, PANEL_INDEX_2);
             if (mIntentMode == CaptureModule.INTENT_MODE_CAPTURE) {
                 setLocation(mShutter, false, PANEL_INDEX_2);
                 setLocation(mCancelButton, false, 0.85f);
@@ -532,6 +558,14 @@ public class OneUICameraControls extends RotatableLayout {
         mIsoRotateLayout.setOrientation(orientation, animation);
         mZoomSeekBarLayout.setOrientation(orientation, animation);
         mProMode.setOrientation(orientation);
+
+        // Reorient the camera modes
+        for (int i = 0; i < ((ViewGroup) mModeSelectLayout).getChildCount(); i++) {
+            ViewGroup v = (ViewGroup) mModeSelectLayout.getChildAt(i);
+            Rotatable r = (Rotatable) v.getChildAt(0);
+            r.setOrientation(orientation, animation);
+        }
+
         layoutRemaingPhotos();
     }
 
