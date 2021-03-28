@@ -78,8 +78,7 @@
     <color name="list_divider_color">#e0212121</color>
     <color name="scene_item_selected">@color/setting_list_selected</color>
 
-    <color name="camera_control_bg_opaque">@color/black</color>
-    <color name="camera_control_bg_transparent">#40212121</color>
+    <color name="camera_control_bg">@color/real_black</color>
 
     <color name="refocus_indicator_1">#a0ffffff</color>
     <color name="refocus_indicator_2">#ff29b6f6</color>
