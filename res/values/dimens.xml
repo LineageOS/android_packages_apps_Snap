@@ -184,4 +184,7 @@
 
     <dimen name="one_ui_bottom_large">75dp</dimen>
     <dimen name="one_ui_bottom_small">55dp</dimen>
+
+    <dimen name="camera_icon_height">64dp</dimen>
+    <dimen name="camera_icon_width">@dimen/camera_icon_height</dimen>
 </resources>

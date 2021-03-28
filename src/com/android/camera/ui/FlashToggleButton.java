@@ -30,6 +30,7 @@
 package com.android.camera.ui;
 
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
@@ -42,8 +43,8 @@ import org.codeaurora.snapcam.R;
 
 public class FlashToggleButton extends RotateImageView {
     private SettingsManager mSettingsManager;
-    private int[] cameraFlashIcon = {R.drawable.flash_off, R.drawable.flash_auto, R.drawable.flash};
-    private int[] videoFlashIcon = {R.drawable.flash_off, R.drawable.flash};
+    TypedArray cameraFlashIcon;
+    TypedArray videoFlashIcon;
     private int mIndex;
     private boolean mIsVideoFlash;
     private Context mContext;
@@ -51,11 +52,13 @@ public class FlashToggleButton extends RotateImageView {
     public FlashToggleButton(Context context) {
         super(context);
         mContext = context;
+        initFlashIcons();
     }
 
     public FlashToggleButton(Context context, AttributeSet attrs) {
         super(context, attrs);
         mContext = context;
+        initFlashIcons();
     }
 
     public void init(boolean videoFlash) {
@@ -85,32 +88,37 @@ public class FlashToggleButton extends RotateImageView {
         }
 
         update();
-        this.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int[] icons;
-                String key;
-                if (mIsVideoFlash) {
-                    icons = videoFlashIcon;
-                    key = SettingsManager.KEY_VIDEO_FLASH_MODE;
-                } else {
-                    icons = cameraFlashIcon;
-                    key = SettingsManager.KEY_FLASH_MODE;
-                }
-                mIndex = (mIndex + 1) % icons.length;
-                mSettingsManager.setValueIndex(key, mIndex);
-                update();
-            }
-        });
+    }
+
+    public void handleClick() {
+        TypedArray icons;
+        String key;
+        if (mIsVideoFlash) {
+            icons = videoFlashIcon;
+            key = SettingsManager.KEY_VIDEO_FLASH_MODE;
+        } else {
+            icons = cameraFlashIcon;
+            key = SettingsManager.KEY_FLASH_MODE;
+        }
+        mIndex = (mIndex + 1) % icons.length();
+        mSettingsManager.setValueIndex(key, mIndex);
+        update();
+    }
+
+    private void initFlashIcons() {
+        cameraFlashIcon = mContext.getResources()
+                .obtainTypedArray(R.array.flash_modes_camera);
+        videoFlashIcon = mContext.getResources()
+                .obtainTypedArray(R.array.flash_modes_video);
     }
 
     private void update() {
-        int[] icons;
+        TypedArray icons;
         if (mIsVideoFlash) {
             icons = videoFlashIcon;
         } else {
             icons = cameraFlashIcon;
         }
-        setImageResource(icons[mIndex]);
+        setImageResource(icons.getResourceId(mIndex, 0));
     }
 }
