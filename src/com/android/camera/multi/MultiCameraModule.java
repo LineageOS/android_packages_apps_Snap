@@ -38,6 +38,7 @@ import android.util.Log;
 
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Set;
 
 import com.android.camera.CameraModule;
@@ -46,6 +47,8 @@ import com.android.camera.MediaSaveService;
 import com.android.camera.PhotoController;
 import com.android.camera.util.CameraUtil;
 import com.android.camera.data.Camera2ModeAdapter.OnItemClickListener;
+
+import org.codeaurora.snapcam.R;
 
 public class MultiCameraModule implements CameraModule, PhotoController {
 
@@ -129,6 +132,14 @@ public class MultiCameraModule implements CameraModule, PhotoController {
                 return selectCameraMode(mode);
             }
         };
+    }
+
+    public List<Integer> getCameraModeIconList() {
+        List<Integer> mDrawIds = Arrays.asList(new Integer[]{
+            R.drawable.ic_switch_camera,
+            R.drawable.ic_switch_video,
+        });
+        return mDrawIds;
     }
 
     public int selectCameraMode(int mode) {

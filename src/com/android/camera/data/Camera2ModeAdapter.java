@@ -34,6 +34,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import com.android.camera.ui.RotateImageView;
 import android.widget.TextView;
 import org.codeaurora.snapcam.R;
 
@@ -41,11 +42,13 @@ import java.util.List;
 
 public class Camera2ModeAdapter extends RecyclerView.Adapter<Camera2ModeAdapter.ViewHolder> {
     private List<String> mModeList;
+    private List<Integer> mIcons;
     private int mSelectedPos = 2;
     private OnItemClickListener mOnItemClickListener;
 
-    public Camera2ModeAdapter(List<String> list) {
+    public Camera2ModeAdapter(List<String> list, List<Integer> icons) {
         this.mModeList = list;
+        this.mIcons = icons;
     }
 
     public void setOnItemClickListener(OnItemClickListener listener) {
@@ -64,7 +67,8 @@ public class Camera2ModeAdapter extends RecyclerView.Adapter<Camera2ModeAdapter.
     public void onBindViewHolder(ViewHolder holder, int position) {
         holder.mCameraModeText.setText(mModeList.get(position));
         holder.mCameraModeText.setSelected(mSelectedPos == position);
-        holder.mCameraModeText.setOnClickListener(new View.OnClickListener() {
+        holder.mCameraModeIcon.setImageResource(mIcons.get(position));
+        holder.mCameraModeIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (mOnItemClickListener.onItemClick(position) >= 0) {
@@ -92,10 +96,12 @@ public class Camera2ModeAdapter extends RecyclerView.Adapter<Camera2ModeAdapter.
     class ViewHolder extends RecyclerView.ViewHolder{
 
         protected TextView mCameraModeText;
+        protected RotateImageView mCameraModeIcon;
 
         public ViewHolder(View itemView) {
             super(itemView);
-            mCameraModeText = (TextView) itemView.findViewById(R.id.mode_text);
+            mCameraModeText = itemView.findViewById(R.id.mode_text);
+            mCameraModeIcon = itemView.findViewById(R.id.mode_icon);
         }
     }
 }
