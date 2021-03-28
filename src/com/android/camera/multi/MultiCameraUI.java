@@ -213,11 +213,12 @@ public class MultiCameraUI implements PreviewGestures.SingleTapListener,
         mModeSelectLayout = (RecyclerView) mRootView.findViewById(R.id.mode_select_layout);
         mModeSelectLayout.setLayoutManager(new LinearLayoutManager(mActivity,
                 LinearLayoutManager.HORIZONTAL, false));
-        mCameraModeAdapter = new Camera2ModeAdapter(mModule.getCameraModeList());
+        mCameraModeAdapter = new Camera2ModeAdapter(mModule.getCameraModeList(),
+                mModule.getCameraModeIconList());
         mCameraModeAdapter.setSelectedPosition(1);
         mCameraModeAdapter.setOnItemClickListener(mModule.getModeItemClickListener());
         mModeSelectLayout.setAdapter(mCameraModeAdapter);
-        mModeSelectLayout.setVisibility(View.VISIBLE);
+        mModeSelectLayout.setVisibility(View.GONE);
 
         if (mGestures == null) {
             // this will handle gesture disambiguation and dispatching
