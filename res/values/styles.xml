@@ -274,6 +274,8 @@
         <item name="android:layout_height">45dp</item>
         <item name="android:padding">10dp</item>
         <item name="android:scaleType">fitCenter</item>
+        <item name="android:clickable">true</item>
+        <item name="android:background">?android:attr/selectableItemBackground</item>
     </style>
     <style name="MenuIndicator">
         <item name="android:layout_width">wrap_content</item>
