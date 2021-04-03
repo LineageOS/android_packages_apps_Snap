@@ -542,7 +542,7 @@ public class OneUICameraControls extends RotatableLayout {
                 mSceneModeSwitcher, mFilterModeSwitcher, mFrontBackSwitcher,
                 mFlashButton, mSettingsButton, mPreview,
                 mMute, mMakeupSeekBarLowText, mMakeupSeekBarHighText,
-                mPauseButton, mExitBestPhotpMode
+                mPauseButton, mExitBestPhotpMode, mModeSwitcher
         };
 
         for (View v : views) {
@@ -559,9 +559,8 @@ public class OneUICameraControls extends RotatableLayout {
 
         // Reorient the camera modes
         for (int i = 0; i < ((ViewGroup) mModeSelectLayout).getChildCount(); i++) {
-            ViewGroup v = (ViewGroup) mModeSelectLayout.getChildAt(i);
-            Rotatable r = (Rotatable) v.getChildAt(0);
-            r.setOrientation(orientation, animation);
+            ((Rotatable) ((ViewGroup) mModeSelectLayout.getChildAt(i))
+                    .getChildAt(0)).setOrientation(orientation, animation);
         }
 
         layoutRemaingPhotos();

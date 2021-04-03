@@ -1026,9 +1026,12 @@ public class CaptureUI implements PreviewGestures.SingleTapListener,
         mModeSelectLayout.setScaleX(0.3f);
         mModeSelectLayout.setScaleY(0.3f);
         mModeSelectLayout.setTranslationY(mModeSwitcher.getY()
-                + mModeSelectLayout.getMeasuredHeight() / 2
-                + mModeSwitcher.getMeasuredHeight());
+                - mModeSelectLayout.getMeasuredHeight() / 2);
         mNeedsAnimationSetup = false;
+    }
+
+    public void setSwitcherAnimationNeeded(boolean needed) {
+        mNeedsAnimationSetup = needed;
     }
 
     public void showModeSwitcher(boolean animation) {
@@ -1063,7 +1066,8 @@ public class CaptureUI implements PreviewGestures.SingleTapListener,
             mModeSelectLayout.animate()
                     .alpha(0f)
                     .scaleX(0.3f).scaleY(0.3f)
-                    .translationY(mModeSwitcher.getY() - mModeSelectLayout.getMeasuredHeight() / 2)
+                    .translationY(mModeSwitcher.getY()
+                            - mModeSelectLayout.getMeasuredHeight() / 2)
                     .setDuration(ANIMATION_DURATION)
                     .setListener(new AnimatorListenerAdapter() {
                         @Override
@@ -1143,7 +1147,7 @@ public class CaptureUI implements PreviewGestures.SingleTapListener,
         setFrontBackSwitcherDrawable();
     }
 
-    private void setFrontBackSwitcherDrawable() {
+    public void setFrontBackSwitcherDrawable() {
         if (mSettingsManager.getValue(SettingsManager.KEY_FRONT_REAR_SWITCHER_VALUE)
                 .equals("front")) {
             ((ImageView) mFrontBackSwitcher).setImageResource(R.drawable.ic_switch_back);
@@ -1798,6 +1802,7 @@ public class CaptureUI implements PreviewGestures.SingleTapListener,
         mFilterModeSwitcher.setEnabled(enableFilterMenu);
         mSceneModeSwitcher.setEnabled(enableSceneMenu);
         mNeedsAnimationSetup = true;
+        mModeSelectLayout.bringToFront();
     }
 
     public void toggleProgressBar(boolean show) {

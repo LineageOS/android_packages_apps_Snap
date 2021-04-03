@@ -8993,6 +8993,7 @@ public class CaptureModule implements CameraModule, PhotoController,
                  nextSceneMode.mode == CameraMode.SAT ||
                  nextSceneMode.mode == CameraMode.PRO_MODE)) {
             mSettingsManager.setValue(SettingsManager.KEY_FRONT_REAR_SWITCHER_VALUE, "rear");
+            mUI.setFrontBackSwitcherDrawable();
         } else {
             restartAll();
         }
@@ -9001,6 +9002,7 @@ public class CaptureModule implements CameraModule, PhotoController,
         updateZoom();
         mUI.closeModeSwitcher(true);
         mUI.setCurrentModeIcon(mode);
+        mUI.setSwitcherAnimationNeeded(true);
         return 1;
     }
 
