@@ -1826,6 +1826,10 @@ public class CaptureModule implements CameraModule, PhotoController,
                 if (!HFR_RATE.equals("")) {
                     mSettingsManager.setValue(SettingsManager.KEY_VIDEO_HIGH_FRAME_RATE, HFR_RATE);
                 }
+                if (!mSettingsManager.isHFRSupportedOnCurrentResolution()) {
+                    Toast.makeText(mActivity, R.string.hfr_unsupported_current_resolution,
+                            Toast.LENGTH_LONG).show();
+                }
                 createSessionForVideo(cameraId);
                 break;
             default:
