@@ -300,11 +300,11 @@
     </plurals>
     <string name="dialog_do_not_show">Nicht wieder anzeigen</string>
     <string name="delete_best_dialog_title">Alle löschen?</string>
-    <string name="delete_best_dialog_content">Sind Sie sicher, dass Sie alle 10 aufgenommenen Bilder löschen möchten?</string>
+    <string name="delete_best_dialog_content">Bist du sicher, dass du alle 10 aufgenommenen Bilder löschen möchtest?</string>
     <string name="delete_best_dialog_native_bt">Abbrechen</string>
     <string name="delete_best_dialog_positive_bt">Löschen</string>
     <string name="delete_all_best_dialog_title">Alle löschen?</string>
-    <string name="delete_all_best_dialog_content">Möchten Sie wirklich alle Bilder löschen?</string>
+    <string name="delete_all_best_dialog_content">Möchtest du wirklich alle Bilder löschen?</string>
     <string name="delete_all_best_dialog_native_bt">Abbrechen</string>
     <string name="delete_all_best_dialog_positive_bt">Alle löschen</string>
     <string name="overflow_best_item1">Alle speichern</string>

@@ -397,8 +397,10 @@
     <string name="pref_camera_zoom_entry_9x">9x</string>
     <string name="pref_camera_zoom_entry_10x">10x</string>
     <string name="pref_camera2_bsgc_title">미소/깜박임/시선 감지</string>
+    <string name="pref_camera2_facial_contour_title">안면 윤곽</string>
     <string name="pref_camera2_bsgc_entry_enable">사용</string>
     <string name="pref_camera2_bsgc_entry_disable">사용 안 함</string>
+    <string name="pref_camera2_face_detection_entry_simple">간단히</string>
     <string name="pref_camera2_zsl_title">제로 셔터 랙</string>
     <string name="pref_camera2_zsl_entry_disable">끄기</string>
     <string name="pref_camera2_zsl_entry_app_zsl">소프트웨어 ZSL</string>
@@ -422,7 +424,9 @@
     <string name="pref_camera2_video_hdr_entry_enable">사용</string>
     <string name="pref_camera2_video_hdr_entry_disable">사용 안 함</string>
     <string name="pref_camera2_picture_format_title">사진 포맷</string>
+    <string name="pref_camera2_switcher_entry_rear">후면</string>
     <string name="pref_camera2_switcher_entry_front">전면</string>
+    <string name="pref_camera2_force_aux_title">강제 AUX</string>
     <string name="pref_camera2_force_aux_entry_on">켜짐</string>
     <string name="pref_camera2_force_aux_entry_off">끄기</string>
     <string name="pref_camera2_stats_visualizer_title">통계 시각화</string>
@@ -440,6 +444,7 @@
     <string name="pref_camera2_abort_captures_title">캡처 취소</string>
     <string name="pref_camera2_abort_captures_entry_enable">사용</string>
     <string name="pref_camera2_abort_captures_entry_disable">사용 안 함</string>
+    <string name="pref_camera_tone_mapping_title">톤 매핑</string>
     <string name="pref_camera_tone_mapping_entry_user_setting">사용자 설정</string>
     <string name="pref_camera_tone_mapping_entry_off">끄기</string>
     <string name="pref_multi_camera_picturesize1_title">사진 1 크기</string>

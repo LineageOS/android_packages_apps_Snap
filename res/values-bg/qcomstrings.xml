@@ -118,11 +118,21 @@
     <string name="pref_camera_hfr_entry_4x">Запис с 120 кадъра в секунда</string>
     <string name="pref_camera_hfr_entry_8x">Запис с 240 кадъра в секунда</string>
     <string name="pref_camera_hfr_entry_16x">Запис с 480 кадъра в секунда</string>
+    <string name="pref_camera_hfr_entry_32x">Slow motion 960 FPS</string>
     <string name="pref_camera_hfr_entry_hsr_60">Висока скорост 60 кадъра в секунда</string>
     <string name="pref_camera_hfr_entry_hsr_90">Висока скорост 90 кадъра в секунда</string>
     <string name="pref_camera_hfr_entry_hsr_120">Висока скорост 120 кадъра в секунда</string>
     <string name="pref_camera_hfr_entry_hsr_240">Висока скорост 240 кадъра в секунда</string>
     <string name="pref_camera_hfr_entry_hsr_480">Висока скорост 480 кадъра в секунда МЦ</string>
+    <string name="pref_camera_hfr_entry_hsr_960">Висока скорост 960 кадъра в секунда</string>
+    <string name="pref_camera_hfr_entry_2x_ssm_120">Super SloMo 120-&gt;240</string>
+    <string name="pref_camera_hfr_entry_4x_ssm_120">Super SloMo 120-&gt;480</string>
+    <string name="pref_camera_hfr_entry_2x_ssm_240">Super SloMo 240-&gt;480</string>
+    <string name="pref_camera_hfr_entry_4x_ssm_240">Super SloMo 240-&gt;960</string>
+    <string name="pref_camera_hfr_entry_2x_ssm_480">Super SloMo 480-&gt;960</string>
+    <string name="pref_camera_hfr_entry_4x_ssm_480">Super SloMo 480-&gt;1920</string>
+    <string name="pref_camera_hfr_entry_2x_ssm_960">Super SloMo 960-&gt;1920</string>
+    <string name="pref_camera_hfr_entry_4x_ssm_960">Super SloMo 960-&gt;3840</string>
     <string name="pref_camera_noise_reduction_title">Намаляване на шума</string>
     <string name="pref_camera_noise_reduction_entry_off">Изкл.</string>
     <string name="pref_camera_noise_reduction_entry_fast">Бързо</string>
@@ -241,6 +251,7 @@
     <string name="pref_camera_auto_hdr_title">Aвтоматичен HDR</string>
     <string name="pref_camera_auto_hdr_entry_enable">Вкл.</string>
     <string name="pref_camera_auto_hdr_entry_disable">Изкл.</string>
+    <string name="storage_not_enough">Мястото за съхранение е недостатъчно</string>
     <string name="pref_camera_hdr_mode_title">HDR режим</string>
     <string name="pref_camera_hdr_mode_entry_sensor">Сензор HDR</string>
     <string name="pref_camera_hdr_mode_entry_multi_frame">Рамка HDR</string>
@@ -305,6 +316,7 @@
     <string name="pref_camera2_touch_track_focus_off">Деактивирай</string>
     <string name="pref_camera2_multi_cameras_entry_on">Разрешено</string>
     <string name="pref_camera2_multi_cameras_entry_off">Деактивирай</string>
+    <string name="pref_camera2_multi_cameras_title">Няколко камери</string>
     <string name="pref_camera_scenemode_entry_bestpicture">Най-добра снимка</string>
     <string name="pref_camera_scenemode_entry_sharpshooter">Sharp photo</string>
     <string name="pref_camera_scenemode_entry_trackingfocus">Проследяващ фокус</string>
@@ -397,8 +409,12 @@
     <string name="pref_camera_zoom_entry_9x">9x</string>
     <string name="pref_camera_zoom_entry_10x">10x</string>
     <string name="pref_camera2_bsgc_title">Усмивка/мигане/поглед откриване</string>
+    <string name="pref_camera2_facial_contour_title">Контур на лицето</string>
+    <string name="pref_camera2_face_detection_mode_title">Режим откриване на лица</string>
     <string name="pref_camera2_bsgc_entry_enable">Разрешено</string>
     <string name="pref_camera2_bsgc_entry_disable">Деактивирай</string>
+    <string name="pref_camera2_face_detection_entry_simple">Опростен</string>
+    <string name="pref_camera2_face_detection_entry_full">Пълен</string>
     <string name="pref_camera2_zsl_title">Нулево забавяне на затвора</string>
     <string name="pref_camera2_zsl_entry_disable">Изкл.</string>
     <string name="pref_camera2_zsl_entry_app_zsl">Софтуер ZSL</string>
@@ -422,7 +438,10 @@
     <string name="pref_camera2_video_hdr_entry_enable">Вкл.</string>
     <string name="pref_camera2_video_hdr_entry_disable">Изкл.</string>
     <string name="pref_camera2_picture_format_title">Формат на картината</string>
+    <string name="pref_camera2_switcher_title">Превключвател на камерата</string>
+    <string name="pref_camera2_switcher_entry_rear">Задна</string>
     <string name="pref_camera2_switcher_entry_front">Предна</string>
+    <string name="pref_camera2_force_aux_title">Принудителен AUX</string>
     <string name="pref_camera2_force_aux_entry_on">Включване</string>
     <string name="pref_camera2_force_aux_entry_off">Изкл.</string>
     <string name="pref_camera2_stats_visualizer_title">Станистика на визуализатора</string>
@@ -440,6 +459,12 @@
     <string name="pref_camera2_abort_captures_title">Прекрати заснемането</string>
     <string name="pref_camera2_abort_captures_entry_enable">Вкл.</string>
     <string name="pref_camera2_abort_captures_entry_disable">Изкл.</string>
+    <string name="pref_camera_tone_mapping_title">Разпределение на нюансите</string>
     <string name="pref_camera_tone_mapping_entry_user_setting">Потребителска настройка</string>
     <string name="pref_camera_tone_mapping_entry_off">Изкл.</string>
+    <string name="pref_multi_camera_hal_zsl_title">HAL ZSL</string>
+    <string name="pref_multi_camera_picturesize1_title">Размер изображение 1</string>
+    <string name="pref_multi_camera_picturesize2_title">Размер изображение 2</string>
+    <string name="pref_multi_camera_picturesize3_title">Размер изображение 3</string>
+    <string name="lock_af_ae_label">AE/AF блокиране</string>
 </resources>
