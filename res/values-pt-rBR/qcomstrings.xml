@@ -397,8 +397,10 @@
     <string name="pref_camera_zoom_entry_9x">9x</string>
     <string name="pref_camera_zoom_entry_10x">10x</string>
     <string name="pref_camera2_bsgc_title">Detecção de sorrisos/piscadas/olhares</string>
+    <string name="pref_camera2_facial_contour_title">Contorno facial</string>
     <string name="pref_camera2_bsgc_entry_enable">Ativar</string>
     <string name="pref_camera2_bsgc_entry_disable">Desativar</string>
+    <string name="pref_camera2_face_detection_entry_simple">Simples</string>
     <string name="pref_camera2_zsl_title">Eliminar atraso do disparador</string>
     <string name="pref_camera2_zsl_entry_disable">Desl.</string>
     <string name="pref_camera2_zsl_entry_app_zsl">ZSL via software</string>
@@ -442,4 +444,5 @@
     <string name="pref_camera2_abort_captures_entry_disable">Desligado</string>
     <string name="pref_camera_tone_mapping_entry_user_setting">Configuração do usuário</string>
     <string name="pref_camera_tone_mapping_entry_off">Desl.</string>
+    <string name="lock_af_ae_label">Bloquear EA/FA</string>
 </resources>

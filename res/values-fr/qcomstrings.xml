@@ -118,11 +118,21 @@
     <string name="pref_camera_hfr_entry_4x">Ralenti 120 IPS</string>
     <string name="pref_camera_hfr_entry_8x">Ralenti 240 IPS</string>
     <string name="pref_camera_hfr_entry_16x">Ralenti 480 IPS</string>
+    <string name="pref_camera_hfr_entry_32x">Ralenti 960 IPS</string>
     <string name="pref_camera_hfr_entry_hsr_60">Haute vitesse 60 IPS</string>
     <string name="pref_camera_hfr_entry_hsr_90">Haute vitesse 90 IPS</string>
     <string name="pref_camera_hfr_entry_hsr_120">Haute vitesse 120 IPS</string>
     <string name="pref_camera_hfr_entry_hsr_240">Haute vitesse 240 IPS (FPS)</string>
     <string name="pref_camera_hfr_entry_hsr_480">Accéléré 480 IPS</string>
+    <string name="pref_camera_hfr_entry_hsr_960">Accéléré 960 IPS</string>
+    <string name="pref_camera_hfr_entry_2x_ssm_120">Super ralenti 120-&gt;240</string>
+    <string name="pref_camera_hfr_entry_4x_ssm_120">Super ralenti 120-&gt;480</string>
+    <string name="pref_camera_hfr_entry_2x_ssm_240">Super ralenti 240-&gt;480</string>
+    <string name="pref_camera_hfr_entry_4x_ssm_240">Super ralenti 240-&gt;960</string>
+    <string name="pref_camera_hfr_entry_2x_ssm_480">Super ralenti 480-&gt;960</string>
+    <string name="pref_camera_hfr_entry_4x_ssm_480">Super ralenti 480-&gt;1920</string>
+    <string name="pref_camera_hfr_entry_2x_ssm_960">Super ralenti 960-&gt;1920</string>
+    <string name="pref_camera_hfr_entry_4x_ssm_960">Super ralenti 960-&gt;3840</string>
     <string name="pref_camera_noise_reduction_title">Réduction du bruit</string>
     <string name="pref_camera_noise_reduction_entry_off">Désactivé</string>
     <string name="pref_camera_noise_reduction_entry_fast">Rapide</string>
@@ -241,6 +251,7 @@
     <string name="pref_camera_auto_hdr_title">HDR Automatique</string>
     <string name="pref_camera_auto_hdr_entry_enable">Activer</string>
     <string name="pref_camera_auto_hdr_entry_disable">Désactiver</string>
+    <string name="storage_not_enough">Espace de stockage insuffisant</string>
     <string name="pref_camera_hdr_mode_title">Mode HDR</string>
     <string name="pref_camera_hdr_mode_entry_sensor">Capteur HDR</string>
     <string name="pref_camera_hdr_mode_entry_multi_frame">Multi-couche HDR</string>
@@ -303,6 +314,7 @@
     <string name="pref_camera2_videosnap_entry_disable">Désactiver</string>
     <string name="pref_camera2_touch_track_focus_entry_on">Activer</string>
     <string name="pref_camera2_touch_track_focus_off">Désactiver</string>
+    <string name="pref_camera2_touch_track_focus_title">Mise au point par suivi tactile</string>
     <string name="pref_camera2_multi_cameras_entry_on">Activer</string>
     <string name="pref_camera2_multi_cameras_entry_off">Désactiver</string>
     <string name="pref_camera_scenemode_entry_bestpicture">Image optimale</string>
@@ -397,8 +409,12 @@
     <string name="pref_camera_zoom_entry_9x">9x</string>
     <string name="pref_camera_zoom_entry_10x">10x</string>
     <string name="pref_camera2_bsgc_title">Détection de sourire/clignement/regard</string>
+    <string name="pref_camera2_facial_contour_title">Contour du visage</string>
+    <string name="pref_camera2_face_detection_mode_title">Détection de visage</string>
     <string name="pref_camera2_bsgc_entry_enable">Activer</string>
     <string name="pref_camera2_bsgc_entry_disable">Désactiver</string>
+    <string name="pref_camera2_face_detection_entry_simple">Basique</string>
+    <string name="pref_camera2_face_detection_entry_full">Complet</string>
     <string name="pref_camera2_zsl_title">Pas de délai de l\'obturateur</string>
     <string name="pref_camera2_zsl_entry_disable">Désactivé</string>
     <string name="pref_camera2_zsl_entry_app_zsl">Zéro délai d\'obturation logiciel</string>
@@ -422,7 +438,10 @@
     <string name="pref_camera2_video_hdr_entry_enable">Activé</string>
     <string name="pref_camera2_video_hdr_entry_disable">Désactivé</string>
     <string name="pref_camera2_picture_format_title">Format d\'image</string>
+    <string name="pref_camera2_switcher_title">Sélecteur de caméra</string>
+    <string name="pref_camera2_switcher_entry_rear">Arrière</string>
     <string name="pref_camera2_switcher_entry_front">Avant</string>
+    <string name="pref_camera2_force_aux_title">Forcer AUX</string>
     <string name="pref_camera2_force_aux_entry_on">Activé</string>
     <string name="pref_camera2_force_aux_entry_off">Désactivé</string>
     <string name="pref_camera2_stats_visualizer_title">Visualiseur de statistiques</string>
@@ -440,6 +459,12 @@
     <string name="pref_camera2_abort_captures_title">Abandonner les captures</string>
     <string name="pref_camera2_abort_captures_entry_enable">Activé</string>
     <string name="pref_camera2_abort_captures_entry_disable">Désactivé</string>
+    <string name="pref_camera_tone_mapping_entry_fourth_tone_anchor">Ancre du quatrième ton</string>
     <string name="pref_camera_tone_mapping_entry_user_setting">Paramètre utilisateur</string>
     <string name="pref_camera_tone_mapping_entry_off">Désactivé</string>
+    <string name="pref_multi_camera_hal_zsl_title">HAL ZSL</string>
+    <string name="pref_multi_camera_picturesize1_title">Taille de l’image 1</string>
+    <string name="pref_multi_camera_picturesize2_title">Taille de l\'image 2</string>
+    <string name="pref_multi_camera_picturesize3_title">Taille de l\'image 3</string>
+    <string name="lock_af_ae_label">Verrouillage AE/AF</string>
 </resources>
