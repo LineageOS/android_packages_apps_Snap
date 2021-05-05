@@ -264,6 +264,12 @@ public class CaptureUI implements PreviewGestures.SingleTapListener,
     private TextView mStatsAecSensitivityText;
     private TextView mStatsAecExposureTimeText;
 
+    private TextView mExposureText;
+    private TextView mManualText;
+    private TextView mWhiteBalanceText;
+    private TextView mIsoText;
+    private TextView mZoomSeekbarText;
+
     private LinearLayout mZoomLinearLayout;
 
     private TextView mZoomSwitch;
@@ -623,6 +629,53 @@ public class CaptureUI implements PreviewGestures.SingleTapListener,
             @Override
             public void onClick(View v) {
                 showModeSwitcher(true);
+            }
+        });
+
+        mExposureText = mRootView.findViewById(R.id.exposure_value);
+        mExposureText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                closeModeSwitcher(true);
+                mCameraControls.onExposureTextClick();
+            }
+        });
+        mManualText = mRootView.findViewById(R.id.manual_value);
+        mManualText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                closeModeSwitcher(true);
+                mCameraControls.onManualTextClick();
+            }
+        });
+        mWhiteBalanceText = mRootView.findViewById(R.id.white_balance_value);
+        mWhiteBalanceText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                closeModeSwitcher(true);
+                mCameraControls.onWhiteBalanceTextClick();
+            }
+        });
+        mIsoText = mRootView.findViewById(R.id.iso_value);
+        mIsoText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                closeModeSwitcher(true);
+                mCameraControls.onIsoTextClick();
+            }
+        });
+        mZoomSeekbarText = mRootView.findViewById(R.id.zoom_seekbar_value);
+        mZoomSeekbarText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                closeModeSwitcher(true);
+                mCameraControls.onZoomSeekbarTextClick();
+            }
+        });
+        mRootView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                closeModeSwitcher(true);
             }
         });
 
