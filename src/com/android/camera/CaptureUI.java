@@ -1896,6 +1896,10 @@ public class CaptureUI implements PreviewGestures.SingleTapListener,
             removeFilterMenu(true);
             return true;
         }
+        if (mModeSelectLayout.getVisibility() == View.VISIBLE) {
+            closeModeSwitcher(true);
+            return true;
+        }
         return false;
     }
 
