@@ -39,6 +39,7 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 
 import com.android.camera.CaptureModule;
+import com.android.camera.CaptureUI;
 import com.android.camera.Storage;
 import com.android.camera.imageprocessor.filter.BeautificationFilter;
 
@@ -114,6 +115,8 @@ public class OneUICameraControls extends RotatableLayout {
     private RotateLayout mWhiteBalanceRotateLayout;
     private RotateLayout mIsoRotateLayout;
     private RotateLayout mZoomSeekBarLayout;
+
+    private CaptureUI mCUI;
 
     public OneUICameraControls(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -192,71 +195,6 @@ public class OneUICameraControls extends RotatableLayout {
         mModeSelectLayout = (RecyclerView) findViewById(R.id.mode_select_layout);
         mModeSelectLayout.setVisibility(View.INVISIBLE);
 
-        mExposureText.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                resetProModeIcons();
-                int mode = mProMode.getMode();
-                if (mode == ProMode.EXPOSURE_MODE) {
-                    mProMode.setMode(ProMode.NO_MODE);
-                } else {
-                    mExposureText.setSelected(true);
-                    mProMode.setMode(ProMode.EXPOSURE_MODE);
-                }
-            }
-        });
-        mManualText.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                resetProModeIcons();
-                int mode = mProMode.getMode();
-                if (mode == ProMode.MANUAL_MODE) {
-                    mProMode.setMode(ProMode.NO_MODE);
-                } else {
-                    mManualText.setSelected(true);
-                    mProMode.setMode(ProMode.MANUAL_MODE);
-                }
-            }
-        });
-        mWhiteBalanceText.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                resetProModeIcons();
-                int mode = mProMode.getMode();
-                if (mode == ProMode.WHITE_BALANCE_MODE) {
-                    mProMode.setMode(ProMode.NO_MODE);
-                } else {
-                    mWhiteBalanceText.setSelected(true);
-                    mProMode.setMode(ProMode.WHITE_BALANCE_MODE);
-                }
-            }
-        });
-        mIsoText.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                resetProModeIcons();
-                int mode = mProMode.getMode();
-                if (mode == ProMode.ISO_MODE) {
-                    mProMode.setMode(ProMode.NO_MODE);
-                } else {
-                    mIsoText.setSelected(true);
-                    mProMode.setMode(ProMode.ISO_MODE);
-                }
-            }
-        });
-        mZoomSeekbarText.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                resetProModeIcons();
-                int mode = mProMode.getMode();
-                if (mode == ProMode.ZOOM_MODE) {
-                    mProMode.setMode(ProMode.NO_MODE);
-                } else {
-                    mZoomSeekbarText.setSelected(true);
-                    mProMode.setMode(ProMode.ZOOM_MODE);
-                }
-            }
-        });
         mViews = new View[]{
                 mSceneModeSwitcher, mFilterModeSwitcher, mFrontBackSwitcher,
                 mFlashButton, mPreview, mPauseButton, mCancelButton,
@@ -327,6 +265,69 @@ public class OneUICameraControls extends RotatableLayout {
                     break;
             }
         }
+    }
+
+    public void onExposureTextClick() {
+        resetProModeIcons();
+        int mode = mProMode.getMode();
+        if (mode == ProMode.EXPOSURE_MODE) {
+             mProMode.setMode(ProMode.NO_MODE);
+        } else {
+            mExposureText.setSelected(true);
+            mProMode.setMode(ProMode.EXPOSURE_MODE);
+        }
+    }
+
+    public void onManualTextClick() {
+        resetProModeIcons();
+        int mode = mProMode.getMode();
+        if (mode == ProMode.MANUAL_MODE) {
+            mProMode.setMode(ProMode.NO_MODE);
+        } else {
+            mManualText.setSelected(true);
+            mProMode.setMode(ProMode.MANUAL_MODE);
+        }
+    }
+
+    public void onWhiteBalanceTextClick() {
+        resetProModeIcons();
+        int mode = mProMode.getMode();
+        if (mode == ProMode.WHITE_BALANCE_MODE) {
+            mProMode.setMode(ProMode.NO_MODE);
+        } else {
+            mWhiteBalanceText.setSelected(true);
+            mProMode.setMode(ProMode.WHITE_BALANCE_MODE);
+        }
+    }
+
+    public void onIsoTextClick() {
+        resetProModeIcons();
+        int mode = mProMode.getMode();
+        if (mode == ProMode.ISO_MODE) {
+            mProMode.setMode(ProMode.NO_MODE);
+        } else {
+            mIsoText.setSelected(true);
+            mProMode.setMode(ProMode.ISO_MODE);
+        }
+    }
+
+    public void onZoomSeekbarTextClick() {
+        resetProModeIcons();
+        int mode = mProMode.getMode();
+        if (mode == ProMode.ZOOM_MODE) {
+           mProMode.setMode(ProMode.NO_MODE);
+        } else {
+            mZoomSeekbarText.setSelected(true);
+            mProMode.setMode(ProMode.ZOOM_MODE);
+        }
+    }
+
+    public void initialize(CaptureUI cUI) {
+        mCUI = cUI;
+    }
+
+    public void closeModeSwitcher(boolean animate) {
+        mCUI.closeModeSwitcher(animate);
     }
 
     private void setLocation(View v, boolean top, float idx) {

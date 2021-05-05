@@ -383,6 +383,7 @@ public class ProMode extends View {
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
+        mUI.closeModeSwitcher(true);
         if (mMode == MANUAL_MODE) {
             float slider = getSlider(event.getX(), event.getY());
             if (slider >= 0) {
