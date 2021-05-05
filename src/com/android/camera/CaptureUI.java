@@ -281,6 +281,7 @@ public class CaptureUI implements PreviewGestures.SingleTapListener,
     private boolean mIsSceneModeLabelClose = false;
 
     private boolean mNeedsAnimationSetup = true;
+    private boolean mIsAnimating = false;
 
     private void previewUIReady() {
         if((mSurfaceHolder != null && mSurfaceHolder.getSurface().isValid())) {
@@ -1083,7 +1084,11 @@ public class CaptureUI implements PreviewGestures.SingleTapListener,
     }
 
     public void showModeSwitcher(boolean animation) {
-        if (mModeSelectLayout == null) return;
+        if (mModeSelectLayout == null ||
+                mModeSelectLayout.getVisibility() == View.VISIBLE) {
+            return;
+        }
+
         if (isPreviewMenuBeingShown()) {
             removeFilterMenu(true);
         }
@@ -1108,9 +1113,13 @@ public class CaptureUI implements PreviewGestures.SingleTapListener,
     }
 
     public void closeModeSwitcher(boolean animation) {
-        if (mModeSelectLayout == null) return;
+        if (mModeSelectLayout == null ||
+                mModeSelectLayout.getVisibility() != View.VISIBLE) {
+            return;
+        }
 
-        if (animation) {
+        if (animation && !mIsAnimating) {
+            mIsAnimating = true;
             mModeSelectLayout.animate()
                     .alpha(0f)
                     .scaleX(0.3f).scaleY(0.3f)
@@ -1121,6 +1130,7 @@ public class CaptureUI implements PreviewGestures.SingleTapListener,
                         @Override
                         public void onAnimationEnd(Animator animation) {
                             mModeSelectLayout.setVisibility(View.INVISIBLE);
+                            mIsAnimating = false;
                         }
                     });
         } else {
