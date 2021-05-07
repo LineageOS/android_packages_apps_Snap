@@ -34,14 +34,14 @@
         android:title="@string/perf_camera2_preferences_category_general">
         <SwitchPreference
             android:defaultValue="false"
-            android:icon="@drawable/gps_location"
+            android:icon="@drawable/ic_location"
             android:key="pref_camera2_recordlocation_key"
             android:layout="@layout/preference"
             android:title="@string/pref_camera_recordlocation_title" />
 
         <SwitchPreference
             android:defaultValue="false"
-            android:icon="@drawable/face_detection"
+            android:icon="@drawable/ic_settings_facerec"
             android:key="pref_camera2_facedetection_key"
             android:layout="@layout/preference"
             android:title="@string/pref_camera_facedetection_title" />
@@ -50,7 +50,7 @@
             android:defaultValue="@string/pref_camera_savepath_default"
             android:entries="@array/pref_camera2_savepath_entries"
             android:entryValues="@array/pref_camera2_savepath_entryvalues"
-            android:icon="@drawable/storage"
+            android:icon="@drawable/ic_settings_storage"
             android:key="pref_camera2_savepath_key"
             android:layout="@layout/preference"
             android:summary="%s"
@@ -60,7 +60,7 @@
             android:defaultValue="@string/pref_camera2_picture_format_default"
             android:entries="@array/pref_camera2_picture_format_entries"
             android:entryValues="@array/pref_camera2_picture_format_entryvalues"
-            android:icon="@drawable/ic_settings_format_api2"
+            android:icon="@drawable/ic_settings_format"
             android:key="pref_camera2_picture_format_key"
             android:layout="@layout/preference"
             android:summary="%s"
@@ -75,7 +75,7 @@
             android:defaultValue="@string/pref_camera2_timer_value_off"
             android:entries="@array/pref_camera2_timer_entries"
             android:entryValues="@array/pref_camera2_timer_entryvalues"
-            android:icon="@drawable/countdown_timer"
+            android:icon="@drawable/ic_timer"
             android:key="pref_camera2_timer_key"
             android:layout="@layout/preference"
             android:summary="%s"
@@ -83,7 +83,7 @@
 
         <SwitchPreference
             android:defaultValue="false"
-            android:icon="@drawable/continuous_shot"
+            android:icon="@drawable/ic_settings_continuous"
             android:key="pref_camera2_longshot_key"
             android:layout="@layout/preference"
             android:title="@string/pref_camera_longshot_title" />
@@ -94,7 +94,7 @@
             android:layout="@layout/preference"
             android:title="@string/pref_camera_selfiemirror_title" />
         <ListPreference
-            android:icon="@drawable/picture_size"
+            android:icon="@drawable/ic_settings_size"
             android:key="pref_camera2_picturesize_key"
             android:layout="@layout/preference"
             android:summary="%s"
@@ -104,7 +104,7 @@
             android:defaultValue="@string/pref_camera_jpegquality_default"
             android:entries="@array/pref_camera2_jpegquality_entries"
             android:entryValues="@array/pref_camera2_jpegquality_entryvalues"
-            android:icon="@drawable/picture_quality"
+            android:icon="@drawable/ic_settings_quality"
             android:key="pref_camera2_jpegquality_key"
             android:layout="@layout/preference"
             android:summary="%s"
@@ -119,7 +119,7 @@
 
         <ListPreference
             android:defaultValue="@string/pref_exposure_default"
-            android:icon="@drawable/exposure"
+            android:icon="@drawable/ic_settings_exposure"
             android:key="pref_camera2_exposure_key"
             android:layout="@layout/preference"
             android:summary="%s"
@@ -129,7 +129,7 @@
             android:defaultValue="@string/pref_camera2_whitebalance_default"
             android:entries="@array/pref_camera2_whitebalance_entries"
             android:entryValues="@array/pref_camera2_whitebalance_entryvalues"
-            android:icon="@drawable/white_balance"
+            android:icon="@drawable/ic_settings_wb_api2"
             android:key="pref_camera2_whitebalance_key"
             android:layout="@layout/preference"
             android:summary="%s"
@@ -137,21 +137,21 @@
 
         <SwitchPreference
             android:defaultValue="false"
-            android:icon="@drawable/selfie_flash"
+            android:icon="@drawable/ic_settings_flash"
             android:key="pref_selfie_flash_key"
             android:layout="@layout/preference"
             android:title="@string/pref_selfie_flash_title" />
 
         <SwitchPreference
             android:defaultValue="true"
-            android:icon="@drawable/shutter_sound"
+            android:icon="@drawable/ic_settings_sound"
             android:key="pref_camera2_shutter_sound_key"
             android:layout="@layout/preference"
             android:title="@string/pref_camera2_shutter_sound_title" />
 
         <SwitchPreference
             android:defaultValue="false"
-            android:icon="@drawable/shutter_sound"
+            android:icon="@drawable/ic_settings_sound"
             android:key="pref_camera2_touch_track_focus_key"
             android:layout="@layout/preference"
             android:title="@string/pref_camera2_touch_track_focus_title" />
@@ -188,7 +188,7 @@
         <ListPreference
             android:entries="@array/pref_camera2_video_quality_entries"
             android:entryValues="@array/pref_camera2_video_quality_entryvalues"
-            android:icon="@drawable/video_quality"
+            android:icon="@drawable/ic_settings_quality"
             android:key="pref_camera2_video_quality_key"
             android:layout="@layout/preference"
             android:summary="%s"
@@ -196,14 +196,14 @@
 
         <SwitchPreference
             android:defaultValue="false"
-            android:icon="@drawable/image_stabilization"
+            android:icon="@drawable/ic_settings_stabilization"
             android:key="pref_camera2_dis_key"
             android:layout="@layout/preference"
             android:title="@string/pref_camera_dis_title" />
 
         <SwitchPreference
             android:defaultValue="false"
-            android:icon="@drawable/shutter_sound"
+            android:icon="@drawable/ic_settings_sound"
             android:key="pref_camera2_touch_track_focus_key"
             android:layout="@layout/preference"
             android:title="@string/pref_camera2_touch_track_focus_title" />
@@ -222,7 +222,7 @@
             android:defaultValue="@string/pref_camera_videoencoder_default"
             android:entries="@array/pref_camera2_videoencoder_entries"
             android:entryValues="@array/pref_camera2_videoencoder_entryvalues"
-            android:icon="@drawable/video_encoding"
+            android:icon="@drawable/ic_settings_encoder_video"
             android:key="pref_camera2_videoencoder_key"
             android:layout="@layout/preference"
             android:summary="%s"
@@ -232,7 +232,7 @@
             android:defaultValue="@string/pref_camera2_videoencoderprofile_default"
             android:entries="@array/pref_camera2_videoencoderprofile_entry"
             android:entryValues="@array/pref_camera2_videoencoderprofile_entryvalues"
-            android:icon="@drawable/video_encoding"
+            android:icon="@drawable/ic_settings_encoder_video"
             android:key="pref_camera2_videoencoderprofile_key"
             android:layout="@layout/preference"
             android:summary="%s"
@@ -242,7 +242,7 @@
             android:defaultValue="@string/pref_camera_audioencoder_default"
             android:entries="@array/pref_camera2_audioencoder_entries"
             android:entryValues="@array/pref_camera2_audioencoder_entryvalues"
-            android:icon="@drawable/audio_encoding"
+            android:icon="@drawable/ic_settings_encoder_audio"
             android:key="pref_camera2_audioencoder_key"
             android:layout="@layout/preference"
             android:summary="%s"
@@ -252,7 +252,7 @@
             android:defaultValue="@string/pref_camera_video_rotation_default"
             android:entries="@array/pref_camera2_video_rotation_entries"
             android:entryValues="@array/pref_camera2_video_rotation_entryvalues"
-            android:icon="@drawable/video_rotation"
+            android:icon="@drawable/ic_settings_rotation"
             android:key="pref_camera2_video_rotation_key"
             android:layout="@layout/preference"
             android:summary="%s"
@@ -262,7 +262,7 @@
             android:defaultValue="@string/pref_video_time_lapse_frame_interval_default"
             android:entries="@array/pref_camera2_video_time_lapse_frame_interval_entries"
             android:entryValues="@array/pref_camera2_video_time_lapse_frame_interval_entryvalues"
-            android:icon="@drawable/clock"
+            android:icon="@drawable/ic_timer"
             android:key="pref_camera2_video_time_lapse_frame_interval_key"
             android:layout="@layout/preference"
             android:summary="%s"

@@ -45,4 +45,5 @@
         <attr name="images" format="reference" />
     </declare-styleable>
 
+    <attr name="iconColor" format="reference" />
 </resources>

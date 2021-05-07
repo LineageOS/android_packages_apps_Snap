@@ -24,6 +24,7 @@
     </style>
     <style name="Theme.Settings" parent="@android:style/Theme.Material.Light">
         <item name="android:colorAccent">#5999e1</item>
+        <item name="iconColor">@color/real_black</item>
     </style>
 
     <style name="Theme.Camera" parent="Theme.CameraBase">
@@ -35,6 +36,7 @@
         <item name="android:colorBackground">@android:color/black</item>
         <item name="android:colorBackgroundCacheHint">@android:color/black</item>
         <item name="android:actionBarStyle">@style/Material.ActionBar</item>
+        <item name="iconColor">@color/white</item>
     </style>
     <style name="Theme.CameraBase" parent="android:Theme.Material"/>
     <style name="Theme.Crop" parent="Theme.GalleryBase">
