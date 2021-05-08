@@ -28,6 +28,7 @@
     -->
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:state_selected="true" android:state_pressed="false"
-          android:drawable="@drawable/icon_iso_blue" />
-    <item android:drawable="@drawable/icon_iso" />
+          android:drawable="@drawable/ic_settings_zoom"
+          android:tint="@color/blue" />
+    <item android:drawable="@drawable/ic_settings_zoom" />
 </selector>
