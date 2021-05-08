@@ -62,10 +62,9 @@ public class ProMode extends View {
     private static final int BLUE = 0xff4693fb;
     private static final int SELECTED_DOT_SIZE = 20;
     private static final int DOT_SIZE = 10;
-    private static final int[] wbIcons = {R.drawable.auto, R.drawable.incandecent,
-            R.drawable.fluorescent, R.drawable.sunlight, R.drawable.cloudy};
-    private static final int[] wbIconsBlue = {R.drawable.auto_blue, R.drawable.incandecent_blue,
-            R.drawable.fluorescent_blue, R.drawable.sunlight_blue, R.drawable.cloudy_blue};
+    private static final int[] wbIcons = {R.drawable.ic_scene_mode_auto_wb,
+            R.drawable.ic_scene_mode_backlight, R.drawable.ic_scene_mode_fluorescent,
+            R.drawable.ic_scene_mode_sunset, R.drawable.ic_scene_mode_cloudy};
     private static final int WB_ICON_SIZE = 80;
     private PathMeasure mCurveMeasure;
     private int mCurveLeft;
@@ -350,7 +349,7 @@ public class ProMode extends View {
                 ((TextView) v).setTextColor(Color.WHITE);
             } else if (v instanceof ImageView) {
                 if (mMode == WHITE_BALANCE_MODE) {
-                    ((ImageView) v).setImageResource(wbIcons[mIndex]);
+                    ((ImageView) v).setColorFilter(null);
                 }
             }
         }
@@ -362,7 +361,7 @@ public class ProMode extends View {
             ((TextView) v).setTextColor(BLUE);
         } else if (v instanceof ImageView) {
             if (mMode == WHITE_BALANCE_MODE) {
-                ((ImageView) v).setImageResource(wbIconsBlue[mIndex]);
+                ((ImageView) v).setColorFilter(BLUE);
             }
         }
         if (key != null) mSettingsManager.setValueIndex(key, mIndex);
