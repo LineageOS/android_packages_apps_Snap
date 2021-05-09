@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b05ae139_f4199bc1",
+        "filename": "res/drawable/ic_scene_mode_cloudy.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2021-05-09T14:24:26Z",
+      "side": 1,
+      "message": "stray space",
+      "range": {
+        "startLine": 8,
+        "startChar": 9,
+        "endLine": 8,
+        "endChar": 10
+      },
+      "revId": "2d8cfbe3c648ca6dfafe828370811ce755e418e0",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "56e6ed45_a7c7b000",
+        "filename": "res/drawable/ic_scene_mode_cloudy.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2021-05-09T14:24:26Z",
+      "side": 1,
+      "message": "stray space",
+      "range": {
+        "startLine": 9,
+        "startChar": 40,
+        "endLine": 9,
+        "endChar": 41
+      },
+      "revId": "2d8cfbe3c648ca6dfafe828370811ce755e418e0",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
