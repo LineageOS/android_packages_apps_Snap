@@ -704,6 +704,7 @@
         <item>@drawable/ic_switch_bokeh</item>´
         <item>@drawable/ic_switch_sat</item>
         <item>@drawable/ic_switch_promode</item>
+        <item>@drawable/ic_cam_switcher_qr</item>
     </array>
 
     <array name="camera_modes_front">

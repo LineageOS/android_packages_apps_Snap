@@ -134,6 +134,8 @@ import com.android.camera.util.VendorTagUtil;
 import org.codeaurora.snapcam.R;
 import org.codeaurora.snapcam.filter.ClearSightImageProcessor;
 
+import org.lineageos.quickreader.ScannerActivity;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -558,7 +560,7 @@ public class CaptureModule implements CameraModule, PhotoController,
     private boolean[] mCameraOpened = new boolean[MAX_NUM_CAM];
     private CameraDevice[] mCameraDevice = new CameraDevice[MAX_NUM_CAM];
     private String[] mCameraId = new String[MAX_NUM_CAM];
-    private String[] mSelectableModes = {"Video", "HFR", "Photo", "Bokeh", "SAT", "ProMode"};
+    private String[] mSelectableModes = {"Video", "HFR", "Photo", "Bokeh", "SAT", "ProMode", "QR"};
     private ArrayList<SceneModule> mSceneCameraIds = new ArrayList<>();
     private SceneModule mCurrentSceneMode;
     private int mNextModeIndex = 1;
@@ -571,7 +573,8 @@ public class CaptureModule implements CameraModule, PhotoController,
         DEFAULT,
         RTB,
         SAT,
-        PRO_MODE
+        PRO_MODE,
+        QR,
     }
 
     public enum MFNRSupportValues {
@@ -2445,6 +2448,7 @@ public class CaptureModule implements CameraModule, PhotoController,
                 removeList[CameraMode.DEFAULT.ordinal()] = false;
                 removeList[CameraMode.VIDEO.ordinal()] = false;
                 removeList[CameraMode.PRO_MODE.ordinal()] = false;
+                removeList[CameraMode.QR.ordinal()] = false;
                 if (facing == CameraCharacteristics.LENS_FACING_FRONT) {
                     CaptureModule.FRONT_ID = cameraId;
                     mSceneCameraIds.get(CameraMode.DEFAULT.ordinal()).frontCameraId = cameraId;
@@ -2460,6 +2464,7 @@ public class CaptureModule implements CameraModule, PhotoController,
                     mSceneCameraIds.get(CameraMode.DEFAULT.ordinal()).rearCameraId = cameraId;
                     mSceneCameraIds.get(CameraMode.VIDEO.ordinal()).rearCameraId = cameraId;
                     mSceneCameraIds.get(CameraMode.PRO_MODE.ordinal()).rearCameraId = cameraId;
+                    mSceneCameraIds.get(CameraMode.QR.ordinal()).rearCameraId = cameraId;
                     if (mSettingsManager.isHFRSupported()) { // filter HFR mode
                         removeList[CameraMode.HFR.ordinal()] = false;
                         mSceneCameraIds.get(CameraMode.HFR.ordinal()).rearCameraId = cameraId;
@@ -8988,6 +8993,14 @@ public class CaptureModule implements CameraModule, PhotoController,
         if (mCurrentSceneMode.mode == mSceneCameraIds.get(mode).mode) {
             return -1;
         }
+        Log.v("mode", Integer.toString(mode));
+        if (mSceneCameraIds.get(mode).mode == CameraMode.QR) {
+            mUI.closeModeSwitcher(true);
+            Intent intent = new Intent(mActivity, ScannerActivity.class);
+//            intent.putExtra(SECURE_CAMERA_EXTRA, mSecureCamera);
+            mActivity.startActivity(intent);
+            return 1;
+        }
         setCameraModeSwitcherAllowed(false);
         setNextSceneMode(mode);
         SceneModule nextSceneMode = mSceneCameraIds.get(mode);
@@ -9064,7 +9077,8 @@ public class CaptureModule implements CameraModule, PhotoController,
             int cameraId = isBackCamera() ? rearCameraId : frontCameraId;
             cameraId = isForceAUXOn(this.mode) ? auxCameraId : cameraId;
             if ((this.mode == CameraMode.DEFAULT || this.mode == CameraMode.VIDEO ||
-                      this.mode == CameraMode.HFR || this.mode == CameraMode.PRO_MODE)
+                      this.mode == CameraMode.HFR || this.mode == CameraMode.PRO_MODE ||
+                      this.mode == CameraMode.QR)
                     && (mSettingsManager.isDeveloperEnabled() || swithCameraId != -1)) {
                 String value = mSettingsManager.getValue(SettingsManager.KEY_SWITCH_CAMERA);
                 if (value != null && !value.equals("-1")) {
@@ -9081,7 +9095,8 @@ public class CaptureModule implements CameraModule, PhotoController,
             int cameraId = isBackCamera() ? rearCameraId : frontCameraId;
             cameraId = isForceAUXOn(this.mode) ? auxCameraId : cameraId;
             if ((this.mode == CameraMode.DEFAULT || this.mode == CameraMode.VIDEO ||
-                    this.mode == CameraMode.HFR || this.mode == CameraMode.PRO_MODE)
+                    this.mode == CameraMode.HFR || this.mode == CameraMode.PRO_MODE ||
+                    this.mode == CameraMode.QR)
                     && (mSettingsManager.isDeveloperEnabled() || swithCameraId != -1)) {
                 final SharedPreferences pref = mActivity.getSharedPreferences(
                         ComboPreferences.getLocalSharedPreferencesName(mActivity,
