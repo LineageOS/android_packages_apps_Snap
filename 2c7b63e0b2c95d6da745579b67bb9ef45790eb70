@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8fb3a8ec_2ffcee68",
+        "filename": "src/com/android/camera/CaptureModule.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 9000,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2021-05-09T14:17:29Z",
+      "side": 1,
+      "message": "Either uncomment or remove, but don\u0027t keep it that way",
+      "revId": "2c7b63e0b2c95d6da745579b67bb9ef45790eb70",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
