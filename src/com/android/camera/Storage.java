@@ -39,6 +39,7 @@ import android.util.Log;
 import com.android.camera.data.LocalData;
 import com.android.camera.exif.ExifInterface;
 import com.android.camera.util.ApiHelper;
+import com.android.camera.util.MediaScannerHelper;
 import androidx.heifwriter.HeifWriter;
 import android.graphics.ImageFormat;
 
@@ -407,6 +408,11 @@ public class Storage {
             // cannot click the thumbnail to review the picture.
             Log.e(TAG, "Failed to write MediaStore" + th);
         }
+
+        final String filePath = values.getAsString(ImageColumns.DATA);
+        final String mimeType = values.getAsString(ImageColumns.MIME_TYPE);
+        MediaScannerHelper.scanFile(filePath, mimeType);
+
         return uri;
     }
 }

@@ -43,6 +43,7 @@ import com.android.camera.exif.ExifInterface;
 import com.android.camera.mpo.MpoData;
 import com.android.camera.mpo.MpoImageData;
 import com.android.camera.mpo.MpoInterface;
+import com.android.camera.util.MediaScannerHelper;
 import com.android.camera.util.PersistUtil;
 import com.android.camera.util.XmpUtil;
 
@@ -635,6 +636,7 @@ public class MediaSaveService extends Service {
                 if (new File(path).renameTo(new File(finalName))) {
                     path = finalName;
                 }
+                values.put(Video.Media.DATA, path);
 
                 resolver.update(uri, values, null, null);
             } catch (Exception e) {
@@ -650,6 +652,10 @@ public class MediaSaveService extends Service {
 
         @Override
         protected void onPostExecute(Uri uri) {
+            final String filePath = values.getAsString(Video.Media.DATA);
+            final String mimeType = values.getAsString(Video.Media.MIME_TYPE);
+            MediaScannerHelper.scanFile(filePath, mimeType);
+
             if (listener != null) listener.onMediaSaved(uri);
         }
     }
