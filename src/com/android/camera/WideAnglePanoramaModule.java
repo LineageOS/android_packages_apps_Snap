@@ -70,7 +70,7 @@ public class WideAnglePanoramaModule
     public static final int DEFAULT_SWEEP_ANGLE_PORTRAIT = 160;
     public static final int DEFAULT_SWEEP_ANGLE_LANDSCAPE = 270;
     public static final int DEFAULT_BLEND_MODE = Mosaic.BLENDTYPE_HORIZONTAL;
-    public static final int DEFAULT_CAPTURE_PIXELS = 1440 * 1000;
+    public static final int DEFAULT_CAPTURE_PIXELS = 1600 * 1200;
 
     private static final int MSG_LOW_RES_FINAL_MOSAIC_READY = 1;
     private static final int MSG_GENERATE_FINAL_MOSAIC_ERROR = 2;
@@ -448,11 +448,11 @@ public class WideAnglePanoramaModule
 
     private void setupCaptureParams(Parameters parameters) {
         List<Size> supportedSizes = parameters.getSupportedPreviewSizes();
-        if (!findBestPreviewSize(supportedSizes, true, true)) {
+        if (!findBestPreviewSize(supportedSizes, /*need4To3*/ true, /*needSmaller*/ true)) {
             Log.w(TAG, "No 4:3 ratio preview size supported.");
-            if (!findBestPreviewSize(supportedSizes, false, true)) {
-                Log.w(TAG, "Can't find a supported preview size smaller than 960x720.");
-                findBestPreviewSize(supportedSizes, false, false);
+            if (!findBestPreviewSize(supportedSizes, /*need4To3*/ false, /*needSmaller*/ true)) {
+                Log.w(TAG, "Can't find a supported preview size smaller than the default size.");
+                findBestPreviewSize(supportedSizes, /*need4To3*/ false, /*needSmaller*/ false);
             }
         }
         Log.d(TAG, "camera preview h = "
