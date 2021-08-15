@@ -224,13 +224,13 @@ class ExifOutputStream extends FilterOutputStream {
         ArrayList<ExifTag> nullTags = stripNullValueTags(mExifData);
         createRequiredIfdAndTag();
         int exifSize = calculateAllOffset();
-        if (exifSize + 8 > MAX_EXIF_SIZE) {
+        if (exifSize + 6 > MAX_EXIF_SIZE) {
             throw new IOException("Exif header is too large (>64Kb)");
         }
         OrderedDataOutputStream dataOutputStream = new OrderedDataOutputStream(out);
         dataOutputStream.setByteOrder(ByteOrder.BIG_ENDIAN);
         dataOutputStream.writeShort(JpegHeader.APP1);
-        dataOutputStream.writeShort((short) (exifSize + 8));
+        dataOutputStream.writeShort((short) (exifSize + 6));
         dataOutputStream.writeInt(EXIF_HEADER);
         dataOutputStream.writeShort((short) 0x0000);
         if (mExifData.getByteOrder() == ByteOrder.BIG_ENDIAN) {
