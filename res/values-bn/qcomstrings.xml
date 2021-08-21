@@ -31,7 +31,18 @@
     <string name="pref_camera_instant_capture_entry_disable">নিক্রিয় করুন</string>
     <string name="pref_camera_zsl_entry_on">চালু করা হয়েছে</string>
     <string name="hdr_enable_message">HDR সক্রিয় আছে, এখন শুধুমাত্র অটো সিনই সমর্থন করবে</string>
+    <string name="pref_camera_hfr_entry_32x">স্লো-মোশন ৯৬০ FPS</string>
+    <string name="pref_camera_hfr_entry_hsr_960">হাই-স্পিড ৯৬০ FPS</string>
+    <string name="pref_camera_hfr_entry_2x_ssm_120">অতি স্লো-মোশন ১২০-&gt;২৪০</string>
+    <string name="pref_camera_hfr_entry_4x_ssm_120">অতি স্লো-মোশন ১২০-&gt;৪৮০</string>
+    <string name="pref_camera_hfr_entry_2x_ssm_240">অতি স্লো-মোশন ২৪০-&gt;৪৮০</string>
+    <string name="pref_camera_hfr_entry_4x_ssm_240">অতি স্লো-মোশন ২৪০-&gt;৯৬০</string>
+    <string name="pref_camera_hfr_entry_2x_ssm_480">অতি স্লো-মোশন ৪৮০-&gt;৯৬০</string>
+    <string name="pref_camera_hfr_entry_4x_ssm_480">অতি স্লো-মোশন ৪৮০-&gt;১৯২০</string>
+    <string name="pref_camera_hfr_entry_2x_ssm_960">অতি স্লো-মোশন ৯৬০-&gt;১৯২০</string>
+    <string name="pref_camera_hfr_entry_4x_ssm_960">অতি স্লো-মোশন ৯৬০-&gt;৩৮৪০</string>
     <string name="pref_camera_histogram_entry_disable">নিক্রিয় করা</string>
+    <string name="storage_not_enough">স্টোরেজ স্পেস যথেষ্ট নয়</string>
     <string name="pref_camera_tsmakeup_level_clean">হালকা</string>
     <string name="text_tsmakeup_alert_title">সতর্কতা</string>
     <string name="text_tsmakeup_alert_msg">বিউটিফিকেশন ফিচারটির জন্য চেহারা শনাক্তকরণ সক্রিয় রাখুন । আপনি কি এটা এভাবেই রাখতে চান ?</string>
@@ -63,8 +74,10 @@
     <string name="pref_camera2_videosnap_entry_disable">নিক্রিয়</string>
     <string name="pref_camera2_touch_track_focus_entry_on">সক্রিয়</string>
     <string name="pref_camera2_touch_track_focus_off">নিক্রিয়</string>
+    <string name="pref_camera2_touch_track_focus_title">টাচ ট্র্যাকিং ফোকাস</string>
     <string name="pref_camera2_multi_cameras_entry_on">সক্রিয়</string>
     <string name="pref_camera2_multi_cameras_entry_off">নিক্রিয়</string>
+    <string name="pref_camera2_multi_cameras_title">একাধিক ক্যামেরা</string>
     <string name="pref_camera_scenemode_entry_bestpicture">সবচেয়ে ভালো ছবি</string>
     <string name="pref_camera_scenemode_entry_trackingfocus">ফোকাস ট্র্যাকিং</string>
     <string name="bestpicture_done">হয়ে গেছে</string>
@@ -88,5 +101,8 @@
     <string name="pref_camera_bokeh_mpo_entry_disable">নিক্রিয়</string>
     <string name="pref_camera2_bsgc_entry_enable">সক্রিয়</string>
     <string name="pref_camera2_bsgc_entry_disable">নিক্রিয়</string>
+    <string name="pref_camera2_face_detection_entry_simple">সাধারণ</string>
+    <string name="pref_camera2_face_detection_entry_full">সম্পূর্ণ</string>
+    <string name="pref_camera2_switcher_entry_rear">পিছনের</string>
     <string name="pref_camera2_force_aux_entry_on">অন</string>
 </resources>

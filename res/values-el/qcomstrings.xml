@@ -251,6 +251,7 @@
     <string name="pref_camera_auto_hdr_title">Αυτόματο HDR</string>
     <string name="pref_camera_auto_hdr_entry_enable">Ενεργό</string>
     <string name="pref_camera_auto_hdr_entry_disable">Ανενεργό</string>
+    <string name="on_switch_save_path_to_sdcard">Ο εσωτερικός χώρος αποθήκευσης δεν επαρκεί - αλλαγή διαδρομής αποθήκευσης σε κάρτα SD</string>
     <string name="storage_not_enough">Ο χώρος αποθήκευσης δεν είναι αρκετός</string>
     <string name="pref_camera_hdr_mode_title">Λειτουργία HDR</string>
     <string name="pref_camera_hdr_mode_entry_sensor">HDR αισθητήρα</string>

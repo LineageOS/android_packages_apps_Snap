@@ -251,6 +251,7 @@
     <string name="pref_camera_auto_hdr_title">Otomatik HDR</string>
     <string name="pref_camera_auto_hdr_entry_enable">Etkin</string>
     <string name="pref_camera_auto_hdr_entry_disable">Devre dışı</string>
+    <string name="on_switch_save_path_to_sdcard">Dahili depolama alanı yeterli değil - depolama konumu SD kart olarak değiştirin</string>
     <string name="storage_not_enough">Depolama alanı yeterli değil</string>
     <string name="pref_camera_hdr_mode_title">HDR modu</string>
     <string name="pref_camera_hdr_mode_entry_sensor">HDR Sensörü</string>
@@ -462,6 +463,7 @@
     <string name="pref_camera2_abort_captures_entry_disable">Devre dışı</string>
     <string name="pref_camera_tone_mapping_title">Ton eşleme</string>
     <string name="pref_camera_tone_mapping_entry_dark_boost_offset">Koyu güçlendirme ofseti</string>
+    <string name="pref_camera_tone_mapping_entry_fourth_tone_anchor">Dördüncü ton çapa</string>
     <string name="pref_camera_tone_mapping_entry_user_setting">Kullanıcı ayarı</string>
     <string name="pref_camera_tone_mapping_entry_off">Kapalı</string>
     <string name="pref_multi_camera_hal_zsl_title">HAL ZSL</string>

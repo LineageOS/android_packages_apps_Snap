@@ -251,6 +251,7 @@
     <string name="pref_camera_auto_hdr_title">Auto HDR</string>
     <string name="pref_camera_auto_hdr_entry_enable">Zapnúť</string>
     <string name="pref_camera_auto_hdr_entry_disable">Vypnúť</string>
+    <string name="on_switch_save_path_to_sdcard">Priestor vnútorného úložiska nepostačuje - cesta ukladania bola prepnutá na kartu SD</string>
     <string name="storage_not_enough">Nie je dostatok miesta na úložisku</string>
     <string name="pref_camera_hdr_mode_title">HDR režim</string>
     <string name="pref_camera_hdr_mode_entry_sensor">Senzor HDR</string>

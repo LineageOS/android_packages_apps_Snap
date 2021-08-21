@@ -89,4 +89,5 @@
     <string name="developer_menu_enabled">Hai attivato le impostazioni avanzate della fotocamera</string>
     <string name="developer_menu_disabled">Hai disattivato le impostazioni avanzate della fotocamera</string>
     <string name="pref_camera2_preferences_category_developer">Opzioni avanzate</string>
+    <string name="hfr_unsupported_current_resolution">HFR non è supportato per questa risoluzione</string>
 </resources>

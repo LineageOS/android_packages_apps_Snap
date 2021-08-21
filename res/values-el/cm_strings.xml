@@ -89,4 +89,5 @@
     <string name="developer_menu_enabled">Ενεργοποιήσατε τις προηγμένες ρυθμίσεις φωτογρ. μηχανής</string>
     <string name="developer_menu_disabled">Απενεργοποιήσατε τις προηγμένες ρυθμίσεις φωτογρ. μηχανής</string>
     <string name="pref_camera2_preferences_category_developer">Προηγμένες ρυθμίσεις</string>
+    <string name="hfr_unsupported_current_resolution">Δεν υποστηρίζεται βίντεο υψηλού ρυθμού καρέ σε αυτή την ανάλυση</string>
 </resources>

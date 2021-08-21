@@ -89,4 +89,5 @@
     <string name="developer_menu_enabled">You have enabled advanced camera options</string>
     <string name="developer_menu_disabled">You have disabled advanced camera options</string>
     <string name="pref_camera2_preferences_category_developer">Advanced options</string>
+    <string name="hfr_unsupported_current_resolution">HFR is not supported for this resolution</string>
 </resources>

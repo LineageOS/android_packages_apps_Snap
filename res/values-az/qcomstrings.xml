@@ -252,6 +252,7 @@
     <string name="pref_camera_auto_hdr_title">Avtomatik HDR</string>
     <string name="pref_camera_auto_hdr_entry_enable">Fəaldır</string>
     <string name="pref_camera_auto_hdr_entry_disable">Sıradan çıxart</string>
+    <string name="on_switch_save_path_to_sdcard">Daxili anbar sahəsi yetərli deyil - saxlama yolu SD karta dəyişdirildi</string>
     <string name="storage_not_enough">Anbar sahəsi yetərli deyil</string>
     <string name="pref_camera_hdr_mode_title">HDR rejimi</string>
     <string name="pref_camera_hdr_mode_entry_sensor">HDR sensoru</string>

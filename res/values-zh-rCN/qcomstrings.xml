@@ -251,6 +251,7 @@
     <string name="pref_camera_auto_hdr_title">自动 HDR</string>
     <string name="pref_camera_auto_hdr_entry_enable">启用</string>
     <string name="pref_camera_auto_hdr_entry_disable">禁用</string>
+    <string name="on_switch_save_path_to_sdcard">内部存储空间不足 - 已将保存路径切换到 SD 卡</string>
     <string name="storage_not_enough">存储空间不足</string>
     <string name="pref_camera_hdr_mode_title">HDR 模式</string>
     <string name="pref_camera_hdr_mode_entry_sensor">传感器 HDR</string>

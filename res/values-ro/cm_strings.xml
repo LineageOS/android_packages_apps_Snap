@@ -89,4 +89,5 @@
     <string name="developer_menu_enabled">Ați activat opțiunile avansate ale camerei</string>
     <string name="developer_menu_disabled">Ați dezactivat opțiunile avansate ale camerei</string>
     <string name="pref_camera2_preferences_category_developer">Opțiuni avansate</string>
+    <string name="hfr_unsupported_current_resolution">HFR nu este acceptat pentru această rezoluție</string>
 </resources>

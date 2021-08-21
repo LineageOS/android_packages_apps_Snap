@@ -89,4 +89,5 @@
     <string name="developer_menu_enabled">Máte povolené rozšířené možnosti fotoaparátu</string>
     <string name="developer_menu_disabled">Máte zakázané rozšířené možnosti fotoaparátu</string>
     <string name="pref_camera2_preferences_category_developer">Rozšířené možnosti</string>
+    <string name="hfr_unsupported_current_resolution">HFR v tomto rozlišení není podporováno</string>
 </resources>

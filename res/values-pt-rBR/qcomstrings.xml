@@ -401,6 +401,7 @@
     <string name="pref_camera2_bsgc_entry_enable">Ativar</string>
     <string name="pref_camera2_bsgc_entry_disable">Desativar</string>
     <string name="pref_camera2_face_detection_entry_simple">Simples</string>
+    <string name="pref_camera2_face_detection_entry_full">Completa</string>
     <string name="pref_camera2_zsl_title">Eliminar atraso do disparador</string>
     <string name="pref_camera2_zsl_entry_disable">Desl.</string>
     <string name="pref_camera2_zsl_entry_app_zsl">ZSL via software</string>
@@ -424,6 +425,7 @@
     <string name="pref_camera2_video_hdr_entry_enable">Ligado</string>
     <string name="pref_camera2_video_hdr_entry_disable">Desligado</string>
     <string name="pref_camera2_picture_format_title">Formato de imagem</string>
+    <string name="pref_camera2_switcher_entry_rear">Traseira</string>
     <string name="pref_camera2_switcher_entry_front">Frontal</string>
     <string name="pref_camera2_force_aux_entry_on">Ativado</string>
     <string name="pref_camera2_force_aux_entry_off">Desl.</string>
@@ -444,5 +446,8 @@
     <string name="pref_camera2_abort_captures_entry_disable">Desligado</string>
     <string name="pref_camera_tone_mapping_entry_user_setting">Configuração do usuário</string>
     <string name="pref_camera_tone_mapping_entry_off">Desl.</string>
+    <string name="pref_multi_camera_picturesize1_title">Tamanho da foto 1</string>
+    <string name="pref_multi_camera_picturesize2_title">Tamanho da foto 2</string>
+    <string name="pref_multi_camera_picturesize3_title">Tamanho da foto 3</string>
     <string name="lock_af_ae_label">Bloquear EA/FA</string>
 </resources>

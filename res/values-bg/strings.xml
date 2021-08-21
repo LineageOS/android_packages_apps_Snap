@@ -102,6 +102,9 @@
         <item quantity="other">%d секунди</item>
     </plurals>
     <string name="pref_camera_timer_sound_title">Обр. отбр.: Звук</string>
+    <string name="pref_camera_savepath_title">Хранилище</string>
+    <string name="pref_camera_savepath_entry_0">Телефон</string>
+    <string name="pref_camera_savepath_entry_1">Карта памет</string>
     <string name="setting_off">Изкл.</string>
     <string name="setting_on">Вкл.</string>
     <string name="pref_video_quality_title">Видеокачество</string>

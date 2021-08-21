@@ -118,11 +118,21 @@
     <string name="pref_camera_hfr_entry_4x">120 FPS 슬로우 모션</string>
     <string name="pref_camera_hfr_entry_8x">240 FPS 슬로우 모션</string>
     <string name="pref_camera_hfr_entry_16x">480FPS 슬로우 모션</string>
+    <string name="pref_camera_hfr_entry_32x">슬로우 모션 960 FPS</string>
     <string name="pref_camera_hfr_entry_hsr_60">60 FPS 고속 카메라</string>
     <string name="pref_camera_hfr_entry_hsr_90">90 FPS 고속 카메라</string>
     <string name="pref_camera_hfr_entry_hsr_120">120 FPS 고속 카메라</string>
     <string name="pref_camera_hfr_entry_hsr_240">240 FPS 고속 카메라</string>
     <string name="pref_camera_hfr_entry_hsr_480">480FPS 고속 촬영</string>
+    <string name="pref_camera_hfr_entry_hsr_960">고속 카메라 960 FPS</string>
+    <string name="pref_camera_hfr_entry_2x_ssm_120">슈퍼 슬로우 모션 120&gt;240</string>
+    <string name="pref_camera_hfr_entry_4x_ssm_120">슈퍼 슬로우 모션 120&gt;480</string>
+    <string name="pref_camera_hfr_entry_2x_ssm_240">슈퍼 슬로우 모션 240&gt;480</string>
+    <string name="pref_camera_hfr_entry_4x_ssm_240">슈퍼 슬로우 모션 240&gt;960</string>
+    <string name="pref_camera_hfr_entry_2x_ssm_480">슈퍼 슬로우 모션 480&gt;960</string>
+    <string name="pref_camera_hfr_entry_4x_ssm_480">슈퍼 슬로우 모션 480&gt;1920</string>
+    <string name="pref_camera_hfr_entry_2x_ssm_960">슈퍼 슬로우 모션 960&gt;1920</string>
+    <string name="pref_camera_hfr_entry_4x_ssm_960">슈퍼 슬로우 모션 960&gt;3840</string>
     <string name="pref_camera_noise_reduction_title">노이즈 감소</string>
     <string name="pref_camera_noise_reduction_entry_off">끄기</string>
     <string name="pref_camera_noise_reduction_entry_fast">빠르게</string>
@@ -241,6 +251,8 @@
     <string name="pref_camera_auto_hdr_title">자동 HDR</string>
     <string name="pref_camera_auto_hdr_entry_enable">사용</string>
     <string name="pref_camera_auto_hdr_entry_disable">사용 안 함</string>
+    <string name="on_switch_save_path_to_sdcard">내부 저장소의 공간이 부족합니다. 저장 위치를 SD 카드로 변경했습니다.</string>
+    <string name="storage_not_enough">저장소 공간 부족</string>
     <string name="pref_camera_hdr_mode_title">HDR 모드</string>
     <string name="pref_camera_hdr_mode_entry_sensor">센서 HDR</string>
     <string name="pref_camera_hdr_mode_entry_multi_frame">멀티 프레임 HDR</string>
@@ -303,8 +315,10 @@
     <string name="pref_camera2_videosnap_entry_disable">사용 안 함</string>
     <string name="pref_camera2_touch_track_focus_entry_on">사용</string>
     <string name="pref_camera2_touch_track_focus_off">사용 안 함</string>
+    <string name="pref_camera2_touch_track_focus_title">초점 추적</string>
     <string name="pref_camera2_multi_cameras_entry_on">사용</string>
     <string name="pref_camera2_multi_cameras_entry_off">사용 안 함</string>
+    <string name="pref_camera2_multi_cameras_title">다중 카메라</string>
     <string name="pref_camera_scenemode_entry_bestpicture">잘 찍은 사진</string>
     <string name="pref_camera_scenemode_entry_sharpshooter">선명한 사진</string>
     <string name="pref_camera_scenemode_entry_trackingfocus">초점 추적</string>
@@ -398,9 +412,11 @@
     <string name="pref_camera_zoom_entry_10x">10x</string>
     <string name="pref_camera2_bsgc_title">미소/깜박임/시선 감지</string>
     <string name="pref_camera2_facial_contour_title">안면 윤곽</string>
+    <string name="pref_camera2_face_detection_mode_title">얼굴 인식 모드</string>
     <string name="pref_camera2_bsgc_entry_enable">사용</string>
     <string name="pref_camera2_bsgc_entry_disable">사용 안 함</string>
     <string name="pref_camera2_face_detection_entry_simple">간단히</string>
+    <string name="pref_camera2_face_detection_entry_full">최대</string>
     <string name="pref_camera2_zsl_title">제로 셔터 랙</string>
     <string name="pref_camera2_zsl_entry_disable">끄기</string>
     <string name="pref_camera2_zsl_entry_app_zsl">소프트웨어 ZSL</string>
@@ -424,6 +440,7 @@
     <string name="pref_camera2_video_hdr_entry_enable">사용</string>
     <string name="pref_camera2_video_hdr_entry_disable">사용 안 함</string>
     <string name="pref_camera2_picture_format_title">사진 포맷</string>
+    <string name="pref_camera2_switcher_title">카메라 전환</string>
     <string name="pref_camera2_switcher_entry_rear">후면</string>
     <string name="pref_camera2_switcher_entry_front">전면</string>
     <string name="pref_camera2_force_aux_title">강제 AUX</string>
@@ -445,9 +462,12 @@
     <string name="pref_camera2_abort_captures_entry_enable">사용</string>
     <string name="pref_camera2_abort_captures_entry_disable">사용 안 함</string>
     <string name="pref_camera_tone_mapping_title">톤 매핑</string>
+    <string name="pref_camera_tone_mapping_entry_dark_boost_offset">어두운 톤 보정값</string>
     <string name="pref_camera_tone_mapping_entry_user_setting">사용자 설정</string>
     <string name="pref_camera_tone_mapping_entry_off">끄기</string>
+    <string name="pref_multi_camera_hal_zsl_title">HAL ZSL</string>
     <string name="pref_multi_camera_picturesize1_title">사진 1 크기</string>
     <string name="pref_multi_camera_picturesize2_title">사진 2 크기</string>
     <string name="pref_multi_camera_picturesize3_title">사진 3 크기</string>
+    <string name="lock_af_ae_label">AE/AF 잠금</string>
 </resources>

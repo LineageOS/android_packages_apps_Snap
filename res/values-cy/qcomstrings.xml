@@ -305,6 +305,7 @@
     <string name="pref_camera2_touch_track_focus_off">Analluogi</string>
     <string name="pref_camera2_multi_cameras_entry_on">Galluogi</string>
     <string name="pref_camera2_multi_cameras_entry_off">Analluogi</string>
+    <string name="pref_camera2_multi_cameras_title">Camerâu lluosog</string>
     <string name="pref_camera_scenemode_entry_bestpicture">Llun gorau</string>
     <string name="pref_camera_scenemode_entry_sharpshooter">Llun siarp</string>
     <string name="pref_camera_scenemode_entry_trackingfocus">Ffocws sy\'n dilyn</string>
@@ -397,8 +398,11 @@
     <string name="pref_camera_zoom_entry_9x">9x</string>
     <string name="pref_camera_zoom_entry_10x">10x</string>
     <string name="pref_camera2_bsgc_title">Canfod gwenu/syllu/cau llygaid</string>
+    <string name="pref_camera2_facial_contour_title">Cyfuchlin wyneb</string>
     <string name="pref_camera2_bsgc_entry_enable">Galluogi</string>
     <string name="pref_camera2_bsgc_entry_disable">Analluogi</string>
+    <string name="pref_camera2_face_detection_entry_simple">Syml</string>
+    <string name="pref_camera2_face_detection_entry_full">Llawn</string>
     <string name="pref_camera2_zsl_title">Dim oediad caead</string>
     <string name="pref_camera2_zsl_entry_disable">I ffwrdd</string>
     <string name="pref_camera2_zsl_entry_app_zsl">ZSL meddalwedd</string>
@@ -422,7 +426,9 @@
     <string name="pref_camera2_video_hdr_entry_enable">Wedi\'i alluogi</string>
     <string name="pref_camera2_video_hdr_entry_disable">Wedi\'i analluogi</string>
     <string name="pref_camera2_picture_format_title">Fformat llun</string>
+    <string name="pref_camera2_switcher_entry_rear">Cefn</string>
     <string name="pref_camera2_switcher_entry_front">Blaen</string>
+    <string name="pref_camera2_force_aux_title">Gorfodi AUX</string>
     <string name="pref_camera2_force_aux_entry_on">Ymlaen</string>
     <string name="pref_camera2_force_aux_entry_off">I ffwrdd</string>
     <string name="pref_camera2_stats_visualizer_title">Darlunydd ystadegau</string>
@@ -442,4 +448,9 @@
     <string name="pref_camera2_abort_captures_entry_disable">Wedi\'i analluogi</string>
     <string name="pref_camera_tone_mapping_entry_user_setting">Gosodiad defnyddiwr</string>
     <string name="pref_camera_tone_mapping_entry_off">I ffwrdd</string>
+    <string name="pref_multi_camera_hal_zsl_title">HAL ZSL</string>
+    <string name="pref_multi_camera_picturesize1_title">Maint Llun 1</string>
+    <string name="pref_multi_camera_picturesize2_title">Maint Llun 2</string>
+    <string name="pref_multi_camera_picturesize3_title">Maint Llun 3</string>
+    <string name="lock_af_ae_label">Clo AE/AF</string>
 </resources>

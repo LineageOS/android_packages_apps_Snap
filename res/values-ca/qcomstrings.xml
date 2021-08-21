@@ -251,6 +251,7 @@
     <string name="pref_camera_auto_hdr_title">Auto HDR</string>
     <string name="pref_camera_auto_hdr_entry_enable">Activa</string>
     <string name="pref_camera_auto_hdr_entry_disable">Desactiva</string>
+    <string name="on_switch_save_path_to_sdcard">Espai d\'emmagatzematge intern insuficient: s\'ha canviat l\'ubicació de l\'emmagatzematge a la targeta SD</string>
     <string name="storage_not_enough">L\'espai d\'emmagatzematge no és suficient</string>
     <string name="pref_camera_hdr_mode_title">Mode de HDR</string>
     <string name="pref_camera_hdr_mode_entry_sensor">Sensor HDR</string>

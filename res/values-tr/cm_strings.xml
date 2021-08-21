@@ -89,4 +89,5 @@
     <string name="developer_menu_enabled">Gelişmiş kamera seçeneklerini etkinleştirdiniz</string>
     <string name="developer_menu_disabled">Gelişmiş kamera seçeneklerini devre dışı bıraktınız</string>
     <string name="pref_camera2_preferences_category_developer">Gelişmiş seçenekler</string>
+    <string name="hfr_unsupported_current_resolution">HFR seçilen çözünürlükte desteklenmiyor</string>
 </resources>

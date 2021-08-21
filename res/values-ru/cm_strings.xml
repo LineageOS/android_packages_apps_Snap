@@ -89,4 +89,5 @@
     <string name="developer_menu_enabled">Вы включили расширенные параметры камеры</string>
     <string name="developer_menu_disabled">Вы отключили расширенные параметры камеры</string>
     <string name="pref_camera2_preferences_category_developer">Дополнительные параметры</string>
+    <string name="hfr_unsupported_current_resolution">HFR не поддерживается для этого разрешения</string>
 </resources>

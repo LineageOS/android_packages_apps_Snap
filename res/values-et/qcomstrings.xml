@@ -25,6 +25,14 @@
     <string name="pref_camera_hfr_entry_32x">Aegluup 960 FPS</string>
     <string name="pref_camera_hfr_entry_hsr_480">Kõrge kiirus 480 FPS</string>
     <string name="pref_camera_hfr_entry_hsr_960">Kõrge kiirus 960 FPS</string>
+    <string name="pref_camera_hfr_entry_2x_ssm_120">Super-aegluup 120-&gt;240</string>
+    <string name="pref_camera_hfr_entry_4x_ssm_120">Super-aegluup 120-&gt;480</string>
+    <string name="pref_camera_hfr_entry_2x_ssm_240">Super-aegluup 240-&gt;480</string>
+    <string name="pref_camera_hfr_entry_4x_ssm_240">Super-aegluup 240-&gt;960</string>
+    <string name="pref_camera_hfr_entry_2x_ssm_480">Super-aegluup 480-&gt;960</string>
+    <string name="pref_camera_hfr_entry_4x_ssm_480">Super-aegluup 480-&gt;1920</string>
+    <string name="pref_camera_hfr_entry_2x_ssm_960">Super-aegluup 960-&gt;1920</string>
+    <string name="pref_camera_hfr_entry_4x_ssm_960">Super-aegluup 960-&gt;3840</string>
     <string name="pref_camera2_multi_cameras_title">Mitu kaamerat</string>
     <string name="pref_camera_scenemode_entry_sharpshooter">Terav foto</string>
     <string name="pref_camera_scenemode_entry_panorama">Panoraam</string>
@@ -91,6 +99,7 @@
     <string name="pref_camera2_fovc_title">Video FOVC</string>
     <string name="pref_camera2_switcher_title">Kaamera vahetaja</string>
     <string name="pref_camera2_switcher_entry_rear">Tagumine</string>
+    <string name="pref_camera2_force_aux_title">Sunnitud AUX </string>
     <string name="pref_camera2_stats_visualizer_title">Statistika visualiseerija</string>
     <string name="pref_camera2_stats_visualizer_entry_bg_stats">BG statistika</string>
     <string name="pref_camera2_stats_visualizer_entry_be_stats">BE statistika</string>
@@ -100,6 +109,7 @@
     <string name="pref_camera2_capture_mfnr_title">Mitmikkaadri mürasummutus</string>
     <string name="pref_camera2_fs2_title">Kiire katik</string>
     <string name="pref_camera2_abort_captures_title">Katkesta pildistamine</string>
+    <string name="pref_multi_camera_hal_zsl_title">HAL ZSL</string>
     <string name="pref_multi_camera_picturesize1_title">Pildi 1 suurus</string>
     <string name="pref_multi_camera_picturesize2_title">Pildi 2 suurus</string>
     <string name="pref_multi_camera_picturesize3_title">Pildi 3 suurus</string>

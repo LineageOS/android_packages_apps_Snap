@@ -251,6 +251,7 @@
     <string name="pref_camera_auto_hdr_title">Авто HDR</string>
     <string name="pref_camera_auto_hdr_entry_enable">Включить</string>
     <string name="pref_camera_auto_hdr_entry_disable">Выключить</string>
+    <string name="on_switch_save_path_to_sdcard">Недостаточно места во внутренней памяти. Файлы будут сохраняться на SD-карте.</string>
     <string name="storage_not_enough">Места для хранения недостаточно</string>
     <string name="pref_camera_hdr_mode_title">Режим HDR</string>
     <string name="pref_camera_hdr_mode_entry_sensor">HDR матрицы</string>
@@ -461,6 +462,8 @@
     <string name="pref_camera2_abort_captures_entry_enable">Включить</string>
     <string name="pref_camera2_abort_captures_entry_disable">Отключить</string>
     <string name="pref_camera_tone_mapping_title">Картирование тонов</string>
+    <string name="pref_camera_tone_mapping_entry_dark_boost_offset">Компенсация усиления темного тона</string>
+    <string name="pref_camera_tone_mapping_entry_fourth_tone_anchor">Якорь четвертого тона</string>
     <string name="pref_camera_tone_mapping_entry_user_setting">Параметры пользователя</string>
     <string name="pref_camera_tone_mapping_entry_off">Отключить</string>
     <string name="pref_multi_camera_hal_zsl_title">HAL ZSL</string>

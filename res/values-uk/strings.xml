@@ -82,6 +82,9 @@
     <string name="pref_camera_location_label">МІСЦЕЗНАХОДЖЕННЯ</string>
     <string name="pref_camera_timer_title">Таймер зворотного відліку</string>
     <string name="pref_camera_timer_sound_title">Звуковий сигнал під час зворотного відліку</string>
+    <string name="pref_camera_savepath_title">Пам\'ять</string>
+    <string name="pref_camera_savepath_entry_0">Телефон</string>
+    <string name="pref_camera_savepath_entry_1">SD-карта</string>
     <string name="setting_off">Вимк</string>
     <string name="setting_on">Увімк</string>
     <string name="pref_video_quality_title">Якість відео</string>

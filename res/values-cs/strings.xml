@@ -112,6 +112,9 @@
         <item quantity="other">%d s</item>
     </plurals>
     <string name="pref_camera_timer_sound_title">Zvuk při odpočtu</string>
+    <string name="pref_camera_savepath_title">Úložiště</string>
+    <string name="pref_camera_savepath_entry_0">Telefon</string>
+    <string name="pref_camera_savepath_entry_1">SD karta</string>
     <string name="setting_off">Vypnuto</string>
     <string name="setting_on">Zapnuto</string>
     <string name="pref_video_quality_title">Kvalita videa</string>

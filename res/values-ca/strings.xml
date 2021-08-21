@@ -102,6 +102,9 @@
         <item quantity="other">%d segons</item>
     </plurals>
     <string name="pref_camera_timer_sound_title">So en compte enrera</string>
+    <string name="pref_camera_savepath_title">Emmagatzematge</string>
+    <string name="pref_camera_savepath_entry_0">Telèfon</string>
+    <string name="pref_camera_savepath_entry_1">Targeta SD</string>
     <string name="setting_off">Desactivat</string>
     <string name="setting_on">Activat</string>
     <string name="pref_video_quality_title">Qualitat de vídeo</string>

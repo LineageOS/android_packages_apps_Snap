@@ -89,4 +89,5 @@
     <string name="developer_menu_enabled">고급 카메라 옵션이 활성화되었습니다</string>
     <string name="developer_menu_disabled">고급 카메라 옵션이 비활성화되었습니다</string>
     <string name="pref_camera2_preferences_category_developer">고급 옵션</string>
+    <string name="hfr_unsupported_current_resolution">HFR은 선택한 해상도를 지원하지 않습니다</string>
 </resources>

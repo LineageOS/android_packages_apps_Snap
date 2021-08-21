@@ -62,7 +62,7 @@
     <string name="pref_camera_focusmode_entry_continuous">Leantainneach</string>
     <string name="pref_camera_focusmode_entry_mw_continuous">Leantainneach (MW)</string>
     <string name="pref_camera_focusmode_entry_extended">Leudaichte</string>
-    <string name="pref_camera_focusmode_entry_facedetect">Mothaich do aodannan</string>
+    <string name="pref_camera_focusmode_entry_facedetect">Mothaich do dh’aodannan</string>
     <string name="pref_camera_focusmode_entry_facepriority">Prìomhachas air aodannan</string>
     <string name="pref_camera_focusmode_entry_fixed">Socraichte</string>
     <string name="pref_camera_focusmode_entry_normal">Àbhaisteach</string>
@@ -89,4 +89,5 @@
     <string name="developer_menu_enabled">Chuir thu roghainnean adhartach a’ chamara an comas</string>
     <string name="developer_menu_disabled">Chuir thu roghainnean adhartach a’ chamara à comas</string>
     <string name="pref_camera2_preferences_category_developer">Roghainnean adhartach</string>
+    <string name="hfr_unsupported_current_resolution">Cha chuir an dùmhlachd-bhreacaidh seo taic ri HFR</string>
 </resources>

@@ -251,6 +251,7 @@
     <string name="pref_camera_auto_hdr_title">Auto HDR</string>
     <string name="pref_camera_auto_hdr_entry_enable">Activați</string>
     <string name="pref_camera_auto_hdr_entry_disable">Dezactivați</string>
+    <string name="on_switch_save_path_to_sdcard">Spațiul stocării interne nu este suficient - s-a schimbat locația stocării la cardul SD</string>
     <string name="storage_not_enough">Spațiul de stocare nu este suficient</string>
     <string name="pref_camera_hdr_mode_title">Mod HDR</string>
     <string name="pref_camera_hdr_mode_entry_sensor">Senzor HDR</string>

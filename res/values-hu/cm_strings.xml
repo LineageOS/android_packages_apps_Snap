@@ -89,4 +89,5 @@
     <string name="developer_menu_enabled">Engedélyezte a haladó kamera beállításokat</string>
     <string name="developer_menu_disabled">Letiltotta a haladó kamera beállításokat</string>
     <string name="pref_camera2_preferences_category_developer">Speciális beállítások</string>
+    <string name="hfr_unsupported_current_resolution">A HFR nem támogatott ennél a felbontásnál</string>
 </resources>

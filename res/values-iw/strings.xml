@@ -112,6 +112,9 @@
         <item quantity="other">‏%d שניות</item>
     </plurals>
     <string name="pref_camera_timer_sound_title">צפצף במהלך הספירה לאחור</string>
+    <string name="pref_camera_savepath_title">אחסון</string>
+    <string name="pref_camera_savepath_entry_0">פנימי</string>
+    <string name="pref_camera_savepath_entry_1">כרטיס זיכרון</string>
     <string name="setting_off">כבוי</string>
     <string name="setting_on">מופעל</string>
     <string name="pref_video_quality_title">איכות וידאו</string>

@@ -70,11 +70,21 @@
     <string name="snapshot_qcif_and_d1">Vetëm video e çastit me madhësi videoje është e pranueshme për këtë rezolucion.</string>
     <string name="pref_camera_hfr_entry_off">Inaktiv</string>
     <string name="pref_camera_hfr_entry_16x">Lëvizje të ngadaltë 480 FPS</string>
+    <string name="pref_camera_hfr_entry_32x">Lëvizje të ngadaltë 960 FPS</string>
     <string name="pref_camera_hfr_entry_hsr_60">Shpejtësi e lartë 60 FPS</string>
     <string name="pref_camera_hfr_entry_hsr_90">Shpejtësi e lartë 90 FPS</string>
     <string name="pref_camera_hfr_entry_hsr_120">Shpejtësi e lartë 120 FPS</string>
     <string name="pref_camera_hfr_entry_hsr_240">Shpejtësi e lartë 240 FPS</string>
     <string name="pref_camera_hfr_entry_hsr_480">Shpejtësi të lartë 480 FPS</string>
+    <string name="pref_camera_hfr_entry_hsr_960">Shpejtësi e lartë 960 FPS</string>
+    <string name="pref_camera_hfr_entry_2x_ssm_120">Super SloMo 120-&gt;240</string>
+    <string name="pref_camera_hfr_entry_4x_ssm_120">Super SloMo 120-&gt;480</string>
+    <string name="pref_camera_hfr_entry_2x_ssm_240">Super SloMo 240-&gt;480</string>
+    <string name="pref_camera_hfr_entry_4x_ssm_240">Super SloMo 240-&gt;960</string>
+    <string name="pref_camera_hfr_entry_2x_ssm_480">Super SloMo 480-&gt;960</string>
+    <string name="pref_camera_hfr_entry_4x_ssm_480">Super SloMo 480-&gt;1920</string>
+    <string name="pref_camera_hfr_entry_2x_ssm_960">Super SloMo 960-&gt;1920</string>
+    <string name="pref_camera_hfr_entry_4x_ssm_960">Super SloMo 960-&gt;3840</string>
     <string name="pref_camera_noise_reduction_title">Reduktimi i zhurmave</string>
     <string name="pref_camera_noise_reduction_entry_off">Inaktiv</string>
     <string name="pref_camera_noise_reduction_entry_fast">I shpejtë</string>
@@ -137,6 +147,8 @@
     <string name="msg_cancel_longshot_for_limited_memory">Memoria po mbaron. Për këtë arsye profili i fotove të vazhdueshme do të çaktivizohet</string>
     <string name="pref_camera_auto_hdr_entry_enable">Aktivizo</string>
     <string name="pref_camera_auto_hdr_entry_disable">Çaktivizo</string>
+    <string name="on_switch_save_path_to_sdcard">Hapësira e brendshme e magazinimit nuk është e mjaftueshme - rruga e ruajtur u ndryshua në kartën SD</string>
+    <string name="storage_not_enough">Hapësira e magazinimit nuk është e mjaftueshme</string>
     <string name="pref_camera_video_rotation_title">Rrotullimi i videos</string>
     <string name="pref_camera_video_rotation_label">RROTULLIMI I VIDEOS</string>
     <string name="pref_camera_video_rotation_entry_0">0 gradë</string>
@@ -191,8 +203,10 @@
     <string name="pref_camera2_videosnap_entry_disable">Çaktivizo</string>
     <string name="pref_camera2_touch_track_focus_entry_on">Aktivizo</string>
     <string name="pref_camera2_touch_track_focus_off">Çaktivizo</string>
+    <string name="pref_camera2_touch_track_focus_title">Fokusi i ndjekjes së prekjes</string>
     <string name="pref_camera2_multi_cameras_entry_on">Aktivizo</string>
     <string name="pref_camera2_multi_cameras_entry_off">Çaktivizo</string>
+    <string name="pref_camera2_multi_cameras_title">Kamera të shumëfishta</string>
     <string name="pref_camera_scenemode_entry_bestpicture">Fotoja më e mirë</string>
     <string name="pref_camera_scenemode_entry_sharpshooter">Foto e qartë</string>
     <string name="pref_camera_scenemode_entry_trackingfocus">Ndjekja e fokusit</string>
@@ -272,8 +286,12 @@
     <string name="pref_camera_zoom_entry_9x">9x</string>
     <string name="pref_camera_zoom_entry_10x">10x</string>
     <string name="pref_camera2_bsgc_title">Kapje të buzëqesh, shkel syrin, fokusim</string>
+    <string name="pref_camera2_facial_contour_title">Kontur i fytyrës</string>
+    <string name="pref_camera2_face_detection_mode_title">Modaliteti i zbulimit të fytyrës</string>
     <string name="pref_camera2_bsgc_entry_enable">Aktivizo</string>
     <string name="pref_camera2_bsgc_entry_disable">Çaktivizo</string>
+    <string name="pref_camera2_face_detection_entry_simple">E thjeshtë</string>
+    <string name="pref_camera2_face_detection_entry_full">E plotë</string>
     <string name="pref_camera2_zsl_entry_disable">Inaktiv</string>
     <string name="pref_camera2_zsl_entry_app_zsl">ZSL softuerik</string>
     <string name="pref_camera2_zsl_entry_hal_zsl">ZSL mekanike</string>
@@ -296,7 +314,10 @@
     <string name="pref_camera2_video_hdr_entry_enable">E aktivizuar</string>
     <string name="pref_camera2_video_hdr_entry_disable">E çaktivizuar</string>
     <string name="pref_camera2_picture_format_title">Formati i fotos</string>
+    <string name="pref_camera2_switcher_title">Ndërruesi i kamerës</string>
+    <string name="pref_camera2_switcher_entry_rear">I pasëm</string>
     <string name="pref_camera2_switcher_entry_front">Përpara</string>
+    <string name="pref_camera2_force_aux_title">Detyro AUX</string>
     <string name="pref_camera2_force_aux_entry_on">Aktiv</string>
     <string name="pref_camera2_force_aux_entry_off">Inaktiv</string>
     <string name="pref_camera2_stats_visualizer_title">Treguesi i statistikave</string>
@@ -305,6 +326,7 @@
     <string name="pref_camera2_stats_visualizer_entry_hist_stats">Statistikat Hist</string>
     <string name="stats_visualizer_bg_label">Shfaq grafikun BG</string>
     <string name="stats_visualizer_be_label">Shfaq grafikun BE</string>
+    <string name="pref_camera2_capture_mfnr_title">Ulje e turbullimit nëpërmjet shumë kornizave</string>
     <string name="pref_camera2_capture_mfnr_entry_enable">E aktivizuar</string>
     <string name="pref_camera2_capture_mfnr_entry_disable">E çaktivizuar</string>
     <string name="pref_camera2_fs2_title">Shkrepje të shpejtë</string>
@@ -313,5 +335,12 @@
     <string name="pref_camera2_abort_captures_title">Ndërprit fotografimet</string>
     <string name="pref_camera2_abort_captures_entry_enable">E aktivizuar</string>
     <string name="pref_camera2_abort_captures_entry_disable">E çaktivizuar</string>
+    <string name="pref_camera_tone_mapping_title">Hartimi i tonacioneve</string>
+    <string name="pref_camera_tone_mapping_entry_dark_boost_offset">Kompensimi i rritjes së errësirës</string>
     <string name="pref_camera_tone_mapping_entry_off">Inaktiv</string>
+    <string name="pref_multi_camera_hal_zsl_title">HAL ZSL</string>
+    <string name="pref_multi_camera_picturesize1_title">Madhësia e figurës 1</string>
+    <string name="pref_multi_camera_picturesize2_title">Madhësia e figurës 2</string>
+    <string name="pref_multi_camera_picturesize3_title">Madhësia e figurës 3</string>
+    <string name="lock_af_ae_label">Bllokohet AE/AF</string>
 </resources>

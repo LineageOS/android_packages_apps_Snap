@@ -89,4 +89,5 @@
     <string name="developer_menu_enabled">Has habilitat les opcions avançades de la càmera</string>
     <string name="developer_menu_disabled">Has deshabilitat les opcions avançades de la càmera</string>
     <string name="pref_camera2_preferences_category_developer">Opcions avançades</string>
+    <string name="hfr_unsupported_current_resolution">L\'HFR no és compatible amb aquesta resolució</string>
 </resources>

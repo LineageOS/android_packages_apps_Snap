@@ -89,4 +89,5 @@
     <string name="developer_menu_enabled">Anda telah mengaktifkan opsi kamera lanjutan</string>
     <string name="developer_menu_disabled">Anda telah menonaktifkan opsi kamera lanjutan</string>
     <string name="pref_camera2_preferences_category_developer">Opsi lanjutan</string>
+    <string name="hfr_unsupported_current_resolution">HFR tidak didukung untuk resolusi ini</string>
 </resources>
