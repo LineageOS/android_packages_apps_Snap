@@ -23,8 +23,19 @@
     <string name="pref_camera_powermode_title">পাওয়ার মোড</string>
     <string name="pref_camera_powermode_entry_lp">সল্প ক্ষমতা</string>
     <string name="pref_camera_powermode_entry_np">স্বাভাবিক ক্ষমতা</string>
+    <string name="pref_camera_autoexposure_title">স্বয়ংক্রিয় এক্সপোজার</string>
+    <string name="pref_camera_autoexposure_entry_frameaverage">ফ্রেমের গড়</string>
+    <string name="pref_camera_autoexposure_entry_centerweighted">কেন্দ্র ভারকৃত</string>
+    <string name="pref_camera_autoexposure_entry_spotmetering">স্পট মিটারিং</string>
+    <string name="pref_camera_videoencoder_title">ভিডিও কোডেক</string>
+    <string name="pref_camera_videoencoder_dialogtitle">ভিডিও কোডেক</string>
+    <string name="pref_camera_audioencoder_title">অডিও কোডেক</string>
     <string name="pref_camera_skinToneEnhancement_entry_enable">সক্রিয় করুন</string>
     <string name="pref_camera_skinToneEnhancement_entry_disable">নিক্রিয় করুন</string>
+    <string name="pref_camera_selectablezoneaf_entry_auto">স্বয়ং</string>
+    <string name="pref_camera_selectablezoneaf_entry_centerweighted">কেন্দ্র ভারকৃত</string>
+    <string name="pref_camera_selectablezoneaf_entry_frameaverage">ফ্রেমের গড়</string>
+    <string name="pref_camera_manual_exp_entry_gains_priority">অগ্রাধিকার পায়</string>
     <string name="pref_camera_instant_capture_title">তাৎক্ষণিক ক্যাপচার করুন</string>
     <string name="pref_camera_instant_capture_entry_aggressive_aec">অ্যাগ্রেসিভ AEC</string>
     <string name="pref_camera_instant_capture_entry_fast_aec">দ্রুত AEC</string>
@@ -42,6 +53,7 @@
     <string name="pref_camera_hfr_entry_2x_ssm_960">অতি স্লো-মোশন ৯৬০-&gt;১৯২০</string>
     <string name="pref_camera_hfr_entry_4x_ssm_960">অতি স্লো-মোশন ৯৬০-&gt;৩৮৪০</string>
     <string name="pref_camera_histogram_entry_disable">নিক্রিয় করা</string>
+    <string name="on_switch_save_path_to_sdcard">ইন্টারনাল স্টোরেজ স্পেস যথেষ্ট না - SD কার্ডে সেভ পাথ নির্ধারণ করা হয়েছে</string>
     <string name="storage_not_enough">স্টোরেজ স্পেস যথেষ্ট নয়</string>
     <string name="pref_camera_tsmakeup_level_clean">হালকা</string>
     <string name="text_tsmakeup_alert_title">সতর্কতা</string>
@@ -89,6 +101,7 @@
     <string name="pref_camera2_instant_aec_entry_disable">নিক্রিয়</string>
     <string name="pref_camera2_instant_aec_entry_aggressive">অ্যাগ্রেসিভ AEC</string>
     <string name="pref_camera2_instant_aec_entry_fast">দ্রুত AEC</string>
+    <string name="pref_camera2_anti_banding_level_entry_auto">স্বয়ং</string>
     <string name="pref_camera2_histogram_entry_enable">সক্রিয়</string>
     <string name="pref_camera2_histogram_entry_disable">নিক্রিয়</string>
     <string name="pref_camera2_hdr_entry_enable">সক্রিয়</string>
@@ -99,10 +112,19 @@
     <string name="pref_camera_bokeh_mode_entry_disable">নিক্রিয়</string>
     <string name="pref_camera_bokeh_mpo_entry_enable">সক্রিয়</string>
     <string name="pref_camera_bokeh_mpo_entry_disable">নিক্রিয়</string>
+    <string name="pref_camera2_facial_contour_title">ফেসিয়াল কন্তর</string>
+    <string name="pref_camera2_face_detection_mode_title">মুখ সনাক্তকরণ মোড</string>
     <string name="pref_camera2_bsgc_entry_enable">সক্রিয়</string>
     <string name="pref_camera2_bsgc_entry_disable">নিক্রিয়</string>
     <string name="pref_camera2_face_detection_entry_simple">সাধারণ</string>
     <string name="pref_camera2_face_detection_entry_full">সম্পূর্ণ</string>
+    <string name="pref_camera2_switcher_title">ক্যামেরা পরিবর্তনকারী</string>
     <string name="pref_camera2_switcher_entry_rear">পিছনের</string>
+    <string name="pref_camera2_force_aux_title">AUX ফোর্স করুন</string>
     <string name="pref_camera2_force_aux_entry_on">অন</string>
+    <string name="pref_camera_tone_mapping_title">টোন ম্যাপিং</string>
+    <string name="pref_camera_tone_mapping_entry_dark_boost_offset">আঁধার বুষ্ট অফসেট</string>
+    <string name="pref_camera_tone_mapping_entry_fourth_tone_anchor">ফোর্থ টোন অ্যাঙ্কর</string>
+    <string name="pref_multi_camera_hal_zsl_title">HAL ZSL</string>
+    <string name="pref_multi_camera_picturesize1_title">ছবি ১ সাইজ</string>
 </resources>

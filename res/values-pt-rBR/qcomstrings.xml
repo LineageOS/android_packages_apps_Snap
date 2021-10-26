@@ -241,6 +241,7 @@
     <string name="pref_camera_auto_hdr_title">HDR automático</string>
     <string name="pref_camera_auto_hdr_entry_enable">Ativar</string>
     <string name="pref_camera_auto_hdr_entry_disable">Desativar</string>
+    <string name="storage_not_enough">Espaço de armazenamento insuficiente</string>
     <string name="pref_camera_hdr_mode_title">Modo de HDR</string>
     <string name="pref_camera_hdr_mode_entry_sensor">Sensor de HDR</string>
     <string name="pref_camera_hdr_mode_entry_multi_frame">HDR multi-quadros</string>
@@ -427,6 +428,7 @@
     <string name="pref_camera2_picture_format_title">Formato de imagem</string>
     <string name="pref_camera2_switcher_entry_rear">Traseira</string>
     <string name="pref_camera2_switcher_entry_front">Frontal</string>
+    <string name="pref_camera2_force_aux_title">Forçar AUX</string>
     <string name="pref_camera2_force_aux_entry_on">Ativado</string>
     <string name="pref_camera2_force_aux_entry_off">Desl.</string>
     <string name="pref_camera2_stats_visualizer_title">Visualizar estatísticas</string>

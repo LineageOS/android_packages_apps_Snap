@@ -251,6 +251,7 @@
     <string name="pref_camera_auto_hdr_title">HDR Automatique</string>
     <string name="pref_camera_auto_hdr_entry_enable">Activer</string>
     <string name="pref_camera_auto_hdr_entry_disable">Désactiver</string>
+    <string name="on_switch_save_path_to_sdcard">L’espace disponible sur le stockage interne n’est pas suffisant - l’emplacement de sauvegarde est basculé vers la carte SD</string>
     <string name="storage_not_enough">Espace de stockage insuffisant</string>
     <string name="pref_camera_hdr_mode_title">Mode HDR</string>
     <string name="pref_camera_hdr_mode_entry_sensor">Capteur HDR</string>
@@ -317,6 +318,7 @@
     <string name="pref_camera2_touch_track_focus_title">Mise au point par suivi tactile</string>
     <string name="pref_camera2_multi_cameras_entry_on">Activer</string>
     <string name="pref_camera2_multi_cameras_entry_off">Désactiver</string>
+    <string name="pref_camera2_multi_cameras_title">Caméras multiples</string>
     <string name="pref_camera_scenemode_entry_bestpicture">Image optimale</string>
     <string name="pref_camera_scenemode_entry_sharpshooter">Photo nette</string>
     <string name="pref_camera_scenemode_entry_trackingfocus">Mise au point automatique par suivi du sujet</string>
@@ -459,6 +461,8 @@
     <string name="pref_camera2_abort_captures_title">Abandonner les captures</string>
     <string name="pref_camera2_abort_captures_entry_enable">Activé</string>
     <string name="pref_camera2_abort_captures_entry_disable">Désactivé</string>
+    <string name="pref_camera_tone_mapping_title">Mise en correspondance tonale</string>
+    <string name="pref_camera_tone_mapping_entry_dark_boost_offset">Compensation de l’augmentation des tons sombres</string>
     <string name="pref_camera_tone_mapping_entry_fourth_tone_anchor">Ancre du quatrième ton</string>
     <string name="pref_camera_tone_mapping_entry_user_setting">Paramètre utilisateur</string>
     <string name="pref_camera_tone_mapping_entry_off">Désactivé</string>

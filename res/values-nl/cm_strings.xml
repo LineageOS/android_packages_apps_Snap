@@ -89,4 +89,5 @@
     <string name="developer_menu_enabled">U hebt de geavanceerde camera-opties ingeschakeld</string>
     <string name="developer_menu_disabled">U hebt de geavanceerde camera-opties uitgeschakeld</string>
     <string name="pref_camera2_preferences_category_developer">Geavanceerde opties</string>
+    <string name="hfr_unsupported_current_resolution">Hoge beeldsnelheid (HFR) wordt niet ondersteund bij deze resolutie</string>
 </resources>

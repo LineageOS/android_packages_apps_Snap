@@ -17,8 +17,26 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="pref_camera_aspectratio_wide">E gjerë</string>
     <string name="pref_camera_megapixel_format">(<xliff:g id="ratio" example="16:9">%1$s</xliff:g>) <xliff:g id="pixels">%2$1.1f</xliff:g> megapiksel</string>
+    <string name="pref_camera_scenemode_entry_antimotionblur">Reduktimi i turbullimit të lëvizjes</string>
+    <string name="pref_camera_scenemode_entry_aqua">Aqua</string>
+    <string name="pref_camera_scenemode_entry_ar">Realiteti i shtuar</string>
+    <string name="pref_camera_scenemode_entry_asd">Gjuajtja me e mire</string>
     <string name="pref_camera_scenemode_entry_baby">Bebe</string>
+    <string name="pref_camera_scenemode_entry_backgroundblur">Turbullim i sfondit</string>
+    <string name="pref_camera_scenemode_entry_backlight">Ndriçimi në sfond</string>
+    <string name="pref_camera_scenemode_entry_backlightportrait">Portret me dritë të pasme</string>
+    <string name="pref_camera_scenemode_entry_barcode">Barkodi</string>
     <string name="pref_camera_scenemode_entry_beach">Plazh</string>
+    <string name="pref_camera_scenemode_entry_beauty">Bukuria</string>
+    <string name="pref_camera_scenemode_entry_candlelight">Drita e qirinjve</string>
+    <string name="pref_camera_scenemode_entry_cine">Cine</string>
+    <string name="pref_camera_scenemode_entry_closeup">Mbyllje</string>
+    <string name="pref_camera_scenemode_entry_dark">E errët</string>
+    <string name="pref_camera_scenemode_entry_dish">Pjatë</string>
+    <string name="pref_camera_scenemode_entry_duskdawn"> Muzgu</string>
+    <string name="pref_camera_scenemode_entry_document">Dokument</string>
+    <string name="pref_camera_scenemode_entry_fallcolor">Me ngjyra</string>
+    <string name="pref_camera_scenemode_entry_flowers">Lule</string>
     <string name="pref_camera_scenemode_entry_highsensitivity">Ndjesi e lartë</string>
     <string name="pref_camera_scenemode_entry_landscape">Peizazh</string>
     <string name="pref_camera_scenemode_entry_portrait">Portret</string>
@@ -31,6 +49,7 @@
     <string name="pref_camera_focusmode_entry_facepriority">Fytyra prioritet</string>
     <string name="pref_camera_focusmode_entry_fixed">E fiksuar</string>
     <string name="pref_camera_focusmode_entry_normal">Normale</string>
+    <string name="pref_camera_power_shutter_title">Fikës i energjisë</string>
     <string name="pref_camera_focustime_entry_0">0s</string>
     <string name="pref_camera_focustime_entry_3">3s</string>
     <string name="pref_camera_focustime_entry_5">5s</string>
