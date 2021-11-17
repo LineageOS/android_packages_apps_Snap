@@ -39,6 +39,30 @@
       },
       "revId": "755c2783d9c45bbb05902cad7ae53a58190f160a",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "697377f0_07c1942a",
+        "filename": "AndroidManifest.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 11801
+      },
+      "writtenOn": "2021-11-17T21:41:21Z",
+      "side": 1,
+      "message": "I wonder if those are ones we added vs what was already in CAF.",
+      "parentUuid": "78f05540_ff88b17a",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 71
+      },
+      "revId": "755c2783d9c45bbb05902cad7ae53a58190f160a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
