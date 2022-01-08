@@ -425,11 +425,15 @@
     <string name="pref_camera2_stats_visualizer_entry_bg_stats">BG 統計</string>
     <string name="pref_camera2_stats_visualizer_entry_be_stats">BE 統計</string>
     <string name="pref_camera2_stats_visualizer_entry_hist_stats">歷史統計</string>
+    <string name="stats_visualizer_bg_label">BG 圖形檢視</string>
+    <string name="stats_visualizer_be_label">BE 圖形檢視</string>
     <string name="pref_camera2_capture_mfnr_title">多影格降噪</string>
     <string name="pref_camera2_capture_mfnr_entry_enable">已啟用</string>
     <string name="pref_camera2_capture_mfnr_entry_disable">已停用</string>
+    <string name="pref_camera2_fs2_title">快速快門</string>
     <string name="pref_camera2_fs2_entry_enable">已啟用</string>
     <string name="pref_camera2_fs2_entry_disable">已停用</string>
+    <string name="pref_camera2_abort_captures_title">終止截圖</string>
     <string name="pref_camera2_abort_captures_entry_enable">已啟用</string>
     <string name="pref_camera2_abort_captures_entry_disable">已停用</string>
 </resources>

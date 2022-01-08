@@ -337,13 +337,13 @@
     <string name="pref_camera2_scene_mode_sports_instructional_content">スポーツモードはより良いスポーツやアクション写真を撮ることができます。\n\n写真には効果がありますがビデオ撮影には効果はありません。</string>
     <string name="pref_camera2_scene_mode_hdr_instructional_content">暗いシーンや逆行のようなシーンが混在しているときは、最高の画質を得るために「HDR」を選択します。</string>
     <string name="pref_camera2_scene_mode_best_photo_instructional_content">10枚の写真を連写し、ベストな1枚を選べます。</string>
-    <string name="pref_camera2_scene_mode_chroma_flash_instructional_content">ChromaFlash を使用すると、カメラのフラッシュが写真の全ての人物やオブジェクトに合わせて最適化されます。 この機能はバックカメラにのみ適用されます。</string>
+    <string name="pref_camera2_scene_mode_chroma_flash_instructional_content">ChromaFlash を使用すると、カメラのフラッシュが写真のすべての人物やオブジェクトに合わせて最適化されます。 この機能はバックカメラにのみ適用されます。</string>
     <string name="pref_camera2_scene_mode_sharp_photo_instructional_content">シャープネスはシーン内の動きや手の震えによるブレを軽減します。</string>
     <string name="pref_camera2_scene_mode_tracking_focus_instructional_content">写真やビデオの撮影中に、選択した人や物体を追跡したりピントを合わせたりすることができます。開始するには追跡する人物または物体にフ四角を合わせます。</string>
     <string name="pref_camera2_scene_mode_time_lapse_instructional_content">低速度撮影（コマ送り）モードでは、録画中の長時間のビデオを短時間のビデオに変換できます。この効果は動画には適用されますが、写真には適用されません。</string>
     <string name="pref_camera2_scene_mode_panorama_instructional_content">左右にパンするとパノラマ写真を撮ることができます。 上下にパンして縦長の写真を撮ることもできます。</string>
     <string name="pref_camera2_scene_mode_blur_buster_instructional_content">BlurBuster は手振れによるぼやけを低減します。安定した撮影が困難な場所で写真を撮る際に便利です。</string>
-    <string name="pref_camera2_scene_mode_pro_instructional_content">プロモードでは、ISO・露出・ホワイトバランス・フォーカスの設定を手動制御できます。 これらの全ての詳細設定に簡単にアクセスできます。</string>
+    <string name="pref_camera2_scene_mode_pro_instructional_content">プロモードでは、ISO・露出・ホワイトバランス・フォーカスの設定を手動制御できます。 これらのすべての詳細設定に簡単にアクセスできます。</string>
     <string name="pref_camera2_scene_mode_deepzoom_instructional_content">DeepZoomモードでは、2倍または4倍のズームで写真を撮影することができます。</string>
     <string name="pref_camera2_scene_mode_deepportrait_instructional_content">DeepPortraitモードでは、背景をぼかした写真でセルフィーを撮影することができます。スライダーを使ってぼかしの量を調整することができます。</string>
     <string name="pref_camera2_not_show_again">次回から表示しない</string>
@@ -427,11 +427,15 @@
     <string name="pref_camera2_stats_visualizer_entry_bg_stats">BG の統計</string>
     <string name="pref_camera2_stats_visualizer_entry_be_stats">BE の統計</string>
     <string name="pref_camera2_stats_visualizer_entry_hist_stats">Hist の統計</string>
+    <string name="stats_visualizer_bg_label">BG グラフ表示</string>
+    <string name="stats_visualizer_be_label">BE グラフ表示</string>
     <string name="pref_camera2_capture_mfnr_title">マルチフレームノイズ除去</string>
     <string name="pref_camera2_capture_mfnr_entry_enable">有効</string>
     <string name="pref_camera2_capture_mfnr_entry_disable">無効</string>
+    <string name="pref_camera2_fs2_title">高速シャッター</string>
     <string name="pref_camera2_fs2_entry_enable">有効</string>
     <string name="pref_camera2_fs2_entry_disable">無効</string>
+    <string name="pref_camera2_abort_captures_title">キャプチャーを中断</string>
     <string name="pref_camera2_abort_captures_entry_enable">有効</string>
     <string name="pref_camera2_abort_captures_entry_disable">無効</string>
 </resources>

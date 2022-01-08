@@ -27,4 +27,5 @@
     <string name="quick_reader_scanned_text_negative">分享</string>
     <string name="quick_reader_share_title">分享至 \u2026</string>
     <string name="quick_reader_copied_message">複製到剪貼簿</string>
+    <string name="quick_reader_only_unlocked">此操作只能在裝置解鎖的狀態下執行。</string>
 </resources>

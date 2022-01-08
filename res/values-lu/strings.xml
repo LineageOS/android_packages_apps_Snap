@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2007 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name">Fotoapparat</string>
+    <string name="video_camera_label">Videokamera</string>
+    <string name="details_ms">%1$02d:%2$02d</string>
+    <string name="details_hms">%1$d:%2$02d:%3$02d</string>
+    <string name="set_image">Bild setzen als</string>
+    <string name="delete">Läschen</string>
+    <plurals name="delete_selection">
+        <item quantity="one">Ausgewielt Element läschen?</item>
+        <item quantity="other">Ausgewielt Elementer läschen?</item>
+    </plurals>
+    <string name="share">Deelen</string>
+    <string name="share_panorama">Panorama deelen</string>
+    <string name="share_as_photo">Als Foto deelen</string>
+    <string name="deleted">Geläscht</string>
+    <string name="undo">RÉCKGÄNGEG</string>
+    <string name="details">Detailer</string>
+    <string name="close">Zoumaachen</string>
+    <plurals name="number_of_items_selected">
+        <item quantity="one">%1$d ausgewielt</item>
+        <item quantity="other">%1$d ausgewielt</item>
+    </plurals>
+    <plurals name="number_of_albums_selected">
+        <item quantity="one">%1$d ausgewielt</item>
+        <item quantity="other">%1$d ausgewielt</item>
+    </plurals>
+    <plurals name="number_of_groups_selected">
+        <item quantity="one">%1$d ausgewielt</item>
+        <item quantity="other">%1$d ausgewielt</item>
+    </plurals>
+    <string name="show_on_map">Op der Kaart uweisen</string>
+    <string name="rotate_left">Lénks rotéieren</string>
+    <string name="rotate_right">Riets rotéieren</string>
+    <string name="edit">Änneren</string>
+    <string name="crop_action">Schneiden</string>
+    <string name="trim_action">Trimmen</string>
+    <string name="set_as">Setzen als</string>
+    <string name="video_err">Video kann net ofgespillt ginn.</string>
+    <string name="crop_saved">Geschniddent Bild gespäichert ënner <xliff:g id="folder_name">%s</xliff:g>.</string>
+    <string name="title">Titel</string>
+    <string name="description">Beschreiwung</string>
+    <string name="time">Zäit</string>
+    <string name="location">Standuert</string>
+    <string name="path">Pad</string>
+    <string name="width">Breet</string>
+    <string name="height">Héicht</string>
+    <string name="orientation">Orientéierung</string>
+    <string name="duration">Dauer</string>
+    <string name="mimetype">MIME-Typ</string>
+    <string name="file_size">Fichiersgréisst</string>
+    <string name="maker">Hiersteller</string>
+    <string name="model">Modell</string>
+    <string name="flash">Blëtz</string>
+    <string name="aperture">Blend</string>
+    <string name="focal_length">Brennwäit</string>
+    <string name="white_balance">Wäissofgläich</string>
+    <string name="exposure_time">Beliichtungszäit</string>
+    <string name="iso">ISO</string>
+    <string name="unit_mm">mm</string>
+    <string name="manual">Manuell</string>
+    <string name="auto">Automatesch</string>
+    <string name="flash_on">Blëtz ausgeléist</string>
+    <string name="flash_off">Kee Blëtz</string>
+    <string name="unknown">Onbekannt</string>
+    <string name="try_to_set_local_album_available_offline">Dëst Element ass lokal gespäichert an och offline disponibel.</string>
+    <string name="please_wait">Waart w.e.g.</string>
+    <string name="rendering_photo_sphere">Fotosphär gëtt gerendert</string>
+    <string name="camera_error_title">Kamerafeeler</string>
+    <string name="cannot_connect_camera">Keng Connectioun zur Kamera méiglech.</string>
+    <string name="camera_disabled">D\'Kamera gouf wéinst Sécherheetsriichtlinnen desaktivéiert.</string>
+    <string name="wait">Waart w.e.g.\u2026</string>
+    <string name="no_storage" product="default">Maach eng SD-Kaart dran ier s du d\'Kamera benotzt.</string>
+    <string name="preparing_sd" product="default">SD-Kaart gëtt preparéiert\u2026</string>
+    <string name="access_sd_fail" product="default">Keen Zougrëff op d\'SD-Kaart méiglech.</string>
+    <string name="time_lapse_title">Zäitrafferopnam</string>
+    <string name="capturing">Gëtt opgeholl</string>
+    <string name="pref_camera_id_title">Kamera auswielen</string>
+    <string name="pref_camera_id_entry_back">Zréck</string>
+    <string name="pref_camera_id_entry_front">Vir</string>
+    <string name="pref_camera_location_label">STANDUERT</string>
+    <string name="pref_camera_timer_title">Countdown-Timer</string>
+    <plurals name="pref_camera_timer_entry">
+        <item quantity="one">1 Sekonn</item>
+        <item quantity="other">%d Sekonnen</item>
+    </plurals>
+    <string name="pref_camera_timer_sound_title">Piipse während dem Countdown</string>
+    <string name="setting_off">Aus</string>
+    <string name="setting_on">Un</string>
+    <string name="pref_video_quality_title">Videoqualitéit</string>
+    <string name="pref_video_time_lapse_frame_interval_title">Zäitraffer</string>
+    <string name="pref_camera_settings_category">Kameraastellungen</string>
+    <string name="pref_camcorder_settings_category">Videokameraastellungen</string>
+    <string name="pref_camera_picturesize_title">Fotogréisst</string>
+    <string name="pref_camera_focusmode_title">Fokusmodus</string>
+    <string name="pref_camera_focusmode_entry_auto">Automatesch</string>
+    <string name="pref_camera_focusmode_entry_infinity">Onendlech</string>
+    <string name="pref_camera_focusmode_entry_macro">Makro</string>
+    <string name="pref_camera_focusmode_label_auto">AUTOMATESCH</string>
+    <string name="pref_camera_focusmode_label_infinity">ONENDLECH</string>
+    <string name="pref_camera_focusmode_label_macro">MAKRO</string>
+    <string name="pref_camera_flashmode_title">Blëtz</string>
+    <string name="pref_camera_flashmode_entry_auto">Automatesch</string>
+    <string name="pref_camera_flashmode_entry_on">Un</string>
+    <string name="pref_camera_flashmode_entry_off">Aus</string>
+    <string name="pref_camera_flashmode_label_auto">BLËTZ AUTOMATESCH</string>
+    <string name="pref_camera_flashmode_label_on">BLËTZ UN</string>
+    <string name="pref_camera_flashmode_label_off">BLËTZ AUS</string>
+    <string name="pref_camera_whitebalance_title">Wäissofgläich</string>
+    <string name="pref_camera_whitebalance_label">WÄISSOFGLÄICH</string>
+    <string name="pref_camera_whitebalance_entry_auto">Automatesch</string>
+    <string name="pref_camera_whitebalance_entry_incandescent">Glousluucht</string>
+    <string name="pref_camera_whitebalance_entry_daylight">Dagesliicht</string>
+    <string name="pref_camera_whitebalance_entry_fluorescent">Fluoreszent</string>
+    <string name="pref_camera_whitebalance_entry_cloudy">Wollekeg</string>
+    <string name="pref_camera_whitebalance_label_auto">AUTOMATESCH</string>
+    <string name="pref_camera_whitebalance_label_incandescent">GLOUSLUUCHT</string>
+    <string name="pref_camera_whitebalance_label_daylight">DAGESLIICHT</string>
+    <string name="pref_camera_whitebalance_label_fluorescent">FLUORESZENT</string>
+    <string name="pref_camera_whitebalance_label_cloudy">WOLLEKEG</string>
+    <string name="pref_camera_scenemode_title">Zeenemodus</string>
+    <string name="pref_camera_scenemode_entry_auto">Automatesch</string>
+    <string name="pref_camera_scenemode_entry_hdr_plus">HDR+</string>
+    <string name="pref_camera_scenemode_entry_hdr">HDR</string>
+    <string name="pref_camera_scenemode_entry_turn_hdr_plus_on">HDR+ UN</string>
+    <string name="pref_camera_scenemode_entry_turn_hdr_plus_off">HDR+ AUS</string>
+    <string name="pref_camera_scenemode_entry_turn_hdr_on">HDR UN</string>
+    <string name="pref_camera_scenemode_entry_turn_hdr_off">HDR AUS</string>
+    <string name="pref_camera_scenemode_entry_action">Aktioun</string>
+    <string name="pref_camera_scenemode_entry_night">Nuecht</string>
+    <string name="pref_camera_scenemode_entry_sunset">Sonnenënnergank</string>
+    <string name="pref_camera_scenemode_entry_party">Party</string>
+    <string name="pref_camera_scenemode_label_auto">KEEN</string>
+    <string name="pref_camera_scenemode_label_action">AKTIOUN</string>
+    <string name="pref_camera_scenemode_label_night">NUECHT</string>
+    <string name="pref_camera_scenemode_label_sunset">SONNENËNNERGANK</string>
+    <string name="pref_camera_scenemode_label_party">PARTY</string>
+    <string name="pref_camera_countdown_label_off">TIMER AUS</string>
+    <string name="pref_camera_countdown_label_one">1 SEKONN</string>
+    <string name="pref_camera_countdown_label_three">3 SEKONNEN</string>
+    <string name="pref_camera_countdown_label_ten">10 SEKONNEN</string>
+    <string name="pref_camera_countdown_label_fifteen">15 SEKONNEN</string>
+    <string name="not_selectable_in_scene_mode">Dës Astellung kann am Zeenemodus net ausgewielt ginn.</string>
+    <string name="pref_exposure_title">Beliichtung</string>
+    <string name="pref_exposure_label">BELIICHTUNG</string>
+    <string name="pref_camera_hdr_label">HDR</string>
+    <string name="pref_camera_id_label_back">VIISCHT KAMERA</string>
+    <string name="pref_camera_id_label_front">HËNNESCHT KAMERA</string>
+    <string name="dialog_ok">OK</string>
+    <string name="spaceIsLow_content" product="default">Deng SD-Kaart huet geschwë keng Plaz méi. Änner d\'Qualitéitsastellungen oder läsch e puer Fotoen oder Fichieren.</string>
+    <string name="video_reach_size_limit">Gréisstelimitt ass erreecht.</string>
+    <string name="pano_too_fast_prompt">Ze séier</string>
+    <string name="pano_dialog_prepare_preview">Panorama gëtt preparéiert</string>
+    <string name="pano_dialog_panorama_failed">De Panorama konnt net gespäichert ginn.</string>
+    <string name="pano_dialog_title">Panorama</string>
+    <string name="pano_capture_indication">Panorama gëtt opgeholl</string>
+    <string name="pano_dialog_waiting_previous">Et gëtt op de Panorama vu virdru gewaart</string>
+    <string name="pano_review_saving_indication_str">Gëtt gespäichert\u2026</string>
+    <string name="pano_review_rendering">Panorama gëtt gerendert</string>
+    <string name="tap_to_focus">Drécke fir schaarf ze stellen.</string>
+    <string name="pref_video_effect_title">Effekter</string>
+    <string name="effect_none">Keen</string>
+    <string name="effect_goofy_face_squeeze">Quëtschen</string>
+    <string name="effect_goofy_face_big_eyes">Grouss Aen</string>
+    <string name="effect_goofy_face_big_mouth">Grousse Mond</string>
+    <string name="effect_goofy_face_small_mouth">Klenge Mond</string>
+    <string name="effect_goofy_face_big_nose">Grouss Nues</string>
+    <string name="effect_goofy_face_small_eyes">Kleng Aen</string>
+    <string name="effect_backdropper_space">Am Weltraum</string>
+    <string name="effect_backdropper_sunset">Sonnenënnergank</string>
+    <string name="effect_backdropper_gallery">Däi Video</string>
+    <string name="video_snapshot_hint">Drécke fir Fotoen ze maache während s du films.</string>
+    <string name="video_recording_started">Videoopnam gouf gestart.</string>
+    <string name="video_recording_stopped">Videoopnam gouf ugehalen.</string>
+    <string name="clear_effects">Effekter ewechhuelen</string>
+    <string name="effect_silly_faces">LËSCHTEG GESIICHTER</string>
+    <string name="effect_background">HANNERGROND</string>
+    <string name="accessibility_shutter_button">Ausléiser</string>
+    <string name="accessibility_menu_button">Menüknäppchen</string>
+    <string name="accessibility_mode_picker">Auswiel fir Fotoapparat, Video oder Panorama</string>
+    <string name="accessibility_check_box">%1$s Ukräizfeld</string>
+    <string name="accessibility_switch_to_camera">Op de Fotomodus wiesselen</string>
+    <string name="accessibility_switch_to_video">Op de Videomodus wiesselen</string>
+    <string name="accessibility_switch_to_panorama">Op de Panoramamodus wiesselen</string>
+    <string name="accessibility_switch_to_photo_sphere">Op de Fotosphärmodus wiesselen</string>
+    <string name="accessibility_switch_to_gcam">Op héich Qualitéit wiesselen</string>
+    <string name="accessibility_review_cancel">Iwwerpréiwung ofbriechen</string>
+    <string name="accessibility_review_ok">Iwwerpréiwung ofgeschloss</string>
+    <string name="accessibility_review_retake">Iwwerpréiwung - Nei Ophuelen</string>
+    <string name="capital_on">UN</string>
+    <string name="capital_off">AUS</string>
+    <string name="pref_video_time_lapse_frame_interval_off">Aus</string>
+    <string name="pref_video_time_lapse_frame_interval_500">0,5 Sekonnen</string>
+    <string name="pref_video_time_lapse_frame_interval_1000">1 Sekonn</string>
+    <string name="pref_video_time_lapse_frame_interval_1500">1,5 Sekonnen</string>
+    <string name="pref_video_time_lapse_frame_interval_2000">2 Sekonnen</string>
+    <string name="pref_video_time_lapse_frame_interval_2500">2,5 Sekonnen</string>
+    <string name="pref_video_time_lapse_frame_interval_3000">3 Sekonnen</string>
+    <string name="pref_video_time_lapse_frame_interval_4000">4 Sekonnen</string>
+    <string name="pref_video_time_lapse_frame_interval_5000">5 Sekonnen</string>
+    <string name="pref_video_time_lapse_frame_interval_6000">6 Sekonnen</string>
+    <string name="pref_video_time_lapse_frame_interval_10000">10 Sekonnen</string>
+    <string name="pref_video_time_lapse_frame_interval_12000">12 Sekonnen</string>
+    <string name="pref_video_time_lapse_frame_interval_15000">15 Sekonnen</string>
+    <string name="pref_video_time_lapse_frame_interval_24000">24 Sekonnen</string>
+    <string name="pref_video_time_lapse_frame_interval_30000">0,5 Minutten</string>
+    <string name="pref_video_time_lapse_frame_interval_60000">1 Minutt</string>
+    <string name="pref_video_time_lapse_frame_interval_90000">1,5 Minutten</string>
+    <string name="pref_video_time_lapse_frame_interval_120000">2 Minutten</string>
+    <string name="pref_video_time_lapse_frame_interval_150000">2,5 Minutten</string>
+    <string name="pref_video_time_lapse_frame_interval_180000">3 Minutten</string>
+    <string name="pref_video_time_lapse_frame_interval_240000">4 Minutten</string>
+    <string name="pref_video_time_lapse_frame_interval_300000">5 Minutten</string>
+    <string name="pref_video_time_lapse_frame_interval_360000">6 Minutten</string>
+    <string name="pref_video_time_lapse_frame_interval_600000">10 Minutten</string>
+    <string name="pref_video_time_lapse_frame_interval_720000">12 Minutten</string>
+    <string name="pref_video_time_lapse_frame_interval_900000">15 Minutten</string>
+    <string name="pref_video_time_lapse_frame_interval_1440000">24 Minutten</string>
+    <string name="pref_video_time_lapse_frame_interval_1800000">0,5 Stonnen</string>
+    <string name="pref_video_time_lapse_frame_interval_3600000">1 Stonn</string>
+    <string name="pref_video_time_lapse_frame_interval_5400000">1,5 Stonnen</string>
+    <string name="pref_video_time_lapse_frame_interval_7200000">2 Stonnen</string>
+    <string name="pref_video_time_lapse_frame_interval_9000000">2,5 Stonnen</string>
+    <string name="pref_video_time_lapse_frame_interval_10800000">3 Stonnen</string>
+    <string name="pref_video_time_lapse_frame_interval_14400000">4 Stonnen</string>
+    <string name="pref_video_time_lapse_frame_interval_18000000">5 Stonnen</string>
+    <string name="pref_video_time_lapse_frame_interval_21600000">6 Stonnen</string>
+    <string name="pref_video_time_lapse_frame_interval_36000000">10 Stonnen</string>
+    <string name="pref_video_time_lapse_frame_interval_43200000">12 Stonnen</string>
+    <string name="pref_video_time_lapse_frame_interval_54000000">15 Stonnen</string>
+    <string name="pref_video_time_lapse_frame_interval_86400000">24 Stonnen</string>
+    <string name="time_lapse_seconds">Sekonnen</string>
+    <string name="time_lapse_minutes">Minutten</string>
+    <string name="time_lapse_hours">Stonnen</string>
+    <string name="time_lapse_interval_set">Fäerdeg</string>
+    <string name="set_time_interval">Zäitintervall setzen</string>
+    <string name="set_time_interval_help">Zäitrafferfunktioun ass aus. Maach s\'u fir den Zäitintervall ze setzen.</string>
+    <string name="set_duration">Dauer a Sekonne festleeën</string>
+    <string name="count_down_title_text">Countdown fir eng Foto ze schéissen</string>
+    <string name="remember_location_title">De Fotostanduert späicheren?</string>
+    <string name="remember_location_prompt">Fotoen a Videoe mam Standuert späichere wou s\'opgeholl gi sinn.\n\nAner Appe kënnen zesumme mat de gespäicherte Biller op dës Informatioun zougräifen.</string>
+    <string name="remember_location_no">Nee Merci</string>
+    <string name="remember_location_yes">Jo</string>
+    <string name="camera_menu_more_label">MÉI OPTIOUNEN</string>
+    <string name="camera_menu_settings_label">ASTELLUNGEN</string>
+    <string name="create_tiny_planet">Klenge Planéit erstellen</string>
+    <string name="saving_tiny_planet">Klenge Planéit gëtt gespäichert …</string>
+    <string name="tiny_planet_zoom">Vergréisseren</string>
+    <string name="tiny_planet_rotate">Rotéieren</string>
+    <string name="crop_save">Späicheren</string>
+    <string name="cannot_load_image">D\'Bild kann net geluede ginn!</string>
+    <string name="switch_photo_filmstrip">Als Filmsträif uweisen</string>
+    <string name="setting_wallpaper">Als Hannergrondbild setzen</string>
+    <string name="save_best_dialog_positive_bt">OK</string>
+    <string name="delete_best_dialog_positive_bt">Läschen</string>
+</resources>

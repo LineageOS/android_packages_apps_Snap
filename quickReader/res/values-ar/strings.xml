@@ -27,4 +27,5 @@
     <string name="quick_reader_scanned_text_negative">شارك</string>
     <string name="quick_reader_share_title">مشاركة مع</string>
     <string name="quick_reader_copied_message">نسخ إلى الحافظة</string>
+    <string name="quick_reader_only_unlocked">يمكن تنفيذ هذا الإجراء بعد إلغاء قفل الجهاز فقط</string>
 </resources>

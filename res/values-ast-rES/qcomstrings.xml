@@ -122,7 +122,7 @@
     <string name="pref_camera_hfr_entry_hsr_90">Alta velocidá a 90 FPS</string>
     <string name="pref_camera_hfr_entry_hsr_120">Alta velocidá a 90 FPS</string>
     <string name="pref_camera_hfr_entry_hsr_240">Velocidá alta a 240 FPS</string>
-    <string name="pref_camera_hfr_entry_hsr_480">Cámara rápida a 480 FPS</string>
+    <string name="pref_camera_hfr_entry_hsr_480">Velocidá alta a 480 FPS</string>
     <string name="pref_camera_noise_reduction_title">Reducción de ruíu</string>
     <string name="pref_camera_noise_reduction_entry_off">Non</string>
     <string name="pref_camera_noise_reduction_entry_fast">Rápida</string>
@@ -341,9 +341,9 @@
     <string name="pref_camera2_scene_mode_time_lapse_instructional_content">Con Time lapse, puedes tresformar una grabación de videu llarga nunos segundos de videu. Esti efeutu aplícase a los vídeos, pero non a les semeyes.</string>
     <string name="pref_camera2_scene_mode_panorama_instructional_content">Permítete facer panorámiques desplazándote a la izquierda o a la drecha. Tamién puedes facer panorámiques haza arriba o haza abaxo pa sacar semeyes espurríes.</string>
     <string name="pref_camera2_scene_mode_blur_buster_instructional_content">BluBuster reduz el desenfoque deriváu del movimientu de les manes. Esto puede ser útil al tirar fotos en posiciones difíciles.</string>
-    <string name="pref_camera2_scene_mode_pro_instructional_content">Nel mou Pro pues controlar los axustes del ISO, esposición, balance de blancos y focu. Vas tener accesu a toos esos axustes avanzaos.</string>
-    <string name="pref_camera2_scene_mode_deepzoom_instructional_content">Col mou DeepZoom, pues facer una semeya col zoom 2x o col 4x ameyoráu.</string>
-    <string name="pref_camera2_scene_mode_deepportrait_instructional_content">Col mou DeepPortrait, pues facer selfies col fondu emborrináu. Pues usar l\'eslizador p\'axustar la cantidá d\'emborrinamientu.</string>
+    <string name="pref_camera2_scene_mode_pro_instructional_content">Col mou Pro pues controlar manualmente los axustes del ISO, la esposición, el balance de blancos y l\'enfoque. Vas tener a toos estos axustes avanzaos nun sitiu amañosu.</string>
+    <string name="pref_camera2_scene_mode_deepzoom_instructional_content">Col mou DeepZoom pues facer una semeya col zoom ameyoráu a 2x ó 4x.</string>
+    <string name="pref_camera2_scene_mode_deepportrait_instructional_content">Col mou DeepPortrait pues facer selfies col fondu desenfocáu. Pues usar l\'eslizador p\'axustar la cantidá de desenfoque.</string>
     <string name="pref_camera2_not_show_again">Nun amosar más</string>
     <string name="pref_camera2_scene_mode_instructional_ok">ACEUTAR</string>
     <string name="pref_camera2_instant_aec_title">Aplicación nel intre</string>
@@ -407,14 +407,12 @@
     <string name="pref_camera2_afmode_entry_off">Non</string>
     <string name="pref_camera2_afmode_entry_continuous_video">Videu continuu</string>
     <string name="pref_camera2_afmode_entry_continuous_picture">Semeya continua</string>
-    <string name="pref_camera2_afmode_entry_edof">Fondura estendida del focu</string>
+    <string name="pref_camera2_afmode_entry_edof">Fondura estendida del enfoque</string>
     <string name="pref_camera2_switch_camera_title">Cambiar cámara por ID</string>
     <string name="pref_camera2_initial_camera_entry_bayer">Bayer</string>
     <string name="pref_camera2_initial_camera_entry_mono">Mono</string>
     <string name="pref_camera2_initial_camera_entry_front">Frontal</string>
-    <string name="pref_camera2_eis_title">Videu EIS</string>
     <string name="pref_camera2_eis_entry_disable">Deshabilitóse</string>
-    <string name="pref_camera2_fovc_title">Videu FOVC</string>
     <string name="pref_camera2_fovc_entry_enable">Habilitóse</string>
     <string name="pref_camera2_fovc_entry_disable">Deshabilitóse</string>
     <string name="pref_camera2_video_hdr_entry_enable">Habilitóse</string>
@@ -424,11 +422,15 @@
     <string name="pref_camera2_stats_visualizer_entry_bg_stats">Estadístiques BG</string>
     <string name="pref_camera2_stats_visualizer_entry_be_stats">Estadístiques BE</string>
     <string name="pref_camera2_stats_visualizer_entry_hist_stats">Estadístiques Hist</string>
+    <string name="stats_visualizer_bg_label">Vista gráfica BG</string>
+    <string name="stats_visualizer_be_label">Vista gráfica BE</string>
     <string name="pref_camera2_capture_mfnr_title">Amenorgamientu del ruíu multicuadru</string>
     <string name="pref_camera2_capture_mfnr_entry_enable">Habilitóse</string>
     <string name="pref_camera2_capture_mfnr_entry_disable">Deshabilitóse</string>
+    <string name="pref_camera2_fs2_title">Obturador rápidu</string>
     <string name="pref_camera2_fs2_entry_enable">Habilitóse</string>
     <string name="pref_camera2_fs2_entry_disable">Deshabilitóse</string>
+    <string name="pref_camera2_abort_captures_title">Albortar les captures</string>
     <string name="pref_camera2_abort_captures_entry_enable">Habilitóse</string>
     <string name="pref_camera2_abort_captures_entry_disable">Deshabilitóse</string>
 </resources>

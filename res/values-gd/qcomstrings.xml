@@ -81,7 +81,7 @@
     <string name="pref_camera_video_cds_title">Modh CDS a’ video</string>
     <string name="pref_camera_tnr_title">Modh TNR</string>
     <string name="pref_camera_video_tnr_title">Modh TNR a’ video</string>
-    <string name="pref_camera_facedetection_title">Mothaich do aodannan</string>
+    <string name="pref_camera_facedetection_title">Mothaich do dh’aodannan</string>
     <string name="pref_camera_facedetection_entry_off">Dheth</string>
     <string name="pref_camera_facedetection_entry_on">Air</string>
     <string name="pref_selfie_flash_title">Boillsgeadh fèineige</string>
@@ -96,7 +96,7 @@
     <string name="pref_camera_shuttersound_title">Fuaim an t-siutair</string>
     <string name="pref_camera_shuttersound_entry_enable">An comas</string>
     <string name="pref_camera_shuttersound_entry_disable">À comas</string>
-    <string name="error_app_unsupported_hfr_selection">Cha chuir sinn taic ri clàradh le reat-fhrèamaichean àrd nuair a bhios bunailteachadh/film luathaichte/HDR ga chleachdadh.</string>
+    <string name="error_app_unsupported_hfr_selection">Cha chuir sinn taic ri clàradh le reat-fhrèaman àrd nuair a bhios bunailteachadh/film luathaichte/HDR ga chleachdadh.</string>
     <string name="error_app_unsupported_hfr">Cha chuir sinn taic ris a’ mhodh slaodach le meud a’ video a thagh thu. Tagh meud video nas ìsle</string>
     <string name="error_app_unsupported_dis">Cha chuir sinn taic ri bunailteachadh le meud a’ video a thagh thu. Tagh meud video nas ìsle</string>
     <string name="error_app_unsupported_hsr">Cha chuir sinn taic ris a’ mhodh luath le meud a’ video a thagh thu. Tagh meud video nas ìsle</string>
@@ -111,7 +111,7 @@
     <string name="snapshot_lower_than_video">Tha meud a’ snapshot video nas ìsle na meud a’ video; a’ cur a chrìoch air meud a’ video. Tagh dùmhlachd-bhreacaidh nas àirde no co-ionnan ri meud làithreach a’ video.</string>
     <string name="snapshotsize_low_powermode">Cha chuir modh na cumhachd ìosal taic ri atharrachadh meud an deilbh; thèid snapshot air meud a’ video a thogail. Tagh modh cumhachd àbhaisteach airson comas atharrachaidh a chur air meud an deilbh.</string>
     <string name="snapshot_qcif_and_d1">Chan eil tac ri snapshot video air an dùmhlachd-bhreacaidh seo ach air meud a’ video.</string>
-    <string name="pref_camera_hfr_title">Clàradh le reat-fhrèamaichean àrd</string>
+    <string name="pref_camera_hfr_title">Clàradh le reat-fhrèaman àrd</string>
     <string name="pref_camera_hfr_entry_off">Dheth</string>
     <string name="pref_camera_hfr_entry_2x">Slaodach le 60 FPS</string>
     <string name="pref_camera_hfr_entry_3x">Slaodach le 90 FPS</string>
@@ -425,11 +425,15 @@
     <string name="pref_camera2_stats_visualizer_entry_bg_stats">Stadastaireachd BG</string>
     <string name="pref_camera2_stats_visualizer_entry_be_stats">Stadastaireachd BE</string>
     <string name="pref_camera2_stats_visualizer_entry_hist_stats">Stadastaireachd hiostograim</string>
+    <string name="stats_visualizer_bg_label">Graf air sealladh BG</string>
+    <string name="stats_visualizer_be_label">Graf air sealladh BE</string>
     <string name="pref_camera2_capture_mfnr_title">Glanadh faraim thar iomadh frèam</string>
     <string name="pref_camera2_capture_mfnr_entry_enable">An comas</string>
     <string name="pref_camera2_capture_mfnr_entry_disable">À comas</string>
+    <string name="pref_camera2_fs2_title">Siutair luath</string>
     <string name="pref_camera2_fs2_entry_enable">An comas</string>
     <string name="pref_camera2_fs2_entry_disable">À comas</string>
+    <string name="pref_camera2_abort_captures_title">Leig seachad na glacaidhean</string>
     <string name="pref_camera2_abort_captures_entry_enable">An comas</string>
     <string name="pref_camera2_abort_captures_entry_disable">À comas</string>
 </resources>

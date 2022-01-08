@@ -399,6 +399,7 @@
     <string name="pref_camera2_zsl_entry_disable">Tidak aktif</string>
     <string name="pref_camera2_zsl_entry_app_zsl">Perangkat lunak ZSL</string>
     <string name="pref_camera2_zsl_entry_hal_zsl">Perangkat keras ZSL</string>
+    <string name="pref_camera2_videoencoderprofile_title">Profil encoder</string>
     <string name="pref_camera2_afmode_entry_disable">Dimatikan</string>
     <string name="pref_camera2_afmode_entry_off">Tidak aktif</string>
     <string name="pref_camera2_switch_camera_title">Beralih kamera dengan ID</string>
@@ -413,6 +414,10 @@
     <string name="pref_camera2_video_hdr_entry_enable">Dihidupkan</string>
     <string name="pref_camera2_video_hdr_entry_disable">Dimatikan</string>
     <string name="pref_camera2_picture_format_title">Bentuk gambar</string>
+    <string name="pref_camera2_stats_visualizer_entry_bg_stats">Statistik BG</string>
+    <string name="pref_camera2_stats_visualizer_entry_be_stats">Statistik BE</string>
+    <string name="stats_visualizer_bg_label">Tampilan grafis BG</string>
+    <string name="stats_visualizer_be_label">Tampilan grafis BE</string>
     <string name="pref_camera2_capture_mfnr_entry_enable">Dihidupkan</string>
     <string name="pref_camera2_capture_mfnr_entry_disable">Dimatikan</string>
     <string name="pref_camera2_fs2_title">Rana cepat</string>

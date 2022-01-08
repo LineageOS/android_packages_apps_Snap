@@ -108,8 +108,8 @@
     <string name="pref_camera_ae_bracket_hdr_title">Belichtungsreihe</string>
     <string name="pref_camera_ae_bracket_hdr_entry_on">An</string>
     <string name="err_app_unsupport_ae_bracket_code">Belichtungsreihen werden noch nicht unterstützt</string>
-    <string name="snapshot_lower_than_video">Die Auflösung des Schnappschusses ist geringer als die Videoauflösung. Bitte wählen Sie die gleiche oder eine höhere Auflösung als die aktuelle Videoauflösung.</string>
-    <string name="snapshotsize_low_powermode">Das Verändern der Auflösung wird im Energiesparmodus nicht unterstützt. Der Schnappschuss wird daher in Videoauflösung aufgenommen. Wählen Sie den normalen Energiemodus aus, um die Auflösung einstellen zu können.</string>
+    <string name="snapshot_lower_than_video">Die Auflösung des Schnappschusses ist geringer als die Videoauflösung. Bitte wähle die gleiche oder eine höhere Auflösung als die aktuelle Videoauflösung.</string>
+    <string name="snapshotsize_low_powermode">Das Verändern der Auflösung wird im Energiesparmodus nicht unterstützt. Der Schnappschuss wird daher in Videoauflösung aufgenommen. Wähle den normalen Energiemodus aus, um die Auflösung einstellen zu können.</string>
     <string name="snapshot_qcif_and_d1">Schnappschüsse werden nur in der Videoauflösung unterstützt.</string>
     <string name="pref_camera_hfr_title">Zeitlupe</string>
     <string name="pref_camera_hfr_entry_off">Aus</string>
@@ -264,13 +264,13 @@
     <string name="pref_camera_tsmakeup_level_whiten">Aufhellen</string>
     <string name="pref_camera_tsmakeup_level_clean">Weichzeichnen</string>
     <string name="text_tsmakeup_alert_title">Achtung</string>
-    <string name="text_tsmakeup_alert_msg">Gesichtserkennung muss aktiviert sein um die Verschönerung nutzen zu können. Wollen Sie fortfahren?</string>
+    <string name="text_tsmakeup_alert_msg">Gesichtserkennung muss aktiviert sein, um die Verschönerung nutzen zu können. Willst du fortfahren?</string>
     <string name="text_tsmakeup_alert_continue">Fortfahren</string>
     <string name="text_tsmakeup_alert_quit">Abbrechen</string>
     <string name="text_tsmakeup_beautify_toast">Verschönern</string>
     <string name="all_in_focus">Alles im Fokus</string>
     <string name="refocus_toast">Tippen Sie hier, um das letzte Foto neu zu fokussieren.</string>
-    <string name="refocus_prompt_message">Mit UbiFocus nimmt Ihre Kamera 5 Bilder auf, sobald Sie den Auslöser betätigen. Diese 5 Bilder werden in 1 Bild kombiniert, in dem alles fokussiert ist. Sie können es nach der Aufnahme neu fokussieren.</string>
+    <string name="refocus_prompt_message">Mit UbiFocus nimmt deine Kamera 5 Bilder auf, sobald du den Auslöser betätigst. Diese 5 Bilder werden in 1 Bild kombiniert, in dem alles fokussiert ist. Du kannst es nach der Aufnahme neu fokussieren.</string>
     <string name="camera_thermal_shutdown">Telefon überhitzt, Kamera wird geschlossen.</string>
     <string name="camera_server_died">Medienserver ist abgestürzt, Kamera wird geschlossen.</string>
     <string name="camera_unknown_error">Unbekannter Fehler, Kamera wird geschlossen.</string>
