@@ -205,7 +205,7 @@
     <string name="effect_silly_faces">CARES GRACIOSES</string>
     <string name="effect_background">FONDU</string>
     <string name="accessibility_shutter_button">Disparador</string>
-    <string name="accessibility_exit_best_mode_button">Salir del mou meyor semeya</string>
+    <string name="accessibility_exit_best_mode_button">Colar del mou «La meyor semeya»</string>
     <string name="accessibility_menu_button">Botón Menú</string>
     <string name="accessibility_mode_picker">Cámara, videu o mou panorámicu</string>
     <string name="accessibility_check_box">Caxellu de verificación %1$s</string>
@@ -284,26 +284,22 @@
     <string name="remaining_photos_format">Queden %d</string>
     <string name="makeup_video_size_limit">Makeup namái furrula so tamañu VGA na grabación de videu.</string>
     <string name="pref_camera2_category_system">Sistema</string>
-    <string name="pref_camera2_restore_default">Reafitar valores</string>
+    <string name="pref_camera2_restore_default">Reafitar los valores</string>
     <string name="pref_camera2_restore_default_hint">Van reafitase los axustes de la cámara</string>
     <plurals name="save_best_dialog_content">
-        <item quantity="one">%1$d de 10 imaxes van guardase y el restu van desaniciase</item>
-        <item quantity="other">%1$d de 10 imaxes van guardase y el restu van desaniciase</item>
+        <item quantity="one">Va guardase %1$d semeya de 10 y el restu van desaniciase</item>
+        <item quantity="other">Van guardase %1$d semeyes de 10 y el restu van desaniciase</item>
     </plurals>
-    <string name="save_best_dialog_title">¿Guardar les semeyes esbillaes?</string>
+    <string name="save_best_dialog_title">¿Quies guardar les semeyes esbillaes?</string>
     <string name="save_best_dialog_positive_bt">Aceutar</string>
     <string name="save_best_dialog_native_bt">Encaboxar</string>
-    <plurals name="save_best_image_toast">
-        <item quantity="one">%1$d de 10 imaxes guardaes.</item>
-        <item quantity="other">%1$d de 10 imaxes guardaes.</item>
-    </plurals>
-    <string name="dialog_do_not_show">Nun amosar más</string>
-    <string name="delete_best_dialog_title">¿Desaniciar too?</string>
-    <string name="delete_best_dialog_content">¿Quies desaniciar les 10 semeyes feches?</string>
+    <string name="dialog_do_not_show">Nun volver amosar</string>
+    <string name="delete_best_dialog_title">¿Quies desanicialo too?</string>
+    <string name="delete_best_dialog_content">¿De xuru que quies desaniciar les 10 semeyes feches?</string>
     <string name="delete_best_dialog_native_bt">Encaboxar</string>
     <string name="delete_best_dialog_positive_bt">Desaniciar</string>
-    <string name="delete_all_best_dialog_title">¿Desaniciar too?</string>
-    <string name="delete_all_best_dialog_content">¿Quies desaniciar toles imáxenes?</string>
+    <string name="delete_all_best_dialog_title">¿Quies desanicialo too?</string>
+    <string name="delete_all_best_dialog_content">¿De xuru que quies desaniciar toles semeyes?</string>
     <string name="delete_all_best_dialog_native_bt">Encaboxar</string>
     <string name="delete_all_best_dialog_positive_bt">Desaniciar too</string>
     <string name="overflow_best_item1">Guardar too</string>

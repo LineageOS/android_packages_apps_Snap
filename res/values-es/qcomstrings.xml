@@ -416,6 +416,7 @@
     <string name="pref_camera2_capture_mfnr_entry_disable">Desactivado</string>
     <string name="pref_camera2_fs2_entry_enable">Activado</string>
     <string name="pref_camera2_fs2_entry_disable">Desactivado</string>
+    <string name="pref_camera2_abort_captures_title">Abortar capturas</string>
     <string name="pref_camera2_abort_captures_entry_enable">Activado</string>
     <string name="pref_camera2_abort_captures_entry_disable">Desactivado</string>
     <string name="pref_camera_tone_mapping_entry_user_setting">Configuración de usuario</string>
