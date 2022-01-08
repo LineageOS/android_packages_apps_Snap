@@ -20,74 +20,137 @@
     limitations under the License.
 -->
 <resources>
+    <!-- Video quality setting entry. Videos will be recorded in VGA quality. [CHAR LIMIT=24] -->
+    <!-- Video quality setting entry. Videos will be recorded in CIF quality. [CHAR LIMIT=24] -->
+    <!-- Video quality setting entry. Videos will be recorded in QVGA quality. [CHAR LIMIT=24] -->
+    <!-- Video quality setting entry. Videos will be recorded in QCIF quality. [CHAR LIMIT=24] -->
+    <!-- Settings screen, Power Mode title -->
     <string name="pref_camera_powermode_title">Virtatila</string>
+    <!-- Settings screen, Power mode dialog radio button choices -->
     <string name="pref_camera_powermode_entry_lp">Virransäästö</string>
     <string name="pref_camera_powermode_entry_np">Normaali virrankulutus</string>
+    <!-- Settings screen, Power mode dialog radio button choices -->
+    <!-- Default Power mode.. -->
+    <!-- Default auto exposure setting. Do not translate. -->
+    <!-- Settings screen, Select auto exposure title -->
     <string name="pref_camera_autoexposure_title">Automaattinen valotus</string>
+    <!-- Settings screen, auto exposure dialog radio button choices -->
     <string name="pref_camera_autoexposure_entry_frameaverage">Kehysten keskiarvo</string>
     <string name="pref_camera_autoexposure_entry_centerweighted">Keskelle painotettu</string>
     <string name="pref_camera_autoexposure_entry_spotmetering">Pisteeseen kohdistettu</string>
+    <!-- Auto exposure entry values. Do not translate. -->
+    <!-- Settings screen, Video encoder title -->
     <string name="pref_camera_videoencoder_title">Videon pakkaus</string>
+    <!-- Settings screen, Video encoder dialog radio button choices -->
+    <!-- Default video encoder setting. A numerical value. -->
+    <!-- Settings screen, Video encoder dialog title -->
     <string name="pref_camera_videoencoder_dialogtitle">Videon pakkaus</string>
+    <!-- Default audio encoder setting. A numerical value. -->
+    <!-- Settings screen, Audio encoder title -->
     <string name="pref_camera_audioencoder_title">Audion pakkaus</string>
+    <!-- Settings screen, Audio encoder dialog radio button choices -->
+    <!-- Default Skin Tone Enhancement setting. Do not translate. -->
+    <!-- Settings screen, Select Skin Tone Enhancement title -->
     <string name="pref_camera_skinToneEnhancement_title">Ihonvärin muutos</string>
+    <!-- Settings screen, Skin Tone Enhancement radio button choices -->
     <string name="pref_camera_skinToneEnhancement_entry_enable">Ota käyttöön</string>
     <string name="pref_camera_skinToneEnhancement_entry_disable">Poista käytöstä</string>
+    <!-- Skin Tone Enhancement entry values. Do not translate. -->
+    <!-- Settings screen, setting title text for ZSL-->
     <string name="pref_camera_zsl_title">Ei laukaisuviivettä (ZSL)</string>
+    <!-- Default selectable zone af setting. Do not translate. -->
+    <!-- Settings screen, Selectable zone af title -->
     <string name="pref_camera_selectablezoneaf_title">Automaattitarkennusalue</string>
+    <!-- Settings screen, Selectable Zone Af dialog radio button choices -->
     <string name="pref_camera_selectablezoneaf_entry_auto">Automaattinen</string>
     <string name="pref_camera_selectablezoneaf_entry_spotmetering">Pisteeseen kohdistettu</string>
     <string name="pref_camera_selectablezoneaf_entry_centerweighted">Keskelle painotettu</string>
     <string name="pref_camera_selectablezoneaf_entry_frameaverage">Kehysten keskiarvo</string>
+    <!-- Auto exposure entry values. Do not translate. -->
+    <!-- Settings screen, Selectable advanced features title -->
     <string name="pref_camera_advanced_features_title">Edistyneet toiminnot</string>
+    <!-- Settings screen, Selectable Zone Af dialog radio button choices -->
     <string name="pref_camera_advanced_feature_entry_none">Ei mitään</string>
     <string name="pref_camera_advanced_feature_entry_multi_touch_focus">Monikosketustarkennus</string>
+    <!-- Auto exposure entry values. Do not translate. -->
+    <!-- Manual exposure control entry values -->
     <string name="pref_camera_manual_exp_title">Manuaalinen valotus</string>
     <string name="pref_camera_manual_exp_entry_ISO_priority">ISO:n tärkeys</string>
     <string name="pref_camera_manual_exp_entry_exptime_priority">Valotusajan tärkeys</string>
     <string name="pref_camera_manual_exp_entry_user_setting">Käyttäjäasetukset</string>
     <string name="pref_camera_manual_exp_entry_gains_priority">GAIN ensisijainen</string>
     <string name="pref_camera_manual_exp_entry_off">Pois käyt.</string>
+    <!-- Manual white balance entry values -->
     <string name="pref_camera_manual_wb_title">Manuaalinen valkotasapaino</string>
     <string name="pref_camera_manual_wb_entry_color_temperature">Värilämpötila</string>
     <string name="pref_camera_manual_wb_entry_rbgb_gains">RBGB hyödynnys</string>
     <string name="pref_camera_manual_wb_entry_off">Pois käyt.</string>
+    <!-- Manual Focus entry values -->
     <string name="pref_camera_manual_focus_title">Manuaalinen tarkennus</string>
     <string name="pref_camera_manual_focus_entry_scale_mode">Skaalaustila</string>
     <string name="pref_camera_manual_focus_entry_diopter_mode">Dioptriatila</string>
     <string name="pref_camera_manual_focus_entry_off">Pois käyt.</string>
+    <!-- Instant Capture entry -->
     <string name="pref_camera_instant_capture_title">Pikakuvaus</string>
     <string name="pref_camera_instant_capture_entry_aggressive_aec">Aggressiivinen AEC</string>
     <string name="pref_camera_instant_capture_entry_fast_aec">Nopea AEC</string>
     <string name="pref_camera_instant_capture_entry_disable">Poista käytöstä</string>
+    <!-- Instant Capture entry values -->
+    <!-- Settings screen, ZSL location dialog choices -->
     <string name="pref_camera_zsl_entry_off">Pois käyt.</string>
     <string name="pref_camera_zsl_entry_on">Käytössä</string>
+    <!-- The message is shown in toast when HDR or scene mode is enabled -->
     <string name="hdr_enable_message">HDR on käytössä, vain automaattinen tila on käytettävissä</string>
     <string name="scene_enable_message">HDR:ää ei tueta kuin automaattisessa tilassa</string>
+    <!-- Settings screen, Video HDR location dialog choices -->
     <string name="pref_camera_video_hdr_entry_off">Pois käyt.</string>
     <string name="pref_camera_video_hdr_entry_on">Käytössä</string>
+    <!-- Settings screen, CDS location dialog choices -->
     <string name="pref_camera_cds_entry_off">Pois käyt.</string>
     <string name="pref_camera_cds_entry_on">Käytössä</string>
     <string name="pref_camera_cds_entry_auto">Auto</string>
+    <!-- Settings screen, video CDS location dialog choices -->
     <string name="pref_camera_video_cds_entry_off">Pois käyt.</string>
     <string name="pref_camera_video_cds_entry_on">Käytössä</string>
     <string name="pref_camera_video_cds_entry_auto">Auto</string>
+    <!-- Settings screen, TNR location dialog choices -->
     <string name="pref_camera_tnr_entry_disable">Poista käytöstä</string>
     <string name="pref_camera_tnr_entry_enable">Ota käyttöön</string>
+    <!-- Settings screen, TNR location dialog choices -->
+    <!-- Settings screen, video TNR location dialog choices -->
     <string name="pref_camera_video_tnr_entry_disable">Poista käytöstä</string>
     <string name="pref_camera_video_tnr_entry_enable">Ota käyttöön</string>
+    <!-- Settings screen, video TNR location dialog choices -->
+    <!-- Settings screen, setting title text for Video HDR-->
     <string name="pref_camera_video_hdr_title">Video HDR</string>
+    <!-- Settings menu, setting title text for cds mode-->
     <string name="pref_camera_cds_title">CDS-tila</string>
+    <!-- Settings menu, setting title text for video cds mode-->
     <string name="pref_camera_video_cds_title">Video CDS-tila</string>
+    <!-- Default cds mode setting-->
+    <!-- Default video cds mode setting-->
+    <!-- Settings menu, setting title text for tnr mode-->
     <string name="pref_camera_tnr_title">TNR-tila</string>
+    <!-- Settings menu, setting title text for video tnr mode-->
     <string name="pref_camera_video_tnr_title">Video TNR-tila</string>
+    <!-- Default tnr mode setting-->
+    <!-- Default video tnr mode setting-->
+    <!-- Default face  detection setting. -->
+    <!-- Settings screen, Select Face Detection -->
     <string name="pref_camera_facedetection_title">Kasvojentunnistus</string>
+    <!-- Settings menu, Face Detection choices -->
     <string name="pref_camera_facedetection_entry_off">Pois käyt.</string>
     <string name="pref_camera_facedetection_entry_on">Käytössä</string>
+    <!-- Default Selfie Flash setting. -->
+    <!-- Settings screen, Selfie Flash Detection -->
     <string name="pref_selfie_flash_title">Etukameran salama</string>
+    <!-- Settings menu, Selfie Flash choices -->
     <string name="pref_selfie_flash_entry_off">Pois käyt.</string>
     <string name="pref_selfie_flash_entry_on">Käytössä</string>
+    <!-- Default redeye reduction setting. -->
+    <!-- Settings screen, Select Redeye Reduction -->
     <string name="pref_camera_redeyereduction_title">Punasilmäisyyden vähentäminen</string>
+    <!-- Settings menu, redeye reduction choices -->
     <string name="pref_camera_redeyereduction_entry_enable">Ota käyttöön</string>
     <string name="pref_camera_redeyereduction_entry_disable">Poista käytöstä</string>
     <string name="pref_camera_selfiemirror_title">Selfiepeili</string>
@@ -96,22 +159,37 @@
     <string name="pref_camera_shuttersound_title">Sulkijan ääni</string>
     <string name="pref_camera_shuttersound_entry_enable">Ota käyttöön</string>
     <string name="pref_camera_shuttersound_entry_disable">Poistettu käytöstä</string>
+    <!-- The message is shown in toast when the app encounters an unsupported selection for HFR/HSR mode -->
     <string name="error_app_unsupported_hfr_selection">Suurnopeus-/Hidastuskuvaus ei ole tuettu käytettäessä DIS:iä tai TimeLapsea</string>
+    <!-- The message is shown in dialog when the app encounters an unsupported resolution for HFR mode -->
     <string name="error_app_unsupported_hfr">Hidastuskuvausta ei tueta valitulla resoluutiolla</string>
+    <!-- The message is shown in toast when the app encounters an unsupported resolution for DIS mode -->
     <string name="error_app_unsupported_dis">Vakauttamista ei tueta valitulla videon koolla- Valitse matalempi videon koko</string>
+    <!-- The message is shown in dialog when the app encounters an unsupported resolution for HSR mode -->
     <string name="error_app_unsupported_hsr">Suurnopeuskuvausta ei tueta valitulla resoluutiolla</string>
+    <!-- The message is shown in dialog when the app encounters an unsupported video codec for HFR mode -->
     <string name="error_app_unsupported_hfr_codec">Vain H.264 videon koodausta tuetaan käytettäessä hidastuskuvausta</string>
+    <!-- The message is shown in dialog when the app encounters an unsupported video resolution-->
     <string name="error_app_unsupported">Videon resoluutiota ei tueta tällä koodaustyypillä</string>
+    <!-- The message is shown in dialog when the app encounters an unsupported video profile-->
     <string name="error_app_unsupported_profile">Videoprofiili ei tuettu</string>
+    <!--The message is shown in dialog when the raw snapshot is selected in zsl mode-->
     <string name="error_app_unsupported_raw">RAW-kuvamuotoa ei tueta Ei laukaisuviivettä-tilassa. Valitse JPEG</string>
+    <!-- Settings screen, AE bracketing and HDR location dialog choices -->
     <string name="pref_camera_ae_bracket_hdr_entry_ae_bracket">Automaattisen valotuksen kiinnitys</string>
     <string name="pref_camera_ae_bracket_hdr_title">Automaattisen valotuksen kiinnitys</string>
     <string name="pref_camera_ae_bracket_hdr_entry_on">Käytössä</string>
     <string name="err_app_unsupport_ae_bracket_code">AE-kiinnitystä ei tueta vielä</string>
+    <!-- The messsage shown if user selects a snapshot resolution lower than the current video size. -->
     <string name="snapshot_lower_than_video">Videon pikakuvan koko on pienempi kuin videon koko, Valitse suurempi tai yhtä suuri resloluutio kuin videossa.</string>
+    <!-- The messsage shown if user selects a snapshot resolution in low power mode. -->
     <string name="snapshotsize_low_powermode">Kuvan koon muuttamista ei tueta virransäästötilassa, videon kokoinen kuva otetaan. Valitse normaali virrankulutus-tila muuttaaksesi kuvan kokoa.</string>
+    <!-- The messsage shown if user tries to take snapshot during D1/QCIF resolution. -->
     <string name="snapshot_qcif_and_d1">Vain videon kokoista pikakuvaa tuetaan tällä resoluutiolla.</string>
+    <!-- Default hfr setting. Do not translate. -->
+    <!-- Settings screen, Select hfr title -->
     <string name="pref_camera_hfr_title">Hidastuskuvaus</string>
+    <!-- Settings screen, hfr radio button choices -->
     <string name="pref_camera_hfr_entry_off">Pois käyt.</string>
     <string name="pref_camera_hfr_entry_2x">Hidastuskuvaus 60 FPS</string>
     <string name="pref_camera_hfr_entry_3x">Hidastuskuvaus 90 FPS</string>
@@ -133,16 +211,30 @@
     <string name="pref_camera_hfr_entry_4x_ssm_480">Super SloMo 480-&gt;1920</string>
     <string name="pref_camera_hfr_entry_2x_ssm_960">Super SloMo 960-&gt;1920</string>
     <string name="pref_camera_hfr_entry_4x_ssm_960">Super SloMo 960-&gt;3840</string>
+    <!-- HFR entry values. Do not translate. -->
+    <!-- Default noise reduction setting. Do not translate. -->
+    <!-- Settings screen, Select See More title -->
     <string name="pref_camera_noise_reduction_title">Kohinanvaimennus</string>
+    <!-- Settings screen, see more radio button choices -->
     <string name="pref_camera_noise_reduction_entry_off">Pois käyt.</string>
     <string name="pref_camera_noise_reduction_entry_fast">Nopea</string>
     <string name="pref_camera_noise_reduction_entry_high_quality">Korkea laatu</string>
+    <!-- see more entry values. Do not translate. -->
+    <!-- Default see more setting. Do not translate. -->
+    <!-- Settings screen, Select See More title -->
+    <!-- Settings screen, see more radio button choices -->
     <string name="pref_camera_see_more_entry_off">Pois käyt.</string>
     <string name="pref_camera_see_more_entry_on">Käytössä</string>
+    <!-- see more entry values. Do not translate. -->
+    <!-- Denoise Settings screen, setting title text -->
     <string name="pref_camera_denoise_title">Denoise-tila</string>
+    <!-- Denoise Settings screen, Record location dialog choices -->
     <string name="pref_camera_denoise_entry_off">Pois käyt.</string>
     <string name="pref_camera_denoise_entry_on">Käytössä</string>
+    <!-- Default iso setting. Do not translate. -->
+    <!-- Settings screen, Select Iso title -->
     <string name="pref_camera_iso_title">ISO</string>
+    <!-- Settings screen, ISO dialog radio button choices -->
     <string name="pref_camera_iso_entry_auto">Automaattinen</string>
     <string name="pref_camera_iso_entry_isodeblur">Automaattinen (HJR)</string>
     <string name="pref_camera_iso_entry_iso50">ISO50</string>
@@ -172,18 +264,26 @@
     <string name="pref_camera_iso_entry_iso3200">ISO3200</string>
     <string name="pref_camera_iso_entry_iso6400">ISO6400</string>
     <string name="pref_camera_iso_entry_iso12800">ISO12800</string>
+    <!-- ISO entry values. Do not translate. -->
+    <!-- Settings screen, Anti Banding title -->
     <string name="pref_camera_antibanding_title">Antibanding</string>
+    <!-- Default Anti Banding setting. -->
+    <!-- Settings screen, Anti Banding entries -->
     <string name="pref_camera_antibanding_entry_0">Auto</string>
     <string name="pref_camera_antibanding_entry_1">50 Hz (Eurooppa)</string>
     <string name="pref_camera_antibanding_entry_2">60 Hz (USA)</string>
+    <!-- Default color effect setting. -->
     <string name="pref_camera_filter_mode_entry_on">Käytössä</string>
     <string name="pref_camera_filter_mode_entry_off">Pois käyt.</string>
+    <!-- Settings screen, Select Color effect title -->
     <string name="pref_camera_coloreffect_title">Väriefekti</string>
     <string name="pref_camera_filter_mode_title">Väriefekti</string>
+    <!-- Settings screen, Color effect dialog radio button choices -->
     <string name="pref_camera_coloreffect_entry_none">Ei mitään</string>
     <string name="pref_camera_coloreffect_entry_mono">Mono</string>
     <string name="pref_camera_coloreffect_entry_sepia">Seepia</string>
     <string name="pref_camera_coloreffect_entry_negative">Negatiivi</string>
+    <!-- Color effect that overexposes and reverses some of the tones. -->
     <string name="pref_camera_coloreffect_entry_solarize">Ylivalotus</string>
     <string name="pref_camera_coloreffect_entry_posterize">Juliste</string>
     <string name="pref_camera_coloreffect_entry_aqua">Vesi</string>
@@ -195,12 +295,17 @@
     <string name="pref_camera_coloreffect_entry_redtint">Punainen sävy</string>
     <string name="pref_camera_coloreffect_entry_bluetint">Sininen sävy</string>
     <string name="pref_camera_coloreffect_entry_greentint">Vihreä sävy</string>
+    <!-- Select IS title -->
     <string name="pref_camera_dis_title">Kuvan vakauttaminen</string>
+    <!-- DIS choices -->
     <string name="pref_camera_dis_entry_off">Pois käyt.</string>
     <string name="pref_camera_dis_entry_on">Käytössä</string>
+    <!-- Select Face Recognition title -->
     <string name="pref_camera_facerc_title">Kasvojen tunnistus</string>
+    <!-- Face Recognition choices -->
     <string name="pref_camera_facerc_entry_off">Pois käyt.</string>
     <string name="pref_camera_facerc_entry_on">Käytössä</string>
+    <!-- Settings screen, Multiple levels entries -->
     <string name="pref_camera_sharpness_entry_level0">Taso 0</string>
     <string name="pref_camera_sharpness_entry_level1">Taso 1</string>
     <string name="pref_camera_sharpness_entry_level2">Taso 2 (oletus)</string>
@@ -208,6 +313,7 @@
     <string name="pref_camera_sharpness_entry_level4">Taso 4</string>
     <string name="pref_camera_sharpness_entry_level5">Taso 5</string>
     <string name="pref_camera_sharpness_entry_level6">Taso 6</string>
+    <!-- Settings screen, Multiple levels entries -->
     <string name="pref_camera_contrast_entry_level0">Taso 0</string>
     <string name="pref_camera_contrast_entry_level1">Taso 1</string>
     <string name="pref_camera_contrast_entry_level2">Taso 2</string>
@@ -219,6 +325,7 @@
     <string name="pref_camera_contrast_entry_level8">Taso 8</string>
     <string name="pref_camera_contrast_entry_level9">Taso 9</string>
     <string name="pref_camera_contrast_entry_level10">Taso 10</string>
+    <!-- Settings screen, Multiple levels entries -->
     <string name="pref_camera_saturation_entry_level0">Taso 0</string>
     <string name="pref_camera_saturation_entry_level1">Taso 1</string>
     <string name="pref_camera_saturation_entry_level2">Taso 2</string>
@@ -230,41 +337,80 @@
     <string name="pref_camera_saturation_entry_level8">Taso 8</string>
     <string name="pref_camera_saturation_entry_level9">Taso 9</string>
     <string name="pref_camera_saturation_entry_level10">Taso 10</string>
+    <!-- Default sharpness setting. Do not translate. -->
+    <!-- Settings screen, Select sharpness title -->
     <string name="pref_camera_sharpness_title">Terävyys</string>
+    <!-- Default contrast setting. Do not translate. -->
+    <!-- Settings screen, Select contrast title -->
     <string name="pref_camera_contrast_title">Kontrasti</string>
+    <!-- Default saturation setting. Do not translate. -->
+    <!-- Settings screen, Select saturation title -->
     <string name="pref_camera_saturation_title">Kylläisyys</string>
+    <!-- Default picture quality setting. See
+         pref_camera_jpegquality_entryvalues for possible values -->
+    <!-- Default Picture format setting. Do not translate. -->
+    <!-- Settings screen, Select Picture format title -->
     <string name="pref_camera_picture_format_title">Kuvan muoto</string>
+    <!-- Settings screen, picture format dialog radio button choices -->
+    <!-- Picture format entry values. Do not translate. -->
+    <!-- Settings screen, Picture quality title -->
     <string name="pref_camera_jpegquality_title">Kuvan laatu</string>
+    <!-- Settings screen, Picture quality dialog radio button choices -->
     <string name="pref_camera_jpegquality_entry_0">Matala</string>
     <string name="pref_camera_jpegquality_entry_1">Standardi</string>
     <string name="pref_camera_jpegquality_entry_2">Korkea</string>
+    <!-- Default auto histogram setting. Do not translate. -->
+    <!-- Settings screen, Select Histogram title -->
     <string name="pref_camera_histogram_title">Histogrammi</string>
+    <!-- Settings screen, Histogram radio button choices -->
     <string name="pref_camera_histogram_entry_enable">Ota käyttöön</string>
     <string name="pref_camera_histogram_entry_disable">Poista käytöstä</string>
+    <!-- Histogram entry values. Do not translate. -->
+    <!-- Default auto scene detection setting. -->
+    <!-- Settings screen, Select Auto Scene Detection -->
     <string name="pref_camera_scenedetect_title">Automaattinen kohtauksen tunnistus</string>
+    <!-- Settings menu, auto scene detection choices -->
     <string name="pref_camera_scenedetect_entry_off">Pois käyt.</string>
+    <!-- Scene detection set to on - supports backlight and snow cloudy detection. -->
     <string name="pref_camera_scenedetect_entry_on">Käytössä</string>
+    <!-- Toast showing error if invalid size selected for  time lapse  [CHAR LIMIT=65] -->
     <string name="time_lapse_error">Virheellinen videon koko aikavälinauhoitukseen.</string>
+    <!-- longshot value -->
     <string name="pref_camera_longshot_title">Jatkuva kuvaaminen</string>
     <string name="msg_cancel_longshot_for_limited_memory">Muisti on loppumassa, peruutetaan jatkuva kuvaaminen</string>
+    <!-- Toast showing non-supported functionality for flash in AE bracket -->
     <string name="flash_aebracket_message">Salamaa ei tueta AE bracketing-tilassa</string>
+    <!-- Settings screen, setting title text for Auto HDR-->
     <string name="pref_camera_auto_hdr_title">Auto HDR</string>
+    <!-- Settings screen, Auto HDR location dialog choices -->
     <string name="pref_camera_auto_hdr_entry_enable">Ota käyttöön</string>
     <string name="pref_camera_auto_hdr_entry_disable">Poista käytöstä</string>
+    <!-- toast message for storage location switch -->
     <string name="on_switch_save_path_to_sdcard">Sisäisessä tallennustilassa ei ole tarpeeksi tilaa - vaihdettu tallennustila SD-korttiin</string>
     <string name="storage_not_enough">Tallennustila ei riitä</string>
+    <!-- Settings screen, Selectable HDR mode title -->
     <string name="pref_camera_hdr_mode_title">HDR-tila</string>
+    <!-- Settings screen, Selectable HDR mode radio button choices -->
     <string name="pref_camera_hdr_mode_entry_sensor">Sensori-HDR</string>
     <string name="pref_camera_hdr_mode_entry_multi_frame">Multi-frame HDR</string>
+    <!-- HDR mode entry values. Do not translate. -->
+    <!--Default video rotation setting-->
+    <!--Settings screen, video rotation title-->
     <string name="pref_camera_video_rotation_title">Videon asento</string>
+    <!--Menu, video rotation label-->
     <string name="pref_camera_video_rotation_label">VIDEON ASENTO</string>
+    <!-- Settings screen, Video rotation dialog radio button choices -->
     <string name="pref_camera_video_rotation_entry_0">0 astetta</string>
     <string name="pref_camera_video_rotation_entry_90">90 astetta</string>
     <string name="pref_camera_video_rotation_entry_180">180 astetta</string>
     <string name="pref_camera_video_rotation_entry_270">270 astetta</string>
+    <!-- The message is shown in toast when click showOnMap Menu and there is no map app -->
     <string name="map_activity_not_found_err">Karttasovellusta ei asennettu näyttämään sijaintia</string>
+    <!-- Continuous shot enable message -->
     <string name="longshot_enable_message">Kehittyneitä ominaisuksia ei tueta jatkuvan kuvaamisen tilassa</string>
+    <!-- Advanced features enable message -->
     <string name="advance_feature_enable_msg">Jatkuvaa kuvaamista ei tueta kehittyneiden ominaisuuksien ollessa käytössä</string>
+    <!-- The alas of CameraActivity for gesture operation -->
     <string name="camera_gesture_title">Käynnistä kamera</string>
     <string name="pref_camera_tsmakeup_title">Kauneustila</string>
     <string name="pref_camera_tsmakeup_entry_on">Käytössä</string>
@@ -398,7 +544,9 @@
     <string name="pref_camera_bokeh_mpo_entry_enable">Ota käyttöön</string>
     <string name="pref_camera_bokeh_mpo_entry_disable">Poista käytöstä</string>
     <string name="pref_camera_bokeh_blur_degree_title">Bokeh sumennuksen arvo</string>
+    <!-- Default Zoom setting. -->
     <string name="pref_camera_zoom_title">Zoomaus</string>
+    <!-- Settings menu, Zoom choices -->
     <string name="pref_camera_zoom_entry_off">Pois käyt.</string>
     <string name="pref_camera_zoom_entry_1x">1x</string>
     <string name="pref_camera_zoom_entry_2x">2x</string>
@@ -428,6 +576,8 @@
     <string name="pref_camera2_afmode_entry_continuous_picture">Jatkuva kuva</string>
     <string name="pref_camera2_afmode_entry_edof">Laajennettu tarkennuksen syvyys</string>
     <string name="pref_camera2_switch_camera_title">Vaihda kameraa ID:llä</string>
+    <!-- QCFA Title -->
+    <!-- QCFA choices -->
     <string name="pref_camera2_initial_camera_entry_bayer">Bayer</string>
     <string name="pref_camera2_initial_camera_entry_mono">Mono</string>
     <string name="pref_camera2_initial_camera_entry_front">Etupuoli</string>
@@ -461,11 +611,15 @@
     <string name="pref_camera2_abort_captures_title">Keskeytä kuvaus</string>
     <string name="pref_camera2_abort_captures_entry_enable">Ota käyttöön</string>
     <string name="pref_camera2_abort_captures_entry_disable">Poistettu käytöstä</string>
+    <!-- tone mapping -->
     <string name="pref_camera_tone_mapping_title">Sävyn kartoitus</string>
+    <!-- tone mapping entry-->
     <string name="pref_camera_tone_mapping_entry_dark_boost_offset">Tumman korostuksen painoarvo</string>
     <string name="pref_camera_tone_mapping_entry_fourth_tone_anchor">Neljännen sävyn ankkuri</string>
     <string name="pref_camera_tone_mapping_entry_user_setting">Käyttäjäasetukset</string>
     <string name="pref_camera_tone_mapping_entry_off">Pois käyt.</string>
+    <!-- tone mapping entry value-->
+    <!-- Multi camera value -->
     <string name="pref_multi_camera_hal_zsl_title">HAL ZSL</string>
     <string name="pref_multi_camera_picturesize1_title">Kuvan 1 koko</string>
     <string name="pref_multi_camera_picturesize2_title">Kuvan 2 koko</string>

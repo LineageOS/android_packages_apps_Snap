@@ -15,8 +15,15 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- common aspect ratios -->
+    <!-- aspect ratio greater than 16:9, so "widescreen" or "cinematic" -->
     <string name="pref_camera_aspectratio_wide">Laaja</string>
+    <!-- Format for entries in the picture size menu. Parameter one is aspect ratio,
+         parameter two is size in megapixels, e.g. "(4:3) 12.1 megapixels"
+         NOTE: for Chinese (zh) and Korean (ko) the pixel number (parameter two)
+         will be multiplied by 100 as those languages want to count by ten thousands -->
     <string name="pref_camera_megapixel_format">(<xliff:g id="ratio" example="16:9">%1$s</xliff:g>) <xliff:g id="pixels">%2$1.1f</xliff:g> megapikseliä</string>
+    <!-- Settings screen, scene mode -->
     <string name="pref_camera_scenemode_entry_antimotionblur">Liikkeen sumennuksen vähentäminen</string>
     <string name="pref_camera_scenemode_entry_aqua">Vesi</string>
     <string name="pref_camera_scenemode_entry_ar">Lisätty todellisuus</string>
@@ -59,6 +66,7 @@
     <string name="pref_camera_scenemode_entry_text">Teksti</string>
     <string name="pref_camera_scenemode_entry_theatre">Teatteri</string>
     <string name="pref_camera_scenemode_entry_whiteboard">Valkotaulu</string>
+    <!-- Settings screen, focus mode -->
     <string name="pref_camera_focusmode_entry_continuous">Jatkuva</string>
     <string name="pref_camera_focusmode_entry_mw_continuous">Jatkuva (MW)</string>
     <string name="pref_camera_focusmode_entry_extended">Laajennettu</string>
@@ -68,6 +76,7 @@
     <string name="pref_camera_focusmode_entry_normal">Normaali</string>
     <string name="pref_camera_focusmode_entry_portrait">Muotokuva</string>
     <string name="pref_camera_focusmode_entry_hyperfocal">Hyperfocal</string>
+    <!-- Color effects -->
     <string name="pref_camera_coloreffect_entry_washed">Pesty</string>
     <string name="pref_camera_coloreffect_entry_vintage_warm">Vintage, lämmin</string>
     <string name="pref_camera_coloreffect_entry_vintage_cold">Vintage, kylmä</string>
@@ -75,17 +84,23 @@
     <string name="pref_camera_coloreffect_entry_point_green">Keskity vihreään</string>
     <string name="pref_camera_coloreffect_entry_point_red_yellow">Keskity puna-keltaiseen</string>
     <string name="pref_camera_coloreffect_entry_cartoonize">Sarjakuvat</string>
+    <!-- Red eye flash mode title -->
     <string name="pref_camera_flashmode_entry_redeye">Punasilmäisyys</string>
     <string name="pref_camera_flashmode_label_redeye">PUNASILMÄISYYS</string>
+    <!-- Power shutter -->
     <string name="pref_camera_power_shutter_title">Kuvaus virtanäppäimellä</string>
+    <!-- Max brightness -->
     <string name="pref_camera_max_brightness_title">Kirkas näyttö</string>
+    <!-- Touch focus duration -->
     <string name="pref_camera_focustime_title">Kosketustarkennuksen kesto</string>
     <string name="pref_camera_focustime_entry_0">0s</string>
     <string name="pref_camera_focustime_entry_3">3s</string>
     <string name="pref_camera_focustime_entry_5">5s</string>
     <string name="pref_camera_focustime_entry_10">10s</string>
     <string name="pref_camera_focustime_entry_infinite">Loputon</string>
+    <!-- Shutter speed -->
     <string name="pref_camera_shutter_speed_title">Sulkijan nopeus</string>
+    <!-- Advanced options -->
     <string name="developer_menu_enabled">Kehittyneet kameran asetukset on otettu käyttöön</string>
     <string name="developer_menu_disabled">Kehittyneet kameran asetukset on poistettu käytöstä</string>
     <string name="pref_camera2_preferences_category_developer">Lisäasetukset</string>

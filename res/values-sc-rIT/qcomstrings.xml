@@ -20,64 +20,210 @@
     limitations under the License.
 -->
 <resources>
+    <!-- Video quality setting entry. Videos will be recorded in VGA quality. [CHAR LIMIT=24] -->
+    <!-- Video quality setting entry. Videos will be recorded in CIF quality. [CHAR LIMIT=24] -->
+    <!-- Video quality setting entry. Videos will be recorded in QVGA quality. [CHAR LIMIT=24] -->
+    <!-- Video quality setting entry. Videos will be recorded in QCIF quality. [CHAR LIMIT=24] -->
+    <!-- Settings screen, Power Mode title -->
+    <!-- Settings screen, Power mode dialog radio button choices -->
+    <!-- Settings screen, Power mode dialog radio button choices -->
+    <!-- Default Power mode.. -->
+    <!-- Default auto exposure setting. Do not translate. -->
+    <!-- Settings screen, Select auto exposure title -->
+    <!-- Settings screen, auto exposure dialog radio button choices -->
+    <!-- Auto exposure entry values. Do not translate. -->
+    <!-- Settings screen, Video encoder title -->
+    <!-- Settings screen, Video encoder dialog radio button choices -->
+    <!-- Default video encoder setting. A numerical value. -->
+    <!-- Settings screen, Video encoder dialog title -->
+    <!-- Default audio encoder setting. A numerical value. -->
+    <!-- Settings screen, Audio encoder title -->
+    <!-- Settings screen, Audio encoder dialog radio button choices -->
+    <!-- Default Skin Tone Enhancement setting. Do not translate. -->
+    <!-- Settings screen, Select Skin Tone Enhancement title -->
+    <!-- Settings screen, Skin Tone Enhancement radio button choices -->
     <string name="pref_camera_skinToneEnhancement_entry_enable">Abìlita</string>
     <string name="pref_camera_skinToneEnhancement_entry_disable">Disabìlita</string>
+    <!-- Skin Tone Enhancement entry values. Do not translate. -->
+    <!-- Settings screen, setting title text for ZSL-->
+    <!-- Default selectable zone af setting. Do not translate. -->
+    <!-- Settings screen, Selectable zone af title -->
+    <!-- Settings screen, Selectable Zone Af dialog radio button choices -->
+    <!-- Auto exposure entry values. Do not translate. -->
+    <!-- Settings screen, Selectable advanced features title -->
+    <!-- Settings screen, Selectable Zone Af dialog radio button choices -->
     <string name="pref_camera_advanced_feature_entry_none">Nudda</string>
+    <!-- Auto exposure entry values. Do not translate. -->
+    <!-- Manual exposure control entry values -->
     <string name="pref_camera_manual_exp_entry_off">Istudadu</string>
+    <!-- Manual white balance entry values -->
     <string name="pref_camera_manual_wb_entry_off">Istudadu</string>
+    <!-- Manual Focus entry values -->
     <string name="pref_camera_manual_focus_entry_off">Istudadu</string>
+    <!-- Instant Capture entry -->
     <string name="pref_camera_instant_capture_entry_disable">Disabìlita</string>
+    <!-- Instant Capture entry values -->
+    <!-- Settings screen, ZSL location dialog choices -->
     <string name="pref_camera_zsl_entry_off">Istudadu</string>
     <string name="pref_camera_zsl_entry_on">Allutu</string>
+    <!-- The message is shown in toast when HDR or scene mode is enabled -->
+    <!-- Settings screen, Video HDR location dialog choices -->
     <string name="pref_camera_video_hdr_entry_off">Istudadu</string>
     <string name="pref_camera_video_hdr_entry_on">Allutu</string>
+    <!-- Settings screen, CDS location dialog choices -->
     <string name="pref_camera_cds_entry_off">Istudadu</string>
     <string name="pref_camera_cds_entry_on">Allutu</string>
+    <!-- Settings screen, video CDS location dialog choices -->
     <string name="pref_camera_video_cds_entry_off">Istudadu</string>
     <string name="pref_camera_video_cds_entry_on">Allutu</string>
+    <!-- Settings screen, TNR location dialog choices -->
     <string name="pref_camera_tnr_entry_disable">Disabìlita</string>
     <string name="pref_camera_tnr_entry_enable">Abìlita</string>
+    <!-- Settings screen, TNR location dialog choices -->
+    <!-- Settings screen, video TNR location dialog choices -->
     <string name="pref_camera_video_tnr_entry_disable">Disabìlita</string>
     <string name="pref_camera_video_tnr_entry_enable">Abìlita</string>
+    <!-- Settings screen, video TNR location dialog choices -->
+    <!-- Settings screen, setting title text for Video HDR-->
+    <!-- Settings menu, setting title text for cds mode-->
+    <!-- Settings menu, setting title text for video cds mode-->
+    <!-- Default cds mode setting-->
+    <!-- Default video cds mode setting-->
+    <!-- Settings menu, setting title text for tnr mode-->
+    <!-- Settings menu, setting title text for video tnr mode-->
+    <!-- Default tnr mode setting-->
+    <!-- Default video tnr mode setting-->
+    <!-- Default face  detection setting. -->
+    <!-- Settings screen, Select Face Detection -->
+    <!-- Settings menu, Face Detection choices -->
     <string name="pref_camera_facedetection_entry_off">Istudadu</string>
     <string name="pref_camera_facedetection_entry_on">Allutu</string>
+    <!-- Default Selfie Flash setting. -->
+    <!-- Settings screen, Selfie Flash Detection -->
+    <!-- Settings menu, Selfie Flash choices -->
     <string name="pref_selfie_flash_entry_off">Istudadu</string>
     <string name="pref_selfie_flash_entry_on">Allutu</string>
+    <!-- Default redeye reduction setting. -->
+    <!-- Settings screen, Select Redeye Reduction -->
+    <!-- Settings menu, redeye reduction choices -->
     <string name="pref_camera_redeyereduction_entry_enable">Abìlita</string>
     <string name="pref_camera_redeyereduction_entry_disable">Disabìlita</string>
     <string name="pref_camera_selfiemirror_entry_enable">Abìlita</string>
     <string name="pref_camera_selfiemirror_entry_disable">Disabìlita</string>
     <string name="pref_camera_shuttersound_entry_enable">Abilitadu</string>
     <string name="pref_camera_shuttersound_entry_disable">Disabilitadu</string>
+    <!-- The message is shown in toast when the app encounters an unsupported selection for HFR/HSR mode -->
+    <!-- The message is shown in dialog when the app encounters an unsupported resolution for HFR mode -->
+    <!-- The message is shown in toast when the app encounters an unsupported resolution for DIS mode -->
+    <!-- The message is shown in dialog when the app encounters an unsupported resolution for HSR mode -->
+    <!-- The message is shown in dialog when the app encounters an unsupported video codec for HFR mode -->
+    <!-- The message is shown in dialog when the app encounters an unsupported video resolution-->
+    <!-- The message is shown in dialog when the app encounters an unsupported video profile-->
+    <!--The message is shown in dialog when the raw snapshot is selected in zsl mode-->
+    <!-- Settings screen, AE bracketing and HDR location dialog choices -->
     <string name="pref_camera_ae_bracket_hdr_entry_on">Allutu</string>
+    <!-- The messsage shown if user selects a snapshot resolution lower than the current video size. -->
+    <!-- The messsage shown if user selects a snapshot resolution in low power mode. -->
+    <!-- The messsage shown if user tries to take snapshot during D1/QCIF resolution. -->
+    <!-- Default hfr setting. Do not translate. -->
+    <!-- Settings screen, Select hfr title -->
+    <!-- Settings screen, hfr radio button choices -->
     <string name="pref_camera_hfr_entry_off">Istudadu</string>
+    <!-- HFR entry values. Do not translate. -->
+    <!-- Default noise reduction setting. Do not translate. -->
+    <!-- Settings screen, Select See More title -->
+    <!-- Settings screen, see more radio button choices -->
     <string name="pref_camera_noise_reduction_entry_off">Istudadu</string>
     <string name="pref_camera_noise_reduction_entry_fast">Lestru</string>
+    <!-- see more entry values. Do not translate. -->
+    <!-- Default see more setting. Do not translate. -->
+    <!-- Settings screen, Select See More title -->
+    <!-- Settings screen, see more radio button choices -->
     <string name="pref_camera_see_more_entry_off">Istudadu</string>
     <string name="pref_camera_see_more_entry_on">Allutu</string>
+    <!-- see more entry values. Do not translate. -->
+    <!-- Denoise Settings screen, setting title text -->
+    <!-- Denoise Settings screen, Record location dialog choices -->
     <string name="pref_camera_denoise_entry_off">Istudadu</string>
     <string name="pref_camera_denoise_entry_on">Allutu</string>
+    <!-- Default iso setting. Do not translate. -->
+    <!-- Settings screen, Select Iso title -->
+    <!-- Settings screen, ISO dialog radio button choices -->
+    <!-- ISO entry values. Do not translate. -->
+    <!-- Settings screen, Anti Banding title -->
+    <!-- Default Anti Banding setting. -->
+    <!-- Settings screen, Anti Banding entries -->
+    <!-- Default color effect setting. -->
     <string name="pref_camera_filter_mode_entry_on">Allutu</string>
     <string name="pref_camera_filter_mode_entry_off">Istudadu</string>
+    <!-- Settings screen, Select Color effect title -->
+    <!-- Settings screen, Color effect dialog radio button choices -->
     <string name="pref_camera_coloreffect_entry_none">Nudda</string>
     <string name="pref_camera_coloreffect_entry_sepia">Sèpia</string>
+    <!-- Color effect that overexposes and reverses some of the tones. -->
+    <!-- Select IS title -->
+    <!-- DIS choices -->
     <string name="pref_camera_dis_entry_off">Istudadu</string>
     <string name="pref_camera_dis_entry_on">Allutu</string>
+    <!-- Select Face Recognition title -->
+    <!-- Face Recognition choices -->
     <string name="pref_camera_facerc_entry_off">Istudadu</string>
     <string name="pref_camera_facerc_entry_on">Allutu</string>
+    <!-- Settings screen, Multiple levels entries -->
+    <!-- Settings screen, Multiple levels entries -->
+    <!-- Settings screen, Multiple levels entries -->
+    <!-- Default sharpness setting. Do not translate. -->
+    <!-- Settings screen, Select sharpness title -->
+    <!-- Default contrast setting. Do not translate. -->
+    <!-- Settings screen, Select contrast title -->
     <string name="pref_camera_contrast_title">Cuntrastu</string>
+    <!-- Default saturation setting. Do not translate. -->
+    <!-- Settings screen, Select saturation title -->
     <string name="pref_camera_saturation_title">Saturatzione</string>
+    <!-- Default picture quality setting. See
+         pref_camera_jpegquality_entryvalues for possible values -->
+    <!-- Default Picture format setting. Do not translate. -->
+    <!-- Settings screen, Select Picture format title -->
+    <!-- Settings screen, picture format dialog radio button choices -->
+    <!-- Picture format entry values. Do not translate. -->
+    <!-- Settings screen, Picture quality title -->
+    <!-- Settings screen, Picture quality dialog radio button choices -->
     <string name="pref_camera_jpegquality_entry_2">Arta</string>
+    <!-- Default auto histogram setting. Do not translate. -->
+    <!-- Settings screen, Select Histogram title -->
+    <!-- Settings screen, Histogram radio button choices -->
     <string name="pref_camera_histogram_entry_enable">Abìlita</string>
     <string name="pref_camera_histogram_entry_disable">Disabìlita</string>
+    <!-- Histogram entry values. Do not translate. -->
+    <!-- Default auto scene detection setting. -->
+    <!-- Settings screen, Select Auto Scene Detection -->
+    <!-- Settings menu, auto scene detection choices -->
     <string name="pref_camera_scenedetect_entry_off">Istudadu</string>
+    <!-- Scene detection set to on - supports backlight and snow cloudy detection. -->
     <string name="pref_camera_scenedetect_entry_on">Allutu</string>
+    <!-- Toast showing error if invalid size selected for  time lapse  [CHAR LIMIT=65] -->
+    <!-- longshot value -->
+    <!-- Toast showing non-supported functionality for flash in AE bracket -->
+    <!-- Settings screen, setting title text for Auto HDR-->
+    <!-- Settings screen, Auto HDR location dialog choices -->
     <string name="pref_camera_auto_hdr_entry_enable">Abìlita</string>
     <string name="pref_camera_auto_hdr_entry_disable">Disabìlita</string>
+    <!-- toast message for storage location switch -->
+    <!-- Settings screen, Selectable HDR mode title -->
+    <!-- Settings screen, Selectable HDR mode radio button choices -->
+    <!-- HDR mode entry values. Do not translate. -->
+    <!--Default video rotation setting-->
+    <!--Settings screen, video rotation title-->
+    <!--Menu, video rotation label-->
+    <!-- Settings screen, Video rotation dialog radio button choices -->
     <string name="pref_camera_video_rotation_entry_0">0 grados</string>
     <string name="pref_camera_video_rotation_entry_90">90 grados</string>
     <string name="pref_camera_video_rotation_entry_180">180 grados</string>
     <string name="pref_camera_video_rotation_entry_270">270 grados</string>
+    <!-- The message is shown in toast when click showOnMap Menu and there is no map app -->
+    <!-- Continuous shot enable message -->
+    <!-- Advanced features enable message -->
+    <!-- The alas of CameraActivity for gesture operation -->
     <string name="pref_camera_tsmakeup_entry_on">Allutu</string>
     <string name="pref_camera_tsmakeup_entry_off">Istudadu</string>
     <string name="pref_camera_tsmakeup_entry_high">Arta</string>
@@ -133,7 +279,9 @@
     <string name="pref_camera_bokeh_mode_entry_disable">Disabìlita</string>
     <string name="pref_camera_bokeh_mpo_entry_enable">Abìlita</string>
     <string name="pref_camera_bokeh_mpo_entry_disable">Disabìlita</string>
+    <!-- Default Zoom setting. -->
     <string name="pref_camera_zoom_title">Ismanniamentu</string>
+    <!-- Settings menu, Zoom choices -->
     <string name="pref_camera_zoom_entry_off">Istudadu</string>
     <string name="pref_camera_zoom_entry_1x">1x</string>
     <string name="pref_camera_zoom_entry_2x">2x</string>
@@ -150,6 +298,8 @@
     <string name="pref_camera2_zsl_entry_disable">Istudadu</string>
     <string name="pref_camera2_afmode_entry_disable">Disabilitadu</string>
     <string name="pref_camera2_afmode_entry_off">Istudadu</string>
+    <!-- QCFA Title -->
+    <!-- QCFA choices -->
     <string name="pref_camera2_eis_entry_disable">Disabilitadu</string>
     <string name="pref_camera2_fovc_entry_enable">Abilitadu</string>
     <string name="pref_camera2_fovc_entry_disable">Disabilitadu</string>
@@ -163,5 +313,9 @@
     <string name="pref_camera2_fs2_entry_disable">Disabilitadu</string>
     <string name="pref_camera2_abort_captures_entry_enable">Abilitadu</string>
     <string name="pref_camera2_abort_captures_entry_disable">Disabilitadu</string>
+    <!-- tone mapping -->
+    <!-- tone mapping entry-->
     <string name="pref_camera_tone_mapping_entry_off">Istudadu</string>
+    <!-- tone mapping entry value-->
+    <!-- Multi camera value -->
 </resources>

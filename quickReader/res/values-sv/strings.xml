@@ -14,10 +14,24 @@
      limitations under the License.
 -->
 <resources>
+    <!-- QuickReader: switcher item for qr -->
     <string name="accessibility_switch_to_qr">QR-läsare</string>
+    <!-- QuickReader: dismiss button for dialogs -->
     <string name="quick_reader_action_dismiss">Avvisa</string>
+    <!-- QuickReader: toast shown when there's no app installed to open the qr code content -->
+    <!-- QuickReader: permission error dialog title -->
+    <!-- QuickReader: permission error dialog message when permission can be asked again -->
+    <!-- QuickReader: permission error dialog positive action when permission can be asked again -->
     <string name="quick_reader_permission_rationale_positive">Fråga igen</string>
+    <!-- QuickReader: permission error dialog message when permission can't be asked again -->
+    <!-- QuickReader: permission error dialog positive action when permission can't be asked again -->
+    <!-- QuickReader: scanned text dialog title -->
+    <!-- QuickReader: scanned text dialog positive button (copy to clipboard) -->
     <string name="quick_reader_scanned_text_positive">Kopiera</string>
+    <!-- QuickReader: scanned text dialog negative button (share) -->
     <string name="quick_reader_scanned_text_negative">Dela</string>
+    <!-- QuickReader: scanned text shared activity selector title -->
     <string name="quick_reader_share_title">Dela med\u2026</string>
+    <!-- QuickReader: toast shown when the scanned text has been copied to the clipboard -->
+    <!-- QuickReader: Action is only allowed when performed unlocked -->
 </resources>

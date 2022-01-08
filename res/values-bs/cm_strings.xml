@@ -15,5 +15,20 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- common aspect ratios -->
+    <!-- aspect ratio greater than 16:9, so "widescreen" or "cinematic" -->
+    <!-- Format for entries in the picture size menu. Parameter one is aspect ratio,
+         parameter two is size in megapixels, e.g. "(4:3) 12.1 megapixels"
+         NOTE: for Chinese (zh) and Korean (ko) the pixel number (parameter two)
+         will be multiplied by 100 as those languages want to count by ten thousands -->
+    <!-- Settings screen, scene mode -->
+    <!-- Settings screen, focus mode -->
+    <!-- Color effects -->
+    <!-- Red eye flash mode title -->
+    <!-- Power shutter -->
+    <!-- Max brightness -->
+    <!-- Touch focus duration -->
+    <!-- Shutter speed -->
+    <!-- Advanced options -->
     <string name="pref_camera2_preferences_category_developer">Napredne opcije</string>
 </resources>

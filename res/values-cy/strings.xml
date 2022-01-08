@@ -14,12 +14,20 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- The name of the Android Camera application. [CHAR LIMIT=16] -->
     <string name="app_name">Camera</string>
+    <!-- The label for the Video Camera activity. [CHAR LIMIT=16] -->
     <string name="video_camera_label">Camera Fideo</string>
+    <!-- Used to format short video duration in Details dialog. minutes:seconds e.g. 00:30 -->
     <string name="details_ms">%1$02d:%2$02d</string>
+    <!-- Used to format video duration in Details dialog. hours:minutes:seconds e.g. 0:21:30 -->
     <string name="details_hms">%1$d:%2$02d:%3$02d</string>
+    <!-- Displayed in the title of the dialog for things to do with a picture
+             that is to be "set as" (e.g. set as contact photo or set as wallpaper) -->
     <string name="set_image">Gosod y llun fel</string>
+    <!-- Details dialog "OK" button. Dismisses dialog. -->
     <string name="delete">Dileu</string>
+    <!-- String Delete the selected media item(s) [CHAR LIMIT=50] -->
     <plurals name="delete_selection">
         <item quantity="zero">Dileu\'r eitemau a ddewiswyd?</item>
         <item quantity="one">Dileu\'r eitem a ddewiswyd?</item>
@@ -31,10 +39,14 @@
     <string name="share">Rhannu</string>
     <string name="share_panorama">Rhannu\'r panorama</string>
     <string name="share_as_photo">Rhannu fel llun</string>
+    <!-- The label shown after an image is deleted [CHAR LIMIT=16] -->
     <string name="deleted">Dilëwyd</string>
+    <!-- The label on the button which when clicked will undo a deletion of image [CHAR LIMIT=16]-->
     <string name="undo">DADWNEUD</string>
     <string name="details">Manylion</string>
     <string name="close">Cau</string>
+    <!-- String indicating how many media item(s) is(are) selected
+            eg. 1 selected [CHAR LIMIT=30] -->
     <plurals name="number_of_items_selected">
         <item quantity="zero">%1$d wedi\'u dewis</item>
         <item quantity="one">%1$d wedi\'i dewis</item>
@@ -43,6 +55,8 @@
         <item quantity="many">%1$d wedi\'u dewis</item>
         <item quantity="other">%1$d wedi\'u dewis</item>
     </plurals>
+    <!-- String indicating how many media album(s) is(are) selected
+            eg. 1 selected [CHAR LIMIT=30] -->
     <plurals name="number_of_albums_selected">
         <item quantity="zero">%1$d wedi\'u dewis</item>
         <item quantity="one">%1$d wedi\'i dewis</item>
@@ -51,6 +65,8 @@
         <item quantity="many">%1$d wedi\'u dewis</item>
         <item quantity="other">%1$d wedi\'u dewis</item>
     </plurals>
+    <!-- String indicating how many media group(s) is(are) selected
+            eg. 1 selected [CHAR LIMIT=30] -->
     <plurals name="number_of_groups_selected">
         <item quantity="zero">%1$d wedi\'u dewis</item>
         <item quantity="one">%1$d wedi\'i dewis</item>
@@ -59,60 +75,117 @@
         <item quantity="many">%1$d wedi\'u dewis</item>
         <item quantity="other">%1$d wedi\'u dewis</item>
     </plurals>
+    <!-- String indicating timestamp of photo or video -->
     <string name="show_on_map">Dangos ar fap</string>
     <string name="rotate_left">Cylchdroi\'n wrthglocwedd</string>
     <string name="rotate_right">Cylchdroi i\'r dde</string>
+    <!-- String used as a menu label. The user can choose to edit the image
+         [CHAR_LIMIT=20]-->
     <string name="edit">Golygu</string>
+    <!-- The title of the menu item to let user crop the image. [CHAR LIMIT=15] -->
     <string name="crop_action">Tocio</string>
+    <!-- The title of the menu item to let user trim the video. [CHAR LIMIT=15] -->
     <string name="trim_action">Tocio</string>
+    <!-- The title of the menu item to let user set the image as background etc. [CHAR LIMIT=15] -->
     <string name="set_as">Gosod fel</string>
+    <!-- String indicating an error when playing the video. [CHAR LIMIT=30] -->
     <string name="video_err">Methu â chwarae\'r fideo.</string>
+    <!-- Toast message shown when the cropped image has been saved in the
+         %s folder (string: folder_download) [CHAR LIMIT=50]-->
     <string name="crop_saved">Cadwyd y ddelwedd wedi\'i thocio yn <xliff:g id="folder_name">%s</xliff:g>.</string>
+    <!-- Text indicating the title of a media item in details window [CHAR LIMIT=14] -->
     <string name="title">Teitl</string>
+    <!-- Text indicating the description of a media item in details window [CHAR LIMIT=14] -->
     <string name="description">Disgrifiad</string>
+    <!-- Text indicating the creation time of a media item in details window [CHAR LIMIT=14] -->
     <string name="time">Amser</string>
+    <!-- Text indicating the location of a media item in details window [CHAR LIMIT=14] -->
     <string name="location">Lleoliad</string>
+    <!-- Text indicating the path of a media item in details window [CHAR LIMIT=14] -->
     <string name="path">Llwybr</string>
+    <!-- Text indicating the width of a media item in details window [CHAR LIMIT=14] -->
     <string name="width">Lled</string>
+    <!-- Text indicating the height of a media item in details window [CHAR LIMIT=14] -->
     <string name="height">Uchder</string>
+    <!-- Text indicating the orientation of a media item in details window [CHAR LIMIT=14] -->
     <string name="orientation">Gorweddiad</string>
+    <!-- Text indicating the duration of a video item in details window [CHAR LIMIT=18] -->
     <string name="duration">Hyd</string>
+    <!-- Text indicating the mime type of a media item in details window [CHAR LIMIT=14] -->
     <string name="mimetype">Math MIME</string>
+    <!-- Text indicating the file size of a media item in details window [CHAR LIMIT=14] -->
     <string name="file_size">Maint ffeil</string>
+    <!-- Text indicating the maker of a media item in details window [CHAR LIMIT=14] -->
     <string name="maker">Gwneuthurwr</string>
+    <!-- Text indicating the model of a media item in details window [CHAR LIMIT=14] -->
     <string name="model">Model</string>
+    <!-- Text indicating flash info of a media item in details window [CHAR LIMIT=14] -->
     <string name="flash">Flach</string>
+    <!-- Text indicating aperture of a media item in details window [CHAR LIMIT=14] -->
     <string name="aperture">Agorfa</string>
+    <!-- Text indicating the focal length of a media item in details window [CHAR LIMIT=14] -->
     <string name="focal_length">Hyd Ffocal</string>
+    <!-- Text indicating the white balance of a media item in details window [CHAR LIMIT=18] -->
     <string name="white_balance">Cydbwysedd gwyn</string>
+    <!-- Text indicating the exposure time of a media item in details window [CHAR LIMIT=14] -->
     <string name="exposure_time">Amser amlygiad</string>
+    <!-- Text indicating the ISO speed rating of a media item in details window [CHAR LIMIT=14] -->
     <string name="iso">ISO</string>
+    <!-- String indicating the time units in seconds. [CHAR LIMIT=8] -->
+    <!-- String indicating the length units in milli-meters. [CHAR LIMIT=8] -->
     <string name="unit_mm">mm</string>
+    <!-- String indicating how camera shooting feature is used. [CHAR LIMIT=12] -->
     <string name="manual">Â llaw</string>
+    <!-- String indicating how camera shooting feature is used. [CHAR LIMIT=12 -->
     <string name="auto">Awto</string>
+    <!-- String indicating camera flash is fired. [CHAR LIMIT=14] -->
     <string name="flash_on">Taniodd y fflach</string>
+    <!-- String indicating camera flash is not used. [CHAR LIMIT=14] -->
     <string name="flash_off">Dim fflach</string>
+    <!-- String indicating image width or height is unknown. [CHAR LIMIT=14] -->
     <string name="unknown">Anhysybys</string>
+    <!-- Toast message shown after we try to make a local album available offline
+         [CHAR LIMIT=150] -->
     <string name="try_to_set_local_album_available_offline">Mae\'r eitem hon wedi ei gadw\'n lleol ac ar gael all-lein.</string>
+    <!-- The content of a dialog showing trimming in progress. [CHAR LIMIT=30] -->
     <string name="please_wait">Arhosa</string>
+    <!-- Text to show with progress bar while stitching a photo sphere. 'Photo sphere' is a product name. [CHAR LIMIT=35]-->
     <string name="rendering_photo_sphere">Yn rendro\'r llun sffêr</string>
+    <!-- title for the dialog showing the error of camera hardware -->
     <string name="camera_error_title">Gwall camera</string>
+    <!-- message for the dialog showing the error of camera hardware -->
     <string name="cannot_connect_camera">Methu â chysylltu â\'r camera.</string>
+    <!-- message for the dialog showing the camera is disabled because of security policies. Camera cannot be used. -->
     <string name="camera_disabled">Mae\'r camera wedi\'i analluogi oherwydd polisïau diogelwch.</string>
+    <!-- message for the dialog showing that the app does not have sufficient permissions [CHAR LIMIT=NONE] -->
     <string name="error_permissions">Nid oes gan yr ap yr hawliau sydd ei angen arno er mwyn rhedeg. Gwiria dy osodiadau caniatâd.</string>
+    <!-- Dialog "Dismiss" button. Closes the dialog [CHAR LIMIT=12]-->
     <string name="dialog_dismiss">Gwrthod</string>
+    <!-- alert to the user to wait for some operation to complete -->
     <string name="wait">Arhosa\u2026</string>
+    <!-- alert to the user that an SD card must be installed before using the camera -->
     <string name="no_storage" product="default">Gosoda gerdyn SD cyn defnyddio\'r camera.</string>
+    <!-- alert to the user that the SD card is being disk-checked -->
     <string name="preparing_sd" product="default">Yn paratoi\'r cerdyn SD\u2026</string>
+    <!-- alert to the user that the camera fails to read or write the SD card. -->
     <string name="access_sd_fail" product="default">Methwyd â chael at y cerdyn SD.</string>
+    <!-- A label that overlays on top of the preview frame to indicate the camcorder is in time lapse mode [CHAR LIMIT=35] -->
     <string name="time_lapse_title">Recordiad treigl amser</string>
+    <!-- Screen display message during image capture to indicate that the capture is in progress, like during HDR+. [CHAR LIMIT=20] -->
     <string name="capturing">Cipio</string>
+    <!-- Settings screen, camera selection dialog title. Users can select a camera from the phone (front-facing or back-facing). [CHAR LIMIT=20] -->
     <string name="pref_camera_id_title">Dewis camera</string>
+    <!-- In select camera setting, back facing camera. [CHAR LIMIT=14] -->
     <string name="pref_camera_id_entry_back">Nôl</string>
+    <!-- In select camera setting, front-facing camera. [CHAR LIMIT=14] -->
     <string name="pref_camera_id_entry_front">Blaen</string>
+    <!-- Settings screen, setting title text -->
     <string name="pref_camera_recordlocation_title">Lleoliad GPS</string>
+    <!--  Label for record location preference [CHAR LIMIT=50] -->
     <string name="pref_camera_location_label">LLEOLIAD</string>
+    <!-- Title for countdown timer on camera settings screen [CHAR LIMIT=30]-->
     <string name="pref_camera_timer_title">Amserydd cyfrif i lawr</string>
+    <!-- Entry for countdown timer setting. e.g. 1 second, 10 seconds, etc. [CHAR LIMIT=30]-->
     <plurals name="pref_camera_timer_entry">
         <item quantity="zero">%d eiliad</item>
         <item quantity="one">1 eiliad</item>
@@ -121,186 +194,384 @@
         <item quantity="many">%d eiliad</item>
         <item quantity="other">%d eiliad</item>
     </plurals>
+    <!-- Text followed by a checkbox to turn on/off sound effects during the countdown. [CHAR LIMIT = 24]-->
     <string name="pref_camera_timer_sound_title">Bipio wrth gyfrif i lawr</string>
+    <!-- Entry of camera save path -->
     <string name="pref_camera_savepath_title">Storfa</string>
     <string name="pref_camera_savepath_entry_0">Ffôn</string>
     <string name="pref_camera_savepath_entry_1">Cerdyn SD</string>
+    <!-- Entry of a on/off setting. The setting is turned off. [CHAR LIMIT=15] -->
     <string name="setting_off">I Ffwrdd</string>
+    <!-- Entry of a on/off setting. The setting is turned on. [CHAR LIMIT=15] -->
     <string name="setting_on">Ymlaen</string>
+    <!-- The value of a camera preference indicating the setting is off. -->
+    <!-- The value of a camera preference indicating the setting is on. -->
+    <!-- The Video quality settings in preference [CHAR LIMIT=21] -->
     <string name="pref_video_quality_title">Ansawdd fideo</string>
+    <!-- The default quality value is NULL -->
+    <!-- Video quality setting entry.
+    Videos will be recorded in 8k DCI quality. [CHAR LIMIT=24] -->
+    <!-- Video quality setting entry.
+    Videos will be recorded in 4k DCI quality. [CHAR LIMIT=24] -->
+    <!-- Video quality setting entry.
+    Videos will be recorded in 4k UHD quality. [CHAR LIMIT=24] -->
+    <!-- Video quality setting entry. Videos will be recorded in 1080p quality. [CHAR LIMIT=24] -->
+    <!-- Video quality setting entry. Videos will be recorded in 720p quality. [CHAR LIMIT=24] -->
+    <!-- Video quality setting entry. Videos will be recorded in 480p quality. [CHAR LIMIT=24] -->
+    <!-- Video quality setting entry. Videos will be recorded in QHD quality. [CHAR LIMIT=24] -->
+    <!-- Video quality setting entry. Videos will be recorded in 2K quality. [CHAR LIMIT=24] -->
+    <!-- Describes the preference dialog for choosing interval between frame capture for
+    time lapse recording. Appears at top of the dialog. [CHAR LIMIT=30] -->
     <string name="pref_video_time_lapse_frame_interval_title">Treigl amser</string>
+    <!-- Settings screen, Camera setting category title -->
     <string name="pref_camera_settings_category">Gosodiadau camera</string>
+    <!-- Settings screen, Camcorder setting category title -->
     <string name="pref_camcorder_settings_category">Gosodiadau fideo</string>
+    <!-- Settings screen, Picture size title -->
     <string name="pref_camera_picturesize_title">Maint llun</string>
+    <!-- Settings screen, Focus mode title -->
     <string name="pref_camera_focusmode_title">Modd ffocysu</string>
+    <!-- Settings screen, Focus mode dialog radio button choices -->
     <string name="pref_camera_focusmode_entry_auto">Awto</string>
+    <!-- A setting that lets the camera focus into infinity. [CHAR LIMIT=20] -->
     <string name="pref_camera_focusmode_entry_infinity">Anfeidredd</string>
+    <!-- A setting that lets the camera operate in macro focus mode for nearby objects. [CHAR LIMIT=20] -->
     <string name="pref_camera_focusmode_entry_macro">Macro</string>
+    <!-- Menu, focus mode labels [CHAR LIMIT=50] -->
     <string name="pref_camera_focusmode_label_auto">AWTO</string>
     <string name="pref_camera_focusmode_label_infinity">ANFEIDREDD</string>
     <string name="pref_camera_focusmode_label_macro">MACRO</string>
+    <!-- Default flash mode setting.-->
+    <!-- Value for flash off setting-->
+    <!-- Settings screen, Flash mode title -->
     <string name="pref_camera_flashmode_title">Flach</string>
+    <!-- Settings screen, Flash mode 'auto'. [CHAR LIMIT=12] -->
     <string name="pref_camera_flashmode_entry_auto">Awto</string>
+    <!-- Settings screen, Flash mode 'alway on'. [CHAR LIMIT=12] -->
     <string name="pref_camera_flashmode_entry_on">Ymlaen</string>
+    <!-- Settings screen, Flash mode 'always off'. [CHAR LIMIT=12] -->
     <string name="pref_camera_flashmode_entry_off">I ffwrdd</string>
+    <!-- Menu, flash mode labels [CHAR LIMIT=50] -->
     <string name="pref_camera_flashmode_label_auto">FFLACH - AWTO</string>
     <string name="pref_camera_flashmode_label_on">FFLACH - GORFODI</string>
     <string name="pref_camera_flashmode_label_off">FFLACH - DIM</string>
+    <!-- Default videocamera flash mode setting.-->
+    <!-- Default white balance setting. -->
+    <!-- Settings screen, white balance title -->
     <string name="pref_camera_whitebalance_title">Cydbwysedd gwyn</string>
+    <!-- Menu, white balance label -->
     <string name="pref_camera_whitebalance_label">CYDBWYSEDD GWYN</string>
+    <!-- Settings screen, White balance dialog radio button choices -->
     <string name="pref_camera_whitebalance_entry_auto">Awto</string>
     <string name="pref_camera_whitebalance_entry_incandescent">Gwynias</string>
     <string name="pref_camera_whitebalance_entry_daylight">Golau dydd</string>
     <string name="pref_camera_whitebalance_entry_fluorescent">Fflwroleuol</string>
     <string name="pref_camera_whitebalance_entry_cloudy">Cymylog</string>
+    <!-- Menu, White balance labels [CHAR LIMIT=50] -->
     <string name="pref_camera_whitebalance_label_auto">AWTO</string>
     <string name="pref_camera_whitebalance_label_incandescent">GWYNIAS</string>
     <string name="pref_camera_whitebalance_label_daylight">GOLAU DYDD</string>
     <string name="pref_camera_whitebalance_label_fluorescent">FFLWROLEUOL</string>
     <string name="pref_camera_whitebalance_label_cloudy">CYMYLOG</string>
+    <!-- Default scene mode setting. -->
+    <!-- Settings screen, Select Scene mode -->
     <string name="pref_camera_scenemode_title">Modd olygfa</string>
+    <!-- Settings menu, scene mode choices [CHAR LIMIT=16] -->
     <string name="pref_camera_scenemode_entry_auto">Awto</string>
+    <!-- Scene mode that uses HDR plus (better HDR) [CHAR LIMIT=16] -->
     <string name="pref_camera_scenemode_entry_hdr_plus">HDR+</string>
+    <!-- Scene mode that uses HDR (high dynamic range) [CHAR LIMIT=16] -->
     <string name="pref_camera_scenemode_entry_hdr">HDR</string>
+    <!-- Scene mode to turn on HDR (better high dynamic range) [CHAR LIMIT=50] -->
     <string name="pref_camera_scenemode_entry_turn_hdr_plus_on">HDR+ YMLAEN</string>
+    <!-- Scene mode to turn off HDR (better high dynamic range) [CHAR LIMIT=50] -->
     <string name="pref_camera_scenemode_entry_turn_hdr_plus_off">HDR+ I FFWRDD</string>
+    <!-- Scene mode to turn on HDR (high dynamic range) [CHAR LIMIT=50] -->
     <string name="pref_camera_scenemode_entry_turn_hdr_on">HDR YMLAEN</string>
+    <!-- Scene mode to turn off HDR (high dynamic range) [CHAR LIMIT=50] -->
     <string name="pref_camera_scenemode_entry_turn_hdr_off">HDR I FFWRDD</string>
+    <!-- Scene mode that takes an image quickly with little motion blur. [CHAR LIMIT=16] -->
     <string name="pref_camera_scenemode_entry_action">Symudiad</string>
+    <!-- Scene mode that takes long exposures to capture night scenes without flash. [CHAR LIMIT=16] -->
     <string name="pref_camera_scenemode_entry_night">Nos</string>
+    <!-- Scene mode optimized for taking images in the sunset. [CHAR LIMIT=16] -->
     <string name="pref_camera_scenemode_entry_sunset">Machlud</string>
+    <!-- Scene mode optimized for taking indoor low-lights pictures. [CHAR LIMIT=16] -->
     <string name="pref_camera_scenemode_entry_party">Parti</string>
+    <!-- Scene mode for refocus feature [CHAR LIMIT=16] -->
+    <!-- Settings menu, scene mode labels [CHAR LIMIT=50] -->
     <string name="pref_camera_scenemode_label_auto">DIM</string>
+    <!-- Scene mode that takes an image quickly with little motion blur. [CHAR LIMIT=50] -->
     <string name="pref_camera_scenemode_label_action">SYMUD</string>
+    <!-- Scene mode that takes long exposures to capture night scenes without flash. [CHAR LIMIT=50] -->
     <string name="pref_camera_scenemode_label_night">NOS</string>
+    <!-- Scene mode optimized for taking images in the sunset. [CHAR LIMIT=50] -->
     <string name="pref_camera_scenemode_label_sunset">MACHLUD</string>
+    <!-- Scene mode optimized for taking indoor low-lights pictures. [CHAR LIMIT=50] -->
     <string name="pref_camera_scenemode_label_party">PARTI</string>
+    <!-- Settings menu countdown timer off [CHAR LIMIT=50] -->
     <string name="pref_camera_countdown_label_off">AMSERYDD I FFWRDD</string>
+    <!-- Settings menu countdown timer 1 second [CHAR LIMIT=50] -->
     <string name="pref_camera_countdown_label_one">1 EILIAD</string>
+    <!-- Settings menu countdown timer 3 seconds [CHAR LIMIT=50] -->
     <string name="pref_camera_countdown_label_three">3 EILIAD</string>
+    <!-- Settings menu countdown timer 10 seconds [CHAR LIMIT=50] -->
     <string name="pref_camera_countdown_label_ten">10 EILIAD</string>
+    <!-- Settings menu countdown timer 15 seconds [CHAR LIMIT=50] -->
     <string name="pref_camera_countdown_label_fifteen">15 EILIAD</string>
+    <!-- Toast after trying to select a setting that is not allowed to change in scene mode [CHAR LIMIT=NONE] -->
     <string name="not_selectable_in_scene_mode">Nid yw\'n bosib ei ddewis mewn modd golygfa.</string>
+    <!-- Toast after enable HDR function to inform Continuous Shot has disabled -->
     <string name="HDR_disable_continuous_shot">Bydd HDR yn analluogi cipio parhaus.</string>
+    <!-- Toast after enable Advanced Capture function to inform Continuous Shot has disabled -->
     <string name="advanced_capture_disable_continuous_shot">Bydd cipiad uwch yn analluogi cipio parhaus.</string>
+    <!-- Toast after enable 2k4k video quality to inform IS has disabled -->
     <string name="video_quality_4k_disable_IS">Bydd defnyddio ansawdd fideo 4k yn analluogi sefydlogi\'r llun.</string>
+    <!-- Toast after 2k4k video is enabled to inform SeeMore has been disabled -->
     <string name="video_quality_4k_disable_SeeMore">Ni ellir galluogi SeeMore yn ystod fideo 4k.</string>
+    <!-- Toast after High Quality Noise Reduction has been enabled to show CDS is disabled -->
     <string name="disable_CDS_during_HighQualityNoiseReduction">Bydd lleihad sŵn o ansawdd uchel yn analluogi CDS.</string>
+    <!-- Toast after High Quality Noise Reduction has been enabled to show TNR is disabled -->
     <string name="disable_TNR_during_HighQualityNoiseReduction">Bydd lleihad sŵn o ansawdd uchel yn analluogi TNR.</string>
+    <!-- Toast after SeeMore has been enabled to show CDS is disabled -->
     <string name="disable_CDS_during_SeeMore">Bydd SeeMore yn analluogi CDS.</string>
+    <!-- Toast after SeeMore has been enabled to show TNR is disabled -->
     <string name="disable_TNR_during_SeeMore">Bydd SeeMore yn analluogi TNR.</string>
+    <!-- Toast after SeeMore has been enabled to show NR is disabled -->
     <string name="disable_NR_during_SeeMore">Bydd SeeMore yn analluogi lleihad sŵn.</string>
+    <!-- Exposure settings in preference -->
     <string name="pref_exposure_title">Amlygiad</string>
+    <!--  menu label exposure compensation [CHAR LIMIT=50] -->
     <string name="pref_exposure_label">AMLYGIAD</string>
+    <!-- Default HDR entry value -->
+    <!-- Default HDR+ entry value -->
+    <!-- HDR label ON [CHAR LIMIT=60] -->
     <string name="pref_camera_hdr_label">HDR</string>
+    <!-- switch camera label back [CHAR LIMIT=60] -->
     <string name="pref_camera_id_label_back">CAMERA BLAEN</string>
+    <!-- switch camera label front [CHAR LIMIT=60] -->
     <string name="pref_camera_id_label_front">CAMERA CEFN</string>
+    <!-- Dialog "OK" button. Dismisses dialog. -->
     <string name="dialog_ok">Iawn</string>
+    <!-- Low-memory dialog message [CHAR LIMIT=NONE] -->
     <string name="spaceIsLow_content" product="default">Mae dy gerdyn SD yn rhedeg yn brin o le. Newidia\'r gosodiad ansawdd neu ddileu rhai lluniau neu ffeiliau eraill.</string>
+    <!-- Camera format string for new image files. Passed to java.text.SimpleDateFormat. -->
+    <!-- Video Camera format string for new video files. Passed to java.text.SimpleDateFormat. -->
+    <!-- Filename prefix for panorama output. -->
+    <!-- The message shown when video record reaches size limit. -->
     <string name="video_reach_size_limit">Wedi cyrraedd y terfyn maint.</string>
+    <!-- The text shown when the panorama panning speed is to fast [CHAR LIMIT=16] -->
     <string name="pano_too_fast_prompt">Rhy gyflym</string>
+    <!-- The text shown in the progress dialog when panorama preview is generating in the background [CHAR LIMIT=30] -->
     <string name="pano_dialog_prepare_preview">Yn paratoi\'r panorama</string>
+    <!-- The text shown in the dialog when panorama saving failed [CHAR LIMIT=40] -->
     <string name="pano_dialog_panorama_failed">Methwyd â chadw\'r panorama.</string>
+    <!-- The text shown on the dialog title in the dialogs for Panorama [CHAR LIMIT=12] -->
     <string name="pano_dialog_title">Panorama</string>
+    <!-- The text shown on the top-left corner of the screen to indicate the capturing is on going [CHAR LIMIT=27] -->
     <string name="pano_capture_indication">Yn cipio panorama</string>
+    <!-- The text shown in the progress dialog when waiting for previous panorama finishing [CHAR LIMIT=40] -->
     <string name="pano_dialog_waiting_previous">Yn disgwyl am y panorama blaenorol</string>
+    <!-- The text shown on the bottom-left corner of the screen to indicate that the saving is in process [CHAR LIMIT=13] -->
     <string name="pano_review_saving_indication_str">Yn cadw\u2026</string>
+    <!-- The text shown on the screen to indicate that the panorama is rendering [CHAR LIMIT=27] -->
     <string name="pano_review_rendering">Yn rendro\'r panorama</string>
+    <!-- Toast telling users tapping on the viewfinder will trigger autofocus [CHAR LIMIT=28] -->
     <string name="tap_to_focus">Cyffyrdda i ffocysu.</string>
+    <!-- Default effect setting that clears the effect. -->
+    <!-- Title of video effect setting popup window -->
     <string name="pref_video_effect_title">Effeithiau</string>
+    <!-- Effect setting item that clear the effect. [CHAR LIMIT=14] -->
     <string name="effect_none">Dim</string>
+    <!-- Effect setting item that squeezes the face. [CHAR LIMIT=14] -->
     <string name="effect_goofy_face_squeeze">Gwasgu</string>
+    <!-- Effect setting item that makes eyes big. [CHAR LIMIT=14] -->
     <string name="effect_goofy_face_big_eyes">Llygaid mawr</string>
+    <!-- Effect setting item that makes mouth big. [CHAR LIMIT=14] -->
     <string name="effect_goofy_face_big_mouth">Ceg fawr</string>
+    <!-- Effect setting item that makes mouth small. [CHAR LIMIT=14] -->
     <string name="effect_goofy_face_small_mouth">Ceg fach</string>
+    <!-- Effect setting item that makes nose big. [CHAR LIMIT=14] -->
     <string name="effect_goofy_face_big_nose">Trwyn mawr</string>
+    <!-- Effect setting item that makes eyes small. [CHAR LIMIT=14] -->
     <string name="effect_goofy_face_small_eyes">Llygaid bach</string>
+    <!-- Effect setting item that replaces background with Android in Space. [CHAR LIMIT=14] -->
     <string name="effect_backdropper_space">Yn y gofod</string>
+    <!-- Effect setting item that replaces background with a sunset. [CHAR LIMIT=14] -->
     <string name="effect_backdropper_sunset">Machlud</string>
+    <!-- Effect setting item that replaces background with video from gallery. [CHAR LIMIT=14] -->
     <string name="effect_backdropper_gallery">Dy fideo</string>
+    <!-- Toast telling users tapping on the viewfinder will take a picture [CHAR LIMIT=54] -->
     <string name="video_snapshot_hint">Cyffyrdda i dynnu llun wrth recordio.</string>
+    <!-- Announcement telling users video recording has just started [CHAR LIMIT=NONE] -->
     <string name="video_recording_started">Mae recordio fideo wedi dechrau.</string>
+    <!-- Announcement telling users video recording has just stopped [CHAR LIMIT=NONE] -->
     <string name="video_recording_stopped">Mae recordio fideo wedi stopio.</string>
+    <!-- A button in effect setting popup to clear the effect. [CHAR LIMIT=26] -->
     <string name="clear_effects">Clirio effeithiau</string>
+    <!-- Title of category for silly face effects. [CHAR LIMIT=26] -->
     <string name="effect_silly_faces">WYNEBAU GWIRION</string>
+    <!-- Title of category for background replacement effects. [CHAR LIMIT=26] -->
     <string name="effect_background">CEFNDIR</string>
+    <!-- The shutter button. [CHAR LIMIT = NONE] -->
     <string name="accessibility_shutter_button">Caead</string>
+    <!-- The exit best photo mode button. [CHAR LIMIT = NONE] -->
     <string name="accessibility_exit_best_mode_button">Gadael modd llun gorau</string>
+    <!-- The menu button. [CHAR LIMIT = NONE] -->
     <string name="accessibility_menu_button">Botwm dewislen</string>
+    <!-- The mode picker to switch between camera, video and panorama. [CHAR LIMIT = NONE] -->
     <string name="accessibility_mode_picker">Dewisydd camera, fideo, neu banorama</string>
+    <!-- The check box in camera settings, such as store location. [CHAR LIMIT = NONE] -->
     <string name="accessibility_check_box">%1$s blwch tic</string>
+    <!-- The button to switch to Camera mode. [CHAR LIMIT = NONE] -->
     <string name="accessibility_switch_to_camera">Newid i lun</string>
+    <!-- The button to switch to Video mode. [CHAR LIMIT = NONE] -->
     <string name="accessibility_switch_to_video">Newid i fideo</string>
+    <!-- The button to switch to Panorama mode. [CHAR LIMIT = NONE] -->
     <string name="accessibility_switch_to_panorama">Newid i banorama</string>
+    <!-- The button to switch to the Photo Sphere mode. [CHAR LIMIT = NONE] -->
     <string name="accessibility_switch_to_photo_sphere">Newid i Lun Sffêr</string>
+    <!-- The button to switch to the high quality mode. [CHAR LIMIT = NONE] -->
     <string name="accessibility_switch_to_gcam">Newid i ansawdd uchel</string>
+    <!-- The button in review mode indicating that the photo taking, video recording, and panorama saving session should be canceled [CHAR LIMIT = NONE] -->
     <string name="accessibility_review_cancel">Diddymu adolygu</string>
+    <!-- The button in review mode indicating that the taken photo/video is OK to be attached/uploaded [CHAR LIMIT = NONE] -->
     <string name="accessibility_review_ok">Wedi gorffen adolygu</string>
+    <!-- button in review mode indicate the user want to retake another photo/video for attachment [
+CHAR LIMIT = NONE] -->
     <string name="accessibility_review_retake">Adolygu eto</string>
+    <!-- Default text for a button that can be toggled on and off. -->
     <string name="capital_on">YMLAEN</string>
+    <!-- Default text for a button that can be toggled on and off. -->
     <string name="capital_off">I FFWRDD</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_off">I ffwrdd</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_500">0.5 eiliad</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_1000">1 eiliad</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_1500">1.5 eiliad</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_2000">2 eiliad</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_2500">2.5 eiliad</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_3000">3 eiliad</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_4000">4 eiliad</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_5000">5 eiliad</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_6000">6 eiliad</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_10000">10 eiliad</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_12000">12 eiliad</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_15000">15 eiliad</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_24000">24 eiliad</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_30000">0.5 munud</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_60000">1 munud</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_90000">1.5 munud</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_120000">2 funud</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_150000">2.5 munud</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_180000">3 munud</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_240000">4 munud</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_300000">5 munud</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_360000">6 munud</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_600000">10 munud</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_720000">12 munud</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_900000">15 munud</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_1440000">24 munud</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_1800000">0.5 awr</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_3600000">1 awr</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_5400000">1.5 awr</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_7200000">2 awr</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_9000000">2.5 awr</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_10800000">3 awr</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_14400000">4 awr</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_18000000">5 awr</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_21600000">6 awr</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_36000000">10 awr</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_43200000">12 awr</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_54000000">15 awr</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_86400000">24 awr</string>
+    <!-- Seconds: a unit of time for time lapse intervals. [CHAR LIMIT = 20] -->
     <string name="time_lapse_seconds">eiliadau</string>
+    <!-- Minutes: a unit of time for time lapse intervals. [CHAR LIMIT = 20] -->
     <string name="time_lapse_minutes">munudau</string>
+    <!-- Hours: a unit of time for time lapse intervals. [CHAR LIMIT = 20] -->
     <string name="time_lapse_hours">oriau</string>
+    <!-- The button to confirm time-lapse setting changes. [CHAR LIMIT = 20] -->
     <string name="time_lapse_interval_set">Iawn</string>
+    <!-- Title in time interval picker for setting time interval. [CHAR LIMIT = 30]-->
     <string name="set_time_interval">Gosod Ysbaid Amser</string>
+    <!-- Help text that is shown when the time lapse feature is turned off. [CHAR LIMIT = 180]-->
     <string name="set_time_interval_help">Mae\'r nodwedd treigl amser i ffwrdd. Rhaid ei droi ymlaen i osod ysbaid amser.</string>
+    <!-- Title in timer setting for setting the duration for the countdown timer. [CHAR LIMIT = 50]-->
     <string name="set_duration">Gosod yr hyd mewn eiliadau</string>
+    <!-- On-screen hint during timer countdown for taking a photo. [CHAR LIMIT = 60]-->
     <string name="count_down_title_text">Yn cyfrif i lawr i dynnu llun</string>
+    <!-- Title for first run dialog asking if the user wants to remember photo locations [CHAR LIMIT = 50] -->
     <string name="remember_location_title">Cofio lleoliadau tynnu lluniau?</string>
+    <!-- Message for first run dialog asking if the user wants to remember photo locations [CHAR LIMIT = None] -->
     <string name="remember_location_prompt">Tagia dy luniau a fideos gyda\'r lleoliadau ble\'i tynnwyd.\n\nGall apiau eraill gweld y fath wybodaeth gyda\'r delweddau.</string>
+    <!-- Negative answer for first run dialog asking if the user wants to remember photo locations [CHAR LIMIT = 20] -->
     <string name="remember_location_no">Dim diolch</string>
+    <!-- Positive answer for first run dialog asking if the user wants to remember photo locations [CHAR LIMIT = 20] -->
     <string name="remember_location_yes">Iawn</string>
+    <!-- Camera menu labels -->
+    <!-- more options label [CHAR LIMIT=50] -->
     <string name="camera_menu_more_label">RHAGOR O DDEWISIADAU</string>
+    <!-- settings label [CHAR LIMIT=50] -->
     <string name="camera_menu_settings_label">GOSODIADAU</string>
+    <!--  Tiny Planet -->
+    <!-- Button to press for creating a tiny planet image. [CHAR LIMIT = 30] -->
     <string name="create_tiny_planet">Creu Delwedd Planed Fychan</string>
+    <!-- Message shown while a tiny planet image is being saved. [CHAR LIMIT = 30] -->
     <string name="saving_tiny_planet">Yn cadw fy Mhlaned Fychan …</string>
+    <!-- Label above a slider that let's the user set the zoom of a tiny planet image. [CHAR LIMIT = 15] -->
     <string name="tiny_planet_zoom">Chwyddo</string>
+    <!-- Label above a slider that let's the user set the rotation of a tiny planet image. [CHAR LIMIT = 15] -->
     <string name="tiny_planet_rotate">Cylchdroi</string>
+    <!-- Crop -->
+    <!-- Label for the save button in the crop activity action bar [CHAR LIMIT=20] -->
     <string name="crop_save">Cadw</string>
+    <!--  String shown when we cannot load the image when starting the activity [CHAR LIMIT=NONE] -->
     <string name="cannot_load_image">Methu â llwytho\'r ddelwedd!</string>
+    <!-- Label for album filmstrip button -->
     <string name="switch_photo_filmstrip">Golwg stribed ffilm</string>
+    <!--  String shown when setting the homepage wallpaper in the background [CHAR LIMIT=NONE] -->
     <string name="setting_wallpaper">Yn gosod fel papur wal</string>
+    <!-- Menu, Video rotation labels [CHAR LIMIT=50] -->
     <string name="remaining_photos_format">%d yn weddill</string>
     <string name="makeup_video_size_limit">Dyw colur ond yn gweithio dan faint VGA wrth recordio fideo.</string>
     <string name="pref_camera2_category_system">System</string>

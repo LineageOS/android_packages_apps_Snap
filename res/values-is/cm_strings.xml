@@ -15,17 +15,32 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- common aspect ratios -->
+    <!-- aspect ratio greater than 16:9, so "widescreen" or "cinematic" -->
+    <!-- Format for entries in the picture size menu. Parameter one is aspect ratio,
+         parameter two is size in megapixels, e.g. "(4:3) 12.1 megapixels"
+         NOTE: for Chinese (zh) and Korean (ko) the pixel number (parameter two)
+         will be multiplied by 100 as those languages want to count by ten thousands -->
+    <!-- Settings screen, scene mode -->
     <string name="pref_camera_scenemode_entry_asd">Besta taka</string>
     <string name="pref_camera_scenemode_entry_cine">Bíó</string>
     <string name="pref_camera_scenemode_entry_nightportrait">Andlit um nótt</string>
     <string name="pref_camera_scenemode_entry_nightindoor">Innandyra um nótt</string>
     <string name="pref_camera_scenemode_entry_spotlight">Ljóskastari</string>
     <string name="pref_camera_scenemode_entry_steadyphoto">Stöðug mynd</string>
+    <!-- Settings screen, focus mode -->
+    <!-- Color effects -->
     <string name="pref_camera_coloreffect_entry_vintage_warm">Gamaldags hlýlegt</string>
     <string name="pref_camera_coloreffect_entry_vintage_cold">Gamaldags kuldalegt</string>
     <string name="pref_camera_coloreffect_entry_point_blue">Blár punktur</string>
     <string name="pref_camera_coloreffect_entry_point_green">Grænn punktur</string>
     <string name="pref_camera_coloreffect_entry_point_red_yellow">Rauð-gulur punktur</string>
+    <!-- Red eye flash mode title -->
+    <!-- Power shutter -->
+    <!-- Max brightness -->
+    <!-- Touch focus duration -->
+    <!-- Shutter speed -->
+    <!-- Advanced options -->
     <string name="developer_menu_enabled">Þú hefur virkjað ítarlega valkosti myndavélar</string>
     <string name="developer_menu_disabled">Þú hefur gert ítarlega valkosti myndavélar óvirka</string>
 </resources>

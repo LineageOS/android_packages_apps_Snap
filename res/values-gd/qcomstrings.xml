@@ -20,74 +20,137 @@
     limitations under the License.
 -->
 <resources>
+    <!-- Video quality setting entry. Videos will be recorded in VGA quality. [CHAR LIMIT=24] -->
+    <!-- Video quality setting entry. Videos will be recorded in CIF quality. [CHAR LIMIT=24] -->
+    <!-- Video quality setting entry. Videos will be recorded in QVGA quality. [CHAR LIMIT=24] -->
+    <!-- Video quality setting entry. Videos will be recorded in QCIF quality. [CHAR LIMIT=24] -->
+    <!-- Settings screen, Power Mode title -->
     <string name="pref_camera_powermode_title">Modh na cumhachd</string>
+    <!-- Settings screen, Power mode dialog radio button choices -->
     <string name="pref_camera_powermode_entry_lp">Cumhachd ìseal</string>
     <string name="pref_camera_powermode_entry_np">Cumhachd àbhaisteach</string>
+    <!-- Settings screen, Power mode dialog radio button choices -->
+    <!-- Default Power mode.. -->
+    <!-- Default auto exposure setting. Do not translate. -->
+    <!-- Settings screen, Select auto exposure title -->
     <string name="pref_camera_autoexposure_title">Deisearas fèin-obrachail</string>
+    <!-- Settings screen, auto exposure dialog radio button choices -->
     <string name="pref_camera_autoexposure_entry_frameaverage">Cuibheas an fhrèam</string>
     <string name="pref_camera_autoexposure_entry_centerweighted">Cuideam air a’ mheadhan</string>
     <string name="pref_camera_autoexposure_entry_spotmetering">Tomhas spot</string>
+    <!-- Auto exposure entry values. Do not translate. -->
+    <!-- Settings screen, Video encoder title -->
     <string name="pref_camera_videoencoder_title">Codec a’ video</string>
+    <!-- Settings screen, Video encoder dialog radio button choices -->
+    <!-- Default video encoder setting. A numerical value. -->
+    <!-- Settings screen, Video encoder dialog title -->
     <string name="pref_camera_videoencoder_dialogtitle">Codec a’ video</string>
+    <!-- Default audio encoder setting. A numerical value. -->
+    <!-- Settings screen, Audio encoder title -->
     <string name="pref_camera_audioencoder_title">Codec na fuaime</string>
+    <!-- Settings screen, Audio encoder dialog radio button choices -->
+    <!-- Default Skin Tone Enhancement setting. Do not translate. -->
+    <!-- Settings screen, Select Skin Tone Enhancement title -->
     <string name="pref_camera_skinToneEnhancement_title">Leasachadh air tuar a’ chraicinn</string>
+    <!-- Settings screen, Skin Tone Enhancement radio button choices -->
     <string name="pref_camera_skinToneEnhancement_entry_enable">Cuir an comas</string>
     <string name="pref_camera_skinToneEnhancement_entry_disable">Cuir à comas</string>
+    <!-- Skin Tone Enhancement entry values. Do not translate. -->
+    <!-- Settings screen, setting title text for ZSL-->
     <string name="pref_camera_zsl_title">Gun dàil air an t-siutair</string>
+    <!-- Default selectable zone af setting. Do not translate. -->
+    <!-- Settings screen, Selectable zone af title -->
     <string name="pref_camera_selectablezoneaf_title">Raon an fhòcais fhèin-obrachail</string>
+    <!-- Settings screen, Selectable Zone Af dialog radio button choices -->
     <string name="pref_camera_selectablezoneaf_entry_auto">Fèin-obrachail</string>
     <string name="pref_camera_selectablezoneaf_entry_spotmetering">Tomhas spot</string>
     <string name="pref_camera_selectablezoneaf_entry_centerweighted">Cuideam air a’ mheadhan</string>
     <string name="pref_camera_selectablezoneaf_entry_frameaverage">Cuibheas an fhrèam</string>
+    <!-- Auto exposure entry values. Do not translate. -->
+    <!-- Settings screen, Selectable advanced features title -->
     <string name="pref_camera_advanced_features_title">Roghainnean adhartach</string>
+    <!-- Settings screen, Selectable Zone Af dialog radio button choices -->
     <string name="pref_camera_advanced_feature_entry_none">Chan eil gin</string>
     <string name="pref_camera_advanced_feature_entry_multi_touch_focus">Fòcas ioma-shuathaidh</string>
+    <!-- Auto exposure entry values. Do not translate. -->
+    <!-- Manual exposure control entry values -->
     <string name="pref_camera_manual_exp_title">Deisearas a làimh</string>
     <string name="pref_camera_manual_exp_entry_ISO_priority">Prìomhachas ISO</string>
     <string name="pref_camera_manual_exp_entry_exptime_priority">Prìomhachas air ùine an deisearais</string>
     <string name="pref_camera_manual_exp_entry_user_setting">Roghainn a’ chleachdaiche</string>
     <string name="pref_camera_manual_exp_entry_gains_priority">Prìomhachas na h-àirde</string>
     <string name="pref_camera_manual_exp_entry_off">Dheth</string>
+    <!-- Manual white balance entry values -->
     <string name="pref_camera_manual_wb_title">Balans geal a làimh</string>
     <string name="pref_camera_manual_wb_entry_color_temperature">Teothachd an datha</string>
     <string name="pref_camera_manual_wb_entry_rbgb_gains">Meudachaidhean RBGB</string>
     <string name="pref_camera_manual_wb_entry_off">Dheth</string>
+    <!-- Manual Focus entry values -->
     <string name="pref_camera_manual_focus_title">Fòcas a làimh</string>
     <string name="pref_camera_manual_focus_entry_scale_mode">Modh sgèilidh</string>
     <string name="pref_camera_manual_focus_entry_diopter_mode">Modh dioptre</string>
     <string name="pref_camera_manual_focus_entry_off">Dheth</string>
+    <!-- Instant Capture entry -->
     <string name="pref_camera_instant_capture_title">Glacadh sa bhad</string>
     <string name="pref_camera_instant_capture_entry_aggressive_aec">AEC ionnsaigheach</string>
     <string name="pref_camera_instant_capture_entry_fast_aec">AEC luath</string>
     <string name="pref_camera_instant_capture_entry_disable">Cuir à comas</string>
+    <!-- Instant Capture entry values -->
+    <!-- Settings screen, ZSL location dialog choices -->
     <string name="pref_camera_zsl_entry_off">Dheth</string>
     <string name="pref_camera_zsl_entry_on">Air</string>
+    <!-- The message is shown in toast when HDR or scene mode is enabled -->
     <string name="hdr_enable_message">Tha HDR an comas, chan eil taic ach ri modh seallaidh fhèin-obrachail</string>
     <string name="scene_enable_message">Cha chuir sinn taic ri HDR ann am modhan seallaidh seach am fear fèin-obrachail</string>
+    <!-- Settings screen, Video HDR location dialog choices -->
     <string name="pref_camera_video_hdr_entry_off">Dheth</string>
     <string name="pref_camera_video_hdr_entry_on">Air</string>
+    <!-- Settings screen, CDS location dialog choices -->
     <string name="pref_camera_cds_entry_off">Dheth</string>
     <string name="pref_camera_cds_entry_on">Air</string>
     <string name="pref_camera_cds_entry_auto">Fèin-obrachail</string>
+    <!-- Settings screen, video CDS location dialog choices -->
     <string name="pref_camera_video_cds_entry_off">Dheth</string>
     <string name="pref_camera_video_cds_entry_on">Air</string>
     <string name="pref_camera_video_cds_entry_auto">Fèin-obrachail</string>
+    <!-- Settings screen, TNR location dialog choices -->
     <string name="pref_camera_tnr_entry_disable">Cuir à comas</string>
     <string name="pref_camera_tnr_entry_enable">Cuir an comas</string>
+    <!-- Settings screen, TNR location dialog choices -->
+    <!-- Settings screen, video TNR location dialog choices -->
     <string name="pref_camera_video_tnr_entry_disable">Cuir à comas</string>
     <string name="pref_camera_video_tnr_entry_enable">Cuir an comas</string>
+    <!-- Settings screen, video TNR location dialog choices -->
+    <!-- Settings screen, setting title text for Video HDR-->
     <string name="pref_camera_video_hdr_title">HDR a’ video</string>
+    <!-- Settings menu, setting title text for cds mode-->
     <string name="pref_camera_cds_title">Modh CDS</string>
+    <!-- Settings menu, setting title text for video cds mode-->
     <string name="pref_camera_video_cds_title">Modh CDS a’ video</string>
+    <!-- Default cds mode setting-->
+    <!-- Default video cds mode setting-->
+    <!-- Settings menu, setting title text for tnr mode-->
     <string name="pref_camera_tnr_title">Modh TNR</string>
+    <!-- Settings menu, setting title text for video tnr mode-->
     <string name="pref_camera_video_tnr_title">Modh TNR a’ video</string>
+    <!-- Default tnr mode setting-->
+    <!-- Default video tnr mode setting-->
+    <!-- Default face  detection setting. -->
+    <!-- Settings screen, Select Face Detection -->
     <string name="pref_camera_facedetection_title">Mothaich do dh’aodannan</string>
+    <!-- Settings menu, Face Detection choices -->
     <string name="pref_camera_facedetection_entry_off">Dheth</string>
     <string name="pref_camera_facedetection_entry_on">Air</string>
+    <!-- Default Selfie Flash setting. -->
+    <!-- Settings screen, Selfie Flash Detection -->
     <string name="pref_selfie_flash_title">Boillsgeadh fèineige</string>
+    <!-- Settings menu, Selfie Flash choices -->
     <string name="pref_selfie_flash_entry_off">Dheth</string>
     <string name="pref_selfie_flash_entry_on">Air</string>
+    <!-- Default redeye reduction setting. -->
+    <!-- Settings screen, Select Redeye Reduction -->
     <string name="pref_camera_redeyereduction_title">Ìsleachadh sùla deairge</string>
+    <!-- Settings menu, redeye reduction choices -->
     <string name="pref_camera_redeyereduction_entry_enable">Cuir an comas</string>
     <string name="pref_camera_redeyereduction_entry_disable">Cuir à comas</string>
     <string name="pref_camera_selfiemirror_title">Sgàthanaich an fhèineag</string>
@@ -96,22 +159,37 @@
     <string name="pref_camera_shuttersound_title">Fuaim an t-siutair</string>
     <string name="pref_camera_shuttersound_entry_enable">An comas</string>
     <string name="pref_camera_shuttersound_entry_disable">À comas</string>
+    <!-- The message is shown in toast when the app encounters an unsupported selection for HFR/HSR mode -->
     <string name="error_app_unsupported_hfr_selection">Cha chuir sinn taic ri clàradh le reat-fhrèaman àrd nuair a bhios bunailteachadh/film luathaichte/HDR ga chleachdadh.</string>
+    <!-- The message is shown in dialog when the app encounters an unsupported resolution for HFR mode -->
     <string name="error_app_unsupported_hfr">Cha chuir sinn taic ris a’ mhodh slaodach le meud a’ video a thagh thu. Tagh meud video nas ìsle</string>
+    <!-- The message is shown in toast when the app encounters an unsupported resolution for DIS mode -->
     <string name="error_app_unsupported_dis">Cha chuir sinn taic ri bunailteachadh le meud a’ video a thagh thu. Tagh meud video nas ìsle</string>
+    <!-- The message is shown in dialog when the app encounters an unsupported resolution for HSR mode -->
     <string name="error_app_unsupported_hsr">Cha chuir sinn taic ris a’ mhodh luath le meud a’ video a thagh thu. Tagh meud video nas ìsle</string>
+    <!-- The message is shown in dialog when the app encounters an unsupported video codec for HFR mode -->
     <string name="error_app_unsupported_hfr_codec">Cha chuir sinn taic ach ri còdachadh video H264 nuair a bhios HFR AIR</string>
+    <!-- The message is shown in dialog when the app encounters an unsupported video resolution-->
     <string name="error_app_unsupported">Chan eil taic ri dùmhlachd-bhreacaidh a’ video seo leis an seòrsa seo de dh’inneal-còdachaidh</string>
+    <!-- The message is shown in dialog when the app encounters an unsupported video profile-->
     <string name="error_app_unsupported_profile">Pròifil video ris nach eil taic</string>
+    <!--The message is shown in dialog when the raw snapshot is selected in zsl mode-->
     <string name="error_app_unsupported_raw">Cha chuir am modh gun dàil air an t-siutair taic ri fòrmat deilbh Raw. Tagh JPEG</string>
+    <!-- Settings screen, AE bracketing and HDR location dialog choices -->
     <string name="pref_camera_ae_bracket_hdr_entry_ae_bracket">AE bracketing</string>
     <string name="pref_camera_ae_bracket_hdr_title">AE bracketing</string>
     <string name="pref_camera_ae_bracket_hdr_entry_on">Air</string>
     <string name="err_app_unsupport_ae_bracket_code">Chan eil taic ri AE bracketing fhathast</string>
+    <!-- The messsage shown if user selects a snapshot resolution lower than the current video size. -->
     <string name="snapshot_lower_than_video">Tha meud a’ snapshot video nas ìsle na meud a’ video; a’ cur a chrìoch air meud a’ video. Tagh dùmhlachd-bhreacaidh nas àirde no co-ionnan ri meud làithreach a’ video.</string>
+    <!-- The messsage shown if user selects a snapshot resolution in low power mode. -->
     <string name="snapshotsize_low_powermode">Cha chuir modh na cumhachd ìosal taic ri atharrachadh meud an deilbh; thèid snapshot air meud a’ video a thogail. Tagh modh cumhachd àbhaisteach airson comas atharrachaidh a chur air meud an deilbh.</string>
+    <!-- The messsage shown if user tries to take snapshot during D1/QCIF resolution. -->
     <string name="snapshot_qcif_and_d1">Chan eil tac ri snapshot video air an dùmhlachd-bhreacaidh seo ach air meud a’ video.</string>
+    <!-- Default hfr setting. Do not translate. -->
+    <!-- Settings screen, Select hfr title -->
     <string name="pref_camera_hfr_title">Clàradh le reat-fhrèaman àrd</string>
+    <!-- Settings screen, hfr radio button choices -->
     <string name="pref_camera_hfr_entry_off">Dheth</string>
     <string name="pref_camera_hfr_entry_2x">Slaodach le 60 FPS</string>
     <string name="pref_camera_hfr_entry_3x">Slaodach le 90 FPS</string>
@@ -133,16 +211,30 @@
     <string name="pref_camera_hfr_entry_4x_ssm_480">Glè shlaodach 480-&gt;1920</string>
     <string name="pref_camera_hfr_entry_2x_ssm_960">Glè shlaodach 960-&gt;1920</string>
     <string name="pref_camera_hfr_entry_4x_ssm_960">Glè shlaodach 960-&gt;3840</string>
+    <!-- HFR entry values. Do not translate. -->
+    <!-- Default noise reduction setting. Do not translate. -->
+    <!-- Settings screen, Select See More title -->
     <string name="pref_camera_noise_reduction_title">Glanadh faraim</string>
+    <!-- Settings screen, see more radio button choices -->
     <string name="pref_camera_noise_reduction_entry_off">Dheth</string>
     <string name="pref_camera_noise_reduction_entry_fast">Luath</string>
     <string name="pref_camera_noise_reduction_entry_high_quality">Càileachd àrd</string>
+    <!-- see more entry values. Do not translate. -->
+    <!-- Default see more setting. Do not translate. -->
+    <!-- Settings screen, Select See More title -->
+    <!-- Settings screen, see more radio button choices -->
     <string name="pref_camera_see_more_entry_off">Dheth</string>
     <string name="pref_camera_see_more_entry_on">Air</string>
+    <!-- see more entry values. Do not translate. -->
+    <!-- Denoise Settings screen, setting title text -->
     <string name="pref_camera_denoise_title">Glanaich am faram</string>
+    <!-- Denoise Settings screen, Record location dialog choices -->
     <string name="pref_camera_denoise_entry_off">Dheth</string>
     <string name="pref_camera_denoise_entry_on">Air</string>
+    <!-- Default iso setting. Do not translate. -->
+    <!-- Settings screen, Select Iso title -->
     <string name="pref_camera_iso_title">ISO</string>
+    <!-- Settings screen, ISO dialog radio button choices -->
     <string name="pref_camera_iso_entry_auto">Fèin-obrachail</string>
     <string name="pref_camera_iso_entry_isodeblur">Fèin-obrachail (HJR)</string>
     <string name="pref_camera_iso_entry_iso50">ISO50</string>
@@ -172,18 +264,26 @@
     <string name="pref_camera_iso_entry_iso3200">ISO3200</string>
     <string name="pref_camera_iso_entry_iso6400">ISO6400</string>
     <string name="pref_camera_iso_entry_iso12800">ISO12800</string>
+    <!-- ISO entry values. Do not translate. -->
+    <!-- Settings screen, Anti Banding title -->
     <string name="pref_camera_antibanding_title">Seachainn bannachadh </string>
+    <!-- Default Anti Banding setting. -->
+    <!-- Settings screen, Anti Banding entries -->
     <string name="pref_camera_antibanding_entry_0">Fèin-obrachail</string>
     <string name="pref_camera_antibanding_entry_1">50 Hz (An Roinn-Eòrpa)</string>
     <string name="pref_camera_antibanding_entry_2">60 Hz (SAA)</string>
+    <!-- Default color effect setting. -->
     <string name="pref_camera_filter_mode_entry_on">Air</string>
     <string name="pref_camera_filter_mode_entry_off">Dheth</string>
+    <!-- Settings screen, Select Color effect title -->
     <string name="pref_camera_coloreffect_title">Èifeachd dhathan</string>
     <string name="pref_camera_filter_mode_title">Èifeachd dhathan</string>
+    <!-- Settings screen, Color effect dialog radio button choices -->
     <string name="pref_camera_coloreffect_entry_none">Chan eil gin</string>
     <string name="pref_camera_coloreffect_entry_mono">Aon-dathach</string>
     <string name="pref_camera_coloreffect_entry_sepia">Sepia</string>
     <string name="pref_camera_coloreffect_entry_negative">Ais-thionndaidh</string>
+    <!-- Color effect that overexposes and reverses some of the tones. -->
     <string name="pref_camera_coloreffect_entry_solarize">Grianach</string>
     <string name="pref_camera_coloreffect_entry_posterize">Postairich</string>
     <string name="pref_camera_coloreffect_entry_aqua">Aqua</string>
@@ -195,12 +295,17 @@
     <string name="pref_camera_coloreffect_entry_redtint">Fiamh-dhath dearg</string>
     <string name="pref_camera_coloreffect_entry_bluetint">Fiamh-dhath gorm</string>
     <string name="pref_camera_coloreffect_entry_greentint">Fiamh-dhath uaine</string>
+    <!-- Select IS title -->
     <string name="pref_camera_dis_title">Bunailteachadh</string>
+    <!-- DIS choices -->
     <string name="pref_camera_dis_entry_off">Dheth</string>
     <string name="pref_camera_dis_entry_on">Air</string>
+    <!-- Select Face Recognition title -->
     <string name="pref_camera_facerc_title">Aithneachadh aodainn</string>
+    <!-- Face Recognition choices -->
     <string name="pref_camera_facerc_entry_off">Dheth</string>
     <string name="pref_camera_facerc_entry_on">Air</string>
+    <!-- Settings screen, Multiple levels entries -->
     <string name="pref_camera_sharpness_entry_level0">Leibheil 0</string>
     <string name="pref_camera_sharpness_entry_level1">Leibheil 1</string>
     <string name="pref_camera_sharpness_entry_level2">Leibheil 2 (bun-roghainn)</string>
@@ -208,6 +313,7 @@
     <string name="pref_camera_sharpness_entry_level4">Leibheil 4</string>
     <string name="pref_camera_sharpness_entry_level5">Leibheil 5</string>
     <string name="pref_camera_sharpness_entry_level6">Leibheil 6</string>
+    <!-- Settings screen, Multiple levels entries -->
     <string name="pref_camera_contrast_entry_level0">Leibheil 0</string>
     <string name="pref_camera_contrast_entry_level1">Leibheil 1</string>
     <string name="pref_camera_contrast_entry_level2">Leibheil 2</string>
@@ -219,6 +325,7 @@
     <string name="pref_camera_contrast_entry_level8">Leibheil 8</string>
     <string name="pref_camera_contrast_entry_level9">Leibheil 9</string>
     <string name="pref_camera_contrast_entry_level10">Leibheil 10</string>
+    <!-- Settings screen, Multiple levels entries -->
     <string name="pref_camera_saturation_entry_level0">Leibheil 0</string>
     <string name="pref_camera_saturation_entry_level1">Leibheil 1</string>
     <string name="pref_camera_saturation_entry_level2">Leibheil 2</string>
@@ -230,41 +337,80 @@
     <string name="pref_camera_saturation_entry_level8">Leibheil 8</string>
     <string name="pref_camera_saturation_entry_level9">Leibheil 9</string>
     <string name="pref_camera_saturation_entry_level10">Leibheil 10</string>
+    <!-- Default sharpness setting. Do not translate. -->
+    <!-- Settings screen, Select sharpness title -->
     <string name="pref_camera_sharpness_title">Gèiread</string>
+    <!-- Default contrast setting. Do not translate. -->
+    <!-- Settings screen, Select contrast title -->
     <string name="pref_camera_contrast_title">Iomsgaradh</string>
+    <!-- Default saturation setting. Do not translate. -->
+    <!-- Settings screen, Select saturation title -->
     <string name="pref_camera_saturation_title">Sàthachd</string>
+    <!-- Default picture quality setting. See
+         pref_camera_jpegquality_entryvalues for possible values -->
+    <!-- Default Picture format setting. Do not translate. -->
+    <!-- Settings screen, Select Picture format title -->
     <string name="pref_camera_picture_format_title">Fòrmat an deilbh</string>
+    <!-- Settings screen, picture format dialog radio button choices -->
+    <!-- Picture format entry values. Do not translate. -->
+    <!-- Settings screen, Picture quality title -->
     <string name="pref_camera_jpegquality_title">Càileachd an deilbh</string>
+    <!-- Settings screen, Picture quality dialog radio button choices -->
     <string name="pref_camera_jpegquality_entry_0">Ìosal</string>
     <string name="pref_camera_jpegquality_entry_1">Stannardach</string>
     <string name="pref_camera_jpegquality_entry_2">Àrd</string>
+    <!-- Default auto histogram setting. Do not translate. -->
+    <!-- Settings screen, Select Histogram title -->
     <string name="pref_camera_histogram_title">Hiostogram</string>
+    <!-- Settings screen, Histogram radio button choices -->
     <string name="pref_camera_histogram_entry_enable">Cuir an comas</string>
     <string name="pref_camera_histogram_entry_disable">Cuir à comas</string>
+    <!-- Histogram entry values. Do not translate. -->
+    <!-- Default auto scene detection setting. -->
+    <!-- Settings screen, Select Auto Scene Detection -->
     <string name="pref_camera_scenedetect_title">Mothachadh seallaidh fèin-obrachail</string>
+    <!-- Settings menu, auto scene detection choices -->
     <string name="pref_camera_scenedetect_entry_off">Dheth</string>
+    <!-- Scene detection set to on - supports backlight and snow cloudy detection. -->
     <string name="pref_camera_scenedetect_entry_on">Air</string>
+    <!-- Toast showing error if invalid size selected for  time lapse  [CHAR LIMIT=65] -->
     <string name="time_lapse_error">Cha ghabh film luathaichte a chlàradh air a’ mheud video seo.</string>
+    <!-- longshot value -->
     <string name="pref_camera_longshot_title">Dealbh leantainneach</string>
     <string name="msg_cancel_longshot_for_limited_memory">Tha a’ chuimhne gu bhith a’ ruith oirnn, a’ cur dheth an dealbh leantainneach</string>
+    <!-- Toast showing non-supported functionality for flash in AE bracket -->
     <string name="flash_aebracket_message">Cha chuir modh AE bracketing taic ris an t-solas-bhoillsgidh</string>
+    <!-- Settings screen, setting title text for Auto HDR-->
     <string name="pref_camera_auto_hdr_title">HDR fèin-obrachail</string>
+    <!-- Settings screen, Auto HDR location dialog choices -->
     <string name="pref_camera_auto_hdr_entry_enable">Cuir an comas</string>
     <string name="pref_camera_auto_hdr_entry_disable">Cuir à comas</string>
+    <!-- toast message for storage location switch -->
     <string name="on_switch_save_path_to_sdcard">Chan eil stòras inntearnail gu leòr ann – dh’atharraich sinn slighe an t-sàbhalaidh dhan chairt SD</string>
     <string name="storage_not_enough">Chan fhoghainn an àite air an stòras</string>
+    <!-- Settings screen, Selectable HDR mode title -->
     <string name="pref_camera_hdr_mode_title">Modh HDR</string>
+    <!-- Settings screen, Selectable HDR mode radio button choices -->
     <string name="pref_camera_hdr_mode_entry_sensor">HDR mothaicheir</string>
     <string name="pref_camera_hdr_mode_entry_multi_frame">HDR ioma-fhrèama</string>
+    <!-- HDR mode entry values. Do not translate. -->
+    <!--Default video rotation setting-->
+    <!--Settings screen, video rotation title-->
     <string name="pref_camera_video_rotation_title">Cuairteachadh a’ video</string>
+    <!--Menu, video rotation label-->
     <string name="pref_camera_video_rotation_label">CUAIRTEACHADH A’ VIDEO</string>
+    <!-- Settings screen, Video rotation dialog radio button choices -->
     <string name="pref_camera_video_rotation_entry_0">0 ceum</string>
     <string name="pref_camera_video_rotation_entry_90">90 ceum</string>
     <string name="pref_camera_video_rotation_entry_180">180 ceum</string>
     <string name="pref_camera_video_rotation_entry_270">270 ceum</string>
+    <!-- The message is shown in toast when click showOnMap Menu and there is no map app -->
     <string name="map_activity_not_found_err">Cha deach aplacaid mhapaichean a stàladh airson an t-ionad a shealltainn</string>
+    <!-- Continuous shot enable message -->
     <string name="longshot_enable_message">Cha chuir modh an deilbh leantainnich taic ri gleusan adhartach</string>
+    <!-- Advanced features enable message -->
     <string name="advance_feature_enable_msg">Chan eil taic ri modh an deilbh leantainnich nuair a bhios gleus adhartach an comas</string>
+    <!-- The alas of CameraActivity for gesture operation -->
     <string name="camera_gesture_title">Cuir gu dol an camara</string>
     <string name="pref_camera_tsmakeup_title">Snas</string>
     <string name="pref_camera_tsmakeup_entry_on">Air</string>
@@ -398,7 +544,9 @@
     <string name="pref_camera_bokeh_mpo_entry_enable">Cuir an comas</string>
     <string name="pref_camera_bokeh_mpo_entry_disable">Cuir à comas</string>
     <string name="pref_camera_bokeh_blur_degree_title">Luach sgleò Bokeh</string>
+    <!-- Default Zoom setting. -->
     <string name="pref_camera_zoom_title">Sùm</string>
+    <!-- Settings menu, Zoom choices -->
     <string name="pref_camera_zoom_entry_off">Dheth</string>
     <string name="pref_camera_zoom_entry_1x">1x</string>
     <string name="pref_camera_zoom_entry_2x">2x</string>
@@ -428,6 +576,8 @@
     <string name="pref_camera2_afmode_entry_continuous_picture">Dealbh leantainneach</string>
     <string name="pref_camera2_afmode_entry_edof">Leudaich doimhneachd an fhòcais</string>
     <string name="pref_camera2_switch_camera_title">Geàrr leum gu camara a-rèir ID</string>
+    <!-- QCFA Title -->
+    <!-- QCFA choices -->
     <string name="pref_camera2_initial_camera_entry_bayer">Bayer</string>
     <string name="pref_camera2_initial_camera_entry_mono">Aon-dathach</string>
     <string name="pref_camera2_initial_camera_entry_front">Beulaibh</string>
@@ -461,11 +611,15 @@
     <string name="pref_camera2_abort_captures_title">Leig seachad na glacaidhean</string>
     <string name="pref_camera2_abort_captures_entry_enable">An comas</string>
     <string name="pref_camera2_abort_captures_entry_disable">À comas</string>
+    <!-- tone mapping -->
     <string name="pref_camera_tone_mapping_title">Mapadh tòna</string>
+    <!-- tone mapping entry-->
     <string name="pref_camera_tone_mapping_entry_dark_boost_offset">Frith-àireamh spionnadh dorcha</string>
     <string name="pref_camera_tone_mapping_entry_fourth_tone_anchor">Acair a’ cheathramh tòna</string>
     <string name="pref_camera_tone_mapping_entry_user_setting">Roghainn a’ chleachdaiche</string>
     <string name="pref_camera_tone_mapping_entry_off">Dheth</string>
+    <!-- tone mapping entry value-->
+    <!-- Multi camera value -->
     <string name="pref_multi_camera_hal_zsl_title">HAL ZSL</string>
     <string name="pref_multi_camera_picturesize1_title">Meud dealbh 1</string>
     <string name="pref_multi_camera_picturesize2_title">Meud dealbh 2</string>

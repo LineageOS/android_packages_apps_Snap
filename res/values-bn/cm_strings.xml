@@ -15,8 +15,15 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- common aspect ratios -->
+    <!-- aspect ratio greater than 16:9, so "widescreen" or "cinematic" -->
     <string name="pref_camera_aspectratio_wide">প্রশস্ত</string>
+    <!-- Format for entries in the picture size menu. Parameter one is aspect ratio,
+         parameter two is size in megapixels, e.g. "(4:3) 12.1 megapixels"
+         NOTE: for Chinese (zh) and Korean (ko) the pixel number (parameter two)
+         will be multiplied by 100 as those languages want to count by ten thousands -->
     <string name="pref_camera_megapixel_format">(<xliff:g id="ratio" example="16:9">%1$s </xliff:g>) <xliff:g id="pixels">%2$1.1f </xliff:g> মেগাপিক্সেল</string>
+    <!-- Settings screen, scene mode -->
     <string name="pref_camera_scenemode_entry_aqua">জল</string>
     <string name="pref_camera_scenemode_entry_baby">শিশু</string>
     <string name="pref_camera_scenemode_entry_backgroundblur">ঘোলা পটভূমি</string>
@@ -31,5 +38,13 @@
     <string name="pref_camera_scenemode_entry_document">ডকুমেন্ট</string>
     <string name="pref_camera_scenemode_entry_fireworks">আতশবাজি</string>
     <string name="pref_camera_scenemode_entry_flowers">ফুল</string>
+    <!-- Settings screen, focus mode -->
+    <!-- Color effects -->
+    <!-- Red eye flash mode title -->
+    <!-- Power shutter -->
+    <!-- Max brightness -->
+    <!-- Touch focus duration -->
+    <!-- Shutter speed -->
+    <!-- Advanced options -->
     <string name="hfr_unsupported_current_resolution">এই রেসোলিউশনে HFR সমর্থন করে না</string>
 </resources>

@@ -14,12 +14,20 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- The name of the Android Camera application. [CHAR LIMIT=16] -->
     <string name="app_name">కెమెరా</string>
+    <!-- The label for the Video Camera activity. [CHAR LIMIT=16] -->
     <string name="video_camera_label">కామ్‌కార్డర్</string>
+    <!-- Used to format short video duration in Details dialog. minutes:seconds e.g. 00:30 -->
     <string name="details_ms">%1$02d:%2$02d</string>
+    <!-- Used to format video duration in Details dialog. hours:minutes:seconds e.g. 0:21:30 -->
     <string name="details_hms">%1$d:%2$02d:%3$02d</string>
+    <!-- Displayed in the title of the dialog for things to do with a picture
+             that is to be "set as" (e.g. set as contact photo or set as wallpaper) -->
     <string name="set_image">చిత్రాన్ని ఇలా సెట్ చెయ్యి</string>
+    <!-- Details dialog "OK" button. Dismisses dialog. -->
     <string name="delete">తొలగించు</string>
+    <!-- String Delete the selected media item(s) [CHAR LIMIT=50] -->
     <plurals name="delete_selection">
         <item quantity="one">ఎంపిక చేసిన అంశాన్ని తొలగించాలా?</item>
         <item quantity="other">ఎంపిక చేసిన అంశాలను తొలగించాలా?</item>
@@ -27,244 +35,507 @@
     <string name="share">భాగస్వామ్యం చేయి</string>
     <string name="share_panorama">విశాల దృశ్యాన్ని భాగస్వామ్యం చెయ్యి</string>
     <string name="share_as_photo">ఫోటోలా భాగస్వామ్యం చెయ్యి</string>
+    <!-- The label shown after an image is deleted [CHAR LIMIT=16] -->
     <string name="deleted">తొలగించబడినవి</string>
+    <!-- The label on the button which when clicked will undo a deletion of image [CHAR LIMIT=16]-->
     <string name="undo">UNDO</string>
     <string name="details">వివరాలు</string>
     <string name="close">మూసివేయి</string>
+    <!-- String indicating how many media item(s) is(are) selected
+            eg. 1 selected [CHAR LIMIT=30] -->
     <plurals name="number_of_items_selected">
         <item quantity="one">%1$d ఎంపికైంది</item>
         <item quantity="other">%1$d ఎంపికైంది</item>
     </plurals>
+    <!-- String indicating how many media album(s) is(are) selected
+            eg. 1 selected [CHAR LIMIT=30] -->
     <plurals name="number_of_albums_selected">
         <item quantity="one">%1$d ఎంపికైంది</item>
         <item quantity="other">%1$d ఎంపికైంది</item>
     </plurals>
+    <!-- String indicating how many media group(s) is(are) selected
+            eg. 1 selected [CHAR LIMIT=30] -->
     <plurals name="number_of_groups_selected">
         <item quantity="one">%1$d ఎంపికైంది</item>
         <item quantity="other">%1$d ఎంపికైంది</item>
     </plurals>
+    <!-- String indicating timestamp of photo or video -->
     <string name="show_on_map">మ్యాప్‌లో చూపించు</string>
     <string name="rotate_left">ఎడమకు తిప్పు</string>
     <string name="rotate_right">కుడికి తిప్పు</string>
+    <!-- String used as a menu label. The user can choose to edit the image
+         [CHAR_LIMIT=20]-->
     <string name="edit">సవరించు</string>
+    <!-- The title of the menu item to let user crop the image. [CHAR LIMIT=15] -->
     <string name="crop_action">క్రాప్</string>
+    <!-- The title of the menu item to let user trim the video. [CHAR LIMIT=15] -->
     <string name="trim_action">సవరించు</string>
+    <!-- The title of the menu item to let user set the image as background etc. [CHAR LIMIT=15] -->
     <string name="set_as">ఇలా సెట్ చెయ్యి</string>
+    <!-- String indicating an error when playing the video. [CHAR LIMIT=30] -->
     <string name="video_err">వీడియోను ప్లే చెయ్యలేదు.</string>
+    <!-- Toast message shown when the cropped image has been saved in the
+         %s folder (string: folder_download) [CHAR LIMIT=50]-->
     <string name="crop_saved">కత్తిరించబడిన చిత్రం <xliff:g id="folder_name">%s</xliff:g> కు సేవ్ చేయబడింది.</string>
+    <!-- Text indicating the title of a media item in details window [CHAR LIMIT=14] -->
     <string name="title">శీర్షిక</string>
+    <!-- Text indicating the description of a media item in details window [CHAR LIMIT=14] -->
     <string name="description">వివరణ</string>
+    <!-- Text indicating the creation time of a media item in details window [CHAR LIMIT=14] -->
     <string name="time">సమయం</string>
+    <!-- Text indicating the location of a media item in details window [CHAR LIMIT=14] -->
     <string name="location">స్థానం</string>
+    <!-- Text indicating the path of a media item in details window [CHAR LIMIT=14] -->
     <string name="path">పథం</string>
+    <!-- Text indicating the width of a media item in details window [CHAR LIMIT=14] -->
     <string name="width">వెడల్పు</string>
+    <!-- Text indicating the height of a media item in details window [CHAR LIMIT=14] -->
     <string name="height">ఎత్తు</string>
+    <!-- Text indicating the orientation of a media item in details window [CHAR LIMIT=14] -->
     <string name="orientation">దృగ్విన్యాసం</string>
+    <!-- Text indicating the duration of a video item in details window [CHAR LIMIT=18] -->
     <string name="duration">వ్యవధి</string>
+    <!-- Text indicating the mime type of a media item in details window [CHAR LIMIT=14] -->
     <string name="mimetype">MIME రకం</string>
+    <!-- Text indicating the file size of a media item in details window [CHAR LIMIT=14] -->
     <string name="file_size">ఫైల్ పరిమాణం</string>
+    <!-- Text indicating the maker of a media item in details window [CHAR LIMIT=14] -->
     <string name="maker">రూపకర్త</string>
+    <!-- Text indicating the model of a media item in details window [CHAR LIMIT=14] -->
     <string name="model">మోడల్</string>
+    <!-- Text indicating flash info of a media item in details window [CHAR LIMIT=14] -->
     <string name="flash">ఫ్లాష్</string>
+    <!-- Text indicating aperture of a media item in details window [CHAR LIMIT=14] -->
     <string name="aperture">ద్వారం</string>
+    <!-- Text indicating the focal length of a media item in details window [CHAR LIMIT=14] -->
     <string name="focal_length">ఫోకల్ పొడవు</string>
+    <!-- Text indicating the white balance of a media item in details window [CHAR LIMIT=18] -->
     <string name="white_balance">తెలుపు సమతూకం</string>
+    <!-- Text indicating the exposure time of a media item in details window [CHAR LIMIT=14] -->
     <string name="exposure_time">బహిర్గత సమయం</string>
+    <!-- Text indicating the ISO speed rating of a media item in details window [CHAR LIMIT=14] -->
     <string name="iso">ISO</string>
+    <!-- String indicating the time units in seconds. [CHAR LIMIT=8] -->
+    <!-- String indicating the length units in milli-meters. [CHAR LIMIT=8] -->
     <string name="unit_mm">mm</string>
+    <!-- String indicating how camera shooting feature is used. [CHAR LIMIT=12] -->
     <string name="manual">మాన్యువల్</string>
+    <!-- String indicating how camera shooting feature is used. [CHAR LIMIT=12 -->
     <string name="auto">ఆటో</string>
+    <!-- String indicating camera flash is fired. [CHAR LIMIT=14] -->
     <string name="flash_on">ఫ్లాష్ ఫైర్ అయింది</string>
+    <!-- String indicating camera flash is not used. [CHAR LIMIT=14] -->
     <string name="flash_off">ఫ్లాష్ లేదు</string>
+    <!-- String indicating image width or height is unknown. [CHAR LIMIT=14] -->
     <string name="unknown">తెలియదు</string>
+    <!-- Toast message shown after we try to make a local album available offline
+         [CHAR LIMIT=150] -->
     <string name="try_to_set_local_album_available_offline">ఈ అంశం స్థానికంగా నిల్వచేయబడింది మరియు ఆఫ్‌లైన్‌లో అందుబాటులో ఉంది.</string>
+    <!-- The content of a dialog showing trimming in progress. [CHAR LIMIT=30] -->
     <string name="please_wait">దయచేసి వేచి ఉండండి</string>
+    <!-- Text to show with progress bar while stitching a photo sphere. 'Photo sphere' is a product name. [CHAR LIMIT=35]-->
     <string name="rendering_photo_sphere">ఫోటో గోళం రేఖీయచిత్రణ</string>
+    <!-- title for the dialog showing the error of camera hardware -->
     <string name="camera_error_title">కెమెరా దోషం</string>
+    <!-- message for the dialog showing the error of camera hardware -->
     <string name="cannot_connect_camera">కెమెరాకు అనుసంధానం చేయడం సాధ్యపడలేదు.</string>
+    <!-- message for the dialog showing the camera is disabled because of security policies. Camera cannot be used. -->
     <string name="camera_disabled">భద్రతా పాలసీల కారణంగా కెమెరా నిలిపివేయబడింది.</string>
+    <!-- message for the dialog showing that the app does not have sufficient permissions [CHAR LIMIT=NONE] -->
+    <!-- Dialog "Dismiss" button. Closes the dialog [CHAR LIMIT=12]-->
+    <!-- alert to the user to wait for some operation to complete -->
     <string name="wait">దయచేసి వేచి ఉండండి...</string>
+    <!-- alert to the user that an SD card must be installed before using the camera -->
     <string name="no_storage" product="default">కెమెరాను ఉపయోగించే ముందు SD కార్డును చొప్పించుము.</string>
+    <!-- alert to the user that the SD card is being disk-checked -->
     <string name="preparing_sd" product="default">SD సిద్ధం చేయబడుతుంది\u2026</string>
+    <!-- alert to the user that the camera fails to read or write the SD card. -->
     <string name="access_sd_fail" product="default">SD కార్డుకు ప్రాప్యత సాధ్యపడలేదు.</string>
+    <!-- A label that overlays on top of the preview frame to indicate the camcorder is in time lapse mode [CHAR LIMIT=35] -->
     <string name="time_lapse_title">సమయం ముగింపు రికార్డింగ్</string>
+    <!-- Screen display message during image capture to indicate that the capture is in progress, like during HDR+. [CHAR LIMIT=20] -->
     <string name="capturing">సంగ్రహించడం</string>
+    <!-- Settings screen, camera selection dialog title. Users can select a camera from the phone (front-facing or back-facing). [CHAR LIMIT=20] -->
     <string name="pref_camera_id_title">కెమెరాను ఎంచుకోండి</string>
+    <!-- In select camera setting, back facing camera. [CHAR LIMIT=14] -->
     <string name="pref_camera_id_entry_back">వెనుకకు</string>
+    <!-- In select camera setting, front-facing camera. [CHAR LIMIT=14] -->
     <string name="pref_camera_id_entry_front">ముందు</string>
+    <!-- Settings screen, setting title text -->
+    <!--  Label for record location preference [CHAR LIMIT=50] -->
     <string name="pref_camera_location_label">లొకేషన్</string>
+    <!-- Title for countdown timer on camera settings screen [CHAR LIMIT=30]-->
     <string name="pref_camera_timer_title">కౌంట్‌డౌన్ టైమర్</string>
+    <!-- Entry for countdown timer setting. e.g. 1 second, 10 seconds, etc. [CHAR LIMIT=30]-->
     <plurals name="pref_camera_timer_entry">
         <item quantity="one">1 సెకను</item>
         <item quantity="other">%d సెకనులు</item>
     </plurals>
+    <!-- Text followed by a checkbox to turn on/off sound effects during the countdown. [CHAR LIMIT = 24]-->
     <string name="pref_camera_timer_sound_title">కౌంట్‌డౌన్ సమయంలో బీప్</string>
+    <!-- Entry of camera save path -->
+    <!-- Entry of a on/off setting. The setting is turned off. [CHAR LIMIT=15] -->
     <string name="setting_off">ఆఫ్‌లో ఉంది</string>
+    <!-- Entry of a on/off setting. The setting is turned on. [CHAR LIMIT=15] -->
     <string name="setting_on">ఆన్</string>
+    <!-- The value of a camera preference indicating the setting is off. -->
+    <!-- The value of a camera preference indicating the setting is on. -->
+    <!-- The Video quality settings in preference [CHAR LIMIT=21] -->
     <string name="pref_video_quality_title">వీడియో నాణ్యత</string>
+    <!-- The default quality value is NULL -->
+    <!-- Video quality setting entry.
+    Videos will be recorded in 8k DCI quality. [CHAR LIMIT=24] -->
+    <!-- Video quality setting entry.
+    Videos will be recorded in 4k DCI quality. [CHAR LIMIT=24] -->
+    <!-- Video quality setting entry.
+    Videos will be recorded in 4k UHD quality. [CHAR LIMIT=24] -->
+    <!-- Video quality setting entry. Videos will be recorded in 1080p quality. [CHAR LIMIT=24] -->
+    <!-- Video quality setting entry. Videos will be recorded in 720p quality. [CHAR LIMIT=24] -->
+    <!-- Video quality setting entry. Videos will be recorded in 480p quality. [CHAR LIMIT=24] -->
+    <!-- Video quality setting entry. Videos will be recorded in QHD quality. [CHAR LIMIT=24] -->
+    <!-- Video quality setting entry. Videos will be recorded in 2K quality. [CHAR LIMIT=24] -->
+    <!-- Describes the preference dialog for choosing interval between frame capture for
+    time lapse recording. Appears at top of the dialog. [CHAR LIMIT=30] -->
     <string name="pref_video_time_lapse_frame_interval_title">సమయం ముగిసింది</string>
+    <!-- Settings screen, Camera setting category title -->
     <string name="pref_camera_settings_category">కెమెరా సెట్టింగులు</string>
+    <!-- Settings screen, Camcorder setting category title -->
     <string name="pref_camcorder_settings_category">కామ్‌కార్డర్ సెట్టింగులు</string>
+    <!-- Settings screen, Picture size title -->
     <string name="pref_camera_picturesize_title">చిత్రం పరిమాణం</string>
+    <!-- Settings screen, Focus mode title -->
     <string name="pref_camera_focusmode_title">కేంద్రీకరణ మోడ్</string>
+    <!-- Settings screen, Focus mode dialog radio button choices -->
     <string name="pref_camera_focusmode_entry_auto">ఆటో</string>
+    <!-- A setting that lets the camera focus into infinity. [CHAR LIMIT=20] -->
     <string name="pref_camera_focusmode_entry_infinity">అనంతం</string>
+    <!-- A setting that lets the camera operate in macro focus mode for nearby objects. [CHAR LIMIT=20] -->
     <string name="pref_camera_focusmode_entry_macro">మాక్రో</string>
+    <!-- Menu, focus mode labels [CHAR LIMIT=50] -->
     <string name="pref_camera_focusmode_label_auto">ఆటో</string>
     <string name="pref_camera_focusmode_label_infinity">అనంతం</string>
     <string name="pref_camera_focusmode_label_macro">మాక్రో</string>
+    <!-- Default flash mode setting.-->
+    <!-- Value for flash off setting-->
+    <!-- Settings screen, Flash mode title -->
     <string name="pref_camera_flashmode_title">ఫ్లాష్</string>
+    <!-- Settings screen, Flash mode 'auto'. [CHAR LIMIT=12] -->
     <string name="pref_camera_flashmode_entry_auto">ఆటో</string>
+    <!-- Settings screen, Flash mode 'alway on'. [CHAR LIMIT=12] -->
     <string name="pref_camera_flashmode_entry_on">ఆన్</string>
+    <!-- Settings screen, Flash mode 'always off'. [CHAR LIMIT=12] -->
     <string name="pref_camera_flashmode_entry_off">ఆఫ్‌లో ఉంది</string>
+    <!-- Menu, flash mode labels [CHAR LIMIT=50] -->
     <string name="pref_camera_flashmode_label_auto">ఫ్లాష్ ఆటో</string>
     <string name="pref_camera_flashmode_label_on">ప్లాష్ ఆన్</string>
     <string name="pref_camera_flashmode_label_off">ఫ్లాష్ ఆఫ్</string>
+    <!-- Default videocamera flash mode setting.-->
+    <!-- Default white balance setting. -->
+    <!-- Settings screen, white balance title -->
     <string name="pref_camera_whitebalance_title">తెలుపు సమతూకం</string>
+    <!-- Menu, white balance label -->
     <string name="pref_camera_whitebalance_label">తెలుపు బ్యాలెన్స్</string>
+    <!-- Settings screen, White balance dialog radio button choices -->
     <string name="pref_camera_whitebalance_entry_auto">ఆటో</string>
     <string name="pref_camera_whitebalance_entry_incandescent">ప్రకాశించే</string>
     <string name="pref_camera_whitebalance_entry_daylight">పగటివెలుగు</string>
     <string name="pref_camera_whitebalance_entry_fluorescent">ఫ్లోరెసెంట్</string>
     <string name="pref_camera_whitebalance_entry_cloudy">మేఘావృతం</string>
+    <!-- Menu, White balance labels [CHAR LIMIT=50] -->
     <string name="pref_camera_whitebalance_label_auto">ఆటో</string>
     <string name="pref_camera_whitebalance_label_incandescent">ప్రజ్వలనం</string>
     <string name="pref_camera_whitebalance_label_daylight">పట్టపగలు</string>
     <string name="pref_camera_whitebalance_label_fluorescent">ఫ్లూరోసెంట్</string>
     <string name="pref_camera_whitebalance_label_cloudy">మేఘావృతం</string>
+    <!-- Default scene mode setting. -->
+    <!-- Settings screen, Select Scene mode -->
     <string name="pref_camera_scenemode_title">దృశ్య మోడ్</string>
+    <!-- Settings menu, scene mode choices [CHAR LIMIT=16] -->
     <string name="pref_camera_scenemode_entry_auto">ఆటో</string>
+    <!-- Scene mode that uses HDR plus (better HDR) [CHAR LIMIT=16] -->
     <string name="pref_camera_scenemode_entry_hdr_plus">HDR+</string>
+    <!-- Scene mode that uses HDR (high dynamic range) [CHAR LIMIT=16] -->
     <string name="pref_camera_scenemode_entry_hdr">HDR</string>
+    <!-- Scene mode to turn on HDR (better high dynamic range) [CHAR LIMIT=50] -->
     <string name="pref_camera_scenemode_entry_turn_hdr_plus_on">HDR+ ON</string>
+    <!-- Scene mode to turn off HDR (better high dynamic range) [CHAR LIMIT=50] -->
     <string name="pref_camera_scenemode_entry_turn_hdr_plus_off">HDR+ OFF</string>
+    <!-- Scene mode to turn on HDR (high dynamic range) [CHAR LIMIT=50] -->
     <string name="pref_camera_scenemode_entry_turn_hdr_on">HDR ON</string>
+    <!-- Scene mode to turn off HDR (high dynamic range) [CHAR LIMIT=50] -->
     <string name="pref_camera_scenemode_entry_turn_hdr_off">HDR OFF</string>
+    <!-- Scene mode that takes an image quickly with little motion blur. [CHAR LIMIT=16] -->
     <string name="pref_camera_scenemode_entry_action">చర్య</string>
+    <!-- Scene mode that takes long exposures to capture night scenes without flash. [CHAR LIMIT=16] -->
     <string name="pref_camera_scenemode_entry_night">రాత్రి</string>
+    <!-- Scene mode optimized for taking images in the sunset. [CHAR LIMIT=16] -->
     <string name="pref_camera_scenemode_entry_sunset">సూర్యాస్తమయం</string>
+    <!-- Scene mode optimized for taking indoor low-lights pictures. [CHAR LIMIT=16] -->
     <string name="pref_camera_scenemode_entry_party">పార్టీ</string>
+    <!-- Scene mode for refocus feature [CHAR LIMIT=16] -->
+    <!-- Settings menu, scene mode labels [CHAR LIMIT=50] -->
     <string name="pref_camera_scenemode_label_auto">ఏమీ లేవు</string>
+    <!-- Scene mode that takes an image quickly with little motion blur. [CHAR LIMIT=50] -->
     <string name="pref_camera_scenemode_label_action">చర్య</string>
+    <!-- Scene mode that takes long exposures to capture night scenes without flash. [CHAR LIMIT=50] -->
     <string name="pref_camera_scenemode_label_night">రాత్రి</string>
+    <!-- Scene mode optimized for taking images in the sunset. [CHAR LIMIT=50] -->
     <string name="pref_camera_scenemode_label_sunset">సూర్యాస్తమయం</string>
+    <!-- Scene mode optimized for taking indoor low-lights pictures. [CHAR LIMIT=50] -->
     <string name="pref_camera_scenemode_label_party">పార్టీ</string>
+    <!-- Settings menu countdown timer off [CHAR LIMIT=50] -->
     <string name="pref_camera_countdown_label_off">టైమర్ ఆఫ్</string>
+    <!-- Settings menu countdown timer 1 second [CHAR LIMIT=50] -->
     <string name="pref_camera_countdown_label_one">1 సెకను</string>
+    <!-- Settings menu countdown timer 3 seconds [CHAR LIMIT=50] -->
     <string name="pref_camera_countdown_label_three">3 సెకనులు</string>
+    <!-- Settings menu countdown timer 10 seconds [CHAR LIMIT=50] -->
     <string name="pref_camera_countdown_label_ten">10 సెకనులు</string>
+    <!-- Settings menu countdown timer 15 seconds [CHAR LIMIT=50] -->
     <string name="pref_camera_countdown_label_fifteen">15 సెకనులు</string>
+    <!-- Toast after trying to select a setting that is not allowed to change in scene mode [CHAR LIMIT=NONE] -->
     <string name="not_selectable_in_scene_mode">దృశ్య మోడులో ఎంచుకోవడం కుదరదు.</string>
+    <!-- Toast after enable HDR function to inform Continuous Shot has disabled -->
+    <!-- Toast after enable Advanced Capture function to inform Continuous Shot has disabled -->
+    <!-- Toast after enable 2k4k video quality to inform IS has disabled -->
+    <!-- Toast after 2k4k video is enabled to inform SeeMore has been disabled -->
+    <!-- Toast after High Quality Noise Reduction has been enabled to show CDS is disabled -->
+    <!-- Toast after High Quality Noise Reduction has been enabled to show TNR is disabled -->
+    <!-- Toast after SeeMore has been enabled to show CDS is disabled -->
+    <!-- Toast after SeeMore has been enabled to show TNR is disabled -->
+    <!-- Toast after SeeMore has been enabled to show NR is disabled -->
+    <!-- Exposure settings in preference -->
     <string name="pref_exposure_title">ఎక్స్‌పోజర్</string>
+    <!--  menu label exposure compensation [CHAR LIMIT=50] -->
     <string name="pref_exposure_label">ఎక్స్‌పోజర్</string>
+    <!-- Default HDR entry value -->
+    <!-- Default HDR+ entry value -->
+    <!-- HDR label ON [CHAR LIMIT=60] -->
     <string name="pref_camera_hdr_label">HDR</string>
+    <!-- switch camera label back [CHAR LIMIT=60] -->
     <string name="pref_camera_id_label_back">ముందు కెమెరా</string>
+    <!-- switch camera label front [CHAR LIMIT=60] -->
     <string name="pref_camera_id_label_front">వెనుక కెమెరా</string>
+    <!-- Dialog "OK" button. Dismisses dialog. -->
     <string name="dialog_ok">సరే</string>
+    <!-- Low-memory dialog message [CHAR LIMIT=NONE] -->
     <string name="spaceIsLow_content" product="default">మీ SD కార్డులో ఖాళీ అయిపోతోంది. నాణ్యతా సెట్టింగును మార్చండి లేదా కొన్ని చిత్రాలను లేదా ఇతర ఫైళ్ళను తొలిగించండి.</string>
+    <!-- Camera format string for new image files. Passed to java.text.SimpleDateFormat. -->
+    <!-- Video Camera format string for new video files. Passed to java.text.SimpleDateFormat. -->
+    <!-- Filename prefix for panorama output. -->
+    <!-- The message shown when video record reaches size limit. -->
     <string name="video_reach_size_limit">పరిమాణ పరిమతిని చేరుకున్నారు</string>
+    <!-- The text shown when the panorama panning speed is to fast [CHAR LIMIT=16] -->
     <string name="pano_too_fast_prompt">చాలా వేగం</string>
+    <!-- The text shown in the progress dialog when panorama preview is generating in the background [CHAR LIMIT=30] -->
     <string name="pano_dialog_prepare_preview">పనోరమా సిద్ధమవుతుంది</string>
+    <!-- The text shown in the dialog when panorama saving failed [CHAR LIMIT=40] -->
     <string name="pano_dialog_panorama_failed">పనోరమాను సేవ్ చేయడం సాధ్యపడదు.</string>
+    <!-- The text shown on the dialog title in the dialogs for Panorama [CHAR LIMIT=12] -->
     <string name="pano_dialog_title">పనోరమా</string>
+    <!-- The text shown on the top-left corner of the screen to indicate the capturing is on going [CHAR LIMIT=27] -->
     <string name="pano_capture_indication">పనోరమా సంగ్రహించబడుతుంది</string>
+    <!-- The text shown in the progress dialog when waiting for previous panorama finishing [CHAR LIMIT=40] -->
     <string name="pano_dialog_waiting_previous">పూర్వపు పనోరమా కొరకు నిరీక్షణ</string>
+    <!-- The text shown on the bottom-left corner of the screen to indicate that the saving is in process [CHAR LIMIT=13] -->
     <string name="pano_review_saving_indication_str">సేవింగ్\u2026</string>
+    <!-- The text shown on the screen to indicate that the panorama is rendering [CHAR LIMIT=27] -->
     <string name="pano_review_rendering">రేఖీయచిత్రణ చేసిన విశాల దృశ్యం</string>
+    <!-- Toast telling users tapping on the viewfinder will trigger autofocus [CHAR LIMIT=28] -->
     <string name="tap_to_focus">కేంద్రీకరణ కొరకు తాకండి.</string>
+    <!-- Default effect setting that clears the effect. -->
+    <!-- Title of video effect setting popup window -->
     <string name="pref_video_effect_title">ప్రభావాలు</string>
+    <!-- Effect setting item that clear the effect. [CHAR LIMIT=14] -->
     <string name="effect_none">ఏదీ లేదు</string>
+    <!-- Effect setting item that squeezes the face. [CHAR LIMIT=14] -->
     <string name="effect_goofy_face_squeeze">నొక్కుము</string>
+    <!-- Effect setting item that makes eyes big. [CHAR LIMIT=14] -->
     <string name="effect_goofy_face_big_eyes">పెద్ద కళ్ళు</string>
+    <!-- Effect setting item that makes mouth big. [CHAR LIMIT=14] -->
     <string name="effect_goofy_face_big_mouth">పెద్ద నోరు</string>
+    <!-- Effect setting item that makes mouth small. [CHAR LIMIT=14] -->
     <string name="effect_goofy_face_small_mouth">చిన్న నోరు</string>
+    <!-- Effect setting item that makes nose big. [CHAR LIMIT=14] -->
     <string name="effect_goofy_face_big_nose">పెద్ద ముక్క</string>
+    <!-- Effect setting item that makes eyes small. [CHAR LIMIT=14] -->
     <string name="effect_goofy_face_small_eyes">చిన్న కళ్ళు</string>
+    <!-- Effect setting item that replaces background with Android in Space. [CHAR LIMIT=14] -->
     <string name="effect_backdropper_space">లోపలి ఖాళీ</string>
+    <!-- Effect setting item that replaces background with a sunset. [CHAR LIMIT=14] -->
     <string name="effect_backdropper_sunset">సూర్యాస్తమయం</string>
+    <!-- Effect setting item that replaces background with video from gallery. [CHAR LIMIT=14] -->
     <string name="effect_backdropper_gallery">మీ వీడియో</string>
+    <!-- Toast telling users tapping on the viewfinder will take a picture [CHAR LIMIT=54] -->
     <string name="video_snapshot_hint">రికార్డ్ చేస్తున్నప్పుదు ఫోటో తీయడానికి తాకండి.</string>
+    <!-- Announcement telling users video recording has just started [CHAR LIMIT=NONE] -->
     <string name="video_recording_started">వీడియో రికార్డింగ్ ప్రారంభమయింది.</string>
+    <!-- Announcement telling users video recording has just stopped [CHAR LIMIT=NONE] -->
     <string name="video_recording_stopped">వీడియో రికార్డింగ్ నిలిచిపోయింది.</string>
+    <!-- A button in effect setting popup to clear the effect. [CHAR LIMIT=26] -->
     <string name="clear_effects">ప్రభావాలను క్లియర్ చేయుము.</string>
+    <!-- Title of category for silly face effects. [CHAR LIMIT=26] -->
     <string name="effect_silly_faces">చిలిపి ముఖాలు</string>
+    <!-- Title of category for background replacement effects. [CHAR LIMIT=26] -->
     <string name="effect_background">నేపధ్యం</string>
+    <!-- The shutter button. [CHAR LIMIT = NONE] -->
     <string name="accessibility_shutter_button">షట్టర్</string>
+    <!-- The exit best photo mode button. [CHAR LIMIT = NONE] -->
+    <!-- The menu button. [CHAR LIMIT = NONE] -->
     <string name="accessibility_menu_button">మెనూ బటన్</string>
+    <!-- The mode picker to switch between camera, video and panorama. [CHAR LIMIT = NONE] -->
     <string name="accessibility_mode_picker">కెమెరా, వీడియో, లేదా పనోరమా సెలెక్టర్</string>
+    <!-- The check box in camera settings, such as store location. [CHAR LIMIT = NONE] -->
     <string name="accessibility_check_box">%1$s చెక్ బాక్స్</string>
+    <!-- The button to switch to Camera mode. [CHAR LIMIT = NONE] -->
     <string name="accessibility_switch_to_camera">ఫోటోకు మారండి</string>
+    <!-- The button to switch to Video mode. [CHAR LIMIT = NONE] -->
     <string name="accessibility_switch_to_video">వీడియోకు మారండి</string>
+    <!-- The button to switch to Panorama mode. [CHAR LIMIT = NONE] -->
     <string name="accessibility_switch_to_panorama">పనోరమాకు మారండి</string>
+    <!-- The button to switch to the Photo Sphere mode. [CHAR LIMIT = NONE] -->
     <string name="accessibility_switch_to_photo_sphere">ఫోటో గోళానికి మారండి</string>
+    <!-- The button to switch to the high quality mode. [CHAR LIMIT = NONE] -->
     <string name="accessibility_switch_to_gcam">అధిక నాణ్యతకు మారండి</string>
+    <!-- The button in review mode indicating that the photo taking, video recording, and panorama saving session should be canceled [CHAR LIMIT = NONE] -->
     <string name="accessibility_review_cancel">రద్దును సమీక్షించండి</string>
+    <!-- The button in review mode indicating that the taken photo/video is OK to be attached/uploaded [CHAR LIMIT = NONE] -->
     <string name="accessibility_review_ok">సమీక్ష చేయబడింది</string>
+    <!-- button in review mode indicate the user want to retake another photo/video for attachment [
+CHAR LIMIT = NONE] -->
     <string name="accessibility_review_retake">సమీక్షను తిరిగి చేపట్టడమైంది</string>
+    <!-- Default text for a button that can be toggled on and off. -->
     <string name="capital_on">ఆన్‌లో ఉంది</string>
+    <!-- Default text for a button that can be toggled on and off. -->
     <string name="capital_off">ఆఫ్</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_off">ఆఫ్‌లో ఉంది</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_500">0.5 సెకనులు</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_1000">1 సెకను</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_1500">1.5 సెకనులు</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_2000">2 సెకనులు</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_2500">2.5 సెకనులు</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_3000">3 సెకనులు</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_4000">4 సెకనులు</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_5000">5 సెకనులు</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_6000">6 సెకనులు</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_10000">10 సెకనులు</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_12000">12 సెకనులు</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_15000">15 సెకనులు</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_24000">24 సెకనులు</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_30000">0.5 నిమిషాలు</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_60000">1 నిమిషం</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_90000">1.5 నిమిషాలు</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_120000">2 నిమిషాలు</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_150000">2.5 నిమిషాలు</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_180000">3 నిమిషాలు</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_240000">4 నిమిషాలు</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_300000">5 నిమిషాలు</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_360000">6 నిమిషాలు</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_600000">10 నిమిషాలు</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_720000">12 నిమిషాలు</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_900000">15 నిమిషాలు</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_1440000">24 నిమిషాలు</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_1800000">0.5 గంటలు</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_3600000">1 గంట</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_5400000">1.5 గంట</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_7200000">2 గంటలు</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_9000000">2.5 గంటలు</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_10800000">3 గంటలు</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_14400000">4 గంటలు</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_18000000">5 గంటలు</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_21600000">6 గంటలు</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_36000000">10 గంటలు</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_43200000">12 గంటలు</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_54000000">15 గంటలు</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_86400000">24 గంటలు</string>
+    <!-- Seconds: a unit of time for time lapse intervals. [CHAR LIMIT = 20] -->
     <string name="time_lapse_seconds">సెకనులు</string>
+    <!-- Minutes: a unit of time for time lapse intervals. [CHAR LIMIT = 20] -->
     <string name="time_lapse_minutes">నిమిషాలు</string>
+    <!-- Hours: a unit of time for time lapse intervals. [CHAR LIMIT = 20] -->
     <string name="time_lapse_hours">గంటలు</string>
+    <!-- The button to confirm time-lapse setting changes. [CHAR LIMIT = 20] -->
     <string name="time_lapse_interval_set">పూర్తయింది</string>
+    <!-- Title in time interval picker for setting time interval. [CHAR LIMIT = 30]-->
     <string name="set_time_interval">సమయ విరామాన్ని సెట్ చేయుము</string>
+    <!-- Help text that is shown when the time lapse feature is turned off. [CHAR LIMIT = 180]-->
     <string name="set_time_interval_help">సమయం ముగిసింది లక్షణం ఆఫ్ చేయబడింది. సమయ విరామం సెట్ చేసేందుకు దానిని ఆన్ చేయండి.</string>
+    <!-- Title in timer setting for setting the duration for the countdown timer. [CHAR LIMIT = 50]-->
     <string name="set_duration">కాల వ్యవధిని సెకనులలో సెట్ చేయండి</string>
+    <!-- On-screen hint during timer countdown for taking a photo. [CHAR LIMIT = 60]-->
     <string name="count_down_title_text">ఫోటో తీసుకోవడానికి కౌంట్ మొదలైంది</string>
+    <!-- Title for first run dialog asking if the user wants to remember photo locations [CHAR LIMIT = 50] -->
     <string name="remember_location_title">ఫోటోస్థానాన్ని గుర్తుంచుకోండి</string>
+    <!-- Message for first run dialog asking if the user wants to remember photo locations [CHAR LIMIT = None] -->
     <string name="remember_location_prompt">మీ ఫోటోలను, వీడియోలను వాటిని తీసిన స్థానాలతో ట్యాగ్ చేయండి.\n\nమీ భద్రపర్చబడిన చిత్రాలతోపాటు ఈ సమాచారాన్ని ఇతర అప్లికేషన్స్ ప్రాప్తి చేయగలవు.</string>
+    <!-- Negative answer for first run dialog asking if the user wants to remember photo locations [CHAR LIMIT = 20] -->
     <string name="remember_location_no">వద్దు, ధన్యవాదాలు</string>
+    <!-- Positive answer for first run dialog asking if the user wants to remember photo locations [CHAR LIMIT = 20] -->
     <string name="remember_location_yes">హాజరు అవుతాము అన్నవి</string>
+    <!-- Camera menu labels -->
+    <!-- more options label [CHAR LIMIT=50] -->
     <string name="camera_menu_more_label">మరిన్ని ఐచ్చికాలు</string>
+    <!-- settings label [CHAR LIMIT=50] -->
     <string name="camera_menu_settings_label">సెట్టింగ్‌లు</string>
+    <!--  Tiny Planet -->
+    <!-- Button to press for creating a tiny planet image. [CHAR LIMIT = 30] -->
     <string name="create_tiny_planet">చిన్న గ్రహాన్ని సృష్టించుము</string>
+    <!-- Message shown while a tiny planet image is being saved. [CHAR LIMIT = 30] -->
     <string name="saving_tiny_planet">చిన్న గ్రహం సేవ్ చేయబడుతుంది ...</string>
+    <!-- Label above a slider that let's the user set the zoom of a tiny planet image. [CHAR LIMIT = 15] -->
     <string name="tiny_planet_zoom">జూమ్</string>
+    <!-- Label above a slider that let's the user set the rotation of a tiny planet image. [CHAR LIMIT = 15] -->
     <string name="tiny_planet_rotate">తిప్పుము</string>
+    <!-- Crop -->
+    <!-- Label for the save button in the crop activity action bar [CHAR LIMIT=20] -->
     <string name="crop_save">సేవ్ చేయి</string>
+    <!--  String shown when we cannot load the image when starting the activity [CHAR LIMIT=NONE] -->
     <string name="cannot_load_image">చిత్రాన్ని లోడ్ చేయడం సాధ్యపడలేదు!</string>
+    <!-- Label for album filmstrip button -->
     <string name="switch_photo_filmstrip">ఫిల్మ్‌స్ట్రిప్ వీక్షణం</string>
+    <!--  String shown when setting the homepage wallpaper in the background [CHAR LIMIT=NONE] -->
     <string name="setting_wallpaper">వాల్‌పేపర్ సెట్ చేయబడుతుంది</string>
+    <!-- Menu, Video rotation labels [CHAR LIMIT=50] -->
     <string name="save_best_dialog_positive_bt">సరే</string>
     <string name="delete_best_dialog_positive_bt">తొలగించు</string>
 </resources>

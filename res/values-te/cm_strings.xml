@@ -15,6 +15,13 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- common aspect ratios -->
+    <!-- aspect ratio greater than 16:9, so "widescreen" or "cinematic" -->
+    <!-- Format for entries in the picture size menu. Parameter one is aspect ratio,
+         parameter two is size in megapixels, e.g. "(4:3) 12.1 megapixels"
+         NOTE: for Chinese (zh) and Korean (ko) the pixel number (parameter two)
+         will be multiplied by 100 as those languages want to count by ten thousands -->
+    <!-- Settings screen, scene mode -->
     <string name="pref_camera_scenemode_entry_antimotionblur">మోషన్ అస్పష్టత తగ్గింపు</string>
     <string name="pref_camera_scenemode_entry_aqua">ఆక్వా</string>
     <string name="pref_camera_scenemode_entry_ar">అనుబంధ వాస్తవికత</string>
@@ -56,6 +63,7 @@
     <string name="pref_camera_scenemode_entry_text">పాఠం</string>
     <string name="pref_camera_scenemode_entry_theatre">థియేటర్</string>
     <string name="pref_camera_scenemode_entry_whiteboard">వైట్‌బోర్డ్</string>
+    <!-- Settings screen, focus mode -->
     <string name="pref_camera_focusmode_entry_continuous">కొనసాగింపు</string>
     <string name="pref_camera_focusmode_entry_mw_continuous">కొనసాగింపు (MW)</string>
     <string name="pref_camera_focusmode_entry_extended">విస్తరించబడిన</string>
@@ -65,6 +73,7 @@
     <string name="pref_camera_focusmode_entry_normal">సాధారణం</string>
     <string name="pref_camera_focusmode_entry_portrait">పటం</string>
     <string name="pref_camera_focusmode_entry_hyperfocal">హైపర్ ఫోకల్</string>
+    <!-- Color effects -->
     <string name="pref_camera_coloreffect_entry_washed">కడిగిన</string>
     <string name="pref_camera_coloreffect_entry_vintage_warm">వెచ్చని</string>
     <string name="pref_camera_coloreffect_entry_vintage_cold">చల్లని</string>
@@ -72,15 +81,21 @@
     <string name="pref_camera_coloreffect_entry_point_green">బిందువు ఆకుపచ్చ</string>
     <string name="pref_camera_coloreffect_entry_point_red_yellow">బిందువు ఎరుపు-పసుపు</string>
     <string name="pref_camera_coloreffect_entry_cartoonize">కార్టూనైజ్</string>
+    <!-- Red eye flash mode title -->
     <string name="pref_camera_flashmode_entry_redeye">వరుపు కన్ను</string>
     <string name="pref_camera_flashmode_label_redeye">వరుపు కన్ను</string>
+    <!-- Power shutter -->
     <string name="pref_camera_power_shutter_title">పవర్ షట్టర్</string>
+    <!-- Max brightness -->
     <string name="pref_camera_max_brightness_title">ప్రకాశవంతమైన స్క్రీన్</string>
+    <!-- Touch focus duration -->
     <string name="pref_camera_focustime_title">ఫోకస్ కాలవ్యవధిని తాకుము</string>
     <string name="pref_camera_focustime_entry_0">0s</string>
     <string name="pref_camera_focustime_entry_3">3s</string>
     <string name="pref_camera_focustime_entry_5">5s</string>
     <string name="pref_camera_focustime_entry_10">10s</string>
     <string name="pref_camera_focustime_entry_infinite">అనంతమైన</string>
+    <!-- Shutter speed -->
     <string name="pref_camera_shutter_speed_title">షట్టర్ వేగం</string>
+    <!-- Advanced options -->
 </resources>

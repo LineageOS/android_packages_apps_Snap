@@ -15,8 +15,15 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- common aspect ratios -->
+    <!-- aspect ratio greater than 16:9, so "widescreen" or "cinematic" -->
     <string name="pref_camera_aspectratio_wide">Široko</string>
+    <!-- Format for entries in the picture size menu. Parameter one is aspect ratio,
+         parameter two is size in megapixels, e.g. "(4:3) 12.1 megapixels"
+         NOTE: for Chinese (zh) and Korean (ko) the pixel number (parameter two)
+         will be multiplied by 100 as those languages want to count by ten thousands -->
     <string name="pref_camera_megapixel_format">(<xliff:g id="ratio" example="16:9">%1$s</xliff:g>) <xliff:g id="pixels">%2$1.1f</xliff:g> megapixela</string>
+    <!-- Settings screen, scene mode -->
     <string name="pref_camera_scenemode_entry_antimotionblur">Redukcija zamagljenja zbog gibanja</string>
     <string name="pref_camera_scenemode_entry_aqua">Aqua</string>
     <string name="pref_camera_scenemode_entry_ar">Proširena stvarnost</string>
@@ -59,6 +66,7 @@
     <string name="pref_camera_scenemode_entry_text">Tekst</string>
     <string name="pref_camera_scenemode_entry_theatre">Kazalište</string>
     <string name="pref_camera_scenemode_entry_whiteboard">Bijela ploča</string>
+    <!-- Settings screen, focus mode -->
     <string name="pref_camera_focusmode_entry_continuous">Neprekidno</string>
     <string name="pref_camera_focusmode_entry_mw_continuous">Kontinuirano (MW)</string>
     <string name="pref_camera_focusmode_entry_extended">Produženo</string>
@@ -68,6 +76,7 @@
     <string name="pref_camera_focusmode_entry_normal">Normalan</string>
     <string name="pref_camera_focusmode_entry_portrait">Portret</string>
     <string name="pref_camera_focusmode_entry_hyperfocal">Hiperfokus</string>
+    <!-- Color effects -->
     <string name="pref_camera_coloreffect_entry_washed">Isprano</string>
     <string name="pref_camera_coloreffect_entry_vintage_warm">Zastarjelo toplo</string>
     <string name="pref_camera_coloreffect_entry_vintage_cold">Zastarjelo hladno</string>
@@ -75,17 +84,23 @@
     <string name="pref_camera_coloreffect_entry_point_green">Zelena točka</string>
     <string name="pref_camera_coloreffect_entry_point_red_yellow">Crveno-žuta točka</string>
     <string name="pref_camera_coloreffect_entry_cartoonize">Crtić</string>
+    <!-- Red eye flash mode title -->
     <string name="pref_camera_flashmode_entry_redeye">Crvene oči</string>
     <string name="pref_camera_flashmode_label_redeye">CRVENE OČI</string>
+    <!-- Power shutter -->
     <string name="pref_camera_power_shutter_title">Tipka za napajanje i okidač</string>
+    <!-- Max brightness -->
     <string name="pref_camera_max_brightness_title">Sjajan zaslon</string>
+    <!-- Touch focus duration -->
     <string name="pref_camera_focustime_title">Trajanje fokusa na dodir</string>
     <string name="pref_camera_focustime_entry_0">0s</string>
     <string name="pref_camera_focustime_entry_3">3s</string>
     <string name="pref_camera_focustime_entry_5">5s</string>
     <string name="pref_camera_focustime_entry_10">10s</string>
     <string name="pref_camera_focustime_entry_infinite">Neograničeno</string>
+    <!-- Shutter speed -->
     <string name="pref_camera_shutter_speed_title">Brzina okidača</string>
+    <!-- Advanced options -->
     <string name="developer_menu_enabled">Omogućili ste napredne opcije kamere</string>
     <string name="developer_menu_disabled">Onemogućili ste napredne opcije kamere</string>
     <string name="hfr_unsupported_current_resolution">HFR nije podržan za ovu rezoluciju</string>

@@ -14,8 +14,22 @@
      limitations under the License.
 -->
 <resources>
+    <!-- QuickReader: switcher item for qr -->
     <string name="accessibility_switch_to_qr">QR-წამკითხავი</string>
+    <!-- QuickReader: dismiss button for dialogs -->
+    <!-- QuickReader: toast shown when there's no app installed to open the qr code content -->
+    <!-- QuickReader: permission error dialog title -->
+    <!-- QuickReader: permission error dialog message when permission can be asked again -->
+    <!-- QuickReader: permission error dialog positive action when permission can be asked again -->
+    <!-- QuickReader: permission error dialog message when permission can't be asked again -->
+    <!-- QuickReader: permission error dialog positive action when permission can't be asked again -->
     <string name="quick_reader_permission_fatal_positive">პარამეტრების გახსნა</string>
+    <!-- QuickReader: scanned text dialog title -->
+    <!-- QuickReader: scanned text dialog positive button (copy to clipboard) -->
+    <!-- QuickReader: scanned text dialog negative button (share) -->
     <string name="quick_reader_scanned_text_negative">გაზიარება</string>
+    <!-- QuickReader: scanned text shared activity selector title -->
+    <!-- QuickReader: toast shown when the scanned text has been copied to the clipboard -->
+    <!-- QuickReader: Action is only allowed when performed unlocked -->
     <string name="quick_reader_only_unlocked">ეს მოქმედება, მხოლოდ გახსნილ მოწყობილობაზე შეიძლება შესრულდეს</string>
 </resources>

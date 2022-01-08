@@ -14,12 +14,20 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- The name of the Android Camera application. [CHAR LIMIT=16] -->
     <string name="app_name">Fotoaparat</string>
+    <!-- The label for the Video Camera activity. [CHAR LIMIT=16] -->
     <string name="video_camera_label">Kamera</string>
+    <!-- Used to format short video duration in Details dialog. minutes:seconds e.g. 00:30 -->
     <string name="details_ms">%1$02d:%2$02d</string>
+    <!-- Used to format video duration in Details dialog. hours:minutes:seconds e.g. 0:21:30 -->
     <string name="details_hms">%1$d:%2$02d:%3$02d</string>
+    <!-- Displayed in the title of the dialog for things to do with a picture
+             that is to be "set as" (e.g. set as contact photo or set as wallpaper) -->
     <string name="set_image">Postavi sliku kao</string>
+    <!-- Details dialog "OK" button. Dismisses dialog. -->
     <string name="delete">Obriši</string>
+    <!-- String Delete the selected media item(s) [CHAR LIMIT=50] -->
     <plurals name="delete_selection">
         <item quantity="one">Obrisati označenu stavku?</item>
         <item quantity="few">Obrisati označenu stavku?</item>
@@ -28,264 +36,527 @@
     <string name="share">Dijeli</string>
     <string name="share_panorama">Dijeli panoramu</string>
     <string name="share_as_photo">Dijeli kao fotografiju</string>
+    <!-- The label shown after an image is deleted [CHAR LIMIT=16] -->
     <string name="deleted">Izbrisano</string>
+    <!-- The label on the button which when clicked will undo a deletion of image [CHAR LIMIT=16]-->
     <string name="undo">PONIŠTI</string>
     <string name="details">Pojedinosti</string>
     <string name="close">Zatvori</string>
+    <!-- String indicating how many media item(s) is(are) selected
+            eg. 1 selected [CHAR LIMIT=30] -->
     <plurals name="number_of_items_selected">
         <item quantity="one">%1$d odabran</item>
         <item quantity="few">%1$d odabranih</item>
         <item quantity="other">%1$d označene</item>
     </plurals>
+    <!-- String indicating how many media album(s) is(are) selected
+            eg. 1 selected [CHAR LIMIT=30] -->
     <plurals name="number_of_albums_selected">
         <item quantity="one">%1$d odabran</item>
         <item quantity="few">%1$d odabranih</item>
         <item quantity="other">%1$d odabranih</item>
     </plurals>
+    <!-- String indicating how many media group(s) is(are) selected
+            eg. 1 selected [CHAR LIMIT=30] -->
     <plurals name="number_of_groups_selected">
         <item quantity="one">%1$d odabran</item>
         <item quantity="few">%1$d odabranih</item>
         <item quantity="other">%1$d odabranih</item>
     </plurals>
+    <!-- String indicating timestamp of photo or video -->
     <string name="show_on_map">Pokaži na karti</string>
     <string name="rotate_left">Zakreni ulijevo</string>
     <string name="rotate_right">Zakreni udesno</string>
+    <!-- String used as a menu label. The user can choose to edit the image
+         [CHAR_LIMIT=20]-->
     <string name="edit">Uređivanje</string>
+    <!-- The title of the menu item to let user crop the image. [CHAR LIMIT=15] -->
     <string name="crop_action">Obrezivanje</string>
+    <!-- The title of the menu item to let user trim the video. [CHAR LIMIT=15] -->
     <string name="trim_action">Skraćivanje</string>
+    <!-- The title of the menu item to let user set the image as background etc. [CHAR LIMIT=15] -->
     <string name="set_as">Postavi kao</string>
+    <!-- String indicating an error when playing the video. [CHAR LIMIT=30] -->
     <string name="video_err">Video se ne može reproducirati</string>
+    <!-- Toast message shown when the cropped image has been saved in the
+         %s folder (string: folder_download) [CHAR LIMIT=50]-->
     <string name="crop_saved">Obrezana slika spremljena je u mapu <xliff:g id="FOLDER_NAME">%s</xliff:g>.</string>
+    <!-- Text indicating the title of a media item in details window [CHAR LIMIT=14] -->
     <string name="title">Naslov</string>
+    <!-- Text indicating the description of a media item in details window [CHAR LIMIT=14] -->
     <string name="description">Opis</string>
+    <!-- Text indicating the creation time of a media item in details window [CHAR LIMIT=14] -->
     <string name="time">Vrijeme</string>
+    <!-- Text indicating the location of a media item in details window [CHAR LIMIT=14] -->
     <string name="location">Lokacija</string>
+    <!-- Text indicating the path of a media item in details window [CHAR LIMIT=14] -->
     <string name="path">Putanja</string>
+    <!-- Text indicating the width of a media item in details window [CHAR LIMIT=14] -->
     <string name="width">Širina</string>
+    <!-- Text indicating the height of a media item in details window [CHAR LIMIT=14] -->
     <string name="height">Visina</string>
+    <!-- Text indicating the orientation of a media item in details window [CHAR LIMIT=14] -->
     <string name="orientation">Orijentacija</string>
+    <!-- Text indicating the duration of a video item in details window [CHAR LIMIT=18] -->
     <string name="duration">Trajanje</string>
+    <!-- Text indicating the mime type of a media item in details window [CHAR LIMIT=14] -->
     <string name="mimetype">Vrsta MIME-a</string>
+    <!-- Text indicating the file size of a media item in details window [CHAR LIMIT=14] -->
     <string name="file_size">Veličina dat.</string>
+    <!-- Text indicating the maker of a media item in details window [CHAR LIMIT=14] -->
     <string name="maker">Autor</string>
+    <!-- Text indicating the model of a media item in details window [CHAR LIMIT=14] -->
     <string name="model">Model</string>
+    <!-- Text indicating flash info of a media item in details window [CHAR LIMIT=14] -->
     <string name="flash">Bljeskalica</string>
+    <!-- Text indicating aperture of a media item in details window [CHAR LIMIT=14] -->
     <string name="aperture">Otvor blende</string>
+    <!-- Text indicating the focal length of a media item in details window [CHAR LIMIT=14] -->
     <string name="focal_length">Žariš. duljina</string>
+    <!-- Text indicating the white balance of a media item in details window [CHAR LIMIT=18] -->
     <string name="white_balance">Balans bijele</string>
+    <!-- Text indicating the exposure time of a media item in details window [CHAR LIMIT=14] -->
     <string name="exposure_time">Vrijeme eksp.</string>
+    <!-- Text indicating the ISO speed rating of a media item in details window [CHAR LIMIT=14] -->
     <string name="iso">ISO</string>
+    <!-- String indicating the time units in seconds. [CHAR LIMIT=8] -->
+    <!-- String indicating the length units in milli-meters. [CHAR LIMIT=8] -->
     <string name="unit_mm">mm</string>
+    <!-- String indicating how camera shooting feature is used. [CHAR LIMIT=12] -->
     <string name="manual">Ručno</string>
+    <!-- String indicating how camera shooting feature is used. [CHAR LIMIT=12 -->
     <string name="auto">Autom.</string>
+    <!-- String indicating camera flash is fired. [CHAR LIMIT=14] -->
     <string name="flash_on">Bljes. okinuta</string>
+    <!-- String indicating camera flash is not used. [CHAR LIMIT=14] -->
     <string name="flash_off">Bez bljesk.</string>
+    <!-- String indicating image width or height is unknown. [CHAR LIMIT=14] -->
     <string name="unknown">Nepoznato</string>
+    <!-- Toast message shown after we try to make a local album available offline
+         [CHAR LIMIT=150] -->
     <string name="try_to_set_local_album_available_offline">Stavka je pohranjena lokalno i dostupna je izvan mreže.</string>
+    <!-- The content of a dialog showing trimming in progress. [CHAR LIMIT=30] -->
     <string name="please_wait">Pričekajte</string>
+    <!-- Text to show with progress bar while stitching a photo sphere. 'Photo sphere' is a product name. [CHAR LIMIT=35]-->
     <string name="rendering_photo_sphere">Generiranje fotosfere</string>
+    <!-- title for the dialog showing the error of camera hardware -->
     <string name="camera_error_title">Pogreška fotoaparata</string>
+    <!-- message for the dialog showing the error of camera hardware -->
     <string name="cannot_connect_camera">Povezivanje s fotoaparatom nije moguće.</string>
+    <!-- message for the dialog showing the camera is disabled because of security policies. Camera cannot be used. -->
     <string name="camera_disabled">Fotoaparat je onemogućen zbog sigurnosnih pravila.</string>
+    <!-- message for the dialog showing that the app does not have sufficient permissions [CHAR LIMIT=NONE] -->
     <string name="error_permissions">Aplikacija nema potrebne dozvole za pokretanje. Provjerite postavke dozvola.</string>
+    <!-- Dialog "Dismiss" button. Closes the dialog [CHAR LIMIT=12]-->
     <string name="dialog_dismiss">Odbaci</string>
+    <!-- alert to the user to wait for some operation to complete -->
     <string name="wait">Pričekajte…</string>
+    <!-- alert to the user that an SD card must be installed before using the camera -->
     <string name="no_storage" product="default">Prije upotrebe fotoaparata umetnite SD karticu.</string>
+    <!-- alert to the user that the SD card is being disk-checked -->
     <string name="preparing_sd" product="default">Priprema SD kartice…</string>
+    <!-- alert to the user that the camera fails to read or write the SD card. -->
     <string name="access_sd_fail" product="default">Nije moguć pristup SD kartici.</string>
+    <!-- A label that overlays on top of the preview frame to indicate the camcorder is in time lapse mode [CHAR LIMIT=35] -->
     <string name="time_lapse_title">Snimanje s vremenskim odmakom</string>
+    <!-- Screen display message during image capture to indicate that the capture is in progress, like during HDR+. [CHAR LIMIT=20] -->
     <string name="capturing">Snimanje</string>
+    <!-- Settings screen, camera selection dialog title. Users can select a camera from the phone (front-facing or back-facing). [CHAR LIMIT=20] -->
     <string name="pref_camera_id_title">Odaberite fotoaparat</string>
+    <!-- In select camera setting, back facing camera. [CHAR LIMIT=14] -->
     <string name="pref_camera_id_entry_back">Stražnji</string>
+    <!-- In select camera setting, front-facing camera. [CHAR LIMIT=14] -->
     <string name="pref_camera_id_entry_front">Prednji</string>
+    <!-- Settings screen, setting title text -->
     <string name="pref_camera_recordlocation_title">GPS lokacija</string>
+    <!--  Label for record location preference [CHAR LIMIT=50] -->
     <string name="pref_camera_location_label">LOKACIJA</string>
+    <!-- Title for countdown timer on camera settings screen [CHAR LIMIT=30]-->
     <string name="pref_camera_timer_title">Timer za odbrojavanje</string>
+    <!-- Entry for countdown timer setting. e.g. 1 second, 10 seconds, etc. [CHAR LIMIT=30]-->
     <plurals name="pref_camera_timer_entry">
         <item quantity="one">1 sekunda</item>
         <item quantity="few">%d sekundi</item>
         <item quantity="other">%d sekundi</item>
     </plurals>
+    <!-- Text followed by a checkbox to turn on/off sound effects during the countdown. [CHAR LIMIT = 24]-->
     <string name="pref_camera_timer_sound_title">Zvuk odbrojavanja</string>
+    <!-- Entry of camera save path -->
     <string name="pref_camera_savepath_title">Pohrana</string>
     <string name="pref_camera_savepath_entry_0">Telefon</string>
     <string name="pref_camera_savepath_entry_1">SD kartica</string>
+    <!-- Entry of a on/off setting. The setting is turned off. [CHAR LIMIT=15] -->
     <string name="setting_off">Isključeno</string>
+    <!-- Entry of a on/off setting. The setting is turned on. [CHAR LIMIT=15] -->
     <string name="setting_on">Uključeno</string>
+    <!-- The value of a camera preference indicating the setting is off. -->
+    <!-- The value of a camera preference indicating the setting is on. -->
+    <!-- The Video quality settings in preference [CHAR LIMIT=21] -->
     <string name="pref_video_quality_title">Kvaliteta videozapisa</string>
+    <!-- The default quality value is NULL -->
+    <!-- Video quality setting entry.
+    Videos will be recorded in 8k DCI quality. [CHAR LIMIT=24] -->
+    <!-- Video quality setting entry.
+    Videos will be recorded in 4k DCI quality. [CHAR LIMIT=24] -->
+    <!-- Video quality setting entry.
+    Videos will be recorded in 4k UHD quality. [CHAR LIMIT=24] -->
+    <!-- Video quality setting entry. Videos will be recorded in 1080p quality. [CHAR LIMIT=24] -->
+    <!-- Video quality setting entry. Videos will be recorded in 720p quality. [CHAR LIMIT=24] -->
+    <!-- Video quality setting entry. Videos will be recorded in 480p quality. [CHAR LIMIT=24] -->
+    <!-- Video quality setting entry. Videos will be recorded in QHD quality. [CHAR LIMIT=24] -->
+    <!-- Video quality setting entry. Videos will be recorded in 2K quality. [CHAR LIMIT=24] -->
+    <!-- Describes the preference dialog for choosing interval between frame capture for
+    time lapse recording. Appears at top of the dialog. [CHAR LIMIT=30] -->
     <string name="pref_video_time_lapse_frame_interval_title">Vremenski odmak</string>
+    <!-- Settings screen, Camera setting category title -->
     <string name="pref_camera_settings_category">Postavke fotoaparata</string>
+    <!-- Settings screen, Camcorder setting category title -->
     <string name="pref_camcorder_settings_category">Postavke kamere</string>
+    <!-- Settings screen, Picture size title -->
     <string name="pref_camera_picturesize_title">Veličina slike</string>
+    <!-- Settings screen, Focus mode title -->
     <string name="pref_camera_focusmode_title">Način fokusa</string>
+    <!-- Settings screen, Focus mode dialog radio button choices -->
     <string name="pref_camera_focusmode_entry_auto">Automatski</string>
+    <!-- A setting that lets the camera focus into infinity. [CHAR LIMIT=20] -->
     <string name="pref_camera_focusmode_entry_infinity">Beskonačno</string>
+    <!-- A setting that lets the camera operate in macro focus mode for nearby objects. [CHAR LIMIT=20] -->
     <string name="pref_camera_focusmode_entry_macro">Makro</string>
+    <!-- Menu, focus mode labels [CHAR LIMIT=50] -->
     <string name="pref_camera_focusmode_label_auto">AUTOMATSKI</string>
     <string name="pref_camera_focusmode_label_infinity">BESKONAČNO</string>
     <string name="pref_camera_focusmode_label_macro">MAKRO</string>
+    <!-- Default flash mode setting.-->
+    <!-- Value for flash off setting-->
+    <!-- Settings screen, Flash mode title -->
     <string name="pref_camera_flashmode_title">Bljeskalica</string>
+    <!-- Settings screen, Flash mode 'auto'. [CHAR LIMIT=12] -->
     <string name="pref_camera_flashmode_entry_auto">Automatski</string>
+    <!-- Settings screen, Flash mode 'alway on'. [CHAR LIMIT=12] -->
     <string name="pref_camera_flashmode_entry_on">Uključeno</string>
+    <!-- Settings screen, Flash mode 'always off'. [CHAR LIMIT=12] -->
     <string name="pref_camera_flashmode_entry_off">Isključeno</string>
+    <!-- Menu, flash mode labels [CHAR LIMIT=50] -->
     <string name="pref_camera_flashmode_label_auto">AUTOMATSKA BLJESKALICA</string>
     <string name="pref_camera_flashmode_label_on">BLJESKALICA UKLJUČENA</string>
     <string name="pref_camera_flashmode_label_off">BLJESKALICA ISKLJUČENA</string>
+    <!-- Default videocamera flash mode setting.-->
+    <!-- Default white balance setting. -->
+    <!-- Settings screen, white balance title -->
     <string name="pref_camera_whitebalance_title">Balans bijele</string>
+    <!-- Menu, white balance label -->
     <string name="pref_camera_whitebalance_label">BALANS BIJELE</string>
+    <!-- Settings screen, White balance dialog radio button choices -->
     <string name="pref_camera_whitebalance_entry_auto">Automatski</string>
     <string name="pref_camera_whitebalance_entry_incandescent">Svjetlost žarulje</string>
     <string name="pref_camera_whitebalance_entry_daylight">Dnevno svjetlo</string>
     <string name="pref_camera_whitebalance_entry_fluorescent">Fluorescentno</string>
     <string name="pref_camera_whitebalance_entry_cloudy">Oblačno</string>
+    <!-- Menu, White balance labels [CHAR LIMIT=50] -->
     <string name="pref_camera_whitebalance_label_auto">AUTOMATSKI</string>
     <string name="pref_camera_whitebalance_label_incandescent">SVJETLOST ŽARULJE</string>
     <string name="pref_camera_whitebalance_label_daylight">DNEVNO SVJETLO</string>
     <string name="pref_camera_whitebalance_label_fluorescent">FLUORESCENTNO</string>
     <string name="pref_camera_whitebalance_label_cloudy">OBLAČNO</string>
+    <!-- Default scene mode setting. -->
+    <!-- Settings screen, Select Scene mode -->
     <string name="pref_camera_scenemode_title">Način scene</string>
+    <!-- Settings menu, scene mode choices [CHAR LIMIT=16] -->
     <string name="pref_camera_scenemode_entry_auto">Automatski</string>
+    <!-- Scene mode that uses HDR plus (better HDR) [CHAR LIMIT=16] -->
     <string name="pref_camera_scenemode_entry_hdr_plus">VDR+</string>
+    <!-- Scene mode that uses HDR (high dynamic range) [CHAR LIMIT=16] -->
     <string name="pref_camera_scenemode_entry_hdr">VDR</string>
+    <!-- Scene mode to turn on HDR (better high dynamic range) [CHAR LIMIT=50] -->
     <string name="pref_camera_scenemode_entry_turn_hdr_plus_on">HDR UKLJUČEN</string>
+    <!-- Scene mode to turn off HDR (better high dynamic range) [CHAR LIMIT=50] -->
     <string name="pref_camera_scenemode_entry_turn_hdr_plus_off">HDR+ ISKLJUČEN</string>
+    <!-- Scene mode to turn on HDR (high dynamic range) [CHAR LIMIT=50] -->
     <string name="pref_camera_scenemode_entry_turn_hdr_on">VDR UKLJUČEN</string>
+    <!-- Scene mode to turn off HDR (high dynamic range) [CHAR LIMIT=50] -->
     <string name="pref_camera_scenemode_entry_turn_hdr_off">VDR ISKLJUČEN</string>
+    <!-- Scene mode that takes an image quickly with little motion blur. [CHAR LIMIT=16] -->
     <string name="pref_camera_scenemode_entry_action">Radnja</string>
+    <!-- Scene mode that takes long exposures to capture night scenes without flash. [CHAR LIMIT=16] -->
     <string name="pref_camera_scenemode_entry_night">Noć</string>
+    <!-- Scene mode optimized for taking images in the sunset. [CHAR LIMIT=16] -->
     <string name="pref_camera_scenemode_entry_sunset">Zalazak sunca</string>
+    <!-- Scene mode optimized for taking indoor low-lights pictures. [CHAR LIMIT=16] -->
     <string name="pref_camera_scenemode_entry_party">Zabava</string>
+    <!-- Scene mode for refocus feature [CHAR LIMIT=16] -->
+    <!-- Settings menu, scene mode labels [CHAR LIMIT=50] -->
     <string name="pref_camera_scenemode_label_auto">NIŠTA</string>
+    <!-- Scene mode that takes an image quickly with little motion blur. [CHAR LIMIT=50] -->
     <string name="pref_camera_scenemode_label_action">RADNJA</string>
+    <!-- Scene mode that takes long exposures to capture night scenes without flash. [CHAR LIMIT=50] -->
     <string name="pref_camera_scenemode_label_night">NOĆ</string>
+    <!-- Scene mode optimized for taking images in the sunset. [CHAR LIMIT=50] -->
     <string name="pref_camera_scenemode_label_sunset">ZALAZAK SUNCA</string>
+    <!-- Scene mode optimized for taking indoor low-lights pictures. [CHAR LIMIT=50] -->
     <string name="pref_camera_scenemode_label_party">ZABAVA</string>
+    <!-- Settings menu countdown timer off [CHAR LIMIT=50] -->
     <string name="pref_camera_countdown_label_off">ODBROJAVANJE JE ISKLJUČENO</string>
+    <!-- Settings menu countdown timer 1 second [CHAR LIMIT=50] -->
     <string name="pref_camera_countdown_label_one">1 SEKUNDA</string>
+    <!-- Settings menu countdown timer 3 seconds [CHAR LIMIT=50] -->
     <string name="pref_camera_countdown_label_three">3 SEKUNDE</string>
+    <!-- Settings menu countdown timer 10 seconds [CHAR LIMIT=50] -->
     <string name="pref_camera_countdown_label_ten">10 SEKUNDI</string>
+    <!-- Settings menu countdown timer 15 seconds [CHAR LIMIT=50] -->
     <string name="pref_camera_countdown_label_fifteen">15 SEKUNDI</string>
+    <!-- Toast after trying to select a setting that is not allowed to change in scene mode [CHAR LIMIT=NONE] -->
     <string name="not_selectable_in_scene_mode">Ne može se odabrati u načinu scene.</string>
+    <!-- Toast after enable HDR function to inform Continuous Shot has disabled -->
     <string name="HDR_disable_continuous_shot">HDR će onemogućiti neprekidno fotografiranje.</string>
+    <!-- Toast after enable Advanced Capture function to inform Continuous Shot has disabled -->
     <string name="advanced_capture_disable_continuous_shot">Napredno slikanje onemogućit će neprekidno fotografiranje.</string>
+    <!-- Toast after enable 2k4k video quality to inform IS has disabled -->
     <string name="video_quality_4k_disable_IS">4K kvaliteta videa onemogućit će stabilizaciju slike.</string>
+    <!-- Toast after 2k4k video is enabled to inform SeeMore has been disabled -->
     <string name="video_quality_4k_disable_SeeMore">SeeMore ne može se omogućiti tijekom 4K videa.</string>
+    <!-- Toast after High Quality Noise Reduction has been enabled to show CDS is disabled -->
     <string name="disable_CDS_during_HighQualityNoiseReduction">Visokokvalitetno smanjenje šuma onemogućit će CDS.</string>
+    <!-- Toast after High Quality Noise Reduction has been enabled to show TNR is disabled -->
     <string name="disable_TNR_during_HighQualityNoiseReduction">Visokokvalitetno smanjenje šuma onemogućit će TNR.</string>
+    <!-- Toast after SeeMore has been enabled to show CDS is disabled -->
     <string name="disable_CDS_during_SeeMore">SeeMore će onemogućiti CDS.</string>
+    <!-- Toast after SeeMore has been enabled to show TNR is disabled -->
     <string name="disable_TNR_during_SeeMore">SeeMore će onemogućiti TNR.</string>
+    <!-- Toast after SeeMore has been enabled to show NR is disabled -->
     <string name="disable_NR_during_SeeMore">SeeMore će onemogućiti smanjenje šuma.</string>
+    <!-- Exposure settings in preference -->
     <string name="pref_exposure_title">Ekspozicija</string>
+    <!--  menu label exposure compensation [CHAR LIMIT=50] -->
     <string name="pref_exposure_label">EKSPOZICIJA</string>
+    <!-- Default HDR entry value -->
+    <!-- Default HDR+ entry value -->
+    <!-- HDR label ON [CHAR LIMIT=60] -->
     <string name="pref_camera_hdr_label">VDR</string>
+    <!-- switch camera label back [CHAR LIMIT=60] -->
     <string name="pref_camera_id_label_back">PREDNJI FOTOAPARAT</string>
+    <!-- switch camera label front [CHAR LIMIT=60] -->
     <string name="pref_camera_id_label_front">STRAŽNJI FOTOAPARAT</string>
+    <!-- Dialog "OK" button. Dismisses dialog. -->
     <string name="dialog_ok">U redu</string>
+    <!-- Low-memory dialog message [CHAR LIMIT=NONE] -->
     <string name="spaceIsLow_content" product="default">Na vašoj SD kartici ponestaje prostora. Promijenite postavku kvalitete ili izbrišite neke slike ili druge datoteke.</string>
+    <!-- Camera format string for new image files. Passed to java.text.SimpleDateFormat. -->
+    <!-- Video Camera format string for new video files. Passed to java.text.SimpleDateFormat. -->
+    <!-- Filename prefix for panorama output. -->
+    <!-- The message shown when video record reaches size limit. -->
     <string name="video_reach_size_limit">Dosegnuto je ograničenje veličine.</string>
+    <!-- The text shown when the panorama panning speed is to fast [CHAR LIMIT=16] -->
     <string name="pano_too_fast_prompt">Prebrzo</string>
+    <!-- The text shown in the progress dialog when panorama preview is generating in the background [CHAR LIMIT=30] -->
     <string name="pano_dialog_prepare_preview">Priprema panorame</string>
+    <!-- The text shown in the dialog when panorama saving failed [CHAR LIMIT=40] -->
     <string name="pano_dialog_panorama_failed">Panoramu nije moguće spremiti.</string>
+    <!-- The text shown on the dialog title in the dialogs for Panorama [CHAR LIMIT=12] -->
     <string name="pano_dialog_title">Panorama</string>
+    <!-- The text shown on the top-left corner of the screen to indicate the capturing is on going [CHAR LIMIT=27] -->
     <string name="pano_capture_indication">Snimanje panorame</string>
+    <!-- The text shown in the progress dialog when waiting for previous panorama finishing [CHAR LIMIT=40] -->
     <string name="pano_dialog_waiting_previous">Čekanje na prethodnu panoramu</string>
+    <!-- The text shown on the bottom-left corner of the screen to indicate that the saving is in process [CHAR LIMIT=13] -->
     <string name="pano_review_saving_indication_str">Spremanje…</string>
+    <!-- The text shown on the screen to indicate that the panorama is rendering [CHAR LIMIT=27] -->
     <string name="pano_review_rendering">Generiranje panorame</string>
+    <!-- Toast telling users tapping on the viewfinder will trigger autofocus [CHAR LIMIT=28] -->
     <string name="tap_to_focus">Dodirnite za fokusiranje.</string>
+    <!-- Default effect setting that clears the effect. -->
+    <!-- Title of video effect setting popup window -->
     <string name="pref_video_effect_title">Efekti</string>
+    <!-- Effect setting item that clear the effect. [CHAR LIMIT=14] -->
     <string name="effect_none">Ništa</string>
+    <!-- Effect setting item that squeezes the face. [CHAR LIMIT=14] -->
     <string name="effect_goofy_face_squeeze">Stisnuto</string>
+    <!-- Effect setting item that makes eyes big. [CHAR LIMIT=14] -->
     <string name="effect_goofy_face_big_eyes">Velike oči</string>
+    <!-- Effect setting item that makes mouth big. [CHAR LIMIT=14] -->
     <string name="effect_goofy_face_big_mouth">Velika usta</string>
+    <!-- Effect setting item that makes mouth small. [CHAR LIMIT=14] -->
     <string name="effect_goofy_face_small_mouth">Mala usta</string>
+    <!-- Effect setting item that makes nose big. [CHAR LIMIT=14] -->
     <string name="effect_goofy_face_big_nose">Veliki nos</string>
+    <!-- Effect setting item that makes eyes small. [CHAR LIMIT=14] -->
     <string name="effect_goofy_face_small_eyes">Male oči</string>
+    <!-- Effect setting item that replaces background with Android in Space. [CHAR LIMIT=14] -->
     <string name="effect_backdropper_space">U svemiru</string>
+    <!-- Effect setting item that replaces background with a sunset. [CHAR LIMIT=14] -->
     <string name="effect_backdropper_sunset">Zalazak sunca</string>
+    <!-- Effect setting item that replaces background with video from gallery. [CHAR LIMIT=14] -->
     <string name="effect_backdropper_gallery">Vaš videozapis</string>
+    <!-- Toast telling users tapping on the viewfinder will take a picture [CHAR LIMIT=54] -->
     <string name="video_snapshot_hint">Dodirnite za fotografiranje tijekom snimanja.</string>
+    <!-- Announcement telling users video recording has just started [CHAR LIMIT=NONE] -->
     <string name="video_recording_started">Pokrenuto je snimanje videozapisa.</string>
+    <!-- Announcement telling users video recording has just stopped [CHAR LIMIT=NONE] -->
     <string name="video_recording_stopped">Zaustavljeno je snimanje videozapisa.</string>
+    <!-- A button in effect setting popup to clear the effect. [CHAR LIMIT=26] -->
     <string name="clear_effects">Obriši efekte</string>
+    <!-- Title of category for silly face effects. [CHAR LIMIT=26] -->
     <string name="effect_silly_faces">ŠAŠAVA LICA</string>
+    <!-- Title of category for background replacement effects. [CHAR LIMIT=26] -->
     <string name="effect_background">POZADINA</string>
+    <!-- The shutter button. [CHAR LIMIT = NONE] -->
     <string name="accessibility_shutter_button">Okidač</string>
+    <!-- The exit best photo mode button. [CHAR LIMIT = NONE] -->
     <string name="accessibility_exit_best_mode_button">Izlaz iz načina najbolje fotografije</string>
+    <!-- The menu button. [CHAR LIMIT = NONE] -->
     <string name="accessibility_menu_button">Gumb izbornika</string>
+    <!-- The mode picker to switch between camera, video and panorama. [CHAR LIMIT = NONE] -->
     <string name="accessibility_mode_picker">Birač fotoaparata, videozapisa ili panorame</string>
+    <!-- The check box in camera settings, such as store location. [CHAR LIMIT = NONE] -->
     <string name="accessibility_check_box">Potvrdni okvir %1$s</string>
+    <!-- The button to switch to Camera mode. [CHAR LIMIT = NONE] -->
     <string name="accessibility_switch_to_camera">Prijeđi na fotoaparat</string>
+    <!-- The button to switch to Video mode. [CHAR LIMIT = NONE] -->
     <string name="accessibility_switch_to_video">Prijeđi na videozapis</string>
+    <!-- The button to switch to Panorama mode. [CHAR LIMIT = NONE] -->
     <string name="accessibility_switch_to_panorama">Prijeđi na panoramu</string>
+    <!-- The button to switch to the Photo Sphere mode. [CHAR LIMIT = NONE] -->
     <string name="accessibility_switch_to_photo_sphere">Prijeđi na fotosferu</string>
+    <!-- The button to switch to the high quality mode. [CHAR LIMIT = NONE] -->
     <string name="accessibility_switch_to_gcam">Prijeđi na visoku kvalitetu</string>
+    <!-- The button in review mode indicating that the photo taking, video recording, and panorama saving session should be canceled [CHAR LIMIT = NONE] -->
     <string name="accessibility_review_cancel">Odustani</string>
+    <!-- The button in review mode indicating that the taken photo/video is OK to be attached/uploaded [CHAR LIMIT = NONE] -->
     <string name="accessibility_review_ok">Pregled je završen</string>
+    <!-- button in review mode indicate the user want to retake another photo/video for attachment [
+CHAR LIMIT = NONE] -->
     <string name="accessibility_review_retake">Ponovi snimanje u pregledu</string>
+    <!-- Default text for a button that can be toggled on and off. -->
     <string name="capital_on">UKLJUČENO</string>
+    <!-- Default text for a button that can be toggled on and off. -->
     <string name="capital_off">ISKLJUČENO</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_off">Isključeno</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_500">0,5 sekundi</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_1000">1 sekunda</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_1500">1,5 sekundi</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_2000">2 sekunde</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_2500">2,5 sekundi</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_3000">3 sekunde</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_4000">4 sekunde</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_5000">5 sekundi</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_6000">6 sekundi</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_10000">10 sekundi</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_12000">12 sekundi</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_15000">15 sekundi</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_24000">24 sekunde</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_30000">0,5 minuta</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_60000">1 minuta</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_90000">1,5 minuta</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_120000">2 minute</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_150000">2,5 minuta</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_180000">3 minute</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_240000">4 minute</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_300000">5 minuta</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_360000">6 minuta</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_600000">10 minuta</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_720000">12 minuta</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_900000">15 minuta</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_1440000">24 minute</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_1800000">0,5 sati</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_3600000">1 sat</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_5400000">1,5 sati</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_7200000">2 sata</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_9000000">2,5 sati</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_10800000">3 sata</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_14400000">4 sata</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_18000000">5 sati</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_21600000">6 sati</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_36000000">10 sati</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_43200000">12 sati</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_54000000">15 sati</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_86400000">24 sata</string>
+    <!-- Seconds: a unit of time for time lapse intervals. [CHAR LIMIT = 20] -->
     <string name="time_lapse_seconds">s</string>
+    <!-- Minutes: a unit of time for time lapse intervals. [CHAR LIMIT = 20] -->
     <string name="time_lapse_minutes">min</string>
+    <!-- Hours: a unit of time for time lapse intervals. [CHAR LIMIT = 20] -->
     <string name="time_lapse_hours">h</string>
+    <!-- The button to confirm time-lapse setting changes. [CHAR LIMIT = 20] -->
     <string name="time_lapse_interval_set">Gotovo</string>
+    <!-- Title in time interval picker for setting time interval. [CHAR LIMIT = 30]-->
     <string name="set_time_interval">Postavljanje vrem. intervala</string>
+    <!-- Help text that is shown when the time lapse feature is turned off. [CHAR LIMIT = 180]-->
     <string name="set_time_interval_help">Značajka vremenskog odmaka isključena je. Uključite je da biste postavili vremenski interval.</string>
+    <!-- Title in timer setting for setting the duration for the countdown timer. [CHAR LIMIT = 50]-->
     <string name="set_duration">Postavite trajanje u sekundama</string>
+    <!-- On-screen hint during timer countdown for taking a photo. [CHAR LIMIT = 60]-->
     <string name="count_down_title_text">Odbrojavanje do snimanja fotografije</string>
+    <!-- Title for first run dialog asking if the user wants to remember photo locations [CHAR LIMIT = 50] -->
     <string name="remember_location_title">Zapamtiti lokacije fotografija?</string>
+    <!-- Message for first run dialog asking if the user wants to remember photo locations [CHAR LIMIT = None] -->
     <string name="remember_location_prompt">Dodajte svojim fotografijama i videozapisima oznake lokacija na kojima su snimljeni.\n\nOstale aplikacije mogu pristupiti tim podacima i vašim spremljenim slikama.</string>
+    <!-- Negative answer for first run dialog asking if the user wants to remember photo locations [CHAR LIMIT = 20] -->
     <string name="remember_location_no">Ne, hvala</string>
+    <!-- Positive answer for first run dialog asking if the user wants to remember photo locations [CHAR LIMIT = 20] -->
     <string name="remember_location_yes">Da</string>
+    <!-- Camera menu labels -->
+    <!-- more options label [CHAR LIMIT=50] -->
     <string name="camera_menu_more_label">VIŠE OPCIJA</string>
+    <!-- settings label [CHAR LIMIT=50] -->
     <string name="camera_menu_settings_label">POSTAVKE</string>
+    <!--  Tiny Planet -->
+    <!-- Button to press for creating a tiny planet image. [CHAR LIMIT = 30] -->
     <string name="create_tiny_planet">Izradi sićušni planet</string>
+    <!-- Message shown while a tiny planet image is being saved. [CHAR LIMIT = 30] -->
     <string name="saving_tiny_planet">Spremanje sićušnog planeta…</string>
+    <!-- Label above a slider that let's the user set the zoom of a tiny planet image. [CHAR LIMIT = 15] -->
     <string name="tiny_planet_zoom">Zumiranje</string>
+    <!-- Label above a slider that let's the user set the rotation of a tiny planet image. [CHAR LIMIT = 15] -->
     <string name="tiny_planet_rotate">Okretanje</string>
+    <!-- Crop -->
+    <!-- Label for the save button in the crop activity action bar [CHAR LIMIT=20] -->
     <string name="crop_save">Spremi</string>
+    <!--  String shown when we cannot load the image when starting the activity [CHAR LIMIT=NONE] -->
     <string name="cannot_load_image">Nije moguće učitati sliku!</string>
+    <!-- Label for album filmstrip button -->
     <string name="switch_photo_filmstrip">Prikaz filmske vrpce</string>
+    <!--  String shown when setting the homepage wallpaper in the background [CHAR LIMIT=NONE] -->
     <string name="setting_wallpaper">Postavljanje pozadinske slike</string>
+    <!-- Menu, Video rotation labels [CHAR LIMIT=50] -->
     <string name="remaining_photos_format">%d preostalo</string>
     <string name="makeup_video_size_limit">Makeup radi samo pod VGA veličinom u snimanju videa.</string>
     <string name="pref_camera2_category_system">Sustav</string>

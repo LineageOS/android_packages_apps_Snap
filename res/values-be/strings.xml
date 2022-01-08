@@ -14,237 +14,508 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- The name of the Android Camera application. [CHAR LIMIT=16] -->
     <string name="app_name">Камера</string>
+    <!-- The label for the Video Camera activity. [CHAR LIMIT=16] -->
     <string name="video_camera_label">Відэакамера</string>
+    <!-- Used to format short video duration in Details dialog. minutes:seconds e.g. 00:30 -->
     <string name="details_ms">%1$02d:%2$02d</string>
+    <!-- Used to format video duration in Details dialog. hours:minutes:seconds e.g. 0:21:30 -->
     <string name="details_hms">%1$d:%2$02d:%3$02d</string>
+    <!-- Displayed in the title of the dialog for things to do with a picture
+             that is to be "set as" (e.g. set as contact photo or set as wallpaper) -->
     <string name="set_image">Усталяваць малюнак як</string>
+    <!-- Details dialog "OK" button. Dismisses dialog. -->
     <string name="delete">Выдалiць</string>
+    <!-- String Delete the selected media item(s) [CHAR LIMIT=50] -->
     <string name="share">Падзяліцца</string>
     <string name="share_panorama">Падзяліцца панарамай</string>
     <string name="share_as_photo">Падзяліцца фотаздымкам</string>
+    <!-- The label shown after an image is deleted [CHAR LIMIT=16] -->
     <string name="deleted">Выдалены</string>
+    <!-- The label on the button which when clicked will undo a deletion of image [CHAR LIMIT=16]-->
     <string name="undo">СКАСАВАЦЬ</string>
     <string name="details">Падрабязны спіс</string>
     <string name="close">Зачыніць</string>
+    <!-- String indicating how many media item(s) is(are) selected
+            eg. 1 selected [CHAR LIMIT=30] -->
+    <!-- String indicating how many media album(s) is(are) selected
+            eg. 1 selected [CHAR LIMIT=30] -->
+    <!-- String indicating how many media group(s) is(are) selected
+            eg. 1 selected [CHAR LIMIT=30] -->
+    <!-- String indicating timestamp of photo or video -->
     <string name="show_on_map">Паказаць на мапе</string>
     <string name="rotate_left">Павярнуць налева</string>
     <string name="rotate_right">Павярнуць направа</string>
+    <!-- String used as a menu label. The user can choose to edit the image
+         [CHAR_LIMIT=20]-->
     <string name="edit">Рэдагаваць</string>
+    <!-- The title of the menu item to let user crop the image. [CHAR LIMIT=15] -->
     <string name="crop_action">Кадраваць</string>
+    <!-- The title of the menu item to let user trim the video. [CHAR LIMIT=15] -->
     <string name="trim_action">Абразаць</string>
+    <!-- The title of the menu item to let user set the image as background etc. [CHAR LIMIT=15] -->
     <string name="set_as">Усталяваць як</string>
+    <!-- String indicating an error when playing the video. [CHAR LIMIT=30] -->
     <string name="video_err">Не атрымалася прайграць відэа.</string>
+    <!-- Toast message shown when the cropped image has been saved in the
+         %s folder (string: folder_download) [CHAR LIMIT=50]-->
     <string name="crop_saved">        Кадраваная выява захавана ў тэчцы<xliff:g id="folder_name">%s</xliff:g>.</string>
+    <!-- Text indicating the title of a media item in details window [CHAR LIMIT=14] -->
     <string name="title">Па назве</string>
+    <!-- Text indicating the description of a media item in details window [CHAR LIMIT=14] -->
     <string name="description">Апісанне</string>
+    <!-- Text indicating the creation time of a media item in details window [CHAR LIMIT=14] -->
     <string name="time">Час</string>
+    <!-- Text indicating the location of a media item in details window [CHAR LIMIT=14] -->
     <string name="location">Месцазнаходжанне</string>
+    <!-- Text indicating the path of a media item in details window [CHAR LIMIT=14] -->
     <string name="path">Шлях</string>
+    <!-- Text indicating the width of a media item in details window [CHAR LIMIT=14] -->
     <string name="width">Шырыня</string>
+    <!-- Text indicating the height of a media item in details window [CHAR LIMIT=14] -->
     <string name="height">Вышыня</string>
+    <!-- Text indicating the orientation of a media item in details window [CHAR LIMIT=14] -->
     <string name="orientation">Арыентацыя</string>
+    <!-- Text indicating the duration of a video item in details window [CHAR LIMIT=18] -->
     <string name="duration">Працягласць</string>
+    <!-- Text indicating the mime type of a media item in details window [CHAR LIMIT=14] -->
     <string name="mimetype">Тып MIME</string>
+    <!-- Text indicating the file size of a media item in details window [CHAR LIMIT=14] -->
     <string name="file_size">Памер файлу</string>
+    <!-- Text indicating the maker of a media item in details window [CHAR LIMIT=14] -->
     <string name="maker">Аўтар</string>
+    <!-- Text indicating the model of a media item in details window [CHAR LIMIT=14] -->
     <string name="model">Мадэль</string>
+    <!-- Text indicating flash info of a media item in details window [CHAR LIMIT=14] -->
     <string name="flash">Выбліск</string>
+    <!-- Text indicating aperture of a media item in details window [CHAR LIMIT=14] -->
     <string name="aperture">Дыяфрагма</string>
+    <!-- Text indicating the focal length of a media item in details window [CHAR LIMIT=14] -->
     <string name="focal_length">Фокус</string>
+    <!-- Text indicating the white balance of a media item in details window [CHAR LIMIT=18] -->
     <string name="white_balance">Баланс белага</string>
+    <!-- Text indicating the exposure time of a media item in details window [CHAR LIMIT=14] -->
     <string name="exposure_time">Вытрымка</string>
+    <!-- Text indicating the ISO speed rating of a media item in details window [CHAR LIMIT=14] -->
     <string name="iso">ISO</string>
+    <!-- String indicating the time units in seconds. [CHAR LIMIT=8] -->
+    <!-- String indicating the length units in milli-meters. [CHAR LIMIT=8] -->
     <string name="unit_mm">мм</string>
+    <!-- String indicating how camera shooting feature is used. [CHAR LIMIT=12] -->
     <string name="manual">Ручныя налады</string>
+    <!-- String indicating how camera shooting feature is used. [CHAR LIMIT=12 -->
     <string name="auto">Аўтаматычна</string>
+    <!-- String indicating camera flash is fired. [CHAR LIMIT=14] -->
     <string name="flash_on">З выбліскам</string>
+    <!-- String indicating camera flash is not used. [CHAR LIMIT=14] -->
     <string name="flash_off">Без выбліску</string>
+    <!-- String indicating image width or height is unknown. [CHAR LIMIT=14] -->
     <string name="unknown">Невядомы</string>
+    <!-- Toast message shown after we try to make a local album available offline
+         [CHAR LIMIT=150] -->
     <string name="try_to_set_local_album_available_offline">        Гэты альбом захоўваецца на прыладзе, яго можна паглядзець у афлайн-рэжыме.</string>
+    <!-- The content of a dialog showing trimming in progress. [CHAR LIMIT=30] -->
     <string name="please_wait">Калі ласка, пачакайце</string>
+    <!-- Text to show with progress bar while stitching a photo sphere. 'Photo sphere' is a product name. [CHAR LIMIT=35]-->
     <string name="rendering_photo_sphere">Стварэнне наўкольнай панарамы</string>
+    <!-- title for the dialog showing the error of camera hardware -->
     <string name="camera_error_title">Памылка камеры</string>
+    <!-- message for the dialog showing the error of camera hardware -->
     <string name="cannot_connect_camera">Не атрымалася далучыцца да камеры.</string>
+    <!-- message for the dialog showing the camera is disabled because of security policies. Camera cannot be used. -->
     <string name="camera_disabled">Камера адключана ў адпаведнасці з палітыкай бяспекі.</string>
+    <!-- message for the dialog showing that the app does not have sufficient permissions [CHAR LIMIT=NONE] -->
+    <!-- Dialog "Dismiss" button. Closes the dialog [CHAR LIMIT=12]-->
+    <!-- alert to the user to wait for some operation to complete -->
     <string name="wait">Калі ласка, пачакайце\u2026</string>
+    <!-- alert to the user that an SD card must be installed before using the camera -->
     <string name="no_storage" product="default">Каб скарыстаць камеру, устаўце SD-картку.</string>
+    <!-- alert to the user that the SD card is being disk-checked -->
     <string name="preparing_sd" product="default">Падрыхтоўка SD-карткі\u2026</string>
+    <!-- alert to the user that the camera fails to read or write the SD card. -->
     <string name="access_sd_fail" product="default">Няма доступу да SD-карткі.</string>
+    <!-- A label that overlays on top of the preview frame to indicate the camcorder is in time lapse mode [CHAR LIMIT=35] -->
     <string name="time_lapse_title">Рэжым запаволенай здымкі</string>
+    <!-- Screen display message during image capture to indicate that the capture is in progress, like during HDR+. [CHAR LIMIT=20] -->
     <string name="capturing">Пачакайце</string>
+    <!-- Settings screen, camera selection dialog title. Users can select a camera from the phone (front-facing or back-facing). [CHAR LIMIT=20] -->
     <string name="pref_camera_id_title">Выбар камеры</string>
+    <!-- In select camera setting, back facing camera. [CHAR LIMIT=14] -->
     <string name="pref_camera_id_entry_back">Назад</string>
+    <!-- In select camera setting, front-facing camera. [CHAR LIMIT=14] -->
     <string name="pref_camera_id_entry_front">Франтальная</string>
+    <!-- Settings screen, setting title text -->
+    <!--  Label for record location preference [CHAR LIMIT=50] -->
     <string name="pref_camera_location_label">МЕСЦАЗНАХОДЖАННЕ</string>
+    <!-- Title for countdown timer on camera settings screen [CHAR LIMIT=30]-->
     <string name="pref_camera_timer_title">Аўтаспуск</string>
+    <!-- Entry for countdown timer setting. e.g. 1 second, 10 seconds, etc. [CHAR LIMIT=30]-->
+    <!-- Text followed by a checkbox to turn on/off sound effects during the countdown. [CHAR LIMIT = 24]-->
     <string name="pref_camera_timer_sound_title">Гукавы сігнал падчас зваротнага адліку</string>
+    <!-- Entry of camera save path -->
+    <!-- Entry of a on/off setting. The setting is turned off. [CHAR LIMIT=15] -->
     <string name="setting_off">Адключана</string>
+    <!-- Entry of a on/off setting. The setting is turned on. [CHAR LIMIT=15] -->
     <string name="setting_on">Уключана</string>
+    <!-- The value of a camera preference indicating the setting is off. -->
+    <!-- The value of a camera preference indicating the setting is on. -->
+    <!-- The Video quality settings in preference [CHAR LIMIT=21] -->
     <string name="pref_video_quality_title">Якасць відэа</string>
+    <!-- The default quality value is NULL -->
+    <!-- Video quality setting entry.
+    Videos will be recorded in 8k DCI quality. [CHAR LIMIT=24] -->
+    <!-- Video quality setting entry.
+    Videos will be recorded in 4k DCI quality. [CHAR LIMIT=24] -->
+    <!-- Video quality setting entry.
+    Videos will be recorded in 4k UHD quality. [CHAR LIMIT=24] -->
+    <!-- Video quality setting entry. Videos will be recorded in 1080p quality. [CHAR LIMIT=24] -->
+    <!-- Video quality setting entry. Videos will be recorded in 720p quality. [CHAR LIMIT=24] -->
+    <!-- Video quality setting entry. Videos will be recorded in 480p quality. [CHAR LIMIT=24] -->
+    <!-- Video quality setting entry. Videos will be recorded in QHD quality. [CHAR LIMIT=24] -->
+    <!-- Video quality setting entry. Videos will be recorded in 2K quality. [CHAR LIMIT=24] -->
+    <!-- Describes the preference dialog for choosing interval between frame capture for
+    time lapse recording. Appears at top of the dialog. [CHAR LIMIT=30] -->
     <string name="pref_video_time_lapse_frame_interval_title">Запаволеная здымка</string>
+    <!-- Settings screen, Camera setting category title -->
     <string name="pref_camera_settings_category">Налады камеры</string>
+    <!-- Settings screen, Camcorder setting category title -->
     <string name="pref_camcorder_settings_category">Налады відэакамеры</string>
+    <!-- Settings screen, Picture size title -->
     <string name="pref_camera_picturesize_title">Памер выявы</string>
+    <!-- Settings screen, Focus mode title -->
     <string name="pref_camera_focusmode_title">Рэжым факусавання</string>
+    <!-- Settings screen, Focus mode dialog radio button choices -->
     <string name="pref_camera_focusmode_entry_auto">Аўтаматычна</string>
+    <!-- A setting that lets the camera focus into infinity. [CHAR LIMIT=20] -->
     <string name="pref_camera_focusmode_entry_infinity">Бясконцасць</string>
+    <!-- A setting that lets the camera operate in macro focus mode for nearby objects. [CHAR LIMIT=20] -->
     <string name="pref_camera_focusmode_entry_macro">Макраздымка</string>
+    <!-- Menu, focus mode labels [CHAR LIMIT=50] -->
     <string name="pref_camera_focusmode_label_auto">АЎТА</string>
     <string name="pref_camera_focusmode_label_infinity">БЯСКОНЦАСЦЬ</string>
     <string name="pref_camera_focusmode_label_macro">МАКРАЗДЫМКА</string>
+    <!-- Default flash mode setting.-->
+    <!-- Value for flash off setting-->
+    <!-- Settings screen, Flash mode title -->
     <string name="pref_camera_flashmode_title">Выбліск</string>
+    <!-- Settings screen, Flash mode 'auto'. [CHAR LIMIT=12] -->
     <string name="pref_camera_flashmode_entry_auto">Аўтаматычна</string>
+    <!-- Settings screen, Flash mode 'alway on'. [CHAR LIMIT=12] -->
     <string name="pref_camera_flashmode_entry_on">Уключана</string>
+    <!-- Settings screen, Flash mode 'always off'. [CHAR LIMIT=12] -->
     <string name="pref_camera_flashmode_entry_off">Адключана</string>
+    <!-- Menu, flash mode labels [CHAR LIMIT=50] -->
     <string name="pref_camera_flashmode_label_auto">Аўто выбліск</string>
     <string name="pref_camera_flashmode_label_on">ВЫБЛІСК УКЛ</string>
     <string name="pref_camera_flashmode_label_off">ВЫБЛІСК ВЫКЛ</string>
+    <!-- Default videocamera flash mode setting.-->
+    <!-- Default white balance setting. -->
+    <!-- Settings screen, white balance title -->
     <string name="pref_camera_whitebalance_title">Баланс белага</string>
+    <!-- Menu, white balance label -->
     <string name="pref_camera_whitebalance_label">БАЛАНС БЕЛАГА</string>
+    <!-- Settings screen, White balance dialog radio button choices -->
     <string name="pref_camera_whitebalance_entry_auto">Аўтаматычна</string>
     <string name="pref_camera_whitebalance_entry_incandescent">Лямпа напальвання</string>
     <string name="pref_camera_whitebalance_entry_daylight">Сонечнае святло</string>
     <string name="pref_camera_whitebalance_entry_fluorescent">Лямпа дзённага святла</string>
     <string name="pref_camera_whitebalance_entry_cloudy">Хмарна</string>
+    <!-- Menu, White balance labels [CHAR LIMIT=50] -->
     <string name="pref_camera_whitebalance_label_auto">АЎТА</string>
     <string name="pref_camera_whitebalance_label_incandescent">ЛЯМПА НАПАЛЬВАННЯ</string>
     <string name="pref_camera_whitebalance_label_daylight">СОНЕЧНА</string>
     <string name="pref_camera_whitebalance_label_fluorescent">ЛЯМПА ДЗЁННАГА СВЯТЛА</string>
     <string name="pref_camera_whitebalance_label_cloudy">ПАХМУРНА</string>
+    <!-- Default scene mode setting. -->
+    <!-- Settings screen, Select Scene mode -->
     <string name="pref_camera_scenemode_title">Рэжым здымання</string>
+    <!-- Settings menu, scene mode choices [CHAR LIMIT=16] -->
     <string name="pref_camera_scenemode_entry_auto">Аўтаматычна</string>
+    <!-- Scene mode that uses HDR plus (better HDR) [CHAR LIMIT=16] -->
     <string name="pref_camera_scenemode_entry_hdr_plus">HDR+</string>
+    <!-- Scene mode that uses HDR (high dynamic range) [CHAR LIMIT=16] -->
     <string name="pref_camera_scenemode_entry_hdr">HDR</string>
+    <!-- Scene mode to turn on HDR (better high dynamic range) [CHAR LIMIT=50] -->
     <string name="pref_camera_scenemode_entry_turn_hdr_plus_on">УКЛЮЧЫЦЬ HDR+</string>
+    <!-- Scene mode to turn off HDR (better high dynamic range) [CHAR LIMIT=50] -->
     <string name="pref_camera_scenemode_entry_turn_hdr_plus_off">АДКЛЮЧЫЦЬ HDR+</string>
+    <!-- Scene mode to turn on HDR (high dynamic range) [CHAR LIMIT=50] -->
     <string name="pref_camera_scenemode_entry_turn_hdr_on">УКЛЮЧЫЦЬ HDR</string>
+    <!-- Scene mode to turn off HDR (high dynamic range) [CHAR LIMIT=50] -->
     <string name="pref_camera_scenemode_entry_turn_hdr_off">АДКЛЮЧЫЦЬ HDR</string>
+    <!-- Scene mode that takes an image quickly with little motion blur. [CHAR LIMIT=16] -->
     <string name="pref_camera_scenemode_entry_action">Падчас руху</string>
+    <!-- Scene mode that takes long exposures to capture night scenes without flash. [CHAR LIMIT=16] -->
     <string name="pref_camera_scenemode_entry_night">Начная здымка</string>
+    <!-- Scene mode optimized for taking images in the sunset. [CHAR LIMIT=16] -->
     <string name="pref_camera_scenemode_entry_sunset">Заход</string>
+    <!-- Scene mode optimized for taking indoor low-lights pictures. [CHAR LIMIT=16] -->
     <string name="pref_camera_scenemode_entry_party">Вечарына</string>
+    <!-- Scene mode for refocus feature [CHAR LIMIT=16] -->
+    <!-- Settings menu, scene mode labels [CHAR LIMIT=50] -->
     <string name="pref_camera_scenemode_label_auto">НЕ</string>
+    <!-- Scene mode that takes an image quickly with little motion blur. [CHAR LIMIT=50] -->
     <string name="pref_camera_scenemode_label_action">ПАДЧАС РУХУ</string>
+    <!-- Scene mode that takes long exposures to capture night scenes without flash. [CHAR LIMIT=50] -->
     <string name="pref_camera_scenemode_label_night">НАЧНАЯ ЗДЫМКА</string>
+    <!-- Scene mode optimized for taking images in the sunset. [CHAR LIMIT=50] -->
     <string name="pref_camera_scenemode_label_sunset">ЗАХОД</string>
+    <!-- Scene mode optimized for taking indoor low-lights pictures. [CHAR LIMIT=50] -->
     <string name="pref_camera_scenemode_label_party">ВЕЧАРЫНА</string>
+    <!-- Settings menu countdown timer off [CHAR LIMIT=50] -->
     <string name="pref_camera_countdown_label_off">АЎТАСПУСК АДКЛЮЧАНЫ</string>
+    <!-- Settings menu countdown timer 1 second [CHAR LIMIT=50] -->
     <string name="pref_camera_countdown_label_one">1 СЕКУНДА</string>
+    <!-- Settings menu countdown timer 3 seconds [CHAR LIMIT=50] -->
     <string name="pref_camera_countdown_label_three">3 СЕКУНДЫ</string>
+    <!-- Settings menu countdown timer 10 seconds [CHAR LIMIT=50] -->
     <string name="pref_camera_countdown_label_ten">10 СЕКУНДАЎ</string>
+    <!-- Settings menu countdown timer 15 seconds [CHAR LIMIT=50] -->
     <string name="pref_camera_countdown_label_fifteen">15 СЕКУНДАЎ</string>
+    <!-- Toast after trying to select a setting that is not allowed to change in scene mode [CHAR LIMIT=NONE] -->
     <string name="not_selectable_in_scene_mode">Недаступна ў рэжыме здымкі.</string>
+    <!-- Toast after enable HDR function to inform Continuous Shot has disabled -->
+    <!-- Toast after enable Advanced Capture function to inform Continuous Shot has disabled -->
+    <!-- Toast after enable 2k4k video quality to inform IS has disabled -->
+    <!-- Toast after 2k4k video is enabled to inform SeeMore has been disabled -->
+    <!-- Toast after High Quality Noise Reduction has been enabled to show CDS is disabled -->
+    <!-- Toast after High Quality Noise Reduction has been enabled to show TNR is disabled -->
+    <!-- Toast after SeeMore has been enabled to show CDS is disabled -->
+    <!-- Toast after SeeMore has been enabled to show TNR is disabled -->
+    <!-- Toast after SeeMore has been enabled to show NR is disabled -->
+    <!-- Exposure settings in preference -->
     <string name="pref_exposure_title">Экспакарэкцыя</string>
+    <!--  menu label exposure compensation [CHAR LIMIT=50] -->
     <string name="pref_exposure_label">ЭКСПАКАРЭКЦЫЯ</string>
+    <!-- Default HDR entry value -->
+    <!-- Default HDR+ entry value -->
+    <!-- HDR label ON [CHAR LIMIT=60] -->
     <string name="pref_camera_hdr_label">HDR</string>
+    <!-- switch camera label back [CHAR LIMIT=60] -->
     <string name="pref_camera_id_label_back">ПЯРЭДНЯЯ КАМЕРА</string>
+    <!-- switch camera label front [CHAR LIMIT=60] -->
     <string name="pref_camera_id_label_front">ЗАДНЯЯ КАМЕРА</string>
+    <!-- Dialog "OK" button. Dismisses dialog. -->
     <string name="dialog_ok">Добра</string>
+    <!-- Low-memory dialog message [CHAR LIMIT=NONE] -->
     <string name="spaceIsLow_content" product="default">На SD-картцы сканчаецца вольнае месца. Зменіце налады якасці ці выдаліце непатрэбныя файлы.</string>
+    <!-- Camera format string for new image files. Passed to java.text.SimpleDateFormat. -->
+    <!-- Video Camera format string for new video files. Passed to java.text.SimpleDateFormat. -->
+    <!-- Filename prefix for panorama output. -->
+    <!-- The message shown when video record reaches size limit. -->
     <string name="video_reach_size_limit">Дасягнута абмежаванне памеру.</string>
+    <!-- The text shown when the panorama panning speed is to fast [CHAR LIMIT=16] -->
     <string name="pano_too_fast_prompt">Занадта хутка</string>
+    <!-- The text shown in the progress dialog when panorama preview is generating in the background [CHAR LIMIT=30] -->
     <string name="pano_dialog_prepare_preview">Апрацоўка</string>
+    <!-- The text shown in the dialog when panorama saving failed [CHAR LIMIT=40] -->
     <string name="pano_dialog_panorama_failed">Не атрымалася захаваць файл.</string>
+    <!-- The text shown on the dialog title in the dialogs for Panorama [CHAR LIMIT=12] -->
     <string name="pano_dialog_title">Панарама</string>
+    <!-- The text shown on the top-left corner of the screen to indicate the capturing is on going [CHAR LIMIT=27] -->
     <string name="pano_capture_indication">Стварэнне панарамы</string>
+    <!-- The text shown in the progress dialog when waiting for previous panorama finishing [CHAR LIMIT=40] -->
     <string name="pano_dialog_waiting_previous">Апрацоўка папярэдняга файла</string>
+    <!-- The text shown on the bottom-left corner of the screen to indicate that the saving is in process [CHAR LIMIT=13] -->
     <string name="pano_review_saving_indication_str">Захаванне\u2026</string>
+    <!-- The text shown on the screen to indicate that the panorama is rendering [CHAR LIMIT=27] -->
     <string name="pano_review_rendering">Стварэнне панарамы</string>
+    <!-- Toast telling users tapping on the viewfinder will trigger autofocus [CHAR LIMIT=28] -->
     <string name="tap_to_focus">Націсніце для факусавання.</string>
+    <!-- Default effect setting that clears the effect. -->
+    <!-- Title of video effect setting popup window -->
     <string name="pref_video_effect_title">Эфекты</string>
+    <!-- Effect setting item that clear the effect. [CHAR LIMIT=14] -->
     <string name="effect_none">Няма</string>
+    <!-- Effect setting item that squeezes the face. [CHAR LIMIT=14] -->
     <string name="effect_goofy_face_squeeze">Сціснуць</string>
+    <!-- Effect setting item that makes eyes big. [CHAR LIMIT=14] -->
     <string name="effect_goofy_face_big_eyes">Вялікія вочы</string>
+    <!-- Effect setting item that makes mouth big. [CHAR LIMIT=14] -->
     <string name="effect_goofy_face_big_mouth">Вялікі рот</string>
+    <!-- Effect setting item that makes mouth small. [CHAR LIMIT=14] -->
     <string name="effect_goofy_face_small_mouth">Маленькі рот</string>
+    <!-- Effect setting item that makes nose big. [CHAR LIMIT=14] -->
     <string name="effect_goofy_face_big_nose">Вялікі нос</string>
+    <!-- Effect setting item that makes eyes small. [CHAR LIMIT=14] -->
     <string name="effect_goofy_face_small_eyes">Вочы ў кропку</string>
+    <!-- Effect setting item that replaces background with Android in Space. [CHAR LIMIT=14] -->
     <string name="effect_backdropper_space">Космас</string>
+    <!-- Effect setting item that replaces background with a sunset. [CHAR LIMIT=14] -->
     <string name="effect_backdropper_sunset">Заход</string>
+    <!-- Effect setting item that replaces background with video from gallery. [CHAR LIMIT=14] -->
     <string name="effect_backdropper_gallery">Вашы відэа</string>
+    <!-- Toast telling users tapping on the viewfinder will take a picture [CHAR LIMIT=54] -->
     <string name="video_snapshot_hint">Націсні, каб зрабіць фатаграфію падчас запісу.</string>
+    <!-- Announcement telling users video recording has just started [CHAR LIMIT=NONE] -->
     <string name="video_recording_started">Запіс пачаты.</string>
+    <!-- Announcement telling users video recording has just stopped [CHAR LIMIT=NONE] -->
     <string name="video_recording_stopped">Запіс спынены.</string>
+    <!-- A button in effect setting popup to clear the effect. [CHAR LIMIT=26] -->
     <string name="clear_effects">Прыбраць эфекты</string>
+    <!-- Title of category for silly face effects. [CHAR LIMIT=26] -->
     <string name="effect_silly_faces">СМЕШНЫЯ ТВАРЫКІ</string>
+    <!-- Title of category for background replacement effects. [CHAR LIMIT=26] -->
     <string name="effect_background">ФОН</string>
+    <!-- The shutter button. [CHAR LIMIT = NONE] -->
     <string name="accessibility_shutter_button">Засаўка</string>
+    <!-- The exit best photo mode button. [CHAR LIMIT = NONE] -->
+    <!-- The menu button. [CHAR LIMIT = NONE] -->
     <string name="accessibility_menu_button">Меню</string>
+    <!-- The mode picker to switch between camera, video and panorama. [CHAR LIMIT = NONE] -->
     <string name="accessibility_mode_picker">Пераключальнік паміж рэжымамі \"Фота\", \"Відэа\" і \"Панарама\"</string>
+    <!-- The check box in camera settings, such as store location. [CHAR LIMIT = NONE] -->
     <string name="accessibility_check_box">Сцяжок %1$s</string>
+    <!-- The button to switch to Camera mode. [CHAR LIMIT = NONE] -->
     <string name="accessibility_switch_to_camera">Фота</string>
+    <!-- The button to switch to Video mode. [CHAR LIMIT = NONE] -->
     <string name="accessibility_switch_to_video">Відэа</string>
+    <!-- The button to switch to Panorama mode. [CHAR LIMIT = NONE] -->
     <string name="accessibility_switch_to_panorama">Панарама</string>
+    <!-- The button to switch to the Photo Sphere mode. [CHAR LIMIT = NONE] -->
     <string name="accessibility_switch_to_photo_sphere">Кругавая панарама</string>
+    <!-- The button to switch to the high quality mode. [CHAR LIMIT = NONE] -->
     <string name="accessibility_switch_to_gcam">Высокая якасць</string>
+    <!-- The button in review mode indicating that the photo taking, video recording, and panorama saving session should be canceled [CHAR LIMIT = NONE] -->
     <string name="accessibility_review_cancel">Скасаванне</string>
+    <!-- The button in review mode indicating that the taken photo/video is OK to be attached/uploaded [CHAR LIMIT = NONE] -->
     <string name="accessibility_review_ok">Гатова</string>
+    <!-- button in review mode indicate the user want to retake another photo/video for attachment [
+CHAR LIMIT = NONE] -->
     <string name="accessibility_review_retake">Яшчэ раз</string>
+    <!-- Default text for a button that can be toggled on and off. -->
     <string name="capital_on">УКЛ</string>
+    <!-- Default text for a button that can be toggled on and off. -->
     <string name="capital_off">АДКЛ</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_off">Адключана</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_500">0,5 секунд</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_1000">1 секунда</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_1500">1.5 секунды</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_2000">2 секунды</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_2500">2.5 секунды</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_3000">3 секунды</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_4000">4 секунды</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_5000">5 секундаў</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_6000">6 секундаў</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_10000">10 секундаў</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_12000">12 секунд</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_15000">15 секунд</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_24000">24 секунды</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_30000">0.5 хвілін</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_60000">1 хвіліна</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_90000">1.5 хвілін</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_120000">2 хвіліны</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_150000">2.5 хвілін</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_180000">3 хвіліны</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_240000">4 хвіліны</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_300000">5 хвілін</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_360000">6 хвілін</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_600000">10 хвілін</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_720000">12 хвілін</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_900000">15 хвілін</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_1440000">24 хвілін</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_1800000">0.5 гадзін</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_3600000">1 гадзіна</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_5400000">1.5 гадзіны</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_7200000">2 гадзіны</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_9000000">2.5 гадзіны</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_10800000">3 гадзіны</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_14400000">4 гадзіны</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_18000000">5 гадзін</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_21600000">6 гадзін</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_36000000">10 гадзін</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_43200000">12 гадзін</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_54000000">15 гадзін</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_86400000">24 гадзін</string>
+    <!-- Seconds: a unit of time for time lapse intervals. [CHAR LIMIT = 20] -->
     <string name="time_lapse_seconds">секунд</string>
+    <!-- Minutes: a unit of time for time lapse intervals. [CHAR LIMIT = 20] -->
     <string name="time_lapse_minutes">хвілін</string>
+    <!-- Hours: a unit of time for time lapse intervals. [CHAR LIMIT = 20] -->
     <string name="time_lapse_hours">гадзін</string>
+    <!-- The button to confirm time-lapse setting changes. [CHAR LIMIT = 20] -->
     <string name="time_lapse_interval_set">Выканана</string>
+    <!-- Title in time interval picker for setting time interval. [CHAR LIMIT = 30]-->
     <string name="set_time_interval">Задайце інтэрвал</string>
+    <!-- Help text that is shown when the time lapse feature is turned off. [CHAR LIMIT = 180]-->
     <string name="set_time_interval_help">Спачатку ўключыце рэжым запаволенай здымкі.</string>
+    <!-- Title in timer setting for setting the duration for the countdown timer. [CHAR LIMIT = 50]-->
     <string name="set_duration">Час адліку ў секундах</string>
+    <!-- On-screen hint during timer countdown for taking a photo. [CHAR LIMIT = 60]-->
     <string name="count_down_title_text">Зваротны адлік перад здымкай</string>
+    <!-- Title for first run dialog asking if the user wants to remember photo locations [CHAR LIMIT = 50] -->
     <string name="remember_location_title">Захоўваць месца здымкі?</string>
+    <!-- Message for first run dialog asking if the user wants to remember photo locations [CHAR LIMIT = None] -->
     <string name="remember_location_prompt">Інфармацыя пра месца здымкі будзе аўтаматычна дададзена ў апісанне вашых фатаграфій і відэазапісаў.\n\nДоступ да гэтых дадзеных, а таксама да саміх фатаграфій і відэа змогуць атрымаць і іншыя дадаткі.</string>
+    <!-- Negative answer for first run dialog asking if the user wants to remember photo locations [CHAR LIMIT = 20] -->
     <string name="remember_location_no">Не, дзякуй</string>
+    <!-- Positive answer for first run dialog asking if the user wants to remember photo locations [CHAR LIMIT = 20] -->
     <string name="remember_location_yes">Так</string>
+    <!-- Camera menu labels -->
+    <!-- more options label [CHAR LIMIT=50] -->
     <string name="camera_menu_more_label">ЯШЧЭ</string>
+    <!-- settings label [CHAR LIMIT=50] -->
     <string name="camera_menu_settings_label">НАЛАДЫ</string>
+    <!--  Tiny Planet -->
+    <!-- Button to press for creating a tiny planet image. [CHAR LIMIT = 30] -->
     <string name="create_tiny_planet">Стварыць кругавую панараму</string>
+    <!-- Message shown while a tiny planet image is being saved. [CHAR LIMIT = 30] -->
     <string name="saving_tiny_planet">Захаванне…</string>
+    <!-- Label above a slider that let's the user set the zoom of a tiny planet image. [CHAR LIMIT = 15] -->
     <string name="tiny_planet_zoom">Маштаб</string>
+    <!-- Label above a slider that let's the user set the rotation of a tiny planet image. [CHAR LIMIT = 15] -->
     <string name="tiny_planet_rotate">Павярнуць</string>
+    <!-- Crop -->
+    <!-- Label for the save button in the crop activity action bar [CHAR LIMIT=20] -->
     <string name="crop_save">Захаваць</string>
+    <!--  String shown when we cannot load the image when starting the activity [CHAR LIMIT=NONE] -->
     <string name="cannot_load_image">Не атрымалася загрузіць выяву!</string>
+    <!-- Label for album filmstrip button -->
     <string name="switch_photo_filmstrip">Стужка</string>
+    <!--  String shown when setting the homepage wallpaper in the background [CHAR LIMIT=NONE] -->
     <string name="setting_wallpaper">Усталёўка шпалер</string>
+    <!-- Menu, Video rotation labels [CHAR LIMIT=50] -->
     <string name="save_best_dialog_positive_bt">Добра</string>
     <string name="delete_best_dialog_positive_bt">Выдалiць</string>
 </resources>

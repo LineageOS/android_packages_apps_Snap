@@ -14,268 +14,539 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- The name of the Android Camera application. [CHAR LIMIT=16] -->
     <string name="app_name">相机</string>
+    <!-- The label for the Video Camera activity. [CHAR LIMIT=16] -->
     <string name="video_camera_label">摄像机</string>
+    <!-- Used to format short video duration in Details dialog. minutes:seconds e.g. 00:30 -->
     <string name="details_ms">%1$02d:%2$02d</string>
+    <!-- Used to format video duration in Details dialog. hours:minutes:seconds e.g. 0:21:30 -->
     <string name="details_hms">%1$d:%2$02d:%3$02d</string>
+    <!-- Displayed in the title of the dialog for things to do with a picture
+             that is to be "set as" (e.g. set as contact photo or set as wallpaper) -->
     <string name="set_image">将照片设置为</string>
+    <!-- Details dialog "OK" button. Dismisses dialog. -->
     <string name="delete">删除</string>
+    <!-- String Delete the selected media item(s) [CHAR LIMIT=50] -->
     <plurals name="delete_selection">
         <item quantity="other">删除选定内容？</item>
     </plurals>
     <string name="share">分享</string>
     <string name="share_panorama">分享全景图</string>
     <string name="share_as_photo">以照片形式分享</string>
+    <!-- The label shown after an image is deleted [CHAR LIMIT=16] -->
     <string name="deleted">已删除</string>
+    <!-- The label on the button which when clicked will undo a deletion of image [CHAR LIMIT=16]-->
     <string name="undo">撤消</string>
     <string name="details">详细信息</string>
     <string name="close">关闭</string>
+    <!-- String indicating how many media item(s) is(are) selected
+            eg. 1 selected [CHAR LIMIT=30] -->
     <plurals name="number_of_items_selected">
         <item quantity="other">已选择 %1$d 项</item>
     </plurals>
+    <!-- String indicating how many media album(s) is(are) selected
+            eg. 1 selected [CHAR LIMIT=30] -->
     <plurals name="number_of_albums_selected">
         <item quantity="other">已选择 %1$d 项</item>
     </plurals>
+    <!-- String indicating how many media group(s) is(are) selected
+            eg. 1 selected [CHAR LIMIT=30] -->
     <plurals name="number_of_groups_selected">
         <item quantity="other">已选择 %1$d 项</item>
     </plurals>
+    <!-- String indicating timestamp of photo or video -->
     <string name="show_on_map">在地图上显示</string>
     <string name="rotate_left">向左旋转</string>
     <string name="rotate_right">向右旋转</string>
+    <!-- String used as a menu label. The user can choose to edit the image
+         [CHAR_LIMIT=20]-->
     <string name="edit">编辑</string>
+    <!-- The title of the menu item to let user crop the image. [CHAR LIMIT=15] -->
     <string name="crop_action">剪裁</string>
+    <!-- The title of the menu item to let user trim the video. [CHAR LIMIT=15] -->
     <string name="trim_action">剪辑</string>
+    <!-- The title of the menu item to let user set the image as background etc. [CHAR LIMIT=15] -->
     <string name="set_as">设置为</string>
+    <!-- String indicating an error when playing the video. [CHAR LIMIT=30] -->
     <string name="video_err">无法播放视频。</string>
+    <!-- Toast message shown when the cropped image has been saved in the
+         %s folder (string: folder_download) [CHAR LIMIT=50]-->
     <string name="crop_saved">        剪裁后的图片已保存至 <xliff:g id="folder_name">%s</xliff:g>。</string>
+    <!-- Text indicating the title of a media item in details window [CHAR LIMIT=14] -->
     <string name="title">标题</string>
+    <!-- Text indicating the description of a media item in details window [CHAR LIMIT=14] -->
     <string name="description">说明</string>
+    <!-- Text indicating the creation time of a media item in details window [CHAR LIMIT=14] -->
     <string name="time">时间</string>
+    <!-- Text indicating the location of a media item in details window [CHAR LIMIT=14] -->
     <string name="location">位置</string>
+    <!-- Text indicating the path of a media item in details window [CHAR LIMIT=14] -->
     <string name="path">路径</string>
+    <!-- Text indicating the width of a media item in details window [CHAR LIMIT=14] -->
     <string name="width">宽度</string>
+    <!-- Text indicating the height of a media item in details window [CHAR LIMIT=14] -->
     <string name="height">高度</string>
+    <!-- Text indicating the orientation of a media item in details window [CHAR LIMIT=14] -->
     <string name="orientation">方向</string>
+    <!-- Text indicating the duration of a video item in details window [CHAR LIMIT=18] -->
     <string name="duration">时长</string>
+    <!-- Text indicating the mime type of a media item in details window [CHAR LIMIT=14] -->
     <string name="mimetype">MIME 类型</string>
+    <!-- Text indicating the file size of a media item in details window [CHAR LIMIT=14] -->
     <string name="file_size">文件大小</string>
+    <!-- Text indicating the maker of a media item in details window [CHAR LIMIT=14] -->
     <string name="maker">制造商</string>
+    <!-- Text indicating the model of a media item in details window [CHAR LIMIT=14] -->
     <string name="model">型号</string>
+    <!-- Text indicating flash info of a media item in details window [CHAR LIMIT=14] -->
     <string name="flash">闪光灯</string>
+    <!-- Text indicating aperture of a media item in details window [CHAR LIMIT=14] -->
     <string name="aperture">光圈</string>
+    <!-- Text indicating the focal length of a media item in details window [CHAR LIMIT=14] -->
     <string name="focal_length">焦距</string>
+    <!-- Text indicating the white balance of a media item in details window [CHAR LIMIT=18] -->
     <string name="white_balance">白平衡</string>
+    <!-- Text indicating the exposure time of a media item in details window [CHAR LIMIT=14] -->
     <string name="exposure_time">曝光时间</string>
+    <!-- Text indicating the ISO speed rating of a media item in details window [CHAR LIMIT=14] -->
     <string name="iso">ISO</string>
+    <!-- String indicating the time units in seconds. [CHAR LIMIT=8] -->
+    <!-- String indicating the length units in milli-meters. [CHAR LIMIT=8] -->
     <string name="unit_mm">mm</string>
+    <!-- String indicating how camera shooting feature is used. [CHAR LIMIT=12] -->
     <string name="manual">手动</string>
+    <!-- String indicating how camera shooting feature is used. [CHAR LIMIT=12 -->
     <string name="auto">自动</string>
+    <!-- String indicating camera flash is fired. [CHAR LIMIT=14] -->
     <string name="flash_on">使用了闪光灯</string>
+    <!-- String indicating camera flash is not used. [CHAR LIMIT=14] -->
     <string name="flash_off">未使用闪光灯</string>
+    <!-- String indicating image width or height is unknown. [CHAR LIMIT=14] -->
     <string name="unknown">未知</string>
+    <!-- Toast message shown after we try to make a local album available offline
+         [CHAR LIMIT=150] -->
     <string name="try_to_set_local_album_available_offline">该内容已存储到本地，可以离线查看。</string>
+    <!-- The content of a dialog showing trimming in progress. [CHAR LIMIT=30] -->
     <string name="please_wait">请稍候</string>
+    <!-- Text to show with progress bar while stitching a photo sphere. 'Photo sphere' is a product name. [CHAR LIMIT=35]-->
     <string name="rendering_photo_sphere">正在渲染 Photo Sphere 全景照片</string>
+    <!-- title for the dialog showing the error of camera hardware -->
     <string name="camera_error_title">相机发生错误</string>
+    <!-- message for the dialog showing the error of camera hardware -->
     <string name="cannot_connect_camera">无法连接到相机。</string>
+    <!-- message for the dialog showing the camera is disabled because of security policies. Camera cannot be used. -->
     <string name="camera_disabled">由于安全政策的限制，相机已被禁用。</string>
+    <!-- message for the dialog showing that the app does not have sufficient permissions [CHAR LIMIT=NONE] -->
     <string name="error_permissions">应用没有运行所需的关键权限。请检查您的权限设置。</string>
+    <!-- Dialog "Dismiss" button. Closes the dialog [CHAR LIMIT=12]-->
     <string name="dialog_dismiss">忽略</string>
+    <!-- alert to the user to wait for some operation to complete -->
     <string name="wait">请稍候…</string>
+    <!-- alert to the user that an SD card must be installed before using the camera -->
     <string name="no_storage" product="default">使用相机前请先插入 SD 卡。</string>
+    <!-- alert to the user that the SD card is being disk-checked -->
     <string name="preparing_sd" product="default">正在准备 SD 卡\u2026</string>
+    <!-- alert to the user that the camera fails to read or write the SD card. -->
     <string name="access_sd_fail" product="default">无法访问 SD 卡。</string>
+    <!-- A label that overlays on top of the preview frame to indicate the camcorder is in time lapse mode [CHAR LIMIT=35] -->
     <string name="time_lapse_title">延时摄影</string>
+    <!-- Screen display message during image capture to indicate that the capture is in progress, like during HDR+. [CHAR LIMIT=20] -->
     <string name="capturing">正在拍摄</string>
+    <!-- Settings screen, camera selection dialog title. Users can select a camera from the phone (front-facing or back-facing). [CHAR LIMIT=20] -->
     <string name="pref_camera_id_title">选择摄像头</string>
+    <!-- In select camera setting, back facing camera. [CHAR LIMIT=14] -->
     <string name="pref_camera_id_entry_back">后置</string>
+    <!-- In select camera setting, front-facing camera. [CHAR LIMIT=14] -->
     <string name="pref_camera_id_entry_front">前置</string>
+    <!-- Settings screen, setting title text -->
     <string name="pref_camera_recordlocation_title">GPS 定位</string>
+    <!--  Label for record location preference [CHAR LIMIT=50] -->
     <string name="pref_camera_location_label">位置</string>
+    <!-- Title for countdown timer on camera settings screen [CHAR LIMIT=30]-->
     <string name="pref_camera_timer_title">倒计时器</string>
+    <!-- Entry for countdown timer setting. e.g. 1 second, 10 seconds, etc. [CHAR LIMIT=30]-->
     <plurals name="pref_camera_timer_entry">
         <item quantity="other">%d 秒</item>
     </plurals>
+    <!-- Text followed by a checkbox to turn on/off sound effects during the countdown. [CHAR LIMIT = 24]-->
     <string name="pref_camera_timer_sound_title">倒数时中发出提示音</string>
+    <!-- Entry of camera save path -->
     <string name="pref_camera_savepath_title">存储</string>
     <string name="pref_camera_savepath_entry_0">手机</string>
     <string name="pref_camera_savepath_entry_1">SD 卡</string>
+    <!-- Entry of a on/off setting. The setting is turned off. [CHAR LIMIT=15] -->
     <string name="setting_off">关</string>
+    <!-- Entry of a on/off setting. The setting is turned on. [CHAR LIMIT=15] -->
     <string name="setting_on">开</string>
+    <!-- The value of a camera preference indicating the setting is off. -->
+    <!-- The value of a camera preference indicating the setting is on. -->
+    <!-- The Video quality settings in preference [CHAR LIMIT=21] -->
     <string name="pref_video_quality_title">视频画质</string>
+    <!-- The default quality value is NULL -->
+    <!-- Video quality setting entry.
+    Videos will be recorded in 8k DCI quality. [CHAR LIMIT=24] -->
+    <!-- Video quality setting entry.
+    Videos will be recorded in 4k DCI quality. [CHAR LIMIT=24] -->
+    <!-- Video quality setting entry.
+    Videos will be recorded in 4k UHD quality. [CHAR LIMIT=24] -->
+    <!-- Video quality setting entry. Videos will be recorded in 1080p quality. [CHAR LIMIT=24] -->
+    <!-- Video quality setting entry. Videos will be recorded in 720p quality. [CHAR LIMIT=24] -->
+    <!-- Video quality setting entry. Videos will be recorded in 480p quality. [CHAR LIMIT=24] -->
+    <!-- Video quality setting entry. Videos will be recorded in QHD quality. [CHAR LIMIT=24] -->
+    <!-- Video quality setting entry. Videos will be recorded in 2K quality. [CHAR LIMIT=24] -->
+    <!-- Describes the preference dialog for choosing interval between frame capture for
+    time lapse recording. Appears at top of the dialog. [CHAR LIMIT=30] -->
     <string name="pref_video_time_lapse_frame_interval_title">延时</string>
+    <!-- Settings screen, Camera setting category title -->
     <string name="pref_camera_settings_category">相机设置</string>
+    <!-- Settings screen, Camcorder setting category title -->
     <string name="pref_camcorder_settings_category">摄像机设置</string>
+    <!-- Settings screen, Picture size title -->
     <string name="pref_camera_picturesize_title">照片尺寸</string>
+    <!-- Settings screen, Focus mode title -->
     <string name="pref_camera_focusmode_title">对焦模式</string>
+    <!-- Settings screen, Focus mode dialog radio button choices -->
     <string name="pref_camera_focusmode_entry_auto">自动</string>
+    <!-- A setting that lets the camera focus into infinity. [CHAR LIMIT=20] -->
     <string name="pref_camera_focusmode_entry_infinity">无限远</string>
+    <!-- A setting that lets the camera operate in macro focus mode for nearby objects. [CHAR LIMIT=20] -->
     <string name="pref_camera_focusmode_entry_macro">微距</string>
+    <!-- Menu, focus mode labels [CHAR LIMIT=50] -->
     <string name="pref_camera_focusmode_label_auto">自动</string>
     <string name="pref_camera_focusmode_label_infinity">无限远</string>
     <string name="pref_camera_focusmode_label_macro">微距</string>
+    <!-- Default flash mode setting.-->
+    <!-- Value for flash off setting-->
+    <!-- Settings screen, Flash mode title -->
     <string name="pref_camera_flashmode_title">闪光灯</string>
+    <!-- Settings screen, Flash mode 'auto'. [CHAR LIMIT=12] -->
     <string name="pref_camera_flashmode_entry_auto">自动</string>
+    <!-- Settings screen, Flash mode 'alway on'. [CHAR LIMIT=12] -->
     <string name="pref_camera_flashmode_entry_on">开</string>
+    <!-- Settings screen, Flash mode 'always off'. [CHAR LIMIT=12] -->
     <string name="pref_camera_flashmode_entry_off">关</string>
+    <!-- Menu, flash mode labels [CHAR LIMIT=50] -->
     <string name="pref_camera_flashmode_label_auto">自动闪光灯</string>
     <string name="pref_camera_flashmode_label_on">打开闪光灯</string>
     <string name="pref_camera_flashmode_label_off">关闭闪光灯</string>
+    <!-- Default videocamera flash mode setting.-->
+    <!-- Default white balance setting. -->
+    <!-- Settings screen, white balance title -->
     <string name="pref_camera_whitebalance_title">白平衡</string>
+    <!-- Menu, white balance label -->
     <string name="pref_camera_whitebalance_label">白平衡</string>
+    <!-- Settings screen, White balance dialog radio button choices -->
     <string name="pref_camera_whitebalance_entry_auto">自动</string>
     <string name="pref_camera_whitebalance_entry_incandescent">白炽光</string>
     <string name="pref_camera_whitebalance_entry_daylight">日光</string>
     <string name="pref_camera_whitebalance_entry_fluorescent">荧光</string>
     <string name="pref_camera_whitebalance_entry_cloudy">阴天</string>
+    <!-- Menu, White balance labels [CHAR LIMIT=50] -->
     <string name="pref_camera_whitebalance_label_auto">自动</string>
     <string name="pref_camera_whitebalance_label_incandescent">白炽光</string>
     <string name="pref_camera_whitebalance_label_daylight">日光</string>
     <string name="pref_camera_whitebalance_label_fluorescent">荧光</string>
     <string name="pref_camera_whitebalance_label_cloudy">阴天</string>
+    <!-- Default scene mode setting. -->
+    <!-- Settings screen, Select Scene mode -->
     <string name="pref_camera_scenemode_title">场景模式</string>
+    <!-- Settings menu, scene mode choices [CHAR LIMIT=16] -->
     <string name="pref_camera_scenemode_entry_auto">自动</string>
+    <!-- Scene mode that uses HDR plus (better HDR) [CHAR LIMIT=16] -->
     <string name="pref_camera_scenemode_entry_hdr_plus">HDR+</string>
+    <!-- Scene mode that uses HDR (high dynamic range) [CHAR LIMIT=16] -->
     <string name="pref_camera_scenemode_entry_hdr">HDR</string>
+    <!-- Scene mode to turn on HDR (better high dynamic range) [CHAR LIMIT=50] -->
     <string name="pref_camera_scenemode_entry_turn_hdr_plus_on">开启 HDR+</string>
+    <!-- Scene mode to turn off HDR (better high dynamic range) [CHAR LIMIT=50] -->
     <string name="pref_camera_scenemode_entry_turn_hdr_plus_off">关闭 HDR+</string>
+    <!-- Scene mode to turn on HDR (high dynamic range) [CHAR LIMIT=50] -->
     <string name="pref_camera_scenemode_entry_turn_hdr_on">开启 HDR</string>
+    <!-- Scene mode to turn off HDR (high dynamic range) [CHAR LIMIT=50] -->
     <string name="pref_camera_scenemode_entry_turn_hdr_off">关闭 HDR</string>
+    <!-- Scene mode that takes an image quickly with little motion blur. [CHAR LIMIT=16] -->
     <string name="pref_camera_scenemode_entry_action">运动</string>
+    <!-- Scene mode that takes long exposures to capture night scenes without flash. [CHAR LIMIT=16] -->
     <string name="pref_camera_scenemode_entry_night">夜间</string>
+    <!-- Scene mode optimized for taking images in the sunset. [CHAR LIMIT=16] -->
     <string name="pref_camera_scenemode_entry_sunset">日落</string>
+    <!-- Scene mode optimized for taking indoor low-lights pictures. [CHAR LIMIT=16] -->
     <string name="pref_camera_scenemode_entry_party">派对</string>
+    <!-- Scene mode for refocus feature [CHAR LIMIT=16] -->
+    <!-- Settings menu, scene mode labels [CHAR LIMIT=50] -->
     <string name="pref_camera_scenemode_label_auto">无</string>
+    <!-- Scene mode that takes an image quickly with little motion blur. [CHAR LIMIT=50] -->
     <string name="pref_camera_scenemode_label_action">运动</string>
+    <!-- Scene mode that takes long exposures to capture night scenes without flash. [CHAR LIMIT=50] -->
     <string name="pref_camera_scenemode_label_night">夜景</string>
+    <!-- Scene mode optimized for taking images in the sunset. [CHAR LIMIT=50] -->
     <string name="pref_camera_scenemode_label_sunset">日落</string>
+    <!-- Scene mode optimized for taking indoor low-lights pictures. [CHAR LIMIT=50] -->
     <string name="pref_camera_scenemode_label_party">派对</string>
+    <!-- Settings menu countdown timer off [CHAR LIMIT=50] -->
     <string name="pref_camera_countdown_label_off">计时器已关闭</string>
+    <!-- Settings menu countdown timer 1 second [CHAR LIMIT=50] -->
     <string name="pref_camera_countdown_label_one">1 秒</string>
+    <!-- Settings menu countdown timer 3 seconds [CHAR LIMIT=50] -->
     <string name="pref_camera_countdown_label_three">3 秒</string>
+    <!-- Settings menu countdown timer 10 seconds [CHAR LIMIT=50] -->
     <string name="pref_camera_countdown_label_ten">10 秒</string>
+    <!-- Settings menu countdown timer 15 seconds [CHAR LIMIT=50] -->
     <string name="pref_camera_countdown_label_fifteen">15 秒</string>
+    <!-- Toast after trying to select a setting that is not allowed to change in scene mode [CHAR LIMIT=NONE] -->
     <string name="not_selectable_in_scene_mode">无法在取景模式下选择。</string>
+    <!-- Toast after enable HDR function to inform Continuous Shot has disabled -->
     <string name="HDR_disable_continuous_shot">HDR 模式将禁用连拍。</string>
+    <!-- Toast after enable Advanced Capture function to inform Continuous Shot has disabled -->
     <string name="advanced_capture_disable_continuous_shot">高级拍照将禁用连拍。</string>
+    <!-- Toast after enable 2k4k video quality to inform IS has disabled -->
     <string name="video_quality_4k_disable_IS">4K 视频质量将禁用图像稳定化。</string>
+    <!-- Toast after 2k4k video is enabled to inform SeeMore has been disabled -->
     <string name="video_quality_4k_disable_SeeMore">SeeMore 功能无法在录制 4K 视频时启用。</string>
+    <!-- Toast after High Quality Noise Reduction has been enabled to show CDS is disabled -->
     <string name="disable_CDS_during_HighQualityNoiseReduction">高品质降噪将禁用 CDS。</string>
+    <!-- Toast after High Quality Noise Reduction has been enabled to show TNR is disabled -->
     <string name="disable_TNR_during_HighQualityNoiseReduction">高品质降噪将禁用 TNR。</string>
+    <!-- Toast after SeeMore has been enabled to show CDS is disabled -->
     <string name="disable_CDS_during_SeeMore">SeeMore 将会禁用 CDS。</string>
+    <!-- Toast after SeeMore has been enabled to show TNR is disabled -->
     <string name="disable_TNR_during_SeeMore">SeeMore 将会禁用 TNR。</string>
+    <!-- Toast after SeeMore has been enabled to show NR is disabled -->
     <string name="disable_NR_during_SeeMore">SeeMore 将会禁用降噪。</string>
+    <!-- Exposure settings in preference -->
     <string name="pref_exposure_title">曝光</string>
+    <!--  menu label exposure compensation [CHAR LIMIT=50] -->
     <string name="pref_exposure_label">曝光</string>
+    <!-- Default HDR entry value -->
+    <!-- Default HDR+ entry value -->
+    <!-- HDR label ON [CHAR LIMIT=60] -->
     <string name="pref_camera_hdr_label">HDR</string>
+    <!-- switch camera label back [CHAR LIMIT=60] -->
     <string name="pref_camera_id_label_back">前置摄像头</string>
+    <!-- switch camera label front [CHAR LIMIT=60] -->
     <string name="pref_camera_id_label_front">后置摄像头</string>
+    <!-- Dialog "OK" button. Dismisses dialog. -->
     <string name="dialog_ok">确定</string>
+    <!-- Low-memory dialog message [CHAR LIMIT=NONE] -->
     <string name="spaceIsLow_content" product="default">您的 SD 卡空间不足。更改质量设置或删除一些图片或其他文件以释放空间。</string>
+    <!-- Camera format string for new image files. Passed to java.text.SimpleDateFormat. -->
+    <!-- Video Camera format string for new video files. Passed to java.text.SimpleDateFormat. -->
+    <!-- Filename prefix for panorama output. -->
+    <!-- The message shown when video record reaches size limit. -->
     <string name="video_reach_size_limit">已达文件大小上限。</string>
+    <!-- The text shown when the panorama panning speed is to fast [CHAR LIMIT=16] -->
     <string name="pano_too_fast_prompt">速度太快</string>
+    <!-- The text shown in the progress dialog when panorama preview is generating in the background [CHAR LIMIT=30] -->
     <string name="pano_dialog_prepare_preview">正在生成全景图</string>
+    <!-- The text shown in the dialog when panorama saving failed [CHAR LIMIT=40] -->
     <string name="pano_dialog_panorama_failed">无法保存全景图。</string>
+    <!-- The text shown on the dialog title in the dialogs for Panorama [CHAR LIMIT=12] -->
     <string name="pano_dialog_title">全景图</string>
+    <!-- The text shown on the top-left corner of the screen to indicate the capturing is on going [CHAR LIMIT=27] -->
     <string name="pano_capture_indication">正在拍摄全景图</string>
+    <!-- The text shown in the progress dialog when waiting for previous panorama finishing [CHAR LIMIT=40] -->
     <string name="pano_dialog_waiting_previous">正在等待上一幅全景图处理完毕</string>
+    <!-- The text shown on the bottom-left corner of the screen to indicate that the saving is in process [CHAR LIMIT=13] -->
     <string name="pano_review_saving_indication_str">正在保存\u2026</string>
+    <!-- The text shown on the screen to indicate that the panorama is rendering [CHAR LIMIT=27] -->
     <string name="pano_review_rendering">正在渲染全景图</string>
+    <!-- Toast telling users tapping on the viewfinder will trigger autofocus [CHAR LIMIT=28] -->
     <string name="tap_to_focus">触摸即可对焦。</string>
+    <!-- Default effect setting that clears the effect. -->
+    <!-- Title of video effect setting popup window -->
     <string name="pref_video_effect_title">效果</string>
+    <!-- Effect setting item that clear the effect. [CHAR LIMIT=14] -->
     <string name="effect_none">无</string>
+    <!-- Effect setting item that squeezes the face. [CHAR LIMIT=14] -->
     <string name="effect_goofy_face_squeeze">哈哈镜</string>
+    <!-- Effect setting item that makes eyes big. [CHAR LIMIT=14] -->
     <string name="effect_goofy_face_big_eyes">大眼睛</string>
+    <!-- Effect setting item that makes mouth big. [CHAR LIMIT=14] -->
     <string name="effect_goofy_face_big_mouth">大嘴巴</string>
+    <!-- Effect setting item that makes mouth small. [CHAR LIMIT=14] -->
     <string name="effect_goofy_face_small_mouth">小嘴巴</string>
+    <!-- Effect setting item that makes nose big. [CHAR LIMIT=14] -->
     <string name="effect_goofy_face_big_nose">大鼻子</string>
+    <!-- Effect setting item that makes eyes small. [CHAR LIMIT=14] -->
     <string name="effect_goofy_face_small_eyes">小眼睛</string>
+    <!-- Effect setting item that replaces background with Android in Space. [CHAR LIMIT=14] -->
     <string name="effect_backdropper_space">太空</string>
+    <!-- Effect setting item that replaces background with a sunset. [CHAR LIMIT=14] -->
     <string name="effect_backdropper_sunset">日落</string>
+    <!-- Effect setting item that replaces background with video from gallery. [CHAR LIMIT=14] -->
     <string name="effect_backdropper_gallery">您的视频</string>
+    <!-- Toast telling users tapping on the viewfinder will take a picture [CHAR LIMIT=54] -->
     <string name="video_snapshot_hint">触摸一下即可在录制期间拍照。</string>
+    <!-- Announcement telling users video recording has just started [CHAR LIMIT=NONE] -->
     <string name="video_recording_started">视频录制已开始。</string>
+    <!-- Announcement telling users video recording has just stopped [CHAR LIMIT=NONE] -->
     <string name="video_recording_stopped">视频录制已停止。</string>
+    <!-- A button in effect setting popup to clear the effect. [CHAR LIMIT=26] -->
     <string name="clear_effects">清除效果</string>
+    <!-- Title of category for silly face effects. [CHAR LIMIT=26] -->
     <string name="effect_silly_faces">趣味表情</string>
+    <!-- Title of category for background replacement effects. [CHAR LIMIT=26] -->
     <string name="effect_background">背景</string>
+    <!-- The shutter button. [CHAR LIMIT = NONE] -->
     <string name="accessibility_shutter_button">快门</string>
+    <!-- The exit best photo mode button. [CHAR LIMIT = NONE] -->
     <string name="accessibility_exit_best_mode_button">退出最佳照片模式</string>
+    <!-- The menu button. [CHAR LIMIT = NONE] -->
     <string name="accessibility_menu_button">菜单按钮</string>
+    <!-- The mode picker to switch between camera, video and panorama. [CHAR LIMIT = NONE] -->
     <string name="accessibility_mode_picker">相机、视频、全景模式选择器</string>
+    <!-- The check box in camera settings, such as store location. [CHAR LIMIT = NONE] -->
     <string name="accessibility_check_box">%1$s 复选框</string>
+    <!-- The button to switch to Camera mode. [CHAR LIMIT = NONE] -->
     <string name="accessibility_switch_to_camera">切换到拍照模式</string>
+    <!-- The button to switch to Video mode. [CHAR LIMIT = NONE] -->
     <string name="accessibility_switch_to_video">切换到视频模式</string>
+    <!-- The button to switch to Panorama mode. [CHAR LIMIT = NONE] -->
     <string name="accessibility_switch_to_panorama">切换到全景模式</string>
+    <!-- The button to switch to the Photo Sphere mode. [CHAR LIMIT = NONE] -->
     <string name="accessibility_switch_to_photo_sphere">切换到 Photo Sphere 模式</string>
+    <!-- The button to switch to the high quality mode. [CHAR LIMIT = NONE] -->
     <string name="accessibility_switch_to_gcam">切换到高画质模式</string>
+    <!-- The button in review mode indicating that the photo taking, video recording, and panorama saving session should be canceled [CHAR LIMIT = NONE] -->
     <string name="accessibility_review_cancel">取消</string>
+    <!-- The button in review mode indicating that the taken photo/video is OK to be attached/uploaded [CHAR LIMIT = NONE] -->
     <string name="accessibility_review_ok">完成</string>
+    <!-- button in review mode indicate the user want to retake another photo/video for attachment [
+CHAR LIMIT = NONE] -->
     <string name="accessibility_review_retake">重拍</string>
+    <!-- Default text for a button that can be toggled on and off. -->
     <string name="capital_on">开</string>
+    <!-- Default text for a button that can be toggled on and off. -->
     <string name="capital_off">关</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_off">关</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_500">0.5 秒</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_1000">1 秒</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_1500">1.5 秒</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_2000">2 秒</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_2500">2.5 秒</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_3000">3 秒</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_4000">4 秒</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_5000">5 秒</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_6000">6 秒</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_10000">10 秒</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_12000">12 秒</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_15000">15 秒</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_24000">24 秒</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_30000">0.5 分钟</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_60000">1 分钟</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_90000">1.5 分钟</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_120000">2 分钟</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_150000">2.5 分钟</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_180000">3 分钟</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_240000">4 分钟</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_300000">5 分钟</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_360000">6 分钟</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_600000">10 分钟</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_720000">12 分钟</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_900000">15 分钟</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_1440000">24 分钟</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_1800000">0.5 小时</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_3600000">1 小时</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_5400000">1.5 小时</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_7200000">2 小时</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_9000000">2.5 小时</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_10800000">3 小时</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_14400000">4 小时</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_18000000">5 小时</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_21600000">6 小时</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_36000000">10 小时</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_43200000">12 小时</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_54000000">15 小时</string>
+    <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
     <string name="pref_video_time_lapse_frame_interval_86400000">24 小时</string>
+    <!-- Seconds: a unit of time for time lapse intervals. [CHAR LIMIT = 20] -->
     <string name="time_lapse_seconds">秒</string>
+    <!-- Minutes: a unit of time for time lapse intervals. [CHAR LIMIT = 20] -->
     <string name="time_lapse_minutes">分钟</string>
+    <!-- Hours: a unit of time for time lapse intervals. [CHAR LIMIT = 20] -->
     <string name="time_lapse_hours">小时</string>
+    <!-- The button to confirm time-lapse setting changes. [CHAR LIMIT = 20] -->
     <string name="time_lapse_interval_set">完成</string>
+    <!-- Title in time interval picker for setting time interval. [CHAR LIMIT = 30]-->
     <string name="set_time_interval">设置时间间隔</string>
+    <!-- Help text that is shown when the time lapse feature is turned off. [CHAR LIMIT = 180]-->
     <string name="set_time_interval_help">延时摄影功能已关闭，要设置时间间隔，请先开启该功能。</string>
+    <!-- Title in timer setting for setting the duration for the countdown timer. [CHAR LIMIT = 50]-->
     <string name="set_duration">设置倒数时间（秒）</string>
+    <!-- On-screen hint during timer countdown for taking a photo. [CHAR LIMIT = 60]-->
     <string name="count_down_title_text">拍照倒计时中</string>
+    <!-- Title for first run dialog asking if the user wants to remember photo locations [CHAR LIMIT = 50] -->
     <string name="remember_location_title">是否记住照片拍摄地点？</string>
+    <!-- Message for first run dialog asking if the user wants to remember photo locations [CHAR LIMIT = None] -->
     <string name="remember_location_prompt">为您的照片和视频标明拍摄地点。\n\n其他应用在查看您保存的图片时将可以使用这些信息。</string>
+    <!-- Negative answer for first run dialog asking if the user wants to remember photo locations [CHAR LIMIT = 20] -->
     <string name="remember_location_no">不用了</string>
+    <!-- Positive answer for first run dialog asking if the user wants to remember photo locations [CHAR LIMIT = 20] -->
     <string name="remember_location_yes">是</string>
+    <!-- Camera menu labels -->
+    <!-- more options label [CHAR LIMIT=50] -->
     <string name="camera_menu_more_label">更多选项</string>
+    <!-- settings label [CHAR LIMIT=50] -->
     <string name="camera_menu_settings_label">设置</string>
+    <!--  Tiny Planet -->
+    <!-- Button to press for creating a tiny planet image. [CHAR LIMIT = 30] -->
     <string name="create_tiny_planet">创建小星球图片</string>
+    <!-- Message shown while a tiny planet image is being saved. [CHAR LIMIT = 30] -->
     <string name="saving_tiny_planet">正在保存小星球图片…</string>
+    <!-- Label above a slider that let's the user set the zoom of a tiny planet image. [CHAR LIMIT = 15] -->
     <string name="tiny_planet_zoom">缩放</string>
+    <!-- Label above a slider that let's the user set the rotation of a tiny planet image. [CHAR LIMIT = 15] -->
     <string name="tiny_planet_rotate">旋转</string>
+    <!-- Crop -->
+    <!-- Label for the save button in the crop activity action bar [CHAR LIMIT=20] -->
     <string name="crop_save">保存</string>
+    <!--  String shown when we cannot load the image when starting the activity [CHAR LIMIT=NONE] -->
     <string name="cannot_load_image">无法加载该图片！</string>
+    <!-- Label for album filmstrip button -->
     <string name="switch_photo_filmstrip">胶卷视图</string>
+    <!--  String shown when setting the homepage wallpaper in the background [CHAR LIMIT=NONE] -->
     <string name="setting_wallpaper">正在设置壁纸</string>
+    <!-- Menu, Video rotation labels [CHAR LIMIT=50] -->
     <string name="pref_camera_video_rotation_label_90">90</string>
     <string name="pref_camera_video_rotation_label_180">180</string>
     <string name="pref_camera_video_rotation_label_270">270</string>

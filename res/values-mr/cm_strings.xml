@@ -15,6 +15,13 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- common aspect ratios -->
+    <!-- aspect ratio greater than 16:9, so "widescreen" or "cinematic" -->
+    <!-- Format for entries in the picture size menu. Parameter one is aspect ratio,
+         parameter two is size in megapixels, e.g. "(4:3) 12.1 megapixels"
+         NOTE: for Chinese (zh) and Korean (ko) the pixel number (parameter two)
+         will be multiplied by 100 as those languages want to count by ten thousands -->
+    <!-- Settings screen, scene mode -->
     <string name="pref_camera_scenemode_entry_antimotionblur">गती अंधुकता (ब्लर) घट</string>
     <string name="pref_camera_scenemode_entry_aqua">ऍक्वा</string>
     <string name="pref_camera_scenemode_entry_ar">वाढलेले वास्तव</string>
@@ -56,6 +63,7 @@
     <string name="pref_camera_scenemode_entry_text">मजकूर</string>
     <string name="pref_camera_scenemode_entry_theatre">थिएटर</string>
     <string name="pref_camera_scenemode_entry_whiteboard">व्हाईटबोर्ड</string>
+    <!-- Settings screen, focus mode -->
     <string name="pref_camera_focusmode_entry_continuous">निरंतर</string>
     <string name="pref_camera_focusmode_entry_mw_continuous">निरंतर (MW)</string>
     <string name="pref_camera_focusmode_entry_extended">विस्तारीत</string>
@@ -65,6 +73,7 @@
     <string name="pref_camera_focusmode_entry_normal">सामान्य</string>
     <string name="pref_camera_focusmode_entry_portrait">पोर्ट्रेट</string>
     <string name="pref_camera_focusmode_entry_hyperfocal">हायपरफोकल</string>
+    <!-- Color effects -->
     <string name="pref_camera_coloreffect_entry_washed">धुतलेले</string>
     <string name="pref_camera_coloreffect_entry_vintage_warm">विंटेज वॉर्म</string>
     <string name="pref_camera_coloreffect_entry_vintage_cold">विंटेज कोल्ड</string>
@@ -72,15 +81,21 @@
     <string name="pref_camera_coloreffect_entry_point_green">पॉईंट हिरवा</string>
     <string name="pref_camera_coloreffect_entry_point_red_yellow">पॉइंट लाल-पिवळा</string>
     <string name="pref_camera_coloreffect_entry_cartoonize">कार्टूनाईज</string>
+    <!-- Red eye flash mode title -->
     <string name="pref_camera_flashmode_entry_redeye">लाल बुबुळ</string>
     <string name="pref_camera_flashmode_label_redeye">लाल बुबुळ</string>
+    <!-- Power shutter -->
     <string name="pref_camera_power_shutter_title">पॉवर शटर</string>
+    <!-- Max brightness -->
     <string name="pref_camera_max_brightness_title">चमकदार स्क्रीन</string>
+    <!-- Touch focus duration -->
     <string name="pref_camera_focustime_title">स्पर्श फोकस कालावधी</string>
     <string name="pref_camera_focustime_entry_0">0s</string>
     <string name="pref_camera_focustime_entry_3">3s</string>
     <string name="pref_camera_focustime_entry_5">5से</string>
     <string name="pref_camera_focustime_entry_10">10से</string>
     <string name="pref_camera_focustime_entry_infinite">अनंत</string>
+    <!-- Shutter speed -->
     <string name="pref_camera_shutter_speed_title">शटर गती</string>
+    <!-- Advanced options -->
 </resources>

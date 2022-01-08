@@ -15,8 +15,15 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- common aspect ratios -->
+    <!-- aspect ratio greater than 16:9, so "widescreen" or "cinematic" -->
     <string name="pref_camera_aspectratio_wide">Wide</string>
+    <!-- Format for entries in the picture size menu. Parameter one is aspect ratio,
+         parameter two is size in megapixels, e.g. "(4:3) 12.1 megapixels"
+         NOTE: for Chinese (zh) and Korean (ko) the pixel number (parameter two)
+         will be multiplied by 100 as those languages want to count by ten thousands -->
     <string name="pref_camera_megapixel_format">(<xliff:g id="ratio" example="16:9">%1$s</xliff:g>) <xliff:g id="pixels">%2$1.1f</xliff:g> megapixels</string>
+    <!-- Settings screen, scene mode -->
     <string name="pref_camera_scenemode_entry_antimotionblur">Redução de borrões de movimento</string>
     <string name="pref_camera_scenemode_entry_aqua">Água</string>
     <string name="pref_camera_scenemode_entry_ar">Realidade aumentada</string>
@@ -59,6 +66,7 @@
     <string name="pref_camera_scenemode_entry_text">Texto</string>
     <string name="pref_camera_scenemode_entry_theatre">Teatro</string>
     <string name="pref_camera_scenemode_entry_whiteboard">Quadro branco</string>
+    <!-- Settings screen, focus mode -->
     <string name="pref_camera_focusmode_entry_continuous">Contínuo</string>
     <string name="pref_camera_focusmode_entry_mw_continuous">Contínuo (MW)</string>
     <string name="pref_camera_focusmode_entry_extended">Estendida</string>
@@ -68,6 +76,7 @@
     <string name="pref_camera_focusmode_entry_normal">Normal</string>
     <string name="pref_camera_focusmode_entry_portrait">Retrato</string>
     <string name="pref_camera_focusmode_entry_hyperfocal">Hiperfocal</string>
+    <!-- Color effects -->
     <string name="pref_camera_coloreffect_entry_washed">Lavado</string>
     <string name="pref_camera_coloreffect_entry_vintage_warm">Vintage quente</string>
     <string name="pref_camera_coloreffect_entry_vintage_cold">Vintade frio</string>
@@ -75,17 +84,23 @@
     <string name="pref_camera_coloreffect_entry_point_green">Ponto verde</string>
     <string name="pref_camera_coloreffect_entry_point_red_yellow">Ponto vermelho-amarelo</string>
     <string name="pref_camera_coloreffect_entry_cartoonize">Quadrinhos</string>
+    <!-- Red eye flash mode title -->
     <string name="pref_camera_flashmode_entry_redeye">Olho vermelho</string>
     <string name="pref_camera_flashmode_label_redeye">OLHO VERMELHO</string>
+    <!-- Power shutter -->
     <string name="pref_camera_power_shutter_title">Botão de energia como disparador</string>
+    <!-- Max brightness -->
     <string name="pref_camera_max_brightness_title">Brilho máximo da tela</string>
+    <!-- Touch focus duration -->
     <string name="pref_camera_focustime_title">Duração do toque para foco</string>
     <string name="pref_camera_focustime_entry_0">0s</string>
     <string name="pref_camera_focustime_entry_3">3s</string>
     <string name="pref_camera_focustime_entry_5">5s</string>
     <string name="pref_camera_focustime_entry_10">10s</string>
     <string name="pref_camera_focustime_entry_infinite">Infinito</string>
+    <!-- Shutter speed -->
     <string name="pref_camera_shutter_speed_title">Velocidade do obturador</string>
+    <!-- Advanced options -->
     <string name="developer_menu_enabled">Você ativou as opções avançadas da câmera</string>
     <string name="developer_menu_disabled">Você desativou as opções avançadas da câmera</string>
     <string name="pref_camera2_preferences_category_developer">Opções avançadas</string>

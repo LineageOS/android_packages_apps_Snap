@@ -15,8 +15,15 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- common aspect ratios -->
+    <!-- aspect ratio greater than 16:9, so "widescreen" or "cinematic" -->
     <string name="pref_camera_aspectratio_wide">와이드</string>
+    <!-- Format for entries in the picture size menu. Parameter one is aspect ratio,
+         parameter two is size in megapixels, e.g. "(4:3) 12.1 megapixels"
+         NOTE: for Chinese (zh) and Korean (ko) the pixel number (parameter two)
+         will be multiplied by 100 as those languages want to count by ten thousands -->
     <string name="pref_camera_megapixel_format">(<xliff:g id="ratio" example="16:9">%1$s</xliff:g>) <xliff:g id="pixels">%2$1.1f</xliff:g>백만 화소</string>
+    <!-- Settings screen, scene mode -->
     <string name="pref_camera_scenemode_entry_antimotionblur">모션 블러 감소</string>
     <string name="pref_camera_scenemode_entry_aqua">아쿠아</string>
     <string name="pref_camera_scenemode_entry_ar">증강 현실</string>
@@ -59,6 +66,7 @@
     <string name="pref_camera_scenemode_entry_text">텍스트</string>
     <string name="pref_camera_scenemode_entry_theatre">극장</string>
     <string name="pref_camera_scenemode_entry_whiteboard">화이트보드</string>
+    <!-- Settings screen, focus mode -->
     <string name="pref_camera_focusmode_entry_continuous">연속</string>
     <string name="pref_camera_focusmode_entry_mw_continuous">연속 (MW)</string>
     <string name="pref_camera_focusmode_entry_extended">확장</string>
@@ -68,6 +76,7 @@
     <string name="pref_camera_focusmode_entry_normal">일반</string>
     <string name="pref_camera_focusmode_entry_portrait">인물</string>
     <string name="pref_camera_focusmode_entry_hyperfocal">과초점</string>
+    <!-- Color effects -->
     <string name="pref_camera_coloreffect_entry_washed">탈색</string>
     <string name="pref_camera_coloreffect_entry_vintage_warm">빈티지 (따뜻하게)</string>
     <string name="pref_camera_coloreffect_entry_vintage_cold">빈티지 (차갑게)</string>
@@ -75,17 +84,23 @@
     <string name="pref_camera_coloreffect_entry_point_green">초록색 포인트</string>
     <string name="pref_camera_coloreffect_entry_point_red_yellow">빨강-노랑 포인트</string>
     <string name="pref_camera_coloreffect_entry_cartoonize">만화</string>
+    <!-- Red eye flash mode title -->
     <string name="pref_camera_flashmode_entry_redeye">적목</string>
     <string name="pref_camera_flashmode_label_redeye">적목</string>
+    <!-- Power shutter -->
     <string name="pref_camera_power_shutter_title">전원 키 셔터</string>
+    <!-- Max brightness -->
     <string name="pref_camera_max_brightness_title">밝은 화면</string>
+    <!-- Touch focus duration -->
     <string name="pref_camera_focustime_title">터치 초점 지속시간</string>
     <string name="pref_camera_focustime_entry_0">0초</string>
     <string name="pref_camera_focustime_entry_3">3초</string>
     <string name="pref_camera_focustime_entry_5">5초</string>
     <string name="pref_camera_focustime_entry_10">10초</string>
     <string name="pref_camera_focustime_entry_infinite">계속 유지</string>
+    <!-- Shutter speed -->
     <string name="pref_camera_shutter_speed_title">셔터 속도</string>
+    <!-- Advanced options -->
     <string name="developer_menu_enabled">고급 카메라 옵션이 활성화되었습니다</string>
     <string name="developer_menu_disabled">고급 카메라 옵션이 비활성화되었습니다</string>
     <string name="pref_camera2_preferences_category_developer">고급 옵션</string>

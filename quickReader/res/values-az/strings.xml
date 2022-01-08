@@ -14,18 +14,32 @@
      limitations under the License.
 -->
 <resources>
+    <!-- QuickReader: switcher item for qr -->
     <string name="accessibility_switch_to_qr">QR oxuyucu</string>
+    <!-- QuickReader: dismiss button for dialogs -->
     <string name="quick_reader_action_dismiss">İmtina et</string>
+    <!-- QuickReader: toast shown when there's no app installed to open the qr code content -->
     <string name="quick_reader_no_activity_found">Bu məzmunu açacaq heç bir tətbiq quraşdırılmayıb</string>
+    <!-- QuickReader: permission error dialog title -->
     <string name="quick_reader_permission_error_title">İcazə xətası</string>
+    <!-- QuickReader: permission error dialog message when permission can be asked again -->
     <string name="quick_reader_permission_rationale_message">Barkodu tədqiq etmək üçün kameraya müraciət lazımdır</string>
+    <!-- QuickReader: permission error dialog positive action when permission can be asked again -->
     <string name="quick_reader_permission_rationale_positive">Təkrar soruş</string>
+    <!-- QuickReader: permission error dialog message when permission can't be asked again -->
     <string name="quick_reader_permission_fatal_message">Kamera müraciət rədd edildi. Zəhmət olmasa tətbiq tənzimləmələrindən icazə verin</string>
+    <!-- QuickReader: permission error dialog positive action when permission can't be asked again -->
     <string name="quick_reader_permission_fatal_positive">Tənzimləmələri aç</string>
+    <!-- QuickReader: scanned text dialog title -->
     <string name="quick_reader_scanned_text_title">Tədqiq edilən mətn</string>
+    <!-- QuickReader: scanned text dialog positive button (copy to clipboard) -->
     <string name="quick_reader_scanned_text_positive">Kopyala</string>
+    <!-- QuickReader: scanned text dialog negative button (share) -->
     <string name="quick_reader_scanned_text_negative">Paylaş</string>
+    <!-- QuickReader: scanned text shared activity selector title -->
     <string name="quick_reader_share_title">\u2026 ilə paylaş</string>
+    <!-- QuickReader: toast shown when the scanned text has been copied to the clipboard -->
     <string name="quick_reader_copied_message">Lövhəyə kopyalandı</string>
+    <!-- QuickReader: Action is only allowed when performed unlocked -->
     <string name="quick_reader_only_unlocked">Bu hərəkət cihazın kilidi açıq olanda icra edilə bilər</string>
 </resources>

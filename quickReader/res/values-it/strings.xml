@@ -14,18 +14,32 @@
      limitations under the License.
 -->
 <resources>
+    <!-- QuickReader: switcher item for qr -->
     <string name="accessibility_switch_to_qr">Lettore QR</string>
+    <!-- QuickReader: dismiss button for dialogs -->
     <string name="quick_reader_action_dismiss">Chiudi</string>
+    <!-- QuickReader: toast shown when there's no app installed to open the qr code content -->
     <string name="quick_reader_no_activity_found">Nessun\'app installata può aprire questo contenuto</string>
+    <!-- QuickReader: permission error dialog title -->
     <string name="quick_reader_permission_error_title">Errore permessi</string>
+    <!-- QuickReader: permission error dialog message when permission can be asked again -->
     <string name="quick_reader_permission_rationale_message">L\'accesso alla fotocamera è necessario per scansionare il codice</string>
+    <!-- QuickReader: permission error dialog positive action when permission can be asked again -->
     <string name="quick_reader_permission_rationale_positive">Chiedi di nuovo</string>
+    <!-- QuickReader: permission error dialog message when permission can't be asked again -->
     <string name="quick_reader_permission_fatal_message">L\'accesso alla fotocamera è stato negato. Attivalo dalle impostazioni</string>
+    <!-- QuickReader: permission error dialog positive action when permission can't be asked again -->
     <string name="quick_reader_permission_fatal_positive">Apri impostazioni</string>
+    <!-- QuickReader: scanned text dialog title -->
     <string name="quick_reader_scanned_text_title">Testo scansionato</string>
+    <!-- QuickReader: scanned text dialog positive button (copy to clipboard) -->
     <string name="quick_reader_scanned_text_positive">Copia</string>
+    <!-- QuickReader: scanned text dialog negative button (share) -->
     <string name="quick_reader_scanned_text_negative">Condividi</string>
+    <!-- QuickReader: scanned text shared activity selector title -->
     <string name="quick_reader_share_title">Condividi con\u2026</string>
+    <!-- QuickReader: toast shown when the scanned text has been copied to the clipboard -->
     <string name="quick_reader_copied_message">Copiato negli appunti</string>
+    <!-- QuickReader: Action is only allowed when performed unlocked -->
     <string name="quick_reader_only_unlocked">Quest\'azione può essere eseguita solo con il dispositivo sbloccato</string>
 </resources>

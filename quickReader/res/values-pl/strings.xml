@@ -14,17 +14,31 @@
      limitations under the License.
 -->
 <resources>
+    <!-- QuickReader: switcher item for qr -->
     <string name="accessibility_switch_to_qr">Czytnik QR</string>
+    <!-- QuickReader: dismiss button for dialogs -->
     <string name="quick_reader_action_dismiss">Odrzuć</string>
+    <!-- QuickReader: toast shown when there's no app installed to open the qr code content -->
     <string name="quick_reader_no_activity_found">Brak zainstalowanej aplikacji, która mogłaby otworzyć tę zawartość</string>
+    <!-- QuickReader: permission error dialog title -->
     <string name="quick_reader_permission_error_title">Błąd uprawnień</string>
+    <!-- QuickReader: permission error dialog message when permission can be asked again -->
     <string name="quick_reader_permission_rationale_message">Dostęp do kamery jest potrzebny, aby zeskanować kod kreskowy</string>
+    <!-- QuickReader: permission error dialog positive action when permission can be asked again -->
     <string name="quick_reader_permission_rationale_positive">Zapytaj ponownie</string>
+    <!-- QuickReader: permission error dialog message when permission can't be asked again -->
     <string name="quick_reader_permission_fatal_message">Dostęp do aparatu został zablokowany. Proszę nadać uprawnienia w ustawieniach aplikacji</string>
+    <!-- QuickReader: permission error dialog positive action when permission can't be asked again -->
     <string name="quick_reader_permission_fatal_positive">Otwórz ustawienia</string>
+    <!-- QuickReader: scanned text dialog title -->
     <string name="quick_reader_scanned_text_title">Zeskanowany tekst</string>
+    <!-- QuickReader: scanned text dialog positive button (copy to clipboard) -->
     <string name="quick_reader_scanned_text_positive">Kopiuj</string>
+    <!-- QuickReader: scanned text dialog negative button (share) -->
     <string name="quick_reader_scanned_text_negative">Udostępnij</string>
+    <!-- QuickReader: scanned text shared activity selector title -->
     <string name="quick_reader_share_title">Udostępnij z\u2026</string>
+    <!-- QuickReader: toast shown when the scanned text has been copied to the clipboard -->
     <string name="quick_reader_copied_message">Skopiowano do schowka</string>
+    <!-- QuickReader: Action is only allowed when performed unlocked -->
 </resources>

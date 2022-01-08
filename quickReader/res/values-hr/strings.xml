@@ -14,17 +14,31 @@
      limitations under the License.
 -->
 <resources>
+    <!-- QuickReader: switcher item for qr -->
     <string name="accessibility_switch_to_qr">QR čitač</string>
+    <!-- QuickReader: dismiss button for dialogs -->
     <string name="quick_reader_action_dismiss">Odbaci</string>
+    <!-- QuickReader: toast shown when there's no app installed to open the qr code content -->
     <string name="quick_reader_no_activity_found">Nema instaliranih aplikacija koje mogu otvoriti ovaj sadržaj</string>
+    <!-- QuickReader: permission error dialog title -->
     <string name="quick_reader_permission_error_title">Pogreška dopuštenja</string>
+    <!-- QuickReader: permission error dialog message when permission can be asked again -->
     <string name="quick_reader_permission_rationale_message">Potreban je pristup Kameri za skeniranje crtičnog koda</string>
+    <!-- QuickReader: permission error dialog positive action when permission can be asked again -->
     <string name="quick_reader_permission_rationale_positive">Pitaj ponovno</string>
+    <!-- QuickReader: permission error dialog message when permission can't be asked again -->
     <string name="quick_reader_permission_fatal_message">Pristup Kameri je odbijen. Omogućite ga u postavkama aplikacije</string>
+    <!-- QuickReader: permission error dialog positive action when permission can't be asked again -->
     <string name="quick_reader_permission_fatal_positive">Otvori postavke</string>
+    <!-- QuickReader: scanned text dialog title -->
     <string name="quick_reader_scanned_text_title">Skenirani tekst</string>
+    <!-- QuickReader: scanned text dialog positive button (copy to clipboard) -->
     <string name="quick_reader_scanned_text_positive">Kopiraj</string>
+    <!-- QuickReader: scanned text dialog negative button (share) -->
     <string name="quick_reader_scanned_text_negative">Podijeli</string>
+    <!-- QuickReader: scanned text shared activity selector title -->
     <string name="quick_reader_share_title">Podijeli pomoću\u2026</string>
+    <!-- QuickReader: toast shown when the scanned text has been copied to the clipboard -->
     <string name="quick_reader_copied_message">Kopirano u međuspremnik</string>
+    <!-- QuickReader: Action is only allowed when performed unlocked -->
 </resources>

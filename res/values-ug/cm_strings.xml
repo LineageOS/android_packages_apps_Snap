@@ -15,6 +15,13 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- common aspect ratios -->
+    <!-- aspect ratio greater than 16:9, so "widescreen" or "cinematic" -->
+    <!-- Format for entries in the picture size menu. Parameter one is aspect ratio,
+         parameter two is size in megapixels, e.g. "(4:3) 12.1 megapixels"
+         NOTE: for Chinese (zh) and Korean (ko) the pixel number (parameter two)
+         will be multiplied by 100 as those languages want to count by ten thousands -->
+    <!-- Settings screen, scene mode -->
     <string name="pref_camera_scenemode_entry_antimotionblur">ھەرىكەتلىك غۇۋالىقنى تۆۋەنلىتىش</string>
     <string name="pref_camera_scenemode_entry_aqua">سۇ ئاستى</string>
     <string name="pref_camera_scenemode_entry_ar">كۈچەيتىلگەن رىئاللىق</string>
@@ -56,6 +63,7 @@
     <string name="pref_camera_scenemode_entry_text">تېكىست</string>
     <string name="pref_camera_scenemode_entry_theatre">سەھنە</string>
     <string name="pref_camera_scenemode_entry_whiteboard">ئاق تاختا</string>
+    <!-- Settings screen, focus mode -->
     <string name="pref_camera_focusmode_entry_continuous">ئۇدا</string>
     <string name="pref_camera_focusmode_entry_mw_continuous">ئىزچىل(MW)</string>
     <string name="pref_camera_focusmode_entry_extended">كېڭەيتىلگەن</string>
@@ -65,6 +73,7 @@
     <string name="pref_camera_focusmode_entry_normal">نورمال</string>
     <string name="pref_camera_focusmode_entry_portrait">سۈرەت</string>
     <string name="pref_camera_focusmode_entry_hyperfocal">يىراق فوكۇس ئارىلىقى</string>
+    <!-- Color effects -->
     <string name="pref_camera_coloreffect_entry_washed">ئېقىن يالاپ كېتىش</string>
     <string name="pref_camera_coloreffect_entry_vintage_warm">قەدىمنى تەقلىد قىلغان ئىسسىق رەڭ</string>
     <string name="pref_camera_coloreffect_entry_vintage_cold">قەدىمنى تەقلىد قىلغان سوغۇق رەڭ</string>
@@ -72,15 +81,21 @@
     <string name="pref_camera_coloreffect_entry_point_green">يېشىل رەڭلىك چىكىت</string>
     <string name="pref_camera_coloreffect_entry_point_red_yellow">قىزىل سېرىق رەڭلىك چىكىت</string>
     <string name="pref_camera_coloreffect_entry_cartoonize">كارتون</string>
+    <!-- Red eye flash mode title -->
     <string name="pref_camera_flashmode_entry_redeye">قىزىل كۆز</string>
     <string name="pref_camera_flashmode_label_redeye">قىزىل كۆز</string>
+    <!-- Power shutter -->
     <string name="pref_camera_power_shutter_title">توك مەنبە كۇنۇپكا تىزلەتمە ئىشىكى</string>
+    <!-- Max brightness -->
     <string name="pref_camera_max_brightness_title">ئېكراننى ئەڭ يورۇق قىلىش</string>
+    <!-- Touch focus duration -->
     <string name="pref_camera_focustime_title">فوكۇسنى چېكىپ داۋاملاشتۇرۇش ۋاقتى</string>
     <string name="pref_camera_focustime_entry_0">0 سىكونت</string>
     <string name="pref_camera_focustime_entry_3">3 سىكونت</string>
     <string name="pref_camera_focustime_entry_5">5 سېكۇنت</string>
     <string name="pref_camera_focustime_entry_10">10 سېكۇنت</string>
     <string name="pref_camera_focustime_entry_infinite">چەكسىز</string>
+    <!-- Shutter speed -->
     <string name="pref_camera_shutter_speed_title">زاتۋور تېزلىكى</string>
+    <!-- Advanced options -->
 </resources>

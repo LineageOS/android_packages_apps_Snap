@@ -14,18 +14,32 @@
      limitations under the License.
 -->
 <resources>
+    <!-- QuickReader: switcher item for qr -->
     <string name="accessibility_switch_to_qr">QR 讀取工具</string>
+    <!-- QuickReader: dismiss button for dialogs -->
     <string name="quick_reader_action_dismiss">忽略</string>
+    <!-- QuickReader: toast shown when there's no app installed to open the qr code content -->
     <string name="quick_reader_no_activity_found">沒有已安裝的應用程式可以開啟此內容</string>
+    <!-- QuickReader: permission error dialog title -->
     <string name="quick_reader_permission_error_title">權限許可錯誤</string>
+    <!-- QuickReader: permission error dialog message when permission can be asked again -->
     <string name="quick_reader_permission_rationale_message">掃描條碼需要相機權限</string>
+    <!-- QuickReader: permission error dialog positive action when permission can be asked again -->
     <string name="quick_reader_permission_rationale_positive">再次詢問</string>
+    <!-- QuickReader: permission error dialog message when permission can't be asked again -->
     <string name="quick_reader_permission_fatal_message">相機權限被拒絕。請在設定中允許該應用程式的權限</string>
+    <!-- QuickReader: permission error dialog positive action when permission can't be asked again -->
     <string name="quick_reader_permission_fatal_positive">開啟設定</string>
+    <!-- QuickReader: scanned text dialog title -->
     <string name="quick_reader_scanned_text_title">已掃描的文字</string>
+    <!-- QuickReader: scanned text dialog positive button (copy to clipboard) -->
     <string name="quick_reader_scanned_text_positive">複製</string>
+    <!-- QuickReader: scanned text dialog negative button (share) -->
     <string name="quick_reader_scanned_text_negative">分享</string>
+    <!-- QuickReader: scanned text shared activity selector title -->
     <string name="quick_reader_share_title">分享至 \u2026</string>
+    <!-- QuickReader: toast shown when the scanned text has been copied to the clipboard -->
     <string name="quick_reader_copied_message">複製到剪貼簿</string>
+    <!-- QuickReader: Action is only allowed when performed unlocked -->
     <string name="quick_reader_only_unlocked">此操作只能在裝置解鎖的狀態下執行。</string>
 </resources>

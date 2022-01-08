@@ -14,18 +14,32 @@
      limitations under the License.
 -->
 <resources>
+    <!-- QuickReader: switcher item for qr -->
     <string name="accessibility_switch_to_qr">QR-lezer</string>
+    <!-- QuickReader: dismiss button for dialogs -->
     <string name="quick_reader_action_dismiss">Sluiten</string>
+    <!-- QuickReader: toast shown when there's no app installed to open the qr code content -->
     <string name="quick_reader_no_activity_found">Geen enkele geïnstalleerde app kan deze inhoud openen</string>
+    <!-- QuickReader: permission error dialog title -->
     <string name="quick_reader_permission_error_title">Machtigingsprobleem</string>
+    <!-- QuickReader: permission error dialog message when permission can be asked again -->
     <string name="quick_reader_permission_rationale_message">Voor het scannen van de barcode is toegang tot de camera nodig</string>
+    <!-- QuickReader: permission error dialog positive action when permission can be asked again -->
     <string name="quick_reader_permission_rationale_positive">Opnieuw vragen</string>
+    <!-- QuickReader: permission error dialog message when permission can't be asked again -->
     <string name="quick_reader_permission_fatal_message">Toegang tot de camera geweigerd. Geef toegang vanuit de instellingen van de app</string>
+    <!-- QuickReader: permission error dialog positive action when permission can't be asked again -->
     <string name="quick_reader_permission_fatal_positive">Instellingen openen</string>
+    <!-- QuickReader: scanned text dialog title -->
     <string name="quick_reader_scanned_text_title">Gescande tekst</string>
+    <!-- QuickReader: scanned text dialog positive button (copy to clipboard) -->
     <string name="quick_reader_scanned_text_positive">Kopiëren</string>
+    <!-- QuickReader: scanned text dialog negative button (share) -->
     <string name="quick_reader_scanned_text_negative">Delen</string>
+    <!-- QuickReader: scanned text shared activity selector title -->
     <string name="quick_reader_share_title">Delen met\u2026</string>
+    <!-- QuickReader: toast shown when the scanned text has been copied to the clipboard -->
     <string name="quick_reader_copied_message">Gekopieerd naar klembord</string>
+    <!-- QuickReader: Action is only allowed when performed unlocked -->
     <string name="quick_reader_only_unlocked">Deze actie kan alleen worden uitgevoerd wanneer het apparaat is ontgrendeld</string>
 </resources>

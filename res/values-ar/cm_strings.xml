@@ -15,8 +15,15 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- common aspect ratios -->
+    <!-- aspect ratio greater than 16:9, so "widescreen" or "cinematic" -->
     <string name="pref_camera_aspectratio_wide">عريض</string>
+    <!-- Format for entries in the picture size menu. Parameter one is aspect ratio,
+         parameter two is size in megapixels, e.g. "(4:3) 12.1 megapixels"
+         NOTE: for Chinese (zh) and Korean (ko) the pixel number (parameter two)
+         will be multiplied by 100 as those languages want to count by ten thousands -->
     <string name="pref_camera_megapixel_format">(<xliff:g id="ratio" example="16:9">%1$s</xliff:g>) <xliff:g id="pixels">%2$1.1f</xliff:g> ميجابكسل</string>
+    <!-- Settings screen, scene mode -->
     <string name="pref_camera_scenemode_entry_antimotionblur">خفض عدم وضوح الحركة</string>
     <string name="pref_camera_scenemode_entry_aqua">أكوا</string>
     <string name="pref_camera_scenemode_entry_ar">واقع بزيادة</string>
@@ -59,6 +66,7 @@
     <string name="pref_camera_scenemode_entry_text">نص</string>
     <string name="pref_camera_scenemode_entry_theatre">مسرح</string>
     <string name="pref_camera_scenemode_entry_whiteboard">لوح المعلومات</string>
+    <!-- Settings screen, focus mode -->
     <string name="pref_camera_focusmode_entry_continuous">متواصل</string>
     <string name="pref_camera_focusmode_entry_mw_continuous">متواصل (MW)</string>
     <string name="pref_camera_focusmode_entry_extended">موسع</string>
@@ -68,6 +76,7 @@
     <string name="pref_camera_focusmode_entry_normal">عادي</string>
     <string name="pref_camera_focusmode_entry_portrait">صورة لوجه</string>
     <string name="pref_camera_focusmode_entry_hyperfocal">فوق بؤري</string>
+    <!-- Color effects -->
     <string name="pref_camera_coloreffect_entry_washed">مغسولة</string>
     <string name="pref_camera_coloreffect_entry_vintage_warm">كلاسيكي دافئ</string>
     <string name="pref_camera_coloreffect_entry_vintage_cold">كلاسيكي بارد</string>
@@ -75,17 +84,23 @@
     <string name="pref_camera_coloreffect_entry_point_green">النقطة الخضراء</string>
     <string name="pref_camera_coloreffect_entry_point_red_yellow">نقطة حمراء- صفراء</string>
     <string name="pref_camera_coloreffect_entry_cartoonize">كرتون</string>
+    <!-- Red eye flash mode title -->
     <string name="pref_camera_flashmode_entry_redeye">العين الحمراء</string>
     <string name="pref_camera_flashmode_label_redeye">العين الحمراء</string>
+    <!-- Power shutter -->
     <string name="pref_camera_power_shutter_title">مصراع طاقة</string>
+    <!-- Max brightness -->
     <string name="pref_camera_max_brightness_title">شاشة ساطعة</string>
+    <!-- Touch focus duration -->
     <string name="pref_camera_focustime_title">مدة تركيز اللمس</string>
     <string name="pref_camera_focustime_entry_0">0s</string>
     <string name="pref_camera_focustime_entry_3">3s</string>
     <string name="pref_camera_focustime_entry_5">5s</string>
     <string name="pref_camera_focustime_entry_10">10s</string>
     <string name="pref_camera_focustime_entry_infinite">لا نهائي</string>
+    <!-- Shutter speed -->
     <string name="pref_camera_shutter_speed_title">سرعة المصراع</string>
+    <!-- Advanced options -->
     <string name="developer_menu_enabled">لقم قمت بتمكين خيارات الكاميرا المتقدمة</string>
     <string name="developer_menu_disabled">لقد قمت بتعطيل خيارات الكاميرا المتقدمة</string>
     <string name="pref_camera2_preferences_category_developer">الخيارات المتقدمة</string>

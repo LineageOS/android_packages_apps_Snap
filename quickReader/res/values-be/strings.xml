@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) 2017 The LineageOS Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+         http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+    <!-- QuickReader: switcher item for qr -->
+    <!-- QuickReader: dismiss button for dialogs -->
+    <!-- QuickReader: toast shown when there's no app installed to open the qr code content -->
+    <!-- QuickReader: permission error dialog title -->
+    <!-- QuickReader: permission error dialog message when permission can be asked again -->
+    <!-- QuickReader: permission error dialog positive action when permission can be asked again -->
+    <!-- QuickReader: permission error dialog message when permission can't be asked again -->
+    <!-- QuickReader: permission error dialog positive action when permission can't be asked again -->
+    <!-- QuickReader: scanned text dialog title -->
+    <!-- QuickReader: scanned text dialog positive button (copy to clipboard) -->
+    <!-- QuickReader: scanned text dialog negative button (share) -->
+    <!-- QuickReader: scanned text shared activity selector title -->
+    <!-- QuickReader: toast shown when the scanned text has been copied to the clipboard -->
+    <!-- QuickReader: Action is only allowed when performed unlocked -->
+</resources>

@@ -15,8 +15,15 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- common aspect ratios -->
+    <!-- aspect ratio greater than 16:9, so "widescreen" or "cinematic" -->
     <string name="pref_camera_aspectratio_wide">ワイド</string>
+    <!-- Format for entries in the picture size menu. Parameter one is aspect ratio,
+         parameter two is size in megapixels, e.g. "(4:3) 12.1 megapixels"
+         NOTE: for Chinese (zh) and Korean (ko) the pixel number (parameter two)
+         will be multiplied by 100 as those languages want to count by ten thousands -->
     <string name="pref_camera_megapixel_format">(<xliff:g id="ratio" example="16:9">%1$s</xliff:g>) <xliff:g id="pixels">%2$1.1f</xliff:g> MP</string>
+    <!-- Settings screen, scene mode -->
     <string name="pref_camera_scenemode_entry_antimotionblur">被写体ブレ軽減</string>
     <string name="pref_camera_scenemode_entry_aqua">アクア</string>
     <string name="pref_camera_scenemode_entry_ar">AR</string>
@@ -59,6 +66,7 @@
     <string name="pref_camera_scenemode_entry_text">テキスト</string>
     <string name="pref_camera_scenemode_entry_theatre">シアター</string>
     <string name="pref_camera_scenemode_entry_whiteboard">ホワイトボード</string>
+    <!-- Settings screen, focus mode -->
     <string name="pref_camera_focusmode_entry_continuous">コンティニュアス</string>
     <string name="pref_camera_focusmode_entry_mw_continuous">コンティニュアス（MW）</string>
     <string name="pref_camera_focusmode_entry_extended">拡張</string>
@@ -68,6 +76,7 @@
     <string name="pref_camera_focusmode_entry_normal">標準</string>
     <string name="pref_camera_focusmode_entry_portrait">ポートレート</string>
     <string name="pref_camera_focusmode_entry_hyperfocal">過焦点</string>
+    <!-- Color effects -->
     <string name="pref_camera_coloreffect_entry_washed">ウォッシュ</string>
     <string name="pref_camera_coloreffect_entry_vintage_warm">暖色ビンテージ</string>
     <string name="pref_camera_coloreffect_entry_vintage_cold">寒色ビンテージ</string>
@@ -75,17 +84,23 @@
     <string name="pref_camera_coloreffect_entry_point_green">ポイントグリーン</string>
     <string name="pref_camera_coloreffect_entry_point_red_yellow">ポイントレッドイエロー</string>
     <string name="pref_camera_coloreffect_entry_cartoonize">マンガ風</string>
+    <!-- Red eye flash mode title -->
     <string name="pref_camera_flashmode_entry_redeye">赤目</string>
     <string name="pref_camera_flashmode_label_redeye">赤目</string>
+    <!-- Power shutter -->
     <string name="pref_camera_power_shutter_title">電源ボタンでシャッター</string>
+    <!-- Max brightness -->
     <string name="pref_camera_max_brightness_title">画面を明るくする</string>
+    <!-- Touch focus duration -->
     <string name="pref_camera_focustime_title">タッチフォーカス継続</string>
     <string name="pref_camera_focustime_entry_0">0秒</string>
     <string name="pref_camera_focustime_entry_3">3秒</string>
     <string name="pref_camera_focustime_entry_5">5秒</string>
     <string name="pref_camera_focustime_entry_10">10秒</string>
     <string name="pref_camera_focustime_entry_infinite">無制限</string>
+    <!-- Shutter speed -->
     <string name="pref_camera_shutter_speed_title">シャッタースピード</string>
+    <!-- Advanced options -->
     <string name="developer_menu_enabled">上級者向けのカメラのオプションを有効にしました</string>
     <string name="developer_menu_disabled">上級者向けのカメラのオプションを無効にしました</string>
     <string name="pref_camera2_preferences_category_developer">高度な設定</string>

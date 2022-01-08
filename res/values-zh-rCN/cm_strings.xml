@@ -15,8 +15,15 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- common aspect ratios -->
+    <!-- aspect ratio greater than 16:9, so "widescreen" or "cinematic" -->
     <string name="pref_camera_aspectratio_wide">宽</string>
+    <!-- Format for entries in the picture size menu. Parameter one is aspect ratio,
+         parameter two is size in megapixels, e.g. "(4:3) 12.1 megapixels"
+         NOTE: for Chinese (zh) and Korean (ko) the pixel number (parameter two)
+         will be multiplied by 100 as those languages want to count by ten thousands -->
     <string name="pref_camera_megapixel_format">(<xliff:g id="ratio" example="16:9">%1$s</xliff:g>) <xliff:g id="pixels">%2$1.1f</xliff:g> 万像素</string>
+    <!-- Settings screen, scene mode -->
     <string name="pref_camera_scenemode_entry_antimotionblur">降低动态模糊</string>
     <string name="pref_camera_scenemode_entry_aqua">水底</string>
     <string name="pref_camera_scenemode_entry_ar">增强现实</string>
@@ -59,6 +66,7 @@
     <string name="pref_camera_scenemode_entry_text">文本</string>
     <string name="pref_camera_scenemode_entry_theatre">剧场</string>
     <string name="pref_camera_scenemode_entry_whiteboard">白板</string>
+    <!-- Settings screen, focus mode -->
     <string name="pref_camera_focusmode_entry_continuous">连续</string>
     <string name="pref_camera_focusmode_entry_mw_continuous">连续 (MW)</string>
     <string name="pref_camera_focusmode_entry_extended">广角</string>
@@ -68,6 +76,7 @@
     <string name="pref_camera_focusmode_entry_normal">一般</string>
     <string name="pref_camera_focusmode_entry_portrait">肖像</string>
     <string name="pref_camera_focusmode_entry_hyperfocal">超焦距</string>
+    <!-- Color effects -->
     <string name="pref_camera_coloreffect_entry_washed">冲蚀</string>
     <string name="pref_camera_coloreffect_entry_vintage_warm">暖色仿古</string>
     <string name="pref_camera_coloreffect_entry_vintage_cold">冷色仿古</string>
@@ -75,17 +84,23 @@
     <string name="pref_camera_coloreffect_entry_point_green">点绿色</string>
     <string name="pref_camera_coloreffect_entry_point_red_yellow">点红黄色</string>
     <string name="pref_camera_coloreffect_entry_cartoonize">卡通</string>
+    <!-- Red eye flash mode title -->
     <string name="pref_camera_flashmode_entry_redeye">红眼</string>
     <string name="pref_camera_flashmode_label_redeye">红眼</string>
+    <!-- Power shutter -->
     <string name="pref_camera_power_shutter_title">电源键快门</string>
+    <!-- Max brightness -->
     <string name="pref_camera_max_brightness_title">屏幕亮度最大化</string>
+    <!-- Touch focus duration -->
     <string name="pref_camera_focustime_title">触摸对焦持续时间</string>
     <string name="pref_camera_focustime_entry_0">0 秒</string>
     <string name="pref_camera_focustime_entry_3">3 秒</string>
     <string name="pref_camera_focustime_entry_5">5 秒</string>
     <string name="pref_camera_focustime_entry_10">10 秒</string>
     <string name="pref_camera_focustime_entry_infinite">无限</string>
+    <!-- Shutter speed -->
     <string name="pref_camera_shutter_speed_title">快门速度</string>
+    <!-- Advanced options -->
     <string name="developer_menu_enabled">您已启用高级相机选项</string>
     <string name="developer_menu_disabled">您已禁用高级相机选项</string>
     <string name="pref_camera2_preferences_category_developer">高级选项</string>

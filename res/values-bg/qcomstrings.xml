@@ -20,74 +20,137 @@
     limitations under the License.
 -->
 <resources>
+    <!-- Video quality setting entry. Videos will be recorded in VGA quality. [CHAR LIMIT=24] -->
+    <!-- Video quality setting entry. Videos will be recorded in CIF quality. [CHAR LIMIT=24] -->
+    <!-- Video quality setting entry. Videos will be recorded in QVGA quality. [CHAR LIMIT=24] -->
+    <!-- Video quality setting entry. Videos will be recorded in QCIF quality. [CHAR LIMIT=24] -->
+    <!-- Settings screen, Power Mode title -->
     <string name="pref_camera_powermode_title">Режим на мощност</string>
+    <!-- Settings screen, Power mode dialog radio button choices -->
     <string name="pref_camera_powermode_entry_lp">Ниска мощност</string>
     <string name="pref_camera_powermode_entry_np">Нормалната мощност</string>
+    <!-- Settings screen, Power mode dialog radio button choices -->
+    <!-- Default Power mode.. -->
+    <!-- Default auto exposure setting. Do not translate. -->
+    <!-- Settings screen, Select auto exposure title -->
     <string name="pref_camera_autoexposure_title">Автоматична експозиция</string>
+    <!-- Settings screen, auto exposure dialog radio button choices -->
     <string name="pref_camera_autoexposure_entry_frameaverage">Усреднена</string>
     <string name="pref_camera_autoexposure_entry_centerweighted">В центъра на кадъра</string>
     <string name="pref_camera_autoexposure_entry_spotmetering">Точково измерване</string>
+    <!-- Auto exposure entry values. Do not translate. -->
+    <!-- Settings screen, Video encoder title -->
     <string name="pref_camera_videoencoder_title">Видео кодек</string>
+    <!-- Settings screen, Video encoder dialog radio button choices -->
+    <!-- Default video encoder setting. A numerical value. -->
+    <!-- Settings screen, Video encoder dialog title -->
     <string name="pref_camera_videoencoder_dialogtitle">Видео кодек</string>
+    <!-- Default audio encoder setting. A numerical value. -->
+    <!-- Settings screen, Audio encoder title -->
     <string name="pref_camera_audioencoder_title">Аудио кодек</string>
+    <!-- Settings screen, Audio encoder dialog radio button choices -->
+    <!-- Default Skin Tone Enhancement setting. Do not translate. -->
+    <!-- Settings screen, Select Skin Tone Enhancement title -->
     <string name="pref_camera_skinToneEnhancement_title">Подобряване на цвета на кожата</string>
+    <!-- Settings screen, Skin Tone Enhancement radio button choices -->
     <string name="pref_camera_skinToneEnhancement_entry_enable">Вкл.</string>
     <string name="pref_camera_skinToneEnhancement_entry_disable">Изкл.</string>
+    <!-- Skin Tone Enhancement entry values. Do not translate. -->
+    <!-- Settings screen, setting title text for ZSL-->
     <string name="pref_camera_zsl_title">Нулево забавяне на затвора</string>
+    <!-- Default selectable zone af setting. Do not translate. -->
+    <!-- Settings screen, Selectable zone af title -->
     <string name="pref_camera_selectablezoneaf_title">Зона за автофокус</string>
+    <!-- Settings screen, Selectable Zone Af dialog radio button choices -->
     <string name="pref_camera_selectablezoneaf_entry_auto">Автоматично</string>
     <string name="pref_camera_selectablezoneaf_entry_spotmetering">Точково измерване</string>
     <string name="pref_camera_selectablezoneaf_entry_centerweighted">В центъра на кадъра</string>
     <string name="pref_camera_selectablezoneaf_entry_frameaverage">Усреднена</string>
+    <!-- Auto exposure entry values. Do not translate. -->
+    <!-- Settings screen, Selectable advanced features title -->
     <string name="pref_camera_advanced_features_title">Разширени функции</string>
+    <!-- Settings screen, Selectable Zone Af dialog radio button choices -->
     <string name="pref_camera_advanced_feature_entry_none">Без</string>
     <string name="pref_camera_advanced_feature_entry_multi_touch_focus">Много точков фокус</string>
+    <!-- Auto exposure entry values. Do not translate. -->
+    <!-- Manual exposure control entry values -->
     <string name="pref_camera_manual_exp_title">Ръчна експозиция</string>
     <string name="pref_camera_manual_exp_entry_ISO_priority">ISO приоритет</string>
     <string name="pref_camera_manual_exp_entry_exptime_priority">Време за експозиция приоритет</string>
     <string name="pref_camera_manual_exp_entry_user_setting">Потребителска настройка</string>
     <string name="pref_camera_manual_exp_entry_gains_priority">Приоритет лице</string>
     <string name="pref_camera_manual_exp_entry_off">Изкл.</string>
+    <!-- Manual white balance entry values -->
     <string name="pref_camera_manual_wb_title">Ръчен баланс на бялото</string>
     <string name="pref_camera_manual_wb_entry_color_temperature">Температура на цвета</string>
     <string name="pref_camera_manual_wb_entry_rbgb_gains">RBGB печалби</string>
     <string name="pref_camera_manual_wb_entry_off">Изкл.</string>
+    <!-- Manual Focus entry values -->
     <string name="pref_camera_manual_focus_title">Ръчен фокус</string>
     <string name="pref_camera_manual_focus_entry_scale_mode">Мащабен режим</string>
     <string name="pref_camera_manual_focus_entry_diopter_mode">Диоптър режим</string>
     <string name="pref_camera_manual_focus_entry_off">Изкл.</string>
+    <!-- Instant Capture entry -->
     <string name="pref_camera_instant_capture_title">Моментално стимка</string>
     <string name="pref_camera_instant_capture_entry_aggressive_aec">Агресивен AEC</string>
     <string name="pref_camera_instant_capture_entry_fast_aec">Fast AEC</string>
     <string name="pref_camera_instant_capture_entry_disable">Изкл.</string>
+    <!-- Instant Capture entry values -->
+    <!-- Settings screen, ZSL location dialog choices -->
     <string name="pref_camera_zsl_entry_off">Изкл.</string>
     <string name="pref_camera_zsl_entry_on">Вкл.</string>
+    <!-- The message is shown in toast when HDR or scene mode is enabled -->
     <string name="hdr_enable_message">HDR е разрешен, само автоматичен в режим на сцена</string>
     <string name="scene_enable_message">HDR не се поддържа в решим раличен от автоматичен</string>
+    <!-- Settings screen, Video HDR location dialog choices -->
     <string name="pref_camera_video_hdr_entry_off">Изкл.</string>
     <string name="pref_camera_video_hdr_entry_on">Вкл.</string>
+    <!-- Settings screen, CDS location dialog choices -->
     <string name="pref_camera_cds_entry_off">Изкл.</string>
     <string name="pref_camera_cds_entry_on">Вкл.</string>
     <string name="pref_camera_cds_entry_auto">Автоматичен</string>
+    <!-- Settings screen, video CDS location dialog choices -->
     <string name="pref_camera_video_cds_entry_off">Изкл.</string>
     <string name="pref_camera_video_cds_entry_on">Вкл.</string>
     <string name="pref_camera_video_cds_entry_auto">Автоматичен</string>
+    <!-- Settings screen, TNR location dialog choices -->
     <string name="pref_camera_tnr_entry_disable">Изкл.</string>
     <string name="pref_camera_tnr_entry_enable">Вкл.</string>
+    <!-- Settings screen, TNR location dialog choices -->
+    <!-- Settings screen, video TNR location dialog choices -->
     <string name="pref_camera_video_tnr_entry_disable">Изкл.</string>
     <string name="pref_camera_video_tnr_entry_enable">Вкл.</string>
+    <!-- Settings screen, video TNR location dialog choices -->
+    <!-- Settings screen, setting title text for Video HDR-->
     <string name="pref_camera_video_hdr_title">Видео HDR</string>
+    <!-- Settings menu, setting title text for cds mode-->
     <string name="pref_camera_cds_title">CDS режим</string>
+    <!-- Settings menu, setting title text for video cds mode-->
     <string name="pref_camera_video_cds_title">Видео CDS режим</string>
+    <!-- Default cds mode setting-->
+    <!-- Default video cds mode setting-->
+    <!-- Settings menu, setting title text for tnr mode-->
     <string name="pref_camera_tnr_title">TNR режим</string>
+    <!-- Settings menu, setting title text for video tnr mode-->
     <string name="pref_camera_video_tnr_title">Видео TNR режим</string>
+    <!-- Default tnr mode setting-->
+    <!-- Default video tnr mode setting-->
+    <!-- Default face  detection setting. -->
+    <!-- Settings screen, Select Face Detection -->
     <string name="pref_camera_facedetection_title">Откриване на лице</string>
+    <!-- Settings menu, Face Detection choices -->
     <string name="pref_camera_facedetection_entry_off">Изкл.</string>
     <string name="pref_camera_facedetection_entry_on">Вкл.</string>
+    <!-- Default Selfie Flash setting. -->
+    <!-- Settings screen, Selfie Flash Detection -->
     <string name="pref_selfie_flash_title">Светкавица за селфи</string>
+    <!-- Settings menu, Selfie Flash choices -->
     <string name="pref_selfie_flash_entry_off">Изкл.</string>
     <string name="pref_selfie_flash_entry_on">Вкл.</string>
+    <!-- Default redeye reduction setting. -->
+    <!-- Settings screen, Select Redeye Reduction -->
     <string name="pref_camera_redeyereduction_title">Намаляване на ефекта червени очи</string>
+    <!-- Settings menu, redeye reduction choices -->
     <string name="pref_camera_redeyereduction_entry_enable">Вкл.</string>
     <string name="pref_camera_redeyereduction_entry_disable">Изкл.</string>
     <string name="pref_camera_selfiemirror_title">Селфи огледало</string>
@@ -96,22 +159,37 @@
     <string name="pref_camera_shuttersound_title">Зкук на затвора</string>
     <string name="pref_camera_shuttersound_entry_enable">Вкл.</string>
     <string name="pref_camera_shuttersound_entry_disable">Изкл.</string>
+    <!-- The message is shown in toast when the app encounters an unsupported selection for HFR/HSR mode -->
     <string name="error_app_unsupported_hfr_selection">Запис на бавно движение не се поддържа при използване на Стабилизация/Изтичащо време/HDR.</string>
+    <!-- The message is shown in dialog when the app encounters an unsupported resolution for HFR mode -->
     <string name="error_app_unsupported_hfr">Режим на бавно движение не се поддържа за избрания размер на видео. Изберете по-нисък видео размер</string>
+    <!-- The message is shown in toast when the app encounters an unsupported resolution for DIS mode -->
     <string name="error_app_unsupported_dis">За избрания размер на видеото не се поддържа стабилизация. Изберете по-нисък видео размер</string>
+    <!-- The message is shown in dialog when the app encounters an unsupported resolution for HSR mode -->
     <string name="error_app_unsupported_hsr">Режим на висока скорост не се поддържа за избрания размер на видео. Изберете по-нисък видео размер</string>
+    <!-- The message is shown in dialog when the app encounters an unsupported video codec for HFR mode -->
     <string name="error_app_unsupported_hfr_codec">Само H. 264 видео кодиране се поддържа, когато HFR е включен</string>
+    <!-- The message is shown in dialog when the app encounters an unsupported video resolution-->
     <string name="error_app_unsupported">Неподдържана видео резолюция за този тип кодек</string>
+    <!-- The message is shown in dialog when the app encounters an unsupported video profile-->
     <string name="error_app_unsupported_profile">Неподдържан видео профил</string>
+    <!--The message is shown in dialog when the raw snapshot is selected in zsl mode-->
     <string name="error_app_unsupported_raw">RAW снимка формат не се поддържа в режим нулево задържане на затвора. Изберете JPEG</string>
+    <!-- Settings screen, AE bracketing and HDR location dialog choices -->
     <string name="pref_camera_ae_bracket_hdr_entry_ae_bracket">AE кадриране</string>
     <string name="pref_camera_ae_bracket_hdr_title">AE кадриране</string>
     <string name="pref_camera_ae_bracket_hdr_entry_on">Вкл.</string>
     <string name="err_app_unsupport_ae_bracket_code">Това действие все още не се поддържа</string>
+    <!-- The messsage shown if user selects a snapshot resolution lower than the current video size. -->
     <string name="snapshot_lower_than_video">Размера на видео снимката е по-нисък от размера на видеото. Все още има ограничение на размера на изображението. Моля изберете резолюция по-висока или равна на текущия размер на видео.</string>
+    <!-- The messsage shown if user selects a snapshot resolution in low power mode. -->
     <string name="snapshotsize_low_powermode">Промяна размера на снимка не се поддържа в режим на ниска мощност, ще бъде взет видео размер за снимка. Моля изберете нормален режим на мощност, за да позволява промяна на размера на картината.</string>
+    <!-- The messsage shown if user tries to take snapshot during D1/QCIF resolution. -->
     <string name="snapshot_qcif_and_d1">Само видео снимка се поддържа за тази резолюция.</string>
+    <!-- Default hfr setting. Do not translate. -->
+    <!-- Settings screen, Select hfr title -->
     <string name="pref_camera_hfr_title">Запис на бавно движение</string>
+    <!-- Settings screen, hfr radio button choices -->
     <string name="pref_camera_hfr_entry_off">Изкл.</string>
     <string name="pref_camera_hfr_entry_2x">Запис с 60 кадъра в секунда</string>
     <string name="pref_camera_hfr_entry_3x">Запис с 90 кадъра в секунда</string>
@@ -133,16 +211,30 @@
     <string name="pref_camera_hfr_entry_4x_ssm_480">Super SloMo 480-&gt;1920</string>
     <string name="pref_camera_hfr_entry_2x_ssm_960">Super SloMo 960-&gt;1920</string>
     <string name="pref_camera_hfr_entry_4x_ssm_960">Super SloMo 960-&gt;3840</string>
+    <!-- HFR entry values. Do not translate. -->
+    <!-- Default noise reduction setting. Do not translate. -->
+    <!-- Settings screen, Select See More title -->
     <string name="pref_camera_noise_reduction_title">Намаляване на шума</string>
+    <!-- Settings screen, see more radio button choices -->
     <string name="pref_camera_noise_reduction_entry_off">Изкл.</string>
     <string name="pref_camera_noise_reduction_entry_fast">Бързо</string>
     <string name="pref_camera_noise_reduction_entry_high_quality">Високо качество</string>
+    <!-- see more entry values. Do not translate. -->
+    <!-- Default see more setting. Do not translate. -->
+    <!-- Settings screen, Select See More title -->
+    <!-- Settings screen, see more radio button choices -->
     <string name="pref_camera_see_more_entry_off">Изкл.</string>
     <string name="pref_camera_see_more_entry_on">Вкл.</string>
+    <!-- see more entry values. Do not translate. -->
+    <!-- Denoise Settings screen, setting title text -->
     <string name="pref_camera_denoise_title">Режим за намаляване на шум</string>
+    <!-- Denoise Settings screen, Record location dialog choices -->
     <string name="pref_camera_denoise_entry_off">Изкл.</string>
     <string name="pref_camera_denoise_entry_on">Вкл.</string>
+    <!-- Default iso setting. Do not translate. -->
+    <!-- Settings screen, Select Iso title -->
     <string name="pref_camera_iso_title">ISO</string>
+    <!-- Settings screen, ISO dialog radio button choices -->
     <string name="pref_camera_iso_entry_auto">Автоматично</string>
     <string name="pref_camera_iso_entry_isodeblur">Автоматично (HJR)</string>
     <string name="pref_camera_iso_entry_iso50">ISO50</string>
@@ -172,18 +264,26 @@
     <string name="pref_camera_iso_entry_iso3200">ISO3200</string>
     <string name="pref_camera_iso_entry_iso6400">ISO6400</string>
     <string name="pref_camera_iso_entry_iso12800">ISO12800</string>
+    <!-- ISO entry values. Do not translate. -->
+    <!-- Settings screen, Anti Banding title -->
     <string name="pref_camera_antibanding_title">Намаляване на трептене</string>
+    <!-- Default Anti Banding setting. -->
+    <!-- Settings screen, Anti Banding entries -->
     <string name="pref_camera_antibanding_entry_0">Автоматично</string>
     <string name="pref_camera_antibanding_entry_1">50Hz (Европа)</string>
     <string name="pref_camera_antibanding_entry_2">60Hz(Америка)</string>
+    <!-- Default color effect setting. -->
     <string name="pref_camera_filter_mode_entry_on">Вкл.</string>
     <string name="pref_camera_filter_mode_entry_off">Изкл.</string>
+    <!-- Settings screen, Select Color effect title -->
     <string name="pref_camera_coloreffect_title">Ефект на цвят</string>
     <string name="pref_camera_filter_mode_title">Ефект на цвят</string>
+    <!-- Settings screen, Color effect dialog radio button choices -->
     <string name="pref_camera_coloreffect_entry_none">Без</string>
     <string name="pref_camera_coloreffect_entry_mono">Моно</string>
     <string name="pref_camera_coloreffect_entry_sepia">Сепия</string>
     <string name="pref_camera_coloreffect_entry_negative">Негатив</string>
+    <!-- Color effect that overexposes and reverses some of the tones. -->
     <string name="pref_camera_coloreffect_entry_solarize">Соларизация</string>
     <string name="pref_camera_coloreffect_entry_posterize">Постеризиране</string>
     <string name="pref_camera_coloreffect_entry_aqua">Вода</string>
@@ -195,12 +295,17 @@
     <string name="pref_camera_coloreffect_entry_redtint">Червен оттенък</string>
     <string name="pref_camera_coloreffect_entry_bluetint">Син оттенък</string>
     <string name="pref_camera_coloreffect_entry_greentint">Зелен оттенък</string>
+    <!-- Select IS title -->
     <string name="pref_camera_dis_title">Стабилизация</string>
+    <!-- DIS choices -->
     <string name="pref_camera_dis_entry_off">Изкл.</string>
     <string name="pref_camera_dis_entry_on">Вкл.</string>
+    <!-- Select Face Recognition title -->
     <string name="pref_camera_facerc_title">Разпознаване на лица</string>
+    <!-- Face Recognition choices -->
     <string name="pref_camera_facerc_entry_off">Изкл.</string>
     <string name="pref_camera_facerc_entry_on">Вкл.</string>
+    <!-- Settings screen, Multiple levels entries -->
     <string name="pref_camera_sharpness_entry_level0">Ниво 0</string>
     <string name="pref_camera_sharpness_entry_level1">Ниво 1</string>
     <string name="pref_camera_sharpness_entry_level2">Ниво 2 (по подразбиране)</string>
@@ -208,6 +313,7 @@
     <string name="pref_camera_sharpness_entry_level4">Ниво 4</string>
     <string name="pref_camera_sharpness_entry_level5">Ниво 5</string>
     <string name="pref_camera_sharpness_entry_level6">Ниво 6</string>
+    <!-- Settings screen, Multiple levels entries -->
     <string name="pref_camera_contrast_entry_level0">Ниво 0</string>
     <string name="pref_camera_contrast_entry_level1">Ниво 1</string>
     <string name="pref_camera_contrast_entry_level2">Ниво 2</string>
@@ -219,6 +325,7 @@
     <string name="pref_camera_contrast_entry_level8">Ниво 8</string>
     <string name="pref_camera_contrast_entry_level9">Ниво 9</string>
     <string name="pref_camera_contrast_entry_level10">Ниво 10</string>
+    <!-- Settings screen, Multiple levels entries -->
     <string name="pref_camera_saturation_entry_level0">Ниво 0</string>
     <string name="pref_camera_saturation_entry_level1">Ниво 1</string>
     <string name="pref_camera_saturation_entry_level2">Ниво 2</string>
@@ -230,40 +337,79 @@
     <string name="pref_camera_saturation_entry_level8">Ниво 8</string>
     <string name="pref_camera_saturation_entry_level9">Ниво 9</string>
     <string name="pref_camera_saturation_entry_level10">Ниво 10</string>
+    <!-- Default sharpness setting. Do not translate. -->
+    <!-- Settings screen, Select sharpness title -->
     <string name="pref_camera_sharpness_title">Острота</string>
+    <!-- Default contrast setting. Do not translate. -->
+    <!-- Settings screen, Select contrast title -->
     <string name="pref_camera_contrast_title">Контраст</string>
+    <!-- Default saturation setting. Do not translate. -->
+    <!-- Settings screen, Select saturation title -->
     <string name="pref_camera_saturation_title">Насищане</string>
+    <!-- Default picture quality setting. See
+         pref_camera_jpegquality_entryvalues for possible values -->
+    <!-- Default Picture format setting. Do not translate. -->
+    <!-- Settings screen, Select Picture format title -->
     <string name="pref_camera_picture_format_title">Формат на картината</string>
+    <!-- Settings screen, picture format dialog radio button choices -->
+    <!-- Picture format entry values. Do not translate. -->
+    <!-- Settings screen, Picture quality title -->
     <string name="pref_camera_jpegquality_title">Качество на снимката</string>
+    <!-- Settings screen, Picture quality dialog radio button choices -->
     <string name="pref_camera_jpegquality_entry_0">Ниско</string>
     <string name="pref_camera_jpegquality_entry_1">Стандарно</string>
     <string name="pref_camera_jpegquality_entry_2">Високо</string>
+    <!-- Default auto histogram setting. Do not translate. -->
+    <!-- Settings screen, Select Histogram title -->
     <string name="pref_camera_histogram_title">Хистограма</string>
+    <!-- Settings screen, Histogram radio button choices -->
     <string name="pref_camera_histogram_entry_enable">Активиране</string>
     <string name="pref_camera_histogram_entry_disable">Деактивиране</string>
+    <!-- Histogram entry values. Do not translate. -->
+    <!-- Default auto scene detection setting. -->
+    <!-- Settings screen, Select Auto Scene Detection -->
     <string name="pref_camera_scenedetect_title">Автоматично откриване на сцена</string>
+    <!-- Settings menu, auto scene detection choices -->
     <string name="pref_camera_scenedetect_entry_off">Изкл.</string>
+    <!-- Scene detection set to on - supports backlight and snow cloudy detection. -->
     <string name="pref_camera_scenedetect_entry_on">Вкл.</string>
+    <!-- Toast showing error if invalid size selected for  time lapse  [CHAR LIMIT=65] -->
     <string name="time_lapse_error">Невалиден размер, времето за видео заснемане изтича.</string>
+    <!-- longshot value -->
     <string name="pref_camera_longshot_title">Непрекъснато снимане</string>
     <string name="msg_cancel_longshot_for_limited_memory">Изчерпване на паметта, анулиране непрекъснато снимане</string>
+    <!-- Toast showing non-supported functionality for flash in AE bracket -->
     <string name="flash_aebracket_message">Светкавица не се поддържа в режим на AE графиране</string>
+    <!-- Settings screen, setting title text for Auto HDR-->
     <string name="pref_camera_auto_hdr_title">Aвтоматичен HDR</string>
+    <!-- Settings screen, Auto HDR location dialog choices -->
     <string name="pref_camera_auto_hdr_entry_enable">Вкл.</string>
     <string name="pref_camera_auto_hdr_entry_disable">Изкл.</string>
+    <!-- toast message for storage location switch -->
     <string name="storage_not_enough">Мястото за съхранение е недостатъчно</string>
+    <!-- Settings screen, Selectable HDR mode title -->
     <string name="pref_camera_hdr_mode_title">HDR режим</string>
+    <!-- Settings screen, Selectable HDR mode radio button choices -->
     <string name="pref_camera_hdr_mode_entry_sensor">Сензор HDR</string>
     <string name="pref_camera_hdr_mode_entry_multi_frame">Рамка HDR</string>
+    <!-- HDR mode entry values. Do not translate. -->
+    <!--Default video rotation setting-->
+    <!--Settings screen, video rotation title-->
     <string name="pref_camera_video_rotation_title">Видео завъртане</string>
+    <!--Menu, video rotation label-->
     <string name="pref_camera_video_rotation_label">ВИДЕО ЗАВЪРТАНЕ</string>
+    <!-- Settings screen, Video rotation dialog radio button choices -->
     <string name="pref_camera_video_rotation_entry_0">0 градуса</string>
     <string name="pref_camera_video_rotation_entry_90">90 градуса</string>
     <string name="pref_camera_video_rotation_entry_180">180 градуса</string>
     <string name="pref_camera_video_rotation_entry_270">270 градуса</string>
+    <!-- The message is shown in toast when click showOnMap Menu and there is no map app -->
     <string name="map_activity_not_found_err">Няма инсталирано приложение, което да покаже местоположението ви</string>
+    <!-- Continuous shot enable message -->
     <string name="longshot_enable_message">Разширените функции не се поддържат в непрекъснат режим на снимане</string>
+    <!-- Advanced features enable message -->
     <string name="advance_feature_enable_msg">Непрекъснато снимане не се поддържа, когато са активирани разширени функции</string>
+    <!-- The alas of CameraActivity for gesture operation -->
     <string name="camera_gesture_title">Стартиране на камерата</string>
     <string name="pref_camera_tsmakeup_title">Разкрасяване</string>
     <string name="pref_camera_tsmakeup_entry_on">Вкл.</string>
@@ -397,7 +543,9 @@
     <string name="pref_camera_bokeh_mpo_entry_enable">Разрешено</string>
     <string name="pref_camera_bokeh_mpo_entry_disable">Деактивирай</string>
     <string name="pref_camera_bokeh_blur_degree_title">Стойност на размазване Bokeh</string>
+    <!-- Default Zoom setting. -->
     <string name="pref_camera_zoom_title">Мащабиране</string>
+    <!-- Settings menu, Zoom choices -->
     <string name="pref_camera_zoom_entry_off">Изкл.</string>
     <string name="pref_camera_zoom_entry_1x">1x</string>
     <string name="pref_camera_zoom_entry_2x">2 x</string>
@@ -427,6 +575,8 @@
     <string name="pref_camera2_afmode_entry_continuous_picture">Непрекъснати снимки</string>
     <string name="pref_camera2_afmode_entry_edof">Разширена дълбочина на фокуса</string>
     <string name="pref_camera2_switch_camera_title">Превключване на камера чрез ID</string>
+    <!-- QCFA Title -->
+    <!-- QCFA choices -->
     <string name="pref_camera2_initial_camera_entry_bayer">Bayer</string>
     <string name="pref_camera2_initial_camera_entry_mono">Моно</string>
     <string name="pref_camera2_initial_camera_entry_front">Предна</string>
@@ -460,11 +610,15 @@
     <string name="pref_camera2_abort_captures_title">Прекрати заснемането</string>
     <string name="pref_camera2_abort_captures_entry_enable">Вкл.</string>
     <string name="pref_camera2_abort_captures_entry_disable">Изкл.</string>
+    <!-- tone mapping -->
     <string name="pref_camera_tone_mapping_title">Разпределение на нюансите</string>
+    <!-- tone mapping entry-->
     <string name="pref_camera_tone_mapping_entry_dark_boost_offset">Компенсация на усилване на тъмния тон</string>
     <string name="pref_camera_tone_mapping_entry_fourth_tone_anchor">Фиксатор на една четвърт тон</string>
     <string name="pref_camera_tone_mapping_entry_user_setting">Потребителска настройка</string>
     <string name="pref_camera_tone_mapping_entry_off">Изкл.</string>
+    <!-- tone mapping entry value-->
+    <!-- Multi camera value -->
     <string name="pref_multi_camera_hal_zsl_title">HAL ZSL</string>
     <string name="pref_multi_camera_picturesize1_title">Размер изображение 1</string>
     <string name="pref_multi_camera_picturesize2_title">Размер изображение 2</string>

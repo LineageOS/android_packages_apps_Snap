@@ -15,7 +15,14 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- common aspect ratios -->
+    <!-- aspect ratio greater than 16:9, so "widescreen" or "cinematic" -->
     <string name="pref_camera_aspectratio_wide">Шырокафарматны</string>
+    <!-- Format for entries in the picture size menu. Parameter one is aspect ratio,
+         parameter two is size in megapixels, e.g. "(4:3) 12.1 megapixels"
+         NOTE: for Chinese (zh) and Korean (ko) the pixel number (parameter two)
+         will be multiplied by 100 as those languages want to count by ten thousands -->
+    <!-- Settings screen, scene mode -->
     <string name="pref_camera_scenemode_entry_antimotionblur">Зменшыць размыццё падчас руху</string>
     <string name="pref_camera_scenemode_entry_aqua">Вада</string>
     <string name="pref_camera_scenemode_entry_ar">Дадаткова рэальнасць</string>
@@ -57,6 +64,7 @@
     <string name="pref_camera_scenemode_entry_text">Тэкст</string>
     <string name="pref_camera_scenemode_entry_theatre">Тэатр</string>
     <string name="pref_camera_scenemode_entry_whiteboard">Белая дошка</string>
+    <!-- Settings screen, focus mode -->
     <string name="pref_camera_focusmode_entry_continuous">Бесперапынны</string>
     <string name="pref_camera_focusmode_entry_mw_continuous">Бясконцасць (MW)</string>
     <string name="pref_camera_focusmode_entry_extended">Пашыраны</string>
@@ -66,6 +74,7 @@
     <string name="pref_camera_focusmode_entry_normal">Звычайны</string>
     <string name="pref_camera_focusmode_entry_portrait">Кніжная</string>
     <string name="pref_camera_focusmode_entry_hyperfocal">Гіперфакальны</string>
+    <!-- Color effects -->
     <string name="pref_camera_coloreffect_entry_washed">Размыццё</string>
     <string name="pref_camera_coloreffect_entry_vintage_warm">Старадаўні цёплы</string>
     <string name="pref_camera_coloreffect_entry_vintage_cold">Старадаўні халодны</string>
@@ -73,15 +82,21 @@
     <string name="pref_camera_coloreffect_entry_point_green">Вылучыць зялёны</string>
     <string name="pref_camera_coloreffect_entry_point_red_yellow">Вылучыць чырвоны і жоўты</string>
     <string name="pref_camera_coloreffect_entry_cartoonize">Комікс</string>
+    <!-- Red eye flash mode title -->
     <string name="pref_camera_flashmode_entry_redeye">Зменшыць эфект чырвоных вачэй</string>
     <string name="pref_camera_flashmode_label_redeye">ЗМЕНШЫЦЬ ЭФЕКТ ЧЫРВОНЫХ ВАЧЭЙ</string>
+    <!-- Power shutter -->
     <string name="pref_camera_power_shutter_title">Здымка кнопкай сілкавання</string>
+    <!-- Max brightness -->
     <string name="pref_camera_max_brightness_title">Максімальная яскравасць экрану</string>
+    <!-- Touch focus duration -->
     <string name="pref_camera_focustime_title">Фокус дотыкам</string>
     <string name="pref_camera_focustime_entry_0">0 сек.</string>
     <string name="pref_camera_focustime_entry_3">3 сек.</string>
     <string name="pref_camera_focustime_entry_5">5 секунд</string>
     <string name="pref_camera_focustime_entry_10">10 секунд</string>
     <string name="pref_camera_focustime_entry_infinite">Бясконца</string>
+    <!-- Shutter speed -->
     <string name="pref_camera_shutter_speed_title">Вытрымка</string>
+    <!-- Advanced options -->
 </resources>

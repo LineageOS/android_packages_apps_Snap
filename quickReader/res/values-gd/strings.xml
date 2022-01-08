@@ -14,18 +14,32 @@
      limitations under the License.
 -->
 <resources>
+    <!-- QuickReader: switcher item for qr -->
     <string name="accessibility_switch_to_qr">Leughadair QR</string>
+    <!-- QuickReader: dismiss button for dialogs -->
     <string name="quick_reader_action_dismiss">Leig seachad</string>
+    <!-- QuickReader: toast shown when there's no app installed to open the qr code content -->
     <string name="quick_reader_no_activity_found">Chan eil aplacaid stàlaichte ann a dh’fhosglas an t-susbaint seo</string>
+    <!-- QuickReader: permission error dialog title -->
     <string name="quick_reader_permission_error_title">Mearachd le cead</string>
+    <!-- QuickReader: permission error dialog message when permission can be asked again -->
     <string name="quick_reader_permission_rationale_message">Tha feum air inntrigeadh chan chamara gus am bàr-chòd a sganadh</string>
+    <!-- QuickReader: permission error dialog positive action when permission can be asked again -->
     <string name="quick_reader_permission_rationale_positive">Faighnich dhìom a-rithist</string>
+    <!-- QuickReader: permission error dialog message when permission can't be asked again -->
     <string name="quick_reader_permission_fatal_message">Chaidh inntrigeadh dhan chamara a dhiùltadh. Ceadaich e o roghainnean na h-aplacaid</string>
+    <!-- QuickReader: permission error dialog positive action when permission can't be asked again -->
     <string name="quick_reader_permission_fatal_positive">Fosgail na roghainnean</string>
+    <!-- QuickReader: scanned text dialog title -->
     <string name="quick_reader_scanned_text_title">Teacsa air a sganadh</string>
+    <!-- QuickReader: scanned text dialog positive button (copy to clipboard) -->
     <string name="quick_reader_scanned_text_positive">Dèan lethbhreac</string>
+    <!-- QuickReader: scanned text dialog negative button (share) -->
     <string name="quick_reader_scanned_text_negative">Co-roinn</string>
+    <!-- QuickReader: scanned text shared activity selector title -->
     <string name="quick_reader_share_title">Co-roinn le\u2026</string>
+    <!-- QuickReader: toast shown when the scanned text has been copied to the clipboard -->
     <string name="quick_reader_copied_message">Chaidh lethbhreac dheth a chur air an stòr-bhòrd</string>
+    <!-- QuickReader: Action is only allowed when performed unlocked -->
     <string name="quick_reader_only_unlocked">Chan urrainn dhut seo a dhèanamh fhad ’s a bhios an t-uidheam glaiste</string>
 </resources>

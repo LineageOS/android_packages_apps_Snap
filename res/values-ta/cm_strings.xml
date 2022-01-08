@@ -15,6 +15,13 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- common aspect ratios -->
+    <!-- aspect ratio greater than 16:9, so "widescreen" or "cinematic" -->
+    <!-- Format for entries in the picture size menu. Parameter one is aspect ratio,
+         parameter two is size in megapixels, e.g. "(4:3) 12.1 megapixels"
+         NOTE: for Chinese (zh) and Korean (ko) the pixel number (parameter two)
+         will be multiplied by 100 as those languages want to count by ten thousands -->
+    <!-- Settings screen, scene mode -->
     <string name="pref_camera_scenemode_entry_antimotionblur">நகர்வு தெளிவின்மை குறைப்பு</string>
     <string name="pref_camera_scenemode_entry_aqua">ஆக்வா</string>
     <string name="pref_camera_scenemode_entry_ar">மிகை யதார்த்தம்</string>
@@ -56,6 +63,7 @@
     <string name="pref_camera_scenemode_entry_text">உரை</string>
     <string name="pref_camera_scenemode_entry_theatre">அரங்கம்</string>
     <string name="pref_camera_scenemode_entry_whiteboard">வெள்ளை பலகை</string>
+    <!-- Settings screen, focus mode -->
     <string name="pref_camera_focusmode_entry_continuous">தொடர்ச்சி</string>
     <string name="pref_camera_focusmode_entry_mw_continuous">தொடர்ச்சி (MW)</string>
     <string name="pref_camera_focusmode_entry_extended">விரிவுபடுத்தப்பட்ட</string>
@@ -65,6 +73,7 @@
     <string name="pref_camera_focusmode_entry_normal">இயல்பு</string>
     <string name="pref_camera_focusmode_entry_portrait">நிலைபதிப்பு</string>
     <string name="pref_camera_focusmode_entry_hyperfocal">ஹைப்பர்ஃபோக்கல்</string>
+    <!-- Color effects -->
     <string name="pref_camera_coloreffect_entry_washed">கழுவப்பட்ட</string>
     <string name="pref_camera_coloreffect_entry_vintage_warm">விண்டேஜ் வெதுவெதுப்பு</string>
     <string name="pref_camera_coloreffect_entry_vintage_cold">விண்டேஜ் குளிர்</string>
@@ -72,15 +81,21 @@
     <string name="pref_camera_coloreffect_entry_point_green">புள்ளி பச்சை</string>
     <string name="pref_camera_coloreffect_entry_point_red_yellow">புள்ளி சிவப்பு-மஞ்சள்</string>
     <string name="pref_camera_coloreffect_entry_cartoonize">கார்டூனைஸ்</string>
+    <!-- Red eye flash mode title -->
     <string name="pref_camera_flashmode_entry_redeye">சிவப்பு கண்</string>
     <string name="pref_camera_flashmode_label_redeye">RED EYE</string>
+    <!-- Power shutter -->
     <string name="pref_camera_power_shutter_title">மின்சக்தி மூடி</string>
+    <!-- Max brightness -->
     <string name="pref_camera_max_brightness_title">பிரகாசமான திரை</string>
+    <!-- Touch focus duration -->
     <string name="pref_camera_focustime_title">தொடு குவிய கால அளவு</string>
     <string name="pref_camera_focustime_entry_0">0s</string>
     <string name="pref_camera_focustime_entry_3">3s</string>
     <string name="pref_camera_focustime_entry_5">5வி</string>
     <string name="pref_camera_focustime_entry_10">10வி</string>
     <string name="pref_camera_focustime_entry_infinite">எண்ணிலடங்காத</string>
+    <!-- Shutter speed -->
     <string name="pref_camera_shutter_speed_title">ஷட்டர் வேகம்</string>
+    <!-- Advanced options -->
 </resources>

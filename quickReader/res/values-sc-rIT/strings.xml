@@ -14,6 +14,20 @@
      limitations under the License.
 -->
 <resources>
+    <!-- QuickReader: switcher item for qr -->
+    <!-- QuickReader: dismiss button for dialogs -->
+    <!-- QuickReader: toast shown when there's no app installed to open the qr code content -->
+    <!-- QuickReader: permission error dialog title -->
+    <!-- QuickReader: permission error dialog message when permission can be asked again -->
+    <!-- QuickReader: permission error dialog positive action when permission can be asked again -->
+    <!-- QuickReader: permission error dialog message when permission can't be asked again -->
+    <!-- QuickReader: permission error dialog positive action when permission can't be asked again -->
+    <!-- QuickReader: scanned text dialog title -->
+    <!-- QuickReader: scanned text dialog positive button (copy to clipboard) -->
     <string name="quick_reader_scanned_text_positive">Còpia</string>
+    <!-- QuickReader: scanned text dialog negative button (share) -->
     <string name="quick_reader_scanned_text_negative">Cumpartzi</string>
+    <!-- QuickReader: scanned text shared activity selector title -->
+    <!-- QuickReader: toast shown when the scanned text has been copied to the clipboard -->
+    <!-- QuickReader: Action is only allowed when performed unlocked -->
 </resources>

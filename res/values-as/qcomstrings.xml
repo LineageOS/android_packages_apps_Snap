@@ -20,55 +20,133 @@
     limitations under the License.
 -->
 <resources>
+    <!-- Video quality setting entry. Videos will be recorded in VGA quality. [CHAR LIMIT=24] -->
+    <!-- Video quality setting entry. Videos will be recorded in CIF quality. [CHAR LIMIT=24] -->
+    <!-- Video quality setting entry. Videos will be recorded in QVGA quality. [CHAR LIMIT=24] -->
+    <!-- Video quality setting entry. Videos will be recorded in QCIF quality. [CHAR LIMIT=24] -->
+    <!-- Settings screen, Power Mode title -->
+    <!-- Settings screen, Power mode dialog radio button choices -->
+    <!-- Settings screen, Power mode dialog radio button choices -->
+    <!-- Default Power mode.. -->
+    <!-- Default auto exposure setting. Do not translate. -->
+    <!-- Settings screen, Select auto exposure title -->
     <string name="pref_camera_autoexposure_title">স্বয়ং এক্সপোজাৰ</string>
+    <!-- Settings screen, auto exposure dialog radio button choices -->
     <string name="pref_camera_autoexposure_entry_frameaverage">ফ্ৰেম এভাৰেজ</string>
     <string name="pref_camera_autoexposure_entry_centerweighted">চেণ্টাৰ ওয়েটেড</string>
     <string name="pref_camera_autoexposure_entry_spotmetering">স্পট মিটাৰিং</string>
+    <!-- Auto exposure entry values. Do not translate. -->
+    <!-- Settings screen, Video encoder title -->
     <string name="pref_camera_videoencoder_title">ভিডিঅ\' ক\'ডেক</string>
+    <!-- Settings screen, Video encoder dialog radio button choices -->
+    <!-- Default video encoder setting. A numerical value. -->
+    <!-- Settings screen, Video encoder dialog title -->
     <string name="pref_camera_videoencoder_dialogtitle">ভিডিঅ\' ক\'ডেক</string>
+    <!-- Default audio encoder setting. A numerical value. -->
+    <!-- Settings screen, Audio encoder title -->
     <string name="pref_camera_audioencoder_title">অডিঅ\' ক\'ডেক</string>
+    <!-- Settings screen, Audio encoder dialog radio button choices -->
+    <!-- Default Skin Tone Enhancement setting. Do not translate. -->
+    <!-- Settings screen, Select Skin Tone Enhancement title -->
     <string name="pref_camera_skinToneEnhancement_title">স্কিনৰ টোন উন্নতিকৰণ</string>
+    <!-- Settings screen, Skin Tone Enhancement radio button choices -->
+    <!-- Skin Tone Enhancement entry values. Do not translate. -->
+    <!-- Settings screen, setting title text for ZSL-->
     <string name="pref_camera_zsl_title">জিৰো শ্বাটাৰ টেগ</string>
+    <!-- Default selectable zone af setting. Do not translate. -->
+    <!-- Settings screen, Selectable zone af title -->
     <string name="pref_camera_selectablezoneaf_title">অটোফকাচ জোন</string>
+    <!-- Settings screen, Selectable Zone Af dialog radio button choices -->
     <string name="pref_camera_selectablezoneaf_entry_auto">স্বয়ং</string>
     <string name="pref_camera_selectablezoneaf_entry_spotmetering">স্পট মিটাৰিং</string>
     <string name="pref_camera_selectablezoneaf_entry_centerweighted">চেণ্টাৰ ওয়েটেড</string>
     <string name="pref_camera_selectablezoneaf_entry_frameaverage">ফ্ৰেম এভাৰেজ</string>
+    <!-- Auto exposure entry values. Do not translate. -->
+    <!-- Settings screen, Selectable advanced features title -->
     <string name="pref_camera_advanced_features_title">উন্নত বৈশিষ্ট্যবোৰ</string>
+    <!-- Settings screen, Selectable Zone Af dialog radio button choices -->
     <string name="pref_camera_advanced_feature_entry_none">হাল্লা</string>
     <string name="pref_camera_advanced_feature_entry_multi_touch_focus">বহু-স্পৰ্শ ফোকাচ</string>
+    <!-- Auto exposure entry values. Do not translate. -->
+    <!-- Manual exposure control entry values -->
     <string name="pref_camera_manual_exp_title">মেনুৱেল এক্সপ’জাৰ</string>
     <string name="pref_camera_manual_exp_entry_ISO_priority">ISO অগ্ৰাধিকাৰ</string>
     <string name="pref_camera_manual_exp_entry_exptime_priority">এক্সপোজাৰ সময় অগ্ৰাধিকাৰ</string>
     <string name="pref_camera_manual_exp_entry_user_setting">ব্যৱহাৰকৰ্তা ছেটিং</string>
+    <!-- Manual white balance entry values -->
     <string name="pref_camera_manual_wb_title">মেনুৱেল বগা সাম্যৱস্থা</string>
     <string name="pref_camera_manual_wb_entry_color_temperature">ৰং তাপমাত্ৰা</string>
     <string name="pref_camera_manual_wb_entry_rbgb_gains">RBGB গেইনচ</string>
     <string name="pref_camera_manual_wb_entry_off">অফ</string>
+    <!-- Manual Focus entry values -->
     <string name="pref_camera_manual_focus_title">মেনুৱেল ফোকাচ</string>
     <string name="pref_camera_manual_focus_entry_scale_mode">স্কেল মোড</string>
     <string name="pref_camera_manual_focus_entry_diopter_mode">ডায়োপ্টাৰ মোড</string>
     <string name="pref_camera_manual_focus_entry_off">অফ</string>
+    <!-- Instant Capture entry -->
+    <!-- Instant Capture entry values -->
+    <!-- Settings screen, ZSL location dialog choices -->
+    <!-- The message is shown in toast when HDR or scene mode is enabled -->
+    <!-- Settings screen, Video HDR location dialog choices -->
+    <!-- Settings screen, CDS location dialog choices -->
     <string name="pref_camera_cds_entry_auto">স্বয়ং</string>
+    <!-- Settings screen, video CDS location dialog choices -->
     <string name="pref_camera_video_cds_entry_auto">স্বয়ং</string>
+    <!-- Settings screen, TNR location dialog choices -->
+    <!-- Settings screen, TNR location dialog choices -->
+    <!-- Settings screen, video TNR location dialog choices -->
+    <!-- Settings screen, video TNR location dialog choices -->
+    <!-- Settings screen, setting title text for Video HDR-->
     <string name="pref_camera_video_hdr_title">ভিডিঅ\' HDR</string>
+    <!-- Settings menu, setting title text for cds mode-->
     <string name="pref_camera_cds_title">CDS মোড</string>
+    <!-- Settings menu, setting title text for video cds mode-->
     <string name="pref_camera_video_cds_title">ভিডিঅ\' CDS মোড</string>
+    <!-- Default cds mode setting-->
+    <!-- Default video cds mode setting-->
+    <!-- Settings menu, setting title text for tnr mode-->
     <string name="pref_camera_tnr_title">TNR মোড</string>
+    <!-- Settings menu, setting title text for video tnr mode-->
     <string name="pref_camera_video_tnr_title">ভিডিঅ\' TNR মোড</string>
+    <!-- Default tnr mode setting-->
+    <!-- Default video tnr mode setting-->
+    <!-- Default face  detection setting. -->
+    <!-- Settings screen, Select Face Detection -->
     <string name="pref_camera_facedetection_title">ফেচ চিনাক্তকৰণ</string>
+    <!-- Settings menu, Face Detection choices -->
+    <!-- Default Selfie Flash setting. -->
+    <!-- Settings screen, Selfie Flash Detection -->
     <string name="pref_selfie_flash_title">চেল্‌ফি ফ্লেশ</string>
+    <!-- Settings menu, Selfie Flash choices -->
+    <!-- Default redeye reduction setting. -->
+    <!-- Settings screen, Select Redeye Reduction -->
     <string name="pref_camera_redeyereduction_title">ৰেড আই হ্ৰাসকৰণ</string>
+    <!-- Settings menu, redeye reduction choices -->
+    <!-- The message is shown in toast when the app encounters an unsupported selection for HFR/HSR mode -->
     <string name="error_app_unsupported_hfr_selection">উচ্চ-ফ্ৰেমৰেট ৰেকৰ্ডিং সমৰ্থিত নহয় যেতিয়া সুস্থিৰকৰণ/সময় লেপ্স/HDR ব্যৱহাৰ কৰা হয়।</string>
+    <!-- The message is shown in dialog when the app encounters an unsupported resolution for HFR mode -->
     <string name="error_app_unsupported_hfr">মন্থৰ গতি মোড নিৰ্বাচিত ভিডিঅ\'ৰ আকাৰৰ বাবে সমৰ্থিত নহয়। এটা নিম্নমানৰ ভিডিঅ\'ৰ আকাৰ নিৰ্বাচন কৰক</string>
+    <!-- The message is shown in toast when the app encounters an unsupported resolution for DIS mode -->
     <string name="error_app_unsupported_dis">নিৰ্বাচিত ভিডিঅ\'ৰ আকাৰৰ বাবে সুস্থিৰকৰণ সমৰ্থিত নহয়। এটা নিম্নমানৰ ভিডিঅ\'ৰ আকাৰ নিৰ্বাচন কৰক</string>
+    <!-- The message is shown in dialog when the app encounters an unsupported resolution for HSR mode -->
     <string name="error_app_unsupported_hsr">উচ্চ গতি মোড নিৰ্বাচিত ভিডিঅ\'ৰ আকাৰৰ বাবে সমৰ্থিত নহয়। এটা নিম্নমানৰ ভিডিঅ\'ৰ আকাৰ নিৰ্বাচন কৰক</string>
+    <!-- The message is shown in dialog when the app encounters an unsupported video codec for HFR mode -->
     <string name="error_app_unsupported_hfr_codec">যেতিয়া HFR অন থাকে তেতিয়া কেৱল H264 ভিডিঅ\' এনকোডিং সমৰ্থিত হয়</string>
+    <!-- The message is shown in dialog when the app encounters an unsupported video resolution-->
     <string name="error_app_unsupported">এই এনকোডাৰ প্ৰকাৰৰ বাবে অসমৰ্থিত ভিডিঅ\' ৰিজলুশ্বন</string>
+    <!-- The message is shown in dialog when the app encounters an unsupported video profile-->
+    <!--The message is shown in dialog when the raw snapshot is selected in zsl mode-->
     <string name="error_app_unsupported_raw">জিৰো শ্বাটাৰ লেগ মোডত Raw ছবি ফৰ্মেট সমৰ্থিত নহয়। JPEG নিৰ্বাচন কৰক</string>
+    <!-- Settings screen, AE bracketing and HDR location dialog choices -->
     <string name="pref_camera_ae_bracket_hdr_entry_ae_bracket">AE ব্ৰেকেটিং</string>
     <string name="pref_camera_ae_bracket_hdr_title">AE ব্ৰেকেটিং</string>
+    <!-- The messsage shown if user selects a snapshot resolution lower than the current video size. -->
+    <!-- The messsage shown if user selects a snapshot resolution in low power mode. -->
+    <!-- The messsage shown if user tries to take snapshot during D1/QCIF resolution. -->
+    <!-- Default hfr setting. Do not translate. -->
+    <!-- Settings screen, Select hfr title -->
     <string name="pref_camera_hfr_title">উচ্চ-ফ্ৰেমৰেট ৰেকৰ্ডিং</string>
+    <!-- Settings screen, hfr radio button choices -->
     <string name="pref_camera_hfr_entry_off">অফ</string>
     <string name="pref_camera_hfr_entry_2x">মন্থৰ গতি 60 FPS</string>
     <string name="pref_camera_hfr_entry_3x">মন্থৰ গতি 90 FPS</string>
@@ -77,8 +155,22 @@
     <string name="pref_camera_hfr_entry_hsr_60">উচ্চ গতি 60 FPS</string>
     <string name="pref_camera_hfr_entry_hsr_90">উচ্চ গতি 90 FPS</string>
     <string name="pref_camera_hfr_entry_hsr_120">উচ্চ গতি 120 FPS</string>
+    <!-- HFR entry values. Do not translate. -->
+    <!-- Default noise reduction setting. Do not translate. -->
+    <!-- Settings screen, Select See More title -->
+    <!-- Settings screen, see more radio button choices -->
+    <!-- see more entry values. Do not translate. -->
+    <!-- Default see more setting. Do not translate. -->
+    <!-- Settings screen, Select See More title -->
+    <!-- Settings screen, see more radio button choices -->
+    <!-- see more entry values. Do not translate. -->
+    <!-- Denoise Settings screen, setting title text -->
     <string name="pref_camera_denoise_title">ডিনয়েজ</string>
+    <!-- Denoise Settings screen, Record location dialog choices -->
+    <!-- Default iso setting. Do not translate. -->
+    <!-- Settings screen, Select Iso title -->
     <string name="pref_camera_iso_title">ISO</string>
+    <!-- Settings screen, ISO dialog radio button choices -->
     <string name="pref_camera_iso_entry_auto">স্বয়ং</string>
     <string name="pref_camera_iso_entry_isodeblur">স্বয়ং (HJR)</string>
     <string name="pref_camera_iso_entry_iso50">ISO50</string>
@@ -108,16 +200,24 @@
     <string name="pref_camera_iso_entry_iso3200">ISO3200</string>
     <string name="pref_camera_iso_entry_iso6400">ISO6400</string>
     <string name="pref_camera_iso_entry_iso12800">ISO12800</string>
+    <!-- ISO entry values. Do not translate. -->
+    <!-- Settings screen, Anti Banding title -->
     <string name="pref_camera_antibanding_title">এণ্টিবেণ্ডিং</string>
+    <!-- Default Anti Banding setting. -->
+    <!-- Settings screen, Anti Banding entries -->
     <string name="pref_camera_antibanding_entry_0">স্বয়ং</string>
     <string name="pref_camera_antibanding_entry_1">50 Hz (ইউৰোপ)</string>
     <string name="pref_camera_antibanding_entry_2">60 Hz (ইউএচএ)</string>
+    <!-- Default color effect setting. -->
+    <!-- Settings screen, Select Color effect title -->
     <string name="pref_camera_coloreffect_title">ৰং প্ৰভাৱ</string>
     <string name="pref_camera_filter_mode_title">ৰং প্ৰভাৱ</string>
+    <!-- Settings screen, Color effect dialog radio button choices -->
     <string name="pref_camera_coloreffect_entry_none">হাল্লা</string>
     <string name="pref_camera_coloreffect_entry_mono">ম’ন’</string>
     <string name="pref_camera_coloreffect_entry_sepia">চেপিয়া</string>
     <string name="pref_camera_coloreffect_entry_negative">ঋণাত্মক</string>
+    <!-- Color effect that overexposes and reverses some of the tones. -->
     <string name="pref_camera_coloreffect_entry_solarize">চোলাৰাইজ</string>
     <string name="pref_camera_coloreffect_entry_posterize">পোষ্টাৰৰ আকাৰৰ</string>
     <string name="pref_camera_coloreffect_entry_aqua">একুৱা</string>
@@ -129,8 +229,13 @@
     <string name="pref_camera_coloreffect_entry_redtint">ৰঙা টিণ্ট</string>
     <string name="pref_camera_coloreffect_entry_bluetint">নীলা টিণ্ট</string>
     <string name="pref_camera_coloreffect_entry_greentint">সেউজীয়া টিণ্ট</string>
+    <!-- Select IS title -->
     <string name="pref_camera_dis_title">সুস্থিৰকৰণ</string>
+    <!-- DIS choices -->
+    <!-- Select Face Recognition title -->
     <string name="pref_camera_facerc_title">ফেচ চিনাক্তকৰণ</string>
+    <!-- Face Recognition choices -->
+    <!-- Settings screen, Multiple levels entries -->
     <string name="pref_camera_sharpness_entry_level0">স্তৰ 0</string>
     <string name="pref_camera_sharpness_entry_level1">স্তৰ 1</string>
     <string name="pref_camera_sharpness_entry_level2">মাত্ৰা 2 (ডিফ\'ল্ট)</string>
@@ -138,6 +243,7 @@
     <string name="pref_camera_sharpness_entry_level4">স্তৰ 4</string>
     <string name="pref_camera_sharpness_entry_level5">স্তৰ 5</string>
     <string name="pref_camera_sharpness_entry_level6">স্তৰ 6</string>
+    <!-- Settings screen, Multiple levels entries -->
     <string name="pref_camera_contrast_entry_level0">স্তৰ 0</string>
     <string name="pref_camera_contrast_entry_level1">স্তৰ 1</string>
     <string name="pref_camera_contrast_entry_level3">স্তৰ 3</string>
@@ -148,6 +254,7 @@
     <string name="pref_camera_contrast_entry_level8">স্তৰ 8</string>
     <string name="pref_camera_contrast_entry_level9">স্তৰ 9</string>
     <string name="pref_camera_contrast_entry_level10">স্তৰ 10</string>
+    <!-- Settings screen, Multiple levels entries -->
     <string name="pref_camera_saturation_entry_level0">স্তৰ 0</string>
     <string name="pref_camera_saturation_entry_level1">স্তৰ 1</string>
     <string name="pref_camera_saturation_entry_level2">স্তৰ 2</string>
@@ -159,28 +266,67 @@
     <string name="pref_camera_saturation_entry_level8">স্তৰ 8</string>
     <string name="pref_camera_saturation_entry_level9">স্তৰ 9</string>
     <string name="pref_camera_saturation_entry_level10">স্তৰ 10</string>
+    <!-- Default sharpness setting. Do not translate. -->
+    <!-- Settings screen, Select sharpness title -->
     <string name="pref_camera_sharpness_title">শ্বাৰ্পনেছ</string>
+    <!-- Default contrast setting. Do not translate. -->
+    <!-- Settings screen, Select contrast title -->
     <string name="pref_camera_contrast_title">কনট্ৰাষ্ট</string>
+    <!-- Default saturation setting. Do not translate. -->
+    <!-- Settings screen, Select saturation title -->
     <string name="pref_camera_saturation_title">পৰিপূৰ্ণ কৰা</string>
+    <!-- Default picture quality setting. See
+         pref_camera_jpegquality_entryvalues for possible values -->
+    <!-- Default Picture format setting. Do not translate. -->
+    <!-- Settings screen, Select Picture format title -->
     <string name="pref_camera_picture_format_title">ছবিৰ ফৰ্মেট</string>
+    <!-- Settings screen, picture format dialog radio button choices -->
+    <!-- Picture format entry values. Do not translate. -->
+    <!-- Settings screen, Picture quality title -->
     <string name="pref_camera_jpegquality_title">ছবিৰ গুণমান</string>
+    <!-- Settings screen, Picture quality dialog radio button choices -->
+    <!-- Default auto histogram setting. Do not translate. -->
+    <!-- Settings screen, Select Histogram title -->
     <string name="pref_camera_histogram_title">হিষ্টোগ্ৰাম</string>
+    <!-- Settings screen, Histogram radio button choices -->
+    <!-- Histogram entry values. Do not translate. -->
+    <!-- Default auto scene detection setting. -->
+    <!-- Settings screen, Select Auto Scene Detection -->
     <string name="pref_camera_scenedetect_title">স্বয়ং দৃশ্য চিনাক্তকৰণ</string>
+    <!-- Settings menu, auto scene detection choices -->
+    <!-- Scene detection set to on - supports backlight and snow cloudy detection. -->
+    <!-- Toast showing error if invalid size selected for  time lapse  [CHAR LIMIT=65] -->
+    <!-- longshot value -->
     <string name="pref_camera_longshot_title">ধাৰাবাহিক শ্বট</string>
     <string name="msg_cancel_longshot_for_limited_memory">মেম\'ৰী শেষ হৈ আহিছে, নিৰবিচ্ছিন্ন মোড বাতিল কৰি আছে</string>
+    <!-- Toast showing non-supported functionality for flash in AE bracket -->
     <string name="flash_aebracket_message">AE ব্ৰেকেটিং মোডত ফ্লাশ্ব সমৰ্থিত নহয়</string>
+    <!-- Settings screen, setting title text for Auto HDR-->
     <string name="pref_camera_auto_hdr_title">স্বয়ং HDR</string>
+    <!-- Settings screen, Auto HDR location dialog choices -->
+    <!-- toast message for storage location switch -->
+    <!-- Settings screen, Selectable HDR mode title -->
     <string name="pref_camera_hdr_mode_title">HDR মোড</string>
+    <!-- Settings screen, Selectable HDR mode radio button choices -->
     <string name="pref_camera_hdr_mode_entry_sensor">চেনচৰ HDR</string>
     <string name="pref_camera_hdr_mode_entry_multi_frame">মাল্টিফ্ৰেম HDR</string>
+    <!-- HDR mode entry values. Do not translate. -->
+    <!--Default video rotation setting-->
+    <!--Settings screen, video rotation title-->
     <string name="pref_camera_video_rotation_title">ভিডিঅ\' ৰোটেচন</string>
+    <!--Menu, video rotation label-->
+    <!-- Settings screen, Video rotation dialog radio button choices -->
     <string name="pref_camera_video_rotation_entry_0">0 ডিগ্ৰী</string>
     <string name="pref_camera_video_rotation_entry_90">90 ডিগ্ৰী</string>
     <string name="pref_camera_video_rotation_entry_180">180 ডিগ্ৰী</string>
     <string name="pref_camera_video_rotation_entry_270">270 ডিগ্ৰী</string>
+    <!-- The message is shown in toast when click showOnMap Menu and there is no map app -->
     <string name="map_activity_not_found_err">অৱস্থান দেখুৱাবলৈ মেপ এপ্প্ ইনষ্টল কৰা নাই</string>
+    <!-- Continuous shot enable message -->
     <string name="longshot_enable_message">নিৰবিচ্ছিন্ন শ্বট মোডত উন্নত বৈশিষ্ট্যবোৰ সমৰ্থিত নহয়</string>
+    <!-- Advanced features enable message -->
     <string name="advance_feature_enable_msg">উন্নত বৈশিষ্ট্য সক্ষম কৰিলে নিৰবিচ্ছিন্ন শ্বট মোড সমৰ্থিত নহয়</string>
+    <!-- The alas of CameraActivity for gesture operation -->
     <string name="camera_gesture_title">কেমেৰা লান্চ্চ কৰক</string>
     <string name="all_in_focus">অল ইন ফোকাচ</string>
     <string name="refocus_toast">অন্তিমখন ফটো পুনঃ-ফোকাচ কৰিবলৈ ইয়াত টেপ কৰক</string>
@@ -201,8 +347,16 @@
     <string name="pref_camera2_anti_banding_level_entry_auto">স্বয়ং</string>
     <string name="pref_camera2_histogram_title">হিষ্টোগ্ৰাম</string>
     <string name="pref_camera2_auto_hdr_title">স্বয়ং HDR</string>
+    <!-- Default Zoom setting. -->
+    <!-- Settings menu, Zoom choices -->
     <string name="pref_camera2_zsl_title">জিৰো শ্বাটাৰ টেগ</string>
+    <!-- QCFA Title -->
+    <!-- QCFA choices -->
     <string name="pref_camera2_initial_camera_entry_mono">ম’ন’</string>
     <string name="pref_camera2_picture_format_title">ছবিৰ ফৰ্মেট</string>
+    <!-- tone mapping -->
+    <!-- tone mapping entry-->
     <string name="pref_camera_tone_mapping_entry_user_setting">ব্যৱহাৰকৰ্তা ছেটিং</string>
+    <!-- tone mapping entry value-->
+    <!-- Multi camera value -->
 </resources>
