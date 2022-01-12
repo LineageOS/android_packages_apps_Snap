@@ -238,6 +238,7 @@
     <string name="pref_camera_auto_hdr_title">HDR Automático</string>
     <string name="pref_camera_auto_hdr_entry_enable">Activar</string>
     <string name="pref_camera_auto_hdr_entry_disable">Desactivar</string>
+    <string name="on_switch_save_path_to_sdcard">El espacio de almacenamiento interno no es suficiente, se cambió la ubicación de almacenamiento a la tarjeta SD</string>
     <string name="pref_camera_hdr_mode_title">Modo HDR</string>
     <string name="pref_camera_hdr_mode_entry_sensor">Sensor HDR</string>
     <string name="pref_camera_hdr_mode_entry_multi_frame">HDR de marcos múltiples</string>
@@ -408,10 +409,14 @@
     <string name="pref_camera2_video_hdr_entry_enable">Activado</string>
     <string name="pref_camera2_video_hdr_entry_disable">Desactivado</string>
     <string name="pref_camera2_picture_format_title">Formato de imagen</string>
+    <string name="stats_visualizer_bg_label">Vista gráfica de BG</string>
+    <string name="stats_visualizer_be_label">Vista gráfica de BE</string>
     <string name="pref_camera2_capture_mfnr_entry_enable">Activado</string>
     <string name="pref_camera2_capture_mfnr_entry_disable">Desactivado</string>
+    <string name="pref_camera2_fs2_title">Obturador rápido</string>
     <string name="pref_camera2_fs2_entry_enable">Activado</string>
     <string name="pref_camera2_fs2_entry_disable">Desactivado</string>
+    <string name="pref_camera2_abort_captures_title">Abortar capturas</string>
     <string name="pref_camera2_abort_captures_entry_enable">Activado</string>
     <string name="pref_camera2_abort_captures_entry_disable">Desactivado</string>
 </resources>

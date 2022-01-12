@@ -102,6 +102,9 @@
         <item quantity="other">%d sekondes</item>
     </plurals>
     <string name="pref_camera_timer_sound_title">Biep tydens aftelling</string>
+    <string name="pref_camera_savepath_title">Berging</string>
+    <string name="pref_camera_savepath_entry_0">Foon</string>
+    <string name="pref_camera_savepath_entry_1">SD-kaart</string>
     <string name="setting_off">Af</string>
     <string name="setting_on">Aan</string>
     <string name="pref_video_quality_title">Videogehalte</string>

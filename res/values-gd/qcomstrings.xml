@@ -241,6 +241,7 @@
     <string name="pref_camera_auto_hdr_title">HDR fèin-obrachail</string>
     <string name="pref_camera_auto_hdr_entry_enable">Cuir an comas</string>
     <string name="pref_camera_auto_hdr_entry_disable">Cuir à comas</string>
+    <string name="on_switch_save_path_to_sdcard">Chan eil stòras inntearnail gu leòr ann, tha stòras air a’ chairt SD ’ga chleachdadh a-nis</string>
     <string name="pref_camera_hdr_mode_title">Modh HDR</string>
     <string name="pref_camera_hdr_mode_entry_sensor">HDR mothaicheir</string>
     <string name="pref_camera_hdr_mode_entry_multi_frame">HDR ioma-fhrèama</string>

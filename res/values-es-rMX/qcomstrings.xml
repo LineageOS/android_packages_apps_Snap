@@ -187,6 +187,7 @@
     <string name="msg_cancel_longshot_for_limited_memory">Se está terminando la memoria, cancelación de disparo continuo</string>
     <string name="flash_aebracket_message">Flash no es compatible con el modo de bracketing AE</string>
     <string name="pref_camera_auto_hdr_title">Auto HDR</string>
+    <string name="on_switch_save_path_to_sdcard">El espacio de almacenamiento interno no es suficiente, cambiar la ubicación de almacenamiento a tarjeta SD</string>
     <string name="pref_camera_hdr_mode_title">Modo HDR</string>
     <string name="pref_camera_hdr_mode_entry_sensor">Sensor HDR</string>
     <string name="pref_camera_hdr_mode_entry_multi_frame">Multi-frame HDR</string>

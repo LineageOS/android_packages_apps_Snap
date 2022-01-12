@@ -236,6 +236,7 @@
     <string name="pref_camera_auto_hdr_title">Auto HDR</string>
     <string name="pref_camera_auto_hdr_entry_enable">Aktivér</string>
     <string name="pref_camera_auto_hdr_entry_disable">Deaktivér</string>
+    <string name="on_switch_save_path_to_sdcard">Der er ikke nok intern lagerplads, skiftede lagerplacering til SD-kort</string>
     <string name="pref_camera_hdr_mode_title">HDR tilstand</string>
     <string name="pref_camera_hdr_mode_entry_sensor">HDR sensor</string>
     <string name="pref_camera_hdr_mode_entry_multi_frame">Multi-billed HDR</string>

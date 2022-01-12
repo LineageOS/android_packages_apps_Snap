@@ -241,6 +241,7 @@
     <string name="pref_camera_auto_hdr_title">HDR automático</string>
     <string name="pref_camera_auto_hdr_entry_enable">Ativar</string>
     <string name="pref_camera_auto_hdr_entry_disable">Desativar</string>
+    <string name="on_switch_save_path_to_sdcard">Não há espaço no armazenamento interno, mudando o local de armazenamento para cartão SD</string>
     <string name="pref_camera_hdr_mode_title">Modo de HDR</string>
     <string name="pref_camera_hdr_mode_entry_sensor">Sensor de HDR</string>
     <string name="pref_camera_hdr_mode_entry_multi_frame">HDR multi-quadros</string>

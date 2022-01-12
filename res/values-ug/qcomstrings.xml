@@ -185,6 +185,7 @@
     <string name="msg_cancel_longshot_for_limited_memory">ساقلىغۇچ توشۇپ كەتتى، ئارقىمۇ-ئارقا تاقاش شەكلىنى بىكار قىلۋاتىدۇ</string>
     <string name="flash_aebracket_message">چاقماق لامپا AE نۇرلاندۇرۇش ھالىتىنىڭ قوللىشىغا ئېرىشەلمىدى</string>
     <string name="pref_camera_auto_hdr_title">ئاپتۇماتېىك HDR</string>
+    <string name="on_switch_save_path_to_sdcard">ئىچكى ساقلىغۇچنىڭ بوشلۇقى توشۇپ كەتتى، شۇڭا ساقلاش ئورنى SD كارتىغا ئالماشتۇرۇلدى</string>
     <string name="pref_camera_hdr_mode_title">HDR شەكلى</string>
     <string name="pref_camera_hdr_mode_entry_sensor">سېنزور HDR</string>
     <string name="pref_camera_hdr_mode_entry_multi_frame">كۆپ كاندۇك HDR</string>

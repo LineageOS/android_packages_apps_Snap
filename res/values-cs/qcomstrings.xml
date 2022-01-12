@@ -241,6 +241,7 @@
     <string name="pref_camera_auto_hdr_title">Auotmatické HDR</string>
     <string name="pref_camera_auto_hdr_entry_enable">Použít</string>
     <string name="pref_camera_auto_hdr_entry_disable">Zakázat</string>
+    <string name="on_switch_save_path_to_sdcard">Nedostatek místa na vnitřním úložišti. Ukládání se přepne na kartu SD</string>
     <string name="pref_camera_hdr_mode_title">Režim HDR</string>
     <string name="pref_camera_hdr_mode_entry_sensor">Senzor HDR</string>
     <string name="pref_camera_hdr_mode_entry_multi_frame">Vícepolíčkové HDR</string>

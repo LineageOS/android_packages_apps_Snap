@@ -241,6 +241,7 @@
     <string name="pref_camera_auto_hdr_title">HDR awtomatig</string>
     <string name="pref_camera_auto_hdr_entry_enable">Galluogi</string>
     <string name="pref_camera_auto_hdr_entry_disable">Analluogi</string>
+    <string name="on_switch_save_path_to_sdcard">Does dim digon o le yn y storfa mewnol; wedi newid lleoliad storio i gerdyn SD</string>
     <string name="pref_camera_hdr_mode_title">Modd HDR</string>
     <string name="pref_camera_hdr_mode_entry_sensor">Synhwyrydd HDR</string>
     <string name="pref_camera_hdr_mode_entry_multi_frame">HDR aml-ffrâm</string>

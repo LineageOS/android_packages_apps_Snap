@@ -233,6 +233,7 @@
     <string name="pref_camera_auto_hdr_title">ออโต้ HDR</string>
     <string name="pref_camera_auto_hdr_entry_enable">เปิด</string>
     <string name="pref_camera_auto_hdr_entry_disable">ปิด</string>
+    <string name="on_switch_save_path_to_sdcard">พื้นที่จัดเก็บภายในไม่พอ เปลี่ยนตำแหน่งการจัดเก็บไปที่ SD การ์ด</string>
     <string name="pref_camera_hdr_mode_title">รูปแบบ HDR</string>
     <string name="pref_camera_hdr_mode_entry_sensor">HDR เซนเซอร์</string>
     <string name="pref_camera_hdr_mode_entry_multi_frame">HDR แบบหลายเฟรม</string>

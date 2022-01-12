@@ -241,6 +241,7 @@
     <string name="pref_camera_auto_hdr_title">HDR auto</string>
     <string name="pref_camera_auto_hdr_entry_enable">Habilitar</string>
     <string name="pref_camera_auto_hdr_entry_disable">Deshabilitar</string>
+    <string name="on_switch_save_path_to_sdcard">Nun ye abondu l\'espaciu nel almacenamientu internu, cambióse al allugamientu d\'almacenamientu na tarxeta SD</string>
     <string name="pref_camera_hdr_mode_title">Mou HDR</string>
     <string name="pref_camera_hdr_mode_entry_sensor">Sensor HDR</string>
     <string name="pref_camera_hdr_mode_entry_multi_frame">HDR de marcos múltiples</string>

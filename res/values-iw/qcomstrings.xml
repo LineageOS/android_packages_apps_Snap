@@ -238,6 +238,7 @@
     <string name="pref_camera_auto_hdr_title">HDR אוטומטי</string>
     <string name="pref_camera_auto_hdr_entry_enable">אפשר</string>
     <string name="pref_camera_auto_hdr_entry_disable">השבת</string>
+    <string name="on_switch_save_path_to_sdcard">שטח האחסון הפנימי אינו מספיק, מיקום האחסון הוחלף לכרטיס הזיכרון</string>
     <string name="pref_camera_hdr_mode_title">מצב HDR</string>
     <string name="pref_camera_hdr_mode_entry_sensor">חיישן HDR</string>
     <string name="pref_camera_hdr_mode_entry_multi_frame">HDR מרובה פריימים</string>

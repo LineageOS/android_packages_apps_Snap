@@ -112,6 +112,9 @@
         <item quantity="other">%d diog</item>
     </plurals>
     <string name="pref_camera_timer_sound_title">Dèan bìd rè a’ chunntaidh sìos</string>
+    <string name="pref_camera_savepath_title">Stòras</string>
+    <string name="pref_camera_savepath_entry_0">Fòn</string>
+    <string name="pref_camera_savepath_entry_1">Cairt SD</string>
     <string name="setting_off">Dheth</string>
     <string name="setting_on">Air</string>
     <string name="pref_video_quality_title">Càileachd a’ video</string>

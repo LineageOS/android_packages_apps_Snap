@@ -102,6 +102,9 @@
         <item quantity="other">%d segundos</item>
     </plurals>
     <string name="pref_camera_timer_sound_title">Bip durante a contagem</string>
+    <string name="pref_camera_savepath_title">Armazenamento</string>
+    <string name="pref_camera_savepath_entry_0">Telemóvel</string>
+    <string name="pref_camera_savepath_entry_1">Cartão SD</string>
     <string name="setting_off">Desativado</string>
     <string name="setting_on">Ativado</string>
     <string name="pref_video_quality_title">Qualidade do vídeo</string>
