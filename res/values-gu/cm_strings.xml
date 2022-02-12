@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2013-2015 The CyanogenMod Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="pref_camera_scenemode_entry_antimotionblur">મોશન બ્લર રિડકશન</string>
+    <string name="pref_camera_scenemode_entry_aqua">એક્વા</string>
+    <string name="pref_camera_scenemode_entry_ar">ઓગ્મેન્ટેડ રિઆલિટી</string>
+    <string name="pref_camera_scenemode_entry_asd">બેસ્ટ શૉટ</string>
+    <string name="pref_camera_scenemode_entry_baby">બાળક</string>
+    <string name="pref_camera_scenemode_entry_backgroundblur">બેકગ્રાઉન્ડ બ્લર</string>
+    <string name="pref_camera_scenemode_entry_backlight">બેકલાઇટ</string>
+    <string name="pref_camera_scenemode_entry_backlightportrait">બૅકલાઇટ પોર્ટ્રિટ</string>
+    <string name="pref_camera_scenemode_entry_barcode">બારકોડ</string>
+    <string name="pref_camera_scenemode_entry_beach">બીચ</string>
+    <string name="pref_camera_scenemode_entry_beauty">બ્યૂટી</string>
+    <string name="pref_camera_scenemode_entry_candlelight">કેન્ડલલાઇટ</string>
+    <string name="pref_camera_scenemode_entry_cine">સિને</string>
+    <string name="pref_camera_scenemode_entry_closeup">ક્લોઝઅપ</string>
+    <string name="pref_camera_scenemode_entry_dark">ઘાટું</string>
+    <string name="pref_camera_scenemode_entry_dish">વાનગી</string>
+    <string name="pref_camera_scenemode_entry_duskdawn">ડસ્કડૉન</string>
+    <string name="pref_camera_scenemode_entry_document">દસ્તાવેજ</string>
+    <string name="pref_camera_scenemode_entry_fallcolor">ફૉલકલર</string>
+    <string name="pref_camera_scenemode_entry_fireworks">આતશબાજી</string>
+    <string name="pref_camera_scenemode_entry_flowers">પુષ્પ</string>
+    <string name="pref_camera_scenemode_entry_handheldtwilight">હેન્ડહેલ્ડ ટ્વાઇલાઇટ</string>
+    <string name="pref_camera_scenemode_entry_indoor">ઇન્ડોર</string>
+    <string name="pref_camera_scenemode_entry_landscape">લેન્ડસ્કેપ</string>
+    <string name="pref_camera_scenemode_entry_mix_illuminant">મિક્સડ લાઇટિંગ</string>
+    <string name="pref_camera_scenemode_entry_mood">મિજાજ</string>
+    <string name="pref_camera_scenemode_entry_nightportrait">નાઇટ પોર્ટ્રિટ</string>
+    <string name="pref_camera_scenemode_entry_nightindoor">નાઇટ ઇન્ડોર</string>
+    <string name="pref_camera_scenemode_entry_oldfilm">ઓલ્ડ ફિલ્મ</string>
+    <string name="pref_camera_scenemode_entry_pet">પેટ</string>
+    <string name="pref_camera_scenemode_entry_portrait">પોર્ટરેટ</string>
+    <string name="pref_camera_scenemode_entry_snow">સ્નો</string>
+    <string name="pref_camera_scenemode_entry_softskin">સોફ્ટ સ્કિન</string>
+    <string name="pref_camera_scenemode_entry_sports">રમતગમતો</string>
+    <string name="pref_camera_scenemode_entry_spotlight">સ્પોટલાઇટ</string>
+    <string name="pref_camera_scenemode_entry_steadyphoto">સ્ટેડિ ફોટો</string>
+    <string name="pref_camera_scenemode_entry_supernight">ડાર્ક નાઇટ</string>
+    <string name="pref_camera_scenemode_entry_sweepstitch">સ્વીપ સ્ટિચ</string>
+    <string name="pref_camera_scenemode_entry_text">લખાણ</string>
+    <string name="pref_camera_scenemode_entry_theatre">થીએટર</string>
+    <string name="pref_camera_scenemode_entry_whiteboard">વ્હાઇટબોર્ડ</string>
+    <string name="pref_camera_focusmode_entry_continuous">એકધારું</string>
+    <string name="pref_camera_focusmode_entry_mw_continuous">એકધારું (MW)</string>
+    <string name="pref_camera_focusmode_entry_extended">વિસ્તારિત</string>
+    <string name="pref_camera_focusmode_entry_facedetect">ફેસ ડિટેક્ટ</string>
+    <string name="pref_camera_focusmode_entry_facepriority">ફેસ અગ્રતા</string>
+    <string name="pref_camera_focusmode_entry_fixed">ફિક્સ્ડ</string>
+    <string name="pref_camera_focusmode_entry_normal">સામાન્ય</string>
+    <string name="pref_camera_focusmode_entry_portrait">પોર્ટરેટ</string>
+    <string name="pref_camera_focusmode_entry_hyperfocal">હાયપરફોકલ</string>
+    <string name="pref_camera_coloreffect_entry_washed">વૉશ્ડ</string>
+    <string name="pref_camera_coloreffect_entry_vintage_warm">વિન્ટેજ વૉર્મ</string>
+    <string name="pref_camera_coloreffect_entry_vintage_cold">વિન્ટેજ કોલ્ડ</string>
+    <string name="pref_camera_coloreffect_entry_point_blue">પોઇન્ટ બ્લ્યુ</string>
+    <string name="pref_camera_coloreffect_entry_point_green">પોઇન્ટ ગ્રીન</string>
+    <string name="pref_camera_coloreffect_entry_point_red_yellow">પોઇન્ટ રેડ-યલો</string>
+    <string name="pref_camera_coloreffect_entry_cartoonize">કાર્ટૂનાઇઝ</string>
+    <string name="pref_camera_flashmode_entry_redeye">રેડ આઇ</string>
+    <string name="pref_camera_flashmode_label_redeye">રેડ આઇ</string>
+    <string name="pref_camera_power_shutter_title">પાવર શટર</string>
+    <string name="pref_camera_max_brightness_title">બ્રાઇટ સ્ક્રીન</string>
+    <string name="pref_camera_focustime_title">ટચ ફોકસ સમયગાળો</string>
+    <string name="pref_camera_focustime_entry_0">0s</string>
+    <string name="pref_camera_focustime_entry_3">3s</string>
+    <string name="pref_camera_focustime_entry_5">5s</string>
+    <string name="pref_camera_focustime_entry_10">10s</string>
+    <string name="pref_camera_focustime_entry_infinite">અનંત</string>
+    <string name="pref_camera_shutter_speed_title">શટર સ્પીડ</string>
+    <string name="auto_hdr_enabled">ઑટો HDR સક્ષમ</string>
+</resources>

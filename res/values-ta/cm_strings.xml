@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2013-2015 The CyanogenMod Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="pref_camera_scenemode_entry_antimotionblur">நகர்வு தெளிவின்மை குறைப்பு</string>
+    <string name="pref_camera_scenemode_entry_aqua">ஆக்வா</string>
+    <string name="pref_camera_scenemode_entry_ar">மிகை யதார்த்தம்</string>
+    <string name="pref_camera_scenemode_entry_asd">சிறந்த ஷான்</string>
+    <string name="pref_camera_scenemode_entry_baby">குழந்தை</string>
+    <string name="pref_camera_scenemode_entry_backgroundblur">பின்னணி தெளிவின்மை</string>
+    <string name="pref_camera_scenemode_entry_backlight">பேக்லைட்</string>
+    <string name="pref_camera_scenemode_entry_backlightportrait">பின்னொளி நிலைபதிப்பு</string>
+    <string name="pref_camera_scenemode_entry_barcode">பார்கோட்</string>
+    <string name="pref_camera_scenemode_entry_beach">கடற்கரை</string>
+    <string name="pref_camera_scenemode_entry_beauty">அழகு</string>
+    <string name="pref_camera_scenemode_entry_candlelight">மெழுகுவெளிச்சம்</string>
+    <string name="pref_camera_scenemode_entry_cine">சினி</string>
+    <string name="pref_camera_scenemode_entry_closeup">குளோஸ்அப்</string>
+    <string name="pref_camera_scenemode_entry_dark">அடர்</string>
+    <string name="pref_camera_scenemode_entry_dish">டிஷ்</string>
+    <string name="pref_camera_scenemode_entry_duskdawn">அந்திசந்தி</string>
+    <string name="pref_camera_scenemode_entry_document">ஆவணம்</string>
+    <string name="pref_camera_scenemode_entry_fallcolor">ஃபால்கலர்</string>
+    <string name="pref_camera_scenemode_entry_fireworks">வானவேடிக்கைகள்</string>
+    <string name="pref_camera_scenemode_entry_flowers">பூக்கள்</string>
+    <string name="pref_camera_scenemode_entry_handheldtwilight">கையடக்க அந்தி</string>
+    <string name="pref_camera_scenemode_entry_indoor">கதவினுள்</string>
+    <string name="pref_camera_scenemode_entry_landscape">நிலைபரப்பு</string>
+    <string name="pref_camera_scenemode_entry_mix_illuminant">கலந்த ஒளி</string>
+    <string name="pref_camera_scenemode_entry_mood">மனநிலை</string>
+    <string name="pref_camera_scenemode_entry_nightportrait">இரவு நிலைபதிப்பு</string>
+    <string name="pref_camera_scenemode_entry_nightindoor">இரவு கதவினுள்</string>
+    <string name="pref_camera_scenemode_entry_oldfilm">பழைய திரைப்படம்</string>
+    <string name="pref_camera_scenemode_entry_pet">செல்லப்பிராணி</string>
+    <string name="pref_camera_scenemode_entry_portrait">நிலைபதிப்பு</string>
+    <string name="pref_camera_scenemode_entry_snow">பனி</string>
+    <string name="pref_camera_scenemode_entry_softskin">மென்மையான சருமம்</string>
+    <string name="pref_camera_scenemode_entry_sports">விளையாட்டுக்கள்</string>
+    <string name="pref_camera_scenemode_entry_spotlight">ஸ்பாட்லைட்</string>
+    <string name="pref_camera_scenemode_entry_steadyphoto">நிலையான புகைப்படம்</string>
+    <string name="pref_camera_scenemode_entry_supernight">கருமையான இரவு</string>
+    <string name="pref_camera_scenemode_entry_sweepstitch">பெருக்கல் தையல்</string>
+    <string name="pref_camera_scenemode_entry_text">உரை</string>
+    <string name="pref_camera_scenemode_entry_theatre">அரங்கம்</string>
+    <string name="pref_camera_scenemode_entry_whiteboard">வெள்ளை பலகை</string>
+    <string name="pref_camera_focusmode_entry_continuous">தொடர்ச்சி</string>
+    <string name="pref_camera_focusmode_entry_mw_continuous">தொடர்ச்சி (MW)</string>
+    <string name="pref_camera_focusmode_entry_extended">விரிவுபடுத்தப்பட்ட</string>
+    <string name="pref_camera_focusmode_entry_facedetect">முகம் கண்டறிதல்</string>
+    <string name="pref_camera_focusmode_entry_facepriority">முக முக்கியத்துவம்</string>
+    <string name="pref_camera_focusmode_entry_fixed">நிலைபடுத்தப்பட்ட</string>
+    <string name="pref_camera_focusmode_entry_normal">இயல்பு</string>
+    <string name="pref_camera_focusmode_entry_portrait">நிலைபதிப்பு</string>
+    <string name="pref_camera_focusmode_entry_hyperfocal">ஹைப்பர்ஃபோக்கல்</string>
+    <string name="pref_camera_coloreffect_entry_washed">கழுவப்பட்ட</string>
+    <string name="pref_camera_coloreffect_entry_vintage_warm">விண்டேஜ் வெதுவெதுப்பு</string>
+    <string name="pref_camera_coloreffect_entry_vintage_cold">விண்டேஜ் குளிர்</string>
+    <string name="pref_camera_coloreffect_entry_point_blue">புள்ளி நீலம்</string>
+    <string name="pref_camera_coloreffect_entry_point_green">புள்ளி பச்சை</string>
+    <string name="pref_camera_coloreffect_entry_point_red_yellow">புள்ளி சிவப்பு-மஞ்சள்</string>
+    <string name="pref_camera_coloreffect_entry_cartoonize">கார்டூனைஸ்</string>
+    <string name="pref_camera_flashmode_entry_redeye">சிவப்பு கண்</string>
+    <string name="pref_camera_flashmode_label_redeye">RED EYE</string>
+    <string name="pref_camera_power_shutter_title">மின்சக்தி மூடி</string>
+    <string name="pref_camera_max_brightness_title">பிரகாசமான திரை</string>
+    <string name="pref_camera_focustime_title">தொடு குவிய கால அளவு</string>
+    <string name="pref_camera_focustime_entry_0">0s</string>
+    <string name="pref_camera_focustime_entry_3">3s</string>
+    <string name="pref_camera_focustime_entry_5">5வி</string>
+    <string name="pref_camera_focustime_entry_10">10வி</string>
+    <string name="pref_camera_focustime_entry_infinite">எண்ணிலடங்காத</string>
+    <string name="pref_camera_shutter_speed_title">ஷட்டர் வேகம்</string>
+    <string name="auto_hdr_enabled">தானியக்க HDR செயல்படுத்தப்பட்டது</string>
+</resources>

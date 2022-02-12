@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2013-2015 The CyanogenMod Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="pref_camera_scenemode_entry_antimotionblur">गती अंधुकता (ब्लर) घट</string>
+    <string name="pref_camera_scenemode_entry_aqua">ऍक्वा</string>
+    <string name="pref_camera_scenemode_entry_ar">वाढलेले वास्तव</string>
+    <string name="pref_camera_scenemode_entry_asd">सर्वोत्तम शॉट</string>
+    <string name="pref_camera_scenemode_entry_baby">तान्हे मूल</string>
+    <string name="pref_camera_scenemode_entry_backgroundblur">पार्श्वभूमी अंधुकता</string>
+    <string name="pref_camera_scenemode_entry_backlight">पार्श्वप्रकाश</string>
+    <string name="pref_camera_scenemode_entry_backlightportrait">पार्श्वप्रकाश पोर्ट्रेट</string>
+    <string name="pref_camera_scenemode_entry_barcode">बारकोड</string>
+    <string name="pref_camera_scenemode_entry_beach">समुद्रकिनारा</string>
+    <string name="pref_camera_scenemode_entry_beauty">सौंदर्य</string>
+    <string name="pref_camera_scenemode_entry_candlelight">मेणबत्तीचाप्रकाश</string>
+    <string name="pref_camera_scenemode_entry_cine">सिने</string>
+    <string name="pref_camera_scenemode_entry_closeup">क्लोजअप</string>
+    <string name="pref_camera_scenemode_entry_dark">गडद</string>
+    <string name="pref_camera_scenemode_entry_dish">डिश</string>
+    <string name="pref_camera_scenemode_entry_duskdawn">तिन्हीसांजाअरुणोदय</string>
+    <string name="pref_camera_scenemode_entry_document">दस्तऐवज</string>
+    <string name="pref_camera_scenemode_entry_fallcolor">पानगळरंग</string>
+    <string name="pref_camera_scenemode_entry_fireworks">आतषबाजी</string>
+    <string name="pref_camera_scenemode_entry_flowers">फुले</string>
+    <string name="pref_camera_scenemode_entry_handheldtwilight">हातातधरलेला संधिप्रकाश</string>
+    <string name="pref_camera_scenemode_entry_indoor">आत</string>
+    <string name="pref_camera_scenemode_entry_landscape">भूदृश्य</string>
+    <string name="pref_camera_scenemode_entry_mix_illuminant">मिश्र प्रकाशयोजना</string>
+    <string name="pref_camera_scenemode_entry_mood">मूड</string>
+    <string name="pref_camera_scenemode_entry_nightportrait">रात्र पोर्ट्रेट</string>
+    <string name="pref_camera_scenemode_entry_nightindoor">रात्री आत</string>
+    <string name="pref_camera_scenemode_entry_oldfilm">जुनी फिल्म</string>
+    <string name="pref_camera_scenemode_entry_pet">पाळीव प्राणी</string>
+    <string name="pref_camera_scenemode_entry_portrait">पोर्ट्रेट</string>
+    <string name="pref_camera_scenemode_entry_snow">हिम</string>
+    <string name="pref_camera_scenemode_entry_softskin">मृदू त्वचा</string>
+    <string name="pref_camera_scenemode_entry_sports">क्रिडा</string>
+    <string name="pref_camera_scenemode_entry_spotlight">स्पॉटलाईट</string>
+    <string name="pref_camera_scenemode_entry_steadyphoto">स्थिर फोटो</string>
+    <string name="pref_camera_scenemode_entry_supernight">गडद रात्र</string>
+    <string name="pref_camera_scenemode_entry_sweepstitch">स्वीप स्टिच</string>
+    <string name="pref_camera_scenemode_entry_text">मजकूर</string>
+    <string name="pref_camera_scenemode_entry_theatre">थिएटर</string>
+    <string name="pref_camera_scenemode_entry_whiteboard">व्हाईटबोर्ड</string>
+    <string name="pref_camera_focusmode_entry_continuous">निरंतर</string>
+    <string name="pref_camera_focusmode_entry_mw_continuous">निरंतर (MW)</string>
+    <string name="pref_camera_focusmode_entry_extended">विस्तारीत</string>
+    <string name="pref_camera_focusmode_entry_facedetect">चेहरा शोध</string>
+    <string name="pref_camera_focusmode_entry_facepriority">चेहरा प्राधान्य</string>
+    <string name="pref_camera_focusmode_entry_fixed">निश्चित</string>
+    <string name="pref_camera_focusmode_entry_normal">सामान्य</string>
+    <string name="pref_camera_focusmode_entry_portrait">पोर्ट्रेट</string>
+    <string name="pref_camera_focusmode_entry_hyperfocal">हायपरफोकल</string>
+    <string name="pref_camera_coloreffect_entry_washed">धुतलेले</string>
+    <string name="pref_camera_coloreffect_entry_vintage_warm">विंटेज वॉर्म</string>
+    <string name="pref_camera_coloreffect_entry_vintage_cold">विंटेज कोल्ड</string>
+    <string name="pref_camera_coloreffect_entry_point_blue">पॉईंट निळा</string>
+    <string name="pref_camera_coloreffect_entry_point_green">पॉईंट हिरवा</string>
+    <string name="pref_camera_coloreffect_entry_point_red_yellow">पॉइंट लाल-पिवळा</string>
+    <string name="pref_camera_coloreffect_entry_cartoonize">कार्टूनाईज</string>
+    <string name="pref_camera_flashmode_entry_redeye">लाल बुबुळ</string>
+    <string name="pref_camera_flashmode_label_redeye">लाल बुबुळ</string>
+    <string name="pref_camera_power_shutter_title">पॉवर शटर</string>
+    <string name="pref_camera_max_brightness_title">चमकदार स्क्रीन</string>
+    <string name="pref_camera_focustime_title">स्पर्श फोकस कालावधी</string>
+    <string name="pref_camera_focustime_entry_0">0s</string>
+    <string name="pref_camera_focustime_entry_3">3s</string>
+    <string name="pref_camera_focustime_entry_5">5से</string>
+    <string name="pref_camera_focustime_entry_10">10से</string>
+    <string name="pref_camera_focustime_entry_infinite">अनंत</string>
+    <string name="pref_camera_shutter_speed_title">शटर गती</string>
+    <string name="auto_hdr_enabled">ऑटो HDR सक्षम केले</string>
+</resources>

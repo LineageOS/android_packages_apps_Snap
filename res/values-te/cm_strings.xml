@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2013-2015 The CyanogenMod Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="pref_camera_scenemode_entry_antimotionblur">మోషన్ అస్పష్టత తగ్గింపు</string>
+    <string name="pref_camera_scenemode_entry_aqua">ఆక్వా</string>
+    <string name="pref_camera_scenemode_entry_ar">అనుబంధ వాస్తవికత</string>
+    <string name="pref_camera_scenemode_entry_asd">ఉత్తమ షాట్</string>
+    <string name="pref_camera_scenemode_entry_baby">పసిబిడ్డ</string>
+    <string name="pref_camera_scenemode_entry_backgroundblur">నేపధ్య అస్పష్టత</string>
+    <string name="pref_camera_scenemode_entry_backlight">వెనక లైట్</string>
+    <string name="pref_camera_scenemode_entry_backlightportrait">వెనక లైట్ పటం</string>
+    <string name="pref_camera_scenemode_entry_barcode">బార్ కోడ్</string>
+    <string name="pref_camera_scenemode_entry_beach">బీచ్</string>
+    <string name="pref_camera_scenemode_entry_beauty">బ్యూటీ</string>
+    <string name="pref_camera_scenemode_entry_candlelight">కొవ్వొత్తి కాంతి</string>
+    <string name="pref_camera_scenemode_entry_cine">సినీ</string>
+    <string name="pref_camera_scenemode_entry_closeup">దగ్గరిగా</string>
+    <string name="pref_camera_scenemode_entry_dark">ముదురు రంగు</string>
+    <string name="pref_camera_scenemode_entry_dish">పాత్ర</string>
+    <string name="pref_camera_scenemode_entry_duskdawn">సంధ్యాసమయం ఉషోదయం</string>
+    <string name="pref_camera_scenemode_entry_document">పత్రం</string>
+    <string name="pref_camera_scenemode_entry_fallcolor">ఆకురాలేకాలం రంగు</string>
+    <string name="pref_camera_scenemode_entry_fireworks">బాణాసంచా</string>
+    <string name="pref_camera_scenemode_entry_flowers">పువ్వులు</string>
+    <string name="pref_camera_scenemode_entry_handheldtwilight">హ్యాండ్ హెల్డ్ కను చీకటి</string>
+    <string name="pref_camera_scenemode_entry_indoor">లోపల</string>
+    <string name="pref_camera_scenemode_entry_landscape">సమతలదిశ</string>
+    <string name="pref_camera_scenemode_entry_mix_illuminant">మిశ్రమ లైటింగ్</string>
+    <string name="pref_camera_scenemode_entry_mood">మనస్థితి</string>
+    <string name="pref_camera_scenemode_entry_nightportrait">రాత్రి పోర్ట్రైట్</string>
+    <string name="pref_camera_scenemode_entry_nightindoor">రాత్రిపూట లోపల</string>
+    <string name="pref_camera_scenemode_entry_oldfilm">పాత సినిమా</string>
+    <string name="pref_camera_scenemode_entry_pet">పెంపుడు జంతువు</string>
+    <string name="pref_camera_scenemode_entry_portrait">పటం</string>
+    <string name="pref_camera_scenemode_entry_snow">మంచు</string>
+    <string name="pref_camera_scenemode_entry_softskin">మృదువైన చర్మం</string>
+    <string name="pref_camera_scenemode_entry_sports">క్రీడలు</string>
+    <string name="pref_camera_scenemode_entry_spotlight">స్పాట్‌లైట్‌</string>
+    <string name="pref_camera_scenemode_entry_steadyphoto">స్థిరమైన ఫోటో</string>
+    <string name="pref_camera_scenemode_entry_supernight">చీకటి రాత్రి</string>
+    <string name="pref_camera_scenemode_entry_sweepstitch">తుడిచివేసే కుట్టు</string>
+    <string name="pref_camera_scenemode_entry_text">పాఠం</string>
+    <string name="pref_camera_scenemode_entry_theatre">థియేటర్</string>
+    <string name="pref_camera_scenemode_entry_whiteboard">వైట్‌బోర్డ్</string>
+    <string name="pref_camera_focusmode_entry_continuous">కొనసాగింపు</string>
+    <string name="pref_camera_focusmode_entry_mw_continuous">కొనసాగింపు (MW)</string>
+    <string name="pref_camera_focusmode_entry_extended">విస్తరించబడిన</string>
+    <string name="pref_camera_focusmode_entry_facedetect">ముఖాన్ని గుర్తించడం</string>
+    <string name="pref_camera_focusmode_entry_facepriority">ముఖ ప్రాధాన్యత</string>
+    <string name="pref_camera_focusmode_entry_fixed">స్థిరమైన</string>
+    <string name="pref_camera_focusmode_entry_normal">సాధారణం</string>
+    <string name="pref_camera_focusmode_entry_portrait">పటం</string>
+    <string name="pref_camera_focusmode_entry_hyperfocal">హైపర్ ఫోకల్</string>
+    <string name="pref_camera_coloreffect_entry_washed">కడిగిన</string>
+    <string name="pref_camera_coloreffect_entry_vintage_warm">వెచ్చని</string>
+    <string name="pref_camera_coloreffect_entry_vintage_cold">చల్లని</string>
+    <string name="pref_camera_coloreffect_entry_point_blue">బిందువు నీలం</string>
+    <string name="pref_camera_coloreffect_entry_point_green">బిందువు ఆకుపచ్చ</string>
+    <string name="pref_camera_coloreffect_entry_point_red_yellow">బిందువు ఎరుపు-పసుపు</string>
+    <string name="pref_camera_coloreffect_entry_cartoonize">కార్టూనైజ్</string>
+    <string name="pref_camera_flashmode_entry_redeye">వరుపు కన్ను</string>
+    <string name="pref_camera_flashmode_label_redeye">వరుపు కన్ను</string>
+    <string name="pref_camera_power_shutter_title">పవర్ షట్టర్</string>
+    <string name="pref_camera_max_brightness_title">ప్రకాశవంతమైన స్క్రీన్</string>
+    <string name="pref_camera_focustime_title">ఫోకస్ కాలవ్యవధిని తాకుము</string>
+    <string name="pref_camera_focustime_entry_0">0s</string>
+    <string name="pref_camera_focustime_entry_3">3s</string>
+    <string name="pref_camera_focustime_entry_5">5s</string>
+    <string name="pref_camera_focustime_entry_10">10s</string>
+    <string name="pref_camera_focustime_entry_infinite">అనంతమైన</string>
+    <string name="pref_camera_shutter_speed_title">షట్టర్ వేగం</string>
+    <string name="auto_hdr_enabled">స్వయం చాలిత HDR అమలు చేయబడింది</string>
+</resources>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2013-2015 The CyanogenMod Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="pref_camera_scenemode_entry_antimotionblur">Reduktioun vun der Beweegungsonschäerft</string>
+    <string name="pref_camera_scenemode_entry_aqua">Waasser</string>
+    <string name="pref_camera_scenemode_entry_ar">Erweidert Realitéit</string>
+    <string name="pref_camera_scenemode_entry_asd">Bescht Opnam</string>
+    <string name="pref_camera_scenemode_entry_baby">Baby</string>
+    <string name="pref_camera_scenemode_entry_backgroundblur">Onschaarfen Hannergrond</string>
+    <string name="pref_camera_scenemode_entry_backlight">Géigeluucht</string>
+    <string name="pref_camera_scenemode_entry_backlightportrait">Géigeluucht-Portrait</string>
+    <string name="pref_camera_scenemode_entry_barcode">Barcode</string>
+    <string name="pref_camera_scenemode_entry_beach">Plage</string>
+    <string name="pref_camera_scenemode_entry_beauty">Gesiichter verschéineren</string>
+    <string name="pref_camera_scenemode_entry_candlelight">Käerzeluucht</string>
+    <string name="pref_camera_scenemode_entry_cine">Kino</string>
+    <string name="pref_camera_scenemode_entry_closeup">Makro</string>
+    <string name="pref_camera_scenemode_entry_dark">Däischter</string>
+    <string name="pref_camera_scenemode_entry_dish">Iessen</string>
+    <string name="pref_camera_scenemode_entry_duskdawn">Dämmerung</string>
+    <string name="pref_camera_scenemode_entry_document">Dokument</string>
+    <string name="pref_camera_scenemode_entry_fallcolor">Hierschtfaarwen</string>
+    <string name="pref_camera_scenemode_entry_fireworks">Freedefeier</string>
+    <string name="pref_camera_scenemode_entry_flowers">Blummen</string>
+    <string name="pref_camera_scenemode_entry_handheldtwilight">Dämmerung (ouni Stativ)</string>
+    <string name="pref_camera_scenemode_entry_indoor">Banneraum</string>
+    <string name="pref_camera_scenemode_entry_landscape">Landschaft</string>
+    <string name="pref_camera_scenemode_entry_mix_illuminant">Gemëscht Luucht</string>
+    <string name="pref_camera_scenemode_entry_mood">Stëmmung</string>
+    <string name="pref_camera_scenemode_entry_nightportrait">Nuets-Portrait</string>
+    <string name="pref_camera_scenemode_entry_nightindoor">Nuet bannen</string>
+    <string name="pref_camera_scenemode_entry_oldfilm">Ale Film</string>
+    <string name="pref_camera_scenemode_entry_pet">Hausdéier</string>
+    <string name="pref_camera_scenemode_entry_portrait">Portrait</string>
+    <string name="pref_camera_scenemode_entry_snow">Schnéi</string>
+    <string name="pref_camera_scenemode_entry_softskin">Douce Haut</string>
+    <string name="pref_camera_scenemode_entry_sports">Sport</string>
+    <string name="pref_camera_scenemode_entry_spotlight">Projektiounsluucht</string>
+    <string name="pref_camera_scenemode_entry_steadyphoto">Stabiliséiert Foto</string>
+    <string name="pref_camera_scenemode_entry_supernight">Däischter Nuecht</string>
+    <string name="pref_camera_scenemode_entry_sweepstitch">Schwenkpanorama</string>
+    <string name="pref_camera_scenemode_entry_text">Text</string>
+    <string name="pref_camera_scenemode_entry_theatre">Theater</string>
+    <string name="pref_camera_scenemode_entry_whiteboard">Wäiss Tafel</string>
+    <string name="pref_camera_focusmode_entry_continuous">Kontinuéierlech</string>
+    <string name="pref_camera_focusmode_entry_mw_continuous">Kontinuéierlech (MW)</string>
+    <string name="pref_camera_focusmode_entry_extended">Erweidert</string>
+    <string name="pref_camera_focusmode_entry_facedetect">Gesiichtererkennung</string>
+    <string name="pref_camera_focusmode_entry_facepriority">Gesiichter preferéieren</string>
+    <string name="pref_camera_focusmode_entry_fixed">Fixéiert</string>
+    <string name="pref_camera_focusmode_entry_normal">Normal</string>
+    <string name="pref_camera_focusmode_entry_portrait">Portrait</string>
+    <string name="pref_camera_focusmode_entry_hyperfocal">Hyperfokal</string>
+    <string name="pref_camera_coloreffect_entry_washed">Ausgewäsch</string>
+    <string name="pref_camera_coloreffect_entry_vintage_warm">Retro (waarm)</string>
+    <string name="pref_camera_coloreffect_entry_vintage_cold">Retro (kal)</string>
+    <string name="pref_camera_coloreffect_entry_point_blue">Blo ervirhiewen</string>
+    <string name="pref_camera_coloreffect_entry_point_green">Gréng ervirhiewen</string>
+    <string name="pref_camera_coloreffect_entry_point_red_yellow">Rout-Giel ervirhiewen</string>
+    <string name="pref_camera_coloreffect_entry_cartoonize">Cartoon-aarteg</string>
+    <string name="pref_camera_flashmode_entry_redeye">Rout Aen</string>
+    <string name="pref_camera_flashmode_label_redeye">ROUT AEN</string>
+    <string name="pref_camera_power_shutter_title">Uschaltknäppchen-Ausléiser</string>
+    <string name="pref_camera_max_brightness_title">Helle Schierm</string>
+    <string name="pref_camera_focustime_title">Touch-Fokus-Dauer</string>
+    <string name="pref_camera_focustime_entry_0">0 s</string>
+    <string name="pref_camera_focustime_entry_3">3 s</string>
+    <string name="pref_camera_focustime_entry_5">5s</string>
+    <string name="pref_camera_focustime_entry_10">10s</string>
+    <string name="pref_camera_focustime_entry_infinite">Onendlech</string>
+    <string name="pref_camera_shutter_speed_title">Verschlosszäit</string>
+    <string name="auto_hdr_enabled">Auto-HDR aktivéiert</string>
+</resources>

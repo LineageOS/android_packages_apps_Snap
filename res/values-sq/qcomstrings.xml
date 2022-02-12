@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright (c) 2012-2014, 2016, The Linux Foundation. All rights reserved.
+
+    Not a Contribution.
+
+    Copyright (C) 2007 The Android Open Source Project
+    Copyright (C) 2017 The LineageOS Project
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<resources>
+    <string name="pref_camera_powermode_title">Profili i energjisë</string>
+    <string name="pref_camera_powermode_entry_lp">Energji e ulët</string>
+    <string name="pref_camera_powermode_entry_np">Energji normale</string>
+    <string name="pref_camera_skinToneEnhancement_entry_enable">Aktivizo</string>
+    <string name="pref_camera_skinToneEnhancement_entry_disable">Çaktivizo</string>
+    <string name="pref_camera_manual_exp_entry_off">Inaktiv</string>
+    <string name="pref_camera_manual_wb_entry_off">Inaktiv</string>
+    <string name="pref_camera_manual_focus_entry_off">Inaktiv</string>
+    <string name="pref_camera_instant_capture_title" translatable="true">Shkrepje e menjëhershme</string>
+    <string name="pref_camera_instant_capture_entry_aggressive_aec" translatable="true">AEC agresiv</string>
+    <string name="pref_camera_instant_capture_entry_fast_aec" translatable="true">AEC e shpejtë</string>
+    <string name="pref_camera_instant_capture_entry_disable" translatable="true">Çaktivizo</string>
+    <string name="pref_camera_zsl_entry_off">Inaktiv</string>
+    <string name="pref_camera_zsl_entry_on">Aktiv</string>
+    <string name="hdr_enable_message">HDR u aktivizua. Vetëm profili i peizazhit Auto është i pranueshëm</string>
+    <string name="scene_enable_message">HDR nuk është i pranueshëm në asnjë profil skene përveç atij Auto</string>
+    <string name="pref_camera_video_hdr_entry_off">Inaktiv</string>
+    <string name="pref_camera_video_hdr_entry_on">Aktiv</string>
+    <string name="pref_camera_cds_entry_off">Inaktiv</string>
+    <string name="pref_camera_cds_entry_on">Aktiv</string>
+    <string name="pref_camera_video_cds_entry_off">Inaktiv</string>
+    <string name="pref_camera_video_cds_entry_on">Aktiv</string>
+    <string name="pref_camera_tnr_entry_disable">Çaktivizo</string>
+    <string name="pref_camera_tnr_entry_enable">Aktivizo</string>
+    <string name="pref_camera_video_tnr_entry_disable">Çaktivizo</string>
+    <string name="pref_camera_video_tnr_entry_enable">Aktivizo</string>
+    <string name="pref_camera_video_hdr_title">Video HDR</string>
+    <string name="pref_camera_facedetection_title">Dallimi i fytyrës</string>
+    <string name="pref_camera_facedetection_entry_off">Inaktiv</string>
+    <string name="pref_camera_facedetection_entry_on">E aktivizuar</string>
+    <string name="pref_selfie_flash_entry_off">Inaktiv</string>
+    <string name="pref_selfie_flash_entry_on">E aktivizuar</string>
+    <string name="pref_camera_redeyereduction_entry_enable">Aktivizo</string>
+    <string name="pref_camera_redeyereduction_entry_disable">Çaktivizo</string>
+    <string name="pref_camera_selfiemirror_title" translatable="true">Pasqyra selfie</string>
+    <string name="pref_camera_selfiemirror_entry_enable">Aktivizo</string>
+    <string name="pref_camera_selfiemirror_entry_disable">Çaktivizo</string>
+    <string name="pref_camera_shuttersound_title" translatable="true">Tingulli i shkrepjes</string>
+    <string name="pref_camera_shuttersound_entry_enable">E aktivizuar</string>
+    <string name="pref_camera_shuttersound_entry_disable">E çaktivizuar</string>
+    <string name="error_app_unsupported_hsr">Profili i shpejtësisë së lartë nuk është i disponueshëm për madhësinë e zgjedhur të videos. Zgjidhni një madhësi videoje më të vogël</string>
+    <string name="error_app_unsupported_profile">Profil video i papranueshëm</string>
+    <string name="pref_camera_ae_bracket_hdr_entry_on">Aktiv</string>
+    <string name="err_app_unsupport_ae_bracket_code">Grupimi AE është ende i papranueshëm</string>
+    <string name="snapshot_lower_than_video">Madhësia e videos së çastit është më e vogel se madhësia e videos. Zgjidhni një rezolucion më të lartë ose të barabartë me madhësinë e videos aktuale.</string>
+    <string name="snapshotsize_low_powermode">Ndryshimi i madhësisë së fotos nuk është i pranueshëm në profilin Energji e Ulët. Zgjidhni profilin Energji Normale për të lejuar ndryshimin e madhësisë së fotos.</string>
+    <string name="snapshot_qcif_and_d1">Vetëm video e çastit me madhësi videoje është e pranueshme për këtë rezolucion.</string>
+    <string name="pref_camera_hfr_entry_off">Inaktiv</string>
+    <string name="pref_camera_hfr_entry_hsr_60">Shpejtësi e lartë 60 FPS</string>
+    <string name="pref_camera_hfr_entry_hsr_90">Shpejtësi e lartë 90 FPS</string>
+    <string name="pref_camera_hfr_entry_hsr_120">Shpejtësi e lartë 120 FPS</string>
+    <string name="pref_camera_hfr_entry_hsr_240">Shpejtësi e lartë 240 FPS</string>
+    <string name="pref_camera_noise_reduction_title">Reduktimi i zhurmave</string>
+    <string name="pref_camera_noise_reduction_entry_off">Inaktiv</string>
+    <string name="pref_camera_noise_reduction_entry_fast">I shpejtë</string>
+    <string name="pref_camera_noise_reduction_entry_high_quality">Me cilësi të lartë</string>
+    <string name="pref_camera_see_more_entry_off">Inaktiv</string>
+    <string name="pref_camera_see_more_entry_on">Aktiv</string>
+    <string name="pref_camera_denoise_title">Reduktimi i zhurmave</string>
+    <string name="pref_camera_denoise_entry_off">Inaktiv</string>
+    <string name="pref_camera_denoise_entry_on">Aktiv</string>
+    <string name="pref_camera_iso_title">ISO</string>
+    <string name="pref_camera_iso_entry_auto">Auto</string>
+    <string name="pref_camera_iso_entry_isodeblur">Auto (HJR)</string>
+    <string name="pref_camera_iso_entry_iso100">ISO100</string>
+    <string name="pref_camera_iso_entry_iso200">ISO200</string>
+    <string name="pref_camera_iso_entry_iso1600">ISO1600</string>
+    <string name="pref_camera_antibanding_title">Antibanding</string>
+    <string name="pref_camera_antibanding_entry_0">Inaktiv</string>
+    <string name="pref_camera_antibanding_entry_1">50 Hz (Evropë)</string>
+    <string name="pref_camera_antibanding_entry_2">60 Hz (SHBA)</string>
+    <string name="pref_camera_filter_mode_entry_on">Aktiv</string>
+    <string name="pref_camera_filter_mode_entry_off">Inaktiv</string>
+    <string name="pref_camera_coloreffect_title">Efekti i ngjyrave</string>
+    <string name="pref_camera_filter_mode_title">Efekti i ngjyrave</string>
+    <string name="pref_camera_coloreffect_entry_none">Asnjë</string>
+    <string name="pref_camera_coloreffect_entry_mono">Mono</string>
+    <string name="pref_camera_coloreffect_entry_sepia">Sepia</string>
+    <string name="pref_camera_coloreffect_entry_negative">Negativ</string>
+    <string name="pref_camera_touchafaec_entry_off">Inaktiv</string>
+    <string name="pref_camera_touchafaec_entry_on">Aktiv</string>
+    <string name="pref_camera_dis_entry_off">Inaktiv</string>
+    <string name="pref_camera_dis_entry_on">Aktiv</string>
+    <string name="pref_camera_facerc_entry_off">Inaktiv</string>
+    <string name="pref_camera_facerc_entry_on">Aktiv</string>
+    <string name="pref_camera_sharpness_entry_level0">Niveli 0</string>
+    <string name="pref_camera_sharpness_entry_level1">Niveli 1</string>
+    <string name="pref_camera_sharpness_entry_level2">Niveli 2 (I parazgjedhur)</string>
+    <string name="pref_camera_sharpness_entry_level3">Niveli 3</string>
+    <string name="pref_camera_sharpness_entry_level4">Niveli 4</string>
+    <string name="pref_camera_sharpness_entry_level5">Niveli 5</string>
+    <string name="pref_camera_sharpness_entry_level6">Niveli 6</string>
+    <string name="pref_camera_contrast_entry_level0">Niveli 0</string>
+    <string name="pref_camera_contrast_entry_level1">Niveli 1</string>
+    <string name="pref_camera_contrast_entry_level2">Niveli 2</string>
+    <string name="pref_camera_contrast_entry_level3">Niveli 3</string>
+    <string name="pref_camera_contrast_entry_level4">Niveli 4</string>
+    <string name="pref_camera_contrast_entry_level5">Niveli 5 (I parazgjedhur)</string>
+    <string name="pref_camera_contrast_entry_level6">Niveli 6</string>
+    <string name="pref_camera_contrast_entry_level7">Niveli 7</string>
+    <string name="pref_camera_contrast_entry_level8">Niveli 8</string>
+    <string name="pref_camera_contrast_entry_level9">Niveli 9</string>
+    <string name="pref_camera_contrast_title">Kontrasti</string>
+    <string name="pref_camera_saturation_title">Saturimi</string>
+    <string name="pref_camera_picture_format_title">Formati i fotos</string>
+    <string name="pref_camera_jpegquality_title">Cilësia e fotos</string>
+    <string name="pref_camera_jpegquality_entry_0">E ulët</string>
+    <string name="pref_camera_jpegquality_entry_1">Standart</string>
+    <string name="pref_camera_jpegquality_entry_2">E lartë</string>
+    <string name="pref_camera_histogram_title">Histogram</string>
+    <string name="pref_camera_histogram_entry_enable">Aktivizo</string>
+    <string name="pref_camera_histogram_entry_disable">Çaktivizo</string>
+    <string name="pref_camera_scenedetect_title">Përcaktimi automatik i peizazhit</string>
+    <string name="pref_camera_scenedetect_entry_off">Inaktiv</string>
+    <string name="pref_camera_scenedetect_entry_on">Aktiv</string>
+    <string name="time_lapse_error">Madhësi videoje e pavlefshme për regjistrim \'time-lapse\'.</string>
+    <string name="msg_cancel_longshot_for_limited_memory">Memoria po mbaron. Për këtë arsye profili i fotove të vazhdueshme do të çaktivizohet</string>
+    <string name="pref_camera_auto_hdr_entry_enable">Aktivizo</string>
+    <string name="pref_camera_auto_hdr_entry_disable">Çaktivizo</string>
+    <string name="pref_camera_video_rotation_title">Rrotullimi i videos</string>
+    <string name="pref_camera_video_rotation_label">RROTULLIMI I VIDEOS</string>
+    <string name="pref_camera_video_rotation_entry_0">0 gradë</string>
+    <string name="pref_camera_video_rotation_entry_90">90 gradë</string>
+    <string name="pref_camera_video_rotation_entry_180">180 gradë</string>
+    <string name="pref_camera_video_rotation_entry_270">270 gradë</string>
+    <string name="camera_gesture_title">Hap kamerën</string>
+    <string name="pref_camera_tsmakeup_title">Zbukurimi</string>
+    <string name="pref_camera_tsmakeup_entry_on">Aktiv</string>
+    <string name="pref_camera_tsmakeup_entry_off">Inaktiv</string>
+    <string name="pref_camera_tsmakeup_entry_low">I ulët</string>
+    <string name="pref_camera_tsmakeup_entry_mid">Mesatar</string>
+    <string name="pref_camera_tsmakeup_entry_high">I lartë</string>
+    <string name="pref_camera_tsmakeup_custom">I personalizuar</string>
+    <string name="pref_camera_tsmakeup_level_whiten">Zbardh</string>
+    <string name="pref_camera_tsmakeup_level_clean">Zbut</string>
+    <string name="text_tsmakeup_alert_title">Kujdes</string>
+    <string name="text_tsmakeup_alert_msg">Dallimi i fytyrës duhet të jetë aktivizuar nëse do të përdorësh funksionin e zbukurimit. Dëshiron të vazhdosh?</string>
+    <string name="text_tsmakeup_alert_continue">Vazhdo</string>
+    <string name="text_tsmakeup_alert_quit">Anullo</string>
+    <string name="text_tsmakeup_beautify_toast">Zbukuro</string>
+    <string name="refocus_prompt_message">Me UbiFocus, kamera do të bëjë 5 foto sa herë të shtypni butonin e shkrepjes. Këto 5 foto do të bashkohen në 1 foto të vetme ku çdo gjë do jetë në fokus. Ju mund të rifokusoni pasi të jetë bërë fotoja.</string>
+    <string name="camera_thermal_shutdown">Telefoni është i tejnxehur. Kamera do mbyllet.</string>
+    <string name="camera_server_died">Serveri i medias u fik. Kamera do mbyllet.</string>
+    <string name="camera_unknown_error">Gabim i panjohur, kamera po mbyllet.</string>
+    <string name="mute_button_desc">Butoni për të hequr zërin</string>
+    <string name="help_menu_ok">OK</string>
+    <string name="help_menu_scene_mode_1">Zgjidh një</string>
+    <string name="help_menu_scene_mode_2">profil Peizazhi</string>
+    <string name="help_menu_scene_mode_3">për foto më të mira</string>
+    <string name="help_menu_color_filter_1">Apliko filtra</string>
+    <string name="help_menu_color_filter_2">ngjyrash</string>
+    <string name="help_menu_color_filter_3">për të</string>
+    <string name="help_menu_color_filter_4">përmirësuar fotot</string>
+    <string name="help_menu_beautify_1">Përmirëso portretet</string>
+    <string name="help_menu_beautify_2">me</string>
+    <string name="help_menu_beautify_3">funksionin Zbukuro</string>
+    <string name="help_menu_switcher_1">Zgjidh</string>
+    <string name="help_menu_switcher_2">midis</string>
+    <string name="help_menu_switcher_3">kamerës, videos dhe panoramës</string>
+    <string name="pref_camera2_camera2_title">Profili Camera2</string>
+    <string name="pref_camera2_camera2_entry_enable">Aktivizo</string>
+    <string name="pref_camera2_camera2_entry_disable">Çaktivizo</string>
+    <string name="pref_camera2_mono_only_title">Vetëm mono</string>
+    <string name="pref_camera2_mono_only_entry_on">Aktive</string>
+    <string name="pref_camera2_mono_only_entry_off">Inaktiv</string>
+    <string name="pref_camera2_mono_preview_title">Shikim paraprak Monokromatik</string>
+    <string name="pref_camera2_mono_preview_entry_on">Aktiv</string>
+    <string name="pref_camera2_mono_preview_entry_off">Inaktiv</string>
+    <string name="pref_camera2_clearsight_entry_on">Aktiv</string>
+    <string name="pref_camera2_clearsight_entry_off">Inaktiv</string>
+    <string name="clearsight_capture_success">Kapja ClearSight u krye me sukses</string>
+    <string name="clearsight_capture_fail">Kapja ClearSight dështoi</string>
+    <string name="pref_camera2_mpo_title">Formati MPO</string>
+    <string name="pref_camera2_mpo_entry_on">Aktiv</string>
+    <string name="pref_camera2_mpo_entry_off">Inaktiv</string>
+    <string name="pref_camera2_makeup_title">Makijazhi</string>
+    <string name="pref_camera2_makeup_entry_on">Aktive</string>
+    <string name="pref_camera2_makeup_entry_off">Inaktiv</string>
+    <string name="pref_camera2_noise_reduction_title">Reduktimi i zhurmave</string>
+    <string name="pref_camera2_noise_reduction_entry_off">Inaktiv</string>
+    <string name="pref_camera2_noise_reduction_entry_fast">I shpejtë</string>
+    <string name="pref_camera2_noise_reduction_entry_high_quality">Me cilësi të lartë</string>
+    <string name="pref_camera2_videosnap_title">Madhësia automatike e fotos së çastit</string>
+    <string name="pref_camera2_videosnap_entry_enable">Aktivizo</string>
+    <string name="pref_camera2_videosnap_entry_disable">Çaktivizo</string>
+    <string name="pref_camera2_trackingfocus_title">Ndjekja e fokusit</string>
+    <string name="pref_camera2_trackingfocus_entry_on">Aktive</string>
+    <string name="pref_camera2_trackingfocus_entry_off">Inaktiv</string>
+    <string name="pref_camera_scenemode_entry_bestpicture">Fotoja më e mirë</string>
+    <string name="bestpicture_done">U KRYE</string>
+    <string name="bestpicture_at_least_one_picture">Duhet zgjedhur të paktën një foto.</string>
+    <string name="pref_camera2_shutter_sound_entry_on">Aktiv</string>
+    <string name="pref_camera2_shutter_sound_entry_off">Inaktiv</string>
+    <string name="pref_camera2_shutter_sound_title">Tingulli i shkrepjes</string>
+    <string name="pref_camera2_initial_camera_entry_bayer">Filtri Bayer</string>
+    <string name="pref_camera2_initial_camera_entry_mono">Mono</string>
+    <string name="pref_camera2_initial_camera_entry_front">Përpara</string>
+</resources>

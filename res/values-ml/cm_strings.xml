@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2013-2015 The CyanogenMod Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="pref_camera_scenemode_entry_antimotionblur">മോഷൻ ബ്ലര്‍ റിഡക്ഷൻ</string>
+    <string name="pref_camera_scenemode_entry_aqua">അക്വാ</string>
+    <string name="pref_camera_scenemode_entry_ar">ആഗ്മെന്റഡ് റിയാലിറ്റി</string>
+    <string name="pref_camera_scenemode_entry_asd">മികച്ച ഷോട്ട്</string>
+    <string name="pref_camera_scenemode_entry_baby">ശിശു</string>
+    <string name="pref_camera_scenemode_entry_backgroundblur">പശ്ചാത്തലം അവ്യക്തമാക്കല്‍</string>
+    <string name="pref_camera_scenemode_entry_backlight">ബാക്ക്‌ലൈറ്റ്</string>
+    <string name="pref_camera_scenemode_entry_backlightportrait">ബാക്ക്‌ലൈറ്റ് പോർട്രെയ്റ്റ്</string>
+    <string name="pref_camera_scenemode_entry_barcode">ബാർകോഡ്</string>
+    <string name="pref_camera_scenemode_entry_beach">ബീച്ച്</string>
+    <string name="pref_camera_scenemode_entry_beauty">സൗന്ദര്യം</string>
+    <string name="pref_camera_scenemode_entry_candlelight">മെഴുകുതിരിവെളിച്ചം</string>
+    <string name="pref_camera_scenemode_entry_cine">സിനി</string>
+    <string name="pref_camera_scenemode_entry_closeup">ക്ലോസ് അപ്പ്</string>
+    <string name="pref_camera_scenemode_entry_dark">ഇരുണ്ട</string>
+    <string name="pref_camera_scenemode_entry_dish">ഡിഷ്</string>
+    <string name="pref_camera_scenemode_entry_duskdawn">ഡസ്ക്ഡോണ്‍</string>
+    <string name="pref_camera_scenemode_entry_document">പ്രമാണം</string>
+    <string name="pref_camera_scenemode_entry_fallcolor">ഫാള്‍കളര്‍</string>
+    <string name="pref_camera_scenemode_entry_fireworks">ഫയര്‍വര്‍ക്സ്</string>
+    <string name="pref_camera_scenemode_entry_flowers">പൂക്കള്‍</string>
+    <string name="pref_camera_scenemode_entry_handheldtwilight">പിടിക്കാവുന്ന സന്ധ്യ</string>
+    <string name="pref_camera_scenemode_entry_indoor">ഇൻഡോർ</string>
+    <string name="pref_camera_scenemode_entry_landscape">തിരശ്ചീനദിശ</string>
+    <string name="pref_camera_scenemode_entry_mix_illuminant">മിക്സ്ഡ് ലൈറ്റിംഗ്</string>
+    <string name="pref_camera_scenemode_entry_mood">മൂഡ്‌</string>
+    <string name="pref_camera_scenemode_entry_nightportrait">രാത്രി പോർട്രെയ്റ്റ്</string>
+    <string name="pref_camera_scenemode_entry_nightindoor">രാത്രി ഇൻഡോർ</string>
+    <string name="pref_camera_scenemode_entry_oldfilm">പഴയ ഫിലിം</string>
+    <string name="pref_camera_scenemode_entry_pet">വളര്‍ത്തുമൃഗം</string>
+    <string name="pref_camera_scenemode_entry_portrait">പോർട്രെയിറ്റ്</string>
+    <string name="pref_camera_scenemode_entry_snow">മഞ്ഞ്</string>
+    <string name="pref_camera_scenemode_entry_softskin">മൃദുവായ ചര്‍മ്മം</string>
+    <string name="pref_camera_scenemode_entry_sports">കായികം</string>
+    <string name="pref_camera_scenemode_entry_spotlight">സ്പോട്ട്ലൈറ്റ്</string>
+    <string name="pref_camera_scenemode_entry_steadyphoto">സ്റ്റെഡി ഫോട്ടോ</string>
+    <string name="pref_camera_scenemode_entry_supernight">ഇരുണ്ട രാത്രി</string>
+    <string name="pref_camera_scenemode_entry_sweepstitch">സ്വീപ് സ്റ്റിച്ച്</string>
+    <string name="pref_camera_scenemode_entry_text">ടെക്സ്റ്റ്</string>
+    <string name="pref_camera_scenemode_entry_theatre">തിയേറ്റർ</string>
+    <string name="pref_camera_scenemode_entry_whiteboard">വൈറ്റ്ബോർഡ്</string>
+    <string name="pref_camera_focusmode_entry_continuous">തുടര്‍ച്ചയായ</string>
+    <string name="pref_camera_focusmode_entry_mw_continuous">തുടര്‍ച്ചയായ (MW)</string>
+    <string name="pref_camera_focusmode_entry_extended">വിപുലീകരിച്ച</string>
+    <string name="pref_camera_focusmode_entry_facedetect">ഫെയ്സ് ഡിറ്റക്റ്റ്</string>
+    <string name="pref_camera_focusmode_entry_facepriority">ഫെയ്സ് പ്രയോറിറ്റി</string>
+    <string name="pref_camera_focusmode_entry_fixed">ഫിക്സഡ്</string>
+    <string name="pref_camera_focusmode_entry_normal">സാധാരണ</string>
+    <string name="pref_camera_focusmode_entry_portrait">പോർട്രെയിറ്റ്</string>
+    <string name="pref_camera_focusmode_entry_hyperfocal">ഹൈപ്പര്‍ഫോക്കല്‍</string>
+    <string name="pref_camera_coloreffect_entry_washed">വാഷഡ്</string>
+    <string name="pref_camera_coloreffect_entry_vintage_warm">വിന്റേജ് വാം</string>
+    <string name="pref_camera_coloreffect_entry_vintage_cold">വിന്റേജ് കോള്‍ഡ്</string>
+    <string name="pref_camera_coloreffect_entry_point_blue">പോയിന്റ് നീല</string>
+    <string name="pref_camera_coloreffect_entry_point_green">പോയിന്റ് പച്ച</string>
+    <string name="pref_camera_coloreffect_entry_point_red_yellow">പോയിന്റ് ചുവപ്പ്-മഞ്ഞ</string>
+    <string name="pref_camera_coloreffect_entry_cartoonize">കാര്‍ട്ടൂണൈസ്</string>
+    <string name="pref_camera_flashmode_entry_redeye">റെഡ് ഐ</string>
+    <string name="pref_camera_flashmode_label_redeye">റെഡ് ഐ</string>
+    <string name="pref_camera_power_shutter_title">പവർ ഷട്ടർ</string>
+    <string name="pref_camera_max_brightness_title">തെളിച്ചമുള്ള സ്ക്രീൻ</string>
+    <string name="pref_camera_focustime_title">ടച്ച് ഫോക്കസ് ദൈർഘ്യം</string>
+    <string name="pref_camera_focustime_entry_0">0s</string>
+    <string name="pref_camera_focustime_entry_3">3s</string>
+    <string name="pref_camera_focustime_entry_5">5s</string>
+    <string name="pref_camera_focustime_entry_10">10s</string>
+    <string name="pref_camera_focustime_entry_infinite">അനന്തമായ</string>
+    <string name="pref_camera_shutter_speed_title">ഷട്ടർ സ്പീഡ്</string>
+    <string name="auto_hdr_enabled">ഓട്ടോ HDR പ്രാപ്തമാക്കി</string>
+</resources>

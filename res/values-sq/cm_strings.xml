@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2013-2015 The CyanogenMod Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="pref_camera_aspectratio_wide">E gjerë</string>
+    <string name="pref_camera_megapixel_format">(%1$s) %2$1.1f megapiksel</string>
+    <string name="pref_camera_scenemode_entry_baby">Bebe</string>
+    <string name="pref_camera_scenemode_entry_beach">Plazh</string>
+    <string name="pref_camera_scenemode_entry_highsensitivity">Ndjesi e lartë</string>
+    <string name="pref_camera_scenemode_entry_landscape">Peizazh</string>
+    <string name="pref_camera_scenemode_entry_portrait">Portret</string>
+    <string name="pref_camera_scenemode_entry_snow">Borë</string>
+    <string name="pref_camera_scenemode_entry_sports">Sporte</string>
+    <string name="pref_camera_scenemode_entry_steadyphoto">Foto stabël</string>
+    <string name="pref_camera_focusmode_entry_continuous">E vazhdueshme</string>
+    <string name="pref_camera_focusmode_entry_mw_continuous">E vazhdueshme (MW)</string>
+    <string name="pref_camera_focusmode_entry_facedetect">Dallo fytyrën</string>
+    <string name="pref_camera_focusmode_entry_facepriority">Fytyra prioritet</string>
+    <string name="pref_camera_focusmode_entry_fixed">E fiksuar</string>
+    <string name="pref_camera_focusmode_entry_normal">Normale</string>
+    <string name="pref_camera_power_shutter_title">Fikës i energjisë</string>
+    <string name="pref_camera_focustime_entry_0">0s</string>
+    <string name="pref_camera_focustime_entry_3">3s</string>
+    <string name="pref_camera_focustime_entry_5">5s</string>
+    <string name="pref_camera_focustime_entry_10">10s</string>
+    <string name="pref_camera_shutter_speed_title">Shpejtësia e shkrepjes</string>
+    <string name="auto_hdr_enabled">HDR automatik i aktivizuar</string>
+</resources>

@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright (c) 2012-2014, 2016, The Linux Foundation. All rights reserved.
+
+    Not a Contribution.
+
+    Copyright (C) 2007 The Android Open Source Project
+    Copyright (C) 2017 The LineageOS Project
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<resources>
+    <string name="pref_camera_autoexposure_title">ઑટો એક્સપોઝર</string>
+    <string name="pref_camera_autoexposure_entry_frameaverage">ફ્રેમ એવરેજ</string>
+    <string name="pref_camera_autoexposure_entry_centerweighted">સેન્ટર વેઇટેડ</string>
+    <string name="pref_camera_autoexposure_entry_spotmetering">સ્પૉટ મિટરિંગ</string>
+    <string name="pref_camera_videoencoder_title">વિડિયો કોડેક</string>
+    <string name="pref_camera_videoencoder_dialogtitle">વિડિયો કોડેક</string>
+    <string name="pref_camera_audioencoder_title">ઑડિયો કોડેક</string>
+    <string name="pref_camera_skinToneEnhancement_title">સ્કિન ટોન વર્ધન</string>
+    <string name="pref_camera_zsl_title">શૂન્ય શટર લૅગ</string>
+    <string name="pref_camera_selectablezoneaf_title">ઑટોફોકસ ઝોન</string>
+    <string name="pref_camera_selectablezoneaf_entry_auto">સ્વતઃ</string>
+    <string name="pref_camera_selectablezoneaf_entry_spotmetering">સ્પૉટ મિટરિંગ</string>
+    <string name="pref_camera_selectablezoneaf_entry_centerweighted">સેન્ટર વેઇટેડ</string>
+    <string name="pref_camera_selectablezoneaf_entry_frameaverage">ફ્રેમ એવરેજ</string>
+    <string name="pref_camera_advanced_features_title">ઍડવાન્સ્ડ ફીચરો</string>
+    <string name="pref_camera_advanced_feature_entry_none">કોઈ નહીં</string>
+    <string name="pref_camera_advanced_feature_entry_multi_touch_focus">બહુવિધ-ટચ ફોકસ</string>
+    <string name="pref_camera_manual_exp_title">મેન્યુલ એક્સપોઝર</string>
+    <string name="pref_camera_manual_exp_entry_ISO_priority">ISO અગ્રતા</string>
+    <string name="pref_camera_manual_exp_entry_exptime_priority">એક્સપોઝર સમય અગ્રતા</string>
+    <string name="pref_camera_manual_exp_entry_user_setting">ઉપયોગકર્તા સેટિંગ</string>
+    <string name="pref_camera_manual_exp_entry_off">બંધ</string>
+    <string name="pref_camera_manual_wb_title">મૅન્યુઅલ વ્હાઇટ બેલેન્સ</string>
+    <string name="pref_camera_manual_wb_entry_color_temperature">રંગ તાપમાન</string>
+    <string name="pref_camera_manual_wb_entry_rbgb_gains">RBGB ગેઇન્સ</string>
+    <string name="pref_camera_manual_wb_entry_off">બંધ</string>
+    <string name="pref_camera_manual_focus_title">મૅન્યુઅલ ફોકસ</string>
+    <string name="pref_camera_manual_focus_entry_scale_mode">સ્કેલ મોડ</string>
+    <string name="pref_camera_manual_focus_entry_diopter_mode">ડાઇઓપ્ટર મોડ</string>
+    <string name="pref_camera_manual_focus_entry_off">બંધ</string>
+    <string name="pref_camera_zsl_entry_off">બંધ</string>
+    <string name="pref_camera_video_hdr_entry_off">બંધ</string>
+    <string name="pref_camera_cds_entry_off">બંધ</string>
+    <string name="pref_camera_cds_entry_auto">સ્વતઃ</string>
+    <string name="pref_camera_video_cds_entry_off">બંધ</string>
+    <string name="pref_camera_video_cds_entry_auto">સ્વતઃ</string>
+    <string name="pref_camera_video_hdr_title">વિડિયો HDR</string>
+    <string name="pref_camera_cds_title">CDS મોડ</string>
+    <string name="pref_camera_video_cds_title">વિડિયો CDS મોડ</string>
+    <string name="pref_camera_tnr_title">TNR મોડ</string>
+    <string name="pref_camera_video_tnr_title">વિડિયો TNR મોડ</string>
+    <string name="pref_camera_facedetection_title">ફેસ ડિટેક્શન</string>
+    <string name="pref_camera_facedetection_entry_off">બંધ</string>
+    <string name="pref_selfie_flash_title">સેલ્ફી ફ્લેશ</string>
+    <string name="pref_selfie_flash_entry_off">બંધ</string>
+    <string name="pref_camera_redeyereduction_title">રેડ આઇ રિડક્શન</string>
+    <string name="error_app_unsupported_hfr_selection">જ્યારે સ્થિરિકરણ/ટાઇમ લૅપ્સ/HDRનો ઉપયોગ કરો ત્યારે ઉચ્ચ ફ્રેમરેટ રેકૉર્ડિંગને સમર્થન નથી.</string>
+    <string name="error_app_unsupported_hfr">પસંદ કરેલ વિડિયો સાઇઝ માટે સ્લો મોશન મોડને સમર્થન નથી. નિમ્ન વિડિયો સાઇઝ પસંદ કરો</string>
+    <string name="error_app_unsupported_dis">પસંદ કરેલ વિડિયો સાઇઝ માટે સ્થિરિકરણને સમર્થન નથી. નિમ્ન વિડિયો સાઇઝ પસંદ કરો</string>
+    <string name="error_app_unsupported_hsr">પસંદ કરેલ વિડિયો સાઇઝ માટે હાઇ સ્પીડ મોડને સમર્થન નથી. નિમ્ન વિડિયો સાઇઝ પસંદ કરો</string>
+    <string name="error_app_unsupported_hfr_codec">જ્યારે HFR ON હોય ત્યારે ફક્ત H264 વિડિયો એનકોડિંગને સમર્થન છે</string>
+    <string name="error_app_unsupported">આ એનકોડર પ્રકાર માટે અસમર્થિત વિડિયો રિઝોલ્યુશન</string>
+    <string name="error_app_unsupported_raw">ઝીરો શટર લૅગ મોડમાં રો ચિત્ર ફૉર્મૅટને સમર્થન નથી. JPEG પસંદ કરો</string>
+    <string name="pref_camera_ae_bracket_hdr_entry_ae_bracket">AE બ્રેકેટિંગ</string>
+    <string name="pref_camera_ae_bracket_hdr_title">AE બ્રેકેટિંગ</string>
+    <string name="pref_camera_hfr_title">ઉચ્ચ-ફ્રેમરેટ રેકૉર્ડિંગ</string>
+    <string name="pref_camera_hfr_entry_off">બંધ</string>
+    <string name="pref_camera_hfr_entry_2x">સ્લો મોશન 60 FPS</string>
+    <string name="pref_camera_hfr_entry_3x">સ્લો મોશન 90 FPS</string>
+    <string name="pref_camera_hfr_entry_4x">સ્લો મોશન 120 FPS</string>
+    <string name="pref_camera_hfr_entry_8x">સ્લો મોશન 240 FPS</string>
+    <string name="pref_camera_hfr_entry_hsr_60">હાઇ સ્પીડ 60 FPS</string>
+    <string name="pref_camera_hfr_entry_hsr_90">હાઇ સ્પીડ 90 FPS</string>
+    <string name="pref_camera_hfr_entry_hsr_120">હાઇ સ્પીડ 120 FPS</string>
+    <string name="pref_camera_noise_reduction_entry_off">બંધ</string>
+    <string name="pref_camera_see_more_entry_off">બંધ</string>
+    <string name="pref_camera_denoise_title">ડિનોઇઝ</string>
+    <string name="pref_camera_denoise_entry_off">બંધ</string>
+    <string name="pref_camera_iso_title">ISO</string>
+    <string name="pref_camera_iso_entry_auto">સ્વતઃ</string>
+    <string name="pref_camera_iso_entry_isodeblur">ઑટો (HJR)</string>
+    <string name="pref_camera_iso_entry_iso100">ISO100</string>
+    <string name="pref_camera_iso_entry_iso200">ISO200</string>
+    <string name="pref_camera_iso_entry_iso400">ISO400</string>
+    <string name="pref_camera_iso_entry_iso800">ISO800</string>
+    <string name="pref_camera_iso_entry_iso1600">ISO1600</string>
+    <string name="pref_camera_antibanding_title">ઍન્ટિબેન્ડિંગ</string>
+    <string name="pref_camera_antibanding_entry_0">બંધ</string>
+    <string name="pref_camera_antibanding_entry_1">50 Hz (યુરોપ)</string>
+    <string name="pref_camera_antibanding_entry_2">60 Hz (યુએસએ)</string>
+    <string name="pref_camera_antibanding_entry_3">સ્વતઃ</string>
+    <string name="pref_camera_filter_mode_entry_off">બંધ</string>
+    <string name="pref_camera_coloreffect_title">કલર અસરકારક</string>
+    <string name="pref_camera_filter_mode_title">કલર અસરકારક</string>
+    <string name="pref_camera_coloreffect_entry_none">કોઈ નહીં</string>
+    <string name="pref_camera_coloreffect_entry_mono">મોનો</string>
+    <string name="pref_camera_coloreffect_entry_sepia">સિપીઆ</string>
+    <string name="pref_camera_coloreffect_entry_negative">નકારાત્મક</string>
+    <string name="pref_camera_coloreffect_entry_solarize">સોલરાઇઝ</string>
+    <string name="pref_camera_coloreffect_entry_posterize">પોસ્ટરાઇઝ</string>
+    <string name="pref_camera_coloreffect_entry_aqua">એક્વા</string>
+    <string name="pref_camera_coloreffect_entry_emboss">એમ્બોસ</string>
+    <string name="pref_camera_coloreffect_entry_sketch">સ્કૅચ</string>
+    <string name="pref_camera_coloreffect_entry_neon">નિઓન</string>
+    <string name="pref_camera_coloreffect_entry_pastel">પેસ્ટલ</string>
+    <string name="pref_camera_coloreffect_entry_mosaic">મોઝેક</string>
+    <string name="pref_camera_coloreffect_entry_redtint">લાલ ઝાંય</string>
+    <string name="pref_camera_coloreffect_entry_bluetint">બ્લ્યુ ઝાંય</string>
+    <string name="pref_camera_coloreffect_entry_greentint">લીલી ઝાંય</string>
+    <string name="pref_camera_touchafaec_entry_off">બંધ</string>
+    <string name="pref_camera_dis_title">સ્થિરિકરણ</string>
+    <string name="pref_camera_dis_entry_off">બંધ</string>
+    <string name="pref_camera_facerc_title">ફેસ રેકગ્નિશન</string>
+    <string name="pref_camera_facerc_entry_off">બંધ</string>
+    <string name="pref_camera_sharpness_entry_level0">સ્તર 0</string>
+    <string name="pref_camera_sharpness_entry_level1">સ્તર 1</string>
+    <string name="pref_camera_sharpness_entry_level2">સ્તર 2 (ડિફૉલ્ટ)</string>
+    <string name="pref_camera_sharpness_entry_level3">સ્તર 3</string>
+    <string name="pref_camera_sharpness_entry_level4">સ્તર 4</string>
+    <string name="pref_camera_sharpness_entry_level5">સ્તર 5</string>
+    <string name="pref_camera_sharpness_entry_level6">સ્તર 6</string>
+    <string name="pref_camera_contrast_entry_level0">સ્તર 0</string>
+    <string name="pref_camera_contrast_entry_level1">સ્તર 1</string>
+    <string name="pref_camera_contrast_entry_level2">સ્તર 2</string>
+    <string name="pref_camera_contrast_entry_level3">સ્તર 3</string>
+    <string name="pref_camera_contrast_entry_level4">સ્તર 4</string>
+    <string name="pref_camera_contrast_entry_level5">સ્તર 5 (ડિફૉલ્ટ)</string>
+    <string name="pref_camera_contrast_entry_level6">સ્તર 6</string>
+    <string name="pref_camera_contrast_entry_level7">સ્તર 7</string>
+    <string name="pref_camera_contrast_entry_level8">સ્તર 8</string>
+    <string name="pref_camera_contrast_entry_level9">સ્તર 9</string>
+    <string name="pref_camera_contrast_entry_level10">સ્તર 10</string>
+    <string name="pref_camera_saturation_entry_level0">સ્તર 0</string>
+    <string name="pref_camera_saturation_entry_level1">સ્તર 1</string>
+    <string name="pref_camera_saturation_entry_level2">સ્તર 2</string>
+    <string name="pref_camera_saturation_entry_level3">સ્તર 3</string>
+    <string name="pref_camera_saturation_entry_level4">સ્તર 4</string>
+    <string name="pref_camera_saturation_entry_level5">સ્તર 5 (ડિફૉલ્ટ)</string>
+    <string name="pref_camera_saturation_entry_level6">સ્તર 6</string>
+    <string name="pref_camera_saturation_entry_level7">સ્તર 7</string>
+    <string name="pref_camera_saturation_entry_level8">સ્તર 8</string>
+    <string name="pref_camera_saturation_entry_level9">સ્તર 9</string>
+    <string name="pref_camera_saturation_entry_level10">સ્તર 10</string>
+    <string name="pref_camera_sharpness_title">તીક્ષ્ણતા</string>
+    <string name="pref_camera_contrast_title">વિપરીત</string>
+    <string name="pref_camera_saturation_title">સંતૃપ્તિ</string>
+    <string name="pref_camera_picture_format_title">ચિત્ર ફૉર્મૅટ</string>
+    <string name="pref_camera_jpegquality_title">ચિત્ર ગુણવત્તા</string>
+    <string name="pref_camera_histogram_title">હિસ્ટોગ્રામ</string>
+    <string name="pref_camera_scenedetect_title">ઑટો સિન ડિટેક્શન</string>
+    <string name="pref_camera_scenedetect_entry_off">બંધ</string>
+    <string name="pref_camera_longshot_title">એકધારો શૉટ</string>
+    <string name="msg_cancel_longshot_for_limited_memory">મેમરી ઓછી થઈ રહી છે, એકધારો શૉટ રદ કરીએ છીએ</string>
+    <string name="flash_aebracket_message">AE બ્રેકેટિંગ મોડમાં ફ્લેશને સમર્થન નથી</string>
+    <string name="pref_camera_auto_hdr_title">ઑટો HDR</string>
+    <string name="on_switch_save_path_to_sdcard">આંતરિક સંગ્રહ જગ્યા પર્યાપ્ત નથી, સંગ્રહ સ્થાન SD કાર્ડ પર બદલવામાં આવ્યું</string>
+    <string name="pref_camera_hdr_mode_title">HDR મોડ</string>
+    <string name="pref_camera_hdr_mode_entry_sensor">સેન્સર HDR</string>
+    <string name="pref_camera_hdr_mode_entry_multi_frame">મલ્ટિ-ફ્રેમ HDR</string>
+    <string name="pref_camera_video_rotation_title">વિડિયો રોટેશન</string>
+    <string name="pref_camera_video_rotation_entry_0">0 અંશ</string>
+    <string name="pref_camera_video_rotation_entry_90">90 અંશ</string>
+    <string name="pref_camera_video_rotation_entry_180">180 અંશ</string>
+    <string name="pref_camera_video_rotation_entry_270">270 અંશ</string>
+    <string name="map_activity_not_found_err">સ્થાન દર્શાવવા માટે કોઇ મૅપ્સ એપ્લિકેશન ઇન્સ્ટૉલ થયેલ નથી</string>
+    <string name="longshot_enable_message">એકધારા શૉટ મોડ માટે ઍડવાન્સ્ડ ફિચર્સ સમર્થિત નથી</string>
+    <string name="advance_feature_enable_msg">જ્યારે ઍડવાન્સ્ડ ફિચર્સ સક્ષમ કર્યા હોય ત્યારે એકધારા શૉટને સમર્થન નથી</string>
+    <string name="camera_gesture_title">કેમેરા લૉન્ચ કરો</string>
+    <string name="pref_camera_tsmakeup_entry_off">બંધ</string>
+    <string name="all_in_focus">તમામ ફોકસમાં</string>
+    <string name="refocus_toast">છેલ્લો ફોટો ફરી ફોકસ કરવા અહીં ટૅપ કરો</string>
+    <string name="pref_camera2_mono_only_entry_off">બંધ</string>
+    <string name="pref_camera2_mono_preview_entry_off">બંધ</string>
+    <string name="pref_camera2_clearsight_entry_off">બંધ</string>
+    <string name="pref_camera2_mpo_entry_off">બંધ</string>
+    <string name="pref_camera2_makeup_entry_off">બંધ</string>
+    <string name="pref_camera2_noise_reduction_entry_off">બંધ</string>
+    <string name="pref_camera2_trackingfocus_entry_off">બંધ</string>
+    <string name="pref_camera2_shutter_sound_entry_off">બંધ</string>
+    <string name="pref_camera2_initial_camera_entry_mono">મોનો</string>
+</resources>

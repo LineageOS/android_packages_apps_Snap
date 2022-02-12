@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2013-2015 The CyanogenMod Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="pref_camera_scenemode_entry_antimotionblur">ମୋସନ୍‍ ବ୍ଲର୍‍ ହ୍ରାସ</string>
+    <string name="pref_camera_scenemode_entry_aqua">ଆକ୍ୱା</string>
+    <string name="pref_camera_scenemode_entry_ar">ଅଗ୍‍ମେଣ୍ଟେଡ୍‍ ରିଅଲିଟି</string>
+    <string name="pref_camera_scenemode_entry_asd">ସବୁଠାରୁ ଭଲ ସଟ୍‍</string>
+    <string name="pref_camera_scenemode_entry_baby">ଶିଶୁ</string>
+    <string name="pref_camera_scenemode_entry_backgroundblur">ପୃ‍ଷ୍ଠଭୂମି ବ୍ଲର୍‍</string>
+    <string name="pref_camera_scenemode_entry_backlight">ପୃଷ୍ଠପଟଆଲୋକ</string>
+    <string name="pref_camera_scenemode_entry_backlightportrait">ପୃଷ୍ଠପଟ ଆଲୋକ ପ୍ରତିକୃତି</string>
+    <string name="pref_camera_scenemode_entry_barcode">ବା‍ର୍କୋଡ୍‍</string>
+    <string name="pref_camera_scenemode_entry_beach">ବିଚ୍‍</string>
+    <string name="pref_camera_scenemode_entry_beauty">ବ୍ୟୁଟି</string>
+    <string name="pref_camera_scenemode_entry_candlelight">କ୍ୟାଣ୍ଡେଲ୍‍ଲାଇଟ୍‍</string>
+    <string name="pref_camera_scenemode_entry_cine">ସାଇନ୍‍</string>
+    <string name="pref_camera_scenemode_entry_closeup">କ୍ଲୋଜ୍‍ଅପ୍‍</string>
+    <string name="pref_camera_scenemode_entry_dark">ଅନ୍ଧାର</string>
+    <string name="pref_camera_scenemode_entry_dish">ଡିସ୍‍</string>
+    <string name="pref_camera_scenemode_entry_duskdawn">ଡସ୍କଡନ୍‍</string>
+    <string name="pref_camera_scenemode_entry_document">ଡକ୍ୟୁମେଣ୍ଟ୍</string>
+    <string name="pref_camera_scenemode_entry_fallcolor">ଫଲ୍‍କଲର୍‍</string>
+    <string name="pref_camera_scenemode_entry_fireworks">ଫାୟାରୱାର୍କ୍</string>
+    <string name="pref_camera_scenemode_entry_flowers">ଫୁଲଗୁଡିକ</string>
+    <string name="pref_camera_scenemode_entry_handheldtwilight">ହ୍ୟାଂଡ୍‍ହେଲ୍ଡ ଟ୍ୱିଲାଇଟ୍‍</string>
+    <string name="pref_camera_scenemode_entry_indoor">ଭିତର</string>
+    <string name="pref_camera_scenemode_entry_landscape">ଲ୍ୟାଣ୍ଡସ୍କେପ୍</string>
+    <string name="pref_camera_scenemode_entry_mix_illuminant">ମିକ୍ସ୍ଡ୍‍ ଲାଇଟିଂ</string>
+    <string name="pref_camera_scenemode_entry_mood">ମୁଡ୍‍</string>
+    <string name="pref_camera_scenemode_entry_nightportrait">ନାଇଟ୍‍ ପୋର୍ଟେଟ୍‍</string>
+    <string name="pref_camera_scenemode_entry_nightindoor">ନାଇଟ୍‍ ଇନ୍‍ଡୋର୍‍</string>
+    <string name="pref_camera_scenemode_entry_oldfilm">ପୁରୁଣା ଚଳଚ୍ଚିତ୍ର</string>
+    <string name="pref_camera_scenemode_entry_pet">ପୋଷା</string>
+    <string name="pref_camera_scenemode_entry_portrait">ପୋରଟ୍ରେଇଟ୍</string>
+    <string name="pref_camera_scenemode_entry_snow">ବରଫ</string>
+    <string name="pref_camera_scenemode_entry_softskin">ନରମ ତ୍ୱଚା</string>
+    <string name="pref_camera_scenemode_entry_sports">ଖେଳ</string>
+    <string name="pref_camera_scenemode_entry_spotlight">ସ୍ପଟ୍‍ଲାଇଟ୍‍</string>
+    <string name="pref_camera_scenemode_entry_steadyphoto">‍ସ୍ଥିର ଫଟୋ</string>
+    <string name="pref_camera_scenemode_entry_supernight">ଅଧାର ରାତ୍ରି</string>
+    <string name="pref_camera_scenemode_entry_sweepstitch">ସ୍ୱିପ୍‍ ଷ୍ଟିଚ୍‍</string>
+    <string name="pref_camera_scenemode_entry_text">ଟେକ୍ସଟ୍</string>
+    <string name="pref_camera_scenemode_entry_theatre">ଥିଏଟର୍‍</string>
+    <string name="pref_camera_scenemode_entry_whiteboard">ଧଳାବୋର୍ଡ୍‍</string>
+    <string name="pref_camera_focusmode_entry_continuous">ଜାରିରହିଥିବା</string>
+    <string name="pref_camera_focusmode_entry_mw_continuous">ଜାରିରହିଥିବା (MW)</string>
+    <string name="pref_camera_focusmode_entry_extended">ବ‍ର୍ଧିତ</string>
+    <string name="pref_camera_focusmode_entry_facedetect">ମୁଖ ସନ୍ଧାନ</string>
+    <string name="pref_camera_focusmode_entry_facepriority">ମୁଖ ପ୍ରାଧାନ୍ୟତା</string>
+    <string name="pref_camera_focusmode_entry_fixed">ନିର୍ଦ୍ଧିଷ୍ଟ</string>
+    <string name="pref_camera_focusmode_entry_normal">ସାଧାରଣ</string>
+    <string name="pref_camera_focusmode_entry_portrait">ପୋରଟ୍ରେଇଟ୍</string>
+    <string name="pref_camera_focusmode_entry_hyperfocal">ହାଇପରଫୋକାଲ୍‍</string>
+    <string name="pref_camera_coloreffect_entry_washed">ସଫା ହୋଇଥିବା</string>
+    <string name="pref_camera_coloreffect_entry_vintage_warm">ଭିନ୍ଟେଜ୍‍ ୱାର୍ମ୍‍</string>
+    <string name="pref_camera_coloreffect_entry_vintage_cold">ଭିଣ୍ଟେଜ୍‍ କୋଲ୍ଡ</string>
+    <string name="pref_camera_coloreffect_entry_point_blue">ପଏଣ୍ଟ ବ୍ଲୁ</string>
+    <string name="pref_camera_coloreffect_entry_point_green">ପଏଣ୍ଟ ଗ୍ରୀନ୍‍</string>
+    <string name="pref_camera_coloreffect_entry_point_red_yellow">ପଏଣ୍ଟ ରେଡ୍‍-ୟେଲୋ</string>
+    <string name="pref_camera_coloreffect_entry_cartoonize">କାର୍ଟୁନାଇଜ୍‍</string>
+    <string name="pref_camera_flashmode_entry_redeye">ଲାଲ୍ ଆଖି</string>
+    <string name="pref_camera_flashmode_label_redeye">ଲାଲ୍ ଆଖି</string>
+    <string name="pref_camera_power_shutter_title">ପାୱାର୍‍ ସଟର୍‍</string>
+    <string name="pref_camera_max_brightness_title">ଉଜ୍ଜ୍ୱଳ ସ୍କ୍ରିନ୍‍</string>
+    <string name="pref_camera_focustime_title">ଫୋକସ୍‍ ଅବଧି ସ୍ପର୍ଶ କରନ୍ତୁ</string>
+    <string name="pref_camera_focustime_entry_0">0s</string>
+    <string name="pref_camera_focustime_entry_3">3s</string>
+    <string name="pref_camera_focustime_entry_5">5s</string>
+    <string name="pref_camera_focustime_entry_10">10s</string>
+    <string name="pref_camera_focustime_entry_infinite">ଅସୀମ</string>
+    <string name="pref_camera_shutter_speed_title">ସଟର୍‍ ବେଗ</string>
+    <string name="auto_hdr_enabled">ସ୍ୱତଃ HDR ସଷମ କରାଯାଇଛି</string>
+</resources>
