@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2007 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name">Cámara</string>
+    <string name="video_camera_label">Gravadora de vídeo</string>
+    <string name="details_ms">%1$02d:%2$02d</string>
+    <string name="details_hms">%1$d:%2$02d:%3$02d</string>
+    <string name="set_image">Estabelecer imaxe como</string>
+    <string name="delete">Eliminar</string>
+    <plurals name="delete_selection">
+        <item quantity="one">Quere eliminar o obxecto seleccionado?</item>
+        <item quantity="other">Quere eliminar os obxectos seleccionados?</item>
+    </plurals>
+    <string name="share">Compartir</string>
+    <string name="share_panorama">Compartir panorámica</string>
+    <string name="share_as_photo">Compartir como foto</string>
+    <string name="deleted">Eliminada</string>
+    <string name="undo">DESFACER</string>
+    <string name="details">Detalles</string>
+    <string name="close">Pechar</string>
+    <plurals name="number_of_items_selected">
+        <item quantity="one">%1$d seleccionado</item>
+        <item quantity="other">%1$d seleccionados</item>
+    </plurals>
+    <plurals name="number_of_albums_selected">
+        <item quantity="one">%1$d seleccionado</item>
+        <item quantity="other">%1$d seleccionados</item>
+    </plurals>
+    <plurals name="number_of_groups_selected">
+        <item quantity="one">%1$d seleccionado</item>
+        <item quantity="other">%1$d seleccionados</item>
+    </plurals>
+    <string name="show_on_map">Amosar no mapa</string>
+    <string name="rotate_left">Xirar a esquerda</string>
+    <string name="rotate_right">Xirar á dereita</string>
+    <string name="edit">Editar</string>
+    <string name="crop_action">Recortar</string>
+    <string name="trim_action">Recortar</string>
+    <string name="set_as">Estabelecer como</string>
+    <string name="video_err">Non se puido reproducir o vídeo.</string>
+    <string name="crop_saved">        A imaxe recortada gardouse en <xliff:g id="folder_name">%s</xliff:g>.</string>
+    <string name="title">Título</string>
+    <string name="description">Descrición</string>
+    <string name="time">Hora</string>
+    <string name="location">Localización</string>
+    <string name="path">Ruta</string>
+    <string name="width">Largura</string>
+    <string name="height">Altura</string>
+    <string name="orientation">Orientación</string>
+    <string name="duration">Duración</string>
+    <string name="mimetype">Tipo MIME</string>
+    <string name="file_size">Tamaño do ficheiro</string>
+    <string name="maker">Autor</string>
+    <string name="model">Modelo</string>
+    <string name="flash">Flash</string>
+    <string name="aperture">Apertura</string>
+    <string name="focal_length">Lonxitude focal</string>
+    <string name="white_balance">Balance de brancos</string>
+    <string name="exposure_time">Tempo de exposición</string>
+    <string name="iso">ISO</string>
+    <string name="unit_mm">mm</string>
+    <string name="manual">Manual</string>
+    <string name="auto">Auto</string>
+    <string name="flash_on">Con flash</string>
+    <string name="flash_off">Sen flash</string>
+    <string name="unknown">Non se coñece</string>
+    <string name="try_to_set_local_album_available_offline">        Este álbum gardouse de forma local e pódese consultar sen conexión.</string>
+    <string name="please_wait">Agarde, por favor</string>
+    <string name="rendering_photo_sphere">Procesando foto esférica</string>
+    <string name="camera_error_title">Error da cámara</string>
+    <string name="cannot_connect_camera">Non se pode estabelecer conexión coa cámara.</string>
+    <string name="camera_disabled">Desactivouse a cámara seguindo as políticas de seguridade.</string>
+    <string name="error_permissions">A aplicación non ten permisos imprescindíbeis para executarse. Verifica os axustes de permisos.</string>
+    <string name="dialog_dismiss">Desbotar</string>
+    <string name="wait">Por favor agarde\n2026</string>
+    <string name="no_storage" product="default">Antes de utilizar a cámara, insira unha tarxeta SD.</string>
+    <string name="preparing_sd" product="default">Preparando a tarxeta SD\u2026</string>
+    <string name="access_sd_fail" product="default">Imposíbel acceder á tarxeta SD.</string>
+    <string name="time_lapse_title">Gravación a intervalos de tempo</string>
+    <string name="capturing">Capturando</string>
+    <string name="pref_camera_id_title">Escoller cámara</string>
+    <string name="pref_camera_id_entry_back">Volver</string>
+    <string name="pref_camera_id_entry_front">Frontal</string>
+    <string name="pref_camera_recordlocation_title">Gardar localización</string>
+    <string name="pref_camera_location_label">LOCALIZACIÓN</string>
+    <string name="pref_camera_timer_title">Conta atrás</string>
+    <plurals name="pref_camera_timer_entry">
+        <item quantity="one">1 segundo</item>
+        <item quantity="other">%d segundos</item>
+    </plurals>
+    <string name="pref_camera_timer_sound_title">Pitar na conta atrás</string>
+    <string name="setting_off">Apagar</string>
+    <string name="setting_on">Aceso</string>
+    <string name="pref_video_quality_title">Calidade do vídeo</string>
+    <string name="pref_video_time_lapse_frame_interval_title">Intervalo de tempo</string>
+    <string name="pref_camera_settings_category">Configuración da cámara</string>
+    <string name="pref_camcorder_settings_category">Configuración de cámara de gravación</string>
+    <string name="pref_camera_picturesize_title">Tamaño da foto</string>
+    <string name="pref_camera_focusmode_title">Modo de foco</string>
+    <string name="pref_camera_focusmode_entry_auto">Auto</string>
+    <string name="pref_camera_focusmode_entry_infinity">Infinito</string>
+    <string name="pref_camera_focusmode_entry_macro">Macro</string>
+    <string name="pref_camera_focusmode_label_auto">AUTO</string>
+    <string name="pref_camera_focusmode_label_infinity">INFINITO</string>
+    <string name="pref_camera_focusmode_label_macro">MACRO</string>
+    <string name="pref_camera_flashmode_title">Modo flash</string>
+    <string name="pref_camera_flashmode_label">MODO FLASH</string>
+    <string name="pref_camera_flashmode_entry_auto">Auto</string>
+    <string name="pref_camera_flashmode_entry_on">Aceso</string>
+    <string name="pref_camera_flashmode_entry_off">Apagado</string>
+    <string name="pref_camera_flashmode_label_auto">FLASH AUTOMÁTICO</string>
+    <string name="pref_camera_flashmode_label_on">FLASH ACESO</string>
+    <string name="pref_camera_flashmode_label_off">FLASH APAGADO</string>
+    <string name="pref_camera_whitebalance_title">Balance de brancos</string>
+    <string name="pref_camera_whitebalance_label">BALANCE DE BRANCOS</string>
+    <string name="pref_camera_whitebalance_entry_auto">Auto</string>
+    <string name="pref_camera_whitebalance_entry_incandescent">Incandescente</string>
+    <string name="pref_camera_whitebalance_entry_daylight">Luz de día</string>
+    <string name="pref_camera_whitebalance_entry_fluorescent">Fluorescente</string>
+    <string name="pref_camera_whitebalance_entry_cloudy">Nubrado</string>
+    <string name="pref_camera_whitebalance_label_auto">AUTO</string>
+    <string name="pref_camera_whitebalance_label_incandescent">INCANDESCENTE</string>
+    <string name="pref_camera_whitebalance_label_daylight">LUZ DE DÍA</string>
+    <string name="pref_camera_whitebalance_label_fluorescent">FLUORESCENTE</string>
+    <string name="pref_camera_whitebalance_label_cloudy">NUBRADO</string>
+    <string name="pref_camera_scenemode_title">Modo de escena</string>
+    <string name="pref_camera_scenemode_entry_auto">Auto</string>
+    <string name="pref_camera_scenemode_entry_hdr_plus">HDR+</string>
+    <string name="pref_camera_scenemode_entry_hdr">HDR</string>
+    <string name="pref_camera_scenemode_entry_turn_hdr_plus_on">HDR+ ACTIVADO</string>
+    <string name="pref_camera_scenemode_entry_turn_hdr_plus_off">HDR+ DESACTIVADO</string>
+    <string name="pref_camera_scenemode_entry_turn_hdr_on">HDR ACTIVADO</string>
+    <string name="pref_camera_scenemode_entry_turn_hdr_off">HDR DESACTIVADO</string>
+    <string name="pref_camera_scenemode_entry_action">Acción</string>
+    <string name="pref_camera_scenemode_entry_night">Noite</string>
+    <string name="pref_camera_scenemode_entry_sunset">Solpor</string>
+    <string name="pref_camera_scenemode_entry_party">Festa</string>
+    <string name="pref_camera_scenemode_label_auto">NINGÚN</string>
+    <string name="pref_camera_scenemode_label_action">ACCIÓN</string>
+    <string name="pref_camera_scenemode_label_night">NOITE</string>
+    <string name="pref_camera_scenemode_label_sunset">SOLPOR</string>
+    <string name="pref_camera_scenemode_label_party">FESTA</string>
+    <string name="pref_camera_countdown_label_off">CONTA ATRÁS DESACTIVADA</string>
+    <string name="pref_camera_countdown_label_one">1 SEGUNDO</string>
+    <string name="pref_camera_countdown_label_three">3 SEGUNDOS</string>
+    <string name="pref_camera_countdown_label_ten">10 SEGUNDOS</string>
+    <string name="pref_camera_countdown_label_fifteen">15 SEGUNDOS</string>
+    <string name="not_selectable_in_scene_mode">Non se pode seleccionar no modo de escena.</string>
+    <string name="pref_exposure_title">Exposición</string>
+    <string name="pref_exposure_label">EXPOSICIÓN</string>
+    <string name="pref_camera_hdr_label">HDR</string>
+    <string name="pref_camera_id_label_back">CÁMARA FRONTAL</string>
+    <string name="pref_camera_id_label_front">CÁMARA TRASEIRA</string>
+    <string name="dialog_ok">Aceptar</string>
+    <string name="spaceIsLow_content" product="default">A tarxeta SD está a quedar sen espazo. Cambie o axuste de calidade ou elimine imaxes ou outros ficheiros.</string>
+    <string name="video_reach_size_limit">Límite de tamaño acadado.</string>
+    <string name="pano_too_fast_prompt">Rápido de máis</string>
+    <string name="pano_dialog_prepare_preview">Preparando a panorámica</string>
+    <string name="pano_dialog_panorama_failed">Non se puido gardar a panorámica.</string>
+    <string name="pano_dialog_title">Panorámica</string>
+    <string name="pano_capture_indication">Capturando panorámica</string>
+    <string name="pano_dialog_waiting_previous">Agardando pola panorámica anterior</string>
+    <string name="pano_review_saving_indication_str">Gardando\u2026</string>
+    <string name="pano_review_rendering">Creando panorámica</string>
+    <string name="tap_to_focus">Toque para enfocar.</string>
+    <string name="pref_video_effect_title">Efectos</string>
+    <string name="effect_none">Ningún</string>
+    <string name="effect_goofy_face_squeeze">Comprimir</string>
+    <string name="effect_goofy_face_big_eyes">Ollos grandes</string>
+    <string name="effect_goofy_face_big_mouth">Boca grande</string>
+    <string name="effect_goofy_face_small_mouth">Boca pequena</string>
+    <string name="effect_goofy_face_big_nose">Nariz grande</string>
+    <string name="effect_goofy_face_small_eyes">Ollos pequeños</string>
+    <string name="effect_backdropper_space">No espazo</string>
+    <string name="effect_backdropper_sunset">Solpor</string>
+    <string name="effect_backdropper_gallery">O seu vídeo</string>
+    <string name="video_snapshot_hint">Toque para sacar foto mentres grava.</string>
+    <string name="video_recording_started">Comezou a gravación de vídeo.</string>
+    <string name="video_recording_stopped">Deteuse a gravación de vídeo.</string>
+    <string name="clear_effects">Eliminar efectos</string>
+    <string name="effect_silly_faces">CARAS RARAS</string>
+    <string name="effect_background">FONDO</string>
+    <string name="accessibility_shutter_button">Obturador</string>
+    <string name="accessibility_menu_button">Botón do menú</string>
+    <string name="accessibility_mode_picker">Selector de cámara, vídeo ou panorámica</string>
+    <string name="accessibility_check_box">%1$s caixa de selección</string>
+    <string name="accessibility_switch_to_camera">Ir á cámara de fotos</string>
+    <string name="accessibility_switch_to_video">Ir a cámara de vídeo</string>
+    <string name="accessibility_switch_to_panorama">Ir á cámara panorámica</string>
+    <string name="accessibility_switch_to_photo_sphere">Ir a cámara foto esférica</string>
+    <string name="accessibility_switch_to_gcam">Cambiar á calidade alta</string>
+    <string name="accessibility_review_cancel">Revisión anulada</string>
+    <string name="accessibility_review_ok">Revisión acabada</string>
+    <string name="accessibility_review_retake">Volver a revisar</string>
+    <string name="capital_on">ACESO</string>
+    <string name="capital_off">APAGADO</string>
+    <string name="pref_video_time_lapse_frame_interval_off">Apagar</string>
+    <string name="pref_video_time_lapse_frame_interval_500">0,5 segundos</string>
+    <string name="pref_video_time_lapse_frame_interval_1000">1 segundo</string>
+    <string name="pref_video_time_lapse_frame_interval_1500">1,5 segundos</string>
+    <string name="pref_video_time_lapse_frame_interval_2000">2 segundos</string>
+    <string name="pref_video_time_lapse_frame_interval_2500">2,5 segundos</string>
+    <string name="pref_video_time_lapse_frame_interval_3000">3 segundos</string>
+    <string name="pref_video_time_lapse_frame_interval_4000">4 segundos</string>
+    <string name="pref_video_time_lapse_frame_interval_5000">5 segundos</string>
+    <string name="pref_video_time_lapse_frame_interval_6000">6 segundos</string>
+    <string name="pref_video_time_lapse_frame_interval_10000">10 segundos</string>
+    <string name="pref_video_time_lapse_frame_interval_12000">12 segundos</string>
+    <string name="pref_video_time_lapse_frame_interval_15000">15 segundos</string>
+    <string name="pref_video_time_lapse_frame_interval_24000">24 segundos</string>
+    <string name="pref_video_time_lapse_frame_interval_30000">0,5 minutos</string>
+    <string name="pref_video_time_lapse_frame_interval_60000">1 minuto</string>
+    <string name="pref_video_time_lapse_frame_interval_90000">1,5 minutos</string>
+    <string name="pref_video_time_lapse_frame_interval_120000">2 minutos</string>
+    <string name="pref_video_time_lapse_frame_interval_150000">2,5 minutos</string>
+    <string name="pref_video_time_lapse_frame_interval_180000">3 minutos</string>
+    <string name="pref_video_time_lapse_frame_interval_240000">4 minutos</string>
+    <string name="pref_video_time_lapse_frame_interval_300000">5 minutos</string>
+    <string name="pref_video_time_lapse_frame_interval_360000">6 minutos</string>
+    <string name="pref_video_time_lapse_frame_interval_600000">10 minutos</string>
+    <string name="pref_video_time_lapse_frame_interval_720000">12 minutos</string>
+    <string name="pref_video_time_lapse_frame_interval_900000">15 minutos</string>
+    <string name="pref_video_time_lapse_frame_interval_1440000">24 minutos</string>
+    <string name="pref_video_time_lapse_frame_interval_1800000">0,5 horas</string>
+    <string name="pref_video_time_lapse_frame_interval_3600000">1 hora</string>
+    <string name="pref_video_time_lapse_frame_interval_5400000">1,5 horas</string>
+    <string name="pref_video_time_lapse_frame_interval_7200000">2 horas</string>
+    <string name="pref_video_time_lapse_frame_interval_9000000">2,5 horas</string>
+    <string name="pref_video_time_lapse_frame_interval_10800000">3 horas</string>
+    <string name="pref_video_time_lapse_frame_interval_14400000">4 horas</string>
+    <string name="pref_video_time_lapse_frame_interval_18000000">5 horas</string>
+    <string name="pref_video_time_lapse_frame_interval_21600000">6 horas</string>
+    <string name="pref_video_time_lapse_frame_interval_36000000">10 horas</string>
+    <string name="pref_video_time_lapse_frame_interval_43200000">12 horas</string>
+    <string name="pref_video_time_lapse_frame_interval_54000000">15 horas</string>
+    <string name="pref_video_time_lapse_frame_interval_86400000">24 horas</string>
+    <string name="time_lapse_seconds">segundos</string>
+    <string name="time_lapse_minutes">minutos</string>
+    <string name="time_lapse_hours">horas</string>
+    <string name="time_lapse_interval_set">Listo</string>
+    <string name="set_time_interval">Estabelecer intervalo de tempo</string>
+    <string name="set_time_interval_help">O Intervalo de tempo está desactivado. Actíveo para estabelecer o tempo do intervalo.</string>
+    <string name="set_duration">Estabelecer duración en segundos</string>
+    <string name="count_down_title_text">Facendo conta atrás para sacar unha foto</string>
+    <string name="remember_location_title">Lembrar o lugar das fotos?</string>
+    <string name="remember_location_prompt">Etiquete as súas fotos e vídeos co lugar onde foron tomadas.\n\nOutras aplicacións poden acceder a esta información xunto coas imaxes gardadas.</string>
+    <string name="remember_location_no">Non, grazas</string>
+    <string name="remember_location_yes">Si</string>
+    <string name="camera_menu_more_label">MÁIS OPCIÓNS</string>
+    <string name="camera_menu_settings_label">CONFIGURACIÓN</string>
+    <string name="create_tiny_planet">Crear miniplaneta</string>
+    <string name="saving_tiny_planet">Gardando miniplaneta…</string>
+    <string name="tiny_planet_zoom">Facer zoom</string>
+    <string name="tiny_planet_rotate">Xirar</string>
+    <string name="crop_save">Gardar</string>
+    <string name="cannot_load_image">Non se pode cargar a imaxe!</string>
+    <string name="switch_photo_filmstrip">Vista de tira de película</string>
+    <string name="setting_wallpaper">Estabelecendo fondo de pantalla</string>
+</resources>

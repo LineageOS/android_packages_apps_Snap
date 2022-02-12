@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2007 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name">Kamera</string>
+    <string name="video_camera_label">Bideo kamera</string>
+    <string name="details_ms">%1$02d:%2$02d</string>
+    <string name="details_hms">%1$d:%2$02d:%3$02d</string>
+    <string name="set_image">Ezarri irudia honela</string>
+    <string name="delete">Ezabatu</string>
+    <plurals name="delete_selection">
+        <item quantity="one">Ezabatu hautatutako elementua?</item>
+        <item quantity="other">Ezabatu hautatutako elementuak?</item>
+    </plurals>
+    <string name="share">Partekatu</string>
+    <string name="share_panorama">Partekatu panorama</string>
+    <string name="share_as_photo">Partekatu argazki gisa</string>
+    <string name="deleted">Ezabatuta</string>
+    <string name="undo">DESEGIN</string>
+    <string name="details">Xehetasunak</string>
+    <string name="close">Itxi</string>
+    <plurals name="number_of_items_selected">
+        <item quantity="one">%1$d hautatuta</item>
+        <item quantity="other">%1$d hautatuta</item>
+    </plurals>
+    <plurals name="number_of_albums_selected">
+        <item quantity="one">%1$d hautatuta</item>
+        <item quantity="other">%1$d hautatuta</item>
+    </plurals>
+    <plurals name="number_of_groups_selected">
+        <item quantity="one">%1$d hautatuta</item>
+        <item quantity="other">%1$d hautatuta</item>
+    </plurals>
+    <string name="show_on_map">Erakutsi mapan</string>
+    <string name="rotate_left">Biratu ezkerrera</string>
+    <string name="rotate_right">Biratu eskuinera</string>
+    <string name="edit">Editatu</string>
+    <string name="crop_action">Moztu</string>
+    <string name="trim_action">Ebaki</string>
+    <string name="set_as">Ezarri honela:</string>
+    <string name="video_err">Ezin da bideoa erreproduzitu.</string>
+    <string name="crop_saved">Moztutako irudia hemen gorde da <xliff:g id="folder_name">%s</xliff:g>.</string>
+    <string name="title">Izenburua</string>
+    <string name="description">Deskribapena</string>
+    <string name="time">Ordua</string>
+    <string name="location">Kokalekua</string>
+    <string name="path">Bidea</string>
+    <string name="width">Zabalera</string>
+    <string name="height">Altuera</string>
+    <string name="orientation">Orientazioa</string>
+    <string name="duration">Iraupena</string>
+    <string name="mimetype">MIME mota</string>
+    <string name="file_size">Fitxategiaren tamaina</string>
+    <string name="maker">Egilea</string>
+    <string name="model">Modeloa</string>
+    <string name="flash">Flasha</string>
+    <string name="aperture">Irekiera</string>
+    <string name="focal_length">Foku luzera</string>
+    <string name="white_balance">Zurien balantzea</string>
+    <string name="exposure_time">Esposizio denbora</string>
+    <string name="iso">ISO</string>
+    <string name="unit_mm">mm</string>
+    <string name="manual">Eskuz</string>
+    <string name="auto">Automatikoa</string>
+    <string name="flash_on">Flasha jaurti da</string>
+    <string name="flash_off">Flashik gabe</string>
+    <string name="unknown">Ezezaguna</string>
+    <string name="try_to_set_local_album_available_offline">Elementua gailuan gorde da eta konexiorik gabe erabili daiteke.</string>
+    <string name="please_wait">Itxaron mesedez</string>
+    <string name="rendering_photo_sphere">Argazki esferikoa errendatzen</string>
+    <string name="camera_error_title">Kamera errorea</string>
+    <string name="cannot_connect_camera">Ezin da kamera atzitu.</string>
+    <string name="camera_disabled">Kamera ezgaitu da segurtasun politikei jarraituz.</string>
+    <string name="error_permissions">Aplikazioak ez ditu ibiltzeko ezinbestekoak zaizkion baimenak. Egiaztatu baimenen ezarpenak mesedez.</string>
+    <string name="dialog_dismiss">Baztertu</string>
+    <string name="wait">Itxaron mesedez\u2026</string>
+    <string name="no_storage" product="default">Sartu SD txartel bat kamera erabili baino lehen.</string>
+    <string name="preparing_sd" product="default">SD txartela prestatzen\u2026</string>
+    <string name="access_sd_fail" product="default">Ezin izan da SD txartela atzitu.</string>
+    <string name="time_lapse_title">Time lapse grabaketa</string>
+    <string name="capturing">Atzematen</string>
+    <string name="pref_camera_id_title">Hautatu kamera</string>
+    <string name="pref_camera_id_entry_back">Atzera</string>
+    <string name="pref_camera_id_entry_front">Aurrekoa</string>
+    <string name="pref_camera_recordlocation_title">Gorde kokalekua</string>
+    <string name="pref_camera_location_label">KOKALEKUA</string>
+    <string name="pref_camera_timer_title">Atzera-kontagailua</string>
+    <plurals name="pref_camera_timer_entry">
+        <item quantity="one">Segundo 1</item>
+        <item quantity="other">%d segundo</item>
+    </plurals>
+    <string name="pref_camera_timer_sound_title">Soinua egin atzera-kontaketan</string>
+    <string name="setting_off">Ez</string>
+    <string name="setting_on">Bai</string>
+    <string name="pref_video_quality_title">Bideo kalitatea</string>
+    <string name="pref_video_time_lapse_frame_interval_title">Time lapse</string>
+    <string name="pref_camera_settings_category">Kameraren ezarpenak</string>
+    <string name="pref_camcorder_settings_category">Bideo kameraren ezarpenak</string>
+    <string name="pref_camera_picturesize_title">Argazkiaren tamaina</string>
+    <string name="pref_camera_focusmode_title">Foku modua</string>
+    <string name="pref_camera_focusmode_entry_auto">Automatikoa</string>
+    <string name="pref_camera_focusmode_entry_infinity">Infinitoa</string>
+    <string name="pref_camera_focusmode_entry_macro">Makro</string>
+    <string name="pref_camera_focusmode_label_auto">AUTOMATIKOA</string>
+    <string name="pref_camera_focusmode_label_infinity">INFINITOA</string>
+    <string name="pref_camera_focusmode_label_macro">MAKRO</string>
+    <string name="pref_camera_flashmode_title">Flash modua</string>
+    <string name="pref_camera_flashmode_label">FLASH MODUA</string>
+    <string name="pref_camera_flashmode_entry_auto">Automatikoa</string>
+    <string name="pref_camera_flashmode_entry_on">Bai</string>
+    <string name="pref_camera_flashmode_entry_off">Ez</string>
+    <string name="pref_camera_flashmode_label_auto">FLASH AUTOMATIKOA</string>
+    <string name="pref_camera_flashmode_label_on">FLASH BAI</string>
+    <string name="pref_camera_flashmode_label_off">FLASH EZ</string>
+    <string name="pref_camera_whitebalance_title">Zurien balantzea</string>
+    <string name="pref_camera_whitebalance_label">ZURIEN BALANTZEA</string>
+    <string name="pref_camera_whitebalance_entry_auto">Automatikoa</string>
+    <string name="pref_camera_whitebalance_entry_incandescent">Goritasun lanpara</string>
+    <string name="pref_camera_whitebalance_entry_daylight">Egun argia</string>
+    <string name="pref_camera_whitebalance_entry_fluorescent">Fluoreszentea</string>
+    <string name="pref_camera_whitebalance_entry_cloudy">Hodeitsua</string>
+    <string name="pref_camera_whitebalance_label_auto">AUTOMATIKOA</string>
+    <string name="pref_camera_whitebalance_label_incandescent">GORITASUN LANPARA</string>
+    <string name="pref_camera_whitebalance_label_daylight">EGUN ARGIA</string>
+    <string name="pref_camera_whitebalance_label_fluorescent">FLUORESZENTEA</string>
+    <string name="pref_camera_whitebalance_label_cloudy">HODEITSUA</string>
+    <string name="pref_camera_scenemode_title">Eszena modua</string>
+    <string name="pref_camera_scenemode_entry_auto">Automatikoa</string>
+    <string name="pref_camera_scenemode_entry_hdr_plus">HDR+</string>
+    <string name="pref_camera_scenemode_entry_hdr">HDR</string>
+    <string name="pref_camera_scenemode_entry_turn_hdr_plus_on">HDR+ BAI</string>
+    <string name="pref_camera_scenemode_entry_turn_hdr_plus_off">HDR+ EZ</string>
+    <string name="pref_camera_scenemode_entry_turn_hdr_on">HDR BAI</string>
+    <string name="pref_camera_scenemode_entry_turn_hdr_off">HDR EZ</string>
+    <string name="pref_camera_scenemode_entry_action">Ekintza</string>
+    <string name="pref_camera_scenemode_entry_night">Gaua</string>
+    <string name="pref_camera_scenemode_entry_sunset">Ilunabarra</string>
+    <string name="pref_camera_scenemode_entry_party">Jaia</string>
+    <string name="pref_camera_scenemode_label_auto">BATEZ</string>
+    <string name="pref_camera_scenemode_label_action">EKINTZA</string>
+    <string name="pref_camera_scenemode_label_night">GAUA</string>
+    <string name="pref_camera_scenemode_label_sunset">ILUNABARRA</string>
+    <string name="pref_camera_scenemode_label_party">JAIA</string>
+    <string name="pref_camera_countdown_label_off">ATZERA KONTAGAILUA EZ</string>
+    <string name="pref_camera_countdown_label_one">SEGUNDO 1</string>
+    <string name="pref_camera_countdown_label_three">3 SEGUNDO</string>
+    <string name="pref_camera_countdown_label_ten">10 SEGUNDO</string>
+    <string name="pref_camera_countdown_label_fifteen">15 SEGUNDO</string>
+    <string name="not_selectable_in_scene_mode">Ezin da hautatu eszena moduan.</string>
+    <string name="pref_exposure_title">Esposizioa</string>
+    <string name="pref_exposure_label">ESPOSIZIOA</string>
+    <string name="pref_camera_hdr_label">HDR</string>
+    <string name="pref_camera_id_label_back">AURREKO KAMERA</string>
+    <string name="pref_camera_id_label_front">ATZEKO KAMERA</string>
+    <string name="dialog_ok">ADOS</string>
+    <string name="spaceIsLow_content" product="default">Zure SD txartela lekurik gabe geratzen ari da. Aldatu kalitate ezarpenak edo ezabatu fitxategiren bat.</string>
+    <string name="video_reach_size_limit">Tamaina mugara heldu da.</string>
+    <string name="pano_too_fast_prompt">Azkarregi</string>
+    <string name="pano_dialog_prepare_preview">Panorama prestatzen</string>
+    <string name="pano_dialog_panorama_failed">Ezin izan da panorama gorde.</string>
+    <string name="pano_dialog_title">Panorama</string>
+    <string name="pano_capture_indication">Panorama atzematen</string>
+    <string name="pano_dialog_waiting_previous">Aurreko panoramaren zai</string>
+    <string name="pano_review_saving_indication_str">Gordetzen\u2026</string>
+    <string name="pano_review_rendering">Panorama errendatzen</string>
+    <string name="tap_to_focus">Sakatu fokuratzeko.</string>
+    <string name="pref_video_effect_title">Efektuak</string>
+    <string name="effect_none">Bat ere ez</string>
+    <string name="effect_goofy_face_squeeze">Zanpatu</string>
+    <string name="effect_goofy_face_big_eyes">Begi handiak</string>
+    <string name="effect_goofy_face_big_mouth">Aho handia</string>
+    <string name="effect_goofy_face_small_mouth">Aho txikia</string>
+    <string name="effect_goofy_face_big_nose">Sudur handia</string>
+    <string name="effect_goofy_face_small_eyes">Begi txikiak</string>
+    <string name="effect_backdropper_space">Espazioan</string>
+    <string name="effect_backdropper_sunset">Ilunabarra</string>
+    <string name="effect_backdropper_gallery">Zure bideoa</string>
+    <string name="video_snapshot_hint">Sakatu argazkia ateratzeko grabatzen den bitartean.</string>
+    <string name="video_recording_started">Bideo grabazioa hasi da.</string>
+    <string name="video_recording_stopped">Bideo grabazioa gelditu da.</string>
+    <string name="clear_effects">Garbitu efektuak</string>
+    <string name="effect_silly_faces">AURPEGI TUNTUNAK</string>
+    <string name="effect_background">ATZEALDEA</string>
+    <string name="accessibility_shutter_button">Obturadorea</string>
+    <string name="accessibility_menu_button">Menu botoia</string>
+    <string name="accessibility_mode_picker">Kamera, bideo, edo panorama hautatzailea</string>
+    <string name="accessibility_check_box">%1$s kontrol-kaukia</string>
+    <string name="accessibility_switch_to_camera">Aldatu argazkira</string>
+    <string name="accessibility_switch_to_video">Aldatu bideora</string>
+    <string name="accessibility_switch_to_panorama">Aldatu panoramara</string>
+    <string name="accessibility_switch_to_photo_sphere">Aldatu argazki esferikora</string>
+    <string name="accessibility_switch_to_gcam">Aldatu kalitate altura</string>
+    <string name="accessibility_review_cancel">Berrikusketa utzi</string>
+    <string name="accessibility_review_ok">Berrikusketa eginda</string>
+    <string name="accessibility_review_retake">Berrikusketa berriz atera</string>
+    <string name="capital_on">BAI</string>
+    <string name="capital_off">EZ</string>
+    <string name="pref_video_time_lapse_frame_interval_off">Ez</string>
+    <string name="pref_video_time_lapse_frame_interval_500">0,5 segundo</string>
+    <string name="pref_video_time_lapse_frame_interval_1000">Segundo 1</string>
+    <string name="pref_video_time_lapse_frame_interval_1500">1,5 segundo</string>
+    <string name="pref_video_time_lapse_frame_interval_2000">2 segundo</string>
+    <string name="pref_video_time_lapse_frame_interval_2500">2,5 segundo</string>
+    <string name="pref_video_time_lapse_frame_interval_3000">3 segundo</string>
+    <string name="pref_video_time_lapse_frame_interval_4000">4 segundo</string>
+    <string name="pref_video_time_lapse_frame_interval_5000">5 segundo</string>
+    <string name="pref_video_time_lapse_frame_interval_6000">6 segundo</string>
+    <string name="pref_video_time_lapse_frame_interval_10000">10 segundo</string>
+    <string name="pref_video_time_lapse_frame_interval_12000">12 segundo</string>
+    <string name="pref_video_time_lapse_frame_interval_15000">15 segundo</string>
+    <string name="pref_video_time_lapse_frame_interval_24000">24 segundo</string>
+    <string name="pref_video_time_lapse_frame_interval_30000">0,5 minutu</string>
+    <string name="pref_video_time_lapse_frame_interval_60000">minutu 1</string>
+    <string name="pref_video_time_lapse_frame_interval_90000">1,5 minutu</string>
+    <string name="pref_video_time_lapse_frame_interval_120000">2 minutu</string>
+    <string name="pref_video_time_lapse_frame_interval_150000">2,5 minutu</string>
+    <string name="pref_video_time_lapse_frame_interval_180000">3 minutu</string>
+    <string name="pref_video_time_lapse_frame_interval_240000">4 minutu</string>
+    <string name="pref_video_time_lapse_frame_interval_300000">5 minutu</string>
+    <string name="pref_video_time_lapse_frame_interval_360000">6 minutu</string>
+    <string name="pref_video_time_lapse_frame_interval_600000">10 minutu</string>
+    <string name="pref_video_time_lapse_frame_interval_720000">12 minutu</string>
+    <string name="pref_video_time_lapse_frame_interval_900000">15 minutu</string>
+    <string name="pref_video_time_lapse_frame_interval_1440000">24 minutu</string>
+    <string name="pref_video_time_lapse_frame_interval_1800000">0,5 ordu</string>
+    <string name="pref_video_time_lapse_frame_interval_3600000">ordu 1</string>
+    <string name="pref_video_time_lapse_frame_interval_5400000">1,5 ordu</string>
+    <string name="pref_video_time_lapse_frame_interval_7200000">2 ordu</string>
+    <string name="pref_video_time_lapse_frame_interval_9000000">2,5 ordu</string>
+    <string name="pref_video_time_lapse_frame_interval_10800000">3 ordu</string>
+    <string name="pref_video_time_lapse_frame_interval_14400000">4 ordu</string>
+    <string name="pref_video_time_lapse_frame_interval_18000000">5 ordu</string>
+    <string name="pref_video_time_lapse_frame_interval_21600000">6 ordu</string>
+    <string name="pref_video_time_lapse_frame_interval_36000000">10 ordu</string>
+    <string name="pref_video_time_lapse_frame_interval_43200000">12 ordu</string>
+    <string name="pref_video_time_lapse_frame_interval_54000000">15 ordu</string>
+    <string name="pref_video_time_lapse_frame_interval_86400000">24 ordu</string>
+    <string name="time_lapse_seconds">segundo</string>
+    <string name="time_lapse_minutes">minutu</string>
+    <string name="time_lapse_hours">ordu</string>
+    <string name="time_lapse_interval_set">Eginda</string>
+    <string name="set_time_interval">Ezarri denbora bitartea</string>
+    <string name="set_time_interval_help">Time lapse ezaugarria itzalita dago. Piztu ezazu denbora tarte bat ezartzeko.</string>
+    <string name="set_duration">Ezarri iraupena segundotan</string>
+    <string name="count_down_title_text">Atzera kontatzen argazkia ateratzeko</string>
+    <string name="remember_location_title">Gogoratu argazkien kokalekuak?</string>
+    <string name="remember_location_prompt">Etiketatu zure argazki eta bideoak ateratako lekuen kokalekuekin.\n\nBeste aplikazioek informazio hau irakurri dezakete gordetako irudiekin batera.</string>
+    <string name="remember_location_no">Ez, eskerrik asko</string>
+    <string name="remember_location_yes">Bai</string>
+    <string name="camera_menu_more_label">AUKERA GEHIAGO</string>
+    <string name="camera_menu_settings_label">EZARPENAK</string>
+    <string name="create_tiny_planet">Sortu planetatxoa</string>
+    <string name="saving_tiny_planet">Planetatxoa gordetzen …</string>
+    <string name="tiny_planet_zoom">Zoom</string>
+    <string name="tiny_planet_rotate">Biratu</string>
+    <string name="crop_save">Gorde</string>
+    <string name="cannot_load_image">Ezin da irudia kargatu!</string>
+    <string name="switch_photo_filmstrip">Zinema banda ikespegia</string>
+    <string name="setting_wallpaper">Horma-papera ezartzen</string>
+</resources>

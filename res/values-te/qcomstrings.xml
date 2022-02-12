@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright (c) 2012-2014, The Linux Foundation. All rights reserved.
+    Copyright (C) 2014-2016 The CyanogenMod Project
+
+    Not a Contribution.
+
+    Copyright (C) 2007 The Android Open Source Project
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<resources>
+    <string name="pref_camera_autoexposure_title">స్వీయ వెల్లడి</string>
+    <string name="pref_camera_autoexposure_entry_centerweighted">సెంటర్ వెయిటెడ్</string>
+    <string name="pref_camera_autoexposure_entry_frameaverage">ఫ్రేమ్ సరాసరి</string>
+    <string name="pref_camera_autoexposure_entry_spotmetering">స్పాట్ మీటరింగ్</string>
+    <string name="pref_camera_videoencoder_title">వీడియో కోడెక్</string>
+    <string name="pref_camera_audioencoder_title">ఆడియో కోడెక్</string>
+    <string name="pref_camera_skinToneEnhancement_title">చర్మ వర్ణ వృద్ది</string>
+    <string name="pref_camera_zsl_title">జీరో షట్టర్ ల్యాగ్</string>
+    <string name="pref_camera_selectablezoneaf_title">స్వీయకేంద్రీకరణ మండలం</string>
+    <string name="pref_camera_selectablezoneaf_entry_auto">ఆటో</string>
+    <string name="pref_camera_selectablezoneaf_entry_centerweighted">సెంటర్ వెయిటెడ్</string>
+    <string name="pref_camera_selectablezoneaf_entry_frameaverage">ఫ్రేమ్ సరాసరి</string>
+    <string name="pref_camera_selectablezoneaf_entry_spotmetering">స్పాట్ మీటరింగ్</string>
+    <string name="pref_camera_advanced_features_title">అడ్వాన్స్డ్ ఫీచర్‌లు</string>
+    <string name="pref_camera_advanced_feature_entry_none">ఏదీ లేదు</string>
+    <string name="pref_camera_advanced_feature_entry_multi_touch_focus">బహుళ స్పర్శ ఫోకస్</string>
+    <string name="pref_camera_manual_exp_title">మాన్యువల్ బహిర్గతం</string>
+    <string name="pref_camera_manual_exp_entry_ISO_priority">ISO ప్రాధాన్యత</string>
+    <string name="pref_camera_manual_exp_entry_exptime_priority">బహిర్గత సమయం ప్రాధాన్యత</string>
+    <string name="pref_camera_manual_exp_entry_user_setting">వినియోగదారు సెట్టింగ్</string>
+    <string name="pref_camera_manual_exp_entry_off">ఆఫ్‌లో ఉంది</string>
+    <string name="pref_camera_manual_wb_title">మాన్యువల్ వైట్ బ్యాలెన్స్</string>
+    <string name="pref_camera_manual_wb_entry_color_temperature">వర్ణ ఉష్ణోగ్రత</string>
+    <string name="pref_camera_manual_wb_entry_rbgb_gains">RBGB లాభాలు</string>
+    <string name="pref_camera_manual_wb_entry_off">ఆఫ్‌లో ఉంది</string>
+    <string name="pref_camera_manual_focus_title">మాన్యువల్ ఫోకస్</string>
+    <string name="pref_camera_manual_focus_entry_scale_mode">స్కేల్ మోడ్</string>
+    <string name="pref_camera_manual_focus_entry_diopter_mode">డయాప్టర్ మోడ్</string>
+    <string name="pref_camera_manual_focus_entry_off">ఆఫ్‌లో ఉంది</string>
+    <string name="pref_camera_video_hdr_title">వీడియో HDR</string>
+    <string name="pref_camera_cds_title">CDS మోడ్</string>
+    <string name="pref_camera_cds_entry_auto">ఆటో</string>
+    <string name="pref_camera_video_cds_title">వీడియో CDS మోడ్</string>
+    <string name="pref_camera_video_cds_entry_auto">ఆటో</string>
+    <string name="pref_camera_tnr_title">TNR మోడ్</string>
+    <string name="pref_camera_video_tnr_title">వీడియో TNR మోడ్</string>
+    <string name="pref_camera_facedetection_title">ముఖ గుర్తింపు</string>
+    <string name="pref_selfie_flash_title">స్వీయచిత్ర ఫ్లాష్</string>
+    <string name="pref_camera_redeyereduction_title">ఎరుపు నేత్ర తగ్గింపు</string>
+    <string name="pref_camera_ae_bracket_hdr_title">AE-బ్రాకెటింగ్</string>
+    <string name="pref_camera_hfr_title">హై-ఫ్రేంరేట్ రికార్డింగ్</string>
+    <string name="pref_camera_hfr_entry_off">ఆఫ్‌లో ఉంది</string>
+    <string name="pref_camera_hfr_entry_2x">స్లో మోషన్ 60 FPS</string>
+    <string name="pref_camera_hfr_entry_3x">స్లో మోషన్ 90 FPS</string>
+    <string name="pref_camera_hfr_entry_4x">స్లో మోషన్ 120 FPS</string>
+    <string name="pref_camera_hfr_entry_8x">స్లో మోషన్ 240 FPS</string>
+    <string name="pref_camera_hfr_entry_hsr_60">హై స్పీడ్ 60 FPS</string>
+    <string name="pref_camera_hfr_entry_hsr_90">హై స్పీడ్ 90 FPS</string>
+    <string name="pref_camera_hfr_entry_hsr_120">హై స్పీడ్ 120 FPS</string>
+    <string name="pref_camera_denoise_title">డీనాయిస్</string>
+    <string name="pref_camera_iso_title">ISO</string>
+    <string name="pref_camera_iso_entry_auto">ఆటో</string>
+    <string name="pref_camera_iso_entry_isodeblur">ఆటో (HJR)</string>
+    <string name="pref_camera_iso_entry_iso50">ISO50</string>
+    <string name="pref_camera_iso_entry_iso100">ISO100</string>
+    <string name="pref_camera_iso_entry_iso125">ISO125</string>
+    <string name="pref_camera_iso_entry_iso150">ISO150</string>
+    <string name="pref_camera_iso_entry_iso200">ISO200</string>
+    <string name="pref_camera_iso_entry_iso250">ISO250</string>
+    <string name="pref_camera_iso_entry_iso300">ISO300</string>
+    <string name="pref_camera_iso_entry_iso320">ISO320</string>
+    <string name="pref_camera_iso_entry_iso350">ISO350</string>
+    <string name="pref_camera_iso_entry_iso400">ISO400</string>
+    <string name="pref_camera_iso_entry_iso450">ISO450</string>
+    <string name="pref_camera_iso_entry_iso500">ISO500</string>
+    <string name="pref_camera_iso_entry_iso600">ISO600</string>
+    <string name="pref_camera_iso_entry_iso640">ISO640</string>
+    <string name="pref_camera_iso_entry_iso700">ISO700</string>
+    <string name="pref_camera_iso_entry_iso800">ISO800</string>
+    <string name="pref_camera_iso_entry_iso1000">ISO1000</string>
+    <string name="pref_camera_iso_entry_iso1200">ISO1200</string>
+    <string name="pref_camera_iso_entry_iso1250">ISO1250</string>
+    <string name="pref_camera_iso_entry_iso1500">ISO1500</string>
+    <string name="pref_camera_iso_entry_iso1600">ISO1600</string>
+    <string name="pref_camera_iso_entry_iso2000">ISO2000</string>
+    <string name="pref_camera_iso_entry_iso2500">ISO2500</string>
+    <string name="pref_camera_iso_entry_iso2700">ISO2700</string>
+    <string name="pref_camera_iso_entry_iso3200">ISO3200</string>
+    <string name="pref_camera_iso_entry_iso6400">ISO6400</string>
+    <string name="pref_camera_iso_entry_iso12800">ISO12800</string>
+    <string name="pref_camera_antibanding_title">యాంటీఆకృతీకరణ</string>
+    <string name="pref_camera_antibanding_entry_0">ఆటో</string>
+    <string name="pref_camera_antibanding_entry_1">50 Hz (యూరోప్)</string>
+    <string name="pref_camera_antibanding_entry_2">60 Hz (యుఎస్‌ఎ)</string>
+    <string name="pref_camera_coloreffect_title">వర్ణ ప్రభావం</string>
+    <string name="pref_camera_coloreffect_entry_none">ఏదీ లేదు</string>
+    <string name="pref_camera_coloreffect_entry_mono">మోనో</string>
+    <string name="pref_camera_coloreffect_entry_sepia">సేపియా</string>
+    <string name="pref_camera_coloreffect_entry_negative">ప్రతికూల</string>
+    <string name="pref_camera_coloreffect_entry_solarize">సోలరైజ్</string>
+    <string name="pref_camera_coloreffect_entry_posterize">పోస్టరైజ్</string>
+    <string name="pref_camera_coloreffect_entry_aqua">ఆక్వా</string>
+    <string name="pref_camera_coloreffect_entry_emboss">ఎంబోస్</string>
+    <string name="pref_camera_coloreffect_entry_sketch">స్కెచ్</string>
+    <string name="pref_camera_coloreffect_entry_neon">నియాన్</string>
+    <string name="pref_camera_coloreffect_entry_pastel">పాస్టెల్</string>
+    <string name="pref_camera_coloreffect_entry_mosaic">మొజాయిక్</string>
+    <string name="pref_camera_coloreffect_entry_redtint">ఎరుపు ఛాయ</string>
+    <string name="pref_camera_coloreffect_entry_bluetint">నీలం చాయ</string>
+    <string name="pref_camera_coloreffect_entry_greentint">ఆకుపచ్చ ఛాయ</string>
+    <string name="pref_camera_dis_title">స్థిరీకరణ</string>
+    <string name="pref_camera_facerc_title">ముఖ గుర్తింపు</string>
+    <string name="pref_camera_sharpness_title">ప్రకాశవంతం</string>
+    <string name="pref_camera_sharpness_entry_level0">స్థాయి 0</string>
+    <string name="pref_camera_sharpness_entry_level1">స్థాయి 1</string>
+    <string name="pref_camera_sharpness_entry_level2">స్థాయి 2 (స్వయంసిద్ధం)</string>
+    <string name="pref_camera_sharpness_entry_level3">స్థాయి 3</string>
+    <string name="pref_camera_sharpness_entry_level4">స్థాయి 4</string>
+    <string name="pref_camera_sharpness_entry_level5">స్థాయి 5</string>
+    <string name="pref_camera_sharpness_entry_level6">స్థాయి 6</string>
+    <string name="pref_camera_contrast_title">వ్యత్యాసం</string>
+    <string name="pref_camera_contrast_entry_level0">స్థాయి 0</string>
+    <string name="pref_camera_contrast_entry_level1">స్థాయి 1</string>
+    <string name="pref_camera_contrast_entry_level2">స్థాయి 2</string>
+    <string name="pref_camera_contrast_entry_level3">స్థాయి 3</string>
+    <string name="pref_camera_contrast_entry_level4">స్థాయి 4</string>
+    <string name="pref_camera_contrast_entry_level5">స్థాయి 5 (స్వయంసిద్ధం)</string>
+    <string name="pref_camera_contrast_entry_level6">స్థాయి 6</string>
+    <string name="pref_camera_contrast_entry_level7">స్థాయి 7</string>
+    <string name="pref_camera_contrast_entry_level8">స్థాయి 8</string>
+    <string name="pref_camera_contrast_entry_level9">స్థాయి 9</string>
+    <string name="pref_camera_contrast_entry_level10">స్థాయి 10</string>
+    <string name="pref_camera_saturation_title">సంతృప్తత</string>
+    <string name="pref_camera_saturation_entry_level0">స్థాయి 0</string>
+    <string name="pref_camera_saturation_entry_level1">స్థాయి 1</string>
+    <string name="pref_camera_saturation_entry_level2">స్థాయి 2</string>
+    <string name="pref_camera_saturation_entry_level3">స్థాయి 3</string>
+    <string name="pref_camera_saturation_entry_level4">స్థాయి 4</string>
+    <string name="pref_camera_saturation_entry_level5">స్థాయి 5 (స్వయంసిద్ధం)</string>
+    <string name="pref_camera_saturation_entry_level6">స్థాయి 6</string>
+    <string name="pref_camera_saturation_entry_level7">స్థాయి 7</string>
+    <string name="pref_camera_saturation_entry_level8">స్థాయి 8</string>
+    <string name="pref_camera_saturation_entry_level9">స్థాయి 9</string>
+    <string name="pref_camera_saturation_entry_level10">స్థాయి 10</string>
+    <string name="pref_camera_picture_format_title">చిత్ర ఆకృతి</string>
+    <string name="pref_camera_jpegquality_title">చిత్ర నాణ్యత</string>
+    <string name="pref_camera_jpegquality_entry_0">55%</string>
+    <string name="pref_camera_jpegquality_entry_1">65% (సాధారణం)</string>
+    <string name="pref_camera_jpegquality_entry_2">75% (సన్నని)</string>
+    <string name="pref_camera_jpegquality_entry_3">85% (బాగా సన్నని)</string>
+    <string name="pref_camera_jpegquality_entry_4">95%</string>
+    <string name="pref_camera_jpegquality_entry_5">100%</string>
+    <string name="pref_camera_histogram_title">హిస్టోగ్రామ్</string>
+    <string name="pref_camera_scenedetect_title">స్వయంచాలక చిత్ర గుర్తింపు</string>
+    <string name="pref_camera_longshot_title">నిరంతర షాట్</string>
+    <string name="pref_camera_auto_hdr_title">ఆటో HDR</string>
+    <string name="pref_camera_hdr_mode_title">HDR మోడ్</string>
+    <string name="pref_camera_hdr_mode_entry_sensor">సెన్సర్ HDR</string>
+    <string name="pref_camera_hdr_mode_entry_multi_frame">మల్టి-ఫ్రేం HDR</string>
+    <string name="pref_camera_hdr_need_1x_title">HDR కు 1x  ఫ్రేం అవసరం</string>
+    <string name="pref_camera_video_rotation_title">వీడియో పరిభ్రమణం</string>
+    <string name="pref_camera_video_rotation_entry_0">0 డిగ్రీలు</string>
+    <string name="pref_camera_video_rotation_entry_90">90 డిగ్రీలు</string>
+    <string name="pref_camera_video_rotation_entry_180">180 డిగ్రీలు</string>
+    <string name="pref_camera_video_rotation_entry_270">270 డిగ్రీలు</string>
+    <string name="pref_camera_savepath_title">నిల్వ స్థానం</string>
+    <string name="pref_camera_savepath_entry_0">అంతర్గత నిల్వ</string>
+    <string name="pref_camera_savepath_entry_1">SD కార్డు</string>
+    <string name="camera_gesture_title">కెమెరాను ప్రారంభించు</string>
+    <string name="all_in_focus">అన్నీ ఫోకస్ లో ఉన్నాయి</string>
+    <string name="refocus_toast">చివరి ఫోటోను రీ-ఫోకస్ చేయడానికి, ఇక్కడ ట్యాప్ చేయండి</string>
+    <string name="error_app_unsupported_hfr_selection">స్థిరీకరణ/టైం లాప్స్/HDR ఉపయోగిస్తున్నప్పుడు హై-ఫ్రేంరేట్ రికార్డింగ్ కు మద్దతు లేదు</string>
+    <string name="error_app_unsupported_hfr">ఎంచుకోబడిన స్పష్టత వద్ద స్లో మోషన్ వీడియోకు మద్దతు లేదు. తక్కువ వీడియో పరిమాణాన్ని ఎంచుకోండి</string>
+    <string name="error_app_unsupported_dis">ఎంచుకోబడిన వీడియో పరిమాణం కొరకు స్థిరీకరణ మద్దతు లేదు. తక్కువ వీడియో పరిమాణాన్ని ఎంచుకోండి</string>
+    <string name="error_app_unsupported_hsr">ఎంచుకోబడిన వీడియో పరిమాణం కొరకు హైస్పీడ్ మోడ్ మద్దతు లేదు. తక్కువ వీడియో పరిమాణాన్ని ఎంచుకోండి</string>
+    <string name="error_app_unsupported_hfr_codec">HFR ఆన్ లో ఉన్నప్పుడు కేవలం H264 వీడియో సంకేతీకరణంకు మాత్రమే మద్దతు ఉంది</string>
+    <string name="error_app_unsupported">ఈ సంకేతీకరణ రకానికి వీడియో స్పష్టత మద్దతు లేదు</string>
+    <string name="error_app_unsupported_raw">జీరో షట్టర్ ల్యాగ్ మోడ్ లో రా చిత్రం ఫార్మాట్ కు మద్దతు లేదు. JPEG ను ఎంచుకో</string>
+    <string name="msg_cancel_longshot_for_limited_memory">మెమరీ అయిపోతూ ఉంది, కొనసాగించు షాట్ ను రద్దుచేస్తోంది</string>
+    <string name="flash_aebracket_message">AE బ్రాకెటింగ్ మోడ్ లో ఫ్లాష్ అనేదానికి మద్దతు లేదు</string>
+    <string name="on_switch_save_path_to_sdcard">అంతర్గత నిల్వ స్థలం తగినంతగా లేదు, నిల్వ స్థానాన్ని SD కార్డుకు మార్చండి</string>
+    <string name="map_activity_not_found_err">స్థానాన్ని చూపించేందుకు మ్యాప్స్ ప్రోగ్రాం వ్యవస్థాపించబడిలేదు.</string>
+    <string name="longshot_enable_message">కొనసాగించు షాట్ మోడ్ లో అడ్వాన్స్డ్ ఫీచర్స్ కు మద్దతు లేదు</string>
+    <string name="advance_feature_enable_msg">అడ్వాన్స్డ్ ఫీచర్ అమలుపరచునప్పుదు కొనసాగించు షాట్  కు మద్దతు లేదు</string>
+    <string name="HDR_disable_continuous_shot">HDR ను అమలుపరచడం వలన కొనసాగించు షాట్ నిలిపివేయబడుతుంది</string>
+    <string name="advanced_capture_disable_continuous_shot">అడ్వాన్స్డ్ క్యాప్చర్ ను అమలుపరచడం వలన కొనసాగించు షాట్ నిలిపివేయబడుతుంది</string>
+    <string name="video_quality_4k_disable_IS">4k వీడియో పరిమాణాన్ని అమలుపరచడం వలన స్థిరీకరణ నిలిపి వేయబడుతుంది</string>
+    <string name="video_quality_4k_disable_SeeMore">4k వీడియో సమయంలో సీమోర్ అమలుపరచడం సాధ్యం కాదు</string>
+</resources>

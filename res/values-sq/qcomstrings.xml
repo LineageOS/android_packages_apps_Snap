@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright (c) 2012-2014, The Linux Foundation. All rights reserved.
+    Copyright (C) 2014-2016 The CyanogenMod Project
+
+    Not a Contribution.
+
+    Copyright (C) 2007 The Android Open Source Project
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<resources>
+    <string name="pref_camera_manual_exp_entry_off">Inaktiv</string>
+    <string name="pref_camera_manual_wb_entry_off">Inaktiv</string>
+    <string name="pref_camera_manual_focus_entry_off">Inaktiv</string>
+    <string name="pref_camera_video_hdr_title">Video HDR</string>
+    <string name="pref_camera_facedetection_title">Dallimi i fytyrës</string>
+    <string name="pref_camera_hfr_entry_off">Inaktiv</string>
+    <string name="pref_camera_hfr_entry_hsr_60">Shpejtësi e lartë 60 FPS</string>
+    <string name="pref_camera_hfr_entry_hsr_90">Shpejtësi e lartë 90 FPS</string>
+    <string name="pref_camera_hfr_entry_hsr_120">Shpejtësi e lartë 120 FPS</string>
+    <string name="pref_camera_denoise_title">Reduktimi i zhurmave</string>
+    <string name="pref_camera_iso_title">ISO</string>
+    <string name="pref_camera_iso_entry_auto">Auto</string>
+    <string name="pref_camera_iso_entry_isodeblur">Auto (HJR)</string>
+    <string name="pref_camera_iso_entry_iso50">ISO50</string>
+    <string name="pref_camera_iso_entry_iso100">ISO100</string>
+    <string name="pref_camera_iso_entry_iso125">ISO125</string>
+    <string name="pref_camera_iso_entry_iso150">ISO150</string>
+    <string name="pref_camera_iso_entry_iso200">ISO200</string>
+    <string name="pref_camera_iso_entry_iso250">ISO250</string>
+    <string name="pref_camera_iso_entry_iso1000">ISO1000</string>
+    <string name="pref_camera_iso_entry_iso1200">ISO1200</string>
+    <string name="pref_camera_iso_entry_iso1250">ISO1250</string>
+    <string name="pref_camera_iso_entry_iso1500">ISO1500</string>
+    <string name="pref_camera_iso_entry_iso1600">ISO1600</string>
+    <string name="pref_camera_iso_entry_iso2000">ISO2000</string>
+    <string name="pref_camera_iso_entry_iso2500">ISO2500</string>
+    <string name="pref_camera_iso_entry_iso2700">ISO2700</string>
+    <string name="pref_camera_iso_entry_iso3200">ISO3200</string>
+    <string name="pref_camera_iso_entry_iso6400">ISO6400</string>
+    <string name="pref_camera_iso_entry_iso12800">ISO12800</string>
+    <string name="pref_camera_antibanding_title">Antibanding</string>
+    <string name="pref_camera_antibanding_entry_0">Automatikisht</string>
+    <string name="pref_camera_antibanding_entry_1">50 Hz (Evropë)</string>
+    <string name="pref_camera_antibanding_entry_2">60 Hz (SHBA)</string>
+    <string name="pref_camera_coloreffect_title">Efekti i ngjyrave</string>
+    <string name="pref_camera_coloreffect_entry_none">Asnjë</string>
+    <string name="pref_camera_coloreffect_entry_mono">Mono</string>
+    <string name="pref_camera_coloreffect_entry_sepia">Sepia</string>
+    <string name="pref_camera_coloreffect_entry_negative">Negativ</string>
+    <string name="pref_camera_sharpness_entry_level0">Niveli 0</string>
+    <string name="pref_camera_sharpness_entry_level1">Niveli 1</string>
+    <string name="pref_camera_sharpness_entry_level2">Niveli 2 (I parazgjedhur)</string>
+    <string name="pref_camera_sharpness_entry_level3">Niveli 3</string>
+    <string name="pref_camera_sharpness_entry_level4">Niveli 4</string>
+    <string name="pref_camera_sharpness_entry_level5">Niveli 5</string>
+    <string name="pref_camera_sharpness_entry_level6">Niveli 6</string>
+    <string name="pref_camera_contrast_title">Kontrasti</string>
+    <string name="pref_camera_contrast_entry_level0">Niveli 0</string>
+    <string name="pref_camera_contrast_entry_level1">Niveli 1</string>
+    <string name="pref_camera_contrast_entry_level2">Niveli 2</string>
+    <string name="pref_camera_contrast_entry_level3">Niveli 3</string>
+    <string name="pref_camera_contrast_entry_level4">Niveli 4</string>
+    <string name="pref_camera_contrast_entry_level5">Niveli 5 (I parazgjedhur)</string>
+    <string name="pref_camera_contrast_entry_level6">Niveli 6</string>
+    <string name="pref_camera_contrast_entry_level7">Niveli 7</string>
+    <string name="pref_camera_contrast_entry_level8">Niveli 8</string>
+    <string name="pref_camera_contrast_entry_level9">Niveli 9</string>
+    <string name="pref_camera_saturation_title">Saturimi</string>
+    <string name="pref_camera_picture_format_title">Formati i fotos</string>
+    <string name="pref_camera_jpegquality_title">Cilësia e fotos</string>
+    <string name="pref_camera_jpegquality_entry_0">55%</string>
+    <string name="pref_camera_jpegquality_entry_1">65% (normale)</string>
+    <string name="pref_camera_jpegquality_entry_2">75% (e mirë)</string>
+    <string name="pref_camera_jpegquality_entry_3">85% (shumë e mirë)</string>
+    <string name="pref_camera_jpegquality_entry_4">95%</string>
+    <string name="pref_camera_jpegquality_entry_5">100%</string>
+    <string name="pref_camera_histogram_title">Histogram</string>
+    <string name="pref_camera_scenedetect_title">Përcaktimi automatik i peizazhit</string>
+    <string name="pref_camera_video_rotation_title">Rrotullimi i videos</string>
+    <string name="pref_camera_video_rotation_entry_0">0 gradë</string>
+    <string name="pref_camera_video_rotation_entry_90">90 gradë</string>
+    <string name="pref_camera_video_rotation_entry_180">180 gradë</string>
+    <string name="pref_camera_video_rotation_entry_270">270 gradë</string>
+    <string name="pref_camera_savepath_title">Vendndodhja e ruajtjes</string>
+    <string name="pref_camera_savepath_entry_0">Memoria e brëndshme</string>
+    <string name="pref_camera_savepath_entry_1">Karta SD</string>
+    <string name="camera_gesture_title">Hap kamerën</string>
+    <string name="error_app_unsupported_hsr">Profili i shpejtësisë së lartë nuk është i disponueshëm për madhësinë e zgjedhur të videos. Zgjidhni një madhësi videoje më të vogël</string>
+    <string name="msg_cancel_longshot_for_limited_memory">Memoria po mbaron. Për këtë arsye profili i fotove të vazhdueshme do të çaktivizohet</string>
+</resources>

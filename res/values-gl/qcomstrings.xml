@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright (c) 2012-2014, The Linux Foundation. All rights reserved.
+    Copyright (C) 2014-2016 The CyanogenMod Project
+
+    Not a Contribution.
+
+    Copyright (C) 2007 The Android Open Source Project
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<resources>
+    <string name="pref_camera_autoexposure_title">Exposición automática</string>
+    <string name="pref_camera_autoexposure_entry_centerweighted">Ponderada ao centro</string>
+    <string name="pref_camera_autoexposure_entry_frameaverage">Media de marcos</string>
+    <string name="pref_camera_autoexposure_entry_spotmetering">Medición puntual</string>
+    <string name="pref_camera_videoencoder_title">Códec de vídeo</string>
+    <string name="pref_camera_audioencoder_title">Códec de son</string>
+    <string name="pref_camera_skinToneEnhancement_title">Mellora do ton da pel</string>
+    <string name="pref_camera_zsl_title">Retardo cero de disparador</string>
+    <string name="pref_camera_selectablezoneaf_title">Zona de enfoque automático</string>
+    <string name="pref_camera_selectablezoneaf_entry_auto">Auto</string>
+    <string name="pref_camera_selectablezoneaf_entry_centerweighted">Ponderada ao centro</string>
+    <string name="pref_camera_selectablezoneaf_entry_frameaverage">Media de marcos</string>
+    <string name="pref_camera_selectablezoneaf_entry_spotmetering">Medición puntual</string>
+    <string name="pref_camera_advanced_features_title">Funcionalidades avanzadas</string>
+    <string name="pref_camera_advanced_feature_entry_none">Ningún</string>
+    <string name="pref_camera_advanced_feature_entry_multi_touch_focus">Foco multitoque</string>
+    <string name="pref_camera_manual_exp_title">Exposición manual</string>
+    <string name="pref_camera_manual_exp_entry_ISO_priority">Prioridade ISO</string>
+    <string name="pref_camera_manual_exp_entry_exptime_priority">Prioridade de tempo de exposición</string>
+    <string name="pref_camera_manual_exp_entry_user_setting">Axuste do usuario</string>
+    <string name="pref_camera_manual_exp_entry_off">Apagado</string>
+    <string name="pref_camera_manual_wb_title">Balance manual de brancos</string>
+    <string name="pref_camera_manual_wb_entry_color_temperature">Cor de temperatura</string>
+    <string name="pref_camera_manual_wb_entry_rbgb_gains">Ganancia RBGB</string>
+    <string name="pref_camera_manual_wb_entry_off">Apagada</string>
+    <string name="pref_camera_manual_focus_title">Enfoque manual</string>
+    <string name="pref_camera_manual_focus_entry_scale_mode">Modo de escala</string>
+    <string name="pref_camera_manual_focus_entry_diopter_mode">Modo de dioptría</string>
+    <string name="pref_camera_manual_focus_entry_off">Apagado</string>
+    <string name="pref_camera_video_hdr_title">Vídeo HDR</string>
+    <string name="pref_camera_cds_title">Modo CDS</string>
+    <string name="pref_camera_cds_entry_auto">Auto</string>
+    <string name="pref_camera_video_cds_title">Modo de vídeo CDS</string>
+    <string name="pref_camera_video_cds_entry_auto">Auto</string>
+    <string name="pref_camera_tnr_title">Modo TNR</string>
+    <string name="pref_camera_video_tnr_title">Modo de vídeo TNR</string>
+    <string name="pref_camera_facedetection_title">Detección da cara</string>
+    <string name="pref_selfie_flash_title">Flash de selfie</string>
+    <string name="pref_camera_redeyereduction_title">Redución de ollos vermellos</string>
+    <string name="pref_camera_ae_bracket_hdr_title">Exposición automática para interpolación</string>
+    <string name="pref_camera_hfr_title">A cámara lenta</string>
+    <string name="pref_camera_hfr_entry_off">Apagado</string>
+    <string name="pref_camera_hfr_entry_2x">A cámara lenta 60 FPS</string>
+    <string name="pref_camera_hfr_entry_3x">A cámara lenta 90 FPS</string>
+    <string name="pref_camera_hfr_entry_4x">A cámara lenta 120 FPS</string>
+    <string name="pref_camera_hfr_entry_8x">A cámara lenta 240 FPS</string>
+    <string name="pref_camera_hfr_entry_hsr_60">A gran velocidade 60 FPS</string>
+    <string name="pref_camera_hfr_entry_hsr_90">A gran velocidade 90 FPS</string>
+    <string name="pref_camera_hfr_entry_hsr_120">A gran velocidade 120 FPS</string>
+    <string name="pref_camera_denoise_title">Reducir ruído</string>
+    <string name="pref_camera_iso_title">ISO</string>
+    <string name="pref_camera_iso_entry_auto">Auto</string>
+    <string name="pref_camera_iso_entry_isodeblur">Auto (HjR)</string>
+    <string name="pref_camera_iso_entry_iso50">ISO50</string>
+    <string name="pref_camera_iso_entry_iso100">ISO100</string>
+    <string name="pref_camera_iso_entry_iso125">ISO125</string>
+    <string name="pref_camera_iso_entry_iso150">ISO150</string>
+    <string name="pref_camera_iso_entry_iso200">ISO200</string>
+    <string name="pref_camera_iso_entry_iso250">ISO250</string>
+    <string name="pref_camera_iso_entry_iso300">ISO300</string>
+    <string name="pref_camera_iso_entry_iso320">ISO320</string>
+    <string name="pref_camera_iso_entry_iso350">ISO350</string>
+    <string name="pref_camera_iso_entry_iso400">ISO400</string>
+    <string name="pref_camera_iso_entry_iso450">ISO450</string>
+    <string name="pref_camera_iso_entry_iso500">ISO500</string>
+    <string name="pref_camera_iso_entry_iso600">ISO600</string>
+    <string name="pref_camera_iso_entry_iso640">ISO640</string>
+    <string name="pref_camera_iso_entry_iso700">ISO700</string>
+    <string name="pref_camera_iso_entry_iso800">ISO800</string>
+    <string name="pref_camera_iso_entry_iso1000">ISO1000</string>
+    <string name="pref_camera_iso_entry_iso1200">ISO1200</string>
+    <string name="pref_camera_iso_entry_iso1250">ISO1250</string>
+    <string name="pref_camera_iso_entry_iso1500">ISO1500</string>
+    <string name="pref_camera_iso_entry_iso1600">ISO1600</string>
+    <string name="pref_camera_iso_entry_iso2000">ISO2000</string>
+    <string name="pref_camera_iso_entry_iso2500">ISO2500</string>
+    <string name="pref_camera_iso_entry_iso2700">ISO2700</string>
+    <string name="pref_camera_iso_entry_iso3200">ISO3200</string>
+    <string name="pref_camera_iso_entry_iso6400">ISO6400</string>
+    <string name="pref_camera_iso_entry_iso12800">ISO12800</string>
+    <string name="pref_camera_antibanding_title">Antibandas</string>
+    <string name="pref_camera_antibanding_entry_0">Auto</string>
+    <string name="pref_camera_antibanding_entry_1">50 Hz (Europa)</string>
+    <string name="pref_camera_antibanding_entry_2">60 Hz (USA)</string>
+    <string name="pref_camera_coloreffect_title">Efecto de cor</string>
+    <string name="pref_camera_coloreffect_entry_none">Ningún</string>
+    <string name="pref_camera_coloreffect_entry_mono">Mono</string>
+    <string name="pref_camera_coloreffect_entry_sepia">Sepia</string>
+    <string name="pref_camera_coloreffect_entry_negative">Negativo</string>
+    <string name="pref_camera_coloreffect_entry_solarize">Solarizar</string>
+    <string name="pref_camera_coloreffect_entry_posterize">Posterizar</string>
+    <string name="pref_camera_coloreffect_entry_aqua">Auga</string>
+    <string name="pref_camera_coloreffect_entry_emboss">Realzar</string>
+    <string name="pref_camera_coloreffect_entry_sketch">Esbozo a lapis</string>
+    <string name="pref_camera_coloreffect_entry_neon">Neon</string>
+    <string name="pref_camera_coloreffect_entry_pastel">Pastel</string>
+    <string name="pref_camera_coloreffect_entry_mosaic">Mosaico</string>
+    <string name="pref_camera_coloreffect_entry_redtint">Tinta vermella</string>
+    <string name="pref_camera_coloreffect_entry_bluetint">Tinta azul</string>
+    <string name="pref_camera_coloreffect_entry_greentint">Tinta verde</string>
+    <string name="pref_camera_dis_title">Estabilización</string>
+    <string name="pref_camera_facerc_title">Recoñecemento de cara</string>
+    <string name="pref_camera_sharpness_title">Nitidez</string>
+    <string name="pref_camera_sharpness_entry_level0">Nivel 0</string>
+    <string name="pref_camera_sharpness_entry_level1">Nivel 1</string>
+    <string name="pref_camera_sharpness_entry_level2">Nivel 2 (Predeterminado)</string>
+    <string name="pref_camera_sharpness_entry_level3">Nivel 3</string>
+    <string name="pref_camera_sharpness_entry_level4">Nivel 4</string>
+    <string name="pref_camera_sharpness_entry_level5">Nivel 5</string>
+    <string name="pref_camera_sharpness_entry_level6">Nivel 6</string>
+    <string name="pref_camera_contrast_title">Contraste</string>
+    <string name="pref_camera_contrast_entry_level0">Nivel 0</string>
+    <string name="pref_camera_contrast_entry_level1">Nivel 1</string>
+    <string name="pref_camera_contrast_entry_level2">Nivel 2</string>
+    <string name="pref_camera_contrast_entry_level3">Nivel 3</string>
+    <string name="pref_camera_contrast_entry_level4">Nivel 4</string>
+    <string name="pref_camera_contrast_entry_level5">Nivel 5 (Predeterminado)</string>
+    <string name="pref_camera_contrast_entry_level6">Nivel 6</string>
+    <string name="pref_camera_contrast_entry_level7">Nivel 7</string>
+    <string name="pref_camera_contrast_entry_level8">Nivel 8</string>
+    <string name="pref_camera_contrast_entry_level9">Nivel 9</string>
+    <string name="pref_camera_contrast_entry_level10">Nivel 10</string>
+    <string name="pref_camera_saturation_title">Saturación</string>
+    <string name="pref_camera_saturation_entry_level0">Nivel 0</string>
+    <string name="pref_camera_saturation_entry_level1">Nivel 1</string>
+    <string name="pref_camera_saturation_entry_level2">Nivel 2</string>
+    <string name="pref_camera_saturation_entry_level3">Nivel 3</string>
+    <string name="pref_camera_saturation_entry_level4">Nivel 4</string>
+    <string name="pref_camera_saturation_entry_level5">Nivel 5 (Predeterminado)</string>
+    <string name="pref_camera_saturation_entry_level6">Nivel 6</string>
+    <string name="pref_camera_saturation_entry_level7">Nivel 7</string>
+    <string name="pref_camera_saturation_entry_level8">Nivel 8</string>
+    <string name="pref_camera_saturation_entry_level9">Nivel 9</string>
+    <string name="pref_camera_saturation_entry_level10">Nivel 10</string>
+    <string name="pref_camera_picture_format_title">Formato da imaxe</string>
+    <string name="pref_camera_jpegquality_title">Calidade da imaxe</string>
+    <string name="pref_camera_jpegquality_entry_0">55%</string>
+    <string name="pref_camera_jpegquality_entry_1">65% (normal)</string>
+    <string name="pref_camera_jpegquality_entry_2">75% (fino)</string>
+    <string name="pref_camera_jpegquality_entry_3">85% (superfino)</string>
+    <string name="pref_camera_jpegquality_entry_4">95%</string>
+    <string name="pref_camera_jpegquality_entry_5">100%</string>
+    <string name="pref_camera_histogram_title">Histograma</string>
+    <string name="pref_camera_scenedetect_title">Detección automática de escenas</string>
+    <string name="pref_camera_longshot_title">Disparo continuo</string>
+    <string name="pref_camera_auto_hdr_title">Auto HDR</string>
+    <string name="pref_camera_hdr_mode_title">Modo HDR</string>
+    <string name="pref_camera_hdr_mode_entry_sensor">Sensor HDR</string>
+    <string name="pref_camera_hdr_mode_entry_multi_frame">Multicadro HDR</string>
+    <string name="pref_camera_hdr_need_1x_title">O HDR necesita 1x cadro</string>
+    <string name="pref_camera_video_rotation_title">Rotación de vídeo</string>
+    <string name="pref_camera_video_rotation_entry_0">0 graos</string>
+    <string name="pref_camera_video_rotation_entry_90">90 graos</string>
+    <string name="pref_camera_video_rotation_entry_180">180 graos</string>
+    <string name="pref_camera_video_rotation_entry_270">270 graos</string>
+    <string name="pref_camera_savepath_title">Localización de almacenamento</string>
+    <string name="pref_camera_savepath_entry_0">Almacenamento interno</string>
+    <string name="pref_camera_savepath_entry_1">Tarxeta SD</string>
+    <string name="camera_gesture_title">Lanzar cámara</string>
+    <string name="all_in_focus">Todo enfocado</string>
+    <string name="refocus_toast">Para reenfocar a última foto, toque aquí</string>
+    <string name="error_app_unsupported_hfr_selection">Os modos Gran velocidade/Cámara lenta non son compatíbeis con DIS e TimeLapse</string>
+    <string name="error_app_unsupported_hfr">O modo de vídeo a cámara lenta non é compatíbel coa resolución seleccionada</string>
+    <string name="error_app_unsupported_dis">A estabilización non é compatíbel co tamaño de vídeo seleccionado. Seleccione un tamaño de vídeo menor</string>
+    <string name="error_app_unsupported_hsr">O modo de vídeo a gran velocidade non é compatíbel coa resolución seleccionada</string>
+    <string name="error_app_unsupported_hfr_codec">O modo de vídeo a cámara lenta só acepta o codificado de vídeo H.264</string>
+    <string name="error_app_unsupported">Esta resolución de vídeo non é compatíbel con este tipo de códec</string>
+    <string name="error_app_unsupported_raw">O formato de imaxe RAW non é compatíbel co modo de retardo cero do disparador. Seleccione JPEG</string>
+    <string name="msg_cancel_longshot_for_limited_memory">A execución sobarda a memoria dispoñíbel, anúlase o disparo continuo</string>
+    <string name="flash_aebracket_message">O flash non é compatíbel co modo de AE de composición (bracketing)</string>
+    <string name="on_switch_save_path_to_sdcard">O espazo de almacenamento interno non chega, trocouse por almacenar na tarxeta SD</string>
+    <string name="map_activity_not_found_err">Non hai instalada unha aplicación de mapas para amosar a localización</string>
+    <string name="longshot_enable_message">As funcionalidades avanzadas non son compatíbeis co modo de disparo continuo</string>
+    <string name="advance_feature_enable_msg">O disparo continuo non é posíbel cando están activadas as funcionalidades avanzadas</string>
+    <string name="HDR_disable_continuous_shot">Ao activar HDR desactivarase o disparo continuo</string>
+    <string name="advanced_capture_disable_continuous_shot">A activar a captura avanzada desactivarase o disparo continuo</string>
+    <string name="video_quality_4k_disable_IS">Ao activar o tamaño de vídeo 4k desactivarase a estabilización</string>
+    <string name="video_quality_4k_disable_SeeMore">Non se pode activar o SeeMore con vídeos 4k</string>
+    <string name="disable_CDS_during_SeeMore">Activar SeeMore desactivará CDS</string>
+    <string name="disable_TNR_during_SeeMore">Activar SeeMore desactivará TNR</string>
+</resources>

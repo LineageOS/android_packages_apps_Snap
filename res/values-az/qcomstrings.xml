@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright (c) 2012-2014, The Linux Foundation. All rights reserved.
+    Copyright (C) 2014-2016 The CyanogenMod Project
+
+    Not a Contribution.
+
+    Copyright (C) 2007 The Android Open Source Project
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<resources>
+    <string name="pref_camera_autoexposure_title">Avto ekspozisiya</string>
+    <string name="pref_camera_autoexposure_entry_centerweighted">Mərkəz ağırlıqlı</string>
+    <string name="pref_camera_autoexposure_entry_frameaverage">Çərçivə ortalaması</string>
+    <string name="pref_camera_autoexposure_entry_spotmetering">Nöqtə ölçülməsi</string>
+    <string name="pref_camera_videoencoder_title">Video kodlayıcı</string>
+    <string name="pref_camera_audioencoder_title">Səs kodlayıcı</string>
+    <string name="pref_camera_skinToneEnhancement_title">Dəri tonu gücləndirilməsi</string>
+    <string name="pref_camera_zsl_title">Sıfır sürgü gecikməsi</string>
+    <string name="pref_camera_selectablezoneaf_title">Avtofokus sahəsi</string>
+    <string name="pref_camera_selectablezoneaf_entry_auto">Avto</string>
+    <string name="pref_camera_selectablezoneaf_entry_centerweighted">Mərkəz ağırlıqlı</string>
+    <string name="pref_camera_selectablezoneaf_entry_frameaverage">Çərçivə ortalaması</string>
+    <string name="pref_camera_selectablezoneaf_entry_spotmetering">Nöqtə ölçülməsi</string>
+    <string name="pref_camera_advanced_features_title">Qabaqcıl özəlliklər</string>
+    <string name="pref_camera_advanced_feature_entry_none">Yoxdur</string>
+    <string name="pref_camera_advanced_feature_entry_multi_touch_focus">Çoxlu toxunaqlı fokus</string>
+    <string name="pref_camera_manual_exp_title">Əllə ekspozisiya</string>
+    <string name="pref_camera_manual_exp_entry_ISO_priority">ISO üstünlüyü</string>
+    <string name="pref_camera_manual_exp_entry_exptime_priority">Ekspozisiya vaxtı üstünlüyü</string>
+    <string name="pref_camera_manual_exp_entry_user_setting">İstifadəçi tənzimləməsi</string>
+    <string name="pref_camera_manual_exp_entry_off">Bağlı</string>
+    <string name="pref_camera_manual_wb_title">Əllə qurulmuş ağ tarazlığı</string>
+    <string name="pref_camera_manual_wb_entry_color_temperature">Rəng hərarəti</string>
+    <string name="pref_camera_manual_wb_entry_rbgb_gains">RBGB qazancı</string>
+    <string name="pref_camera_manual_wb_entry_off">Bağlı</string>
+    <string name="pref_camera_manual_focus_title">Əllə fokus</string>
+    <string name="pref_camera_manual_focus_entry_scale_mode">Bölgü rejimi</string>
+    <string name="pref_camera_manual_focus_entry_diopter_mode">Diopter rejimi</string>
+    <string name="pref_camera_manual_focus_entry_off">Bağlı</string>
+    <string name="pref_camera_video_hdr_title">Video HDR</string>
+    <string name="pref_camera_cds_title">CDS rejimi</string>
+    <string name="pref_camera_cds_entry_auto">Avto</string>
+    <string name="pref_camera_video_cds_title">Video CDS rejimi</string>
+    <string name="pref_camera_video_cds_entry_auto">Avto</string>
+    <string name="pref_camera_tnr_title">TNR rejimi</string>
+    <string name="pref_camera_video_tnr_title">Video TNR rejimi</string>
+    <string name="pref_camera_facedetection_title">Üz aşkarlama</string>
+    <string name="pref_selfie_flash_title">Selfie işığı</string>
+    <string name="pref_camera_redeyereduction_title">Qırmızı göz azaldılması</string>
+    <string name="pref_camera_ae_bracket_hdr_title">AE çənbərləmə</string>
+    <string name="pref_camera_hfr_title">Sürətləndirilmiş çəkiliş</string>
+    <string name="pref_camera_hfr_entry_off">Bağlı</string>
+    <string name="pref_camera_hfr_entry_2x">Ağır çəkiliş 60 FPS</string>
+    <string name="pref_camera_hfr_entry_3x">Ağır çəkiliş 90 FPS</string>
+    <string name="pref_camera_hfr_entry_4x">Ağır çəkiliş 120 FPS</string>
+    <string name="pref_camera_hfr_entry_8x">Ağır çəkiliş 240 FPS</string>
+    <string name="pref_camera_hfr_entry_hsr_60">Sürətləndirilmiş çəkiliş 60 FPS</string>
+    <string name="pref_camera_hfr_entry_hsr_90">Sürətləndirilmiş çəkiliş 90 FPS</string>
+    <string name="pref_camera_hfr_entry_hsr_120">Sürətləndirilmiş çəkiliş 120 FPS</string>
+    <string name="pref_camera_denoise_title">Səs-küyü azalt</string>
+    <string name="pref_camera_iso_title">ISO</string>
+    <string name="pref_camera_iso_entry_auto">Avto</string>
+    <string name="pref_camera_iso_entry_isodeblur">Auto (HJR)</string>
+    <string name="pref_camera_iso_entry_iso50">ISO50</string>
+    <string name="pref_camera_iso_entry_iso100">ISO100ö</string>
+    <string name="pref_camera_iso_entry_iso125">ISO125</string>
+    <string name="pref_camera_iso_entry_iso150">ISO150</string>
+    <string name="pref_camera_iso_entry_iso200">ISO200</string>
+    <string name="pref_camera_iso_entry_iso250">ISO250</string>
+    <string name="pref_camera_iso_entry_iso300">ISO300</string>
+    <string name="pref_camera_iso_entry_iso320">ISO320</string>
+    <string name="pref_camera_iso_entry_iso350">ISO350</string>
+    <string name="pref_camera_iso_entry_iso400">ISO400</string>
+    <string name="pref_camera_iso_entry_iso450">ISO450</string>
+    <string name="pref_camera_iso_entry_iso500">ISO500</string>
+    <string name="pref_camera_iso_entry_iso600">ISO600</string>
+    <string name="pref_camera_iso_entry_iso640">ISO640</string>
+    <string name="pref_camera_iso_entry_iso700">ISO700</string>
+    <string name="pref_camera_iso_entry_iso800">ISO800</string>
+    <string name="pref_camera_iso_entry_iso1000">ISO1000</string>
+    <string name="pref_camera_iso_entry_iso1200">ISO1200</string>
+    <string name="pref_camera_iso_entry_iso1250">ISO1250</string>
+    <string name="pref_camera_iso_entry_iso1500">ISO1500</string>
+    <string name="pref_camera_iso_entry_iso1600">ISO1600</string>
+    <string name="pref_camera_iso_entry_iso2000">ISO2000</string>
+    <string name="pref_camera_iso_entry_iso2500">ISO2500</string>
+    <string name="pref_camera_iso_entry_iso2700">ISO2700</string>
+    <string name="pref_camera_iso_entry_iso3200">ISO3200</string>
+    <string name="pref_camera_iso_entry_iso6400">ISO6400</string>
+    <string name="pref_camera_iso_entry_iso12800">ISO12800</string>
+    <string name="pref_camera_antibanding_title">Parıldalamanın azaldılması</string>
+    <string name="pref_camera_antibanding_entry_0">Avto</string>
+    <string name="pref_camera_antibanding_entry_1">50 Hz (Avropa)</string>
+    <string name="pref_camera_antibanding_entry_2">60 Hz (ABŞ)</string>
+    <string name="pref_camera_coloreffect_title">Rəng effekti</string>
+    <string name="pref_camera_coloreffect_entry_none">Yoxdur</string>
+    <string name="pref_camera_coloreffect_entry_mono">Mono</string>
+    <string name="pref_camera_coloreffect_entry_sepia">Sepia</string>
+    <string name="pref_camera_coloreffect_entry_negative">Neqativ</string>
+    <string name="pref_camera_coloreffect_entry_solarize">Solarlaşdırma</string>
+    <string name="pref_camera_coloreffect_entry_posterize">Posterləşdir</string>
+    <string name="pref_camera_coloreffect_entry_aqua">Su</string>
+    <string name="pref_camera_coloreffect_entry_emboss">Qabart</string>
+    <string name="pref_camera_coloreffect_entry_sketch">Eskiz</string>
+    <string name="pref_camera_coloreffect_entry_neon">Neon</string>
+    <string name="pref_camera_coloreffect_entry_pastel">Pastel</string>
+    <string name="pref_camera_coloreffect_entry_mosaic">Mozaik</string>
+    <string name="pref_camera_coloreffect_entry_redtint">Qırmızı ton</string>
+    <string name="pref_camera_coloreffect_entry_bluetint">Mavi ton</string>
+    <string name="pref_camera_coloreffect_entry_greentint">Yaşıl ton</string>
+    <string name="pref_camera_dis_title">Stabilləşdirmə</string>
+    <string name="pref_camera_facerc_title">Üz tanıma</string>
+    <string name="pref_camera_sharpness_title">Kəskinlik</string>
+    <string name="pref_camera_sharpness_entry_level0">Səviyyə 0</string>
+    <string name="pref_camera_sharpness_entry_level1">Səviyyə 1</string>
+    <string name="pref_camera_sharpness_entry_level2">Səviyyə 2 (ilkin)</string>
+    <string name="pref_camera_sharpness_entry_level3">Səviyyə 3</string>
+    <string name="pref_camera_sharpness_entry_level4">Səviyyə 4</string>
+    <string name="pref_camera_sharpness_entry_level5">Səviyyə 5</string>
+    <string name="pref_camera_sharpness_entry_level6">Səviyyə 6</string>
+    <string name="pref_camera_contrast_title">Ziddiyyət</string>
+    <string name="pref_camera_contrast_entry_level0">Səviyyə 0</string>
+    <string name="pref_camera_contrast_entry_level1">Səviyyə 1</string>
+    <string name="pref_camera_contrast_entry_level2">Səviyyə 2</string>
+    <string name="pref_camera_contrast_entry_level3">Səviyyə 3</string>
+    <string name="pref_camera_contrast_entry_level4">Səviyyə 4</string>
+    <string name="pref_camera_contrast_entry_level5">Səviyyə 5 (ilkin)</string>
+    <string name="pref_camera_contrast_entry_level6">Səviyyə 6</string>
+    <string name="pref_camera_contrast_entry_level7">Səviyyə 7</string>
+    <string name="pref_camera_contrast_entry_level8">Səviyyə 8</string>
+    <string name="pref_camera_contrast_entry_level9">Səviyyə 9</string>
+    <string name="pref_camera_contrast_entry_level10">Səviyyə 10</string>
+    <string name="pref_camera_saturation_title">Doydurma</string>
+    <string name="pref_camera_saturation_entry_level0">Səviyyə 0</string>
+    <string name="pref_camera_saturation_entry_level1">Səviyyə 1</string>
+    <string name="pref_camera_saturation_entry_level2">Səviyyə 2</string>
+    <string name="pref_camera_saturation_entry_level3">Səviyyə 3</string>
+    <string name="pref_camera_saturation_entry_level4">Səviyyə 4</string>
+    <string name="pref_camera_saturation_entry_level5">Səviyyə 5 (ilkin)</string>
+    <string name="pref_camera_saturation_entry_level6">Səviyyə 6</string>
+    <string name="pref_camera_saturation_entry_level7">Səviyyə 7</string>
+    <string name="pref_camera_saturation_entry_level8">Səviyyə 8</string>
+    <string name="pref_camera_saturation_entry_level9">Səviyyə 9</string>
+    <string name="pref_camera_saturation_entry_level10">Səviyyə 10</string>
+    <string name="pref_camera_picture_format_title">Şəkil formatı</string>
+    <string name="pref_camera_jpegquality_title">Şəkil keyfiyyəti</string>
+    <string name="pref_camera_jpegquality_entry_0">55%</string>
+    <string name="pref_camera_jpegquality_entry_1">65% (normal)</string>
+    <string name="pref_camera_jpegquality_entry_2">75% (əla)</string>
+    <string name="pref_camera_jpegquality_entry_3">85% (super yaxşı)</string>
+    <string name="pref_camera_jpegquality_entry_4">95%</string>
+    <string name="pref_camera_jpegquality_entry_5">100%</string>
+    <string name="pref_camera_histogram_title">Histogram</string>
+    <string name="pref_camera_scenedetect_title">Avto səhnə aşkarlama</string>
+    <string name="pref_camera_longshot_title">Fasiləsiz çəkiliş</string>
+    <string name="pref_camera_auto_hdr_title">Avtomatik HDR</string>
+    <string name="pref_camera_hdr_mode_title">HDR rejimi</string>
+    <string name="pref_camera_hdr_mode_entry_sensor">HDR sensoru</string>
+    <string name="pref_camera_hdr_mode_entry_multi_frame">Çoxlu kadr HDR</string>
+    <string name="pref_camera_hdr_need_1x_title">HDR sensorunun 1x kadra ehtiyacı var</string>
+    <string name="pref_camera_video_rotation_title">Video döndərmə</string>
+    <string name="pref_camera_video_rotation_entry_0">0 dərəcə</string>
+    <string name="pref_camera_video_rotation_entry_90">90 dərəcə</string>
+    <string name="pref_camera_video_rotation_entry_180">180 dərəcə</string>
+    <string name="pref_camera_video_rotation_entry_270">270 dərəcə</string>
+    <string name="pref_camera_savepath_title">Anbar yeri</string>
+    <string name="pref_camera_savepath_entry_0">Daxili anbar</string>
+    <string name="pref_camera_savepath_entry_1">SD kart</string>
+    <string name="camera_gesture_title">Kameranı başlat</string>
+    <string name="all_in_focus">Hamısı fokuslandı</string>
+    <string name="refocus_toast">Son fotonu yenidən fokuslamaq üçün bura toxunun</string>
+    <string name="error_app_unsupported_hfr_selection">Sabitləşdirmə/Sürətləndirilmiş çəkiliş/HDR istifadə olunanda Yüksək-framerate çəkiliş dəstəklənmir.</string>
+    <string name="error_app_unsupported_hfr">Ağır çəkiliş seçilmiş video ölçüsündə dəstəklənmir. Daha aşağı video ölçüsü seçin</string>
+    <string name="error_app_unsupported_dis">Stabilləşdirmə seçilmiş video ölçüsündə dəstəklənmir. Daha aşağı video ölçüsü seçin</string>
+    <string name="error_app_unsupported_hsr">Sürətləndirilmiş çəkiliş seçilmiş video ölçüsündə dəstəklənmir. Daha aşağı video ölçüsü seçin</string>
+    <string name="error_app_unsupported_hfr_codec">Sürətləndirilmiş rejim fəal olanda yalnız H264 video kodlaması dəstəklənir</string>
+    <string name="error_app_unsupported">Bu kodlayıcı üçün dəstəklənməyən video ölçüsü</string>
+    <string name="error_app_unsupported_raw">Raw şəkil formatı, Sıfır sürgü gecikmə rejimində dəstəklənmir. JPEG seçin</string>
+    <string name="msg_cancel_longshot_for_limited_memory">Yaddaş dolur, fasiləsiz çəkiliş ləğv edilir</string>
+    <string name="flash_aebracket_message">AE çənbərləmə rejimində işıq dəstəklənmir</string>
+    <string name="on_switch_save_path_to_sdcard">Daxili anbar sahəsi yetərli deyil, anbar yerləşməsi SD karta dəyişdirildi</string>
+    <string name="map_activity_not_found_err">Yeri göstərmək üçün quraşdırılmış xəritə tətbiqi yoxdur</string>
+    <string name="longshot_enable_message">Fasiləsiz çəkiliş rejimində, qabaqcıl özəlliklər dəstəklənmir</string>
+    <string name="advance_feature_enable_msg">Qabaqcıl özəlliklər fəal olanda fasiləsiz çəkiliş dəstəklənmir</string>
+    <string name="HDR_disable_continuous_shot">HDR fəallaşdırılanda fasiləsiz çəkiliş sıradan çıxarılacaq</string>
+    <string name="advanced_capture_disable_continuous_shot">Qabaqcıl yaxalama fəallaşdırılanda fasiləsiz çəkiliş sıradan çıxarılacaq</string>
+    <string name="video_quality_4k_disable_IS">4K video fəallaşdırılanda Sabitləmə sıradan çıxarılacaq</string>
+    <string name="video_quality_4k_disable_SeeMore">SeeMore, 4K video əsnasında fəal edilə bilməz</string>
+    <string name="disable_CDS_during_SeeMore">SeeMore fəallaşdırılanda CDS sıradan çıxarılacaq</string>
+    <string name="disable_TNR_during_SeeMore">SeeMore fəallaşdırılanda TNR sıradan çıxarılacaq</string>
+</resources>

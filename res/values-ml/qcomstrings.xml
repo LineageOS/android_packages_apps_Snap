@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright (c) 2012-2014, The Linux Foundation. All rights reserved.
+    Copyright (C) 2014-2016 The CyanogenMod Project
+
+    Not a Contribution.
+
+    Copyright (C) 2007 The Android Open Source Project
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<resources>
+    <string name="pref_camera_autoexposure_title">ആട്ടോ എക്സ്പോഷര്‍</string>
+    <string name="pref_camera_autoexposure_entry_centerweighted">മദ്ധ്യകേന്ദ്രീകൃതം</string>
+    <string name="pref_camera_autoexposure_entry_frameaverage">ഫ്രെയിം-ശരാശരി</string>
+    <string name="pref_camera_autoexposure_entry_spotmetering">സ്പോട് മീറ്ററിംഗ്</string>
+    <string name="pref_camera_videoencoder_title">വീഡിയോ കോഡെക്</string>
+    <string name="pref_camera_audioencoder_title">ഓഡിയോ കോഡെക്ക്</string>
+    <string name="pref_camera_skinToneEnhancement_title">ചര്‍മ്മം മെച്ചപ്പെടുത്തുക</string>
+    <string name="pref_camera_zsl_title">സീറോ ഷട്ടർ ലാഗ്</string>
+    <string name="pref_camera_selectablezoneaf_title">ആട്ടോഫോക്കസ് മേഖല</string>
+    <string name="pref_camera_selectablezoneaf_entry_auto">ഓട്ടോ</string>
+    <string name="pref_camera_selectablezoneaf_entry_centerweighted">മദ്ധ്യകേന്ദ്രീകൃതം</string>
+    <string name="pref_camera_selectablezoneaf_entry_frameaverage">ഫ്രെയിം-ശരാശരി</string>
+    <string name="pref_camera_selectablezoneaf_entry_spotmetering">സ്പോട് മീറ്ററിംഗ്</string>
+    <string name="pref_camera_advanced_features_title">വിപുലമായ മോഡ്</string>
+    <string name="pref_camera_advanced_feature_entry_none">ആരിൽ നിന്നും വേണ്ട</string>
+    <string name="pref_camera_advanced_feature_entry_multi_touch_focus">മൾട്ടി-ടച്ച് ഫോക്കസ്</string>
+    <string name="pref_camera_manual_exp_title">മാനുവല്‍ എക്സ്പോഷര്‍</string>
+    <string name="pref_camera_manual_exp_entry_ISO_priority">ISO മുൻഗണന</string>
+    <string name="pref_camera_manual_exp_entry_exptime_priority">എക്സ്പോഷര്‍ സമയ മുന്‍ഗണന</string>
+    <string name="pref_camera_manual_exp_entry_user_setting">ഉപയോക്തൃ ക്രമീകരണം</string>
+    <string name="pref_camera_manual_exp_entry_off">ഓഫാണ്</string>
+    <string name="pref_camera_manual_wb_title">മാനുവല്‍ വൈറ്റ് ബാലൻസ്</string>
+    <string name="pref_camera_manual_wb_entry_color_temperature">നിറം താപനില</string>
+    <string name="pref_camera_manual_wb_entry_rbgb_gains">RBGB ഗെയിന്‍സ്</string>
+    <string name="pref_camera_manual_wb_entry_off">ഓഫാണ്</string>
+    <string name="pref_camera_manual_focus_title">മാനുവല്‍ ഫോക്കസ്</string>
+    <string name="pref_camera_manual_focus_entry_scale_mode">സ്കെയില്‍ മോഡ്</string>
+    <string name="pref_camera_manual_focus_entry_diopter_mode">ഡയോപ്റ്റര്‍ മോഡ്</string>
+    <string name="pref_camera_manual_focus_entry_off">ഓഫാണ്</string>
+    <string name="pref_camera_video_hdr_title">വീഡിയോ HDR</string>
+    <string name="pref_camera_cds_title">CDS മോഡ്</string>
+    <string name="pref_camera_cds_entry_auto">ഓട്ടോ</string>
+    <string name="pref_camera_video_cds_title">വീഡിയോ CDS മോഡ്</string>
+    <string name="pref_camera_video_cds_entry_auto">ഓട്ടോ</string>
+    <string name="pref_camera_tnr_title">TNR മോഡ്</string>
+    <string name="pref_camera_video_tnr_title">വീഡിയോ TNR മോഡ്</string>
+    <string name="pref_camera_facedetection_title">മുഖം തിരിച്ചറിയല്‍</string>
+    <string name="pref_selfie_flash_title">സെൽഫിയുടെ ഫ്ലാഷ്</string>
+    <string name="pref_camera_redeyereduction_title">റെഡ് ഐ റിഡക്ഷന്‍</string>
+    <string name="pref_camera_ae_bracket_hdr_title">AE-ബ്രാക്കറ്റിംഗ്</string>
+    <string name="pref_camera_hfr_title">ഹൈ-ഫ്രെയിംറേറ്റ് റിക്കോര്‍ഡിംഗ്</string>
+    <string name="pref_camera_hfr_entry_off">ഓഫാണ്</string>
+    <string name="pref_camera_hfr_entry_2x">സ്ലോ മോഷൻ 60 FPS</string>
+    <string name="pref_camera_hfr_entry_3x">സ്ലോ മോഷൻ 90 FPS</string>
+    <string name="pref_camera_hfr_entry_4x">സ്ലോ മോഷൻ 120 FPS</string>
+    <string name="pref_camera_hfr_entry_8x">സ്ലോ മോഷൻ 240 FPS</string>
+    <string name="pref_camera_hfr_entry_hsr_60">ഹൈ സ്പീഡ് 60 FPS</string>
+    <string name="pref_camera_hfr_entry_hsr_90">ഹൈ സ്പീഡ് 90 FPS</string>
+    <string name="pref_camera_hfr_entry_hsr_120">ഹൈ സ്പീഡ് 120 FPS</string>
+    <string name="pref_camera_denoise_title">ഡിനോയ്സ്</string>
+    <string name="pref_camera_iso_title">ഐ എസ ഓ ഗുണനിലവാരം</string>
+    <string name="pref_camera_iso_entry_auto">ഓട്ടോ</string>
+    <string name="pref_camera_iso_entry_isodeblur">ഓട്ടോ (HJR)</string>
+    <string name="pref_camera_iso_entry_iso50">ഐ എസ ഓ 50</string>
+    <string name="pref_camera_iso_entry_iso100">ISO100</string>
+    <string name="pref_camera_iso_entry_iso125">ISO125</string>
+    <string name="pref_camera_iso_entry_iso150">ISO150</string>
+    <string name="pref_camera_iso_entry_iso200">ISO200</string>
+    <string name="pref_camera_iso_entry_iso250">ഐ എസ ഓ 250</string>
+    <string name="pref_camera_iso_entry_iso300">ഐ എസ ഓ 300</string>
+    <string name="pref_camera_iso_entry_iso320">ഐ എസ ഓ 320</string>
+    <string name="pref_camera_iso_entry_iso350">ഐ എസ ഓ 350</string>
+    <string name="pref_camera_iso_entry_iso400">ഐ എസ ഓ 400</string>
+    <string name="pref_camera_iso_entry_iso450">ഐ എസ ഓ 450</string>
+    <string name="pref_camera_iso_entry_iso500">ഐ എസ ഓ 500</string>
+    <string name="pref_camera_iso_entry_iso600">ഐ എസ ഓ 600</string>
+    <string name="pref_camera_iso_entry_iso640">ഐ എസ ഓ 640</string>
+    <string name="pref_camera_iso_entry_iso700">ഐ എസ ഓ 700</string>
+    <string name="pref_camera_iso_entry_iso800">ഐ എസ ഓ 800</string>
+    <string name="pref_camera_iso_entry_iso1000">ഐ എസ ഓ 1000</string>
+    <string name="pref_camera_iso_entry_iso1200">ഐ എസ ഓ 1200</string>
+    <string name="pref_camera_iso_entry_iso1250">ഐ എസ ഓ 1250</string>
+    <string name="pref_camera_iso_entry_iso1500">ഐ എസ ഓ 1500</string>
+    <string name="pref_camera_iso_entry_iso1600">ഐ എസ ഓ 1600</string>
+    <string name="pref_camera_iso_entry_iso2000">ഐ എസ ഓ 2000</string>
+    <string name="pref_camera_iso_entry_iso2500">ഐ എസ ഓ 2500</string>
+    <string name="pref_camera_iso_entry_iso2700">ഐ എസ ഓ 2700</string>
+    <string name="pref_camera_iso_entry_iso3200">ഐ എസ ഓ 3200</string>
+    <string name="pref_camera_iso_entry_iso6400">ഐ എസ ഓ 6400</string>
+    <string name="pref_camera_iso_entry_iso12800">ഐ എസ ഓ 12800</string>
+    <string name="pref_camera_antibanding_title">Antibanding</string>
+    <string name="pref_camera_antibanding_entry_0">ഓട്ടോ</string>
+    <string name="pref_camera_antibanding_entry_1">50 Hz (യൂറോപ്പ്)</string>
+    <string name="pref_camera_antibanding_entry_2">60 Hz (യു.എസ്.എ)</string>
+    <string name="pref_camera_coloreffect_title">വര്‍ണ്ണ പ്രഭാവം</string>
+    <string name="pref_camera_coloreffect_entry_none">ആരിൽ നിന്നും വേണ്ട</string>
+    <string name="pref_camera_coloreffect_entry_mono">മോണോ</string>
+    <string name="pref_camera_coloreffect_entry_sepia">സിപിയ</string>
+    <string name="pref_camera_coloreffect_entry_negative">നെഗറ്റീവ്</string>
+    <string name="pref_camera_coloreffect_entry_solarize">സോളറൈസ്</string>
+    <string name="pref_camera_coloreffect_entry_posterize">പോസ്റ്ററൈസ്</string>
+    <string name="pref_camera_coloreffect_entry_aqua">അക്വാ</string>
+    <string name="pref_camera_coloreffect_entry_emboss">എംബോസ്സ്</string>
+    <string name="pref_camera_coloreffect_entry_sketch">സ്കെച്ച്</string>
+    <string name="pref_camera_coloreffect_entry_neon">നിയോണ്‍</string>
+    <string name="pref_camera_coloreffect_entry_pastel">പാസ്റ്റല്‍</string>
+    <string name="pref_camera_coloreffect_entry_mosaic">മൊസൈക്ക്</string>
+    <string name="pref_camera_coloreffect_entry_redtint">ചുവന്ന ടിന്‍റ്</string>
+    <string name="pref_camera_coloreffect_entry_bluetint">നീല ടിന്‍റ്</string>
+    <string name="pref_camera_coloreffect_entry_greentint">പച്ച ടിന്‍റ്</string>
+    <string name="pref_camera_dis_title">സ്റ്റബിലൈസേഷന്‍</string>
+    <string name="pref_camera_facerc_title">മുഖം തിരിചറിയല്‍</string>
+    <string name="pref_camera_sharpness_title">ഷാര്‍പ്പനെസ്</string>
+    <string name="pref_camera_sharpness_entry_level0">ലെവല്‍ 0</string>
+    <string name="pref_camera_sharpness_entry_level1">ലെവല്‍ 1</string>
+    <string name="pref_camera_sharpness_entry_level2">ലെവല്‍ 2 (ഡിഫോള്‍ട്ട്)</string>
+    <string name="pref_camera_sharpness_entry_level3">ലെവല്‍ 3</string>
+    <string name="pref_camera_sharpness_entry_level4">ലെവല്‍ 4</string>
+    <string name="pref_camera_sharpness_entry_level5">ലെവല്‍ 5</string>
+    <string name="pref_camera_sharpness_entry_level6">ലെവല്‍ 6</string>
+    <string name="pref_camera_contrast_title">ദൃശ്യതീവ്രത</string>
+    <string name="pref_camera_contrast_entry_level0">ലെവല്‍ 0</string>
+    <string name="pref_camera_contrast_entry_level1">ലെവല്‍ 1</string>
+    <string name="pref_camera_contrast_entry_level2">ലെവല്‍ 2</string>
+    <string name="pref_camera_contrast_entry_level3">ലെവല്‍ 3</string>
+    <string name="pref_camera_contrast_entry_level4">ലെവല്‍ 4</string>
+    <string name="pref_camera_contrast_entry_level5">ലെവല്‍ 5 (ഡിഫോള്‍ട്ട്)</string>
+    <string name="pref_camera_contrast_entry_level6">ലെവല്‍ 6</string>
+    <string name="pref_camera_contrast_entry_level7">ലെവല്‍ 7</string>
+    <string name="pref_camera_contrast_entry_level8">ലെവല്‍ 8</string>
+    <string name="pref_camera_contrast_entry_level9">ലെവല്‍ 9</string>
+    <string name="pref_camera_contrast_entry_level10">ലെവല്‍ 10</string>
+    <string name="pref_camera_saturation_title">സാച്ചുറേഷൻ</string>
+    <string name="pref_camera_saturation_entry_level0">ലെവല്‍ 0</string>
+    <string name="pref_camera_saturation_entry_level1">ലെവല്‍ 1</string>
+    <string name="pref_camera_saturation_entry_level2">ലെവല്‍ 2</string>
+    <string name="pref_camera_saturation_entry_level3">ലെവല്‍ 3</string>
+    <string name="pref_camera_saturation_entry_level4">ലെവല്‍ 4</string>
+    <string name="pref_camera_saturation_entry_level5">ലെവല്‍ 5 (ഡിഫോള്‍ട്ട്)</string>
+    <string name="pref_camera_saturation_entry_level6">ലെവല്‍ 6</string>
+    <string name="pref_camera_saturation_entry_level7">ലെവല്‍ 7</string>
+    <string name="pref_camera_saturation_entry_level8">ലെവല്‍ 8</string>
+    <string name="pref_camera_saturation_entry_level9">ലെവല്‍ 9</string>
+    <string name="pref_camera_saturation_entry_level10">ലെവല്‍ 10</string>
+    <string name="pref_camera_picture_format_title">പിക്ചര്‍ ഫോര്‍മാറ്റ്</string>
+    <string name="pref_camera_jpegquality_title">ചിത്ര ഗുണമേന്മ</string>
+    <string name="pref_camera_jpegquality_entry_0">55%</string>
+    <string name="pref_camera_jpegquality_entry_1">65% (സാധാരണം)</string>
+    <string name="pref_camera_jpegquality_entry_2">75% (വിശിഷ്‌ടം)</string>
+    <string name="pref_camera_jpegquality_entry_3">85% (അതിവിശിഷ്‌ടം)</string>
+    <string name="pref_camera_jpegquality_entry_4">95%</string>
+    <string name="pref_camera_jpegquality_entry_5">100%</string>
+    <string name="pref_camera_histogram_title">ഹിസ്റ്റോഗ്രാം</string>
+    <string name="pref_camera_scenedetect_title">ഓട്ടോ സീന്‍ ഡിറ്റക്ഷന്‍</string>
+    <string name="pref_camera_longshot_title">തുടര്‍ച്ചയായ ഷോട്ട്</string>
+    <string name="pref_camera_auto_hdr_title">ഓട്ടോ HDR</string>
+    <string name="pref_camera_hdr_mode_title">HDR മോഡ്</string>
+    <string name="pref_camera_hdr_mode_entry_sensor">സെന്‍സര്‍ HDR</string>
+    <string name="pref_camera_hdr_mode_entry_multi_frame">മള്‍ട്ടി-ഫ്രെയിം-HDR</string>
+    <string name="pref_camera_hdr_need_1x_title">HDR ന് 1x ഫ്രെയിം ആവശ്യമാണ്‌</string>
+    <string name="pref_camera_video_rotation_title">വീഡിയോ തിരിയല്‍</string>
+    <string name="pref_camera_video_rotation_entry_0">0 ഡിഗ്രി</string>
+    <string name="pref_camera_video_rotation_entry_90">90 ഡിഗ്രി</string>
+    <string name="pref_camera_video_rotation_entry_180">180 ഡിഗ്രി</string>
+    <string name="pref_camera_video_rotation_entry_270">270 ഡിഗ്രി</string>
+    <string name="pref_camera_savepath_title">സംഭരണ സ്ഥാനം</string>
+    <string name="pref_camera_savepath_entry_0">ആന്തരിക സംഭരണം</string>
+    <string name="pref_camera_savepath_entry_1">SD കാർഡ്</string>
+    <string name="camera_gesture_title">ക്യാമറ സമാരംഭിക്കുക</string>
+    <string name="all_in_focus">എല്ലാ ഫോക്കസിൽ</string>
+    <string name="refocus_toast">അവസാന ഫോട്ടോ വീണ്ടും ഫോക്കസ് ചെയ്യുന്നതിന്, ഇവിടെ അമര്‍ത്തുക</string>
+    <string name="error_app_unsupported_hfr_selection">സ്റ്റെബിലൈസേഷന്‍/ ടൈം ലാപ്സ് / HDR എന്നിവ ഉപയോഗിക്കുമ്പോൾ ഹൈ-ഫ്രെയിംറേറ്റ് റെക്കോർഡിംഗ് പിന്തുണയ്ക്കില്ല.</string>
+    <string name="error_app_unsupported_hfr">തിരഞ്ഞെടുത്ത വീഡിയോ വലുപ്പത്തില്‍ സ്ലോ മോഷൻ മോഡ് പിന്തുണയ്ക്കില്ല കുറഞ്ഞ വീഡിയോ വലുപ്പം തിരഞ്ഞെടുക്കുക</string>
+    <string name="error_app_unsupported_dis">തിരഞ്ഞെടുത്ത വീഡിയോ വലുപ്പത്തില്‍ സ്റ്റെബിലൈസേഷന്‍ പിന്തുണയ്ക്കില്ല കുറഞ്ഞ വീഡിയോ വലുപ്പം തിരഞ്ഞെടുക്കുക</string>
+    <string name="error_app_unsupported_hsr">തിരഞ്ഞെടുത്ത റെസലൂഷനില്‍ ഹൈ സ്പീഡ് വീഡിയോ പിന്തുണയ്ക്കില്ല കുറഞ്ഞ വീഡിയോ വലുപ്പം തിരഞ്ഞെടുക്കുക</string>
+    <string name="error_app_unsupported_hfr_codec">HFR ഓണായിരിക്കുമ്പോൾ H264 വീഡിയോ എൻകോഡിംഗ് മാത്രം പിന്തുണയ്ക്കുന്നു</string>
+    <string name="error_app_unsupported">ഈ എൻകോഡർ തരത്തിന് പിന്തുണയ്ക്കാത്ത വീഡിയോ റിസല്യൂഷന്‍</string>
+    <string name="error_app_unsupported_raw">സീറോ ഷട്ടർ ലാഗ് മോഡിൽ അസംസ്കൃത ചിത്രം ഫോർമാറ്റ് പിന്തുണയ്ക്കില്ല. JPEG തിരഞ്ഞെടുക്കുക</string>
+    <string name="msg_cancel_longshot_for_limited_memory">മെമ്മറി കുറവാണ്, തുടർച്ചയായ ഷോട്ട് റദ്ദാക്കുന്നു</string>
+    <string name="flash_aebracket_message">AE ബ്രാക്കറ്റിംഗ് മോഡിൽ ഫ്ലാഷ് പിന്തുണയ്ക്കില്ല</string>
+    <string name="on_switch_save_path_to_sdcard">വേണ്ടത്ര ആന്തരിക സ്റ്റോറേജ് സ്ഥലം ഇല്ല, സ്റ്റോറേജ് സംഭരണം SD കാർഡിലേക്ക് സിച്ച് ചെയ്തു</string>
+    <string name="map_activity_not_found_err">സ്ഥാനം കാണിക്കാൻ ഇൻസ്റ്റാള്‍ ചെയ്ത മാപ്പ് ആപ്ലിക്കേഷൻ ഇല്ല.</string>
+    <string name="longshot_enable_message">വിപുലമായ സവിശേഷതകൾ തുടർച്ചയായ ഷോട്ട് മോഡിൽ പിന്തുണയ്ക്കില്ല.</string>
+    <string name="advance_feature_enable_msg">വിപുലമായ സവിശേഷതകൾ പ്രാപ്തമാക്കിയിരിക്കുമ്പോള്‍ തുടർച്ചയായ ഷോട്ട് പിന്തുണയ്ക്കില്ല.</string>
+    <string name="HDR_disable_continuous_shot">HDR പ്രാപ്തമാക്കുന്നതിലൂടെ തുടർച്ചയായ ഷോട്ട് അപ്രാപ്തമാകുന്നതാണ്</string>
+    <string name="advanced_capture_disable_continuous_shot">വിപുലമായ കാപ്ചര്‍ പ്രാപ്തമാക്കുന്നതിലൂടെ തുടർച്ചയായ ഷോട്ട് അപ്രാപ്തമാകുന്നതാണ്.</string>
+    <string name="video_quality_4k_disable_IS">4K വീഡിയോ വലുപ്പം പ്രാപ്തമാക്കുന്നതിലൂടെ സ്റ്റബിലൈസെഷന്‍ അപ്രാപ്തമാകുന്നതാണ്.</string>
+    <string name="video_quality_4k_disable_SeeMore">4K വീഡിയോ സമുയത്ത് കൂടുതല്‍കാണുക പ്രാപ്തമാക്കാന്‍ സാധിക്കില്ല.</string>
+</resources>

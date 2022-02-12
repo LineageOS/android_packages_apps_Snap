@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright (c) 2012-2014, The Linux Foundation. All rights reserved.
+    Copyright (C) 2014-2016 The CyanogenMod Project
+
+    Not a Contribution.
+
+    Copyright (C) 2007 The Android Open Source Project
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<resources>
+    <string name="pref_camera_autoexposure_title">ऑटो उघडीप</string>
+    <string name="pref_camera_autoexposure_entry_centerweighted">केंद्र भारित</string>
+    <string name="pref_camera_autoexposure_entry_frameaverage">चौकट सरासरी</string>
+    <string name="pref_camera_autoexposure_entry_spotmetering">स्पॉट मीटरिंग</string>
+    <string name="pref_camera_videoencoder_title">व्हिडिओ कोडेक</string>
+    <string name="pref_camera_audioencoder_title">ऑडिओ कोडेक</string>
+    <string name="pref_camera_skinToneEnhancement_title">त्वचा टोन वर्धन</string>
+    <string name="pref_camera_zsl_title">शून्य शटर लॅग</string>
+    <string name="pref_camera_selectablezoneaf_title">ऑटोफोकस क्षेत्र</string>
+    <string name="pref_camera_selectablezoneaf_entry_auto">ऑटो</string>
+    <string name="pref_camera_selectablezoneaf_entry_centerweighted">केंद्र भारित</string>
+    <string name="pref_camera_selectablezoneaf_entry_frameaverage">चौकट सरासरी</string>
+    <string name="pref_camera_selectablezoneaf_entry_spotmetering">स्पॉट मीटरिंग</string>
+    <string name="pref_camera_advanced_features_title">प्रगत वैशिष्ट्ये</string>
+    <string name="pref_camera_advanced_feature_entry_none">काहीही नाही</string>
+    <string name="pref_camera_advanced_feature_entry_multi_touch_focus">बहु-स्पर्श फोकस</string>
+    <string name="pref_camera_manual_exp_title">व्यक्तिचलित उघडीप</string>
+    <string name="pref_camera_manual_exp_entry_ISO_priority">ISO प्राधान्य</string>
+    <string name="pref_camera_manual_exp_entry_exptime_priority">उघडीप वेळ प्राधान्य</string>
+    <string name="pref_camera_manual_exp_entry_user_setting">प्रयोक्ता सेटिंग</string>
+    <string name="pref_camera_manual_exp_entry_off">बंद</string>
+    <string name="pref_camera_manual_wb_title">व्यक्तिचलित शुभ्रता संतुलन</string>
+    <string name="pref_camera_manual_wb_entry_color_temperature">रंग तापमान</string>
+    <string name="pref_camera_manual_wb_entry_rbgb_gains">RBGB गेन्स</string>
+    <string name="pref_camera_manual_wb_entry_off">बंद</string>
+    <string name="pref_camera_manual_focus_title">व्यक्तिचलित फोकस</string>
+    <string name="pref_camera_manual_focus_entry_scale_mode">स्केल मोड</string>
+    <string name="pref_camera_manual_focus_entry_diopter_mode">डायॉप्टर मोड</string>
+    <string name="pref_camera_manual_focus_entry_off">बंद</string>
+    <string name="pref_camera_video_hdr_title">व्हिडिओ HDR</string>
+    <string name="pref_camera_cds_title">CDS मोड</string>
+    <string name="pref_camera_cds_entry_auto">ऑटो</string>
+    <string name="pref_camera_video_cds_title">व्हिडिओ CDS मोड</string>
+    <string name="pref_camera_video_cds_entry_auto">ऑटो</string>
+    <string name="pref_camera_tnr_title">TNR mode</string>
+    <string name="pref_camera_video_tnr_title">व्हिडिओ TNR मोड</string>
+    <string name="pref_camera_facedetection_title">चेहरा शोध</string>
+    <string name="pref_selfie_flash_title">Selfie flash</string>
+    <string name="pref_camera_redeyereduction_title">लाल बुबुळ घट</string>
+    <string name="pref_camera_ae_bracket_hdr_title">AE कंस करणे</string>
+    <string name="pref_camera_hfr_title">उच्च-चौकटदर रेकॉर्डिंग</string>
+    <string name="pref_camera_hfr_entry_off">बंद</string>
+    <string name="pref_camera_hfr_entry_2x">संथ हालचाल 60 FPS</string>
+    <string name="pref_camera_hfr_entry_3x">संथ हालचाल 90 FPS</string>
+    <string name="pref_camera_hfr_entry_4x">संथ हालचाल 120 FPS</string>
+    <string name="pref_camera_hfr_entry_8x">संथ हालचाल 240 FPS</string>
+    <string name="pref_camera_hfr_entry_hsr_60">उच्च गती 60 FPS</string>
+    <string name="pref_camera_hfr_entry_hsr_90">उच्च गती 90 FPS</string>
+    <string name="pref_camera_hfr_entry_hsr_120">उच्च गती 120 FPS</string>
+    <string name="pref_camera_denoise_title">डीनॉईज करा</string>
+    <string name="pref_camera_iso_title">ISO</string>
+    <string name="pref_camera_iso_entry_auto">ऑटो</string>
+    <string name="pref_camera_iso_entry_isodeblur">ऑटो (HJR)</string>
+    <string name="pref_camera_iso_entry_iso50">ISO50</string>
+    <string name="pref_camera_iso_entry_iso100">ISO100</string>
+    <string name="pref_camera_iso_entry_iso125">ISO125</string>
+    <string name="pref_camera_iso_entry_iso150">ISO150</string>
+    <string name="pref_camera_iso_entry_iso200">ISO200</string>
+    <string name="pref_camera_iso_entry_iso250">ISO250</string>
+    <string name="pref_camera_iso_entry_iso300">ISO300</string>
+    <string name="pref_camera_iso_entry_iso320">ISO320</string>
+    <string name="pref_camera_iso_entry_iso350">ISO350</string>
+    <string name="pref_camera_iso_entry_iso400">ISO400</string>
+    <string name="pref_camera_iso_entry_iso450">ISO450</string>
+    <string name="pref_camera_iso_entry_iso500">ISO500</string>
+    <string name="pref_camera_iso_entry_iso600">ISO600</string>
+    <string name="pref_camera_iso_entry_iso640">ISO640</string>
+    <string name="pref_camera_iso_entry_iso700">ISO700</string>
+    <string name="pref_camera_iso_entry_iso800">ISO800</string>
+    <string name="pref_camera_iso_entry_iso1000">ISO1000</string>
+    <string name="pref_camera_iso_entry_iso1200">ISO1200</string>
+    <string name="pref_camera_iso_entry_iso1250">ISO1250</string>
+    <string name="pref_camera_iso_entry_iso1500">ISO1500</string>
+    <string name="pref_camera_iso_entry_iso1600">ISO1600</string>
+    <string name="pref_camera_iso_entry_iso2000">ISO2000</string>
+    <string name="pref_camera_iso_entry_iso2500">ISO2500</string>
+    <string name="pref_camera_iso_entry_iso2700">ISO2700</string>
+    <string name="pref_camera_iso_entry_iso3200">ISO3200</string>
+    <string name="pref_camera_iso_entry_iso6400">ISO6400</string>
+    <string name="pref_camera_iso_entry_iso12800">ISO12800</string>
+    <string name="pref_camera_antibanding_title">अँटिबँडिंग</string>
+    <string name="pref_camera_antibanding_entry_0">ऑटो</string>
+    <string name="pref_camera_antibanding_entry_1">50 Hz (युरोप)</string>
+    <string name="pref_camera_antibanding_entry_2">60 Hz (युएसए)</string>
+    <string name="pref_camera_coloreffect_title">रंग प्रभाव</string>
+    <string name="pref_camera_coloreffect_entry_none">काहीही नाही</string>
+    <string name="pref_camera_coloreffect_entry_mono">मोनो</string>
+    <string name="pref_camera_coloreffect_entry_sepia">सेपिया</string>
+    <string name="pref_camera_coloreffect_entry_negative">नकारात्मक</string>
+    <string name="pref_camera_coloreffect_entry_solarize">सोलराईज</string>
+    <string name="pref_camera_coloreffect_entry_posterize">पोस्‍टर केलेले</string>
+    <string name="pref_camera_coloreffect_entry_aqua">ऍक्वा</string>
+    <string name="pref_camera_coloreffect_entry_emboss">एम्बॉस</string>
+    <string name="pref_camera_coloreffect_entry_sketch">स्केच</string>
+    <string name="pref_camera_coloreffect_entry_neon">निऑन</string>
+    <string name="pref_camera_coloreffect_entry_pastel">पेस्टल</string>
+    <string name="pref_camera_coloreffect_entry_mosaic">मोझॅक</string>
+    <string name="pref_camera_coloreffect_entry_redtint">लाल छटा</string>
+    <string name="pref_camera_coloreffect_entry_bluetint">निळी छटा</string>
+    <string name="pref_camera_coloreffect_entry_greentint">हिरवी छटा</string>
+    <string name="pref_camera_dis_title">स्टॅबिलायझेशन</string>
+    <string name="pref_camera_facerc_title">चेहरा ओळख</string>
+    <string name="pref_camera_sharpness_title">स्पष्टपणा</string>
+    <string name="pref_camera_sharpness_entry_level0">स्तर 0</string>
+    <string name="pref_camera_sharpness_entry_level1">स्तर 1</string>
+    <string name="pref_camera_sharpness_entry_level2">स्तर 2 (डिफॉल्ट)</string>
+    <string name="pref_camera_sharpness_entry_level3">स्तर 3</string>
+    <string name="pref_camera_sharpness_entry_level4">स्तर 4</string>
+    <string name="pref_camera_sharpness_entry_level5">स्तर 5</string>
+    <string name="pref_camera_sharpness_entry_level6">स्तर 6</string>
+    <string name="pref_camera_contrast_title">तीव्रता</string>
+    <string name="pref_camera_contrast_entry_level0">स्तर 0</string>
+    <string name="pref_camera_contrast_entry_level1">स्तर 1</string>
+    <string name="pref_camera_contrast_entry_level2">स्तर 2</string>
+    <string name="pref_camera_contrast_entry_level3">स्तर 3</string>
+    <string name="pref_camera_contrast_entry_level4">स्तर 4</string>
+    <string name="pref_camera_contrast_entry_level5">स्तर 5 (डिफॉल्ट)</string>
+    <string name="pref_camera_contrast_entry_level6">स्तर 6</string>
+    <string name="pref_camera_contrast_entry_level7">स्तर 7</string>
+    <string name="pref_camera_contrast_entry_level8">स्तर 8</string>
+    <string name="pref_camera_contrast_entry_level9">स्तर 9</string>
+    <string name="pref_camera_contrast_entry_level10">स्तर 10</string>
+    <string name="pref_camera_saturation_title">संपृक्तता</string>
+    <string name="pref_camera_saturation_entry_level0">स्तर 0</string>
+    <string name="pref_camera_saturation_entry_level1">स्तर 1</string>
+    <string name="pref_camera_saturation_entry_level2">स्तर 2</string>
+    <string name="pref_camera_saturation_entry_level3">स्तर 3</string>
+    <string name="pref_camera_saturation_entry_level4">स्तर 4</string>
+    <string name="pref_camera_saturation_entry_level5">स्तर 5 (डिफॉल्ट)</string>
+    <string name="pref_camera_saturation_entry_level6">स्तर 6</string>
+    <string name="pref_camera_saturation_entry_level7">स्तर 7</string>
+    <string name="pref_camera_saturation_entry_level8">स्तर 8</string>
+    <string name="pref_camera_saturation_entry_level9">स्तर 9</string>
+    <string name="pref_camera_saturation_entry_level10">स्तर 10</string>
+    <string name="pref_camera_picture_format_title">चित्र फॉरमॅट</string>
+    <string name="pref_camera_jpegquality_title">चित्र गुणवत्ता</string>
+    <string name="pref_camera_jpegquality_entry_0">55%</string>
+    <string name="pref_camera_jpegquality_entry_1">65% (सामान्य)</string>
+    <string name="pref_camera_jpegquality_entry_2">75% (फाईन)</string>
+    <string name="pref_camera_jpegquality_entry_3">85% (सुपर फाईन)</string>
+    <string name="pref_camera_jpegquality_entry_4">95%</string>
+    <string name="pref_camera_jpegquality_entry_5">100%</string>
+    <string name="pref_camera_histogram_title">हिस्टोग्राम</string>
+    <string name="pref_camera_scenedetect_title">ऑटो दृश्य शोध</string>
+    <string name="pref_camera_longshot_title">निरंतर शॉट</string>
+    <string name="pref_camera_auto_hdr_title">ऑटो HDR</string>
+    <string name="pref_camera_hdr_mode_title">HDR mode</string>
+    <string name="pref_camera_hdr_mode_entry_sensor">सेन्सर HDR</string>
+    <string name="pref_camera_hdr_mode_entry_multi_frame">बहु-चौकट HDR</string>
+    <string name="pref_camera_hdr_need_1x_title">HDR ला 1x चौकट आवश्यक आहे</string>
+    <string name="pref_camera_video_rotation_title">व्हिडिओ रोटेशन</string>
+    <string name="pref_camera_video_rotation_entry_0">0 अंश</string>
+    <string name="pref_camera_video_rotation_entry_90">90 अंश</string>
+    <string name="pref_camera_video_rotation_entry_180">180 अंश</string>
+    <string name="pref_camera_video_rotation_entry_270">270 अंश</string>
+    <string name="pref_camera_savepath_title">संग्रह स्थान</string>
+    <string name="pref_camera_savepath_entry_0">अंतर्गत संचयन</string>
+    <string name="pref_camera_savepath_entry_1">SD कार्ड</string>
+    <string name="camera_gesture_title">कॅमेरा सुरू करा</string>
+    <string name="all_in_focus">सर्व फोकसमध्ये</string>
+    <string name="refocus_toast">शेवटचा फोटो रि-फोकस करण्यासाठी, इथे टॅप करा</string>
+    <string name="error_app_unsupported_hfr_selection">स्टॅबिलायझेशन/टाईम लॅप्स/HDR वापरताना उच्च-चौकटदर रेकॉर्डिंग समर्थित नाही</string>
+    <string name="error_app_unsupported_hfr">निवडलेल्या व्हिडिओ आकारमानासाठी स्लो मोशन मोड समर्थित नाही. कमी व्हिडिओ आकारमान निवडा</string>
+    <string name="error_app_unsupported_dis">निवडलेल्या व्हिडिओ आकारमानासाठी स्टॅबिलायझेशन समर्थित नाही. कमी व्हिडिओ आकारमान निवडा</string>
+    <string name="error_app_unsupported_hsr">निवडलेल्या व्हिडिओ आकारमानासाठी उच्च गती समर्थित नाही. कमी व्हिडिओ आकारमान निवडा</string>
+    <string name="error_app_unsupported_hfr_codec">HFR चालू असताना H264 व्हिडिओ एनकोडिंग समर्थित नाही</string>
+    <string name="error_app_unsupported">ह्या एनकोडर प्रकारासाठी असमर्थित व्हिडिओ रेझोल्युशन</string>
+    <string name="error_app_unsupported_raw">शून्य शटर लॅग मोडमध्ये रॉ पिक्चर फॉरमॅट समर्थित नाही. JPEG निवडा</string>
+    <string name="msg_cancel_longshot_for_limited_memory">मेमरी संपत आली आहे, निरंतर शॉट रद्द करत आहे</string>
+    <string name="flash_aebracket_message">AE ब्रॅकेटिंग मोडमध्ये फ्लॅश समर्थित नाही</string>
+    <string name="on_switch_save_path_to_sdcard">अंतर्गत संग्रह स्थान पुरेशी नाही, संग्रह स्थान SD कार्डला स्विच केले</string>
+    <string name="map_activity_not_found_err">स्थान दाखवण्यासाठी नकाशे स्थापित केलेले नाहीत</string>
+    <string name="longshot_enable_message">निरंतर शॉट मोडमध्ये प्रगत वैशिष्ट्ये समर्थित नाहीत</string>
+    <string name="advance_feature_enable_msg">प्रगत वैशिष्ट्ये सक्षम केलेली असताना निरंतर शॉट समर्थित नाही</string>
+    <string name="HDR_disable_continuous_shot">HDR सक्षम केल्यामुळे निरंतर शॉट अक्षम होईल</string>
+    <string name="advanced_capture_disable_continuous_shot">प्रगत कॅप्चर सक्षम केल्यामुळे निरंतर शॉट अक्षम होईल</string>
+    <string name="video_quality_4k_disable_IS">4k व्हिडिओ आकारमान सक्षम केल्यामुळे स्टॅबिलायझेशन अक्षम होईल</string>
+    <string name="video_quality_4k_disable_SeeMore">4k व्हिडिओ दरम्यान अधिकपाहा सक्षम करता येत नाही</string>
+</resources>
