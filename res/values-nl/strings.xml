@@ -285,10 +285,12 @@
     <string name="makeup_video_size_limit">Make-up werkt alleen bij video-opnamen in VGA.</string>
     <string name="pref_camera2_category_system">Systeem</string>
     <string name="pref_camera2_restore_default">Standaardinstellingen herstellen</string>
+    <string name="pref_camera2_restore_default_hint">Camera-instellingen worden teruggezet naar de standaardinstellingen</string>
     <plurals name="save_best_dialog_content">
         <item quantity="one">%1$d van de 10 afbeeldingen wordt opgeslagen, de rest wordt verwijderd</item>
         <item quantity="other">%1$d van de 10 afbeeldingen worden opgeslagen, de rest wordt verwijderd</item>
     </plurals>
+    <string name="save_best_dialog_title">Geselecteerde afbeeldingen opslaan?</string>
     <string name="save_best_dialog_positive_bt">OK</string>
     <string name="save_best_dialog_native_bt">Annuleren</string>
     <plurals name="save_best_image_toast">
@@ -297,9 +299,11 @@
     </plurals>
     <string name="dialog_do_not_show">Niet opnieuw tonen</string>
     <string name="delete_best_dialog_title">Alles verwijderen?</string>
+    <string name="delete_best_dialog_content">Weet u zeker dat u alle 10 genomen foto\'s wilt verwijderen?</string>
     <string name="delete_best_dialog_native_bt">Annuleren</string>
     <string name="delete_best_dialog_positive_bt">Verwijderen</string>
     <string name="delete_all_best_dialog_title">Alles verwijderen?</string>
+    <string name="delete_all_best_dialog_content">Weet u zeker dat u alle afbeeldingen wilt verwijderen?</string>
     <string name="delete_all_best_dialog_native_bt">Annuleren</string>
     <string name="delete_all_best_dialog_positive_bt">Alles verwijderen</string>
     <string name="overflow_best_item1">Alles opslaan</string>
