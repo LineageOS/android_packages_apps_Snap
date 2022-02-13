@@ -89,4 +89,5 @@
     <string name="developer_menu_enabled">คุณได้เปิดการตั้งค่ากล้องขั้นสูง</string>
     <string name="developer_menu_disabled">คุณได้ปิดการตั้งค่ากล้องขั้นสูง</string>
     <string name="pref_camera2_preferences_category_developer">ตัวเลือกขั้นสูง</string>
+    <string name="hfr_unsupported_current_resolution">ไม่รองรับ HFR ในความละเอียดที่เลือก</string>
 </resources>

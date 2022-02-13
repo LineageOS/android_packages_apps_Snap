@@ -59,6 +59,8 @@
     <string name="orientation">Orientimi</string>
     <string name="duration">Kohëzgjatja</string>
     <string name="iso">ISO</string>
+    <string name="unknown">E panjohur</string>
+    <string name="cannot_connect_camera">S\'mund të lidhet me kamerën</string>
     <string name="dialog_dismiss">Largo</string>
     <string name="no_storage" product="default">Fut një kartë SD përpara se të përdorësh kamerën.</string>
     <string name="preparing_sd" product="default">Duke përgatitur kartën SD\u2026</string>
@@ -67,13 +69,32 @@
     <string name="pref_camera_id_entry_back">E pasme</string>
     <string name="pref_camera_recordlocation_title">Vendndodhja GPS</string>
     <string name="pref_camera_location_label">VENDNDODHJA</string>
+    <plurals name="pref_camera_timer_entry">
+        <item quantity="one">1 sekondë</item>
+        <item quantity="other">%d sekonda</item>
+    </plurals>
+    <string name="pref_camera_timer_sound_default">@string/setting_on_value</string>
+    <string name="pref_camera_timer_sound_title">Bip gjatë numërimit mbrapsht</string>
     <string name="pref_camera_savepath_title">Hapësira ruajtëse</string>
+    <string name="pref_camera_savepath_default">0</string>
     <string name="pref_camera_savepath_entry_0">Në telefon</string>
     <string name="pref_camera_savepath_entry_1">Në kartën SD</string>
     <string name="setting_off">Fikur</string>
+    <string name="setting_on">Ndezur</string>
     <string name="pref_video_quality_title">Cilësia e videos</string>
+    <string name="pref_video_time_lapse_frame_interval_title">Interval kohor</string>
+    <string name="pref_camera_settings_category">Cilësimet e kamerës</string>
+    <string name="pref_camcorder_settings_category">Cilësimet e video regjistruesit</string>
+    <string name="pref_camera_picturesize_title">Madhësia e figurës</string>
+    <string name="pref_camera_focusmode_title">Modaliteti fokus</string>
+    <string name="pref_camera_focusmode_entry_auto">Auto</string>
+    <string name="pref_camera_focusmode_entry_infinity">Pafundësisht</string>
+    <string name="pref_camera_focusmode_entry_macro">Makro</string>
+    <string name="pref_camera_focusmode_label_auto">AUTO</string>
+    <string name="pref_camera_focusmode_label_infinity">PAFUNDËSISHT</string>
+    <string name="pref_camera_focusmode_label_macro">MAKRO</string>
     <string name="pref_camera_flashmode_entry_auto">Automatik</string>
-    <string name="pref_camera_flashmode_entry_on">Aktiv</string>
+    <string name="pref_camera_flashmode_entry_on">Ndezur</string>
     <string name="pref_camera_flashmode_entry_off">Fikur</string>
     <string name="pref_camera_flashmode_label_auto">BLICI AUTOMATIK</string>
     <string name="pref_camera_flashmode_label_on">BLICI AKTIV</string>
@@ -88,10 +109,13 @@
     <string name="pref_camera_scenemode_entry_night">Natë</string>
     <string name="pref_camera_scenemode_entry_sunset">Perëndim dielli</string>
     <string name="pref_camera_scenemode_entry_party">Festë</string>
+    <string name="pref_camera_scenemode_label_auto">ASNJË</string>
     <string name="pref_camera_countdown_label_off">KOHËMATESI FIKUR</string>
+    <string name="pref_camera_countdown_label_one">1 SEKONDË</string>
     <string name="pref_camera_countdown_label_three">3 SEKONDA</string>
     <string name="pref_camera_countdown_label_ten">10 SEKONDA</string>
     <string name="pref_camera_countdown_label_fifteen">15 SEKONDA</string>
+    <string name="not_selectable_in_scene_mode">Nuk zgjidhet në modalitetin e skenës.</string>
     <string name="HDR_disable_continuous_shot">HDR do të çaktivizojë profilin e shkrepjeve të vazhdueshme.</string>
     <string name="advanced_capture_disable_continuous_shot">Funksioni \"Kapje fotoje e përparuar\" do të çaktivizojë profilin e shkrepjeve të vazhdueshme.</string>
     <string name="video_quality_4k_disable_IS">Cilësia 4k e videos do të çaktivizojë stabilizimin e imazhit.</string>
@@ -101,20 +125,29 @@
     <string name="disable_CDS_during_SeeMore">SeeMore do të çaktivizojë CDS.</string>
     <string name="disable_TNR_during_SeeMore">SeeMore do të çaktivizojë TNR.</string>
     <string name="disable_NR_during_SeeMore">SeeMore do të çaktivizojë reduktimin e zhurmave.</string>
+    <string name="pref_exposure_title">Ekspozimi</string>
     <string name="pref_exposure_label">EKSPOZIMI</string>
+    <string name="pref_camera_hdr_default">@string/setting_off_value</string>
+    <string name="pref_camera_hdr_plus_default">@string/setting_off_value</string>
     <string name="pref_camera_hdr_label">HDR</string>
     <string name="pref_camera_id_label_back">KAMERA PARËSORE</string>
     <string name="pref_camera_id_label_front">KAMERA E PASME</string>
     <string name="dialog_ok">OK</string>
     <string name="spaceIsLow_content" product="default">Karta SD është pothuajse e mbushur plot. Ndrysho parametrat e cilësisë ose fshi disa imazhe apo disa skedarë të tjerë.</string>
+    <string name="video_reach_size_limit">U arrit kufiri i madhësisë.</string>
     <string name="pano_too_fast_prompt">Shumë shpejt</string>
     <string name="pano_dialog_prepare_preview">Duke përgatitur panoramën</string>
+    <string name="pano_dialog_panorama_failed">Panorama nuk mund të ruhej.</string>
     <string name="pano_dialog_title">Panoramë</string>
     <string name="pano_capture_indication">Duke kapur panoramën</string>
     <string name="pano_dialog_waiting_previous">Duke pritur për panoramën e mëparshme</string>
     <string name="pano_review_saving_indication_str">Duke ruajtur\u2026</string>
+    <string name="pano_review_rendering">Po jep panoramën</string>
     <string name="tap_to_focus">Prek për të fokusuar.</string>
     <string name="pref_video_effect_title">Efektet</string>
+    <string name="effect_none">Asnjë</string>
+    <string name="effect_goofy_face_squeeze">Shtrydheni</string>
+    <string name="effect_goofy_face_big_eyes">Sy të mëdhenj</string>
     <string name="effect_backdropper_space">Në kozmos</string>
     <string name="effect_backdropper_sunset">Perëndim dielli</string>
     <string name="effect_backdropper_gallery">Videoja juaj</string>
@@ -122,6 +155,7 @@
     <string name="video_recording_started">Video regjistrimi ka filluar.</string>
     <string name="video_recording_stopped">Regjistrimi i videos është ndaluar.</string>
     <string name="effect_background">SFONDI</string>
+    <string name="accessibility_shutter_button">Shkrepësi</string>
     <string name="accessibility_exit_best_mode_button">Dil nga metoda e fotos më të mirë</string>
     <string name="accessibility_mode_picker">Zgjedhësi i kamerës, videos, ose panoramës</string>
     <string name="accessibility_switch_to_camera">Kthe në foto</string>

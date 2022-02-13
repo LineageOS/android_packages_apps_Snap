@@ -83,10 +83,10 @@
     <string name="camera_error_title">Kamerafehler</string>
     <string name="cannot_connect_camera">Keine Verbindung zur Kamera möglich</string>
     <string name="camera_disabled">Die Kamera wurde aufgrund von Sicherheitsrichtlinien deaktiviert.</string>
-    <string name="error_permissions">Kritische Berechtigungen für die Funktion der App wurden nicht erteilt. Bitte überprüfen Sie Ihre Berechtigungseinstellungen.</string>
+    <string name="error_permissions">Kritische Berechtigungen für die Funktion der App wurden nicht erteilt. Bitte überprüfe deine Berechtigungseinstellungen.</string>
     <string name="dialog_dismiss">Ablehnen</string>
     <string name="wait">Bitte warten\u2026</string>
-    <string name="no_storage" product="default">Legen Sie vor Verwendung der Kamera eine SD-Karte ein.</string>
+    <string name="no_storage" product="default">Lege vor Verwendung der Kamera eine SD-Karte ein.</string>
     <string name="preparing_sd" product="default">SD-Karte wird vorbereitet\u2026</string>
     <string name="access_sd_fail" product="default">Auf die SD-Karte konnte nicht zugegriffen werden.</string>
     <string name="time_lapse_title">Zeitrafferaufnahme</string>
@@ -176,7 +176,7 @@
     <string name="pref_camera_id_label_back">FRONTKAMERA</string>
     <string name="pref_camera_id_label_front">HAUPTKAMERA</string>
     <string name="dialog_ok">OK</string>
-    <string name="spaceIsLow_content" product="default">Auf Ihrer SD-Karte ist nicht mehr genügend Speicherplatz vorhanden. Ändern Sie die Qualitätseinstellung oder löschen Sie Bilder oder andere Dateien.</string>
+    <string name="spaceIsLow_content" product="default">Auf deiner SD-Karte ist nicht mehr genügend Speicherplatz vorhanden. Ändere die Qualitätseinstellung oder lösche Bilder oder andere Dateien.</string>
     <string name="video_reach_size_limit">Maximale Größe erreicht</string>
     <string name="pano_too_fast_prompt">Zu schnell</string>
     <string name="pano_dialog_prepare_preview">Panorama wird vorbereitet</string>
@@ -264,11 +264,11 @@
     <string name="time_lapse_hours">Stunden</string>
     <string name="time_lapse_interval_set">Fertig</string>
     <string name="set_time_interval">Zeitintervall festlegen</string>
-    <string name="set_time_interval_help">Die Zeitraffer-Funktion ist deaktiviert. Aktivieren Sie sie, um das Zeitintervall festzulegen.</string>
+    <string name="set_time_interval_help">Die Zeitraffer-Funktion ist deaktiviert. Aktiviere sie, um das Zeitintervall festzulegen.</string>
     <string name="set_duration">Dauer in Sekunden festlegen</string>
     <string name="count_down_title_text">Countdown für Fotoaufnahme</string>
     <string name="remember_location_title">Aufnahmeort für Fotos speichern?</string>
-    <string name="remember_location_prompt">Taggen Sie Ihre Fotos und Videos mit den Standorten, an denen sie aufgenommen wurden.\n\nApps mit Zugriff auf Ihre gespeicherten Bilder können diese Informationen nutzen.</string>
+    <string name="remember_location_prompt">Tagge deine Fotos und Videos mit den Standorten, an denen sie aufgenommen wurden.\n\nAndere Apps mit Zugriff auf deine gespeicherten Bilder können diese Informationen nutzen.</string>
     <string name="remember_location_no">Nein danke</string>
     <string name="remember_location_yes">Ja</string>
     <string name="camera_menu_more_label">WEITERE OPTIONEN</string>
