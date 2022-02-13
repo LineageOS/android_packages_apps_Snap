@@ -125,14 +125,14 @@
     <string name="pref_camera_hfr_entry_hsr_240">Yüksek hız 240 FPS</string>
     <string name="pref_camera_hfr_entry_hsr_480">Hızlı çekim 480 FPS</string>
     <string name="pref_camera_hfr_entry_hsr_960">Hızlı çekim 960 FPS</string>
-    <string name="pref_camera_hfr_entry_2x_ssm_120">Süper SloMo 120-&gt;240</string>
-    <string name="pref_camera_hfr_entry_4x_ssm_120">Süper SloMo 120-&gt;480</string>
-    <string name="pref_camera_hfr_entry_2x_ssm_240">Süper SloMo 240-&gt;480</string>
-    <string name="pref_camera_hfr_entry_4x_ssm_240">Süper SloMo 240-&gt;960</string>
-    <string name="pref_camera_hfr_entry_2x_ssm_480">Süper SloMo 480-&gt;960</string>
-    <string name="pref_camera_hfr_entry_4x_ssm_480">Süper SloMo 480-&gt;1920</string>
-    <string name="pref_camera_hfr_entry_2x_ssm_960">Süper SloMo 960-&gt;1920</string>
-    <string name="pref_camera_hfr_entry_4x_ssm_960">Süper SloMo 960-&gt;3840</string>
+    <string name="pref_camera_hfr_entry_2x_ssm_120">Süper Ağır Çekim 120-&gt;240</string>
+    <string name="pref_camera_hfr_entry_4x_ssm_120">Süper Ağır Çekim 120-&gt;480</string>
+    <string name="pref_camera_hfr_entry_2x_ssm_240">Süper Ağır Çekim 240-&gt;480</string>
+    <string name="pref_camera_hfr_entry_4x_ssm_240">Süper Ağır Çekim 240-&gt;960</string>
+    <string name="pref_camera_hfr_entry_2x_ssm_480">Süper Ağır Çekim 480-&gt;960</string>
+    <string name="pref_camera_hfr_entry_4x_ssm_480">Süper Ağır Çekim 480-&gt;1920</string>
+    <string name="pref_camera_hfr_entry_2x_ssm_960">Süper Ağır Çekim 960-&gt;1920</string>
+    <string name="pref_camera_hfr_entry_4x_ssm_960">Süper Ağır Çekim 960-&gt;3840</string>
     <string name="pref_camera_noise_reduction_title">Parazit Azaltma</string>
     <string name="pref_camera_noise_reduction_entry_off">Kapalı</string>
     <string name="pref_camera_noise_reduction_entry_fast">Hızlı</string>
@@ -251,7 +251,7 @@
     <string name="pref_camera_auto_hdr_title">Otomatik HDR</string>
     <string name="pref_camera_auto_hdr_entry_enable">Etkin</string>
     <string name="pref_camera_auto_hdr_entry_disable">Devre dışı</string>
-    <string name="on_switch_save_path_to_sdcard">Dahili depolama alanı yeterli değil - depolama konumu SD kart olarak değiştirin</string>
+    <string name="on_switch_save_path_to_sdcard">Dahili depolama alanı yeterli değil - depolama konumunu SD kart olarak değiştirin</string>
     <string name="storage_not_enough">Depolama alanı yeterli değil</string>
     <string name="pref_camera_hdr_mode_title">HDR modu</string>
     <string name="pref_camera_hdr_mode_entry_sensor">HDR Sensörü</string>
@@ -318,7 +318,7 @@
     <string name="pref_camera2_touch_track_focus_title">Dokunarak izleme odağı</string>
     <string name="pref_camera2_multi_cameras_entry_on">Etkinleştir</string>
     <string name="pref_camera2_multi_cameras_entry_off">Devre dışı</string>
-    <string name="pref_camera2_multi_cameras_title">Birden çok kamera</string>
+    <string name="pref_camera2_multi_cameras_title">Çoklu kamera</string>
     <string name="pref_camera_scenemode_entry_bestpicture">En iyi görüntü</string>
     <string name="pref_camera_scenemode_entry_sharpshooter">Keskin fotoğraf</string>
     <string name="pref_camera_scenemode_entry_trackingfocus">Odak izleme</string>
@@ -470,5 +470,5 @@
     <string name="pref_multi_camera_picturesize1_title">Resim 1 boyutu</string>
     <string name="pref_multi_camera_picturesize2_title">Resim 2 boyutu</string>
     <string name="pref_multi_camera_picturesize3_title">Resim 3 boyutu</string>
-    <string name="lock_af_ae_label">AE/AF lock</string>
+    <string name="lock_af_ae_label">AE/AF kilidi</string>
 </resources>

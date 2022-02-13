@@ -386,8 +386,11 @@
     <string name="pref_camera_zoom_entry_9x">9x</string>
     <string name="pref_camera_zoom_entry_10x">10x</string>
     <string name="pref_camera2_bsgc_title">ตรวจจับ รอยยิ้ม/กะพริบตา/สายตา</string>
+    <string name="pref_camera2_face_detection_mode_title">โหมดตรวจจับใบหน้า</string>
     <string name="pref_camera2_bsgc_entry_enable">เปิด</string>
     <string name="pref_camera2_bsgc_entry_disable">ปิด</string>
+    <string name="pref_camera2_face_detection_entry_simple">แบบง่าย</string>
+    <string name="pref_camera2_face_detection_entry_full">เต็มรูปแบบ</string>
     <string name="pref_camera2_zsl_title">การหน่วงชัตเตอร์เป็นศูนย์</string>
     <string name="pref_camera2_zsl_entry_disable">ปิด</string>
     <string name="pref_camera2_zsl_entry_app_zsl">ซอฟต์แวร์ ZSL</string>
@@ -411,7 +414,10 @@
     <string name="pref_camera2_video_hdr_entry_enable">เปิด</string>
     <string name="pref_camera2_video_hdr_entry_disable">ปิด</string>
     <string name="pref_camera2_picture_format_title">นามสกุลรูปภาพ</string>
+    <string name="pref_camera2_switcher_title">ตัวสลับกล้อง</string>
+    <string name="pref_camera2_switcher_entry_rear">ด้านหลัง</string>
     <string name="pref_camera2_switcher_entry_front">ด้านหน้า</string>
+    <string name="pref_camera2_force_aux_title">บังคับ AUX</string>
     <string name="pref_camera2_force_aux_entry_on">เปิด</string>
     <string name="pref_camera2_force_aux_entry_off">ปิด</string>
     <string name="pref_camera2_stats_visualizer_title">สถิติ Visualizer</string>

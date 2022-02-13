@@ -448,6 +448,7 @@
     <string name="pref_camera2_abort_captures_entry_disable">Desligado</string>
     <string name="pref_camera_tone_mapping_entry_user_setting">Configuração do usuário</string>
     <string name="pref_camera_tone_mapping_entry_off">Desl.</string>
+    <string name="pref_multi_camera_hal_zsl_title">HAL ZSL</string>
     <string name="pref_multi_camera_picturesize1_title">Tamanho da foto 1</string>
     <string name="pref_multi_camera_picturesize2_title">Tamanho da foto 2</string>
     <string name="pref_multi_camera_picturesize3_title">Tamanho da foto 3</string>

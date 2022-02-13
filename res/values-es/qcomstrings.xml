@@ -302,6 +302,7 @@
     <string name="pref_camera2_touch_track_focus_off">Desactivar</string>
     <string name="pref_camera2_multi_cameras_entry_on">Activar</string>
     <string name="pref_camera2_multi_cameras_entry_off">Desactivar</string>
+    <string name="pref_camera2_multi_cameras_title">Múltiples cámaras</string>
     <string name="pref_camera_scenemode_entry_bestpicture">Mejor imagen</string>
     <string name="pref_camera_scenemode_entry_sharpshooter">Foto nítida</string>
     <string name="pref_camera_scenemode_entry_trackingfocus">Seguimiento del enfoque</string>
@@ -412,10 +413,14 @@
     <string name="pref_camera2_switcher_entry_front">Frontal</string>
     <string name="pref_camera2_force_aux_entry_on">Activado</string>
     <string name="pref_camera2_force_aux_entry_off">Apagar</string>
+    <string name="stats_visualizer_bg_label">Vista gráfica de BG</string>
+    <string name="stats_visualizer_be_label">Vista gráfica de BE</string>
     <string name="pref_camera2_capture_mfnr_entry_enable">Activado</string>
     <string name="pref_camera2_capture_mfnr_entry_disable">Desactivado</string>
+    <string name="pref_camera2_fs2_title">Obturador rápido</string>
     <string name="pref_camera2_fs2_entry_enable">Activado</string>
     <string name="pref_camera2_fs2_entry_disable">Desactivado</string>
+    <string name="pref_camera2_abort_captures_title">Abortar capturas</string>
     <string name="pref_camera2_abort_captures_entry_enable">Activado</string>
     <string name="pref_camera2_abort_captures_entry_disable">Desactivado</string>
     <string name="pref_camera_tone_mapping_entry_user_setting">Configuración de usuario</string>
