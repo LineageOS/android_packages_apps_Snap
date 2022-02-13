@@ -221,13 +221,13 @@
         <item quantity="one">1 second</item>
         <item quantity="other">%d seconds</item>
     </plurals>
-    <string name="pref_camera_timer_sound_default">@string/setting_on_value</string>
+    <string name="pref_camera_timer_sound_default" translatable="false">@string/setting_on_value</string>
     <!-- Text followed by a checkbox to turn on/off sound effects during the countdown. [CHAR LIMIT = 24]-->
     <string name="pref_camera_timer_sound_title">Beep during countdown</string>
 
     <!-- Entry of camera save path -->
     <string name="pref_camera_savepath_title">Storage</string>
-    <string name="pref_camera_savepath_default">0</string>
+    <string name="pref_camera_savepath_default" translatable="false">0</string>
     <string name="pref_camera_savepath_entry_0">Phone</string>
     <string name="pref_camera_savepath_entry_1">SD Card</string>
 
@@ -426,10 +426,10 @@
     <string name="pref_exposure_label">EXPOSURE</string>
 
     <!-- Default HDR entry value -->
-    <string name="pref_camera_hdr_default">@string/setting_off_value</string>
+    <string name="pref_camera_hdr_default" translatable="false">@string/setting_off_value</string>
 
     <!-- Default HDR+ entry value -->
-    <string name="pref_camera_hdr_plus_default">@string/setting_off_value</string>
+    <string name="pref_camera_hdr_plus_default" translatable="false">@string/setting_off_value</string>
 
     <!-- HDR label ON [CHAR LIMIT=60] -->
     <string name="pref_camera_hdr_label">HDR</string>
@@ -696,13 +696,13 @@ CHAR LIMIT = NONE] -->
     <string name="setting_wallpaper">Setting wallpaper</string>
 
     <!-- Menu, Video rotation labels [CHAR LIMIT=50] -->
-    <string name="pref_camera_video_rotation_label_0">0</string>
-    <string name="pref_camera_video_rotation_label_90">90</string>
-    <string name="pref_camera_video_rotation_label_180">180</string>
-    <string name="pref_camera_video_rotation_label_270">270</string>
+    <string name="pref_camera_video_rotation_label_0" translatable="false">0</string>
+    <string name="pref_camera_video_rotation_label_90" translatable="false">90</string>
+    <string name="pref_camera_video_rotation_label_180" translatable="false">180</string>
+    <string name="pref_camera_video_rotation_label_270" translatable="false">270</string>
 
     <string name="remaining_photos_format">%d left</string>
-    <string name="initial_recording_seconds">00:00</string>
+    <string name="initial_recording_seconds" translatable="false">00:00</string>
     <string name="makeup_video_size_limit">Makeup works only under VGA size in video recording.</string>
 
     <string name="pref_camera2_category_system">System</string>
