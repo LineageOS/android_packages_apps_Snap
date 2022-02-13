@@ -21,8 +21,8 @@
     <string name="set_image">Resmi şu şekilde ayarla</string>
     <string name="delete">Sil</string>
     <plurals name="delete_selection">
-        <item quantity="one">Seçilen öğe silinsin mi?</item>
-        <item quantity="other">Seçilen öğeler silinsin mi?</item>
+        <item quantity="one">Seçilen öge silinsin mi?</item>
+        <item quantity="other">Seçilen ögeler silinsin mi?</item>
     </plurals>
     <string name="share">Paylaş</string>
     <string name="share_panorama">Panoramayı paylaş</string>

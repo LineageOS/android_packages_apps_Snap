@@ -325,7 +325,7 @@
     <string name="panocapture_direction_is_changed">Tha a’ chomhair air atharrachadh, a’ cur stad air glacadh a’ chuairt-sheallaidh\u2026</string>
     <string name="makeup_ui_title">Tagh neart a’ phiseachaidh.</string>
     <string name="makeup_ui_ok_button">Ceart ma-thà</string>
-    <string name="perf_camera2_version_info">Fiosrachadh mun tionndadh</string>
+    <string name="perf_camera2_version_info">Mun tionndadh</string>
     <string name="perf_camera2_preferences_category_general">Coitcheann</string>
     <string name="perf_camera2_preferences_category_photo">Camara deilbh</string>
     <string name="perf_camera2_preferences_category_video">Camara video</string>
