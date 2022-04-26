@@ -16,6 +16,23 @@
       "message": "I can confidently say that this is now ready to merge.",
       "revId": "75897a2c4117d02a0ab990d1c2958b2c493c4939",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5d722b3c_ebdbe0cd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 27305
+      },
+      "writtenOn": "2022-04-26T14:35:16Z",
+      "side": 1,
+      "message": "Is there any interest in getting this merged, even if Snap is not included in LOS 19?",
+      "revId": "75897a2c4117d02a0ab990d1c2958b2c493c4939",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
