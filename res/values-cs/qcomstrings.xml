@@ -107,6 +107,7 @@
     <string name="pref_camera_ae_bracket_hdr_entry_ae_bracket">Automatický expoziční bracketing</string>
     <string name="pref_camera_ae_bracket_hdr_title">Automatický expoziční bracketing</string>
     <string name="pref_camera_ae_bracket_hdr_entry_on">Zapnuto</string>
+    <string name="pref_camera_ae_bracket_hdr_entry_off">Vypnuto</string>
     <string name="err_app_unsupport_ae_bracket_code">AE bracketing není zatím podporován</string>
     <string name="snapshot_lower_than_video">Rozlišení snímků z videa je nižší než vlastní rozlišení videa. Zvolte rozlišení vyšší nebo stejné jako snímané video.</string>
     <string name="snapshotsize_low_powermode">Změna velikosti obrázku není povolena v režimu nízkého výkonu, velikost bude stejná jako snímané video. Zvolte normální výkon pro umožnění změny velikosti rozlišení obrázku.</string>
@@ -173,7 +174,7 @@
     <string name="pref_camera_iso_entry_iso6400">ISO6400</string>
     <string name="pref_camera_iso_entry_iso12800">ISO12800</string>
     <string name="pref_camera_antibanding_title">Odstranění pruhů</string>
-    <string name="pref_camera_antibanding_entry_0">Auto</string>
+    <string name="pref_camera_antibanding_entry_0">Automaticky</string>
     <string name="pref_camera_antibanding_entry_1">50 Hz (Evropa)</string>
     <string name="pref_camera_antibanding_entry_2">60 Hz (USA)</string>
     <string name="pref_camera_filter_mode_entry_on">Zapnuto</string>
@@ -314,10 +315,10 @@
     <string name="pref_camera2_videosnap_entry_enable">Použít</string>
     <string name="pref_camera2_videosnap_entry_disable">Zakázat</string>
     <string name="pref_camera2_touch_track_focus_entry_on">Použít</string>
-    <string name="pref_camera2_touch_track_focus_off">Nepoužít</string>
+    <string name="pref_camera2_touch_track_focus_off">Zakázat</string>
     <string name="pref_camera2_touch_track_focus_title">Sledování zaostření dotykem</string>
     <string name="pref_camera2_multi_cameras_entry_on">Použít</string>
-    <string name="pref_camera2_multi_cameras_entry_off">Nepoužít</string>
+    <string name="pref_camera2_multi_cameras_entry_off">Zakázat</string>
     <string name="pref_camera2_multi_cameras_title">Více fotoaparátů</string>
     <string name="pref_camera_scenemode_entry_bestpicture">Nejlepší obraz</string>
     <string name="pref_camera_scenemode_entry_sharpshooter">Ostrá fotografie</string>
@@ -432,6 +433,8 @@
     <string name="pref_camera2_initial_camera_entry_mono">Černobílý</string>
     <string name="pref_camera2_initial_camera_entry_front">Přední</string>
     <string name="pref_camera2_eis_title">Video typu EIS</string>
+    <string name="pref_camera2_eis_entry_v2enable">V2</string>
+    <string name="pref_camera2_eis_entry_v3enable">V3</string>
     <string name="pref_camera2_eis_entry_v3_set_when_pause">V3 a nastavit při pozastavení</string>
     <string name="pref_camera2_eis_entry_disable">Zakázáno</string>
     <string name="pref_camera2_fovc_title">Video typu FOVC</string>
@@ -444,7 +447,7 @@
     <string name="pref_camera2_switcher_entry_rear">Zadní</string>
     <string name="pref_camera2_switcher_entry_front">Přední</string>
     <string name="pref_camera2_force_aux_title">Vynutit AUX</string>
-    <string name="pref_camera2_force_aux_entry_on">Zapnout</string>
+    <string name="pref_camera2_force_aux_entry_on">Zapnuto</string>
     <string name="pref_camera2_force_aux_entry_off">Vypnuto</string>
     <string name="pref_camera2_stats_visualizer_title">Zobrazovač statistik</string>
     <string name="pref_camera2_stats_visualizer_entry_bg_stats">BG statistiky</string>

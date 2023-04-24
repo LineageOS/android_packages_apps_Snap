@@ -291,11 +291,7 @@
     <string name="cannot_load_image">Obrázek nelze načíst!</string>
     <string name="switch_photo_filmstrip">Zobrazení filmového pásu</string>
     <string name="setting_wallpaper">Nastavování tapety</string>
-    <string name="pref_camera_video_rotation_label_90">90</string>
-    <string name="pref_camera_video_rotation_label_180">180</string>
-    <string name="pref_camera_video_rotation_label_270">270</string>
     <string name="remaining_photos_format">%d zbývá</string>
-    <string name="initial_recording_seconds">00:00</string>
     <string name="makeup_video_size_limit">Make-up funguje pouze pokud je rozlišení videa menší než VGA.</string>
     <string name="pref_camera2_category_system">Systém</string>
     <string name="pref_camera2_restore_default">Obnovit původní</string>

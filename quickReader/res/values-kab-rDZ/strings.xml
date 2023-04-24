@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) 2017 The LineageOS Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+         http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+    <string name="accessibility_switch_to_qr">Ameɣri n tangalt QR</string>
+    <string name="quick_reader_action_dismiss">Suref</string>
+    <string name="quick_reader_no_activity_found">Ulac asnas ibedden izmer-n ad yildin agbur agi</string>
+    <string name="quick_reader_permission_error_title">Tuccḍa tsiregt</string>
+    <string name="quick_reader_permission_rationale_message">Yessefk tsiregt unekcum ar tkamirat i usemḍen n tengalt s ifeggagen</string>
+    <string name="quick_reader_permission_rationale_positive">Ssuter tikkelt-nniḍen</string>
+    <string name="quick_reader_permission_fatal_message">Yegdel unekcum ar tkamiṛat. Efk tasiregt-agi deg iγewwaṛen n usnas</string>
+    <string name="quick_reader_permission_fatal_positive">Ldi iγewwaṛen</string>
+    <string name="quick_reader_scanned_text_title">Aḍris ittwasemḍen</string>
+    <string name="quick_reader_scanned_text_positive">Nɣel</string>
+    <string name="quick_reader_scanned_text_negative">Bḍu</string>
+    <string name="quick_reader_share_title">Bḍu d\u2026</string>
+    <string name="quick_reader_copied_message">Ittwanɣel ɣef afus</string>
+    <string name="quick_reader_only_unlocked">Tigawt-a tezmer kan ad temmag mi ara iserreḥ yibenk</string>
+</resources>

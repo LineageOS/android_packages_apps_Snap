@@ -107,6 +107,7 @@
     <string name="pref_camera_ae_bracket_hdr_entry_ae_bracket">自动包围曝光</string>
     <string name="pref_camera_ae_bracket_hdr_title">自动包围曝光</string>
     <string name="pref_camera_ae_bracket_hdr_entry_on">开启</string>
+    <string name="pref_camera_ae_bracket_hdr_entry_off">关闭</string>
     <string name="err_app_unsupport_ae_bracket_code">不支持自动包围曝光</string>
     <string name="snapshot_lower_than_video">视频快照的大小低于视频的大小，以视频大小为上限。请选择高于或等于当前视频大小的分辨率。</string>
     <string name="snapshotsize_low_powermode">不支持在低功耗模式下改变图片大小，将捕获视频大小的快照。请选择正常功耗模式以允许改变图片大小。</string>
@@ -432,6 +433,8 @@
     <string name="pref_camera2_initial_camera_entry_mono">黑白</string>
     <string name="pref_camera2_initial_camera_entry_front">前</string>
     <string name="pref_camera2_eis_title">视频电子防抖（EIS）</string>
+    <string name="pref_camera2_eis_entry_v2enable">V2</string>
+    <string name="pref_camera2_eis_entry_v3enable">V3</string>
     <string name="pref_camera2_eis_entry_v3_set_when_pause">并在暂停时设置 V3</string>
     <string name="pref_camera2_eis_entry_disable">已禁用</string>
     <string name="pref_camera2_fovc_title">视频场变化（FOVC）</string>
@@ -444,7 +447,7 @@
     <string name="pref_camera2_switcher_entry_rear">后置摄像头</string>
     <string name="pref_camera2_switcher_entry_front">前</string>
     <string name="pref_camera2_force_aux_title">强制 AUX</string>
-    <string name="pref_camera2_force_aux_entry_on">开</string>
+    <string name="pref_camera2_force_aux_entry_on">开启</string>
     <string name="pref_camera2_force_aux_entry_off">关闭</string>
     <string name="pref_camera2_stats_visualizer_title">状态可视化</string>
     <string name="pref_camera2_stats_visualizer_entry_bg_stats">BG 统计</string>

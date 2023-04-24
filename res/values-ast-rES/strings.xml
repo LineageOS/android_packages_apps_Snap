@@ -18,20 +18,25 @@
     <string name="video_camera_label">Videocámara</string>
     <string name="details_ms">%1$02d:%2$02d</string>
     <string name="details_hms">%1$d:%2$02d:%3$02d</string>
+    <string name="delete">Desaniciar</string>
+    <string name="undo">DESFACER</string>
     <string name="close">Zarrar</string>
     <plurals name="number_of_items_selected">
-        <item quantity="one">%1$d na esbilla</item>
-        <item quantity="other">%1$d na esbilla</item>
+        <item quantity="one">%1$d na seleición</item>
+        <item quantity="other">%1$d na seleición</item>
     </plurals>
     <plurals name="number_of_albums_selected">
-        <item quantity="one">%1$d na esbilla</item>
-        <item quantity="other">%1$d na esbilla</item>
+        <item quantity="one">%1$d na seleición</item>
+        <item quantity="other">%1$d na seleición</item>
     </plurals>
     <plurals name="number_of_groups_selected">
-        <item quantity="one">%1$d na esbilla</item>
-        <item quantity="other">%1$d na esbilla</item>
+        <item quantity="one">%1$d na seleición</item>
+        <item quantity="other">%1$d na seleición</item>
     </plurals>
+    <string name="edit">Editar</string>
+    <string name="video_err">Nun se pue reproducir el videu.</string>
     <string name="description">Descripción</string>
+    <string name="location">Llocalización</string>
     <string name="path">Camín</string>
     <string name="orientation">Orientación</string>
     <string name="duration">Duración</string>
@@ -42,9 +47,16 @@
     <string name="iso">ISO</string>
     <string name="unit_mm">mm</string>
     <string name="please_wait">Espera</string>
+    <string name="camera_error_title">Error de la cámara</string>
+    <string name="cannot_connect_camera">Nun se pue conectar a la cámara</string>
     <string name="dialog_dismiss">Escartar</string>
     <string name="wait">Espera\u2026</string>
     <string name="access_sd_fail" product="default">Nun se pudo acceder a la tarxeta SD.</string>
+    <string name="pref_camera_id_title">Escueyi una cámara</string>
+    <string name="pref_camera_id_entry_back">La d\'atrás</string>
+    <string name="pref_camera_id_entry_front">La d\'alantre</string>
+    <string name="pref_camera_recordlocation_title">Llocalización del GPS</string>
+    <string name="pref_camera_location_label">LLOCALIZACIÓN</string>
     <plurals name="pref_camera_timer_entry">
         <item quantity="one">1 segundu</item>
         <item quantity="other">%d segundos</item>
@@ -52,8 +64,12 @@
     <string name="pref_camera_savepath_title">Almacenamientu</string>
     <string name="pref_camera_savepath_entry_0">Teléfonu</string>
     <string name="pref_camera_savepath_entry_1">Tarxeta SD</string>
-    <string name="pref_camcorder_settings_category">Axustes de la videocámara</string>
+    <string name="pref_camcorder_settings_category">Configuración de la videocámara</string>
     <string name="pref_camera_focusmode_title">Mou del enfoque</string>
+    <string name="pref_camera_flashmode_title">Flax</string>
+    <string name="pref_camera_flashmode_entry_auto">N\'automático</string>
+    <string name="pref_camera_flashmode_entry_on">Sí</string>
+    <string name="pref_camera_flashmode_entry_off">Non</string>
     <string name="pref_camera_scenemode_entry_hdr_plus">HDR+</string>
     <string name="pref_camera_scenemode_entry_action">Aición</string>
     <string name="pref_camera_scenemode_entry_night">Nueche</string>
@@ -67,7 +83,11 @@
     <string name="pref_camera_countdown_label_fifteen">15 SEGUNDOS</string>
     <string name="pref_exposure_title">Esposición</string>
     <string name="pref_exposure_label">ESPOSICIÓN</string>
+    <string name="pref_camera_id_label_back">CÁMARA D\'ALANTRE</string>
+    <string name="pref_camera_id_label_front">CÁMARA D\'ATRÁS</string>
     <string name="dialog_ok">D\'acuerdu</string>
+    <string name="pano_review_saving_indication_str">Guardando\u2026</string>
+    <string name="tap_to_focus">Toca pa enfocar.</string>
     <string name="pref_video_effect_title">Efeutos</string>
     <string name="effect_goofy_face_big_eyes">Güeyos grandes</string>
     <string name="effect_goofy_face_big_mouth">Boca grande</string>
@@ -75,6 +95,11 @@
     <string name="effect_goofy_face_big_nose">Nariz grande</string>
     <string name="effect_goofy_face_small_eyes">Güeyos pequeños</string>
     <string name="effect_backdropper_sunset">Aséu</string>
+    <string name="clear_effects">Borrar los efeutos</string>
+    <string name="effect_background">FONDU</string>
+    <string name="accessibility_shutter_button">Obturador</string>
+    <string name="capital_on">SÍ</string>
+    <string name="capital_off">NON</string>
     <string name="pref_video_time_lapse_frame_interval_500">0,5 segundos</string>
     <string name="pref_video_time_lapse_frame_interval_1000">1 segundu</string>
     <string name="pref_video_time_lapse_frame_interval_1500">1,5 segundos</string>
@@ -118,22 +143,31 @@
     <string name="time_lapse_minutes">minutos</string>
     <string name="time_lapse_hours">hores</string>
     <string name="time_lapse_interval_set">Fecho</string>
+    <string name="remember_location_title">¿Quies recordar el llugar de les semeyes?</string>
+    <string name="remember_location_prompt">Etiqueta les semeyes y los vídeos colos llugares onde se ficieron.\n\nOtres aplicaicones puen acceder a esta información y a les imáxenes guardaes.</string>
     <string name="remember_location_no">Non, gracies</string>
     <string name="remember_location_yes">Sí</string>
     <string name="camera_menu_more_label">MÁS OPCIONES</string>
-    <string name="camera_menu_settings_label">AXUSTES</string>
+    <string name="camera_menu_settings_label">CONFIGURACIÓN</string>
     <string name="tiny_planet_zoom">Zoom</string>
+    <string name="crop_save">Guardar</string>
     <string name="cannot_load_image">¡Nun se pue cargar la imaxe!</string>
+    <string name="switch_photo_filmstrip">Vista de película</string>
     <string name="pref_camera2_category_system">Sistema</string>
-    <string name="save_best_dialog_title">¿Quies guardar les semeyes esbillaes?</string>
+    <string name="save_best_dialog_title">¿Quies guardar les semeyes seleicionaes?</string>
     <string name="save_best_dialog_positive_bt">D\'acuerdu</string>
     <string name="save_best_dialog_native_bt">Encaboxar</string>
+    <plurals name="save_best_image_toast">
+        <item quantity="one">Guardóse %1$d imaxe de 10.</item>
+        <item quantity="other">Guardáronse %1$d imáxenes de 10.</item>
+    </plurals>
     <string name="dialog_do_not_show">Nun volver amosar</string>
     <string name="delete_best_dialog_native_bt">Encaboxar</string>
+    <string name="delete_best_dialog_positive_bt">Desaniciar</string>
     <string name="delete_all_best_dialog_content">¿De xuru que quies desaniciar toles imáxenes?</string>
     <string name="delete_all_best_dialog_native_bt">Encaboxar</string>
     <string name="delete_all_best_dialog_positive_bt">Desaniciar too</string>
     <string name="overflow_best_item1">Guardar too</string>
     <string name="overflow_best_item2">Desaniciar too</string>
-    <string name="settings_title">Axustes</string>
+    <string name="settings_title">Configuración</string>
 </resources>

@@ -281,11 +281,7 @@
     <string name="cannot_load_image">Nem sikerült betölteni a képet!</string>
     <string name="switch_photo_filmstrip">Filmszalagnézet</string>
     <string name="setting_wallpaper">Háttérkép beállítása</string>
-    <string name="pref_camera_video_rotation_label_90">90</string>
-    <string name="pref_camera_video_rotation_label_180">180</string>
-    <string name="pref_camera_video_rotation_label_270">270</string>
     <string name="remaining_photos_format">%d maradt</string>
-    <string name="initial_recording_seconds">0:00</string>
     <string name="makeup_video_size_limit">Smink csak a VGA méretű videók rögzítésekor működik.</string>
     <string name="pref_camera2_category_system">Rendszer</string>
     <string name="pref_camera2_restore_default">Alapértékek visszaállítása</string>

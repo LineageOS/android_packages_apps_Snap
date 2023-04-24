@@ -26,10 +26,10 @@
     </plurals>
     <string name="share">Paylaş</string>
     <string name="share_panorama">Panoramanı paylaşın</string>
-    <string name="share_as_photo">Fotonu paylaş</string>
+    <string name="share_as_photo">Şəkil kimi paylaş</string>
     <string name="deleted">Silindi</string>
     <string name="undo">GERİ QAYTAR</string>
-    <string name="details">Təfsilatlar</string>
+    <string name="details">Detallar</string>
     <string name="close">Bağla</string>
     <plurals name="number_of_items_selected">
         <item quantity="one">%1$d seçildi</item>
@@ -81,9 +81,9 @@
     <string name="please_wait">Zəhmət olmasa gözləyin</string>
     <string name="rendering_photo_sphere">Foto sferası hazırlanır</string>
     <string name="camera_error_title">Kamera xətası</string>
-    <string name="cannot_connect_camera">Kamera ilə bağlantı qurula bilmir.</string>
-    <string name="camera_disabled">Təhlükəsizlik siyasətinə görə kamera sıradan çıxarıldı.</string>
-    <string name="error_permissions">Bu tətbiqetmə işləmək üçün lazım olan vacib icazələri almayıb. Zəhmət olmasa icazə tənzimləmələrini yoxlayın.</string>
+    <string name="cannot_connect_camera">Kameraya bağlana bilmir.</string>
+    <string name="camera_disabled">Güvənlik siyasətinə görə kamera sıradan çıxarıldı.</string>
+    <string name="error_permissions">Bu tətbiqetmə işləmək üçün lazım olan vacib icazələri almayıb. Zəhmət olmasa icazə tənzimləmələrini yoxlayın. </string>
     <string name="dialog_dismiss">İmtina et</string>
     <string name="wait">Zəhmət olmasa gözləyin\u2026</string>
     <string name="no_storage" product="default">Kameranı istifadə etməmişdən əvvəl SD kartı daxil edin.</string>
@@ -95,7 +95,7 @@
     <string name="pref_camera_id_entry_back">Arxa</string>
     <string name="pref_camera_id_entry_front">Ön</string>
     <string name="pref_camera_recordlocation_title">GPS yer təyini</string>
-    <string name="pref_camera_location_label">YERLƏŞMƏ</string>
+    <string name="pref_camera_location_label">YER</string>
     <string name="pref_camera_timer_title">Geri sayma taymeri</string>
     <plurals name="pref_camera_timer_entry">
         <item quantity="one">1 saniyə</item>
@@ -171,7 +171,7 @@
     <string name="disable_TNR_during_SeeMore">SeeMore TNR-i sıradan çıxardacaq.</string>
     <string name="disable_NR_during_SeeMore">SeeMore səs-küy azaltmanı sıradan çıxardacaq.</string>
     <string name="pref_exposure_title">Ekspozisiya</string>
-    <string name="pref_exposure_label">EKSPOZİSİYA</string>
+    <string name="pref_exposure_label">Ekspozisiya</string>
     <string name="pref_camera_hdr_label">HDR</string>
     <string name="pref_camera_id_label_back">ÖN KAMERA</string>
     <string name="pref_camera_id_label_front">ARXA KAMERA</string>

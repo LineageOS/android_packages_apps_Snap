@@ -46,7 +46,7 @@
     <string name="crop_action">자르기</string>
     <string name="trim_action">잘라내기</string>
     <string name="set_as">다음으로 설정</string>
-    <string name="video_err">동영상을 재생할 수 없습니다.</string>
+    <string name="video_err">영상을 재생할 수 없습니다.</string>
     <string name="crop_saved">        잘린 이미지가 <xliff:g id="folder_name">%s</xliff:g>에 저장되었습니다.</string>
     <string name="title">제목</string>
     <string name="description">설명</string>
@@ -103,7 +103,7 @@
     <string name="setting_off">OFF</string>
     <string name="setting_on">ON</string>
     <string name="pref_video_quality_title">동영상 화질</string>
-    <string name="pref_video_time_lapse_frame_interval_title">시간 경과</string>
+    <string name="pref_video_time_lapse_frame_interval_title">타임랩스</string>
     <string name="pref_camera_settings_category">카메라 설정</string>
     <string name="pref_camcorder_settings_category">캠코더 설정</string>
     <string name="pref_camera_picturesize_title">사진 크기</string>
