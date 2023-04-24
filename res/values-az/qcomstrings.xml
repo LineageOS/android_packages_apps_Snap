@@ -30,7 +30,6 @@
     <string name="pref_camera_videoencoder_title">Video kodlayıcı</string>
     <string name="pref_camera_videoencoder_dialogtitle">Video kodlayıcı</string>
     <string name="pref_camera_audioencoder_title">Səs kodlayıcı</string>
-    <string name="pref_camera_skinToneEnhancement_default">sıradan çıxart</string>
     <string name="pref_camera_skinToneEnhancement_title">Dəri tonu gücləndirilməsi</string>
     <string name="pref_camera_skinToneEnhancement_entry_enable">Fəaldır</string>
     <string name="pref_camera_skinToneEnhancement_entry_disable">Sıradan çıxart</string>
@@ -108,6 +107,7 @@
     <string name="pref_camera_ae_bracket_hdr_entry_ae_bracket">AE çənbərləmə</string>
     <string name="pref_camera_ae_bracket_hdr_title">AE çənbərləmə</string>
     <string name="pref_camera_ae_bracket_hdr_entry_on">Açıq</string>
+    <string name="pref_camera_ae_bracket_hdr_entry_off">Bağlı</string>
     <string name="err_app_unsupport_ae_bracket_code">AE çənbərləmə hələ ki, dəstəklənmir</string>
     <string name="snapshot_lower_than_video">Video şəkil həcmi videonun həcmindən kiçik və video həcmi ilə məhdud olmalıdır. Zəhmət olmasa hazırki video həcminə bərabər və ya daha yüksək bir ölçü seçin.</string>
     <string name="snapshotsize_low_powermode">Aşağı Güc rejimində şəkil ölçüsünü dəyişdirmə dəstəklənmir, şəkil, video ölçülərində çəkiləcək. Zəhmət olmasa şəkil ölçülərini dəyişdirmək üçün Normal Güc rejiminə keçin.</string>
@@ -245,7 +245,7 @@
     <string name="pref_camera_scenedetect_title">Avto səhnə aşkarlama</string>
     <string name="pref_camera_scenedetect_entry_off">Bağlı</string>
     <string name="pref_camera_scenedetect_entry_on">Açıq</string>
-    <string name="time_lapse_error">Sürətləndirilmiş çəkiliş üçün etibarsız video həcmi.</string>
+    <string name="time_lapse_error">Sürətləndirilmiş çəkiliş üçün yararsız video həcmi.</string>
     <string name="pref_camera_longshot_title">Fasiləsiz çəkiliş</string>
     <string name="msg_cancel_longshot_for_limited_memory">Yaddaş dolur, fasiləsiz çəkiliş ləğv edilir</string>
     <string name="flash_aebracket_message">AE çənbərləmə rejimində işıq dəstəklənmir</string>
@@ -314,10 +314,10 @@
     <string name="pref_camera2_videosnap_title">Avto ani çəkiliş həcmi</string>
     <string name="pref_camera2_videosnap_entry_enable">Fəallaşdır</string>
     <string name="pref_camera2_videosnap_entry_disable">Sıradan çıxart</string>
-    <string name="pref_camera2_touch_track_focus_entry_on">Fəallaşdır</string>
+    <string name="pref_camera2_touch_track_focus_entry_on">Fəaldır</string>
     <string name="pref_camera2_touch_track_focus_off">Sıradan çıxart</string>
     <string name="pref_camera2_touch_track_focus_title">Toxunuş izləmə fokusu</string>
-    <string name="pref_camera2_multi_cameras_entry_on">Fəallaşdır</string>
+    <string name="pref_camera2_multi_cameras_entry_on">Fəaldır</string>
     <string name="pref_camera2_multi_cameras_entry_off">Sıradan çıxart</string>
     <string name="pref_camera2_multi_cameras_title">Çoxlu kamera</string>
     <string name="pref_camera_scenemode_entry_bestpicture">Ən yaxşı şəkil</string>
@@ -433,6 +433,8 @@
     <string name="pref_camera2_initial_camera_entry_mono">Mono</string>
     <string name="pref_camera2_initial_camera_entry_front">Ön</string>
     <string name="pref_camera2_eis_title">Video EIS</string>
+    <string name="pref_camera2_eis_entry_v2enable">V2</string>
+    <string name="pref_camera2_eis_entry_v3enable">V3</string>
     <string name="pref_camera2_eis_entry_v3_set_when_pause">V3 və fasilə veriləndə</string>
     <string name="pref_camera2_eis_entry_disable">Sıradan çıxarıldı</string>
     <string name="pref_camera2_fovc_title">Video FOVC</string>

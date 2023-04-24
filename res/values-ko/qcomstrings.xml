@@ -181,7 +181,7 @@
     <string name="pref_camera_coloreffect_title">색상 효과</string>
     <string name="pref_camera_filter_mode_title">색상 효과</string>
     <string name="pref_camera_coloreffect_entry_none">없음</string>
-    <string name="pref_camera_coloreffect_entry_mono">모노</string>
+    <string name="pref_camera_coloreffect_entry_mono">흑백</string>
     <string name="pref_camera_coloreffect_entry_sepia">세피아</string>
     <string name="pref_camera_coloreffect_entry_negative">네거티브</string>
     <string name="pref_camera_coloreffect_entry_solarize">과다노출</string>
@@ -432,6 +432,8 @@
     <string name="pref_camera2_initial_camera_entry_mono">모노</string>
     <string name="pref_camera2_initial_camera_entry_front">전면</string>
     <string name="pref_camera2_eis_title">비디오 EIS(전자 손 떨림 방지)</string>
+    <string name="pref_camera2_eis_entry_v2enable">V2</string>
+    <string name="pref_camera2_eis_entry_v3enable">V3</string>
     <string name="pref_camera2_eis_entry_v3_set_when_pause">일시 정지시 V3 실행</string>
     <string name="pref_camera2_eis_entry_disable">사용 안 함</string>
     <string name="pref_camera2_fovc_title">비디오 FOVC</string>

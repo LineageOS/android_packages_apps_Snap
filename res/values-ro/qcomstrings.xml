@@ -107,6 +107,7 @@
     <string name="pref_camera_ae_bracket_hdr_entry_ae_bracket">AE bracketing</string>
     <string name="pref_camera_ae_bracket_hdr_title">AE bracketing</string>
     <string name="pref_camera_ae_bracket_hdr_entry_on">Activat</string>
+    <string name="pref_camera_ae_bracket_hdr_entry_off">Oprit</string>
     <string name="err_app_unsupport_ae_bracket_code">AE bracketing nu este acceptat momentan</string>
     <string name="snapshot_lower_than_video">Dimensiunea instantaneului video este mai mică decât dimensiunea video, plafonând la dimensiunea video-ului. Vă rugăm selectați o rezoluție mai mare sau egală cu dimensiunea video curentă.</string>
     <string name="snapshotsize_low_powermode">Schimbarea rezoluției imaginii nu este suportată în modul Energie Redusă, se poate totuși face un instantaneu video. Vă rugăm să selectați modul Energie Normală pentru a putea schimba rezoluția imaginii.</string>
@@ -173,7 +174,7 @@
     <string name="pref_camera_iso_entry_iso6400">ISO6400</string>
     <string name="pref_camera_iso_entry_iso12800">ISO12800</string>
     <string name="pref_camera_antibanding_title">Antibanding</string>
-    <string name="pref_camera_antibanding_entry_0">Automat</string>
+    <string name="pref_camera_antibanding_entry_0">Auto</string>
     <string name="pref_camera_antibanding_entry_1">50 Hz (Europa)</string>
     <string name="pref_camera_antibanding_entry_2">60 Hz (SUA)</string>
     <string name="pref_camera_filter_mode_entry_on">Activat</string>
@@ -432,6 +433,8 @@
     <string name="pref_camera2_initial_camera_entry_mono">Mono</string>
     <string name="pref_camera2_initial_camera_entry_front">Frontal</string>
     <string name="pref_camera2_eis_title">EIS video</string>
+    <string name="pref_camera2_eis_entry_v2enable">V2</string>
+    <string name="pref_camera2_eis_entry_v3enable">V3</string>
     <string name="pref_camera2_eis_entry_v3_set_when_pause">V3 și setare la pauză</string>
     <string name="pref_camera2_eis_entry_disable">Dezactivat</string>
     <string name="pref_camera2_fovc_title">FOVC video</string>

@@ -107,6 +107,7 @@
     <string name="pref_camera_ae_bracket_hdr_entry_ae_bracket">Bracketing αυτόματης έκθεσης</string>
     <string name="pref_camera_ae_bracket_hdr_title">Bracketing αυτόματης έκθεσης</string>
     <string name="pref_camera_ae_bracket_hdr_entry_on">Ενεργό</string>
+    <string name="pref_camera_ae_bracket_hdr_entry_off">Aνενεργό</string>
     <string name="err_app_unsupport_ae_bracket_code">Το Bracketing ΑΕ δεν υποστηρίζεται ακόμη</string>
     <string name="snapshot_lower_than_video">Το μέγεθος στιγμιότυπου βίντεο είναι μικρότερο από το μέγεθος βίντεο, κλείδωμα στο μέγεθος βίντεο. Παρακαλώ επιλέξτε ένα μέγεθος μεγαλύτερο ή ίσο με το τρέχον μέγεθος βίντεο.</string>
     <string name="snapshotsize_low_powermode">Δεν υποστηρίζεται η αλλαγή μεγέθους φωτογραφίας κατά την λειτουργία Χαμηλής ισχύος, θα ληφθεί στιγμιότυπο στο μέγεθος του βίντεο. Παρακαλώ επιλέξτε την λειτουργία Κανονικής ισχύος για να μπορείτε να αλλάξετε το μέγεθος της εικόνας.</string>
@@ -173,7 +174,7 @@
     <string name="pref_camera_iso_entry_iso6400">ISO6400</string>
     <string name="pref_camera_iso_entry_iso12800">ISO12800</string>
     <string name="pref_camera_antibanding_title">Antibanding</string>
-    <string name="pref_camera_antibanding_entry_0">Αυτόματο</string>
+    <string name="pref_camera_antibanding_entry_0">Αυτόματη</string>
     <string name="pref_camera_antibanding_entry_1">50 Hz (Ευρώπη)</string>
     <string name="pref_camera_antibanding_entry_2">60 Hz (ΗΠΑ)</string>
     <string name="pref_camera_filter_mode_entry_on">Ενεργό</string>
@@ -292,7 +293,7 @@
     <string name="pref_camera2_camera2_entry_disable">Ανενεργό</string>
     <string name="pref_camera2_mono_only_title">Μόνο mono</string>
     <string name="pref_camera2_mono_only_entry_on">Ενεργό</string>
-    <string name="pref_camera2_mono_only_entry_off">Ανενεργή</string>
+    <string name="pref_camera2_mono_only_entry_off">Aνενεργό</string>
     <string name="pref_camera2_mono_preview_title">Προεπισκόπηση mono</string>
     <string name="pref_camera2_mono_preview_entry_on">Ενεργό</string>
     <string name="pref_camera2_mono_preview_entry_off">Ανενεργή</string>
@@ -305,7 +306,7 @@
     <string name="pref_camera2_mpo_entry_off">Ανενεργή</string>
     <string name="pref_camera2_makeup_title">Μακιγιάζ</string>
     <string name="pref_camera2_makeup_entry_on">Ενεργό</string>
-    <string name="pref_camera2_makeup_entry_off">Ανενεργή</string>
+    <string name="pref_camera2_makeup_entry_off">Aνενεργό</string>
     <string name="pref_camera2_noise_reduction_title">Μείωση θορύβου</string>
     <string name="pref_camera2_noise_reduction_entry_off">Ανενεργή</string>
     <string name="pref_camera2_noise_reduction_entry_fast">Γρήγορη</string>
@@ -313,11 +314,11 @@
     <string name="pref_camera2_videosnap_title">Αυτόματο μέγεθος στιγμιότυπου οθόνης</string>
     <string name="pref_camera2_videosnap_entry_enable">Ενεργό</string>
     <string name="pref_camera2_videosnap_entry_disable">Ανενεργό</string>
-    <string name="pref_camera2_touch_track_focus_entry_on">Ενεργό</string>
-    <string name="pref_camera2_touch_track_focus_off">Ανενεργό</string>
+    <string name="pref_camera2_touch_track_focus_entry_on">Ενεργοποίηση</string>
+    <string name="pref_camera2_touch_track_focus_off">Απενεργοποίηση</string>
     <string name="pref_camera2_touch_track_focus_title">Εστίαση με αφή</string>
-    <string name="pref_camera2_multi_cameras_entry_on">Ενεργό</string>
-    <string name="pref_camera2_multi_cameras_entry_off">Ανενεργό</string>
+    <string name="pref_camera2_multi_cameras_entry_on">Ενεργοποίηση</string>
+    <string name="pref_camera2_multi_cameras_entry_off">Απενεργοποίηση</string>
     <string name="pref_camera2_multi_cameras_title">Πολλαπλές κάμερες</string>
     <string name="pref_camera_scenemode_entry_bestpicture">Βέλτιστη εικόνα</string>
     <string name="pref_camera_scenemode_entry_sharpshooter">Σταθερή φωτογραφία</string>
@@ -429,9 +430,11 @@
     <string name="pref_camera2_afmode_entry_edof">Εκτεταμένο βάθος εστίασης</string>
     <string name="pref_camera2_switch_camera_title">Εναλλαγή κάμερας με βάση το ID</string>
     <string name="pref_camera2_initial_camera_entry_bayer">Bayer</string>
-    <string name="pref_camera2_initial_camera_entry_mono">Μονόχρωμο</string>
+    <string name="pref_camera2_initial_camera_entry_mono">Μονόχρωμη</string>
     <string name="pref_camera2_initial_camera_entry_front">Μπροστινή</string>
     <string name="pref_camera2_eis_title">EIS βίντεο</string>
+    <string name="pref_camera2_eis_entry_v2enable">V2</string>
+    <string name="pref_camera2_eis_entry_v3enable">V3</string>
     <string name="pref_camera2_eis_entry_v3_set_when_pause">V3 και ορισμός κατά την παύση</string>
     <string name="pref_camera2_eis_entry_disable">Ανενεργός</string>
     <string name="pref_camera2_fovc_title">FOVC βίντεο</string>
@@ -444,7 +447,7 @@
     <string name="pref_camera2_switcher_entry_rear">Πίσω</string>
     <string name="pref_camera2_switcher_entry_front">Μπροστινή</string>
     <string name="pref_camera2_force_aux_title">Εξαναγκασμός AUX</string>
-    <string name="pref_camera2_force_aux_entry_on">Ενεργό</string>
+    <string name="pref_camera2_force_aux_entry_on">Ενεργή</string>
     <string name="pref_camera2_force_aux_entry_off">Ανενεργή</string>
     <string name="pref_camera2_stats_visualizer_title">Απεικόνιση στατιστικών</string>
     <string name="pref_camera2_stats_visualizer_entry_bg_stats">Στατιστικά BG</string>

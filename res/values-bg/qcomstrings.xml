@@ -107,6 +107,7 @@
     <string name="pref_camera_ae_bracket_hdr_entry_ae_bracket">AE кадриране</string>
     <string name="pref_camera_ae_bracket_hdr_title">AE кадриране</string>
     <string name="pref_camera_ae_bracket_hdr_entry_on">Вкл.</string>
+    <string name="pref_camera_ae_bracket_hdr_entry_off">Изключване</string>
     <string name="err_app_unsupport_ae_bracket_code">Това действие все още не се поддържа</string>
     <string name="snapshot_lower_than_video">Размера на видео снимката е по-нисък от размера на видеото. Все още има ограничение на размера на изображението. Моля изберете резолюция по-висока или равна на текущия размер на видео.</string>
     <string name="snapshotsize_low_powermode">Промяна размера на снимка не се поддържа в режим на ниска мощност, ще бъде взет видео размер за снимка. Моля изберете нормален режим на мощност, за да позволява промяна на размера на картината.</string>
@@ -251,6 +252,7 @@
     <string name="pref_camera_auto_hdr_title">Aвтоматичен HDR</string>
     <string name="pref_camera_auto_hdr_entry_enable">Вкл.</string>
     <string name="pref_camera_auto_hdr_entry_disable">Изкл.</string>
+    <string name="on_switch_save_path_to_sdcard">Пространството във вътрешната памет не е достатъчно, преминете на карта памет</string>
     <string name="storage_not_enough">Мястото за съхранение е недостатъчно</string>
     <string name="pref_camera_hdr_mode_title">HDR режим</string>
     <string name="pref_camera_hdr_mode_entry_sensor">Сензор HDR</string>
@@ -312,11 +314,11 @@
     <string name="pref_camera2_videosnap_title">Автоматичен размер на снимка</string>
     <string name="pref_camera2_videosnap_entry_enable">Разрешено</string>
     <string name="pref_camera2_videosnap_entry_disable">Деактивирай</string>
-    <string name="pref_camera2_touch_track_focus_entry_on">Разрешено</string>
-    <string name="pref_camera2_touch_track_focus_off">Деактивирай</string>
+    <string name="pref_camera2_touch_track_focus_entry_on">Вкл.</string>
+    <string name="pref_camera2_touch_track_focus_off">Изкл.</string>
     <string name="pref_camera2_touch_track_focus_title">Фокус за проследяване на докосване</string>
-    <string name="pref_camera2_multi_cameras_entry_on">Разрешено</string>
-    <string name="pref_camera2_multi_cameras_entry_off">Деактивирай</string>
+    <string name="pref_camera2_multi_cameras_entry_on">Вкл.</string>
+    <string name="pref_camera2_multi_cameras_entry_off">Изкл.</string>
     <string name="pref_camera2_multi_cameras_title">Няколко камери</string>
     <string name="pref_camera_scenemode_entry_bestpicture">Най-добра снимка</string>
     <string name="pref_camera_scenemode_entry_sharpshooter">Sharp photo</string>
@@ -431,6 +433,8 @@
     <string name="pref_camera2_initial_camera_entry_mono">Моно</string>
     <string name="pref_camera2_initial_camera_entry_front">Предна</string>
     <string name="pref_camera2_eis_title">Видео EIS</string>
+    <string name="pref_camera2_eis_entry_v2enable">V2</string>
+    <string name="pref_camera2_eis_entry_v3enable">V3</string>
     <string name="pref_camera2_eis_entry_v3_set_when_pause">V3 и настройте по време на пауза</string>
     <string name="pref_camera2_eis_entry_disable">Изкл.</string>
     <string name="pref_camera2_fovc_title">Видео FOVC</string>
@@ -443,7 +447,7 @@
     <string name="pref_camera2_switcher_entry_rear">Задна</string>
     <string name="pref_camera2_switcher_entry_front">Предна</string>
     <string name="pref_camera2_force_aux_title">Принудителен AUX</string>
-    <string name="pref_camera2_force_aux_entry_on">Включване</string>
+    <string name="pref_camera2_force_aux_entry_on">Вкл.</string>
     <string name="pref_camera2_force_aux_entry_off">Изкл.</string>
     <string name="pref_camera2_stats_visualizer_title">Станистика на визуализатора</string>
     <string name="pref_camera2_stats_visualizer_entry_bg_stats">BG статистика</string>

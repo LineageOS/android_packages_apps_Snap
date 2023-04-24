@@ -27,4 +27,5 @@
     <string name="quick_reader_scanned_text_negative">Chia sẻ</string>
     <string name="quick_reader_share_title">Chia sẻ với\u2026</string>
     <string name="quick_reader_copied_message">Đã sao chép vào bảng tạm</string>
+    <string name="quick_reader_only_unlocked">Chỉ có thể thực hiện hành động này khi thiết bị đã được mở khóa</string>
 </resources>

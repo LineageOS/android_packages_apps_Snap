@@ -107,6 +107,7 @@
     <string name="pref_camera_ae_bracket_hdr_entry_ae_bracket">Bracketing d\'exposition automatique</string>
     <string name="pref_camera_ae_bracket_hdr_title">Bracketing d\'exposition automatique</string>
     <string name="pref_camera_ae_bracket_hdr_entry_on">Activé</string>
+    <string name="pref_camera_ae_bracket_hdr_entry_off">Désactivé</string>
     <string name="err_app_unsupport_ae_bracket_code">Le bracketing AE n\'est pas encore supporté</string>
     <string name="snapshot_lower_than_video">La taille de capture vidéo est inférieure à la taille de la vidéo. Veuillez sélectionner une résolution supérieure ou égale à la taille actuelle de la vidéo.</string>
     <string name="snapshotsize_low_powermode">Changer la taille de l\'image n\'est pas supporté en mode Basse Consommation, un instantané de la taille de la vidéo va être pris. Sélectionnez le mode Alimentation Normale pour modifier la taille de l\'image.</string>
@@ -173,7 +174,7 @@
     <string name="pref_camera_iso_entry_iso6400">ISO6400</string>
     <string name="pref_camera_iso_entry_iso12800">ISO12800</string>
     <string name="pref_camera_antibanding_title">Anti-scintillement</string>
-    <string name="pref_camera_antibanding_entry_0">Automatique</string>
+    <string name="pref_camera_antibanding_entry_0">Auto</string>
     <string name="pref_camera_antibanding_entry_1">50 Hz (Europe)</string>
     <string name="pref_camera_antibanding_entry_2">60 Hz (USA)</string>
     <string name="pref_camera_filter_mode_entry_on">Activé</string>
@@ -432,6 +433,8 @@
     <string name="pref_camera2_initial_camera_entry_mono">Mono</string>
     <string name="pref_camera2_initial_camera_entry_front">Avant</string>
     <string name="pref_camera2_eis_title">EIS vidéo</string>
+    <string name="pref_camera2_eis_entry_v2enable">V2</string>
+    <string name="pref_camera2_eis_entry_v3enable">V3</string>
     <string name="pref_camera2_eis_entry_v3_set_when_pause">V3 et réglé lors de la pause</string>
     <string name="pref_camera2_eis_entry_disable">Désactivé</string>
     <string name="pref_camera2_fovc_title">FOVC vidéo</string>

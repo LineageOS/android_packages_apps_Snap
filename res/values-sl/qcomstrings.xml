@@ -107,6 +107,7 @@
     <string name="pref_camera_ae_bracket_hdr_entry_ae_bracket">Korektura sam. osvetlitve</string>
     <string name="pref_camera_ae_bracket_hdr_title">Korektura sam. osvetlitve</string>
     <string name="pref_camera_ae_bracket_hdr_entry_on">Vklopljeno</string>
+    <string name="pref_camera_ae_bracket_hdr_entry_off">Izklopljeno</string>
     <string name="err_app_unsupport_ae_bracket_code">Korektura samodejne osvetlitve še ni podprta</string>
     <string name="snapshot_lower_than_video">Velikost samodejnega posnetka je nižja od velikosti videoposnetka, omejevanje na velikost videoposnetka. Izberite ločljivost višjo ali enako velikosti trenutnega videoposnetka.</string>
     <string name="snapshotsize_low_powermode">Sprememba velikosti slike ni podprta v načinu nizke porabe, posnet bo samodejni posnetek v velikosti videoposnetka. Za spremembo velikosti slike izberete način običajne porabe.</string>
@@ -335,7 +336,7 @@
     <string name="pref_camera2_timer_entry_10sec">10 sekund</string>
     <string name="pref_camera2_saveraw_title">Shrani z obliko Raw</string>
     <string name="panocapture_direction_is_not_determined">Nenehno premikajte v eno smer.</string>
-    <string name="panocapture_intro">Za začetek pritisnite gumb fotoaparata.</string>
+    <string name="panocapture_intro">Za začetek pritisnite gumb za fotoaparat.</string>
     <string name="panocapture_direction_is_changed">Smer se je spremenila, ustavljanje zajema panorame \u2026</string>
     <string name="makeup_ui_title">Izberite moč polepšave.</string>
     <string name="makeup_ui_ok_button">V REDU</string>
@@ -432,6 +433,8 @@
     <string name="pref_camera2_initial_camera_entry_mono">Mono</string>
     <string name="pref_camera2_initial_camera_entry_front">Sprednja</string>
     <string name="pref_camera2_eis_title">EIS za videoposnetke</string>
+    <string name="pref_camera2_eis_entry_v2enable">V2</string>
+    <string name="pref_camera2_eis_entry_v3enable">V3</string>
     <string name="pref_camera2_eis_entry_v3_set_when_pause">V3 in nastavi ob premoru</string>
     <string name="pref_camera2_eis_entry_disable">Onemogočeno</string>
     <string name="pref_camera2_fovc_title">FOVC za videoposnetke</string>

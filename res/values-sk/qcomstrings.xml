@@ -173,7 +173,7 @@
     <string name="pref_camera_iso_entry_iso6400">ISO 6400</string>
     <string name="pref_camera_iso_entry_iso12800">ISO 12800</string>
     <string name="pref_camera_antibanding_title">Potlačenie blikania obrazu</string>
-    <string name="pref_camera_antibanding_entry_0">Automatické</string>
+    <string name="pref_camera_antibanding_entry_0">Automaticky</string>
     <string name="pref_camera_antibanding_entry_1">50 Hz (Európa)</string>
     <string name="pref_camera_antibanding_entry_2">60 Hz (USA)</string>
     <string name="pref_camera_filter_mode_entry_on">Zapnúť</string>
@@ -313,11 +313,11 @@
     <string name="pref_camera2_videosnap_title">Automatická veľkosť obrázku</string>
     <string name="pref_camera2_videosnap_entry_enable">Použiť</string>
     <string name="pref_camera2_videosnap_entry_disable">Zakázať</string>
-    <string name="pref_camera2_touch_track_focus_entry_on">Použiť</string>
-    <string name="pref_camera2_touch_track_focus_off">Nepoužiť</string>
+    <string name="pref_camera2_touch_track_focus_entry_on">Zapnúť</string>
+    <string name="pref_camera2_touch_track_focus_off">Vypnúť</string>
     <string name="pref_camera2_touch_track_focus_title">Sledovanie zaostrenia dotykom</string>
-    <string name="pref_camera2_multi_cameras_entry_on">Použiť</string>
-    <string name="pref_camera2_multi_cameras_entry_off">Nepoužiť</string>
+    <string name="pref_camera2_multi_cameras_entry_on">Zapnúť</string>
+    <string name="pref_camera2_multi_cameras_entry_off">Vypnúť</string>
     <string name="pref_camera2_multi_cameras_title">Viac fotoaparátov</string>
     <string name="pref_camera_scenemode_entry_bestpicture">Najlepší obraz</string>
     <string name="pref_camera_scenemode_entry_sharpshooter">Ostrá fotografia</string>

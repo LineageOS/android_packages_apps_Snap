@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2013-2015 The CyanogenMod Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="pref_camera_megapixel_format">(<xliff:g id="ratio" example="16:9">%1$s</xliff:g>) <xliff:g id="pixels">%2$1.1f</xliff:g> migapiksel</string>
+    <string name="pref_camera_scenemode_entry_aqua">Eau</string>
+    <string name="pref_camera_scenemode_entry_ar">Tilawt yettnernin</string>
+    <string name="pref_camera_scenemode_entry_baby">A-lufan</string>
+    <string name="pref_camera_scenemode_entry_backgroundblur">Agilal iluɣ</string>
+    <string name="pref_camera_scenemode_entry_backlight">Tafat n deffir </string>
+    <string name="pref_camera_scenemode_entry_barcode">Tangalt s ifeggagen</string>
+    <string name="pref_camera_scenemode_entry_beach">Taftist</string>
+    <string name="pref_camera_scenemode_entry_beauty">Ccbaḥa</string>
+    <string name="pref_camera_scenemode_entry_candlelight">Tafat n tcemmaɛt</string>
+    <string name="pref_camera_scenemode_entry_dark">Aberkan</string>
+    <string name="pref_camera_scenemode_entry_duskdawn">Tafrara</string>
+    <string name="pref_camera_scenemode_entry_document">isemli</string>
+    <string name="pref_camera_scenemode_entry_fallcolor">Ini n umwan</string>
+    <string name="pref_camera_scenemode_entry_fireworks">Ifufucen</string>
+    <string name="pref_camera_scenemode_entry_flowers">Ijeǧǧigen</string>
+    <string name="pref_camera_scenemode_entry_landscape">S tehri</string>
+    <string name="pref_camera_scenemode_entry_mood">Lxaḍer</string>
+    <string name="pref_camera_scenemode_entry_oldfilm">Asaru aqbur</string>
+    <string name="pref_camera_scenemode_entry_pet">Aɣersiw</string>
+    <string name="pref_camera_scenemode_entry_portrait">S teɣzi</string>
+    <string name="pref_camera_scenemode_entry_snow">Adfel</string>
+    <string name="pref_camera_scenemode_entry_softskin">Aglim aleqqaq</string>
+    <string name="pref_camera_scenemode_entry_sports">Addalen</string>
+    <string name="pref_camera_scenemode_entry_steadyphoto">Tawlaft irekden</string>
+    <string name="pref_camera_scenemode_entry_supernight">Iḍ aberkan</string>
+    <string name="pref_camera_scenemode_entry_text">Aḍris</string>
+    <string name="pref_camera_scenemode_entry_theatre">Amazgun</string>
+    <string name="pref_camera_focusmode_entry_continuous">A_maɣlal</string>
+    <string name="pref_camera_focusmode_entry_fixed">Usbiḍ</string>
+    <string name="pref_camera_focusmode_entry_normal">Amagnu</string>
+    <string name="pref_camera_focusmode_entry_portrait">S teɣzi</string>
+    <string name="pref_camera_flashmode_entry_redeye">Allen tizeggaγin</string>
+    <string name="pref_camera_flashmode_label_redeye">TIṬ TAZEGGAƔT</string>
+    <string name="pref_camera_power_shutter_title">Taqeffalt Rmed/Sens</string>
+    <string name="pref_camera_max_brightness_title">Agdil Abruṛqen</string>
+    <string name="pref_camera_focustime_entry_0">0s</string>
+    <string name="pref_camera_focustime_entry_3">3s</string>
+    <string name="pref_camera_focustime_entry_5">5s</string>
+    <string name="pref_camera_focustime_entry_10">10s</string>
+    <string name="pref_camera_focustime_entry_infinite">War tilas</string>
+    <string name="pref_camera2_preferences_category_developer">Tixtiṛiyin timahlanin</string>
+</resources>

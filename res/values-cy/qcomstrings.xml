@@ -107,6 +107,7 @@
     <string name="pref_camera_ae_bracket_hdr_entry_ae_bracket">AEB</string>
     <string name="pref_camera_ae_bracket_hdr_title">AEB</string>
     <string name="pref_camera_ae_bracket_hdr_entry_on">Ymlaen</string>
+    <string name="pref_camera_ae_bracket_hdr_entry_off">I ffwrdd</string>
     <string name="err_app_unsupport_ae_bracket_code">Ni chefnogir AEB eto</string>
     <string name="snapshot_lower_than_video">Mae maint sgrinlun y fideo yn llai na maint y fideo. Dewisa faint sy\'n gyfartal neu\'n fwy na maint y fideo cyfredol.</string>
     <string name="snapshotsize_low_powermode">Ni chaniateir newid maint y llun ym modd Pŵer Isel; caiff sgrinlun o\'r fideo ei gymryd. Dewisa fodd Pŵer Normal i ganiatáu newid maint llun.</string>
@@ -118,11 +119,21 @@
     <string name="pref_camera_hfr_entry_4x">Fideo araf 120 FPS</string>
     <string name="pref_camera_hfr_entry_8x">Fideo araf 240 FPS</string>
     <string name="pref_camera_hfr_entry_16x">Fideo araf 480 FPS</string>
+    <string name="pref_camera_hfr_entry_32x">Araf - 960 Ff/e</string>
     <string name="pref_camera_hfr_entry_hsr_60">Fideo cyflym 60 FPS</string>
     <string name="pref_camera_hfr_entry_hsr_90">Fideo cyflym 90 FPS</string>
     <string name="pref_camera_hfr_entry_hsr_120">Fideo cyflym 120 FPS</string>
     <string name="pref_camera_hfr_entry_hsr_240">Fideo cyflym 240 FPS</string>
     <string name="pref_camera_hfr_entry_hsr_480">Fideo cyflym 480 FPS</string>
+    <string name="pref_camera_hfr_entry_hsr_960">Cyflym - 960 Ff/e</string>
+    <string name="pref_camera_hfr_entry_2x_ssm_120">Araf Iawn - 120-&gt;240</string>
+    <string name="pref_camera_hfr_entry_4x_ssm_120">Araf Iawn - 120-&gt;480</string>
+    <string name="pref_camera_hfr_entry_2x_ssm_240">Araf Iawn - 240-&gt;480</string>
+    <string name="pref_camera_hfr_entry_4x_ssm_240">Araf Iawn - 240-&gt;960</string>
+    <string name="pref_camera_hfr_entry_2x_ssm_480">Araf Iawn - 480-&gt;960</string>
+    <string name="pref_camera_hfr_entry_4x_ssm_480">Araf Iawn - 480-&gt;1920</string>
+    <string name="pref_camera_hfr_entry_2x_ssm_960">Araf Iawn - 960-&gt;1920</string>
+    <string name="pref_camera_hfr_entry_4x_ssm_960">Araf Iawn - 960-&gt;3840</string>
     <string name="pref_camera_noise_reduction_title">Lleihad sŵn</string>
     <string name="pref_camera_noise_reduction_entry_off">I ffwrdd</string>
     <string name="pref_camera_noise_reduction_entry_fast">Cyflym</string>
@@ -241,6 +252,8 @@
     <string name="pref_camera_auto_hdr_title">HDR awtomatig</string>
     <string name="pref_camera_auto_hdr_entry_enable">Galluogi</string>
     <string name="pref_camera_auto_hdr_entry_disable">Analluogi</string>
+    <string name="on_switch_save_path_to_sdcard">Am nad oes digon o le yn y storfa fewnol, newidiwyd y llwybr cadw i gerdyn SD</string>
+    <string name="storage_not_enough">Dim digon o le storfa</string>
     <string name="pref_camera_hdr_mode_title">Modd HDR</string>
     <string name="pref_camera_hdr_mode_entry_sensor">Synhwyrydd HDR</string>
     <string name="pref_camera_hdr_mode_entry_multi_frame">HDR aml-ffrâm</string>
@@ -303,6 +316,7 @@
     <string name="pref_camera2_videosnap_entry_disable">Analluogi</string>
     <string name="pref_camera2_touch_track_focus_entry_on">Galluogi</string>
     <string name="pref_camera2_touch_track_focus_off">Analluogi</string>
+    <string name="pref_camera2_touch_track_focus_title">Ffocysu wrth ddilyn cyffyrddiad</string>
     <string name="pref_camera2_multi_cameras_entry_on">Galluogi</string>
     <string name="pref_camera2_multi_cameras_entry_off">Analluogi</string>
     <string name="pref_camera2_multi_cameras_title">Camerâu lluosog</string>
@@ -399,6 +413,7 @@
     <string name="pref_camera_zoom_entry_10x">10x</string>
     <string name="pref_camera2_bsgc_title">Canfod gwenu/syllu/cau llygaid</string>
     <string name="pref_camera2_facial_contour_title">Cyfuchlin wyneb</string>
+    <string name="pref_camera2_face_detection_mode_title">Modd synhwyro wynebau</string>
     <string name="pref_camera2_bsgc_entry_enable">Galluogi</string>
     <string name="pref_camera2_bsgc_entry_disable">Analluogi</string>
     <string name="pref_camera2_face_detection_entry_simple">Syml</string>
@@ -418,6 +433,8 @@
     <string name="pref_camera2_initial_camera_entry_mono">Mono</string>
     <string name="pref_camera2_initial_camera_entry_front">Blaen</string>
     <string name="pref_camera2_eis_title">Fideo EIS</string>
+    <string name="pref_camera2_eis_entry_v2enable">V2</string>
+    <string name="pref_camera2_eis_entry_v3enable">V3</string>
     <string name="pref_camera2_eis_entry_v3_set_when_pause">V3 a gosod pan oedi</string>
     <string name="pref_camera2_eis_entry_disable">Wedi\'i analluogi</string>
     <string name="pref_camera2_fovc_title">Fideo FOVC</string>
@@ -426,6 +443,7 @@
     <string name="pref_camera2_video_hdr_entry_enable">Wedi\'i alluogi</string>
     <string name="pref_camera2_video_hdr_entry_disable">Wedi\'i analluogi</string>
     <string name="pref_camera2_picture_format_title">Fformat llun</string>
+    <string name="pref_camera2_switcher_title">Newidydd camera</string>
     <string name="pref_camera2_switcher_entry_rear">Cefn</string>
     <string name="pref_camera2_switcher_entry_front">Blaen</string>
     <string name="pref_camera2_force_aux_title">Gorfodi AUX</string>
@@ -446,6 +464,9 @@
     <string name="pref_camera2_abort_captures_title">Atal cipiadau</string>
     <string name="pref_camera2_abort_captures_entry_enable">Wedi\'i alluogi</string>
     <string name="pref_camera2_abort_captures_entry_disable">Wedi\'i analluogi</string>
+    <string name="pref_camera_tone_mapping_title">Cyfatebiaeth tôn</string>
+    <string name="pref_camera_tone_mapping_entry_dark_boost_offset">Lleddfu hwb tywyll</string>
+    <string name="pref_camera_tone_mapping_entry_fourth_tone_anchor">Y pedwerydd angor tôn</string>
     <string name="pref_camera_tone_mapping_entry_user_setting">Gosodiad defnyddiwr</string>
     <string name="pref_camera_tone_mapping_entry_off">I ffwrdd</string>
     <string name="pref_multi_camera_hal_zsl_title">HAL ZSL</string>

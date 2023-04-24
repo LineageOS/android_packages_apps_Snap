@@ -107,6 +107,7 @@
     <string name="pref_camera_ae_bracket_hdr_entry_ae_bracket">Reeksopname met automatische belichtingscompensatie (AEB)</string>
     <string name="pref_camera_ae_bracket_hdr_title">Reeksopname met automatische belichtingscompensatie (AEB)</string>
     <string name="pref_camera_ae_bracket_hdr_entry_on">Aan</string>
+    <string name="pref_camera_ae_bracket_hdr_entry_off">Uit</string>
     <string name="err_app_unsupport_ae_bracket_code">Bracketing (AEB) wordt nog niet ondersteund</string>
     <string name="snapshot_lower_than_video">Resolutie momentopname is kleiner dan die van de video. Momentopname wordt gemaakt ter grootte van de video. Kies een hogere of gelijke resolutie als de huidige videoresolutie.</string>
     <string name="snapshotsize_low_powermode">Resolutie aanpassen wordt niet ondersteund in laag-energieverbruik-stand. Momentopname wordt gemaakt ter grootte van de video. Kies normaal-energieverbruik-stand om de resolutie aan te kunnen passen.</string>
@@ -432,6 +433,8 @@
     <string name="pref_camera2_initial_camera_entry_mono">Monochroom</string>
     <string name="pref_camera2_initial_camera_entry_front">Voorzijde</string>
     <string name="pref_camera2_eis_title">Video EIS (Electronic Image Stabilisation)</string>
+    <string name="pref_camera2_eis_entry_v2enable">V2</string>
+    <string name="pref_camera2_eis_entry_v3enable">V3</string>
     <string name="pref_camera2_eis_entry_v3_set_when_pause">V3 en op pauze zetten</string>
     <string name="pref_camera2_eis_entry_disable">Uitgeschakeld</string>
     <string name="pref_camera2_fovc_title">Video FOVC (Field Of View Control)</string>

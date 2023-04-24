@@ -15,7 +15,17 @@
 -->
 <resources>
     <string name="accessibility_switch_to_qr">QR-წამკითხავი</string>
+    <string name="quick_reader_action_dismiss">აცილება</string>
+    <string name="quick_reader_no_activity_found">არც ერთ დაყენებულ აპს არ შეუძლია ამ მასალის გახსნა</string>
+    <string name="quick_reader_permission_error_title">ნებართვების შეცდომა</string>
+    <string name="quick_reader_permission_rationale_message">კამერასთან წვდომაა საჭირო შტრიხ-კოდის აღსაქმელად</string>
+    <string name="quick_reader_permission_rationale_positive">კვლავ შეკითხვა</string>
+    <string name="quick_reader_permission_fatal_message">კამერასთან წვდომა უარყოფილია. გთხოვთ, დართოთ ნება აპის პარამეტრებიდან</string>
     <string name="quick_reader_permission_fatal_positive">პარამეტრების გახსნა</string>
+    <string name="quick_reader_scanned_text_title">ამოკრეფილი ტექსტი</string>
+    <string name="quick_reader_scanned_text_positive">ასლი</string>
     <string name="quick_reader_scanned_text_negative">გაზიარება</string>
+    <string name="quick_reader_share_title">გაზიარება\u2026</string>
+    <string name="quick_reader_copied_message">ასლი აღებულია</string>
     <string name="quick_reader_only_unlocked">ეს მოქმედება, მხოლოდ გახსნილ მოწყობილობაზე შეიძლება შესრულდეს</string>
 </resources>

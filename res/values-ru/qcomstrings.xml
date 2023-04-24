@@ -107,6 +107,7 @@
     <string name="pref_camera_ae_bracket_hdr_entry_ae_bracket">Автобрекетинг</string>
     <string name="pref_camera_ae_bracket_hdr_title">Автобрекетинг</string>
     <string name="pref_camera_ae_bracket_hdr_entry_on">Вкл</string>
+    <string name="pref_camera_ae_bracket_hdr_entry_off">Выкл</string>
     <string name="err_app_unsupport_ae_bracket_code">Автобрекетинг не поддерживается</string>
     <string name="snapshot_lower_than_video">Разрешение снимка меньше, чем разрешение видеосъемки. Выберите разрешение выше или равное разрешению видеосъемки.</string>
     <string name="snapshotsize_low_powermode">Изменение разрешения изображения не поддерживается в энергосберегающем режиме. Переключитесь в стандартный режим энергопотребления для использования этой функции.</string>
@@ -282,7 +283,7 @@
     <string name="text_tsmakeup_beautify_toast">Облагородить</string>
     <string name="all_in_focus">Все в фокусе</string>
     <string name="refocus_toast">Нажмите, чтобы перефокусировать последнее фото</string>
-    <string name="refocus_prompt_message">С UbiFocus ваша камера будет делать сразу 5 фотографий за один раз. После этого, 5 фотографий будут объединены в одну, где все объекты будут в фокусе. После объединения вы сможете выбрать место фокусировки на итоговом изображении.</string>
+    <string name="refocus_prompt_message">С UbiFocus ваша камера будет делать 5 фото за один раз. Затем они будут объединены в одно, на котором все объекты будут в фокусе. После объединения вы сможете выбрать место фокусировки на итоговом изображении.</string>
     <string name="camera_thermal_shutdown">Перегрев устройства. Камера будет выключена.</string>
     <string name="camera_server_died">Медиа-сервер недоступен, закрытие камеры.</string>
     <string name="camera_unknown_error">Произошла неизвестная ошибка. Камера будет выключена.</string>
@@ -344,17 +345,17 @@
     <string name="perf_camera2_preferences_category_photo">Фотокамера</string>
     <string name="perf_camera2_preferences_category_video">Видеокамера</string>
     <string name="perf_camera2_preferences_category_system">Система</string>
-    <string name="pref_camera2_scene_mode_dual_camera_instructional_content">В режиме двойной камеры ваши фотографии будут четче. Также можно применить фоновые эффекты, отредактировав снятые двойной камерой фотографии в галерее.</string>
+    <string name="pref_camera2_scene_mode_dual_camera_instructional_content">В режиме двойной камеры ваши снимки будут четче. Также можно применить фоновые эффекты, отредактировав снятые двойной камерой фото в галерее.</string>
     <string name="pref_camera2_scene_mode_ubi_focus_instructional_content">С UbiFocus ваша камера снимет пять фотографий и объединит их в одну, где все объекты находятся в фокусе. Вы можете изменить фокус после съемки изображения.</string>
     <string name="pref_camera2_scene_mode_opti_zoom_instructional_content">Используйте OptiZoom, когда требуется увеличить масштаб для получения четкой картинки. Вы можете использовать приближение до или после съемки.</string>
-    <string name="pref_camera2_scene_mode_sports_instructional_content">Режим «Спорт» помогает вам снимать более качественные снимки в условиях съемки спортивных состязаний или активных действий.\n\nУлучшает ваши фотографии, но не влияет на качество снимаемого видео.</string>
+    <string name="pref_camera2_scene_mode_sports_instructional_content">Спортивный режим помогает делать более качественные снимки спорта или экшн.\n\nОн улучшает качество фото, но не влияет на запись видео.</string>
     <string name="pref_camera2_scene_mode_hdr_instructional_content">Когда Вы находитесь в условиях смешанного освещения, например, при низкой освещенности или при наличии задней подсветки, выберите \"HDR\" для получения наилучшего результата.</string>
     <string name="pref_camera2_scene_mode_best_photo_instructional_content">Позволяет снять серию из 10 фотографий, после чего вы можете выбрать лучшие снимки.</string>
     <string name="pref_camera2_scene_mode_chroma_flash_instructional_content">С ChromaFlash освещение на фотографиях, снятых со вспышкой, будет оптимизировано для всех людей и объектов на снимке. Эта функция применима только к основной камере.</string>
     <string name="pref_camera2_scene_mode_sharp_photo_instructional_content">SharpPhoto уменьшает размытие, возникшее вследствие движения объекта или руки.</string>
     <string name="pref_camera2_scene_mode_tracking_focus_instructional_content">Позволяет вам отслеживать и фокусироваться на выбранном человеке или объекте во время фото- или видеосъемки. Чтобы начать, расположите прямоугольник фокуса на человеке или объекте, который вы хотите отслеживать.</string>
     <string name="pref_camera2_scene_mode_time_lapse_instructional_content">В режиме интервальной съемки вы можете преобразовать длинную видеозапись в видео малого размера. Эффект применим только к видео.</string>
-    <string name="pref_camera2_scene_mode_panorama_instructional_content">Позволяет сдвигать окно съемки влево или вправо для съемки ландшафтного фото. Вы можете также сдвигать его вверх или вниз, чтобы снимать высокие фотографии.</string>
+    <string name="pref_camera2_scene_mode_panorama_instructional_content">Позволяет панорамировать влево или вправо, чтобы сделать широкую пейзажное фото. Можно также панорамировать вверх или вниз для съемки высоких фото.</string>
     <string name="pref_camera2_scene_mode_blur_buster_instructional_content">BlurBuster уменьшает размытие при съемке с трясущимися руками. Может быть полезно при съемке в тяжелых условиях.</string>
     <string name="pref_camera2_scene_mode_pro_instructional_content">В режиме Pro можно вручную управлять параметрами ISO, экспозиции, баланса белого и фокуса. Вы получите легкий доступ ко всем этим дополнительным настройкам.</string>
     <string name="pref_camera2_scene_mode_deepzoom_instructional_content">В режиме глубокого масштабирования вы можете сделать снимок с 2-кратным или 4-кратным увеличением.</string>
@@ -432,6 +433,8 @@
     <string name="pref_camera2_initial_camera_entry_mono">Ч/Б</string>
     <string name="pref_camera2_initial_camera_entry_front">Фронтальная</string>
     <string name="pref_camera2_eis_title">Видео EIS</string>
+    <string name="pref_camera2_eis_entry_v2enable">V2</string>
+    <string name="pref_camera2_eis_entry_v3enable">V3</string>
     <string name="pref_camera2_eis_entry_v3_set_when_pause">V3 и установить во время паузы</string>
     <string name="pref_camera2_eis_entry_disable">Отключить</string>
     <string name="pref_camera2_fovc_title">Видео FOVC</string>
@@ -444,7 +447,7 @@
     <string name="pref_camera2_switcher_entry_rear">Задняя</string>
     <string name="pref_camera2_switcher_entry_front">Фронтальная</string>
     <string name="pref_camera2_force_aux_title">Принудительный AUX </string>
-    <string name="pref_camera2_force_aux_entry_on">Включено</string>
+    <string name="pref_camera2_force_aux_entry_on">Вкл</string>
     <string name="pref_camera2_force_aux_entry_off">Отключить</string>
     <string name="pref_camera2_stats_visualizer_title">Статистика визуализатора</string>
     <string name="pref_camera2_stats_visualizer_entry_bg_stats">BG статистика</string>

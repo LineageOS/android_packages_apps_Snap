@@ -25,8 +25,8 @@
         <item quantity="few">Ștergeți articolele selectate?</item>
         <item quantity="other">Ștergeți articolele selectate?</item>
     </plurals>
-    <string name="share">Distribuiți</string>
-    <string name="share_panorama">Distribuiți panorama</string>
+    <string name="share">Distribuire</string>
+    <string name="share_panorama">Trimiteți panorama</string>
     <string name="share_as_photo">Distribuiți ca fotografie</string>
     <string name="deleted">S-a șters</string>
     <string name="undo">ANULAȚI</string>
@@ -286,11 +286,7 @@
     <string name="cannot_load_image">Nu se poate încărca imaginea!</string>
     <string name="switch_photo_filmstrip">Afișare tip peliculă</string>
     <string name="setting_wallpaper">Se setează imaginea de fundal</string>
-    <string name="pref_camera_video_rotation_label_90">90</string>
-    <string name="pref_camera_video_rotation_label_180">180</string>
-    <string name="pref_camera_video_rotation_label_270">270</string>
     <string name="remaining_photos_format">%d rămase</string>
-    <string name="initial_recording_seconds">00:00</string>
     <string name="makeup_video_size_limit">Machiajul funcționează numai sub dimensiunea VGA în înregistrarea video.</string>
     <string name="pref_camera2_category_system">Sistem</string>
     <string name="pref_camera2_restore_default">Restabiliți la valorile implicite</string>
