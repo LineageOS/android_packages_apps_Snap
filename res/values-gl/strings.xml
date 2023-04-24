@@ -281,11 +281,7 @@
     <string name="cannot_load_image">Non se pode cargar a imaxe!</string>
     <string name="switch_photo_filmstrip">Vista de tira de película</string>
     <string name="setting_wallpaper">Estabelecendo fondo de pantalla</string>
-    <string name="pref_camera_video_rotation_label_90">90</string>
-    <string name="pref_camera_video_rotation_label_180">180</string>
-    <string name="pref_camera_video_rotation_label_270">270</string>
     <string name="remaining_photos_format">%d esquerda</string>
-    <string name="initial_recording_seconds">00:00</string>
     <string name="makeup_video_size_limit">O maquillaxe traballa soamente baiixo o tamaño VGA na grabación do vídeo.</string>
     <string name="pref_camera2_category_system">Sistema</string>
     <string name="pref_camera2_restore_default">Restaurar valores predefinidos</string>

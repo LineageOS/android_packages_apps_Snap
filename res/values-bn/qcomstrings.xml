@@ -52,6 +52,7 @@
     <string name="pref_camera_hfr_entry_4x_ssm_480">অতি স্লো-মোশন ৪৮০-&gt;১৯২০</string>
     <string name="pref_camera_hfr_entry_2x_ssm_960">অতি স্লো-মোশন ৯৬০-&gt;১৯২০</string>
     <string name="pref_camera_hfr_entry_4x_ssm_960">অতি স্লো-মোশন ৯৬০-&gt;৩৮৪০</string>
+    <string name="pref_camera_antibanding_entry_0">স্বয়ং</string>
     <string name="pref_camera_histogram_entry_disable">নিক্রিয় করা</string>
     <string name="on_switch_save_path_to_sdcard">ইন্টারনাল স্টোরেজ স্পেস যথেষ্ট না - SD কার্ডে সেভ পাথ নির্ধারণ করা হয়েছে</string>
     <string name="storage_not_enough">স্টোরেজ স্পেস যথেষ্ট নয়</string>
@@ -84,11 +85,11 @@
     <string name="pref_camera2_videosnap_title">অটো স্ন্যাপশট সাইজ</string>
     <string name="pref_camera2_videosnap_entry_enable">সক্রিয়</string>
     <string name="pref_camera2_videosnap_entry_disable">নিক্রিয়</string>
-    <string name="pref_camera2_touch_track_focus_entry_on">সক্রিয়</string>
-    <string name="pref_camera2_touch_track_focus_off">নিক্রিয়</string>
+    <string name="pref_camera2_touch_track_focus_entry_on">সক্রিয় করুন</string>
+    <string name="pref_camera2_touch_track_focus_off">নিক্রিয় করুন</string>
     <string name="pref_camera2_touch_track_focus_title">টাচ ট্র্যাকিং ফোকাস</string>
-    <string name="pref_camera2_multi_cameras_entry_on">সক্রিয়</string>
-    <string name="pref_camera2_multi_cameras_entry_off">নিক্রিয়</string>
+    <string name="pref_camera2_multi_cameras_entry_on">সক্রিয় করুন</string>
+    <string name="pref_camera2_multi_cameras_entry_off">নিক্রিয় করুন</string>
     <string name="pref_camera2_multi_cameras_title">একাধিক ক্যামেরা</string>
     <string name="pref_camera_scenemode_entry_bestpicture">সবচেয়ে ভালো ছবি</string>
     <string name="pref_camera_scenemode_entry_trackingfocus">ফোকাস ট্র্যাকিং</string>
@@ -121,7 +122,7 @@
     <string name="pref_camera2_switcher_title">ক্যামেরা পরিবর্তনকারী</string>
     <string name="pref_camera2_switcher_entry_rear">পিছনের</string>
     <string name="pref_camera2_force_aux_title">AUX ফোর্স করুন</string>
-    <string name="pref_camera2_force_aux_entry_on">অন</string>
+    <string name="pref_camera2_force_aux_entry_on">চালু করা হয়েছে</string>
     <string name="pref_camera_tone_mapping_title">টোন ম্যাপিং</string>
     <string name="pref_camera_tone_mapping_entry_dark_boost_offset">আঁধার বুষ্ট অফসেট</string>
     <string name="pref_camera_tone_mapping_entry_fourth_tone_anchor">ফোর্থ টোন অ্যাঙ্কর</string>

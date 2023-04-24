@@ -281,11 +281,7 @@
     <string name="cannot_load_image">Resim yüklenemiyor!</string>
     <string name="switch_photo_filmstrip">Film şeridi görünümü</string>
     <string name="setting_wallpaper">Duvar kağıdı ayarlanıyor</string>
-    <string name="pref_camera_video_rotation_label_90">90</string>
-    <string name="pref_camera_video_rotation_label_180">180</string>
-    <string name="pref_camera_video_rotation_label_270">270</string>
     <string name="remaining_photos_format">%d kaldı</string>
-    <string name="initial_recording_seconds">00:00</string>
     <string name="makeup_video_size_limit">Videoda makyaj sadece VGA kalitede çalışır.</string>
     <string name="pref_camera2_category_system">Sistem</string>
     <string name="pref_camera2_restore_default">Varsayılanı geri yükle</string>

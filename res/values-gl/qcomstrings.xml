@@ -107,6 +107,7 @@
     <string name="pref_camera_ae_bracket_hdr_entry_ae_bracket">Exposición automática para interpolación</string>
     <string name="pref_camera_ae_bracket_hdr_title">Exposición automática para interpolación</string>
     <string name="pref_camera_ae_bracket_hdr_entry_on">Acender</string>
+    <string name="pref_camera_ae_bracket_hdr_entry_off">Apagado</string>
     <string name="err_app_unsupport_ae_bracket_code">Todavía non é compatible o horquillado AE</string>
     <string name="snapshot_lower_than_video">O tamaño da captura do vídeo é menor que o tamaño do vídeo, limitando o tamaño de vídeo. Seleccione unha resolución mayor o igual que o tamaño do vídeo actual.</string>
     <string name="snapshotsize_low_powermode">A redimensión da imaxen non é compatible en modo de Baixo Consumo, se tomará unha captura do tamaño do vídeo. Seleccione o modo de Enerxía Normal para permitir redimensionar a imaxen.</string>
@@ -313,11 +314,11 @@
     <string name="pref_camera2_videosnap_title">Tamaño da instantánea automática</string>
     <string name="pref_camera2_videosnap_entry_enable">Activado</string>
     <string name="pref_camera2_videosnap_entry_disable">Desactivado</string>
-    <string name="pref_camera2_touch_track_focus_entry_on">Activado</string>
-    <string name="pref_camera2_touch_track_focus_off">Desactivado</string>
+    <string name="pref_camera2_touch_track_focus_entry_on">Activar</string>
+    <string name="pref_camera2_touch_track_focus_off">Desactivar</string>
     <string name="pref_camera2_touch_track_focus_title">Enfoque de seguimento táctil</string>
-    <string name="pref_camera2_multi_cameras_entry_on">Activado</string>
-    <string name="pref_camera2_multi_cameras_entry_off">Desactivado</string>
+    <string name="pref_camera2_multi_cameras_entry_on">Activar</string>
+    <string name="pref_camera2_multi_cameras_entry_off">Desactivar</string>
     <string name="pref_camera2_multi_cameras_title">Múltiples cámaras</string>
     <string name="pref_camera_scenemode_entry_bestpicture">Mellor foto</string>
     <string name="pref_camera_scenemode_entry_sharpshooter">Foto nítida</string>
@@ -432,6 +433,8 @@
     <string name="pref_camera2_initial_camera_entry_mono">Mono</string>
     <string name="pref_camera2_initial_camera_entry_front">Frontal</string>
     <string name="pref_camera2_eis_title">Vídeo EIS</string>
+    <string name="pref_camera2_eis_entry_v2enable">V2</string>
+    <string name="pref_camera2_eis_entry_v3enable">V3</string>
     <string name="pref_camera2_eis_entry_v3_set_when_pause">V3 e definir ao por en pausa</string>
     <string name="pref_camera2_eis_entry_disable">Desactivado</string>
     <string name="pref_camera2_fovc_title">Vídeo FOVC</string>
@@ -444,7 +447,7 @@
     <string name="pref_camera2_switcher_entry_rear">Posterior</string>
     <string name="pref_camera2_switcher_entry_front">Frontal</string>
     <string name="pref_camera2_force_aux_title">Forzar AUX</string>
-    <string name="pref_camera2_force_aux_entry_on">Encendido</string>
+    <string name="pref_camera2_force_aux_entry_on">Acender</string>
     <string name="pref_camera2_force_aux_entry_off">Apagado</string>
     <string name="pref_camera2_stats_visualizer_title">Visualizador de estatísticas</string>
     <string name="pref_camera2_stats_visualizer_entry_bg_stats">Estatísticas BG</string>

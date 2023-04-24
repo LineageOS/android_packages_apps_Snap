@@ -107,6 +107,7 @@
     <string name="pref_camera_ae_bracket_hdr_entry_ae_bracket">AE bracketing</string>
     <string name="pref_camera_ae_bracket_hdr_title">AE bracketing</string>
     <string name="pref_camera_ae_bracket_hdr_entry_on">On</string>
+    <string name="pref_camera_ae_bracket_hdr_entry_off">Off</string>
     <string name="err_app_unsupport_ae_bracket_code">AE bracketing is not supported yet</string>
     <string name="snapshot_lower_than_video">Video snapshot size is lower than video size, capping to video size. Please select a resolution higher or equal to the current video size.</string>
     <string name="snapshotsize_low_powermode">Changing picture size is not supported in Low Power mode, video size snapshot will be taken. Please select Normal Power mode to allow changing picture size.</string>
@@ -432,6 +433,8 @@
     <string name="pref_camera2_initial_camera_entry_mono">Mono</string>
     <string name="pref_camera2_initial_camera_entry_front">Front</string>
     <string name="pref_camera2_eis_title">Video EIS</string>
+    <string name="pref_camera2_eis_entry_v2enable">V2</string>
+    <string name="pref_camera2_eis_entry_v3enable">V3</string>
     <string name="pref_camera2_eis_entry_v3_set_when_pause">V3 and set when pause</string>
     <string name="pref_camera2_eis_entry_disable">Disabled</string>
     <string name="pref_camera2_fovc_title">Video FOVC</string>

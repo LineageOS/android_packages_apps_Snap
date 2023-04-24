@@ -276,11 +276,7 @@
     <string name="cannot_load_image">無法載入圖片！</string>
     <string name="switch_photo_filmstrip">幻燈片檢視</string>
     <string name="setting_wallpaper">正在設定桌布</string>
-    <string name="pref_camera_video_rotation_label_90">90</string>
-    <string name="pref_camera_video_rotation_label_180">180</string>
-    <string name="pref_camera_video_rotation_label_270">270</string>
     <string name="remaining_photos_format">剩下 %d 張</string>
-    <string name="initial_recording_seconds">00:00</string>
     <string name="makeup_video_size_limit">美顏僅在 VGA 尺寸下的影片錄製。</string>
     <string name="pref_camera2_category_system">系統</string>
     <string name="pref_camera2_restore_default">還原預設值</string>

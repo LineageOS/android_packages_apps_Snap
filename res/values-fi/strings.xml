@@ -281,11 +281,7 @@
     <string name="cannot_load_image">Kuvaa ei voi ladata.</string>
     <string name="switch_photo_filmstrip">Filminauhanäkymä</string>
     <string name="setting_wallpaper">Asetetaan taustakuvaa</string>
-    <string name="pref_camera_video_rotation_label_90">90</string>
-    <string name="pref_camera_video_rotation_label_180">180</string>
-    <string name="pref_camera_video_rotation_label_270">270</string>
     <string name="remaining_photos_format">%d jäljellä</string>
-    <string name="initial_recording_seconds">00:00</string>
     <string name="makeup_video_size_limit">Makeup toimii vain VGA-kokoisena videon tallentamisen aikana.</string>
     <string name="pref_camera2_category_system">Järjestelmä</string>
     <string name="pref_camera2_restore_default">Palauta oletusarvot</string>

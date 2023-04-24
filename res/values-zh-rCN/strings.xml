@@ -276,11 +276,7 @@
     <string name="cannot_load_image">无法加载该图片！</string>
     <string name="switch_photo_filmstrip">胶卷视图</string>
     <string name="setting_wallpaper">正在设置壁纸</string>
-    <string name="pref_camera_video_rotation_label_90">90</string>
-    <string name="pref_camera_video_rotation_label_180">180</string>
-    <string name="pref_camera_video_rotation_label_270">270</string>
     <string name="remaining_photos_format">剩余 %d 张</string>
-    <string name="initial_recording_seconds">00:00</string>
     <string name="makeup_video_size_limit">视频录制中，Makeup 仅适用于 VGA 分辨率。</string>
     <string name="pref_camera2_category_system">系统</string>
     <string name="pref_camera2_restore_default">恢复默认值</string>

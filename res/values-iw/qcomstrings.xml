@@ -298,9 +298,9 @@
     <string name="pref_camera2_videosnap_title">גודל תמונה אוטומטי</string>
     <string name="pref_camera2_videosnap_entry_enable">אפשר</string>
     <string name="pref_camera2_videosnap_entry_disable">השבת</string>
-    <string name="pref_camera2_touch_track_focus_entry_on">אפשר</string>
+    <string name="pref_camera2_touch_track_focus_entry_on">הפעל</string>
     <string name="pref_camera2_touch_track_focus_off">השבת</string>
-    <string name="pref_camera2_multi_cameras_entry_on">אפשר</string>
+    <string name="pref_camera2_multi_cameras_entry_on">הפעל</string>
     <string name="pref_camera2_multi_cameras_entry_off">השבת</string>
     <string name="pref_camera_scenemode_entry_bestpicture">התמונה הטובה ביותר</string>
     <string name="pref_camera_scenemode_entry_sharpshooter">חידוד תמונה</string>
@@ -393,6 +393,8 @@
     <string name="pref_camera2_bsgc_title">זיהוי חיוך/מצמוץ/מבט</string>
     <string name="pref_camera2_bsgc_entry_enable">אפשר</string>
     <string name="pref_camera2_bsgc_entry_disable">השבת</string>
+    <string name="pref_camera2_face_detection_entry_simple">פשוט</string>
+    <string name="pref_camera2_face_detection_entry_full">מלא</string>
     <string name="pref_camera2_zsl_title">צילום מידי</string>
     <string name="pref_camera2_zsl_entry_disable">כבוי</string>
     <string name="pref_camera2_zsl_entry_app_zsl">ZSL (צילום ללא שהייה) תוכנתי</string>

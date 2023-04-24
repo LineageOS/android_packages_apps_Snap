@@ -173,7 +173,7 @@
     <string name="pref_camera_iso_entry_iso6400">ISO6400</string>
     <string name="pref_camera_iso_entry_iso12800">ISO12800</string>
     <string name="pref_camera_antibanding_title">Sprječavanje spajanja u trake</string>
-    <string name="pref_camera_antibanding_entry_0">Autom.</string>
+    <string name="pref_camera_antibanding_entry_0">Automatski</string>
     <string name="pref_camera_antibanding_entry_1">50 Hz (Europa)</string>
     <string name="pref_camera_antibanding_entry_2">60 Hz (SAD)</string>
     <string name="pref_camera_filter_mode_entry_on">Uklj.</string>
@@ -313,11 +313,11 @@
     <string name="pref_camera2_videosnap_title">Auto snapshot veličina</string>
     <string name="pref_camera2_videosnap_entry_enable">Uključi</string>
     <string name="pref_camera2_videosnap_entry_disable">Isključi</string>
-    <string name="pref_camera2_touch_track_focus_entry_on">Uključi</string>
-    <string name="pref_camera2_touch_track_focus_off">Isključi</string>
+    <string name="pref_camera2_touch_track_focus_entry_on">Omogući</string>
+    <string name="pref_camera2_touch_track_focus_off">Onemogući</string>
     <string name="pref_camera2_touch_track_focus_title">Praćenje fokusa</string>
-    <string name="pref_camera2_multi_cameras_entry_on">Uključi</string>
-    <string name="pref_camera2_multi_cameras_entry_off">Isključi</string>
+    <string name="pref_camera2_multi_cameras_entry_on">Omogući</string>
+    <string name="pref_camera2_multi_cameras_entry_off">Onemogući</string>
     <string name="pref_camera2_multi_cameras_title">Višestruke kamere</string>
     <string name="pref_camera_scenemode_entry_bestpicture">Najbolja slika</string>
     <string name="pref_camera_scenemode_entry_sharpshooter">Oštra fotografija</string>
@@ -444,7 +444,7 @@
     <string name="pref_camera2_switcher_entry_rear">Stražnja</string>
     <string name="pref_camera2_switcher_entry_front">Prednja</string>
     <string name="pref_camera2_force_aux_title">Forsiraj AUX</string>
-    <string name="pref_camera2_force_aux_entry_on">Uključen</string>
+    <string name="pref_camera2_force_aux_entry_on">Uklj.</string>
     <string name="pref_camera2_force_aux_entry_off">Isključen</string>
     <string name="pref_camera2_stats_visualizer_title">Vizualizator statistike</string>
     <string name="pref_camera2_stats_visualizer_entry_bg_stats">BG statistika</string>
