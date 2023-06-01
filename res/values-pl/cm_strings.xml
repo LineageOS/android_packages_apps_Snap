@@ -89,4 +89,5 @@
     <string name="developer_menu_enabled">Masz włączone zaawansowane opcje aparatu</string>
     <string name="developer_menu_disabled">Masz wyłączone zaawansowane opcje aparatu</string>
     <string name="pref_camera2_preferences_category_developer">Opcje zaawansowane</string>
+    <string name="hfr_unsupported_current_resolution">HFR nie jest wspierany dla wybranej rozdzielczości</string>
 </resources>

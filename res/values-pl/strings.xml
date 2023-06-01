@@ -208,7 +208,7 @@
     <string name="effect_backdropper_space">Kosmos</string>
     <string name="effect_backdropper_sunset">Zachód słońca</string>
     <string name="effect_backdropper_gallery">Twój film</string>
-    <string name="video_snapshot_hint">Kliknij, by zrobić zdjęcie podczas nagrywania.</string>
+    <string name="video_snapshot_hint">Dotknij, aby zrobić zdjęcie podczas nagrywania.</string>
     <string name="video_recording_started">Rozpoczęło się nagrywanie filmu.</string>
     <string name="video_recording_stopped">Nagrywanie filmu zostało zatrzymane.</string>
     <string name="clear_effects">Usuń efekty</string>
@@ -313,7 +313,7 @@
     </plurals>
     <string name="dialog_do_not_show">Nie pokazuj ponownie</string>
     <string name="delete_best_dialog_title">Usunąć wszystkie?</string>
-    <string name="delete_best_dialog_content">Czy jesteś pewien, że chcesz usunąć wszystkie 10 zdjęć?</string>
+    <string name="delete_best_dialog_content">Czy na pewno chcesz usunąć wszystkie 10 zdjęć?</string>
     <string name="delete_best_dialog_native_bt">Anuluj</string>
     <string name="delete_best_dialog_positive_bt">Usuń</string>
     <string name="delete_all_best_dialog_title">Usunąć wszystkie?</string>
