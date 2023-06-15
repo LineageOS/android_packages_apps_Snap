@@ -25,18 +25,6 @@
     <string name="undo">СКАСАВАЦЬ</string>
     <string name="details">Падрабязнасці</string>
     <string name="close">Закрыць</string>
-    <plurals name="number_of_items_selected">
-        <item quantity="one">%1$d выбраны</item>
-        <item quantity="few">%1$d выбрана</item>
-        <item quantity="many">%1$d выбрана</item>
-        <item quantity="other">%1$d выбрана</item>
-    </plurals>
-    <plurals name="number_of_albums_selected">
-        <item quantity="one">%1$d выбраны</item>
-        <item quantity="few">%1$d выбрана</item>
-        <item quantity="many">%1$d выбрана</item>
-        <item quantity="other">%1$d выбрана</item>
-    </plurals>
     <string name="show_on_map">Паказаць на мапе</string>
     <string name="rotate_left">Павярнуць налева</string>
     <string name="rotate_right">Павярнуць направа</string>
@@ -49,7 +37,6 @@
     <string name="title">Па назве</string>
     <string name="description">Апісанне</string>
     <string name="time">Час</string>
-    <string name="location">Месцазнаходжанне</string>
     <string name="path">Шлях</string>
     <string name="width">Шырыня</string>
     <string name="height">Вышыня</string>
@@ -66,17 +53,15 @@
     <string name="exposure_time">Час экспазіцыі</string>
     <string name="iso">ISO</string>
     <string name="unit_mm">мм</string>
-    <string name="manual">Ручныя налады</string>
     <string name="auto">Аўтаматычна</string>
     <string name="flash_on">З выбліскам</string>
     <string name="flash_off">Без выбліску</string>
     <string name="unknown">Невядома</string>
-    <string name="try_to_set_local_album_available_offline">        Гэты элемент захоўваецца на прыладзе і даступны без падлучэння да інтэрнэту.</string>
     <string name="please_wait">Калі ласка, пачакайце</string>
     <string name="rendering_photo_sphere">Стварэнне наўкольнай панарамы</string>
     <string name="camera_error_title">Памылка камеры</string>
-    <string name="cannot_connect_camera">Не атрымліваецца падлучыцца да камеры.</string>
     <string name="camera_disabled">Камера адключана ў адпаведнасці з палітыкай бяспекі.</string>
+    <string name="dialog_dismiss">Адхіліць</string>
     <string name="wait">Калі ласка, пачакайце\u2026</string>
     <string name="no_storage" product="default">Устаўце SD-картку перад выкарыстаннем камеры.</string>
     <string name="preparing_sd" product="default">Падрыхтоўка SD-карткі\u2026</string>
@@ -99,15 +84,12 @@
     <string name="pref_camera_focusmode_title">Рэжым факуса</string>
     <string name="pref_camera_focusmode_entry_auto">Аўтаматычна</string>
     <string name="pref_camera_focusmode_entry_infinity">Бясконцасць</string>
-    <string name="pref_camera_focusmode_entry_macro">Макраздымка</string>
     <string name="pref_camera_focusmode_label_auto">АЎТАМАТЫЧНА</string>
     <string name="pref_camera_focusmode_label_infinity">БЯСКОНЦАСЦЬ</string>
-    <string name="pref_camera_focusmode_label_macro">МАКРАЗДЫМКА</string>
     <string name="pref_camera_flashmode_title">Выбліск</string>
     <string name="pref_camera_flashmode_entry_auto">Аўтаматычна</string>
     <string name="pref_camera_flashmode_entry_on">Уключана</string>
     <string name="pref_camera_flashmode_entry_off">Выключана</string>
-    <string name="pref_camera_flashmode_label_auto">Аўта выбліск</string>
     <string name="pref_camera_flashmode_label_on">ВЫБЛІСК УКЛ</string>
     <string name="pref_camera_flashmode_label_off">ВЫБЛІСК ВЫКЛ</string>
     <string name="pref_camera_whitebalance_title">Баланс белага</string>
@@ -125,17 +107,10 @@
     <string name="pref_camera_scenemode_entry_auto">Аўтаматычна</string>
     <string name="pref_camera_scenemode_entry_hdr_plus">HDR+</string>
     <string name="pref_camera_scenemode_entry_hdr">HDR</string>
-    <string name="pref_camera_scenemode_entry_turn_hdr_plus_on">УКЛЮЧЫЦЬ HDR+</string>
-    <string name="pref_camera_scenemode_entry_turn_hdr_plus_off">ВЫКЛЮЧЫЦЬ HDR+</string>
-    <string name="pref_camera_scenemode_entry_turn_hdr_on">УКЛЮЧЫЦЬ HDR</string>
-    <string name="pref_camera_scenemode_entry_turn_hdr_off">ВЫКЛЮЧЫЦЬ HDR</string>
     <string name="pref_camera_scenemode_entry_action">Дзеянне</string>
-    <string name="pref_camera_scenemode_entry_night">Начная здымка</string>
     <string name="pref_camera_scenemode_entry_sunset">Заход</string>
     <string name="pref_camera_scenemode_entry_party">Вечарына</string>
-    <string name="pref_camera_scenemode_label_auto">НЕ</string>
     <string name="pref_camera_scenemode_label_action">ДЗЕЯННЕ</string>
-    <string name="pref_camera_scenemode_label_night">НАЧНАЯ ЗДЫМКА</string>
     <string name="pref_camera_scenemode_label_sunset">ЗАХОД</string>
     <string name="pref_camera_scenemode_label_party">ВЕЧАРЫНА</string>
     <string name="pref_camera_countdown_label_off">АЎТАСПУСК ВЫКЛЮЧАНЫ</string>
@@ -144,6 +119,7 @@
     <string name="pref_camera_countdown_label_ten">10 СЕКУНД</string>
     <string name="pref_camera_countdown_label_fifteen">15 СЕКУНД</string>
     <string name="not_selectable_in_scene_mode">Недаступна ў рэжыме здымкі.</string>
+    <string name="HDR_disable_continuous_shot">HDR адключае бесперапынную здымку.</string>
     <string name="pref_exposure_title">Экспазіцыя</string>
     <string name="pref_exposure_label">ЭКСПАЗІЦЫЯ</string>
     <string name="pref_camera_hdr_label">HDR</string>
@@ -161,7 +137,6 @@
     <string name="pano_review_rendering">Стварэнне панарамы</string>
     <string name="tap_to_focus">Націсніце для факусіроўкі.</string>
     <string name="pref_video_effect_title">Эфекты</string>
-    <string name="effect_none">Няма</string>
     <string name="effect_goofy_face_squeeze">Сціснуць</string>
     <string name="effect_goofy_face_big_eyes">Вялікія вочы</string>
     <string name="effect_goofy_face_big_mouth">Вялікі рот</string>
@@ -178,7 +153,6 @@
     <string name="effect_silly_faces">СМЕШНЫЯ ТВАРЫКІ</string>
     <string name="effect_background">ФОН</string>
     <string name="accessibility_shutter_button">Затвор</string>
-    <string name="accessibility_menu_button">Кнопка Меню</string>
     <string name="accessibility_mode_picker">Пераключальнік паміж рэжымамі \"Фота\", \"Відэа\" і \"Панарама\"</string>
     <string name="accessibility_check_box">Сцяжок %1$s</string>
     <string name="accessibility_switch_to_camera">Фота</string>
@@ -193,9 +167,7 @@
     <string name="pref_video_time_lapse_frame_interval_off">Выключана</string>
     <string name="pref_video_time_lapse_frame_interval_500">0,5 секунды</string>
     <string name="pref_video_time_lapse_frame_interval_1000">1 секунда</string>
-    <string name="pref_video_time_lapse_frame_interval_1500">1.5 секунды</string>
     <string name="pref_video_time_lapse_frame_interval_2000">2 секунды</string>
-    <string name="pref_video_time_lapse_frame_interval_2500">2.5 секунды</string>
     <string name="pref_video_time_lapse_frame_interval_3000">3 секунды</string>
     <string name="pref_video_time_lapse_frame_interval_4000">4 секунды</string>
     <string name="pref_video_time_lapse_frame_interval_5000">5 секунд</string>
@@ -217,9 +189,7 @@
     <string name="pref_video_time_lapse_frame_interval_900000">15 хвілін</string>
     <string name="pref_video_time_lapse_frame_interval_1440000">24 хвіліны</string>
     <string name="pref_video_time_lapse_frame_interval_3600000">1 гадзіна</string>
-    <string name="pref_video_time_lapse_frame_interval_5400000">1.5 гадзіны</string>
     <string name="pref_video_time_lapse_frame_interval_7200000">2 гадзіны</string>
-    <string name="pref_video_time_lapse_frame_interval_9000000">2.5 гадзіны</string>
     <string name="pref_video_time_lapse_frame_interval_10800000">3 гадзіны</string>
     <string name="pref_video_time_lapse_frame_interval_14400000">4 гадзіны</string>
     <string name="pref_video_time_lapse_frame_interval_18000000">5 гадзін</string>
@@ -227,7 +197,6 @@
     <string name="pref_video_time_lapse_frame_interval_36000000">10 гадзін</string>
     <string name="pref_video_time_lapse_frame_interval_43200000">12 гадзін</string>
     <string name="pref_video_time_lapse_frame_interval_54000000">15 гадзін</string>
-    <string name="pref_video_time_lapse_frame_interval_86400000">24 гадзін</string>
     <string name="time_lapse_seconds">секунд</string>
     <string name="time_lapse_minutes">хвілін</string>
     <string name="time_lapse_hours">гадзін</string>
@@ -239,7 +208,6 @@
     <string name="remember_location_title">Захоўваць месца здымкі?</string>
     <string name="remember_location_no">Не, дзякуй</string>
     <string name="remember_location_yes">Так</string>
-    <string name="camera_menu_more_label">ДАДАТКОВЫЯ ОПЦЫІ</string>
     <string name="camera_menu_settings_label">НАЛАДЫ</string>
     <string name="create_tiny_planet">Стварыць малую планету</string>
     <string name="saving_tiny_planet">Выратаванне маленькай планеты…</string>
@@ -250,6 +218,10 @@
     <string name="switch_photo_filmstrip">Выгляд кінастужкі</string>
     <string name="setting_wallpaper">Усталёўка шпалер</string>
     <string name="save_best_dialog_positive_bt">Добра</string>
+    <string name="save_best_dialog_native_bt">Скасаваць</string>
+    <string name="dialog_do_not_show">Больш не паказваць</string>
     <string name="delete_best_dialog_content">Вы сапраўды хочаце выдаліць усе 10 відарысаў?</string>
+    <string name="delete_best_dialog_native_bt">Скасаваць</string>
     <string name="delete_best_dialog_positive_bt">Выдаліць</string>
+    <string name="delete_all_best_dialog_native_bt">Скасаваць</string>
 </resources>

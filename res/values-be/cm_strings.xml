@@ -16,7 +16,6 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="pref_camera_aspectratio_wide">Шырокафарматны</string>
-    <string name="pref_camera_scenemode_entry_antimotionblur">Зменшыць размыццё падчас руху</string>
     <string name="pref_camera_scenemode_entry_aqua">Вада</string>
     <string name="pref_camera_scenemode_entry_ar">Дапоўненая рэальнасць</string>
     <string name="pref_camera_scenemode_entry_asd">Лепшы здымак</string>
@@ -37,11 +36,9 @@
     <string name="pref_camera_scenemode_entry_fallcolor">Восеньскія колеры</string>
     <string name="pref_camera_scenemode_entry_fireworks">Феерверк</string>
     <string name="pref_camera_scenemode_entry_flowers">Кветкі</string>
-    <string name="pref_camera_scenemode_entry_handheldtwilight">Змярканне без штатыва</string>
     <string name="pref_camera_scenemode_entry_highsensitivity">Высокая адчувальнасць</string>
     <string name="pref_camera_scenemode_entry_indoor">У памяшканні</string>
     <string name="pref_camera_scenemode_entry_landscape">Альбомная</string>
-    <string name="pref_camera_scenemode_entry_mix_illuminant">Камбінаванае асвятленне</string>
     <string name="pref_camera_scenemode_entry_mood">Настрой</string>
     <string name="pref_camera_scenemode_entry_nightportrait">Начны партрэт</string>
     <string name="pref_camera_scenemode_entry_nightindoor">У памяшканні ноччу</string>
@@ -79,10 +76,6 @@
     <string name="pref_camera_power_shutter_title">Здымка кнопкай сілкавання</string>
     <string name="pref_camera_max_brightness_title">Яркі экран</string>
     <string name="pref_camera_focustime_title">Фокус дотыкам</string>
-    <string name="pref_camera_focustime_entry_0">0 секунд</string>
-    <string name="pref_camera_focustime_entry_3">3 секунды</string>
-    <string name="pref_camera_focustime_entry_5">5 секунд</string>
-    <string name="pref_camera_focustime_entry_10">10 секунд</string>
     <string name="pref_camera_focustime_entry_infinite">Бясконца</string>
     <string name="pref_camera_shutter_speed_title">Хуткасць затвора</string>
 </resources>
