@@ -20,6 +20,7 @@
     limitations under the License.
 -->
 <resources>
+    <string name="pref_camera_powermode_title">Рэжым сілкавання</string>
     <string name="pref_camera_autoexposure_title">Аўтаматычная экспазіцыя</string>
     <string name="pref_camera_autoexposure_entry_frameaverage">Усярэднены</string>
     <string name="pref_camera_autoexposure_entry_centerweighted">Па цэнтры кадра</string>
@@ -44,7 +45,6 @@
     <string name="pref_camera_manual_exp_entry_off">Выключана</string>
     <string name="pref_camera_manual_wb_title">Ручны баланс белага</string>
     <string name="pref_camera_manual_wb_entry_color_temperature">Тэмпература колеру</string>
-    <string name="pref_camera_manual_wb_entry_rbgb_gains">Узровень RBGB</string>
     <string name="pref_camera_manual_wb_entry_off">Выключана</string>
     <string name="pref_camera_manual_focus_title">Ручны фокус</string>
     <string name="pref_camera_manual_focus_entry_scale_mode">Рэжым шкалы</string>
@@ -84,7 +84,6 @@
     <string name="error_app_unsupported">Відэакодэк не падтрымлівае выбраны дазвол</string>
     <string name="pref_camera_ae_bracket_hdr_entry_ae_bracket">Аўтаматычны брэкетынг па экспазіцыі</string>
     <string name="pref_camera_ae_bracket_hdr_title">Аўтаматычны брэкетынг па экспазіцыі</string>
-    <string name="pref_camera_ae_bracket_hdr_entry_off">Выкл</string>
     <string name="pref_camera_hfr_title">Паскораны запіс</string>
     <string name="pref_camera_hfr_entry_off">Выключана</string>
     <string name="pref_camera_hfr_entry_2x">Запаволены рух 60 кадраў за секунду</string>
@@ -180,8 +179,6 @@
     <string name="pref_camera_sharpness_title">Рэзкасць</string>
     <string name="pref_camera_contrast_title">Кантраст</string>
     <string name="pref_camera_saturation_title">Насычанасць</string>
-    <string name="pref_camera_picture_format_title">Фармат выявы</string>
-    <string name="pref_camera_jpegquality_title">Якасць выявы</string>
     <string name="pref_camera_jpegquality_entry_0">Нізкае</string>
     <string name="pref_camera_histogram_title">Гістаграма</string>
     <string name="pref_camera_histogram_entry_enable">Уключыць</string>
@@ -220,9 +217,12 @@
     <string name="pref_camera2_camera2_entry_disable">Адключыць</string>
     <string name="pref_camera2_mono_only_title">Толькі мона</string>
     <string name="pref_camera2_mono_only_entry_off">Выключана</string>
+    <string name="pref_camera2_mono_preview_entry_on">Уключана</string>
     <string name="pref_camera2_mono_preview_entry_off">Выключана</string>
+    <string name="pref_camera2_clearsight_entry_on">Уключана</string>
     <string name="pref_camera2_clearsight_entry_off">Выключана</string>
     <string name="pref_camera2_mpo_title">Фармат MPO</string>
+    <string name="pref_camera2_mpo_entry_on">Уключана</string>
     <string name="pref_camera2_mpo_entry_off">Выключана</string>
     <string name="pref_camera2_makeup_title">Макіяж</string>
     <string name="pref_camera2_makeup_entry_off">Выключана</string>
@@ -236,19 +236,23 @@
     <string name="pref_camera2_touch_track_focus_off">Адключыць</string>
     <string name="pref_camera2_multi_cameras_entry_on">Уключыць</string>
     <string name="pref_camera2_multi_cameras_entry_off">Адключыць</string>
+    <string name="pref_camera_scenemode_entry_panorama">Панарама</string>
     <string name="bestpicture_done">ГАТОВА</string>
     <string name="pref_camera2_shutter_sound_entry_off">Выключана</string>
     <string name="pref_camera2_timer_entry_off">Выключана</string>
     <string name="pref_camera2_timer_entry_2sec">2 секунды</string>
     <string name="pref_camera2_timer_entry_5sec">5 секунд</string>
     <string name="pref_camera2_timer_entry_10sec">10 секунд</string>
+    <string name="panocapture_intro">Націсніце кнопку камеры, каб пачаць.</string>
     <string name="panocapture_direction_is_changed">Кірунак змяніўся, спыненне захопу панарамы\u2026</string>
     <string name="makeup_ui_title">Выберыце ўзровень паляпшэння.</string>
+    <string name="makeup_ui_ok_button">ОК</string>
     <string name="perf_camera2_preferences_category_general">Агульныя</string>
     <string name="pref_camera2_scene_mode_ubi_focus_instructional_content">З UbiFocus ваша камера будзе рабіць адразу пяць відарысаў і аб\'яднае іх у адзін, дзе ўсе аб\'екты будуць знаходзіцца ў фокусе. Вы можаце змяніць фокус пасля таго, як зрабілі відарыс.</string>
     <string name="pref_camera2_scene_mode_hdr_instructional_content">Калі вы знаходзіцеся ва ўмовах змешанага асвятлення (нізкае асвятленне або наяўнасць задняй падсветкі), вы можаце выбраць рэжым «HDR» для атрымання максімальнай якасці відарыса.</string>
     <string name="pref_camera2_scene_mode_chroma_flash_instructional_content">З ChromaFlash асвятленне на фатаграфіях, якія зроблены з успышкай, будзе аптымізавана для ўсіх людзей і аб\'ектаў на відарысе. Гэта функцыя ўжываецца толькі да асноўнай камеры.</string>
     <string name="pref_camera2_not_show_again">Больш не паказваць</string>
+    <string name="pref_camera2_scene_mode_instructional_ok">ОК</string>
     <string name="pref_camera2_instant_aec_title">Імгненны AEC</string>
     <string name="pref_camera2_instant_aec_entry_disable">Адключыць</string>
     <string name="pref_camera2_instant_aec_entry_aggressive">Агрэсіўны AEC</string>
@@ -309,7 +313,6 @@
     <string name="pref_camera2_eis_entry_disable">Адключана</string>
     <string name="pref_camera2_fovc_entry_disable">Адключана</string>
     <string name="pref_camera2_video_hdr_entry_disable">Адключана</string>
-    <string name="pref_camera2_picture_format_title">Фармат выявы</string>
     <string name="pref_camera2_switcher_entry_front">Пярэдняя</string>
     <string name="pref_camera2_force_aux_entry_off">Выключана</string>
     <string name="pref_camera2_stats_visualizer_entry_bg_stats">Статыстыка BG</string>

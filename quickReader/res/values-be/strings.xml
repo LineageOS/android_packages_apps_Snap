@@ -15,6 +15,7 @@
 -->
 <resources>
     <string name="quick_reader_action_dismiss">Адхіліць</string>
+    <string name="quick_reader_permission_fatal_positive">Адкрыць налады</string>
     <string name="quick_reader_scanned_text_positive">Капіяваць</string>
     <string name="quick_reader_scanned_text_negative">Абагуліць</string>
     <string name="quick_reader_share_title">Абагуліць з\u2026</string>

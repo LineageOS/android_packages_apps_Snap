@@ -57,12 +57,10 @@
     <string name="flash_on">З выбліскам</string>
     <string name="flash_off">Без выбліску</string>
     <string name="unknown">Невядома</string>
-    <string name="please_wait">Калі ласка, пачакайце</string>
     <string name="rendering_photo_sphere">Стварэнне наўкольнай панарамы</string>
     <string name="camera_error_title">Памылка камеры</string>
     <string name="camera_disabled">Камера адключана ў адпаведнасці з палітыкай бяспекі.</string>
     <string name="dialog_dismiss">Адхіліць</string>
-    <string name="wait">Калі ласка, пачакайце\u2026</string>
     <string name="no_storage" product="default">Устаўце SD-картку перад выкарыстаннем камеры.</string>
     <string name="preparing_sd" product="default">Падрыхтоўка SD-карткі\u2026</string>
     <string name="access_sd_fail" product="default">Немагчыма атрымаць доступ да SD-карткі.</string>
@@ -74,6 +72,7 @@
     <string name="pref_camera_location_label">МЕСЦАЗНАХОДЖАННЕ</string>
     <string name="pref_camera_timer_title">Таймер зваротнага адліку</string>
     <string name="pref_camera_timer_sound_title">Гукавы сігнал падчас зваротнага адліку</string>
+    <string name="pref_camera_savepath_entry_0">Тэлефон</string>
     <string name="setting_off">Выключана</string>
     <string name="setting_on">Уключана</string>
     <string name="pref_video_quality_title">Якасць відэа</string>
@@ -125,10 +124,8 @@
     <string name="pref_camera_hdr_label">HDR</string>
     <string name="pref_camera_id_label_back">ПЯРЭДНЯЯ КАМЕРА</string>
     <string name="pref_camera_id_label_front">ЗАДНЯЯ КАМЕРА</string>
-    <string name="dialog_ok">Добра</string>
     <string name="video_reach_size_limit">Дасягнуты максімальны памер відэа.</string>
     <string name="pano_too_fast_prompt">Занадта хутка</string>
-    <string name="pano_dialog_prepare_preview">Апрацоўка</string>
     <string name="pano_dialog_panorama_failed">Не атрымалася захаваць панараму.</string>
     <string name="pano_dialog_title">Панарама</string>
     <string name="pano_capture_indication">Здымка панарамы</string>
@@ -162,8 +159,6 @@
     <string name="accessibility_switch_to_gcam">Высокая якасць</string>
     <string name="accessibility_review_ok">Гатова</string>
     <string name="accessibility_review_retake">Яшчэ раз</string>
-    <string name="capital_on">УКЛ</string>
-    <string name="capital_off">ВЫКЛ</string>
     <string name="pref_video_time_lapse_frame_interval_off">Выключана</string>
     <string name="pref_video_time_lapse_frame_interval_500">0,5 секунды</string>
     <string name="pref_video_time_lapse_frame_interval_1000">1 секунда</string>
@@ -205,7 +200,6 @@
     <string name="set_time_interval_help">Спачатку ўключыце рэжым запаволенай здымкі.</string>
     <string name="set_duration">Час адліку ў секундах</string>
     <string name="count_down_title_text">Зваротны адлік перад здымкай</string>
-    <string name="remember_location_title">Захоўваць месца здымкі?</string>
     <string name="remember_location_no">Не, дзякуй</string>
     <string name="remember_location_yes">Так</string>
     <string name="camera_menu_settings_label">НАЛАДЫ</string>
@@ -217,7 +211,6 @@
     <string name="cannot_load_image">Не атрымалася загрузіць відарыс!</string>
     <string name="switch_photo_filmstrip">Выгляд кінастужкі</string>
     <string name="setting_wallpaper">Усталёўка шпалер</string>
-    <string name="save_best_dialog_positive_bt">Добра</string>
     <string name="save_best_dialog_native_bt">Скасаваць</string>
     <string name="dialog_do_not_show">Больш не паказваць</string>
     <string name="delete_best_dialog_content">Вы сапраўды хочаце выдаліць усе 10 відарысаў?</string>

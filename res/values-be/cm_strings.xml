@@ -44,7 +44,6 @@
     <string name="pref_camera_scenemode_entry_nightindoor">У памяшканні ноччу</string>
     <string name="pref_camera_scenemode_entry_oldfilm">Стары фільм</string>
     <string name="pref_camera_scenemode_entry_pet">Хатні ўлюбёнец</string>
-    <string name="pref_camera_scenemode_entry_portrait">Кніжная</string>
     <string name="pref_camera_scenemode_entry_snow">Снег</string>
     <string name="pref_camera_scenemode_entry_softskin">Эфект далікатнай скуры</string>
     <string name="pref_camera_scenemode_entry_sports">Спорт</string>
@@ -69,10 +68,7 @@
     <string name="pref_camera_coloreffect_entry_vintage_cold">Старадаўні халодны</string>
     <string name="pref_camera_coloreffect_entry_point_blue">Вылучыць сіні</string>
     <string name="pref_camera_coloreffect_entry_point_green">Вылучыць зялёны</string>
-    <string name="pref_camera_coloreffect_entry_point_red_yellow">Вылучыць чырвоны і жоўты</string>
     <string name="pref_camera_coloreffect_entry_cartoonize">Комікс</string>
-    <string name="pref_camera_flashmode_entry_redeye">Зменшыць эфект чырвоных вачэй</string>
-    <string name="pref_camera_flashmode_label_redeye">ЗМЕНШЫЦЬ ЭФЕКТ ЧЫРВОНЫХ ВАЧЭЙ</string>
     <string name="pref_camera_power_shutter_title">Здымка кнопкай сілкавання</string>
     <string name="pref_camera_max_brightness_title">Яркі экран</string>
     <string name="pref_camera_focustime_title">Фокус дотыкам</string>

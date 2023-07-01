@@ -20,6 +20,7 @@
     <string name="details_hms">%1$d:%2$02d:%3$02d</string>
     <string name="delete">Desaniciar</string>
     <string name="undo">DESFACER</string>
+    <string name="details">Detalles</string>
     <string name="close">Zarrar</string>
     <plurals name="number_of_items_selected">
         <item quantity="one">%1$d na seleición</item>
@@ -35,15 +36,24 @@
     </plurals>
     <string name="edit">Editar</string>
     <string name="video_err">Nun se pue reproducir el videu.</string>
+    <string name="title">Títulu</string>
     <string name="description">Descripción</string>
+    <string name="time">Data</string>
     <string name="location">Llocalización</string>
     <string name="path">Camín</string>
+    <string name="width">Llargor</string>
+    <string name="height">Altor</string>
     <string name="orientation">Orientación</string>
     <string name="duration">Duración</string>
     <string name="mimetype">Tipu MIME</string>
+    <string name="file_size">Tamañu del ficheru</string>
+    <string name="maker">Fabricante</string>
     <string name="model">Modelu</string>
+    <string name="flash">Flax</string>
     <string name="aperture">Apertura</string>
     <string name="focal_length">Llongura focal</string>
+    <string name="white_balance">Balance de blancos</string>
+    <string name="exposure_time">Tiempu d\'esposición</string>
     <string name="iso">ISO</string>
     <string name="unit_mm">mm</string>
     <string name="please_wait">Espera</string>
