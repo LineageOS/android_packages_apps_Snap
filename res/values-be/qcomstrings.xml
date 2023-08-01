@@ -61,7 +61,6 @@
     <string name="pref_camera_tnr_entry_enable">Уключыць</string>
     <string name="pref_camera_video_tnr_entry_disable">Адключыць</string>
     <string name="pref_camera_video_tnr_entry_enable">Уключыць</string>
-    <string name="pref_camera_video_hdr_title">HDR-відэаздымка</string>
     <string name="pref_camera_cds_title">Рэжым CDS</string>
     <string name="pref_camera_video_cds_title">Рэжым відэа CDS</string>
     <string name="pref_camera_tnr_title">Рэжым TNR</string>
@@ -190,6 +189,7 @@
     <string name="pref_camera_hdr_mode_entry_sensor">Датчык HDR</string>
     <string name="pref_camera_hdr_mode_entry_multi_frame">Шматкадравы HDR</string>
     <string name="pref_camera_video_rotation_title">Паварот відэа</string>
+    <string name="pref_camera_video_rotation_label">ПАВАРОТ ВІДЭА</string>
     <string name="pref_camera_video_rotation_entry_0">0 градусаў</string>
     <string name="pref_camera_video_rotation_entry_90">90 градусаў</string>
     <string name="pref_camera_video_rotation_entry_180">180 градусаў</string>
@@ -317,6 +317,7 @@
     <string name="pref_camera2_eis_entry_v2enable">V2</string>
     <string name="pref_camera2_eis_entry_v3enable">V3</string>
     <string name="pref_camera2_eis_entry_disable">Адключана</string>
+    <string name="pref_camera2_fovc_title">Відэа FOVC</string>
     <string name="pref_camera2_fovc_entry_disable">Адключана</string>
     <string name="pref_camera2_video_hdr_entry_disable">Адключана</string>
     <string name="pref_camera2_switcher_entry_front">Пярэдняя</string>

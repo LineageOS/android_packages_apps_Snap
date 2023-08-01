@@ -126,7 +126,6 @@
     <string name="pano_dialog_panorama_failed">Не атрымалася захаваць панараму.</string>
     <string name="pano_dialog_title">Панарама</string>
     <string name="pano_capture_indication">Здымка панарамы</string>
-    <string name="pano_dialog_waiting_previous">Апрацоўка папярэдняга файла</string>
     <string name="pano_review_saving_indication_str">Захаванне\u2026</string>
     <string name="pref_video_effect_title">Эфекты</string>
     <string name="effect_goofy_face_squeeze">Сціснуць</string>
@@ -137,8 +136,6 @@
     <string name="effect_backdropper_space">Космас</string>
     <string name="effect_backdropper_gallery">Вашы відэа</string>
     <string name="video_snapshot_hint">Націсніце, каб сфатаграфаваць падчас запісу.</string>
-    <string name="video_recording_started">Запіс пачаты.</string>
-    <string name="video_recording_stopped">Запіс спынены.</string>
     <string name="clear_effects">Ачысціць эфекты</string>
     <string name="effect_background">ФОН</string>
     <string name="accessibility_shutter_button">Затвор</string>
@@ -193,6 +190,7 @@
     <string name="crop_save">Захаваць</string>
     <string name="cannot_load_image">Не атрымалася загрузіць відарыс!</string>
     <string name="switch_photo_filmstrip">Выгляд кінастужкі</string>
+    <string name="remaining_photos_format">Засталося: %d</string>
     <string name="pref_camera2_category_system">Сістэма</string>
     <string name="save_best_dialog_native_bt">Скасаваць</string>
     <string name="dialog_do_not_show">Больш не паказваць</string>
