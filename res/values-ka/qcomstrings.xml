@@ -84,7 +84,7 @@
     <string name="pref_camera_facedetection_title">სახის ამოცნობა</string>
     <string name="pref_camera_facedetection_entry_off">გამორთ.</string>
     <string name="pref_camera_facedetection_entry_on">ჩართული</string>
-    <string name="pref_selfie_flash_title">თვითგადაღება განათებით</string>
+    <string name="pref_selfie_flash_title">თვითგადაღების ელვანათება</string>
     <string name="pref_selfie_flash_entry_off">გამორთ.</string>
     <string name="pref_selfie_flash_entry_on">ჩართ.</string>
     <string name="pref_camera_redeyereduction_title">წითელი თვალის არიდება</string>
@@ -248,7 +248,7 @@
     <string name="time_lapse_error">შეუსაბამო ზომა დროგამოშვებითი გადაღებისთვის</string>
     <string name="pref_camera_longshot_title">უწყვეტი გადაღება</string>
     <string name="msg_cancel_longshot_for_limited_memory">მეხსიერება იწურება, უწყვეტი გადაღება შეჩერდება</string>
-    <string name="flash_aebracket_message">განათება მხარდაუჭერელია მიმდევრობითი თვითდაყოვნებისას</string>
+    <string name="flash_aebracket_message">ელვანათება მხარდაუჭერელია მიმდევრობითი თვითდაყოვნებისას</string>
     <string name="pref_camera_auto_hdr_title">ავტომატური HDR</string>
     <string name="pref_camera_auto_hdr_entry_enable">ჩართვა</string>
     <string name="pref_camera_auto_hdr_entry_disable">გამორთვა</string>
@@ -351,7 +351,7 @@
     <string name="pref_camera2_scene_mode_sports_instructional_content">სპორტული რეჟიმი დაგეხმარებათ სპორტული ღონისძიებების უკეთ გადასაღებად.\n\nაუმჯობესებს სურათებს, მაგრამ ვიდეოს ჩაწერაზე არ აქვს გავლენა.</string>
     <string name="pref_camera2_scene_mode_hdr_instructional_content">არათანაბარი განათების პირობებში, როცა შუქი არასაკმარისია ან სინათლის წყარო გადასაღები საგნის უკანაა, აირჩიეთ „HDR“ საუკეთესო შედეგის მისაღებად.</string>
     <string name="pref_camera2_scene_mode_best_photo_instructional_content">საშუალებას გაძლევთ, გადაიღოთ მიჯრით 10 სურათი, შემდეგ კი აარჩევთ მათ შორის საუკეთესო(ებ)ს.</string>
-    <string name="pref_camera2_scene_mode_chroma_flash_instructional_content">ChromaFlash, განათებით გადაღებისას კადრში მყოფ ყველა ადამიანსა და საგანზე მოხვედრილ შუქს, თანაბრად ასახავს სურათში. ეს შესაძლებლობა მოქმედია, მხოლოდ, უკანა კამერით სარგებლობისას.</string>
+    <string name="pref_camera2_scene_mode_chroma_flash_instructional_content">ChromaFlash ელვანათებით გადაღებულ სურათებში თანაბრად ასახავს კადრში მყოფ ყველა ადამიანსა და საგანზე მოხვედრილ შუქს. ეს შესაძლებლობა მოქმედია მხოლოდ უკანა კამერისთვის.</string>
     <string name="pref_camera2_scene_mode_sharp_photo_instructional_content">SharpPhoto ამცირებს გადაღებისას მოძრავი კადრის ან ხელის კანკალის შედეგად გამოწვეულ გაბუნდოვნებას.</string>
     <string name="pref_camera2_scene_mode_tracking_focus_instructional_content">საშუალებას გაძლევთ, ფოკუსი გააყოლოთ შერჩეულ პირს ან საგანს, სურათების ან ვიდეოს გადაღებისას. დასაწყისისთვის, მოათავსეთ ფოკუსის მართკუთხედი არე სასურველ პირზე ან საგანზე.</string>
     <string name="pref_camera2_scene_mode_time_lapse_instructional_content">დროგამოშვებითი გადაღებით ხანგრძლივი ვიდეოჩანაწერი შეგიძლიათ აქციოთ რამდენიმეწამიან ვიდეოდ. ეს ეხება ვიდეოებს და არა ფოტოებს.</string>

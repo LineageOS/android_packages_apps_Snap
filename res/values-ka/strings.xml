@@ -65,7 +65,7 @@
     <string name="file_size">ფაილის ზომა</string>
     <string name="maker">შემქმნელი</string>
     <string name="model">მოდელი</string>
-    <string name="flash">განათება</string>
+    <string name="flash">ელვანათება</string>
     <string name="aperture">დიაფრაგმა</string>
     <string name="focal_length">ფოკუსური მანძილი</string>
     <string name="white_balance">სითეთრის გაწონასწორება</string>
@@ -74,8 +74,8 @@
     <string name="unit_mm">მმ</string>
     <string name="manual">ხელით</string>
     <string name="auto">ავტომატური</string>
-    <string name="flash_on">განათებით</string>
-    <string name="flash_off">განათების გარეშე</string>
+    <string name="flash_on">ელვანათებით</string>
+    <string name="flash_off">ელვანათების გარეშე</string>
     <string name="unknown">დაუდგენელი</string>
     <string name="try_to_set_local_album_available_offline">ეს ერთეული შენახულია ადგილობრივად და ხელმისაწვდომია ხაზგარეშედ.</string>
     <string name="please_wait">გთხოვთ, მოითმინოთ</string>
@@ -119,13 +119,13 @@
     <string name="pref_camera_focusmode_label_auto">ᲗᲕᲘᲗᲨᲔᲠᲩᲔᲕᲐ</string>
     <string name="pref_camera_focusmode_label_infinity">ᲣᲡᲐᲡᲠᲣᲚᲝᲑᲐ</string>
     <string name="pref_camera_focusmode_label_macro">ᲛᲐᲙᲠᲝᲒᲐᲓᲐᲦᲔᲑᲐ</string>
-    <string name="pref_camera_flashmode_title">განათება</string>
+    <string name="pref_camera_flashmode_title">ელვანათება</string>
     <string name="pref_camera_flashmode_entry_auto">თვითშერჩევა</string>
     <string name="pref_camera_flashmode_entry_on">ჩართ.</string>
     <string name="pref_camera_flashmode_entry_off">გამორთ.</string>
     <string name="pref_camera_flashmode_label_auto">თვითგანათება</string>
-    <string name="pref_camera_flashmode_label_on">ჩართული განათება</string>
-    <string name="pref_camera_flashmode_label_off">გამორთული განათება</string>
+    <string name="pref_camera_flashmode_label_on">ᲔᲚᲕᲐᲜᲐᲗᲔᲑᲐ ᲩᲐᲠᲗ.</string>
+    <string name="pref_camera_flashmode_label_off">ᲔᲚᲕᲐᲜᲐᲗᲔᲑᲐ ᲒᲐᲛᲝᲠᲗ.</string>
     <string name="pref_camera_whitebalance_title">სითეთრის გაწონასწორება</string>
     <string name="pref_camera_whitebalance_label">ᲡᲘᲗᲔᲗᲠᲘᲡ ᲒᲐᲬᲝᲜᲐᲡᲬᲝᲠᲔᲑᲐ</string>
     <string name="pref_camera_whitebalance_entry_auto">ავტომატური</string>
