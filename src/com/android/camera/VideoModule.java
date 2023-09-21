@@ -84,6 +84,8 @@ import java.util.List;
 import java.util.HashMap;
 import java.lang.reflect.Method;
 import java.util.regex.Pattern;
+import android.media.EncoderCapabilities;
+import android.media.EncoderCapabilities.VideoEncoderCap;
 
 public class VideoModule implements CameraModule,
     VideoController,
@@ -1099,6 +1101,28 @@ public class VideoModule implements CameraModule,
     }
 
     private boolean isSessionSupportedByEncoder(int w, int h, int fps) {
+        int expectedMBsPerSec = w * h * fps;
+
+        List<VideoEncoderCap> videoEncoders = EncoderCapabilities.getVideoEncoders();
+        for (VideoEncoderCap videoEncoder: videoEncoders) {
+            if (videoEncoder.mCodec == mVideoEncoder) {
+                int maxMBsPerSec = (videoEncoder.mMaxFrameWidth * videoEncoder.mMaxFrameHeight
+                        * videoEncoder.mMaxFrameRate);
+                if (expectedMBsPerSec > maxMBsPerSec) {
+                    Log.e(TAG,"Selected codec " + mVideoEncoder
+                            + " does not support width(" + w
+                            + ") X height ("+ h
+                            + "@ " + fps +" fps");
+                    Log.e(TAG, "Max capabilities: " +
+                            "MaxFrameWidth = " + videoEncoder.mMaxFrameWidth + " , " +
+                            "MaxFrameHeight = " + videoEncoder.mMaxFrameHeight + " , " +
+                            "MaxFrameRate = " + videoEncoder.mMaxFrameRate);
+                    return false;
+                } else {
+                    return true;
+                }
+            }
+        }
         return false;
     }
 
