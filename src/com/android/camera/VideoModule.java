@@ -38,6 +38,8 @@ import android.location.Location;
 import android.media.AudioManager;
 import android.media.CamcorderProfile;
 import android.media.CameraProfile;
+import android.media.EncoderCapabilities;
+import android.media.EncoderCapabilities.VideoEncoderCap;
 import android.media.MediaRecorder;
 import android.media.MediaMetadataRetriever;
 import android.net.Uri;
@@ -1099,6 +1101,28 @@ public class VideoModule implements CameraModule,
     }
 
     private boolean isSessionSupportedByEncoder(int w, int h, int fps) {
+        int expectedMBsPerSec = w * h * fps;
+
+        List<VideoEncoderCap> videoEncoders = EncoderCapabilities.getVideoEncoders();
+        for (VideoEncoderCap videoEncoder: videoEncoders) {
+            if (videoEncoder.mCodec == mVideoEncoder) {
+                int maxMBsPerSec = (videoEncoder.mMaxFrameWidth * videoEncoder.mMaxFrameHeight
+                        * videoEncoder.mMaxFrameRate);
+                if (expectedMBsPerSec > maxMBsPerSec) {
+                    Log.e(TAG,"Selected codec " + mVideoEncoder
+                            + " does not support width(" + w
+                            + ") X height ("+ h
+                            + "@ " + fps +" fps");
+                    Log.e(TAG, "Max capabilities: " +
+                            "MaxFrameWidth = " + videoEncoder.mMaxFrameWidth + " , " +
+                            "MaxFrameHeight = " + videoEncoder.mMaxFrameHeight + " , " +
+                            "MaxFrameRate = " + videoEncoder.mMaxFrameRate);
+                    return false;
+                } else {
+                    return true;
+                }
+            }
+        }
         return false;
     }
 
