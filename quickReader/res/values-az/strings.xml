@@ -20,8 +20,8 @@
     <string name="quick_reader_permission_error_title">İcazə xətası</string>
     <string name="quick_reader_permission_rationale_message">Barkodu tədqiq etmək üçün kameraya müraciət lazımdır</string>
     <string name="quick_reader_permission_rationale_positive">Təkrar soruş</string>
-    <string name="quick_reader_permission_fatal_message">Kamera müraciət rədd edildi. Zəhmət olmasa tətbiq tənzimləmələrindən icazə verin</string>
-    <string name="quick_reader_permission_fatal_positive">Tənzimləmələri aç</string>
+    <string name="quick_reader_permission_fatal_message">Kamera müraciəti rədd edildi. Lütfən tətbiq ayarlarından icazə verin</string>
+    <string name="quick_reader_permission_fatal_positive">Ayarları aç</string>
     <string name="quick_reader_scanned_text_title">Tədqiq edilən mətn</string>
     <string name="quick_reader_scanned_text_positive">Kopyala</string>
     <string name="quick_reader_scanned_text_negative">Paylaş</string>

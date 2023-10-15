@@ -49,7 +49,7 @@
     <string name="edit">Düzəliş et</string>
     <string name="crop_action">Kəs</string>
     <string name="trim_action">Kəs</string>
-    <string name="set_as">Belə tənzimlə</string>
+    <string name="set_as">Belə ayarla</string>
     <string name="video_err">Video oynadıla bilmir.</string>
     <string name="crop_saved">        Kəsilmiş təsvir <xliff:g id="folder_name">%s</xliff:g> qovluğunda saxlanıldı.</string>
     <string name="title">Başlıq</string>
@@ -78,14 +78,14 @@
     <string name="flash_off">Fənər yoxdur</string>
     <string name="unknown">Bilinmir</string>
     <string name="try_to_set_local_album_available_offline">        Bu element yerli olaraq saxlanıldı və xətdən kənar əlçatandır.</string>
-    <string name="please_wait">Zəhmət olmasa gözləyin</string>
+    <string name="please_wait">Lütfən gözləyin</string>
     <string name="rendering_photo_sphere">Foto sferası hazırlanır</string>
     <string name="camera_error_title">Kamera xətası</string>
     <string name="cannot_connect_camera">Kameraya bağlana bilmir.</string>
     <string name="camera_disabled">Güvənlik siyasətinə görə kamera sıradan çıxarıldı.</string>
-    <string name="error_permissions">Bu tətbiqetmə işləmək üçün lazım olan vacib icazələri almayıb. Zəhmət olmasa icazə tənzimləmələrini yoxlayın. </string>
+    <string name="error_permissions">Tətbiqin işləməsi üçün lazım olan kritik icazələri yoxdur. Lütfən icazə ayarlarınızı yoxlayın.</string>
     <string name="dialog_dismiss">İmtina et</string>
-    <string name="wait">Zəhmət olmasa gözləyin\u2026</string>
+    <string name="wait">Lütfən gözləyin\u2026</string>
     <string name="no_storage" product="default">Kameranı istifadə etməmişdən əvvəl SD kartı daxil edin.</string>
     <string name="preparing_sd" product="default">SD kart hazırlanır\u2026</string>
     <string name="access_sd_fail" product="default">SD karta müraciət edə bilmədi.</string>
@@ -109,8 +109,8 @@
     <string name="setting_on">Açıq</string>
     <string name="pref_video_quality_title">Video keyfiyyəti</string>
     <string name="pref_video_time_lapse_frame_interval_title">Sürətləndirilmiş çəkiliş</string>
-    <string name="pref_camera_settings_category">Kamera tənzimləmələri</string>
-    <string name="pref_camcorder_settings_category">Videokamera tənzimləmələri</string>
+    <string name="pref_camera_settings_category">Kamera ayarları</string>
+    <string name="pref_camcorder_settings_category">Video kamera ayarları</string>
     <string name="pref_camera_picturesize_title">Şəkil ölçüsü</string>
     <string name="pref_camera_focusmode_title">Fokus rejimi</string>
     <string name="pref_camera_focusmode_entry_auto">Avto</string>
@@ -176,7 +176,7 @@
     <string name="pref_camera_id_label_back">ÖN KAMERA</string>
     <string name="pref_camera_id_label_front">ARXA KAMERA</string>
     <string name="dialog_ok">Oldu</string>
-    <string name="spaceIsLow_content" product="default">SD kartınızın yaddaşı dolmaq üzrədir. Keyfiyyət tənzimləməsini dəyişin və ya təsvirlər, yaxud digər faylları silin.</string>
+    <string name="spaceIsLow_content" product="default">SD kartınızında boş yer tükənir. Keyfiyyət ayarını dəyişdirin və ya bəzi təsvirləri, yaxud digər faylları silin.</string>
     <string name="video_reach_size_limit">Ölçü limitinə çatdınız.</string>
     <string name="pano_too_fast_prompt">Çox sürətli</string>
     <string name="pano_dialog_prepare_preview">Panorama hazırlanır</string>
@@ -264,15 +264,15 @@
     <string name="time_lapse_hours">saat</string>
     <string name="time_lapse_interval_set">Bitdi</string>
     <string name="set_time_interval">Vaxt aralığını seçin</string>
-    <string name="set_time_interval_help">Sürətləndirilmiş çəkiliş bağlıdır. Vaxt aralığını tənzimləmək üçün işə salın.</string>
-    <string name="set_duration">Müddəti saniyələrlə tənzimlə</string>
+    <string name="set_time_interval_help">Sürətləndirilmiş çəkiliş bağlıdır. Vaxt aralığını ayarlamaq üçün işə salın.</string>
+    <string name="set_duration">Müddəti saniyələrlə ayarla</string>
     <string name="count_down_title_text">Foto çəkmək üçün geri sayılır</string>
     <string name="remember_location_title">Foto məkanları xatırlansın?</string>
     <string name="remember_location_prompt">Fotolarınızı və videolarınızı çəkildikləri yerlərlə etiketləyin.\n\nDigər tətbiqlər, saxlanılmış təsvirlərlə birgə bu məlumatlara müraciət edə bilər.</string>
     <string name="remember_location_no">Xeyr, təşəkkürlər</string>
     <string name="remember_location_yes">Bəli</string>
     <string name="camera_menu_more_label">DAHA ÇOX SEÇİM</string>
-    <string name="camera_menu_settings_label">TƏNZİMLƏMƏLƏR</string>
+    <string name="camera_menu_settings_label">AYARLAR</string>
     <string name="create_tiny_planet">Kiçik Planet yarat</string>
     <string name="saving_tiny_planet">Kiçik Planet saxlanıllır…</string>
     <string name="tiny_planet_zoom">Yaxınlaşdır</string>
@@ -280,12 +280,12 @@
     <string name="crop_save">Saxla</string>
     <string name="cannot_load_image">Təsvir yüklənə bilmir!</string>
     <string name="switch_photo_filmstrip">Film zolağı mənzərəsi</string>
-    <string name="setting_wallpaper">Divar kağızı tənzimlənir</string>
+    <string name="setting_wallpaper">Divar kağızı ayarlanır</string>
     <string name="remaining_photos_format">%d qaldı</string>
     <string name="makeup_video_size_limit">Video yazmada makyaj yalnız VGA keyfiyyətində işləyir.</string>
     <string name="pref_camera2_category_system">Sistem</string>
-    <string name="pref_camera2_restore_default">İlkin tənzimləmələri bərpa et</string>
-    <string name="pref_camera2_restore_default_hint">Kamera tənzimləmələri ilkin vəziyyətə qaytarılacaq</string>
+    <string name="pref_camera2_restore_default">İlkin dəyərləri bərpa et</string>
+    <string name="pref_camera2_restore_default_hint">Kamera ayarları ilkin ayarlara qaytarılacaq</string>
     <plurals name="save_best_dialog_content">
         <item quantity="one">10 təsvirdən %1$d dənəsi saxlanılacaq və qalanı silinəcək</item>
         <item quantity="other">10 təsvirdən %1$d dənəsi saxlanılacaq və qalanı silinəcək</item>
@@ -308,5 +308,5 @@
     <string name="delete_all_best_dialog_positive_bt">Hamısını sil</string>
     <string name="overflow_best_item1">Hamısını saxla</string>
     <string name="overflow_best_item2">Hamısını sil</string>
-    <string name="settings_title">Tənzimləmələr</string>
+    <string name="settings_title">Ayarlar</string>
 </resources>

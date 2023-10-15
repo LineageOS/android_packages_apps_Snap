@@ -45,7 +45,7 @@
     <string name="pref_camera_manual_exp_title">Əllə ekspozisiya</string>
     <string name="pref_camera_manual_exp_entry_ISO_priority">ISO üstünlüyü</string>
     <string name="pref_camera_manual_exp_entry_exptime_priority">Ekspozisiya vaxtı üstünlüyü</string>
-    <string name="pref_camera_manual_exp_entry_user_setting">İstifadəçi tənzimləməsi</string>
+    <string name="pref_camera_manual_exp_entry_user_setting">İstifadəçi ayarı</string>
     <string name="pref_camera_manual_exp_entry_gains_priority">Qazanc üstünlüklü</string>
     <string name="pref_camera_manual_exp_entry_off">Bağlı</string>
     <string name="pref_camera_manual_wb_title">Əllə qurulmuş ağ tarazlığı</string>
@@ -109,8 +109,8 @@
     <string name="pref_camera_ae_bracket_hdr_entry_on">Açıq</string>
     <string name="pref_camera_ae_bracket_hdr_entry_off">Bağlı</string>
     <string name="err_app_unsupport_ae_bracket_code">AE çənbərləmə hələ ki, dəstəklənmir</string>
-    <string name="snapshot_lower_than_video">Video şəkil həcmi videonun həcmindən kiçik və video həcmi ilə məhdud olmalıdır. Zəhmət olmasa hazırki video həcminə bərabər və ya daha yüksək bir ölçü seçin.</string>
-    <string name="snapshotsize_low_powermode">Aşağı Güc rejimində şəkil ölçüsünü dəyişdirmə dəstəklənmir, şəkil, video ölçülərində çəkiləcək. Zəhmət olmasa şəkil ölçülərini dəyişdirmək üçün Normal Güc rejiminə keçin.</string>
+    <string name="snapshot_lower_than_video">Video şəkil həcmi videonun həcmindən kiçik və video həcmi ilə məhdud olmalıdır. Lütfən hazırkı video həcminə bərabər və ya daha yüksək bir ölçü seçin.</string>
+    <string name="snapshotsize_low_powermode">Aşağı Güc rejimində şəkil ölçüsünü dəyişdirmə dəstəklənmir, şəkil, video ölçülərində çəkiləcək. Lütfən şəkil ölçülərini dəyişdirmək üçün Normal Güc rejiminə keçin.</string>
     <string name="snapshot_qcif_and_d1">Bu ölçülər üçün yalnız video həcmində şəkil çəkmə dəstəklənir.</string>
     <string name="pref_camera_hfr_title">Sürətləndirilmiş çəkiliş</string>
     <string name="pref_camera_hfr_entry_off">Bağlı</string>
@@ -357,7 +357,7 @@
     <string name="pref_camera2_scene_mode_time_lapse_instructional_content">Sürətləndirilmiş çəkilişdə, video yazını bir neçə saniyəlik videolara çevirə bilərsiniz. Bu effekt videolara tətbiq edilər, fotolara yox.</string>
     <string name="pref_camera2_scene_mode_panorama_instructional_content">Geniş mənzərə fotosu çəkmək üçün sola və ya sağa sürüşdürməyə icazə verər. Həmçinin uzun fotolar çəkmək üçün yuxarı və ya aşağı hərəkət etdirə bilərsiniz.</string>
     <string name="pref_camera2_scene_mode_blur_buster_instructional_content">BlurBuster əl titrəməsinə görə yaranan bulanıqlığı azaldar. Bu çətin məkanlarda foto çəkərkən faydalı ola bilər.</string>
-    <string name="pref_camera2_scene_mode_pro_instructional_content">Pro rejimində, ISO, ekspozisiya, ağ balansı və fokus tənzimləmələrinə əllə nəzarət edə bilərsiniz. Bu qabaqcıl tənzimləmələrin hamısına asan müraciət edə bilərsiniz.</string>
+    <string name="pref_camera2_scene_mode_pro_instructional_content">Pro rejimində, ISO, ekspozisiya, ağ balansı və fokus ayarlarına əllə nəzarət edə bilərsiniz. Bu qabaqcıl ayarların hamısına asan müraciət edə bilərsiniz.</string>
     <string name="pref_camera2_scene_mode_deepzoom_instructional_content">Dərin Yaxınlaşdırma ilə 2x və ya 4x təkmilləşdirilmiş yaxınlaşdırmada foto çəkə bilərsiniz.</string>
     <string name="pref_camera2_scene_mode_deepportrait_instructional_content">Dərin Portret rejimi ilə bulanıq arxaplanda selfilər çəkə bilərsiniz. Bulanıqlaşdırma miqdarını nizamlamaq üçün diyircəkdən istifadə edə bilərsiniz.</string>
     <string name="pref_camera2_not_show_again">Təkrar göstərmə</string>
@@ -465,9 +465,9 @@
     <string name="pref_camera2_abort_captures_entry_enable">Fəaldır</string>
     <string name="pref_camera2_abort_captures_entry_disable">Sıradan çıxarıldı</string>
     <string name="pref_camera_tone_mapping_title">Ton uyğunlaşdırma</string>
-    <string name="pref_camera_tone_mapping_entry_dark_boost_offset">Tünd artırma ofseti</string>
+    <string name="pref_camera_tone_mapping_entry_dark_boost_offset">Qaranlıq artırma ofseti</string>
     <string name="pref_camera_tone_mapping_entry_fourth_tone_anchor">Dördüncü ton lövbəri</string>
-    <string name="pref_camera_tone_mapping_entry_user_setting">İstifadəçi tənzimləməsi</string>
+    <string name="pref_camera_tone_mapping_entry_user_setting">İstifadəçi ayarı</string>
     <string name="pref_camera_tone_mapping_entry_off">Bağlı</string>
     <string name="pref_multi_camera_hal_zsl_title">HAL ZSL</string>
     <string name="pref_multi_camera_picturesize1_title">Şəkil 1 ölçüsü</string>
