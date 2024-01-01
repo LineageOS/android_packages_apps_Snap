@@ -294,7 +294,7 @@
     <string name="pref_camera2_mono_only_title">Yalnız mono</string>
     <string name="pref_camera2_mono_only_entry_on">Açıq</string>
     <string name="pref_camera2_mono_only_entry_off">Bağlı</string>
-    <string name="pref_camera2_mono_preview_title">Mono önbaxışı</string>
+    <string name="pref_camera2_mono_preview_title">Mono önizləmə</string>
     <string name="pref_camera2_mono_preview_entry_on">Açıq</string>
     <string name="pref_camera2_mono_preview_entry_off">Bağlı</string>
     <string name="pref_camera2_clearsight_entry_on">Açıq</string>
@@ -464,7 +464,7 @@
     <string name="pref_camera2_abort_captures_title">Yaxalamaqdan imtina et</string>
     <string name="pref_camera2_abort_captures_entry_enable">Fəaldır</string>
     <string name="pref_camera2_abort_captures_entry_disable">Sıradan çıxarıldı</string>
-    <string name="pref_camera_tone_mapping_title">Ton uyğunlaşdırma</string>
+    <string name="pref_camera_tone_mapping_title">Ton uyuşdurma</string>
     <string name="pref_camera_tone_mapping_entry_dark_boost_offset">Qaranlıq artırma ofseti</string>
     <string name="pref_camera_tone_mapping_entry_fourth_tone_anchor">Dördüncü ton lövbəri</string>
     <string name="pref_camera_tone_mapping_entry_user_setting">İstifadəçi ayarı</string>
