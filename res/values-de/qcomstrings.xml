@@ -29,6 +29,7 @@
     <string name="pref_camera_autoexposure_entry_spotmetering">Spotmessung</string>
     <string name="pref_camera_videoencoder_title">Video-Codec</string>
     <string name="pref_camera_videoencoder_dialogtitle">Video-Codec</string>
+    <string name="pref_camera_audioencoder_title">Audio-Codec</string>
     <string name="pref_camera_skinToneEnhancement_title">Hauttöne verbessern</string>
     <string name="pref_camera_skinToneEnhancement_entry_enable">Aktivieren</string>
     <string name="pref_camera_skinToneEnhancement_entry_disable">Deaktivieren</string>
@@ -106,6 +107,7 @@
     <string name="pref_camera_ae_bracket_hdr_entry_ae_bracket">Belichtungsreihe</string>
     <string name="pref_camera_ae_bracket_hdr_title">Belichtungsreihe</string>
     <string name="pref_camera_ae_bracket_hdr_entry_on">An</string>
+    <string name="pref_camera_ae_bracket_hdr_entry_off">Aus</string>
     <string name="err_app_unsupport_ae_bracket_code">Belichtungsreihen werden noch nicht unterstützt</string>
     <string name="snapshot_lower_than_video">Die Auflösung des Schnappschusses ist geringer als die Videoauflösung. Bitte wähle die gleiche oder eine höhere Auflösung als die aktuelle Videoauflösung.</string>
     <string name="snapshotsize_low_powermode">Das Verändern der Auflösung wird im Energiesparmodus nicht unterstützt. Der Schnappschuss wird daher in Videoauflösung aufgenommen. Wähle den normalen Energiemodus aus, um die Auflösung einstellen zu können.</string>
@@ -413,6 +415,8 @@
     <string name="pref_camera2_initial_camera_entry_mono">Schwarzweiß</string>
     <string name="pref_camera2_initial_camera_entry_front">Frontkamera</string>
     <string name="pref_camera2_eis_title">Video-Bildstabilisator</string>
+    <string name="pref_camera2_eis_entry_v2enable">V2</string>
+    <string name="pref_camera2_eis_entry_v3enable">V3</string>
     <string name="pref_camera2_eis_entry_v3_set_when_pause">V3 und bei Pause einstellen</string>
     <string name="pref_camera2_eis_entry_disable">Deaktiviert</string>
     <string name="pref_camera2_fovc_title">Video-Sichtfeld</string>

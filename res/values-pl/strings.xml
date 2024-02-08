@@ -115,8 +115,8 @@
     <string name="pref_camera_savepath_title">Pamięć</string>
     <string name="pref_camera_savepath_entry_0">Telefon</string>
     <string name="pref_camera_savepath_entry_1">Karta SD</string>
-    <string name="setting_off">Wyłączone</string>
-    <string name="setting_on">Włączone</string>
+    <string name="setting_off">Wyłączono</string>
+    <string name="setting_on">Włączono</string>
     <string name="pref_video_quality_title">Jakość filmu</string>
     <string name="pref_video_time_lapse_frame_interval_title">Odstęp poklatkowy</string>
     <string name="pref_camera_settings_category">Ustawienia aparatu</string>
@@ -131,8 +131,8 @@
     <string name="pref_camera_focusmode_label_macro">MAKRO</string>
     <string name="pref_camera_flashmode_title">Lampa błyskowa</string>
     <string name="pref_camera_flashmode_entry_auto">Automatycznie</string>
-    <string name="pref_camera_flashmode_entry_on">Włączone</string>
-    <string name="pref_camera_flashmode_entry_off">Wyłączone</string>
+    <string name="pref_camera_flashmode_entry_on">Włączono</string>
+    <string name="pref_camera_flashmode_entry_off">Wyłączono</string>
     <string name="pref_camera_flashmode_label_auto">LAMPA BŁYSKOWA AUTOMATYCZNIE</string>
     <string name="pref_camera_flashmode_label_on">LAMPA BŁYSKOWA WŁĄCZONA</string>
     <string name="pref_camera_flashmode_label_off">LAMPA BŁYSKOWA WYŁĄCZONA</string>
@@ -208,7 +208,7 @@
     <string name="effect_backdropper_space">Kosmos</string>
     <string name="effect_backdropper_sunset">Zachód słońca</string>
     <string name="effect_backdropper_gallery">Twój film</string>
-    <string name="video_snapshot_hint">Kliknij, by zrobić zdjęcie podczas nagrywania.</string>
+    <string name="video_snapshot_hint">Dotknij, aby zrobić zdjęcie podczas nagrywania.</string>
     <string name="video_recording_started">Rozpoczęło się nagrywanie filmu.</string>
     <string name="video_recording_stopped">Nagrywanie filmu zostało zatrzymane.</string>
     <string name="clear_effects">Usuń efekty</string>
@@ -229,7 +229,7 @@
     <string name="accessibility_review_retake">Przegląd: zrób zdjęcie/nagraj film ponownie</string>
     <string name="capital_on">WŁ.</string>
     <string name="capital_off">WYŁ.</string>
-    <string name="pref_video_time_lapse_frame_interval_off">Wyłączone</string>
+    <string name="pref_video_time_lapse_frame_interval_off">Wyłączono</string>
     <string name="pref_video_time_lapse_frame_interval_500">0,5 sekundy</string>
     <string name="pref_video_time_lapse_frame_interval_1000">1 sekunda</string>
     <string name="pref_video_time_lapse_frame_interval_1500">1,5 sekundy</string>
@@ -313,7 +313,7 @@
     </plurals>
     <string name="dialog_do_not_show">Nie pokazuj ponownie</string>
     <string name="delete_best_dialog_title">Usunąć wszystkie?</string>
-    <string name="delete_best_dialog_content">Czy jesteś pewien, że chcesz usunąć wszystkie 10 zdjęć?</string>
+    <string name="delete_best_dialog_content">Czy na pewno chcesz usunąć wszystkie 10 zdjęć?</string>
     <string name="delete_best_dialog_native_bt">Anuluj</string>
     <string name="delete_best_dialog_positive_bt">Usuń</string>
     <string name="delete_all_best_dialog_title">Usunąć wszystkie?</string>

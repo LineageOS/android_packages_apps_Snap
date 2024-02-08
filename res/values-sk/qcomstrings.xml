@@ -163,7 +163,7 @@
     <string name="pref_camera_iso_entry_iso6400">ISO 6400</string>
     <string name="pref_camera_iso_entry_iso12800">ISO 12800</string>
     <string name="pref_camera_antibanding_title">Potlačenie blikania obrazu</string>
-    <string name="pref_camera_antibanding_entry_0">Automatické</string>
+    <string name="pref_camera_antibanding_entry_0">Automaticky</string>
     <string name="pref_camera_antibanding_entry_1">50 Hz (Európa)</string>
     <string name="pref_camera_antibanding_entry_2">60 Hz (USA)</string>
     <string name="pref_camera_filter_mode_entry_on">Zapnúť</string>

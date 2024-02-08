@@ -17,6 +17,8 @@
     <string name="accessibility_switch_to_qr">QR-läsare</string>
     <string name="quick_reader_action_dismiss">Avvisa</string>
     <string name="quick_reader_permission_rationale_positive">Fråga igen</string>
+    <string name="quick_reader_permission_fatal_positive">Öppna inställningar</string>
+    <string name="quick_reader_scanned_text_title">Skannad text</string>
     <string name="quick_reader_scanned_text_positive">Kopiera</string>
     <string name="quick_reader_scanned_text_negative">Dela</string>
     <string name="quick_reader_share_title">Dela med\u2026</string>

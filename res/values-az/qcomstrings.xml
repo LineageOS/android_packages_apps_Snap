@@ -30,7 +30,6 @@
     <string name="pref_camera_videoencoder_title">Video kodlayıcı</string>
     <string name="pref_camera_videoencoder_dialogtitle">Video kodlayıcı</string>
     <string name="pref_camera_audioencoder_title">Səs kodlayıcı</string>
-    <string name="pref_camera_skinToneEnhancement_default">sıradan çıxart</string>
     <string name="pref_camera_skinToneEnhancement_title">Dəri tonu gücləndirilməsi</string>
     <string name="pref_camera_skinToneEnhancement_entry_enable">Fəaldır</string>
     <string name="pref_camera_skinToneEnhancement_entry_disable">Sıradan çıxart</string>
@@ -46,7 +45,7 @@
     <string name="pref_camera_manual_exp_title">Əllə ekspozisiya</string>
     <string name="pref_camera_manual_exp_entry_ISO_priority">ISO üstünlüyü</string>
     <string name="pref_camera_manual_exp_entry_exptime_priority">Ekspozisiya vaxtı üstünlüyü</string>
-    <string name="pref_camera_manual_exp_entry_user_setting">İstifadəçi tənzimləməsi</string>
+    <string name="pref_camera_manual_exp_entry_user_setting">İstifadəçi ayarı</string>
     <string name="pref_camera_manual_exp_entry_gains_priority">Qazanc üstünlüklü</string>
     <string name="pref_camera_manual_exp_entry_off">Bağlı</string>
     <string name="pref_camera_manual_wb_title">Əllə qurulmuş ağ tarazlığı</string>
@@ -108,9 +107,10 @@
     <string name="pref_camera_ae_bracket_hdr_entry_ae_bracket">AE çənbərləmə</string>
     <string name="pref_camera_ae_bracket_hdr_title">AE çənbərləmə</string>
     <string name="pref_camera_ae_bracket_hdr_entry_on">Açıq</string>
+    <string name="pref_camera_ae_bracket_hdr_entry_off">Bağlı</string>
     <string name="err_app_unsupport_ae_bracket_code">AE çənbərləmə hələ ki, dəstəklənmir</string>
-    <string name="snapshot_lower_than_video">Video şəkil həcmi videonun həcmindən kiçik və video həcmi ilə məhdud olmalıdır. Zəhmət olmasa hazırki video həcminə bərabər və ya daha yüksək bir ölçü seçin.</string>
-    <string name="snapshotsize_low_powermode">Aşağı Güc rejimində şəkil ölçüsünü dəyişdirmə dəstəklənmir, şəkil, video ölçülərində çəkiləcək. Zəhmət olmasa şəkil ölçülərini dəyişdirmək üçün Normal Güc rejiminə keçin.</string>
+    <string name="snapshot_lower_than_video">Video şəkil həcmi videonun həcmindən kiçik və video həcmi ilə məhdud olmalıdır. Lütfən hazırkı video həcminə bərabər və ya daha yüksək bir ölçü seçin.</string>
+    <string name="snapshotsize_low_powermode">Aşağı Güc rejimində şəkil ölçüsünü dəyişdirmə dəstəklənmir, şəkil, video ölçülərində çəkiləcək. Lütfən şəkil ölçülərini dəyişdirmək üçün Normal Güc rejiminə keçin.</string>
     <string name="snapshot_qcif_and_d1">Bu ölçülər üçün yalnız video həcmində şəkil çəkmə dəstəklənir.</string>
     <string name="pref_camera_hfr_title">Sürətləndirilmiş çəkiliş</string>
     <string name="pref_camera_hfr_entry_off">Bağlı</string>
@@ -235,14 +235,14 @@
     <string name="pref_camera_scenedetect_title">Avto səhnə aşkarlama</string>
     <string name="pref_camera_scenedetect_entry_off">Bağlı</string>
     <string name="pref_camera_scenedetect_entry_on">Açıq</string>
-    <string name="time_lapse_error">Sürətləndirilmiş çəkiliş üçün etibarsız video həcmi.</string>
+    <string name="time_lapse_error">Sürətləndirilmiş çəkiliş üçün yararsız video həcmi.</string>
     <string name="pref_camera_longshot_title">Fasiləsiz çəkiliş</string>
     <string name="msg_cancel_longshot_for_limited_memory">Yaddaş dolur, fasiləsiz çəkiliş ləğv edilir</string>
     <string name="flash_aebracket_message">AE çənbərləmə rejimində işıq dəstəklənmir</string>
     <string name="pref_camera_auto_hdr_title">Avtomatik HDR</string>
     <string name="pref_camera_auto_hdr_entry_enable">Fəaldır</string>
     <string name="pref_camera_auto_hdr_entry_disable">Sıradan çıxart</string>
-    <string name="on_switch_save_path_to_sdcard">Daxili anbar sahəsi yetərli deyil, anbar yerləşməsi SD karta dəyişdirildi</string>
+    <string name="on_switch_save_path_to_sdcard">Daxili anbar sahəsi kifayət etmir, anbar yerini SD karta dəyişdir</string>
     <string name="pref_camera_hdr_mode_title">HDR rejimi</string>
     <string name="pref_camera_hdr_mode_entry_sensor">HDR sensoru</string>
     <string name="pref_camera_hdr_mode_entry_multi_frame">Çoxlu kadr HDR</string>
@@ -283,7 +283,7 @@
     <string name="pref_camera2_mono_only_title">Yalnız mono</string>
     <string name="pref_camera2_mono_only_entry_on">Açıq</string>
     <string name="pref_camera2_mono_only_entry_off">Bağlı</string>
-    <string name="pref_camera2_mono_preview_title">Mono önbaxışı</string>
+    <string name="pref_camera2_mono_preview_title">Mono önizləmə</string>
     <string name="pref_camera2_mono_preview_entry_on">Açıq</string>
     <string name="pref_camera2_mono_preview_entry_off">Bağlı</string>
     <string name="pref_camera2_clearsight_entry_on">Açıq</string>
@@ -343,7 +343,7 @@
     <string name="pref_camera2_scene_mode_time_lapse_instructional_content">Sürətləndirilmiş çəkilişdə, video yazını bir neçə saniyəlik videolara çevirə bilərsiniz. Bu effekt videolara tətbiq edilər, fotolara yox.</string>
     <string name="pref_camera2_scene_mode_panorama_instructional_content">Geniş mənzərə fotosu çəkmək üçün sola və ya sağa sürüşdürməyə icazə verər. Həmçinin uzun fotolar çəkmək üçün yuxarı və ya aşağı hərəkət etdirə bilərsiniz.</string>
     <string name="pref_camera2_scene_mode_blur_buster_instructional_content">BlurBuster əl titrəməsinə görə yaranan bulanıqlığı azaldar. Bu çətin məkanlarda foto çəkərkən faydalı ola bilər.</string>
-    <string name="pref_camera2_scene_mode_pro_instructional_content">Pro rejimində, ISO, ekspozisiya, ağ balansı və fokus tənzimləmələrinə əllə nəzarət edə bilərsiniz. Bu qabaqcıl tənzimləmələrin hamısına asan müraciət edə bilərsiniz.</string>
+    <string name="pref_camera2_scene_mode_pro_instructional_content">Pro rejimində, ISO, ekspozisiya, ağ balansı və fokus ayarlarına əllə nəzarət edə bilərsiniz. Bu qabaqcıl ayarların hamısına asan müraciət edə bilərsiniz.</string>
     <string name="pref_camera2_scene_mode_deepzoom_instructional_content">Dərin Yaxınlaşdırma ilə 2x və ya 4x təkmilləşdirilmiş yaxınlaşdırmada foto çəkə bilərsiniz.</string>
     <string name="pref_camera2_scene_mode_deepportrait_instructional_content">Dərin Portret rejimi ilə bulanıq arxaplanda selfilər çəkə bilərsiniz. Bulanıqlaşdırma miqdarını nizamlamaq üçün diyircəkdən istifadə edə bilərsiniz.</string>
     <string name="pref_camera2_not_show_again">Təkrar göstərmə</string>
@@ -415,6 +415,8 @@
     <string name="pref_camera2_initial_camera_entry_mono">Mono</string>
     <string name="pref_camera2_initial_camera_entry_front">Ön</string>
     <string name="pref_camera2_eis_title">Video EIS</string>
+    <string name="pref_camera2_eis_entry_v2enable">V2</string>
+    <string name="pref_camera2_eis_entry_v3enable">V3</string>
     <string name="pref_camera2_eis_entry_v3_set_when_pause">V3 və fasilə veriləndə</string>
     <string name="pref_camera2_eis_entry_disable">Sıradan çıxarıldı</string>
     <string name="pref_camera2_fovc_title">Video FOVC</string>

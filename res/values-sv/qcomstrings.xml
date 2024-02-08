@@ -20,6 +20,7 @@
     limitations under the License.
 -->
 <resources>
+    <string name="pref_camera_powermode_title">Energiläge</string>
     <string name="pref_camera_powermode_entry_lp">Låg energi</string>
     <string name="pref_camera_autoexposure_title">Automatisk exponering</string>
     <string name="pref_camera_autoexposure_entry_frameaverage">Bildgenomsnitt</string>
@@ -363,6 +364,9 @@
     <string name="pref_camera2_switch_camera_title">Byt kamera beroende på ID</string>
     <string name="pref_camera2_initial_camera_entry_mono">Mono</string>
     <string name="pref_camera2_eis_title">EIS-video</string>
+    <string name="pref_camera2_eis_entry_v2enable">V2</string>
+    <string name="pref_camera2_eis_entry_v3enable">V3</string>
+    <string name="pref_camera2_eis_entry_v3_set_when_pause">V3 och sätt vid paus</string>
     <string name="pref_camera2_eis_entry_disable">Avaktiverad</string>
     <string name="pref_camera2_fovc_title">FOVC-video</string>
     <string name="pref_camera2_fovc_entry_enable">Aktiverad</string>

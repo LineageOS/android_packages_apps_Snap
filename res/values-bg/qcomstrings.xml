@@ -107,6 +107,7 @@
     <string name="pref_camera_ae_bracket_hdr_entry_ae_bracket">AE кадриране</string>
     <string name="pref_camera_ae_bracket_hdr_title">AE кадриране</string>
     <string name="pref_camera_ae_bracket_hdr_entry_on">Вкл.</string>
+    <string name="pref_camera_ae_bracket_hdr_entry_off">Изключване</string>
     <string name="err_app_unsupport_ae_bracket_code">Това действие все още не се поддържа</string>
     <string name="snapshot_lower_than_video">Размера на видео снимката е по-нисък от размера на видеото. Все още има ограничение на размера на изображението. Моля изберете резолюция по-висока или равна на текущия размер на видео.</string>
     <string name="snapshotsize_low_powermode">Промяна размера на снимка не се поддържа в режим на ниска мощност, ще бъде взет видео размер за снимка. Моля изберете нормален режим на мощност, за да позволява промяна на размера на картината.</string>
@@ -414,6 +415,8 @@
     <string name="pref_camera2_initial_camera_entry_mono">Моно</string>
     <string name="pref_camera2_initial_camera_entry_front">Предна</string>
     <string name="pref_camera2_eis_title">Видео EIS</string>
+    <string name="pref_camera2_eis_entry_v2enable">V2</string>
+    <string name="pref_camera2_eis_entry_v3enable">V3</string>
     <string name="pref_camera2_eis_entry_v3_set_when_pause">V3 и настройте по време на пауза</string>
     <string name="pref_camera2_eis_entry_disable">Изкл.</string>
     <string name="pref_camera2_fovc_title">Видео FOVC</string>

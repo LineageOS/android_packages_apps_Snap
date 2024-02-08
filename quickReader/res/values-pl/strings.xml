@@ -18,7 +18,7 @@
     <string name="quick_reader_action_dismiss">Odrzuć</string>
     <string name="quick_reader_no_activity_found">Brak zainstalowanej aplikacji, która mogłaby otworzyć tę zawartość</string>
     <string name="quick_reader_permission_error_title">Błąd uprawnień</string>
-    <string name="quick_reader_permission_rationale_message">Dostęp do kamery jest potrzebny, aby zeskanować kod kreskowy</string>
+    <string name="quick_reader_permission_rationale_message">Dostęp do aparatu jest potrzebny, aby zeskanować kod kreskowy</string>
     <string name="quick_reader_permission_rationale_positive">Zapytaj ponownie</string>
     <string name="quick_reader_permission_fatal_message">Dostęp do aparatu został zablokowany. Proszę nadać uprawnienia w ustawieniach aplikacji</string>
     <string name="quick_reader_permission_fatal_positive">Otwórz ustawienia</string>
@@ -27,4 +27,5 @@
     <string name="quick_reader_scanned_text_negative">Udostępnij</string>
     <string name="quick_reader_share_title">Udostępnij z\u2026</string>
     <string name="quick_reader_copied_message">Skopiowano do schowka</string>
+    <string name="quick_reader_only_unlocked">Ta akcja może być wykonana tylko przy odblokowanym urządzeniu</string>
 </resources>

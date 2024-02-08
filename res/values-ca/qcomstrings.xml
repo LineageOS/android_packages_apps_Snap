@@ -107,6 +107,7 @@
     <string name="pref_camera_ae_bracket_hdr_entry_ae_bracket">Bracketing d\'AE</string>
     <string name="pref_camera_ae_bracket_hdr_title">Bracketing d\'AE</string>
     <string name="pref_camera_ae_bracket_hdr_entry_on">Sí</string>
+    <string name="pref_camera_ae_bracket_hdr_entry_off">Desactivat</string>
     <string name="err_app_unsupport_ae_bracket_code">Encara no hi ha suport per AE bracket</string>
     <string name="snapshot_lower_than_video">La mida de la captura de vídeo és més baixa que la mida del vídeo. S\'està redimensionant a la mida del vídeo. Si us plau selecciona una resolució més gran o igual a la mida del vídeo actual.</string>
     <string name="snapshotsize_low_powermode">Canviar la mida de la fotografia no està suportat en el mode de baix consum, es farà una captura de la mida del vídeo. Si us plau selecciona el mode d\'energia Normal poder permetre canviar la mida de la imatge.</string>
@@ -414,6 +415,8 @@
     <string name="pref_camera2_initial_camera_entry_mono">Mono</string>
     <string name="pref_camera2_initial_camera_entry_front">Frontal</string>
     <string name="pref_camera2_eis_title">Vídeo EIS</string>
+    <string name="pref_camera2_eis_entry_v2enable">V2</string>
+    <string name="pref_camera2_eis_entry_v3enable">V3</string>
     <string name="pref_camera2_eis_entry_v3_set_when_pause">V3 i establir en pausar</string>
     <string name="pref_camera2_eis_entry_disable">Deshabilitat</string>
     <string name="pref_camera2_fovc_title">Vídeo FOVC</string>

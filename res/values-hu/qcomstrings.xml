@@ -107,6 +107,7 @@
     <string name="pref_camera_ae_bracket_hdr_entry_ae_bracket">Automatikus expozíció sorozat</string>
     <string name="pref_camera_ae_bracket_hdr_title">Automatikus expozíció sorozat</string>
     <string name="pref_camera_ae_bracket_hdr_entry_on">Be</string>
+    <string name="pref_camera_ae_bracket_hdr_entry_off">Ki</string>
     <string name="err_app_unsupport_ae_bracket_code">Expozíciósorozat még nem támogatott</string>
     <string name="snapshot_lower_than_video">Videó pillanatfelvétel mérete kisebb, mint a videó mérete. Határérték módosítva a videó méretére. Válasszon egyenlő vagy nagyobb felbontást a jelenlegi videó mérethez.</string>
     <string name="snapshotsize_low_powermode">A képfelbontás módosítása nem támogatott a takarékos üzemmódban. Videó pillanatfelvétel fog készülni. Válassza a normál üzemmódot ehhez a képmérethez.</string>
@@ -414,6 +415,8 @@
     <string name="pref_camera2_initial_camera_entry_mono">Fekete-fehér</string>
     <string name="pref_camera2_initial_camera_entry_front">Előlapi</string>
     <string name="pref_camera2_eis_title">EIS Videó</string>
+    <string name="pref_camera2_eis_entry_v2enable">V2</string>
+    <string name="pref_camera2_eis_entry_v3enable">V3</string>
     <string name="pref_camera2_eis_entry_v3_set_when_pause">V3 és állítsa be amikor szünetel</string>
     <string name="pref_camera2_eis_entry_disable">Kikapcsolva</string>
     <string name="pref_camera2_fovc_title">FOVC Videó</string>

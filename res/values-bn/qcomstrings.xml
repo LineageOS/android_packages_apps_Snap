@@ -38,6 +38,7 @@
     <string name="pref_camera_instant_capture_entry_disable">নিক্রিয় করুন</string>
     <string name="pref_camera_zsl_entry_on">চালু করা হয়েছে</string>
     <string name="hdr_enable_message">HDR সক্রিয় আছে, এখন শুধুমাত্র অটো সিনই সমর্থন করবে</string>
+    <string name="pref_camera_antibanding_entry_0">স্বয়ং</string>
     <string name="pref_camera_histogram_entry_disable">নিক্রিয় করা</string>
     <string name="pref_camera_tsmakeup_level_clean">হালকা</string>
     <string name="text_tsmakeup_alert_title">সতর্কতা</string>

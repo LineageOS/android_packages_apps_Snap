@@ -414,6 +414,8 @@
     <string name="pref_camera2_initial_camera_entry_mono">أُحادي</string>
     <string name="pref_camera2_initial_camera_entry_front">الأمامية</string>
     <string name="pref_camera2_eis_title">فيديو EIS</string>
+    <string name="pref_camera2_eis_entry_v2enable">نسخة 2</string>
+    <string name="pref_camera2_eis_entry_v3enable">نسخة 3</string>
     <string name="pref_camera2_eis_entry_v3_set_when_pause">V3 وتعيين عند التوقف مؤقتاً</string>
     <string name="pref_camera2_eis_entry_disable">معطّل</string>
     <string name="pref_camera2_fovc_title">فيديو FOVC</string>

@@ -82,7 +82,7 @@
     <string name="pref_camera_tnr_title">Modo TNR</string>
     <string name="pref_camera_video_tnr_title">Video en modo TNR</string>
     <string name="pref_camera_facedetection_title">Detección de rostro</string>
-    <string name="pref_camera_facedetection_entry_off">Desactivada</string>
+    <string name="pref_camera_facedetection_entry_off">Desactivado</string>
     <string name="pref_camera_facedetection_entry_on">Activado</string>
     <string name="pref_selfie_flash_title">Flash para selfie</string>
     <string name="pref_selfie_flash_entry_off">Desactivada</string>
@@ -107,6 +107,7 @@
     <string name="pref_camera_ae_bracket_hdr_entry_ae_bracket">AE bracketing</string>
     <string name="pref_camera_ae_bracket_hdr_title">AE bracketing</string>
     <string name="pref_camera_ae_bracket_hdr_entry_on">Activado</string>
+    <string name="pref_camera_ae_bracket_hdr_entry_off">Apagado</string>
     <string name="err_app_unsupport_ae_bracket_code">Todavía es incompatible el horquillado AE</string>
     <string name="snapshot_lower_than_video">El tamaño de la captura de vídeo es menor que el tamaño del vídeo, limitando el tamaño de vídeo. Seleccione una resolución mayor o igual que el tamaño del vídeo actual.</string>
     <string name="snapshotsize_low_powermode">La redimensión de la imagen es incompatible en modo de Bajo Consumo, se tomará una captura del tamaño del vídeo. Seleccione el modo de Energía Normal para permitir redimensionar la imagen.</string>
@@ -130,7 +131,7 @@
     <string name="pref_camera_see_more_entry_off">Desactivada</string>
     <string name="pref_camera_see_more_entry_on">Activado</string>
     <string name="pref_camera_denoise_title">Reducción de ruido</string>
-    <string name="pref_camera_denoise_entry_off">Desactivada</string>
+    <string name="pref_camera_denoise_entry_off">Desactivado</string>
     <string name="pref_camera_denoise_entry_on">Activado</string>
     <string name="pref_camera_iso_title">ISO</string>
     <string name="pref_camera_iso_entry_auto">Automático</string>
@@ -414,6 +415,8 @@
     <string name="pref_camera2_initial_camera_entry_mono">Mono</string>
     <string name="pref_camera2_initial_camera_entry_front">Frontal</string>
     <string name="pref_camera2_eis_title">Video EIS</string>
+    <string name="pref_camera2_eis_entry_v2enable">V2</string>
+    <string name="pref_camera2_eis_entry_v3enable">V3</string>
     <string name="pref_camera2_eis_entry_v3_set_when_pause">V3 y establecer al pausar</string>
     <string name="pref_camera2_eis_entry_disable">Desactivado</string>
     <string name="pref_camera2_fovc_title">Video FOVC</string>
@@ -426,11 +429,15 @@
     <string name="pref_camera2_stats_visualizer_entry_bg_stats">Estadísticas de BG</string>
     <string name="pref_camera2_stats_visualizer_entry_be_stats">Estadísticas de BE</string>
     <string name="pref_camera2_stats_visualizer_entry_hist_stats">Estadísticas Hist</string>
+    <string name="stats_visualizer_bg_label">Vista gráfica de BG</string>
+    <string name="stats_visualizer_be_label">Vista gráfica de BE</string>
     <string name="pref_camera2_capture_mfnr_title">Reducción de ruido múltiple</string>
     <string name="pref_camera2_capture_mfnr_entry_enable">Activado</string>
     <string name="pref_camera2_capture_mfnr_entry_disable">Desactivado</string>
+    <string name="pref_camera2_fs2_title">Obturador rápido</string>
     <string name="pref_camera2_fs2_entry_enable">Activado</string>
     <string name="pref_camera2_fs2_entry_disable">Desactivado</string>
+    <string name="pref_camera2_abort_captures_title">Cancelar captura</string>
     <string name="pref_camera2_abort_captures_entry_enable">Activado</string>
     <string name="pref_camera2_abort_captures_entry_disable">Desactivado</string>
 </resources>

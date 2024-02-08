@@ -14,5 +14,18 @@
      limitations under the License.
 -->
 <resources>
+    <string name="accessibility_switch_to_qr">Llector de códigos QR</string>
+    <string name="quick_reader_action_dismiss">Escartar</string>
+    <string name="quick_reader_no_activity_found">Nun hai nenguna aplicación instalada que pueda abrir esti conteníu</string>
+    <string name="quick_reader_permission_error_title">Error d\'un permisu</string>
+    <string name="quick_reader_permission_rationale_message">L\'accesu a la cámara ye necesariu pa escaniar el códigu de barres</string>
+    <string name="quick_reader_permission_rationale_positive">Volver pidir</string>
+    <string name="quick_reader_permission_fatal_message">Negóse l\'accesu a la cámara. Concédelu dende la configuración de l\'aplicación</string>
+    <string name="quick_reader_permission_fatal_positive">Abrir la configuración</string>
+    <string name="quick_reader_scanned_text_title">Testu escaniáu</string>
+    <string name="quick_reader_scanned_text_positive">Copiar</string>
+    <string name="quick_reader_scanned_text_negative">Compartir</string>
+    <string name="quick_reader_share_title">Compartir con\u2026</string>
+    <string name="quick_reader_copied_message">Copióse nel cartafueyu</string>
     <string name="quick_reader_only_unlocked">Esta aición namás se pue facer col preséu desbloquiáu</string>
 </resources>

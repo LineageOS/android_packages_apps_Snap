@@ -107,6 +107,7 @@
     <string name="pref_camera_ae_bracket_hdr_entry_ae_bracket">자동 노출 브래킷</string>
     <string name="pref_camera_ae_bracket_hdr_title">자동 노출 브래킷</string>
     <string name="pref_camera_ae_bracket_hdr_entry_on">켜짐</string>
+    <string name="pref_camera_ae_bracket_hdr_entry_off">꺼짐</string>
     <string name="err_app_unsupport_ae_bracket_code">자동 노출(AE) 브라케팅은 아직 지원하지 않습니다.</string>
     <string name="snapshot_lower_than_video">비디오 스냅샷 해상도가 영상의 해상도보다 낮아 해상도를 영상에 맞춥니다. 해상도를 현재 영상 해상도와 같거나 높게 선택해주세요.</string>
     <string name="snapshotsize_low_powermode">이미지 해상도 변경은 저전력 모드에서 지원되지 않으며, 비디오 스냅샷 해상도로 촬영됩니다. 이미지 해상도를 변경하려면 일반 전력 모드를 선택해주세요.</string>
@@ -171,7 +172,7 @@
     <string name="pref_camera_coloreffect_title">색상 효과</string>
     <string name="pref_camera_filter_mode_title">색상 효과</string>
     <string name="pref_camera_coloreffect_entry_none">없음</string>
-    <string name="pref_camera_coloreffect_entry_mono">모노</string>
+    <string name="pref_camera_coloreffect_entry_mono">흑백</string>
     <string name="pref_camera_coloreffect_entry_sepia">세피아</string>
     <string name="pref_camera_coloreffect_entry_negative">네거티브</string>
     <string name="pref_camera_coloreffect_entry_solarize">과다노출</string>
@@ -414,6 +415,8 @@
     <string name="pref_camera2_initial_camera_entry_mono">모노</string>
     <string name="pref_camera2_initial_camera_entry_front">전면</string>
     <string name="pref_camera2_eis_title">비디오 EIS(전자 손 떨림 방지)</string>
+    <string name="pref_camera2_eis_entry_v2enable">V2</string>
+    <string name="pref_camera2_eis_entry_v3enable">V3</string>
     <string name="pref_camera2_eis_entry_v3_set_when_pause">일시 정지시 V3 실행</string>
     <string name="pref_camera2_eis_entry_disable">사용 안 함</string>
     <string name="pref_camera2_fovc_title">비디오 FOVC</string>

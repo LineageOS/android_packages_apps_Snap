@@ -107,6 +107,7 @@
     <string name="pref_camera_ae_bracket_hdr_entry_ae_bracket">自動包圍曝光</string>
     <string name="pref_camera_ae_bracket_hdr_title">自動包圍曝光</string>
     <string name="pref_camera_ae_bracket_hdr_entry_on">開</string>
+    <string name="pref_camera_ae_bracket_hdr_entry_off">關閉</string>
     <string name="err_app_unsupport_ae_bracket_code">尚不支援自動包圍曝光</string>
     <string name="snapshot_lower_than_video">影像快照尺寸比影像尺寸小，如調高影像尺寸、也請調高解析度或符合目前影像尺寸的解析要求。</string>
     <string name="snapshotsize_low_powermode">在低電量的狀況下不能改變圖片的大小，僅能維持快照功能。如須改變圖片的大小則須要調整至正常電量。</string>
@@ -414,6 +415,8 @@
     <string name="pref_camera2_initial_camera_entry_mono">單色</string>
     <string name="pref_camera2_initial_camera_entry_front">前面</string>
     <string name="pref_camera2_eis_title">影片 EIS</string>
+    <string name="pref_camera2_eis_entry_v2enable">V2</string>
+    <string name="pref_camera2_eis_entry_v3enable">V3</string>
     <string name="pref_camera2_eis_entry_v3_set_when_pause">V3 並在暫停時設定</string>
     <string name="pref_camera2_eis_entry_disable">已停用</string>
     <string name="pref_camera2_fovc_title">影片 FOVC</string>
