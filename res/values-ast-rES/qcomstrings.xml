@@ -205,7 +205,6 @@
     <string name="pref_camera2_fovc_title">FOVC de videu</string>
     <string name="pref_camera2_switcher_title">Conmutador de cámares</string>
     <string name="pref_camera2_switcher_entry_rear">D\'atrás</string>
-    <string name="pref_camera2_switcher_entry_front">D\'alantre</string>
     <string name="pref_camera2_force_aux_title">Forciar l\'AUX</string>
     <string name="pref_camera2_stats_visualizer_title">Visualizador d\'estadístiques</string>
     <string name="pref_camera2_fs2_title">Obturador rápidu</string>

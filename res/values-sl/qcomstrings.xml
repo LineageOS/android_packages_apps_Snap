@@ -39,7 +39,7 @@
     <string name="pref_camera_selectablezoneaf_entry_spotmetering">Točkovno</string>
     <string name="pref_camera_selectablezoneaf_entry_centerweighted">Sredinsko uravnoteženo</string>
     <string name="pref_camera_selectablezoneaf_entry_frameaverage">Povprečje okvirja</string>
-    <string name="pref_camera_advanced_features_title">Napredne značilnosti</string>
+    <string name="pref_camera_advanced_features_title">Napredne funkcije</string>
     <string name="pref_camera_advanced_feature_entry_none">Brez</string>
     <string name="pref_camera_advanced_feature_entry_multi_touch_focus">Ostrenje z več dotiki</string>
     <string name="pref_camera_manual_exp_title">Ročna osvetlitev</string>
@@ -264,8 +264,8 @@
     <string name="pref_camera_video_rotation_entry_180">180 stopinj</string>
     <string name="pref_camera_video_rotation_entry_270">270 stopinj</string>
     <string name="map_activity_not_found_err">Ni nameščene aplikacije za zemljevide, da bi se prikazala lokacija</string>
-    <string name="longshot_enable_message">Napredne značilnosti niso podprte v neprekinjenem fotografiranju</string>
-    <string name="advance_feature_enable_msg">Neprekinjeno fotografiranje ni mogoče z omogočenimi naprednimi značilnostmi</string>
+    <string name="longshot_enable_message">Napredne funkcije niso podprte v neprekinjenem fotografiranju</string>
+    <string name="advance_feature_enable_msg">Neprekinjeno fotografiranje ni mogoče z omogočenimi naprednimi funkcijami</string>
     <string name="camera_gesture_title">Zaženi fotoaparat</string>
     <string name="pref_camera_tsmakeup_title">Polepšava</string>
     <string name="pref_camera_tsmakeup_entry_on">Vklopljeno</string>
@@ -277,7 +277,7 @@
     <string name="pref_camera_tsmakeup_level_whiten">Pobeli</string>
     <string name="pref_camera_tsmakeup_level_clean">Zmehčaj</string>
     <string name="text_tsmakeup_alert_title">Opozorilo</string>
-    <string name="text_tsmakeup_alert_msg">Zaznavanje obraza mora biti omogočeno za uporabo značilnosti Polepšava. Ali želite nadaljevati?</string>
+    <string name="text_tsmakeup_alert_msg">Zaznavanje obraza mora biti omogočeno za uporabo funkcije Polepšava. Ali želite nadaljevati?</string>
     <string name="text_tsmakeup_alert_continue">Nadaljuj</string>
     <string name="text_tsmakeup_alert_quit">Prekliči</string>
     <string name="text_tsmakeup_beautify_toast">Polepšaj</string>
@@ -351,7 +351,7 @@
     <string name="pref_camera2_scene_mode_sports_instructional_content">Športni način vam pomaga posneti boljše športne ali akcijske posnetke.\n\nIzboljša vaše fotografije, vendar nima učinka na videoposnetkih.</string>
     <string name="pref_camera2_scene_mode_hdr_instructional_content">Ko ste v pogojijh mešane svetlobe, kot je nizka osvetlitev in prizori z osvetljenim ozadjem, izberite »HDR« za najboljše možne fotografije.</string>
     <string name="pref_camera2_scene_mode_best_photo_instructional_content">Vam dovoli hitro posneti 10 fotografij, nato lahko izberete najboljšo(-e).</string>
-    <string name="pref_camera2_scene_mode_chroma_flash_instructional_content">S ChromaFlash bo svetloba vaših fotografij z bliskavico optimizirana za vse osebe in predmete na vaših fotografijah. Ta značilnost velja samo za zadnjo kamero.</string>
+    <string name="pref_camera2_scene_mode_chroma_flash_instructional_content">S ChromaFlash bo svetloba vaših fotografij z bliskavico optimizirana za vse osebe in predmete na vaših fotografijah. Ta funkcija velja samo za zadnjo kamero.</string>
     <string name="pref_camera2_scene_mode_sharp_photo_instructional_content">Ostra fotografija zmanjša zamegljenost, ki je posledica gibanja v prizoru ali gibanja rok.</string>
     <string name="pref_camera2_scene_mode_tracking_focus_instructional_content">Dovoli sledenje in izostritev izbrane osebe ali predmeta medtem ko snemate fotografije ali videoposnetke. Za začetek postavite izostritveni pravokotnik na osebo ali predmet, ki mu želite slediti.</string>
     <string name="pref_camera2_scene_mode_time_lapse_instructional_content">S časovnim zamikom lahko dolg videoposnetek preoblikujete v nekaj sekund videa. Velja za videoposnetke, vendar nima učinka na fotografijah.</string>

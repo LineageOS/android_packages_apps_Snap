@@ -274,7 +274,7 @@
     <string name="time_lapse_hours">ur</string>
     <string name="time_lapse_interval_set">Dokončano</string>
     <string name="set_time_interval">Nastavite časovni razmik</string>
-    <string name="set_time_interval_help">Značilnost časovnega zamika je izklopljena. Vklopite jo, da nastavite časovni razmik.</string>
+    <string name="set_time_interval_help">Funkcija časovnega zamika je izklopljena. Vklopite jo, da nastavite časovni razmik.</string>
     <string name="set_duration">Nastavite trajanje v sekundah</string>
     <string name="count_down_title_text">Odštevanje pred fotografiranjem</string>
     <string name="remember_location_title">Beleženje lokacije fotografije?</string>
